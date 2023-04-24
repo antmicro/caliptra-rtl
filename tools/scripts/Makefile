@@ -137,12 +137,23 @@ suppress = -Wno-WIDTH -Wno-UNOPTFLAT -Wno-LITENDIAN -Wno-CMPCONST -Wno-MULTIDRIV
 
 # CFLAGS for verilator generated Makefiles. Without -std=c++11 it
 # complains for `auto` variables
-CFLAGS += "-std=c++11"
+CFLAGS += -std=c++11
 
 # Optimization for better performance; alternative is nothing for
 # slower runtime (faster compiles) -O2 for faster runtime (slower
 # compiles), or -O for balance.
 VERILATOR_MAKE_FLAGS = OPT_FAST="-Os"
+
+# Testbench libs
+VERILATOR_TB_LIBS = jtagdpi/jtagdpi.c \
+                    tcp_server/tcp_server.c
+
+# Testbench sources
+VERILATOR_TB_SRCS = $(TBDIR)/test_caliptra_top_tb.cpp \
+                    $(addprefix $(CALIPTRA_ROOT)/src/integration/test_suites/libs/,$(VERILATOR_TB_LIBS))
+
+# Add testbench lib include paths
+CFLAGS += $(addprefix -I$(CALIPTRA_ROOT)/src/integration/test_suites/libs/,$(dir $(VERILATOR_TB_LIBS)))
 
 # Targets
 all: clean verilator
@@ -155,8 +166,8 @@ clean:
 
 ############ Model Builds ###############################
 
-verilator-build: $(TBFILES) $(INCLUDES_DIR)/defines.h test_caliptra_top_tb.cpp
-	$(VERILATOR)  --cc -CFLAGS $(CFLAGS) \
+verilator-build: $(TBFILES) $(INCLUDES_DIR)/defines.h $(VERILATOR_TB_SRCS)
+	$(VERILATOR) $(VERILATOR_TB_SRCS) --cc -CFLAGS "$(CFLAGS)" \
 	  +libext+.v+.sv +define+RV_OPENSOURCE \
 	  --timescale 1ns/1ps \
 	  $(includes) \
@@ -165,7 +176,6 @@ verilator-build: $(TBFILES) $(INCLUDES_DIR)/defines.h test_caliptra_top_tb.cpp
 	  -f $(TBDIR)/../config/caliptra_top_tb.vlt \
 	  -exe test_caliptra_top_tb.cpp --autoflush $(VERILATOR_DEBUG)
 	  #+define+CALIPTRA_INTERNAL_TRNG
-	cp $(TBDIR)/test_caliptra_top_tb.cpp obj_dir/
 	$(MAKE) -j -e -C obj_dir/ -f Vcaliptra_top_tb.mk $(VERILATOR_MAKE_FLAGS) VM_PARALLEL_BUILDS=1
 	touch verilator-build
 

@@ -285,4 +285,5 @@ ${CALIPTRA_ROOT}/src/csrng/rtl/csrng_block_encrypt.sv
 ${CALIPTRA_ROOT}/src/csrng/rtl/csrng_state_db.sv
 ${CALIPTRA_ROOT}/src/csrng/rtl/csrng_cmd_stage.sv
 ${CALIPTRA_ROOT}/src/csrng/rtl/csrng.sv
+${CALIPTRA_ROOT}/src/integration/test_suites/libs/jtagdpi/jtagdpi.sv
 ${CALIPTRA_ROOT}/src/integration/rtl/caliptra_top.sv

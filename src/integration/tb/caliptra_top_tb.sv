@@ -185,11 +185,6 @@ module caliptra_top_tb (
         cptra_rst_b = 1'b0;
         scan_mode = 1'b0;
         start_apb_fuse_sequence = 1'b0;
-        //tie offs
-        jtag_tck = 1'b0;    // JTAG clk
-        jtag_tms = 1'b0;    // JTAG TMS
-        jtag_tdi = 1'b0;    // JTAG tdi
-        jtag_trst_n = 1'b0; // JTAG Reset
         //TIE-OFF
         PPROT = '0;
 
@@ -568,6 +563,20 @@ module caliptra_top_tb (
         endcase
     end
 
+// JTAG DPI
+jtagdpi #(
+    .Name           ("jtag0"),
+    .ListenPort     (5000)
+) jtagdpi (
+    .clk_i          (core_clk),
+    .rst_ni         (cptra_rst_b),
+    .jtag_tck       (jtag_tck),
+    .jtag_tms       (jtag_tms),
+    .jtag_tdi       (jtag_tdi),
+    .jtag_tdo       (jtag_tdo),
+    .jtag_trst_n    (jtag_trst_n),
+    .jtag_srst_n    ()
+);
 
    //=========================================================================-
    // DUT instance
