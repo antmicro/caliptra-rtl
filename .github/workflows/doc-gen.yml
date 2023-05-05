@@ -23,7 +23,8 @@ jobs:
               peakrdl-uvm==2.2.0 \
               peakrdl-regblock==0.10.0 \
               peakrdl-html==2.9.0 \
-              peakrdl-ipxact==3.3.0
+              peakrdl-ipxact==3.3.0 \
+              systemrdl-compiler==1.25.7
 
       - name: Generate docs
         run: |
