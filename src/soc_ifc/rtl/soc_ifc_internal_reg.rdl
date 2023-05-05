@@ -200,6 +200,7 @@ regfile intr_block_t {
 
         default hw = w;
         default sw = r;
+        default swwel = false;
         default nonsticky intr;
 
         field {desc = "Interrupt Event Aggregation status bit";} agg_sts = 1'b0;
@@ -258,6 +259,7 @@ regfile intr_block_t {
 
         default hw = w;
         default sw = r; // Has to have some access.... ideally SW wouldn't even see this
+        default swwel = false;
         default hwset = true;
         default decrvalue = 1;
         default counter;

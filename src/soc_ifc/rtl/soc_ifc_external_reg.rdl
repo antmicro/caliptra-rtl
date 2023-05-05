@@ -243,7 +243,7 @@ reg {
     desc = "Caliptra HW revision ID that matches the official final release milestone
             [br]Caliptra Access: RO
             [br]SOC Access:      RO";
-    field {sw=r; hw=r; swwel = soc_req; resetsignal = cptra_rst_b;} REV_ID[32]=1;
+    field {sw=r; hw=r; resetsignal = cptra_rst_b;} REV_ID[32]=1;
 } CPTRA_HW_REV_ID;
 reg {
     name = "Caliptra FW RevID";
