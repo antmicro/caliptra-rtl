@@ -22,6 +22,7 @@ from peakrdl_html import HTMLExporter
 from peakrdl_regblock.cpuif.passthrough import PassthroughCpuif
 from reg_json import JsonImporter
 from math import log, ceil
+from systemrdl import MemNode
 import sys
 import os
 import shutil
@@ -36,6 +37,7 @@ doc_output_dir = os.path.join(rtl_output_dir, '..', 'docs')
 class HeaderPrintingListener(RDLListener):
     def __init__(self, file_path, filename, ext, tick):
         self.regfile_offset = 0
+        self.mem_done = False
         self.tick = tick
         self.file_path = file_path
         header_file_path = os.path.join(self.file_path, filename + ext)
@@ -56,6 +58,8 @@ class HeaderPrintingListener(RDLListener):
                         "//\n")
         self.file.write(self.tick + "ifndef " + filename.upper() + "_HEADER\n")
         self.file.write(self.tick + "define " + filename.upper() + "_HEADER\n\n\n")
+    def exit_Mem(self, node):
+        self.mem_done = False
     def enter_Addrmap(self, node):
         #save reference to addrmap top for relative path
         self.top_node = node
@@ -75,8 +79,12 @@ class HeaderPrintingListener(RDLListener):
     def exit_Regfile(self, node):
         self.regfile_offset = 0
     def enter_Reg(self, node):
+        if isinstance(node.parent, MemNode) and self.mem_done:
+            return
         #getting and printing the absolute address and path for reach register
         register_name = node.get_path("_",'_{index:d}')
+        if isinstance(node.parent, MemNode):
+            register_name = node.parent.parent.inst_name + "_" + node.inst_name
         address = hex(node.absolute_address)
         if self.tick == "`":
             address = address.replace("0x", "32'h", 1)
@@ -86,16 +94,26 @@ class HeaderPrintingListener(RDLListener):
         address = hex(node.address_offset + self.regfile_offset)
         if self.tick == "`":
             address = address.replace("0x", "32'h", 1)
+        if isinstance(node.parent, MemNode):
+            return
         self.file.write((self.tick + "define " + register_name.upper() + "\t(" + address + ")\n").expandtabs(100))
+    def exit_Reg(self, node):
+        if isinstance(node.parent, MemNode):
+            self.mem_done = True
     def enter_Field(self, node):
         field_name = node.get_rel_path(self.top_node.parent,"^","_",'_{index:d}')
+        if isinstance(node.parent.parent, MemNode):
+            if self.mem_done:
+                return
+            field_name = node.parent.parent.parent.inst_name + "_" \
+                        + node.parent.inst_name + "_" + node.inst_name
         if node.width == 1:
             field_mask = hex(1 << node.low)
             if self.tick == "`":
                 field_mask = field_mask.replace("0x", "32'h", 1)
             self.file.write((self.tick + "define " + field_name.upper() + "_LOW" + "\t(" + str(node.low) + ")\n").expandtabs(100))
             self.file.write((self.tick + "define " + field_name.upper() + "_MASK" + "\t(" + field_mask + ")\n").expandtabs(100))
-        elif node.low != 0 or node.high != 31:
+        elif (node.low != 0 or node.high != 31) or isinstance(node.parent.parent, MemNode):
             field_mask = hex(((2 << node.high) - 1) & ~((1 << node.low) -1))
             if self.tick == "`":
                 field_mask = field_mask.replace("0x", "32'h", 1)
@@ -139,11 +157,11 @@ try:
     walker = RDLWalker(unroll=True)
     listener = HeaderPrintingListener(rtl_output_dir, filename, ".h", "#")
     walker.walk(root, listener)
-    listener.file.write("\n\n#endif")
+    listener.file.write("\n\n#endif\n")
     listener.file.close()
     listener = HeaderPrintingListener(rtl_output_dir, filename + "_defines", ".svh", "`")
     walker.walk(root, listener)
-    listener.file.write("\n\n`endif")
+    listener.file.write("\n\n`endif\n")
     listener.file.close()
     # This was going to print a svh file, but need to fix the address output so it looks like svh TODO
     #listener = HeaderPrintingListener(rtl_output_dir, filename, ".svh", "`")
