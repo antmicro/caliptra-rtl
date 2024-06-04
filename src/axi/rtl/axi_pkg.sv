@@ -14,6 +14,9 @@
 //
 
 package axi_pkg;
+    parameter integer AW = 32;
+    parameter integer IW = 3;
+    parameter integer UW = 32;
 
     // AXI Burst Enum
     typedef enum logic [1:0] {
