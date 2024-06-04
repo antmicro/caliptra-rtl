@@ -48,7 +48,7 @@ module  axi_addr #(
                 parameter       AW = 32,
                                 DW = 32,
                 // parameter [0:0]      OPT_AXI3 = 1'b0,
-                localparam      LENB = 8
+                parameter       LENB = 8
                 // }}}
         ) (
                 // {{{
