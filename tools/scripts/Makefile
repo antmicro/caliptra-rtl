@@ -228,6 +228,19 @@ VERILATOR_RUN_ARGS ?= ""
 # Add testbench lib include paths
 CFLAGS += $(TB_DPI_INCS)
 
+# Set coverage type if specified
+ifeq ("$(COVERAGE)", "all")
+    VERILATOR_COVERAGE = --coverage
+else ifeq ("$(COVERAGE)", "branch")
+    VERILATOR_COVERAGE = --coverage-line
+else ifeq ("$(COVERAGE)", "toggle")
+    VERILATOR_COVERAGE = --coverage-toggle
+else ifeq ("$(COVERAGE)", "functional")
+    VERILATOR_COVERAGE = --coverage-user
+else ifneq ("$(COVERAGE)", "")
+    $(error Unknown COVERAGE value '$(COVERAGE)')
+endif
+
 # Targets
 all: clean verilator
 
@@ -252,6 +265,7 @@ verilator-build: $(TBFILES) $(INCLUDES_DIR)/defines.h $(TB_VERILATOR_SRCS)
 	  -f $(TBDIR)/../config/caliptra_top_tb.vf --top-module caliptra_top_tb \
 	  -f $(TBDIR)/../config/caliptra_top_tb.vlt \
 	  -exe test_caliptra_top_tb.cpp --autoflush $(VERILATOR_DEBUG) \
+	  $(VERILATOR_COVERAGE) \
 	  $(TB_DEFS)
 	$(MAKE) -j`nproc` -e -C obj_dir/ -f Vcaliptra_top_tb.mk $(VERILATOR_MAKE_FLAGS) VM_PARALLEL_BUILDS=1
 	touch verilator-build
