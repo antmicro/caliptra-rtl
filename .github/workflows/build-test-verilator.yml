@@ -142,6 +142,7 @@ jobs:
       fail-fast: false
       matrix:
         test_name: ${{fromJSON(needs.build_matrix.outputs.test_names)}}
+        coverage: ["all", "branch", "toggle"]
 
     steps:
       - uses: actions/checkout@v3
@@ -187,13 +188,34 @@ jobs:
       - name: Run Caliptra Verilator Smoke Test
         run: |
           CALIPTRA_ROOT=$(pwd)
+          mkdir -p $CALIPTRA_ROOT/results
           cd tools/scripts
-          make verilator CALIPTRA_ROOT=$CALIPTRA_ROOT TESTNAME=${{ matrix.test_name  }} | tee output.log
-          # Search the last 30 lines of the output for "TESTCASE PASSED"
-          tail -n 30 output.log | grep "TESTCASE PASSED"
-          # grep will return 0 if the search term is found, and 1 otherwise
-          # A non-zero value will cause the github action to fail.
-          exit $?
+          make verilator CALIPTRA_ROOT=$CALIPTRA_ROOT TESTNAME=${{ matrix.test_name  }} COVERAGE=${{ matrix.coverage }}| tee output.log
+
+      - name: Verify Smoke Test Result
+        run: |
+           # Search the last 30 lines of the output for "TESTCASE PASSED"
+           tail -n 30 output.log | grep "TESTCASE PASSED"
+           # grep will return 0 if the search term is found, and 1 otherwise
+           # A non-zero value will cause the github action to fail.
+           ret=$?
+           if [ ret -ne 0 ]
+           then
+             exit ret
+           fi
+
+      - name: Prepare coverage data
+        run: |
+          .github/scripts/convert_coverage_data.sh coverage.dat
+          echo "convert_coverage_data.sh exited with RET_CODE = "$?
+          mv coverage.info $CALIPTRA_ROOT/results/coverage_${{ matrix.test_name }}_${{ matrix.coverage }}.info
+
+      - name: Upload coverage artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: build_test_verilator_coverage_data
+          path: $CALIPTRA_ROOT/results/*.info
 
   verify_test_results:
     name: Verify Verilator Test Results
@@ -208,3 +230,24 @@ jobs:
           if [[ "${{ needs.build_and_test.result }}" != "success" ]]; then
             exit 1
           fi
+
+  report_coverage:
+    name: Report Verilator Test Coverage
+    runs-on: ubuntu-22.04
+    needs: build_and_test
+    steps:
+      - name: Download Coverage Reports
+        uses: actions/download-artifact@v3
+        with:
+          name: build_test_verilator_coverage_data
+          path: ./
+
+      - name: Generate Reports
+        run: |
+          bash .github/scripts/gen_coverage_reports.sh
+
+      - name: Pack artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage_report
+          path: ./report
