@@ -1,6 +1,5 @@
 #!/bin/bash
-
-# Script derived from https://github.com/chipsalliance/Cores-VeeR-EL2
+# Source: https://github.com/chipsalliance/Cores-VeeR-EL2
 
 SELF_DIR="$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
 . ${SELF_DIR}/common.inc.sh

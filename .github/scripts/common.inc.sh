@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Script derived from https://github.com/chipsalliance/Cores-VeeR-EL2
 
 set -e -u -o pipefail
