@@ -14,7 +14,7 @@ generate_coverage_reports(){
     echo -e "${COLOR_WHITE}OUTPUT_DIR      = ${OUTPUT_DIR}${COLOR_CLEAR}"
 
     for info_file in `find . -name '*.info'`; do
-        lcov --extract ${info_file} \*src\* -o ${info_file}
+        lcov --extract ${info_file} \*src\*rtl\* -o ${info_file}
     done
 
     BRANCH_MERGED="./merged_branch.info"
