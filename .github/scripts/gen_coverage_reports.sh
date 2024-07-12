@@ -14,7 +14,7 @@ generate_coverage_reports(){
     echo -e "${COLOR_WHITE}OUTPUT_DIR      = ${OUTPUT_DIR}${COLOR_CLEAR}"
 
     for info_file in `find . -name '*.info'`; do
-        lcov --extract ${info_file} \*src\*rtl\* -o ${info_file}
+        lcov --extract ${info_file} \*src\*/rtl/\* -o ${info_file}
     done
 
     BRANCH_MERGED="./merged_branch.info"
@@ -42,10 +42,10 @@ generate_coverage_reports(){
         toggle_file=${toggle_files[$name_body]}
         test_name=${name_body#coverage_}
         if [[ -f "$branch_file" ]]; then
-            lcov -l $branch_file > "$name_body"_branch.summary
+            lcov --list-full-path -l $branch_file > "$name_body"_branch.summary
         fi
         if [[ -f "$toggle_file" ]]; then
-            lcov -l $toggle_file > "$name_body"_toggle.summary
+            lcov --list-full-path -l  $toggle_file > "$name_body"_toggle.summary
         fi
         mkdir -p $OUTPUT_DIR/all_"$test_name"/
         python3 $SELF_DIR/indexgen/genhtml.py "$name_body"_toggle.summary "$name_body"_branch.summary --output-dir $OUTPUT_DIR/all_"$test_name"/
@@ -56,14 +56,14 @@ generate_coverage_reports(){
         lcov -a "$branch_file" -o "$BRANCH_MERGED"
     done
     if [[ -f $BRANCH_MERGED ]]; then
-        lcov -l "$BRANCH_MERGED" > $BRANCH_MERGED_SUMMMARY
+        lcov --list-full-path -l  "$BRANCH_MERGED" > $BRANCH_MERGED_SUMMMARY
     fi
 
     for toggle_file in "${toggle_files[@]}"; do
         lcov -a "$toggle_file" -o "$TOGGLE_MERGED"
     done
     if [[ -f $TOGGLE_MERGED ]]; then
-        lcov -l "$TOGGLE_MERGED" > $TOGGLE_MERGED_SUMMMARY
+        lcov --list-full-path -l  "$TOGGLE_MERGED" > $TOGGLE_MERGED_SUMMMARY
     fi
 
     mkdir -p $OUTPUT_DIR/all

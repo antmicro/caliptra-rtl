@@ -13,8 +13,7 @@ Full usage help:
 usage: genhtml.py [-h] [--output-dir output_directory]
                   input_files [input_files ...]
 
-Generate HTML-based coverage reports from "lcov -l" summaries of
-info files.
+Generate HTML-based coverage reports from "lcov --list-full-path -l" summaries of info files.
 
 positional arguments:
   input_files           Paths to summary files
@@ -109,9 +108,10 @@ def get_color(value: float, min_value: float = 0, max_value: float = 100):
 
 def process_line(line, data, filename):
     segments = line.split("|")
-    data[segments[0].strip()][filename.split("/")[-1].split("_")[-1].split(".")[0]] = list(
-        [i for i in segments[1].split(" ") if i != ""]
-    )
+    src_path, cov, _, _ = segments
+    src_file_name = filename.split("/")[-1]
+    module_name, _ = src_file_name.split("_")[-1].split(".")
+    data[src_path.strip()][module_name] = [i for i in cov.split(" ") if i]
 
 
 def generate_table(data, links=False):
@@ -251,8 +251,7 @@ def generate_dir_dict(data, dir):
             gdict[file] = deepcopy(cov_data)
             continue
 
-        base = Path(dir.name)
-        base = base / Path(file).parent
+        base = Path(file).parent.relative_to(dir)
 
         for key, d in cov_data.items():
             gdict[str(base)][key].append(d)
@@ -260,14 +259,13 @@ def generate_dir_dict(data, dir):
     return OrderedDict(sorted(gdict.items()))
 
 
-def generate_file_dict(data, dir: Path):
+def generate_file_dict(data, base: Path, code_root_path: Path):
     gdict = defaultdict(lambda: defaultdict(list))
     hit, total = defaultdict(int), defaultdict(int)
     for file, cov_data in dict(data).items():
         if file == "Total:":
             continue
-        base = Path("/".join(dir.parts[1:]))
-        if Path(file).parent == base:
+        if Path(file).parent.relative_to(code_root_path) == base:
             for key, data in cov_data.items():
                 gdict[Path(file).name][key] = data
                 frac = float(data[0].strip("%")) / 100
@@ -308,19 +306,23 @@ def main(input_files, output_dir):
                     continue
                 elif line.startswith("Message summary"):
                     break
-                elif line.startswith("["):
-                    code_root_path = line.strip(" []\n")
                 else:
                     process_line(line, data, i)
 
+    # The LCOV must be ran with '--list-full-path' so that the paths to sources
+    # are not 'simplified' with '...'.
+    # Find longest common path for all sources
+    # Skip 'Total: (...)' and similar lines
+    code_root_path = os.path.commonpath([x for x in data.keys() if Path(x).is_absolute()])
+    code_root_path = Path(code_root_path).parent
+
     data = unify_dict(data)
-    code_root_path = Path(str(code_root_path))
     tld = generate_dir_dict(data, code_root_path)
 
     for key in list(tld.keys()):
         if key == "Total:":
             continue
-        subdata = generate_file_dict(data, Path(key))
+        subdata = generate_file_dict(data, Path(key), code_root_path)
         render_page(
             subdata,
             "<a href=index.html>top level</a> - " + " - ".join(key.split("/")),
@@ -345,7 +347,10 @@ def main(input_files, output_dir):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description='Generate HTML-based coverage reports from "lcov -l" summaries of info files.'
+        description=(
+            "Generate HTML-based coverage reports from "
+            '"lcov --list-full-path -l" summaries of info files.'
+        )
     )
     parser.add_argument(
         "summary_files", metavar="input_files", type=str, nargs="+", help="Paths to summary files"
