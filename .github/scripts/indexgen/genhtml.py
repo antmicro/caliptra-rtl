@@ -250,13 +250,13 @@ def generate_dir_dict(data, dir):
         if file == "Total:":
             gdict[file] = deepcopy(cov_data)
             continue
+
         base = Path(dir.name)
-        dirs = Path(file).parent
-        while dirs != Path("."):
-            base = base / dirs
-            dirs = dirs.parent / "."
-        for key, data in cov_data.items():
-            gdict[str(base)][key].append(data)
+        base = base / Path(file).parent
+
+        for key, d in cov_data.items():
+            gdict[str(base)][key].append(d)
+
     return OrderedDict(sorted(gdict.items()))
 
 
