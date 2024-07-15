@@ -172,13 +172,13 @@ def generate_table_tokenstr(data, links=False):
         token_str += "<tr>"
         token_str += "<td width=20%>"
         if links:
-            token_str += "<a href=index_"
+            token_str += '<a style="margin-left: 2%" href=index_'
             token_str += file.replace("/", "_")
             token_str += ".html>"
             token_str += file
             token_str += "</a>"
         else:
-            token_str += file
+            token_str += '<text style="margin-left: 2%"">' + file + "</text>"
         token_str += "</td>"
 
         for key, numbers in cov_data.items():
