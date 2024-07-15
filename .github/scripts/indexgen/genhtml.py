@@ -115,19 +115,33 @@ def process_line(line, data, filename):
 def generate_table(data, links=False):
     return """
 <table width="80%" cellpadding=1 cellspacing=1 border=0>
-<tr>
-<td width="40%">Directory</td>
-<td width="20%">Rate</td>
-<td width="20%"></td>
-<td width="20%">Hit / Total</td>
-</tr>
-
 <cov_type_token>
-
-</table>
-        """.replace(
+  </table>
+""".replace(
         "<cov_type_token>", generate_table_tokenstr(data, links)
     )
+
+
+def generate_info_row(data):
+    cov_types = data["Total:"].keys()
+    no_cov = len(cov_types)
+    name_w = 20
+    cov_container_size = (100 - name_w) / no_cov
+    hit_w = cov_container_size / 4
+    rate_w = cov_container_size - hit_w
+
+    out = f"""
+<tr>
+  <td class="tableHead" width="{name_w}%">Directory</td>
+"""
+    for _ in cov_types:
+        info = (
+            f'<td class="tableHead" colspan="2" width="{rate_w}%">Rate</td>\n'
+            f'<td class="tableHead" width="{hit_w}%">Hit / Total</td>\n'
+        )
+        out += info
+    out += "</tr>\n"
+    return out
 
 
 def generate_table_tokenstr(data, links=False):
@@ -138,13 +152,18 @@ def generate_table_tokenstr(data, links=False):
     raw_widths = [40, 20, 20]
     widths_arr = [str(i / num_tests) + "%" for i in raw_widths]
     token_str += '<tr><td width=20% style="border-top: 0px; border-left: 0px;"></td>'
+
+    # Generate header for each coverage type (toggle, branch..)
     for key in list(list(ddata.items())[0][1].keys()):
-        token_str += '<td style="text-align: center;" width='
+        token_str += '<td class="tableHead" width='
         token_str += str(sum(raw_widths) / num_tests) + "%"
         token_str += " colspan = 3>"
         token_str += key[0].upper() + key[1:]
         token_str += "</td>"
     token_str += "</tr>"
+
+    # Generate sub-header to describe each column
+    token_str += generate_info_row(data)
 
     for file, cov_data in ddata.items():
         if file == "Total:":
