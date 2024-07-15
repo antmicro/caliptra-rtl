@@ -48,54 +48,52 @@ REPORT_TEMPLATE = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//
         }
 
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
 
-          <table width="100%" border=0 cellspacing=0 cellpadding=0>
-            <tr><td class="title"><title_token></td></tr>
-            <tr><td class="ruler"><img src="glass.png" width=3 height=3 alt=""></td></tr>
+    <table width="100%" border=0 cellspacing=0 cellpadding=0>
+      <tr><td class="title"><title_token></td></tr>
+      <tr><td class="ruler"><img src="glass.png" width=3 height=3 alt=""></td></tr>
 
+      <tr>
+        <td width="100%">
+          <table cellpadding=0 border=0 width="100%">
             <tr>
-              <td width="100%">
-                <table cellpadding=1 border=0 width="100%">
-          <tr>
-            <td width="10%" class="headerItem">Current view:</td>
-            <td width="10%" class="headerValue"><current_view_token></td>
-            <td width="5%"></td>
-            <td width="5%"></td>
-            <td width="5%" class="headerCovTableHead">Coverage</td>
-            <td width="5%" class="headerCovTableHead" title="Covered + Uncovered code">Hit</td>
-            <td width="5%" class="headerCovTableHead" title="Exercised code only">Total</td>
-          </tr>
-          <tr>
-            <td class="headerItem">Test:</td>
-            <td class="headerValue"><test_name_token></td>
-            <td></td>
-            <toggle_summary_token>
-          </tr>
-          <tr>
-            <td class="headerItem">Test Date:</td>
-            <td class="headerValue"><test_date_token></td>
-            <td></td>
-            <branch_summary_token>
-          </tr>
-          <functional_summary_token>
-                  <tr><td><img src="glass.png" width=3 height=3 alt=""></td></tr>
-                </table>
-              </td>
-            </tr>
+              <td width="10%" class="headerItem">Current view:</td>
+              <td width="30%" class="headerValue"><current_view_token></td>
+              <td width="10%"></td>
+              <td width="10%"></td>
+              <td width="10%" class="headerCovTableHead">Coverage</td>
+              <td width="10%" class="headerCovTableHead" title="Covered + Uncovered code">Hit</td>
+              <td width="10%" class="headerCovTableHead" title="Exercised code only">Total</td>
+              </tr>
+            <tr>
+              <td class="headerItem">Test Suite:</td>
+              <td class="headerValue"><test_name_token></td>
+              <td></td>
+              <toggle_summary_token>
+              </tr>
+            <tr>
+              <td class="headerItem">Executed At:</td>
+              <td class="headerValue"><test_date_token></td>
+              <td></td>
+              <branch_summary_token>
+              </tr>
+            <functional_summary_token>
+            </table>
+          </td>
+        </tr>
 
-            <tr><td class="ruler"><img src="glass.png" width=3 height=3 alt=""></td></tr>
-          </table>
+      <tr><td class="ruler"><img src="glass.png" width=3 height=3 alt=""></td></tr>
+      </table>
 
-          <center>
-              <report_table_token>
-          </center>
-          <br>
-          <br>
-</body>
-</html>
+    <center>
+      <report_table_token>
+    </center>
+
+    </body>
+  </html>
 """
 
 
