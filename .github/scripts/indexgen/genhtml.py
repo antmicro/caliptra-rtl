@@ -53,7 +53,7 @@ REPORT_TEMPLATE = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//
 <body>
 
           <table width="100%" border=0 cellspacing=0 cellpadding=0>
-            <tr><td class="title">RTL <easily_replacable_token_1> coverage report</td></tr>
+            <tr><td class="title"><title_token></td></tr>
             <tr><td class="ruler"><img src="glass.png" width=3 height=3 alt=""></td></tr>
 
             <tr>
@@ -61,7 +61,7 @@ REPORT_TEMPLATE = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//
                 <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="10%" class="headerValue"><easily_replacable_token_7></td>
+            <td width="10%" class="headerValue"><current_view_token></td>
             <td width="5%"></td>
             <td width="5%"></td>
             <td width="5%" class="headerCovTableHead">Coverage</td>
@@ -70,17 +70,17 @@ REPORT_TEMPLATE = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//
           </tr>
           <tr>
             <td class="headerItem">Test:</td>
-            <td class="headerValue"><easily_replacable_token_8></td>
+            <td class="headerValue"><test_name_token></td>
             <td></td>
-            <test_token1>
+            <toggle_summary_token>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue"><easily_replacable_token_5></td>
+            <td class="headerValue"><test_date_token></td>
             <td></td>
-            <test_token2>
+            <branch_summary_token>
           </tr>
-          <test_token3>
+          <functional_summary_token>
                   <tr><td><img src="glass.png" width=3 height=3 alt=""></td></tr>
                 </table>
               </td>
@@ -90,7 +90,7 @@ REPORT_TEMPLATE = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//
           </table>
 
           <center>
-              <easily_replacable_token_6>
+              <report_table_token>
           </center>
           <br>
           <br>
@@ -124,11 +124,11 @@ def generate_table(data, links=False):
 <td width="20%">Hit / Total</td>
 </tr>
 
-<token1>
+<cov_type_token>
 
 </table>
         """.replace(
-        "<token1>", generate_table_tokenstr(data, links)
+        "<cov_type_token>", generate_table_tokenstr(data, links)
     )
 
 
@@ -201,12 +201,12 @@ def generate_table_tokenstr(data, links=False):
 
 
 SUMMARY_TEMPLATE = """
-<td class="headerItem"><token1></td>
-<td class="headerCovTableEntry" style="color: #0E1116; background-color: <token2>">
-    <token3>
+<td class="headerItem"><cov_type_token></td>
+<td class="headerCovTableEntry" style="color: #0E1116; background-color: <cov_color_token>">
+    <cov_percentage_token>
 </td>
-<td class="headerCovTableEntry"><token4></td>
-<td class="headerCovTableEntry"><token5></td>
+<td class="headerCovTableEntry"><cov_hits_token></td>
+<td class="headerCovTableEntry"><cov_total_token></td>
 """
 
 
@@ -219,11 +219,11 @@ def generate_summary(data: list, key: str, new_row=False):
     full_cov_color = "#%s%s%s;" % tuple([hex(c)[2:].rjust(2, "0") for c in (r, g, b)])
 
     inner_row = (
-        SUMMARY_TEMPLATE.replace("<token1>", format_key(key))
-        .replace("<token2>", full_cov_color)
-        .replace("<token3>", data[0])
-        .replace("<token4>", str(int(int(data[1]) * (float(data[0].replace("%", "")) / 100))))
-        .replace("<token5>", data[1])
+        SUMMARY_TEMPLATE.replace("<cov_type_token>", format_key(key))
+        .replace("<cov_color_token>", full_cov_color)
+        .replace("<cov_percentage_token>", data[0])
+        .replace("<cov_hits_token>", str(int(int(data[1]) * (float(data[0].replace("%", "")) / 100))))
+        .replace("<cov_total_token>", data[1])
     )
 
     if new_row:
@@ -234,12 +234,12 @@ def generate_summary(data: list, key: str, new_row=False):
 
 def render_page(data, view, out_dir, links=False):
     report_html = deepcopy(REPORT_TEMPLATE)
-    report_html = report_html.replace("<easily_replacable_token_1>", "Full")
-    for it, test in enumerate(data["Total:"].keys()):
-        tok = "<test_tokenX>".replace("X", str(it + 1))
+    report_html = report_html.replace("<title_token>", "Caliptra RTL coverage report")
+    for test in data["Total:"].keys():
+        tok = "<X_summary_token>".replace("X", test)
         report_html = report_html.replace(tok, generate_summary(data["Total:"][test], test))
-    report_html = report_html.replace("<easily_replacable_token_6>", generate_table(data, links))
-    report_html = report_html.replace("<easily_replacable_token_7>", view)
+    report_html = report_html.replace("<report_table_token>", generate_table(data, links))
+    report_html = report_html.replace("<current_view_token>", view)
     with open(out_dir, "w") as f:
         print(report_html, file=f)
 
