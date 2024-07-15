@@ -10,7 +10,7 @@ Note that multiple summary files can be provided and the report will render
 them side-by-side
 
 Full usage help:
-usage: genhtml.py [-h] [--output-dir output_directory]
+usage: genhtml.py [-h] [--output-dir output_directory] [--test-name test_name]
                   input_files [input_files ...]
 
 Generate HTML-based coverage reports from "lcov --list-full-path -l" summaries of info files.
@@ -23,12 +23,15 @@ options:
   --output-dir output_directory
                         Path to output directory (default:
                         report/)
+  --test-name test_name
+                        Test name to be displayed in the report
 """
 
 import argparse
 import os
 from collections import OrderedDict, defaultdict
 from copy import deepcopy
+from datetime import datetime
 from pathlib import Path
 
 REPORT_TEMPLATE = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -37,7 +40,7 @@ REPORT_TEMPLATE = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>LCOV Custom Render</title>
+  <title><title_token></title>
   <link rel="stylesheet" type="text/css" href="gcov.css">
   <style>
         .container {
@@ -249,9 +252,12 @@ def generate_summary(data: list, key: str, new_row=False):
     return inner_row
 
 
-def render_page(data, view, out_dir, links=False):
+def render_page(data, view, out_dir, test_suite, links=False):
     report_html = deepcopy(REPORT_TEMPLATE)
     report_html = report_html.replace("<title_token>", "Caliptra RTL coverage report")
+    report_html = report_html.replace("<test_name_token>", test_suite)
+    report_html = report_html.replace("<test_date_token>", str(datetime(2029, 7, 21, 12, 0, 0)))
+
     for test in data["Total:"].keys():
         tok = "<X_summary_token>".replace("X", test)
         report_html = report_html.replace(tok, generate_summary(data["Total:"][test], test))
@@ -313,7 +319,7 @@ def unify_dict(data):
     return data
 
 
-def main(input_files, output_dir):
+def main(input_files, output_dir, test_suite):
     data = defaultdict(lambda: defaultdict(list))
     code_root_path = None
     for i in input_files:
@@ -344,6 +350,7 @@ def main(input_files, output_dir):
             subdata,
             "<a href=index.html>top level</a> - " + " - ".join(key.split("/")),
             f"{output_dir}/index_{key.replace('/','_')}.html",
+            test_suite
         )
 
     for file, cov_data in tld.items():
@@ -359,7 +366,7 @@ def main(input_files, output_dir):
                 cov_data[test_type] = ["{:.1f}%".format(hit / total * 100), str(total)]
             else:
                 cov_data[test_type] = ["0%", "0"]
-    render_page(tld, "top level", f"{output_dir}/index.html", True)
+    render_page(tld, "top level", f"{output_dir}/index.html", test_suite, True)
 
 
 if __name__ == "__main__":
@@ -379,11 +386,21 @@ if __name__ == "__main__":
         default="report",
         help="Path to output directory (default: report/)",
     )
+    # FIXME: Deduce the test suite rather than it being passed via command line
+    parser.add_argument(
+        "--test-suite",
+        type=str,
+        default="Combined",
+        help="Name of the test suite to be displayed in the report",
+    )
+
+    # TODO: Find information when the test was executed
 
     args = parser.parse_args()
 
     input_files = args.summary_files
     output_dir = args.output_dir
+    test_suite = args.test_suite
 
     for file in input_files:
         if not os.path.isfile(file):
@@ -394,4 +411,4 @@ if __name__ == "__main__":
         print(f"Error: Output directory '{output_dir}' does not exist.")
         exit(1)
 
-    main(input_files, output_dir)
+    main(input_files, output_dir, test_suite)
