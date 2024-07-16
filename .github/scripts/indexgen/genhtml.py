@@ -28,75 +28,80 @@ options:
 """
 
 import argparse
+import datetime
 import os
 from collections import OrderedDict, defaultdict
 from copy import deepcopy
-from datetime import datetime
 from pathlib import Path
 
-REPORT_TEMPLATE = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
+REPORT_TEMPLATE = """<!DOCTYPE HTML>
 <html lang="en">
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title><title_token></title>
-  <link rel="stylesheet" type="text/css" href="gcov.css">
-  <style>
-        .container {
-            background-color: rgb(169,169,169);
-            width: 100%;
-            min-height: 80%;
-            border-radius: 15px;
-        }
-
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+      Test <testname_token> coverage report
+    </title>
+    <link rel="stylesheet" type="text/css" href="gcov.css">
+    <style>
+      .container {
+      background-color: rgb(169,169,169);
+      width: 100%;
+      min-height: 80%;
+      border-radius: 15px;
+      }
     </style>
   </head>
-
   <body>
-
     <table width="100%" border=0 cellspacing=0 cellpadding=0>
-      <tr><td class="title"><title_token></td></tr>
-      <tr><td class="ruler"><img src="glass.png" width=3 height=3 alt=""></td></tr>
-
+      <tr>
+        <td class="title">
+          RTL <header_token> coverage report
+        </td>
+      </tr>
+      <tr>
+        <td class="ruler"><img src="glass.png" width=3 height=3 alt=""></td>
+      </tr>
       <tr>
         <td width="100%">
           <table cellpadding=0 border=0 width="100%">
             <tr>
               <td width="10%" class="headerItem">Current view:</td>
-              <td width="30%" class="headerValue"><current_view_token></td>
-              <td width="10%"></td>
+              <td width="40%" class="headerValue"><view_token></td>
+              <td width=auto></td>
               <td width="10%"></td>
               <td width="10%" class="headerCovTableHead">Coverage</td>
               <td width="10%" class="headerCovTableHead" title="Covered + Uncovered code">Hit</td>
               <td width="10%" class="headerCovTableHead" title="Exercised code only">Total</td>
-              </tr>
+            </tr>
             <tr>
-              <td class="headerItem">Test Suite:</td>
-              <td class="headerValue"><test_name_token></td>
+              <td class="headerItem">Test:</td>
+              <td class="headerValue">
+                <testname_token>
+              </td>
               <td></td>
               <toggle_summary_token>
-              </tr>
+            </tr>
             <tr>
-              <td class="headerItem">Executed At:</td>
-              <td class="headerValue"><test_date_token></td>
+              <td class="headerItem">Test Date:</td>
+              <td class="headerValue">
+                <time_token>
+              </td>
               <td></td>
               <branch_summary_token>
-              </tr>
+            </tr>
             <functional_summary_token>
-            </table>
-          </td>
-        </tr>
-
-      <tr><td class="ruler"><img src="glass.png" width=3 height=3 alt=""></td></tr>
-      </table>
-
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="ruler"><img src="glass.png" width=3 height=3 alt=""></td>
+      </tr>
+    </table>
     <center>
-      <report_table_token>
+      <fulltable_token>
     </center>
-
-    </body>
-  </html>
+  </body>
+</html>
 """
 
 
@@ -118,10 +123,10 @@ def process_line(line, data, filename):
 def generate_table(data, links=False):
     return """
 <table width="80%" cellpadding=1 cellspacing=1 border=0>
-<cov_type_token>
-  </table>
+  <table_token>
+</table>
 """.replace(
-        "<cov_type_token>", generate_table_tokenstr(data, links)
+        "<table_token>", generate_table_tokenstr(data, links)
     )
 
 
@@ -133,17 +138,12 @@ def generate_info_row(data):
     hit_w = cov_container_size / 4
     rate_w = cov_container_size - hit_w
 
-    out = f"""
-<tr>
-  <td class="tableHead" width="{name_w}%">Directory</td>
-"""
+    out = "<tr>"
+    out += f'<td class="tableHead" width="{name_w}%">Source</td>'
     for _ in cov_types:
-        info = (
-            f'<td class="tableHead" colspan="2" width="{rate_w}%">Rate</td>\n'
-            f'<td class="tableHead" width="{hit_w}%">Hit / Total</td>\n'
-        )
-        out += info
-    out += "</tr>\n"
+        out += f'<td class="tableHead" colspan="2" width="{rate_w}%">Rate</td>\n'
+        out += f'<td class="tableHead" width="{hit_w}%">Hit / Total</td>\n'
+    out += "</tr>"
     return out
 
 
@@ -222,11 +222,11 @@ def generate_table_tokenstr(data, links=False):
 
 SUMMARY_TEMPLATE = """
 <td class="headerItem"><cov_type_token></td>
-<td class="headerCovTableEntry" style="color: #0E1116; background-color: <cov_color_token>">
-    <cov_percentage_token>
+<td class="headerCovTableEntry" style="color: #0E1116; background-color: <color_token>">
+    <hitrate_token>
 </td>
-<td class="headerCovTableEntry"><cov_hits_token></td>
-<td class="headerCovTableEntry"><cov_total_token></td>
+<td class="headerCovTableEntry"><hit_token></td>
+<td class="headerCovTableEntry"><total_token></td>
 """
 
 
@@ -240,10 +240,10 @@ def generate_summary(data: list, key: str, new_row=False):
 
     inner_row = (
         SUMMARY_TEMPLATE.replace("<cov_type_token>", format_key(key))
-        .replace("<cov_color_token>", full_cov_color)
-        .replace("<cov_percentage_token>", data[0])
-        .replace("<cov_hits_token>", str(int(int(data[1]) * (float(data[0].replace("%", "")) / 100))))
-        .replace("<cov_total_token>", data[1])
+        .replace("<color_token>", full_cov_color)
+        .replace("<hitrate_token>", data[0])
+        .replace("<hit_token>", str(int(int(data[1]) * (float(data[0].replace("%", "")) / 100))))
+        .replace("<total_token>", data[1])
     )
 
     if new_row:
@@ -252,17 +252,21 @@ def generate_summary(data: list, key: str, new_row=False):
     return inner_row
 
 
-def render_page(data, view, out_dir, test_suite, links=False):
+def render_page(data, view, out_dir, test_name, links=False):
     report_html = deepcopy(REPORT_TEMPLATE)
-    report_html = report_html.replace("<title_token>", "Caliptra RTL coverage report")
-    report_html = report_html.replace("<test_name_token>", test_suite)
-    report_html = report_html.replace("<test_date_token>", str(datetime(2029, 7, 21, 12, 0, 0)))
-
+    report_html = report_html.replace("<header_token>", "Full")
     for test in data["Total:"].keys():
         tok = "<X_summary_token>".replace("X", test)
         report_html = report_html.replace(tok, generate_summary(data["Total:"][test], test))
-    report_html = report_html.replace("<report_table_token>", generate_table(data, links))
-    report_html = report_html.replace("<current_view_token>", view)
+    report_html = report_html.replace("<fulltable_token>", generate_table(data, links))
+    report_html = report_html.replace("<view_token>", view)
+    report_html = report_html.replace("<testname_token>", test_name)
+    report_html = report_html.replace(
+        "<time_token>",
+
+        datetime.datetime.now().strftime("%d-%m-%Y")
+    )
+
     with open(out_dir, "w") as f:
         print(report_html, file=f)
 
@@ -319,7 +323,7 @@ def unify_dict(data):
     return data
 
 
-def main(input_files, output_dir, test_suite):
+def main(input_files, output_dir, test_name):
     data = defaultdict(lambda: defaultdict(list))
     code_root_path = None
     for i in input_files:
@@ -329,6 +333,8 @@ def main(input_files, output_dir, test_suite):
                     continue
                 elif line.startswith("Message summary"):
                     break
+                elif line.startswith("["):
+                    code_root_path = line.strip(" []\n")
                 else:
                     process_line(line, data, i)
 
@@ -350,7 +356,7 @@ def main(input_files, output_dir, test_suite):
             subdata,
             "<a href=index.html>top level</a> - " + " - ".join(key.split("/")),
             f"{output_dir}/index_{key.replace('/','_')}.html",
-            test_suite
+            test_name,
         )
 
     for file, cov_data in tld.items():
@@ -366,7 +372,7 @@ def main(input_files, output_dir, test_suite):
                 cov_data[test_type] = ["{:.1f}%".format(hit / total * 100), str(total)]
             else:
                 cov_data[test_type] = ["0%", "0"]
-    render_page(tld, "top level", f"{output_dir}/index.html", test_suite, True)
+    render_page(tld, "top level", f"{output_dir}/index.html", test_name, True)
 
 
 if __name__ == "__main__":
@@ -377,7 +383,11 @@ if __name__ == "__main__":
         )
     )
     parser.add_argument(
-        "summary_files", metavar="input_files", type=str, nargs="+", help="Paths to summary files"
+        "summary_files",
+        metavar="input_files",
+        type=str,
+        nargs="+",
+        help="Paths to summary files",
     )
     parser.add_argument(
         "--output-dir",
@@ -386,21 +396,18 @@ if __name__ == "__main__":
         default="report",
         help="Path to output directory (default: report/)",
     )
-    # FIXME: Deduce the test suite rather than it being passed via command line
     parser.add_argument(
-        "--test-suite",
+        "--test-name",
+        metavar="test_name",
         type=str,
-        default="Combined",
-        help="Name of the test suite to be displayed in the report",
+        default="all",
+        help="Test name to be displayed in the report",
     )
-
-    # TODO: Find information when the test was executed
 
     args = parser.parse_args()
 
     input_files = args.summary_files
     output_dir = args.output_dir
-    test_suite = args.test_suite
 
     for file in input_files:
         if not os.path.isfile(file):
@@ -411,4 +418,4 @@ if __name__ == "__main__":
         print(f"Error: Output directory '{output_dir}' does not exist.")
         exit(1)
 
-    main(input_files, output_dir, test_suite)
+    main(input_files, output_dir, args.test_name)
