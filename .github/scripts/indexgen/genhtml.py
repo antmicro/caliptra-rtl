@@ -58,9 +58,7 @@ REPORT_TEMPLATE = """<!DOCTYPE HTML>
           RTL <header_token> coverage report
         </td>
       </tr>
-      <tr>
-        <td class="ruler"><img src="glass.png" width=3 height=3 alt=""></td>
-      </tr>
+      <tr></tr>
       <tr>
         <td width="100%">
           <table cellpadding=0 border=0 width="100%">
@@ -93,9 +91,7 @@ REPORT_TEMPLATE = """<!DOCTYPE HTML>
           </table>
         </td>
       </tr>
-      <tr>
-        <td class="ruler"><img src="glass.png" width=3 height=3 alt=""></td>
-      </tr>
+      <tr></tr>
     </table>
     <center>
       <fulltable_token>
