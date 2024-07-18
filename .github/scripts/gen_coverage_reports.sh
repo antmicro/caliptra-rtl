@@ -49,7 +49,7 @@ generate_coverage_reports(){
         fi
         mkdir -p $OUTPUT_DIR/all_"$test_name"/
         python3 $SELF_DIR/indexgen/genhtml.py "$name_body"_toggle.summary "$name_body"_branch.summary --output-dir $OUTPUT_DIR/all_"$test_name"/
-        cp $SELF_DIR/indexgen/dashboard-styles/gcov.css $OUTPUT_DIR/all_"$test_name"/
+        cp $SELF_DIR/indexgen/dashboard-styles/*.css $OUTPUT_DIR/all_"$test_name"/
     done
 
     for branch_file in "${branch_files[@]}"; do
@@ -68,7 +68,7 @@ generate_coverage_reports(){
 
     mkdir -p $OUTPUT_DIR/all
     python3 $SELF_DIR/indexgen/genhtml.py "$TOGGLE_MERGED_SUMMMARY" "$BRANCH_MERGED_SUMMMARY" --output-dir $OUTPUT_DIR/all/
-    cp $SELF_DIR/indexgen/dashboard-styles/gcov.css $OUTPUT_DIR/all/
+    cp $SELF_DIR/indexgen/dashboard-styles/*.css $OUTPUT_DIR/all/
 }
 
 #--------------#

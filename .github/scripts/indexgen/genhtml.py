@@ -39,9 +39,10 @@ REPORT_TEMPLATE = """<!DOCTYPE HTML>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>
-      Test <testname_token> coverage report
+      <header_token>
+      coverage report
     </title>
-    <link rel="stylesheet" type="text/css" href="gcov.css">
+    <link rel="stylesheet" type="text/css" href="cov.css">
     <style>
       .container {
       background-color: rgb(169,169,169);
@@ -52,48 +53,55 @@ REPORT_TEMPLATE = """<!DOCTYPE HTML>
     </style>
   </head>
   <body>
-    <table width="100%" border=0 cellspacing=0 cellpadding=0>
-      <tr>
-        <td class="title">
-          RTL <header_token> coverage report
-        </td>
-      </tr>
-      <tr></tr>
-      <tr>
-        <td width="100%">
-          <table cellpadding=0 border=0 width="100%">
-            <tr>
-              <td width="10%" class="headerItem">Current view:</td>
-              <td width="40%" class="headerValue"><view_token></td>
-              <td width=auto></td>
-              <td width="10%"></td>
-              <td width="10%" class="headerCovTableHead">Coverage</td>
-              <td width="10%" class="headerCovTableHead" title="Covered + Uncovered code">Hit</td>
-              <td width="10%" class="headerCovTableHead" title="Exercised code only">Total</td>
-            </tr>
-            <tr>
-              <td class="headerItem">Test:</td>
-              <td class="headerValue">
-                <testname_token>
-              </td>
-              <td></td>
-              <toggle_summary_token>
-            </tr>
-            <tr>
-              <td class="headerItem">Test Date:</td>
-              <td class="headerValue">
-                <time_token>
-              </td>
-              <td></td>
-              <branch_summary_token>
-            </tr>
-            <functional_summary_token>
-          </table>
-        </td>
-      </tr>
-      <tr></tr>
+    <table class="title-header-shadow">
+      <td class="title-container">
+        <table class="title-header">
+          <td class="title-logo">
+            <a href=index.html>
+            <img src="_static/white.svg"></img>
+            </a>
+          </td>
+          <td class="title">
+            Caliptra RTL
+            <header_token>
+            coverage report
+          </td>
+        </table>
+      </td>
     </table>
     <center>
+      <table class="info-table">
+        <tr class="info-table-view">
+          <td width="10%" class="headerInfo">Current view:</td>
+          <td width="40%" class="headerInfoValue">
+            <view_token>
+          </td>
+          <td width=auto></td>
+          <td width="10%"></td>
+          <td width="10%" class="headerCovSummary colTop">Coverage</td>
+          <td width="10%" class="headerCovSummary colTop" title="Covered + Uncovered code">Hit</td>
+          <td width="10%" class="headerCovSummary colTop" title="Exercised code only">Total</td>
+        </tr>
+        <tr>
+          <td class="headerInfo">Test Date:</td>
+          <td class="headerInfoValue">
+            <time_token>
+          </td>
+          <td></td>
+          <toggle_summary_token>
+        </tr>
+        <tr>
+          <td class="headerInfo">Test:</td>
+          <td class="headerInfoValue">
+            <testname_token>
+          </td>
+          <td></td>
+          <branch_summary_token>
+        </tr>
+        <functional_summary_token>
+      </table>
+    </center>
+    <center style="padding-top: 0;">
       <fulltable_token>
     </center>
   </body>
@@ -118,7 +126,7 @@ def process_line(line, data, filename):
 
 def generate_table(data, links=False):
     return """
-<table width="80%" cellpadding=1 cellspacing=1 border=0>
+<table width="80%" cellpadding=2 cellspacing=1 border=0>
   <table_token>
 </table>
 """.replace(
@@ -134,11 +142,11 @@ def generate_info_row(data):
     hit_w = cov_container_size / 4
     rate_w = cov_container_size - hit_w
 
-    out = "<tr>"
-    out += f'<td class="tableHead" width="{name_w}%">Source</td>'
+    out = '<tr class="covDescHeader">'
+    out += f'<td class="headerCovSubDesc" width="{name_w}%">Source</td>'
     for _ in cov_types:
-        out += f'<td class="tableHead" colspan="2" width="{rate_w}%">Rate</td>\n'
-        out += f'<td class="tableHead" width="{hit_w}%">Hit / Total</td>\n'
+        out += f'<td class="headerCovSubDesc" colspan="2" width="{rate_w}%">Rate</td>\n'
+        out += f'<td class="headerCovSubDesc" width="{hit_w}%">Hit / Total</td>\n'
     out += "</tr>"
     return out
 
@@ -150,11 +158,13 @@ def generate_table_tokenstr(data, links=False):
     num_tests = len(list(list(ddata.items())[0][1].items()))
     raw_widths = [40, 20, 20]
     widths_arr = [str(i / num_tests) + "%" for i in raw_widths]
-    token_str += '<tr><td width=20% style="border-top: 0px; border-left: 0px;"></td>'
+    token_str += (
+        '<tr class="covDescHeader"><td width=20% style="border-top: 0px; border-left: 0px;"></td>'
+    )
 
     # Generate header for each coverage type (toggle, branch..)
     for key in list(list(ddata.items())[0][1].keys()):
-        token_str += '<td class="tableHead" width='
+        token_str += '<td class="headerCovDesc" width='
         token_str += str(sum(raw_widths) / num_tests) + "%"
         token_str += " colspan = 3>"
         token_str += key[0].upper() + key[1:]
@@ -217,12 +227,12 @@ def generate_table_tokenstr(data, links=False):
 
 
 SUMMARY_TEMPLATE = """
-<td class="headerItem"><cov_type_token></td>
-<td class="headerCovTableEntry" style="color: #0E1116; background-color: <color_token>">
+<td class="headerCovSummary rowLeft"><cov_type_token></td>
+<td class="headerCovSummaryEntry" style="color: #0E1116; background-color: <color_token>">
     <hitrate_token>
 </td>
-<td class="headerCovTableEntry"><hit_token></td>
-<td class="headerCovTableEntry"><total_token></td>
+<td class="headerCovSummaryEntry"><hit_token></td>
+<td class="headerCovSummaryEntry"><total_token></td>
 """
 
 
@@ -257,11 +267,7 @@ def render_page(data, view, out_dir, test_name, links=False):
     report_html = report_html.replace("<fulltable_token>", generate_table(data, links))
     report_html = report_html.replace("<view_token>", view)
     report_html = report_html.replace("<testname_token>", test_name)
-    report_html = report_html.replace(
-        "<time_token>",
-
-        datetime.datetime.now().strftime("%d-%m-%Y")
-    )
+    report_html = report_html.replace("<time_token>", datetime.datetime.now().strftime("%d-%m-%Y"))
 
     with open(out_dir, "w") as f:
         print(report_html, file=f)
