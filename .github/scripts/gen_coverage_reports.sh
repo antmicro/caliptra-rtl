@@ -22,6 +22,22 @@ generate_coverage_reports(){
     BRANCH_MERGED_SUMMMARY="./merged_branch.summary"
     TOGGLE_MERGED_SUMMMARY="./merged_toggle.summary"
 
+    declare LOGO_SRC_ARG
+    declare LOGO_HREF_ARG
+
+    # Redirect logo ref to parent webpage (if specified)
+    if [ ! -z "${LOGO_SRC:-}" ]; then
+        LOGO_SRC_ARG="--logo-src ${LOGO_SRC}"
+    else
+        LOGO_SRC_ARG=""
+    fi
+
+    if  [ ! -z "${LOGO_HREF:-}" ]; then
+        LOGO_HREF_ARG="--logo-href ${LOGO_HREF}"
+    else
+        LOGO_HREF_ARG=""
+    fi
+
     declare -A branch_files
     declare -A toggle_files
 
@@ -48,7 +64,7 @@ generate_coverage_reports(){
             lcov --list-full-path -l  $toggle_file > "$name_body"_toggle.summary
         fi
         mkdir -p $OUTPUT_DIR/all_"$test_name"/
-        python3 $SELF_DIR/indexgen/genhtml.py "$name_body"_toggle.summary "$name_body"_branch.summary --output-dir $OUTPUT_DIR/all_"$test_name"/
+        python3 $SELF_DIR/indexgen/genhtml.py "$name_body"_toggle.summary "$name_body"_branch.summary --output-dir $OUTPUT_DIR/all_"$test_name"/ $LOGO_SRC_ARG $LOGO_HREF_ARG
         cp $SELF_DIR/indexgen/dashboard-styles/*.css $OUTPUT_DIR/all_"$test_name"/
     done
 
@@ -67,7 +83,7 @@ generate_coverage_reports(){
     fi
 
     mkdir -p $OUTPUT_DIR/all
-    python3 $SELF_DIR/indexgen/genhtml.py "$TOGGLE_MERGED_SUMMMARY" "$BRANCH_MERGED_SUMMMARY" --output-dir $OUTPUT_DIR/all/
+    python3 $SELF_DIR/indexgen/genhtml.py "$TOGGLE_MERGED_SUMMMARY" "$BRANCH_MERGED_SUMMMARY" --output-dir $OUTPUT_DIR/all/ $LOGO_SRC_ARG $LOGO_HREF_ARG
     cp $SELF_DIR/indexgen/dashboard-styles/*.css $OUTPUT_DIR/all/
 }
 

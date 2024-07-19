@@ -10,8 +10,8 @@ Note that multiple summary files can be provided and the report will render
 them side-by-side
 
 Full usage help:
-usage: genhtml.py [-h] [--output-dir output_directory] [--test-name test_name]
-                  input_files [input_files ...]
+usage: genhtml.py [-h] [--output-dir output_directory] [--test-name test_name] [--logo-src logo_src]
+                  [--logo-href logo_href] input_files [input_files ...]
 
 Generate HTML-based coverage reports from "lcov --list-full-path -l" summaries of info files.
 
@@ -25,6 +25,11 @@ options:
                         report/)
   --test-name test_name
                         Test name to be displayed in the report
+  --logo-src logo_src   Path to logo to be attached with the report, relative to index.html
+                        file in the destination dir.
+  --logo-href logo_href
+                        URL to be associated with the logo.
+
 """
 
 import argparse
@@ -57,8 +62,8 @@ REPORT_TEMPLATE = """<!DOCTYPE HTML>
       <td class="title-container">
         <table class="title-header">
           <td class="title-logo">
-            <a href=index.html>
-            <img src="_static/white.svg"></img>
+            <a href=<logo_href>>
+            <img src=<logo_src>></img>
             </a>
           </td>
           <td class="title">
@@ -258,9 +263,11 @@ def generate_summary(data: list, key: str, new_row=False):
     return inner_row
 
 
-def render_page(data, view, out_dir, test_name, links=False):
+def render_page(data, view, out_dir, test_name, logo_src, logo_href, links=False):
     report_html = deepcopy(REPORT_TEMPLATE)
     report_html = report_html.replace("<header_token>", "Full")
+    report_html = report_html.replace("<logo_src>", logo_src)
+    report_html = report_html.replace("<logo_href>", logo_href)
     for test in data["Total:"].keys():
         tok = "<X_summary_token>".replace("X", test)
         report_html = report_html.replace(tok, generate_summary(data["Total:"][test], test))
@@ -325,7 +332,10 @@ def unify_dict(data):
     return data
 
 
-def main(input_files, output_dir, test_name):
+def main(args):
+    input_files = args.summary_files
+    output_dir = args.output_dir
+    test_name = args.test_name
     data = defaultdict(lambda: defaultdict(list))
     code_root_path = None
     for i in input_files:
@@ -359,6 +369,8 @@ def main(input_files, output_dir, test_name):
             "<a href=index.html>top level</a> - " + " - ".join(key.split("/")),
             f"{output_dir}/index_{key.replace('/','_')}.html",
             test_name,
+            args.logo_src,
+            args.logo_href,
         )
 
     for file, cov_data in tld.items():
@@ -374,7 +386,15 @@ def main(input_files, output_dir, test_name):
                 cov_data[test_type] = ["{:.1f}%".format(hit / total * 100), str(total)]
             else:
                 cov_data[test_type] = ["0%", "0"]
-    render_page(tld, "top level", f"{output_dir}/index.html", test_name, True)
+    render_page(
+        tld,
+        "top level",
+        f"{output_dir}/index.html",
+        test_name,
+        args.logo_src,
+        args.logo_href,
+        True,
+    )
 
 
 if __name__ == "__main__":
@@ -406,6 +426,21 @@ if __name__ == "__main__":
         help="Test name to be displayed in the report",
     )
 
+    parser.add_argument(
+        "--logo-src",
+        metavar="logo_src",
+        default="_static/white.svg",
+        type=str,
+        help="Path to logo to be attached with the report, relative to index.html file in the destination dir.",
+    )
+
+    parser.add_argument(
+        "--logo-href",
+        metavar="logo_href",
+        default="index.html",
+        type=str,
+        help="URL to be associated with the logo.",
+    )
     args = parser.parse_args()
 
     input_files = args.summary_files
@@ -420,4 +455,4 @@ if __name__ == "__main__":
         print(f"Error: Output directory '{output_dir}' does not exist.")
         exit(1)
 
-    main(input_files, output_dir, args.test_name)
+    main(args)
