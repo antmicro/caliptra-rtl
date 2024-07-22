@@ -48,10 +48,8 @@ body>center>table:not(.info-table) td:not(.coverBarOutline) {
   border: 1px solid #31363C;
 }
 
-body>center>table:not(.info-table) tr:not(.covDescHeader){
-  &:hover {
-    background-color: #8B8D8E;
-  }
+body>center>table:not(.info-table) tr:not(.covDescHeader):hover {
+  background-color: #8B8D8E;
 }
 
 table {
@@ -137,14 +135,14 @@ td.headerCovSummary {
   font-size: 20px;
   font-weight: 500;
   white-space: nowrap;
+}
 
-  &.rowLeft {
-    text-align: right;
-  }
+td.headerCovSummary.rowLeft {
+  text-align: right;
+}
 
-  &.colTop {
-    text-align: center;
-  }
+td.headerCovSummary.colTop {
+  text-align: center;
 }
 
 td.headerCovSummaryEntry {
@@ -163,7 +161,7 @@ td.headerCovSummaryEntry {
 
 tr.covDescHeader {
   color: #DFE1F1;
-  text-align: center;;
+  text-align: center;
   font-size: 20px;
   white-space: nowrap;
 }
