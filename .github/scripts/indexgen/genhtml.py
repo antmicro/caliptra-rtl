@@ -42,11 +42,14 @@ from os import path
 from jinja2 import Environment, FileSystemLoader
 
 
-def get_color(value: float, min_value: float = 0, max_value: float = 100):
+def get_color(value: float, total_points: int, min_value: float = 0, max_value: float = 100):
     if isinstance(value, str):
         value = float(value.strip(" ").strip("%"))
+
     midpoint = (max_value - min_value) / 2
-    if value <= midpoint:
+    if int(total_points) == 0:  # No coverage points
+        r, g, b = (169, 169, 169)  # Background color of the component
+    elif value <= midpoint:
         r, g, b = (255, int(255 * value / midpoint), 0)
     else:
         r, g, b = (int(255 * (max_value - value) / midpoint), 255, 0)
