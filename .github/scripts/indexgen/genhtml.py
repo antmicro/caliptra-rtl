@@ -34,91 +34,23 @@ options:
 
 import argparse
 import datetime
-import os
 from collections import OrderedDict, defaultdict
 from copy import deepcopy
 from pathlib import Path
+from os import path
 
-REPORT_TEMPLATE = """<!DOCTYPE HTML>
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>
-      <header_token>
-      coverage report
-    </title>
-    <link rel="stylesheet" type="text/css" href="cov.css">
-    <style>
-      .container {
-      background-color: rgb(169,169,169);
-      width: 100%;
-      min-height: 80%;
-      border-radius: 15px;
-      }
-    </style>
-  </head>
-  <body>
-    <table class="title-header-shadow">
-      <td class="title-container">
-        <table class="title-header">
-          <td class="title-logo">
-            <a href=<logo_href>>
-            <img src=<logo_src>></img>
-            </a>
-          </td>
-          <td class="title">
-            Caliptra RTL
-            <header_token>
-            coverage report
-          </td>
-        </table>
-      </td>
-    </table>
-    <center>
-      <table class="info-table">
-        <tr class="info-table-view">
-          <td width="10%" class="headerInfo">Current view:</td>
-          <td width="40%" class="headerInfoValue">
-            <view_token>
-          </td>
-          <td width=auto></td>
-          <td width="10%"></td>
-          <td width="10%" class="headerCovSummary colTop">Coverage</td>
-          <td width="10%" class="headerCovSummary colTop" title="Covered + Uncovered code">Hit</td>
-          <td width="10%" class="headerCovSummary colTop" title="Exercised code only">Total</td>
-        </tr>
-        <tr>
-          <td class="headerInfo">Test Date:</td>
-          <td class="headerInfoValue">
-            <time_token>
-          </td>
-          <td></td>
-          <toggle_summary_token>
-        </tr>
-        <tr>
-          <td class="headerInfo">Test:</td>
-          <td class="headerInfoValue">
-            <testname_token>
-          </td>
-          <td></td>
-          <branch_summary_token>
-        </tr>
-        <functional_summary_token>
-      </table>
-    </center>
-    <center style="padding-top: 0;">
-      <fulltable_token>
-    </center>
-  </body>
-</html>
-"""
+from jinja2 import Environment, FileSystemLoader
 
 
 def get_color(value: float, min_value: float = 0, max_value: float = 100):
+    if isinstance(value, str):
+        value = float(value.strip(" ").strip("%"))
     midpoint = (max_value - min_value) / 2
     if value <= midpoint:
-        return (255, int(255 * value / midpoint), 0)
-    return (int(255 * (max_value - value) / midpoint), 255, 0)
+        r, g, b = (255, int(255 * value / midpoint), 0)
+    else:
+        r, g, b = (int(255 * (max_value - value) / midpoint), 255, 0)
+    return "#%s%s%s;" % tuple([hex(c)[2:].rjust(2, "0") for c in (r, g, b)])
 
 
 def process_line(line, data, filename):
@@ -129,155 +61,66 @@ def process_line(line, data, filename):
     data[src_path.strip()][module_name] = [i for i in cov.split(" ") if i]
 
 
-def generate_table(data, links=False):
-    return """
-<table width="80%" cellpadding=2 cellspacing=1 border=0>
-  <table_token>
-</table>
-""".replace(
-        "<table_token>", generate_table_tokenstr(data, links)
-    )
+def generate_table(data, template_env, links=False):
+    cov_types = list(list(data.items())[0][1].keys())
+    num_tests = len(cov_types)
+    raw_widths = [40, 20, 20]
+    widths_arr = [str(i / num_tests) + "%" for i in raw_widths]
 
-
-def generate_info_row(data):
-    cov_types = data["Total:"].keys()
-    no_cov = len(cov_types)
     name_w = 20
-    cov_container_size = (100 - name_w) / no_cov
+    cov_container_size = (100 - name_w) / num_tests
     hit_w = cov_container_size / 4
     rate_w = cov_container_size - hit_w
 
-    out = '<tr class="covDescHeader">'
-    out += f'<td class="headerCovSubDesc" width="{name_w}%">Source</td>'
-    for _ in cov_types:
-        out += f'<td class="headerCovSubDesc" colspan="2" width="{rate_w}%">Rate</td>\n'
-        out += f'<td class="headerCovSubDesc" width="{hit_w}%">Hit / Total</td>\n'
-    out += "</tr>"
-    return out
-
-
-def generate_table_tokenstr(data, links=False):
-    ddata = dict(data)
-    token_str = ""
-
-    num_tests = len(list(list(ddata.items())[0][1].items()))
-    raw_widths = [40, 20, 20]
-    widths_arr = [str(i / num_tests) + "%" for i in raw_widths]
-    token_str += (
-        '<tr class="covDescHeader"><td width=20% style="border-top: 0px; border-left: 0px;"></td>'
+    template_env.globals["get_color"] = get_color
+    main_table_html = template_env.get_template("main_table.html")
+    # Only pass actual coverage data, leave out the summary
+    cov_data = {k: v for (k, v) in data.items() if k != "Total:"}
+    return main_table_html.render(
+        cov_types=cov_types,
+        width_cov_desc=sum(raw_widths) / num_tests,
+        name_w=name_w,
+        rate_w=rate_w,
+        hit_w=hit_w,
+        data=cov_data,
+        widths_arr=widths_arr,
+        links=links,
     )
 
-    # Generate header for each coverage type (toggle, branch..)
-    for key in list(list(ddata.items())[0][1].keys()):
-        token_str += '<td class="headerCovDesc" width='
-        token_str += str(sum(raw_widths) / num_tests) + "%"
-        token_str += " colspan = 3>"
-        token_str += key[0].upper() + key[1:]
-        token_str += "</td>"
-    token_str += "</tr>"
 
-    # Generate sub-header to describe each column
-    token_str += generate_info_row(data)
+def generate_summary(data: list, key: str, template_env: Environment, new_row=False):
+    summary_html = template_env.get_template("summary_table.html")
 
-    for file, cov_data in ddata.items():
-        if file == "Total:":
-            continue
-
-        token_str += "<tr>"
-        token_str += "<td width=20%>"
-        if links:
-            token_str += '<a style="margin-left: 2%" href=index_'
-            token_str += file.replace("/", "_")
-            token_str += ".html>"
-            token_str += file
-            token_str += "</a>"
-        else:
-            token_str += '<text style="margin-left: 2%"">' + file + "</text>"
-        token_str += "</td>"
-
-        for key, numbers in cov_data.items():
-            r, g, b = get_color(float(numbers[0].replace("%", "")))
-            cov_color = "#%s%s%s;" % tuple([hex(c)[2:].rjust(2, "0") for c in (r, g, b)])
-
-            token_str += "<td width="
-            token_str += widths_arr[0]
-            token_str += ">"
-            token_str += '<div class="container">'
-            token_str += '<div style="border-radius: 15px; height: 80%; background-color: '
-            token_str += cov_color
-            token_str += "width: "
-            if float(numbers[0].replace("%", "")) > 5:
-                token_str += numbers[0]
-            else:
-                token_str += "5%"
-            token_str += ';">&nbsp</div></div></td>'
-
-            token_str += "<td width="
-            token_str += widths_arr[1]
-            token_str += ' style="text-align: center; color: '
-            token_str += cov_color
-            token_str += ';">'
-            token_str += numbers[0]
-            token_str += "</td>"
-
-            token_str += "<td width="
-            token_str += widths_arr[2]
-            token_str += ' style="text-align: center;">'
-            token_str += str(int(int(numbers[1]) * (float(numbers[0].replace("%", "")) / 100)))
-            token_str += " / "
-            token_str += numbers[1]
-            token_str += "</td>"
-        token_str += "</tr>"
-    return token_str
-
-
-SUMMARY_TEMPLATE = """
-<td class="headerCovSummary rowLeft"><cov_type_token></td>
-<td class="headerCovSummaryEntry" style="color: #0E1116; background-color: <color_token>">
-    <hitrate_token>
-</td>
-<td class="headerCovSummaryEntry"><hit_token></td>
-<td class="headerCovSummaryEntry"><total_token></td>
-"""
-
-
-def format_key(key: str):
-    return key[0].upper() + key[1:] + ":"
-
-
-def generate_summary(data: list, key: str, new_row=False):
-    r, g, b = get_color(float(data[0].strip("%")))
-    full_cov_color = "#%s%s%s;" % tuple([hex(c)[2:].rjust(2, "0") for c in (r, g, b)])
-
-    inner_row = (
-        SUMMARY_TEMPLATE.replace("<cov_type_token>", format_key(key))
-        .replace("<color_token>", full_cov_color)
-        .replace("<hitrate_token>", data[0])
-        .replace("<hit_token>", str(int(int(data[1]) * (float(data[0].replace("%", "")) / 100))))
-        .replace("<total_token>", data[1])
+    full_cov_color = get_color(float(data[0].strip("%")), data[1])
+    return summary_html.render(
+        new_row=new_row,
+        cov_type_token=key,
+        color_token=full_cov_color,
+        hitrate_token=data[0],
+        hit_token=str(int(int(data[1]) * (float(data[0].replace("%", "")) / 100))),
+        total_token=data[1],
     )
 
-    if new_row:
-        return "<tr><td></td><td></td><td></td>" + inner_row + "</tr>"
 
-    return inner_row
+def render_page(data, view, out_dir, test_name, logo_src, logo_href, template_env, links=False):
+    report_html = template_env.get_template("coverage_report.html")
 
-
-def render_page(data, view, out_dir, test_name, logo_src, logo_href, links=False):
-    report_html = deepcopy(REPORT_TEMPLATE)
-    report_html = report_html.replace("<header_token>", "Full")
-    report_html = report_html.replace("<logo_src>", logo_src)
-    report_html = report_html.replace("<logo_href>", logo_href)
-    for test in data["Total:"].keys():
-        tok = "<X_summary_token>".replace("X", test)
-        report_html = report_html.replace(tok, generate_summary(data["Total:"][test], test))
-    report_html = report_html.replace("<fulltable_token>", generate_table(data, links))
-    report_html = report_html.replace("<view_token>", view)
-    report_html = report_html.replace("<testname_token>", test_name)
-    report_html = report_html.replace("<time_token>", datetime.datetime.now().strftime("%d-%m-%Y"))
+    output = report_html.render(
+        header_token="Full",
+        logo_src=logo_src,
+        logo_href=logo_href,
+        fulltable_token=generate_table(data, template_env, links),
+        view_token=view,
+        testname_token=test_name,
+        time_token=datetime.datetime.now().strftime("%d-%m-%Y"),
+        **{
+            f"{test}_summary_token": generate_summary(data["Total:"][test], test, template_env)
+            for test in data["Total:"].keys()
+        },
+    )
 
     with open(out_dir, "w") as f:
-        print(report_html, file=f)
+        print(output, file=f)
 
 
 def generate_dir_dict(data, dir):
@@ -354,11 +197,16 @@ def main(args):
     # are not 'simplified' with '...'.
     # Find longest common path for all sources
     # Skip 'Total: (...)' and similar lines
-    code_root_path = os.path.commonpath([x for x in data.keys() if Path(x).is_absolute()])
+    code_root_path = path.commonpath([x for x in data.keys() if Path(x).is_absolute()])
     code_root_path = Path(code_root_path).parent
 
     data = unify_dict(data)
     tld = generate_dir_dict(data, code_root_path)
+
+    self_dir = path.dirname(path.realpath(__file__))
+    template_env = Environment(
+        loader=FileSystemLoader(path.join(self_dir, "source.template", "coverage_report"))
+    )
 
     for key in list(tld.keys()):
         if key == "Total:":
@@ -371,6 +219,7 @@ def main(args):
             test_name,
             args.logo_src,
             args.logo_href,
+            template_env,
         )
 
     for file, cov_data in tld.items():
@@ -393,6 +242,7 @@ def main(args):
         test_name,
         args.logo_src,
         args.logo_href,
+        template_env,
         True,
     )
 
@@ -447,11 +297,11 @@ if __name__ == "__main__":
     output_dir = args.output_dir
 
     for file in input_files:
-        if not os.path.isfile(file):
+        if not path.isfile(file):
             print(f"Error: Input file '{file}' does not exist.")
             input_files.remove(file)
 
-    if not os.path.isdir(output_dir):
+    if not path.isdir(output_dir):
         print(f"Error: Output directory '{output_dir}' does not exist.")
         exit(1)
 
