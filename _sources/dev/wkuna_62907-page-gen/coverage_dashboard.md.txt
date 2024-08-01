@@ -1,0 +1,9 @@
+(wkuna_62907-page-gen_coverage_dashboard)=
+# Coverage dashboard
+
+## Summary reports (all tests)
+ * [all coverage](external:coverage_dashboard/all/index.html)
+
+## Individual test reports
+ * [smoke_test_trng](external:coverage_dashboard/all_smoke_test_trng/index.html)
+ * [smoke_test_uart](external:coverage_dashboard/all_smoke_test_uart/index.html)

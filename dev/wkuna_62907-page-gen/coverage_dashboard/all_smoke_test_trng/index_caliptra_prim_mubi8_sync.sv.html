@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Full
+        coverage report
+    </title>
+    <link rel="stylesheet" type="text/css" href="cov.css">
+    <style>
+        .container {
+            background-color: rgb(169, 169, 169);
+            width: 100%;
+            min-height: 80%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="title-header-shadow">
+        <td class="title-container">
+            <table class="title-header">
+                <td class="title-logo">
+                    <a href=../../../../index.html>
+                        <img src=../../../../_static/white.svg></img>
+                    </a>
+                </td>
+                <td class="title">
+                    Caliptra RTL
+                    Full
+                    coverage report
+                </td>
+            </table>
+        </td>
+    </table>
+    <center>
+        <table class="info-table">
+            <tr class="info-table-view">
+                <td width="10%" class="headerInfo">Current view:</td>
+                <td width="40%" class="headerInfoValue">
+                    <a href=index.html>caliptra-rtl</a>—src—caliptra_prim—rtl—caliptra_prim_mubi8_sync.sv
+                </td>
+                <td width=auto></td>
+                <td width="10%"></td>
+                <td width="10%" class="headerCovSummary colTop">Coverage</td>
+                <td width="10%" class="headerCovSummary colTop" title="Covered + Uncovered code">Hit</td>
+                <td width="10%" class="headerCovSummary colTop" title="Exercised code only">Total</td>
+            </tr>
+            <tr>
+                <td class="headerInfo">Test Date:</td>
+                <td class="headerInfoValue">
+                    01-08-2024
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Toggle
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #00ff00;">
+        100%
+    </td>
+    <td class="headerCovSummaryEntry">
+        5
+    </td>
+    <td class="headerCovSummaryEntry">
+        5
+    </td>
+
+            </tr>
+            <tr>
+                <td class="headerInfo">Test:</td>
+                <td class="headerInfoValue">
+                    smoke_test_trng
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Branch
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #a9a9a9;">
+        0.0%
+    </td>
+    <td class="headerCovSummaryEntry">
+        0
+    </td>
+    <td class="headerCovSummaryEntry">
+        0
+    </td>
+
+            </tr>
+            
+        </table>
+    </center>
+
+    <table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td><br/></td>
+</tr>
+<tr>
+<td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : // Copyright lowRISC contributors.</span>
+<span id="L2"><span class="lineNum">       2</span>              : // Licensed under the Apache License, Version 2.0, see LICENSE for details.</span>
+<span id="L3"><span class="lineNum">       3</span>              : // SPDX-License-Identifier: Apache-2.0</span>
+<span id="L4"><span class="lineNum">       4</span>              : //</span>
+<span id="L5"><span class="lineNum">       5</span>              : // ------------------- W A R N I N G: A U T O - G E N E R A T E D   C O D E !! -------------------//</span>
+<span id="L6"><span class="lineNum">       6</span>              : // PLEASE DO NOT HAND-EDIT THIS FILE. IT HAS BEEN AUTO-GENERATED WITH THE FOLLOWING COMMAND:</span>
+<span id="L7"><span class="lineNum">       7</span>              : //</span>
+<span id="L8"><span class="lineNum">       8</span>              : //    util/design/gen-mubi.py</span>
+<span id="L9"><span class="lineNum">       9</span>              : //</span>
+<span id="L10"><span class="lineNum">      10</span>              : // Double-synchronizer flop for multibit signals with additional output buffers.</span>
+<span id="L11"><span class="lineNum">      11</span>              : </span>
+<span id="L12"><span class="lineNum">      12</span>              : `include "caliptra_prim_assert.sv"</span>
+<span id="L13"><span class="lineNum">      13</span>              : </span>
+<span id="L14"><span class="lineNum">      14</span>              : module caliptra_prim_mubi8_sync</span>
+<span id="L15"><span class="lineNum">      15</span>              :   import caliptra_prim_mubi_pkg::*;</span>
+<span id="L16"><span class="lineNum">      16</span>              : #(</span>
+<span id="L17"><span class="lineNum">      17</span>              :   // Number of separately buffered output signals.</span>
+<span id="L18"><span class="lineNum">      18</span>              :   // The buffer cells have a don't touch constraint</span>
+<span id="L19"><span class="lineNum">      19</span>              :   // on them such that synthesis tools won't collapse</span>
+<span id="L20"><span class="lineNum">      20</span>              :   // all copies into one signal.</span>
+<span id="L21"><span class="lineNum">      21</span>              :   parameter int NumCopies = 1,</span>
+<span id="L22"><span class="lineNum">      22</span>              :   // This instantiates the synchronizer flops if set to 1.</span>
+<span id="L23"><span class="lineNum">      23</span>              :   // In special cases where the receiver is in the same clock domain as the sender,</span>
+<span id="L24"><span class="lineNum">      24</span>              :   // this can be set to 0. However, it is recommended to leave this at 1.</span>
+<span id="L25"><span class="lineNum">      25</span>              :   parameter bit AsyncOn = 1,</span>
+<span id="L26"><span class="lineNum">      26</span>              :   // This controls whether the mubi module institutes stability checks when</span>
+<span id="L27"><span class="lineNum">      27</span>              :   // AsyncOn is set.  If stability checks are on, a 3rd stage of storage is</span>
+<span id="L28"><span class="lineNum">      28</span>              :   // added after the synchronizers and the outputs only updated if the 3rd</span>
+<span id="L29"><span class="lineNum">      29</span>              :   // stage and sychronizer agree.  If they do not agree, the ResetValue is</span>
+<span id="L30"><span class="lineNum">      30</span>              :   // output instead.</span>
+<span id="L31"><span class="lineNum">      31</span>              :   parameter bit StabilityCheck = 0,</span>
+<span id="L32"><span class="lineNum">      32</span>              :   // Reset value for the sync flops</span>
+<span id="L33"><span class="lineNum">      33</span>              :   parameter mubi8_t ResetValue = MuBi8False</span>
+<span id="L34"><span class="lineNum">      34</span>              : ) (</span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">      212994 :   input                          clk_i,</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">           1 :   input                          rst_ni,</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           3 :   input  mubi8_t                 mubi_i,</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           1 :   output mubi8_t [NumCopies-1:0] mubi_o</span></span>
+<span id="L39"><span class="lineNum">      39</span>              : );</span>
+<span id="L40"><span class="lineNum">      40</span>              : </span>
+<span id="L41"><span class="lineNum">      41</span>              :   `CALIPTRA_ASSERT_INIT(NumCopiesMustBeGreaterZero_A, NumCopies &gt; 0)</span>
+<span id="L42"><span class="lineNum">      42</span>              : </span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">           1 :   logic [MuBi8Width-1:0] mubi;</span></span>
+<span id="L44"><span class="lineNum">      44</span>              :   if (AsyncOn) begin : gen_flops</span>
+<span id="L45"><span class="lineNum">      45</span>              :     logic [MuBi8Width-1:0] mubi_sync;</span>
+<span id="L46"><span class="lineNum">      46</span>              :     caliptra_prim_flop_2sync #(</span>
+<span id="L47"><span class="lineNum">      47</span>              :       .Width(MuBi8Width),</span>
+<span id="L48"><span class="lineNum">      48</span>              :       .ResetValue(MuBi8Width'(ResetValue))</span>
+<span id="L49"><span class="lineNum">      49</span>              :     ) u_caliptra_prim_flop_2sync (</span>
+<span id="L50"><span class="lineNum">      50</span>              :       .clk_i,</span>
+<span id="L51"><span class="lineNum">      51</span>              :       .rst_ni,</span>
+<span id="L52"><span class="lineNum">      52</span>              :       .d_i(MuBi8Width'(mubi_i)),</span>
+<span id="L53"><span class="lineNum">      53</span>              :       .q_o(mubi_sync)</span>
+<span id="L54"><span class="lineNum">      54</span>              :     );</span>
+<span id="L55"><span class="lineNum">      55</span>              : </span>
+<span id="L56"><span class="lineNum">      56</span>              :     if (StabilityCheck) begin : gen_stable_chks</span>
+<span id="L57"><span class="lineNum">      57</span>              :       logic [MuBi8Width-1:0] mubi_q;</span>
+<span id="L58"><span class="lineNum">      58</span>              :       caliptra_prim_flop #(</span>
+<span id="L59"><span class="lineNum">      59</span>              :         .Width(MuBi8Width),</span>
+<span id="L60"><span class="lineNum">      60</span>              :         .ResetValue(MuBi8Width'(ResetValue))</span>
+<span id="L61"><span class="lineNum">      61</span>              :       ) u_caliptra_prim_flop_3rd_stage (</span>
+<span id="L62"><span class="lineNum">      62</span>              :         .clk_i,</span>
+<span id="L63"><span class="lineNum">      63</span>              :         .rst_ni,</span>
+<span id="L64"><span class="lineNum">      64</span>              :         .d_i(mubi_sync),</span>
+<span id="L65"><span class="lineNum">      65</span>              :         .q_o(mubi_q)</span>
+<span id="L66"><span class="lineNum">      66</span>              :       );</span>
+<span id="L67"><span class="lineNum">      67</span>              : </span>
+<span id="L68"><span class="lineNum">      68</span>              :       logic [MuBi8Width-1:0] sig_unstable;</span>
+<span id="L69"><span class="lineNum">      69</span>              :       caliptra_prim_xor2 #(</span>
+<span id="L70"><span class="lineNum">      70</span>              :         .Width(MuBi8Width)</span>
+<span id="L71"><span class="lineNum">      71</span>              :       ) u_mubi_xor (</span>
+<span id="L72"><span class="lineNum">      72</span>              :         .in0_i(mubi_sync),</span>
+<span id="L73"><span class="lineNum">      73</span>              :         .in1_i(mubi_q),</span>
+<span id="L74"><span class="lineNum">      74</span>              :         .out_o(sig_unstable)</span>
+<span id="L75"><span class="lineNum">      75</span>              :       );</span>
+<span id="L76"><span class="lineNum">      76</span>              : </span>
+<span id="L77"><span class="lineNum">      77</span>              :       logic [MuBi8Width-1:0] reset_value;</span>
+<span id="L78"><span class="lineNum">      78</span>              :       assign reset_value = ResetValue;</span>
+<span id="L79"><span class="lineNum">      79</span>              : </span>
+<span id="L80"><span class="lineNum">      80</span>              :       for (genvar k = 0; k &lt; MuBi8Width; k++) begin : gen_bufs_muxes</span>
+<span id="L81"><span class="lineNum">      81</span>              :         logic [MuBi8Width-1:0] sig_unstable_buf;</span>
+<span id="L82"><span class="lineNum">      82</span>              : </span>
+<span id="L83"><span class="lineNum">      83</span>              :         // each mux gets its own buffered output, this ensures the OR-ing</span>
+<span id="L84"><span class="lineNum">      84</span>              :         // cannot be defeated in one place.</span>
+<span id="L85"><span class="lineNum">      85</span>              :         caliptra_prim_sec_anchor_buf #(</span>
+<span id="L86"><span class="lineNum">      86</span>              :           .Width(MuBi8Width)</span>
+<span id="L87"><span class="lineNum">      87</span>              :         ) u_sig_unstable_buf (</span>
+<span id="L88"><span class="lineNum">      88</span>              :           .in_i(sig_unstable),</span>
+<span id="L89"><span class="lineNum">      89</span>              :           .out_o(sig_unstable_buf)</span>
+<span id="L90"><span class="lineNum">      90</span>              :         );</span>
+<span id="L91"><span class="lineNum">      91</span>              : </span>
+<span id="L92"><span class="lineNum">      92</span>              :         // if any xor indicates signal is unstable, output the reset</span>
+<span id="L93"><span class="lineNum">      93</span>              :         // value. note that the input and output signals of this mux</span>
+<span id="L94"><span class="lineNum">      94</span>              :         // are driven/read by constrained primitive cells (regs, buffers),</span>
+<span id="L95"><span class="lineNum">      95</span>              :         // hence this mux can be implemented behaviorally.</span>
+<span id="L96"><span class="lineNum">      96</span>              :         assign mubi[k] = (|sig_unstable_buf) ? reset_value[k] : mubi_q[k];</span>
+<span id="L97"><span class="lineNum">      97</span>              :       end</span>
+<span id="L98"><span class="lineNum">      98</span>              : </span>
+<span id="L99"><span class="lineNum">      99</span>              : // Note regarding SVAs below:</span>
+<span id="L100"><span class="lineNum">     100</span>              : //</span>
+<span id="L101"><span class="lineNum">     101</span>              : // 1) Without the sampled rst_ni pre-condition, this may cause false assertion failures right after</span>
+<span id="L102"><span class="lineNum">     102</span>              : // a reset release, since the "disable iff" condition with the rst_ni is sampled in the "observed"</span>
+<span id="L103"><span class="lineNum">     103</span>              : // SV scheduler region after all assignments have been evaluated (see also LRM section 16.12, page</span>
+<span id="L104"><span class="lineNum">     104</span>              : // 423). This is a simulation artifact due to reset synchronization in RTL, which releases rst_ni</span>
+<span id="L105"><span class="lineNum">     105</span>              : // on the active clock edge. This causes the assertion to evaluate although the reset was actually</span>
+<span id="L106"><span class="lineNum">     106</span>              : // 0 when entering this simulation cycle.</span>
+<span id="L107"><span class="lineNum">     107</span>              : //</span>
+<span id="L108"><span class="lineNum">     108</span>              : // 2) Similarly to 1) there can be sampling mismatches of the lc_en_i signal since that signal may</span>
+<span id="L109"><span class="lineNum">     109</span>              : // originate from a different clock domain. I.e., in cases where the lc_en_i signal changes exactly</span>
+<span id="L110"><span class="lineNum">     110</span>              : // at the same time that the clk_i signal rises, the SVA will not pick up that change in that clock</span>
+<span id="L111"><span class="lineNum">     111</span>              : // cycle, whereas RTL will because SVAs sample values in the "preponed" region. To that end we make</span>
+<span id="L112"><span class="lineNum">     112</span>              : // use of an RTL helper variable to sample the lc_en_i signal, hence ensuring that there are no</span>
+<span id="L113"><span class="lineNum">     113</span>              : // sampling mismatches.</span>
+<span id="L114"><span class="lineNum">     114</span>              : `ifdef CALIPTRA_INC_ASSERT</span>
+<span id="L115"><span class="lineNum">     115</span>              :       mubi8_t mubi_in_sva_q;</span>
+<span id="L116"><span class="lineNum">     116</span>              :       always_ff @(posedge clk_i) begin</span>
+<span id="L117"><span class="lineNum">     117</span>              :         mubi_in_sva_q &lt;= mubi_i;</span>
+<span id="L118"><span class="lineNum">     118</span>              :       end</span>
+<span id="L119"><span class="lineNum">     119</span>              :       `CALIPTRA_ASSERT(OutputIfUnstable_A, sig_unstable |-&gt; mubi_o == {NumCopies{reset_value}})</span>
+<span id="L120"><span class="lineNum">     120</span>              :       `CALIPTRA_ASSERT(OutputDelay_A,</span>
+<span id="L121"><span class="lineNum">     121</span>              :               rst_ni |-&gt; ##[3:4] sig_unstable || mubi_o == {NumCopies{$past(mubi_in_sva_q, 2)}})</span>
+<span id="L122"><span class="lineNum">     122</span>              : `endif</span>
+<span id="L123"><span class="lineNum">     123</span>              :     end else begin : gen_no_stable_chks</span>
+<span id="L124"><span class="lineNum">     124</span>              :       assign mubi = mubi_sync;</span>
+<span id="L125"><span class="lineNum">     125</span>              : `ifdef CALIPTRA_INC_ASSERT</span>
+<span id="L126"><span class="lineNum">     126</span>              :       mubi8_t mubi_in_sva_q;</span>
+<span id="L127"><span class="lineNum">     127</span>              :       always_ff @(posedge clk_i) begin</span>
+<span id="L128"><span class="lineNum">     128</span>              :         mubi_in_sva_q &lt;= mubi_i;</span>
+<span id="L129"><span class="lineNum">     129</span>              :       end</span>
+<span id="L130"><span class="lineNum">     130</span>              :       `CALIPTRA_ASSERT(OutputDelay_A,</span>
+<span id="L131"><span class="lineNum">     131</span>              :               rst_ni |-&gt; ##3 (mubi_o == {NumCopies{$past(mubi_in_sva_q, 2)}} ||</span>
+<span id="L132"><span class="lineNum">     132</span>              :                              ($past(mubi_in_sva_q, 2) != $past(mubi_in_sva_q, 1)) ||</span>
+<span id="L133"><span class="lineNum">     133</span>              :                              !rst_ni))</span>
+<span id="L134"><span class="lineNum">     134</span>              : `endif</span>
+<span id="L135"><span class="lineNum">     135</span>              :     end</span>
+<span id="L136"><span class="lineNum">     136</span>              :   end else begin : gen_no_flops</span>
+<span id="L137"><span class="lineNum">     137</span>              : </span>
+<span id="L138"><span class="lineNum">     138</span>              :     //VCS coverage off</span>
+<span id="L139"><span class="lineNum">     139</span>              :     // pragma coverage off</span>
+<span id="L140"><span class="lineNum">     140</span>              : </span>
+<span id="L141"><span class="lineNum">     141</span>              :     // This unused companion logic helps remove lint errors</span>
+<span id="L142"><span class="lineNum">     142</span>              :     // for modules where clock and reset are used for assertions only</span>
+<span id="L143"><span class="lineNum">     143</span>              :     // This logic will be removed for synthesis since it is unloaded.</span>
+<span id="L144"><span class="lineNum">     144</span>              :     mubi8_t unused_logic;</span>
+<span id="L145"><span class="lineNum">     145</span>              :     always_ff @(posedge clk_i or negedge rst_ni) begin</span>
+<span id="L146"><span class="lineNum">     146</span>              :       if (!rst_ni) begin</span>
+<span id="L147"><span class="lineNum">     147</span>              :          unused_logic &lt;= MuBi8False;</span>
+<span id="L148"><span class="lineNum">     148</span>              :       end else begin</span>
+<span id="L149"><span class="lineNum">     149</span>              :          unused_logic &lt;= mubi_i;</span>
+<span id="L150"><span class="lineNum">     150</span>              :       end</span>
+<span id="L151"><span class="lineNum">     151</span>              :     end</span>
+<span id="L152"><span class="lineNum">     152</span>              : </span>
+<span id="L153"><span class="lineNum">     153</span>              :     //VCS coverage on</span>
+<span id="L154"><span class="lineNum">     154</span>              :     // pragma coverage on</span>
+<span id="L155"><span class="lineNum">     155</span>              : </span>
+<span id="L156"><span class="lineNum">     156</span>              :     assign mubi = MuBi8Width'(mubi_i);</span>
+<span id="L157"><span class="lineNum">     157</span>              : </span>
+<span id="L158"><span class="lineNum">     158</span>              :     `CALIPTRA_ASSERT(OutputDelay_A, mubi_o == {NumCopies{mubi_i}})</span>
+<span id="L159"><span class="lineNum">     159</span>              :   end</span>
+<span id="L160"><span class="lineNum">     160</span>              : </span>
+<span id="L161"><span class="lineNum">     161</span>              :   for (genvar j = 0; j &lt; NumCopies; j++) begin : gen_buffs</span>
+<span id="L162"><span class="lineNum">     162</span>              :     logic [MuBi8Width-1:0] mubi_out;</span>
+<span id="L163"><span class="lineNum">     163</span>              :     for (genvar k = 0; k &lt; MuBi8Width; k++) begin : gen_bits</span>
+<span id="L164"><span class="lineNum">     164</span>              :       caliptra_prim_buf u_caliptra_prim_buf (</span>
+<span id="L165"><span class="lineNum">     165</span>              :         .in_i(mubi[k]),</span>
+<span id="L166"><span class="lineNum">     166</span>              :         .out_o(mubi_out[k])</span>
+<span id="L167"><span class="lineNum">     167</span>              :       );</span>
+<span id="L168"><span class="lineNum">     168</span>              :     end</span>
+<span id="L169"><span class="lineNum">     169</span>              :     assign mubi_o[j] = mubi8_t'(mubi_out);</span>
+<span id="L170"><span class="lineNum">     170</span>              :   end</span>
+<span id="L171"><span class="lineNum">     171</span>              : </span>
+<span id="L172"><span class="lineNum">     172</span>              :   ////////////////</span>
+<span id="L173"><span class="lineNum">     173</span>              :   // Assertions //</span>
+<span id="L174"><span class="lineNum">     174</span>              :   ////////////////</span>
+<span id="L175"><span class="lineNum">     175</span>              : </span>
+<span id="L176"><span class="lineNum">     176</span>              :   // The outputs should be known at all times.</span>
+<span id="L177"><span class="lineNum">     177</span>              :   `CALIPTRA_ASSERT_KNOWN(OutputsKnown_A, mubi_o)</span>
+<span id="L178"><span class="lineNum">     178</span>              : </span>
+<span id="L179"><span class="lineNum">     179</span>              : endmodule : caliptra_prim_mubi8_sync</span>
+        </pre>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Full
+        coverage report
+    </title>
+    <link rel="stylesheet" type="text/css" href="cov.css">
+    <style>
+        .container {
+            background-color: rgb(169, 169, 169);
+            width: 100%;
+            min-height: 80%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="title-header-shadow">
+        <td class="title-container">
+            <table class="title-header">
+                <td class="title-logo">
+                    <a href=../../../../index.html>
+                        <img src=../../../../_static/white.svg></img>
+                    </a>
+                </td>
+                <td class="title">
+                    Caliptra RTL
+                    Full
+                    coverage report
+                </td>
+            </table>
+        </td>
+    </table>
+    <center>
+        <table class="info-table">
+            <tr class="info-table-view">
+                <td width="10%" class="headerInfo">Current view:</td>
+                <td width="40%" class="headerInfoValue">
+                    <a href=index.html>caliptra-rtl</a>—src—caliptra_prim—rtl—caliptra_prim_count.sv
+                </td>
+                <td width=auto></td>
+                <td width="10%"></td>
+                <td width="10%" class="headerCovSummary colTop">Coverage</td>
+                <td width="10%" class="headerCovSummary colTop" title="Covered + Uncovered code">Hit</td>
+                <td width="10%" class="headerCovSummary colTop" title="Exercised code only">Total</td>
+            </tr>
+            <tr>
+                <td class="headerInfo">Test Date:</td>
+                <td class="headerInfoValue">
+                    01-08-2024
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Toggle
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #75ff00;">
+        76.9%
+    </td>
+    <td class="headerCovSummaryEntry">
+        9
+    </td>
+    <td class="headerCovSummaryEntry">
+        13
+    </td>
+
+            </tr>
+            <tr>
+                <td class="headerInfo">Test:</td>
+                <td class="headerInfoValue">
+                    smoke_test_uart
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Branch
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #a9a9a9;">
+        0.0%
+    </td>
+    <td class="headerCovSummaryEntry">
+        0
+    </td>
+    <td class="headerCovSummaryEntry">
+        0
+    </td>
+
+            </tr>
+            
+        </table>
+    </center>
+
+    <table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td><br/></td>
+</tr>
+<tr>
+<td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : // Copyright lowRISC contributors.</span>
+<span id="L2"><span class="lineNum">       2</span>              : // Licensed under the Apache License, Version 2.0, see LICENSE for details.</span>
+<span id="L3"><span class="lineNum">       3</span>              : // SPDX-License-Identifier: Apache-2.0</span>
+<span id="L4"><span class="lineNum">       4</span>              : //</span>
+<span id="L5"><span class="lineNum">       5</span>              : // Hardened counter primitive:</span>
+<span id="L6"><span class="lineNum">       6</span>              : //</span>
+<span id="L7"><span class="lineNum">       7</span>              : // This internally uses a cross counter scheme with primary and a secondary counter, where the</span>
+<span id="L8"><span class="lineNum">       8</span>              : // secondary counter counts in reverse direction. The sum of both counters must remain constant and</span>
+<span id="L9"><span class="lineNum">       9</span>              : // equal to 2**Width-1 or otherwise an err_o will be asserted.</span>
+<span id="L10"><span class="lineNum">      10</span>              : //</span>
+<span id="L11"><span class="lineNum">      11</span>              : // This counter supports a generic clear / set / increment / decrement interface:</span>
+<span id="L12"><span class="lineNum">      12</span>              : //</span>
+<span id="L13"><span class="lineNum">      13</span>              : // clr_i: This clears the primary counter to ResetValue and adjusts the secondary counter to match</span>
+<span id="L14"><span class="lineNum">      14</span>              : //        (i.e. 2**Width-1-ResetValue). Clear has priority over set, increment and decrement.</span>
+<span id="L15"><span class="lineNum">      15</span>              : // set_i: This sets the primary counter to set_cnt_i and adjusts the secondary counter to match</span>
+<span id="L16"><span class="lineNum">      16</span>              : //        (i.e. 2**Width-1-set_cnt_i). Set has priority over increment and decrement.</span>
+<span id="L17"><span class="lineNum">      17</span>              : // incr_en_i: Increments the primary counter by step_i, and decrements the secondary by step_i.</span>
+<span id="L18"><span class="lineNum">      18</span>              : // decr_en_i: Decrements the primary counter by step_i, and increments the secondary by step_i.</span>
+<span id="L19"><span class="lineNum">      19</span>              : //</span>
+<span id="L20"><span class="lineNum">      20</span>              : // Note that if both incr_en_i and decr_en_i are asserted at the same time, the counter remains</span>
+<span id="L21"><span class="lineNum">      21</span>              : // unchanged. The counter is also protected against under- and overflows.</span>
+<span id="L22"><span class="lineNum">      22</span>              : </span>
+<span id="L23"><span class="lineNum">      23</span>              : `include "caliptra_prim_assert.sv"</span>
+<span id="L24"><span class="lineNum">      24</span>              : </span>
+<span id="L25"><span class="lineNum">      25</span>              : module caliptra_prim_count #(</span>
+<span id="L26"><span class="lineNum">      26</span>              :   parameter int Width = 2,</span>
+<span id="L27"><span class="lineNum">      27</span>              :   // Can be used to reset the counter to a different value than 0, for example when</span>
+<span id="L28"><span class="lineNum">      28</span>              :   // the counter is used as a down-counter.</span>
+<span id="L29"><span class="lineNum">      29</span>              :   parameter logic [Width-1:0] ResetValue = '0,</span>
+<span id="L30"><span class="lineNum">      30</span>              :   // This should only be disabled in special circumstances, for example</span>
+<span id="L31"><span class="lineNum">      31</span>              :   // in non-comportable IPs where an error does not trigger an alert.</span>
+<span id="L32"><span class="lineNum">      32</span>              :   parameter bit EnableAlertTriggerSVA = 1</span>
+<span id="L33"><span class="lineNum">      33</span>              : ) (</span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">      268494 :   input clk_i,</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           1 :   input rst_ni,</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">      912363 :   input clr_i,</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaUNC tlaBgUNC">           0 :   input set_i,</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC">           0 :   input [Width-1:0] set_cnt_i,         // Set value for the counter.</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC tlaBgGNC">        2554 :   input incr_en_i,</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :   input decr_en_i,</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">           3 :   input [Width-1:0] step_i,            // Increment/decrement step when enabled.</span></span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">           3 :   output logic [Width-1:0] cnt_o,      // Current counter state</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">           3 :   output logic [Width-1:0] cnt_next_o, // Next counter state</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">           2 :   output logic err_o</span></span>
+<span id="L45"><span class="lineNum">      45</span>              : );</span>
+<span id="L46"><span class="lineNum">      46</span>              : </span>
+<span id="L47"><span class="lineNum">      47</span>              :   ///////////////////</span>
+<span id="L48"><span class="lineNum">      48</span>              :   // Counter logic //</span>
+<span id="L49"><span class="lineNum">      49</span>              :   ///////////////////</span>
+<span id="L50"><span class="lineNum">      50</span>              : </span>
+<span id="L51"><span class="lineNum">      51</span>              :   // Reset Values for primary and secondary counters.</span>
+<span id="L52"><span class="lineNum">      52</span>              :   localparam int NumCnt = 2;</span>
+<span id="L53"><span class="lineNum">      53</span>              :   localparam logic [NumCnt-1:0][Width-1:0] ResetValues = {{Width{1'b1}} - ResetValue, // secondary</span>
+<span id="L54"><span class="lineNum">      54</span>              :                                                           ResetValue};                // primary</span>
+<span id="L55"><span class="lineNum">      55</span>              : </span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">        2554 :   logic [NumCnt-1:0][Width-1:0] cnt_d, cnt_q, fpv_force;</span></span>
+<span id="L57"><span class="lineNum">      57</span>              : </span>
+<span id="L58"><span class="lineNum">      58</span>              : `ifndef FPV_SEC_CM_ON</span>
+<span id="L59"><span class="lineNum">      59</span>              :   // This becomes a free variable in FPV.</span>
+<span id="L60"><span class="lineNum">      60</span>              :   assign fpv_force = '0;</span>
+<span id="L61"><span class="lineNum">      61</span>              : `endif</span>
+<span id="L62"><span class="lineNum">      62</span>              : </span>
+<span id="L63"><span class="lineNum">      63</span>              :   for (genvar k = 0; k &lt; NumCnt; k++) begin : gen_cnts</span>
+<span id="L64"><span class="lineNum">      64</span>              :     // Note that increments / decrements are reversed for the secondary counter.</span>
+<span id="L65"><span class="lineNum">      65</span>              :     logic incr_en, decr_en;</span>
+<span id="L66"><span class="lineNum">      66</span>              :     logic [Width-1:0] set_val;</span>
+<span id="L67"><span class="lineNum">      67</span>              :     if (k == 0) begin : gen_up_cnt</span>
+<span id="L68"><span class="lineNum">      68</span>              :       assign incr_en = incr_en_i;</span>
+<span id="L69"><span class="lineNum">      69</span>              :       assign decr_en = decr_en_i;</span>
+<span id="L70"><span class="lineNum">      70</span>              :       assign set_val = set_cnt_i;</span>
+<span id="L71"><span class="lineNum">      71</span>              :     end else begin : gen_dn_cnt</span>
+<span id="L72"><span class="lineNum">      72</span>              :       assign incr_en = decr_en_i;</span>
+<span id="L73"><span class="lineNum">      73</span>              :       assign decr_en = incr_en_i;</span>
+<span id="L74"><span class="lineNum">      74</span>              :       // The secondary value needs to be adjusted accordingly.</span>
+<span id="L75"><span class="lineNum">      75</span>              :       assign set_val = {Width{1'b1}} - set_cnt_i;</span>
+<span id="L76"><span class="lineNum">      76</span>              :     end</span>
+<span id="L77"><span class="lineNum">      77</span>              : </span>
+<span id="L78"><span class="lineNum">      78</span>              :     // Main counter logic</span>
+<span id="L79"><span class="lineNum">      79</span>              :     logic [Width:0] ext_cnt;</span>
+<span id="L80"><span class="lineNum">      80</span>              :     assign ext_cnt = (decr_en) ? {1'b0, cnt_q[k]} - {1'b0, step_i} :</span>
+<span id="L81"><span class="lineNum">      81</span>              :                      (incr_en) ? {1'b0, cnt_q[k]} + {1'b0, step_i} : {1'b0, cnt_q[k]};</span>
+<span id="L82"><span class="lineNum">      82</span>              : </span>
+<span id="L83"><span class="lineNum">      83</span>              :     // Saturation logic</span>
+<span id="L84"><span class="lineNum">      84</span>              :     logic uflow, oflow;</span>
+<span id="L85"><span class="lineNum">      85</span>              :     assign oflow = incr_en &amp;&amp; ext_cnt[Width];</span>
+<span id="L86"><span class="lineNum">      86</span>              :     assign uflow = decr_en &amp;&amp; ext_cnt[Width];</span>
+<span id="L87"><span class="lineNum">      87</span>              :     logic [Width-1:0] cnt_sat;</span>
+<span id="L88"><span class="lineNum">      88</span>              :     assign cnt_sat = (uflow) ? '0            :</span>
+<span id="L89"><span class="lineNum">      89</span>              :                      (oflow) ? {Width{1'b1}} : ext_cnt[Width-1:0];</span>
+<span id="L90"><span class="lineNum">      90</span>              : </span>
+<span id="L91"><span class="lineNum">      91</span>              :     // Clock gate flops when in saturation, and do not</span>
+<span id="L92"><span class="lineNum">      92</span>              :     // count if both incr_en and decr_en are asserted.</span>
+<span id="L93"><span class="lineNum">      93</span>              :     logic cnt_en;</span>
+<span id="L94"><span class="lineNum">      94</span>              :     assign cnt_en = (incr_en ^ decr_en) &amp;&amp;</span>
+<span id="L95"><span class="lineNum">      95</span>              :                     ((incr_en &amp;&amp; !(&amp;cnt_q[k])) ||</span>
+<span id="L96"><span class="lineNum">      96</span>              :                     (decr_en &amp;&amp; !(cnt_q[k] == '0)));</span>
+<span id="L97"><span class="lineNum">      97</span>              : </span>
+<span id="L98"><span class="lineNum">      98</span>              :     // Counter muxes</span>
+<span id="L99"><span class="lineNum">      99</span>              :     assign cnt_d[k] = (clr_i)  ? ResetValues[k] :</span>
+<span id="L100"><span class="lineNum">     100</span>              :                       (set_i)  ? set_val        :</span>
+<span id="L101"><span class="lineNum">     101</span>              :                       (cnt_en) ? cnt_sat        : cnt_q[k];</span>
+<span id="L102"><span class="lineNum">     102</span>              : </span>
+<span id="L103"><span class="lineNum">     103</span>              :     logic [Width-1:0] cnt_unforced_q;</span>
+<span id="L104"><span class="lineNum">     104</span>              :     caliptra_prim_flop #(</span>
+<span id="L105"><span class="lineNum">     105</span>              :       .Width(Width),</span>
+<span id="L106"><span class="lineNum">     106</span>              :       .ResetValue(ResetValues[k])</span>
+<span id="L107"><span class="lineNum">     107</span>              :     ) u_cnt_flop (</span>
+<span id="L108"><span class="lineNum">     108</span>              :       .clk_i,</span>
+<span id="L109"><span class="lineNum">     109</span>              :       .rst_ni,</span>
+<span id="L110"><span class="lineNum">     110</span>              :       .d_i(cnt_d[k]),</span>
+<span id="L111"><span class="lineNum">     111</span>              :       .q_o(cnt_unforced_q)</span>
+<span id="L112"><span class="lineNum">     112</span>              :     );</span>
+<span id="L113"><span class="lineNum">     113</span>              : </span>
+<span id="L114"><span class="lineNum">     114</span>              :     // fpv_force is only used during FPV.</span>
+<span id="L115"><span class="lineNum">     115</span>              :     assign cnt_q[k] = fpv_force[k] + cnt_unforced_q;</span>
+<span id="L116"><span class="lineNum">     116</span>              :   end</span>
+<span id="L117"><span class="lineNum">     117</span>              : </span>
+<span id="L118"><span class="lineNum">     118</span>              :   // The sum of both counters must always equal the counter maximum.</span>
+<span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC">           3 :   logic [Width:0] sum;</span></span>
+<span id="L120"><span class="lineNum">     120</span>              :   assign sum = (cnt_q[0] + cnt_q[1]);</span>
+<span id="L121"><span class="lineNum">     121</span>              :   assign err_o = (sum != {1'b0, {Width{1'b1}}});</span>
+<span id="L122"><span class="lineNum">     122</span>              : </span>
+<span id="L123"><span class="lineNum">     123</span>              :   // Output count values</span>
+<span id="L124"><span class="lineNum">     124</span>              :   assign cnt_o      = cnt_q[0];</span>
+<span id="L125"><span class="lineNum">     125</span>              :   assign cnt_next_o = cnt_d[0];</span>
+<span id="L126"><span class="lineNum">     126</span>              : </span>
+<span id="L127"><span class="lineNum">     127</span>              :   ////////////////</span>
+<span id="L128"><span class="lineNum">     128</span>              :   // Assertions //</span>
+<span id="L129"><span class="lineNum">     129</span>              :   ////////////////</span>
+<span id="L130"><span class="lineNum">     130</span>              : `ifdef CALIPTRA_INC_ASSERT</span>
+<span id="L131"><span class="lineNum">     131</span>              :   //VCS coverage off</span>
+<span id="L132"><span class="lineNum">     132</span>              :   // pragma coverage off</span>
+<span id="L133"><span class="lineNum">     133</span>              : </span>
+<span id="L134"><span class="lineNum">     134</span>              :   // We need to disable most assertions in that case using a helper signal.</span>
+<span id="L135"><span class="lineNum">     135</span>              :   // We can't rely on err_o since some error patterns cannot be detected (e.g. all error</span>
+<span id="L136"><span class="lineNum">     136</span>              :   // patterns that still fullfill the sum constraint).</span>
+<span id="L137"><span class="lineNum">     137</span>              :   logic fpv_err_present;</span>
+<span id="L138"><span class="lineNum">     138</span>              :   assign fpv_err_present = |fpv_force;</span>
+<span id="L139"><span class="lineNum">     139</span>              : </span>
+<span id="L140"><span class="lineNum">     140</span>              :   // Helper functions for assertions.</span>
+<span id="L141"><span class="lineNum">     141</span>              :   function automatic logic signed [Width+1:0] max(logic signed [Width+1:0] a,</span>
+<span id="L142"><span class="lineNum">     142</span>              :                                                   logic signed [Width+1:0] b);</span>
+<span id="L143"><span class="lineNum">     143</span>              :     return (a &gt; b) ? a : b;</span>
+<span id="L144"><span class="lineNum">     144</span>              :   endfunction</span>
+<span id="L145"><span class="lineNum">     145</span>              : </span>
+<span id="L146"><span class="lineNum">     146</span>              :   function automatic logic signed [Width+1:0] min(logic signed [Width+1:0] a,</span>
+<span id="L147"><span class="lineNum">     147</span>              :                                                   logic signed [Width+1:0] b);</span>
+<span id="L148"><span class="lineNum">     148</span>              :     return (a &lt; b) ? a : b;</span>
+<span id="L149"><span class="lineNum">     149</span>              :   endfunction</span>
+<span id="L150"><span class="lineNum">     150</span>              :   //VCS coverage on</span>
+<span id="L151"><span class="lineNum">     151</span>              :   // pragma coverage on</span>
+<span id="L152"><span class="lineNum">     152</span>              : </span>
+<span id="L153"><span class="lineNum">     153</span>              :   // Cnt next</span>
+<span id="L154"><span class="lineNum">     154</span>              :   `CALIPTRA_ASSERT(CntNext_A,</span>
+<span id="L155"><span class="lineNum">     155</span>              :       rst_ni</span>
+<span id="L156"><span class="lineNum">     156</span>              :       |=&gt;</span>
+<span id="L157"><span class="lineNum">     157</span>              :       cnt_o == $past(cnt_next_o),</span>
+<span id="L158"><span class="lineNum">     158</span>              :       clk_i, err_o || fpv_err_present || !rst_ni)</span>
+<span id="L159"><span class="lineNum">     159</span>              : </span>
+<span id="L160"><span class="lineNum">     160</span>              :   // Clear</span>
+<span id="L161"><span class="lineNum">     161</span>              :   `CALIPTRA_ASSERT(ClrFwd_A,</span>
+<span id="L162"><span class="lineNum">     162</span>              :       rst_ni &amp;&amp; clr_i</span>
+<span id="L163"><span class="lineNum">     163</span>              :       |=&gt;</span>
+<span id="L164"><span class="lineNum">     164</span>              :       (cnt_o == ResetValue) &amp;&amp;</span>
+<span id="L165"><span class="lineNum">     165</span>              :       (cnt_q[1] == ({Width{1'b1}} - ResetValue)),</span>
+<span id="L166"><span class="lineNum">     166</span>              :       clk_i, err_o || fpv_err_present || !rst_ni)</span>
+<span id="L167"><span class="lineNum">     167</span>              :   `CALIPTRA_ASSERT(ClrBkwd_A,</span>
+<span id="L168"><span class="lineNum">     168</span>              :       rst_ni &amp;&amp; !(incr_en_i || decr_en_i || set_i) ##1</span>
+<span id="L169"><span class="lineNum">     169</span>              :       $changed(cnt_o) &amp;&amp; $changed(cnt_q[1])</span>
+<span id="L170"><span class="lineNum">     170</span>              :       |-&gt;</span>
+<span id="L171"><span class="lineNum">     171</span>              :       $past(clr_i),</span>
+<span id="L172"><span class="lineNum">     172</span>              :       clk_i, err_o || fpv_err_present || !rst_ni)</span>
+<span id="L173"><span class="lineNum">     173</span>              : </span>
+<span id="L174"><span class="lineNum">     174</span>              :   // Set</span>
+<span id="L175"><span class="lineNum">     175</span>              :   `CALIPTRA_ASSERT(SetFwd_A,</span>
+<span id="L176"><span class="lineNum">     176</span>              :       rst_ni &amp;&amp; set_i &amp;&amp; !clr_i</span>
+<span id="L177"><span class="lineNum">     177</span>              :       |=&gt;</span>
+<span id="L178"><span class="lineNum">     178</span>              :       (cnt_o == $past(set_cnt_i)) &amp;&amp;</span>
+<span id="L179"><span class="lineNum">     179</span>              :       (cnt_q[1] == ({Width{1'b1}} - $past(set_cnt_i))),</span>
+<span id="L180"><span class="lineNum">     180</span>              :       clk_i, err_o || fpv_err_present || !rst_ni)</span>
+<span id="L181"><span class="lineNum">     181</span>              :   `CALIPTRA_ASSERT(SetBkwd_A,</span>
+<span id="L182"><span class="lineNum">     182</span>              :       rst_ni &amp;&amp; !(incr_en_i || decr_en_i || clr_i) ##1</span>
+<span id="L183"><span class="lineNum">     183</span>              :       $changed(cnt_o) &amp;&amp; $changed(cnt_q[1])</span>
+<span id="L184"><span class="lineNum">     184</span>              :       |-&gt;</span>
+<span id="L185"><span class="lineNum">     185</span>              :       $past(set_i),</span>
+<span id="L186"><span class="lineNum">     186</span>              :       clk_i, err_o || fpv_err_present || !rst_ni)</span>
+<span id="L187"><span class="lineNum">     187</span>              : </span>
+<span id="L188"><span class="lineNum">     188</span>              :   // Do not count if both increment and decrement are asserted.</span>
+<span id="L189"><span class="lineNum">     189</span>              :   `CALIPTRA_ASSERT(IncrDecrUpDnCnt_A,</span>
+<span id="L190"><span class="lineNum">     190</span>              :       rst_ni &amp;&amp; incr_en_i &amp;&amp; decr_en_i &amp;&amp; !(clr_i || set_i)</span>
+<span id="L191"><span class="lineNum">     191</span>              :       |=&gt;</span>
+<span id="L192"><span class="lineNum">     192</span>              :       $stable(cnt_o) &amp;&amp; $stable(cnt_q[1]),</span>
+<span id="L193"><span class="lineNum">     193</span>              :       clk_i, err_o || fpv_err_present || !rst_ni)</span>
+<span id="L194"><span class="lineNum">     194</span>              : </span>
+<span id="L195"><span class="lineNum">     195</span>              :   // Up counter</span>
+<span id="L196"><span class="lineNum">     196</span>              :   `CALIPTRA_ASSERT(IncrUpCnt_A,</span>
+<span id="L197"><span class="lineNum">     197</span>              :       rst_ni &amp;&amp; incr_en_i &amp;&amp; !(clr_i || set_i || decr_en_i)</span>
+<span id="L198"><span class="lineNum">     198</span>              :       |=&gt;</span>
+<span id="L199"><span class="lineNum">     199</span>              :       cnt_o == min($past(cnt_o) + $past({2'b0, step_i}), {2'b0, {Width{1'b1}}}),</span>
+<span id="L200"><span class="lineNum">     200</span>              :       clk_i, err_o || fpv_err_present || !rst_ni)</span>
+<span id="L201"><span class="lineNum">     201</span>              :   `CALIPTRA_ASSERT(IncrDnCnt_A,</span>
+<span id="L202"><span class="lineNum">     202</span>              :       rst_ni &amp;&amp; incr_en_i &amp;&amp; !(clr_i || set_i || decr_en_i)</span>
+<span id="L203"><span class="lineNum">     203</span>              :       |=&gt;</span>
+<span id="L204"><span class="lineNum">     204</span>              :       cnt_q[1] == max($past(signed'({2'b0, cnt_q[1]})) - $past({2'b0, step_i}), '0),</span>
+<span id="L205"><span class="lineNum">     205</span>              :       clk_i, err_o || fpv_err_present || !rst_ni)</span>
+<span id="L206"><span class="lineNum">     206</span>              :   `CALIPTRA_ASSERT(UpCntIncrStable_A,</span>
+<span id="L207"><span class="lineNum">     207</span>              :       incr_en_i &amp;&amp; !(clr_i || set_i || decr_en_i) &amp;&amp;</span>
+<span id="L208"><span class="lineNum">     208</span>              :       cnt_o == {Width{1'b1}}</span>
+<span id="L209"><span class="lineNum">     209</span>              :       |=&gt;</span>
+<span id="L210"><span class="lineNum">     210</span>              :       $stable(cnt_o),</span>
+<span id="L211"><span class="lineNum">     211</span>              :       clk_i, err_o || fpv_err_present || !rst_ni)</span>
+<span id="L212"><span class="lineNum">     212</span>              :   `CALIPTRA_ASSERT(UpCntDecrStable_A,</span>
+<span id="L213"><span class="lineNum">     213</span>              :       decr_en_i &amp;&amp; !(clr_i || set_i || incr_en_i) &amp;&amp;</span>
+<span id="L214"><span class="lineNum">     214</span>              :       cnt_o == '0</span>
+<span id="L215"><span class="lineNum">     215</span>              :       |=&gt;</span>
+<span id="L216"><span class="lineNum">     216</span>              :       $stable(cnt_o),</span>
+<span id="L217"><span class="lineNum">     217</span>              :       clk_i, err_o || fpv_err_present || !rst_ni)</span>
+<span id="L218"><span class="lineNum">     218</span>              : </span>
+<span id="L219"><span class="lineNum">     219</span>              :   // Down counter</span>
+<span id="L220"><span class="lineNum">     220</span>              :   `CALIPTRA_ASSERT(DecrUpCnt_A,</span>
+<span id="L221"><span class="lineNum">     221</span>              :       rst_ni &amp;&amp; decr_en_i &amp;&amp; !(clr_i || set_i || incr_en_i)</span>
+<span id="L222"><span class="lineNum">     222</span>              :       |=&gt;</span>
+<span id="L223"><span class="lineNum">     223</span>              :       cnt_o == max($past(signed'({2'b0, cnt_o})) - $past({2'b0, step_i}), '0),</span>
+<span id="L224"><span class="lineNum">     224</span>              :       clk_i, err_o || fpv_err_present || !rst_ni)</span>
+<span id="L225"><span class="lineNum">     225</span>              :   `CALIPTRA_ASSERT(DecrDnCnt_A,</span>
+<span id="L226"><span class="lineNum">     226</span>              :       rst_ni &amp;&amp; decr_en_i &amp;&amp; !(clr_i || set_i || incr_en_i)</span>
+<span id="L227"><span class="lineNum">     227</span>              :       |=&gt;</span>
+<span id="L228"><span class="lineNum">     228</span>              :       cnt_q[1] == min($past(cnt_q[1]) + $past({2'b0, step_i}), {2'b0, {Width{1'b1}}}),</span>
+<span id="L229"><span class="lineNum">     229</span>              :       clk_i, err_o || fpv_err_present || !rst_ni)</span>
+<span id="L230"><span class="lineNum">     230</span>              :   `CALIPTRA_ASSERT(DnCntIncrStable_A,</span>
+<span id="L231"><span class="lineNum">     231</span>              :       rst_ni &amp;&amp; incr_en_i &amp;&amp; !(clr_i || set_i || decr_en_i) &amp;&amp;</span>
+<span id="L232"><span class="lineNum">     232</span>              :       cnt_q[1] == '0</span>
+<span id="L233"><span class="lineNum">     233</span>              :       |=&gt;</span>
+<span id="L234"><span class="lineNum">     234</span>              :       $stable(cnt_q[1]),</span>
+<span id="L235"><span class="lineNum">     235</span>              :       clk_i, err_o || fpv_err_present || !rst_ni)</span>
+<span id="L236"><span class="lineNum">     236</span>              :   `CALIPTRA_ASSERT(DnCntDecrStable_A,</span>
+<span id="L237"><span class="lineNum">     237</span>              :       rst_ni &amp;&amp; decr_en_i &amp;&amp; !(clr_i || set_i || incr_en_i) &amp;&amp;</span>
+<span id="L238"><span class="lineNum">     238</span>              :       cnt_q[1] == {Width{1'b1}}</span>
+<span id="L239"><span class="lineNum">     239</span>              :       |=&gt;</span>
+<span id="L240"><span class="lineNum">     240</span>              :       $stable(cnt_q[1]),</span>
+<span id="L241"><span class="lineNum">     241</span>              :       clk_i, err_o || fpv_err_present || !rst_ni)</span>
+<span id="L242"><span class="lineNum">     242</span>              : </span>
+<span id="L243"><span class="lineNum">     243</span>              :   // Error</span>
+<span id="L244"><span class="lineNum">     244</span>              :   `CALIPTRA_ASSERT(CntErrForward_A,</span>
+<span id="L245"><span class="lineNum">     245</span>              :       (cnt_q[1] + cnt_q[0]) != {Width{1'b1}}</span>
+<span id="L246"><span class="lineNum">     246</span>              :       |-&gt;</span>
+<span id="L247"><span class="lineNum">     247</span>              :       err_o)</span>
+<span id="L248"><span class="lineNum">     248</span>              :   `CALIPTRA_ASSERT(CntErrBackward_A,</span>
+<span id="L249"><span class="lineNum">     249</span>              :       err_o</span>
+<span id="L250"><span class="lineNum">     250</span>              :       |-&gt;</span>
+<span id="L251"><span class="lineNum">     251</span>              :       (cnt_q[1] + cnt_q[0]) != {Width{1'b1}})</span>
+<span id="L252"><span class="lineNum">     252</span>              : </span>
+<span id="L253"><span class="lineNum">     253</span>              :   // This logic that will be assign to one, when user adds macro</span>
+<span id="L254"><span class="lineNum">     254</span>              :   // CALIPTRA_ASSERT_PRIM_COUNT_ERROR_TRIGGER_ALERT to check the error with alert, in case that caliptra_prim_count</span>
+<span id="L255"><span class="lineNum">     255</span>              :   // is used in design without adding this assertion check.</span>
+<span id="L256"><span class="lineNum">     256</span>              :   logic unused_assert_connected;</span>
+<span id="L257"><span class="lineNum">     257</span>              : </span>
+<span id="L258"><span class="lineNum">     258</span>              :   `CALIPTRA_ASSERT_INIT_NET(AssertConnected_A, unused_assert_connected === 1'b1 || !EnableAlertTriggerSVA)</span>
+<span id="L259"><span class="lineNum">     259</span>              : `endif</span>
+<span id="L260"><span class="lineNum">     260</span>              : </span>
+<span id="L261"><span class="lineNum">     261</span>              : endmodule // caliptra_prim_count</span>
+        </pre>
+</td>
+</tr>
+</table>
+
+</body>
+</html>
