@@ -107,13 +107,23 @@ class HeaderPrintingListener(RDLListener):
                 return
             field_name = node.parent.parent.parent.inst_name + "_" \
                         + node.parent.inst_name + "_" + node.inst_name
-        if node.width == 1:
+            mask_width = node.parent.parent.inst.properties["memwidth"]
+            field_mask = hex(((2 << node.high) - 1) & ~((1 << node.low) -1))
+            if self.tick != "`":
+                # For software always assume 32-bit mask and trim LSBs
+                while(len(field_mask) > 10):
+                    field_mask = field_mask[:len(field_mask) - 8]
+            else:
+                field_mask = field_mask.replace("0x", f"{mask_width}'h", 1)
+            self.file.write((self.tick + "define " + field_name.upper() + "_LOW" + "\t(" + str(node.low) + ")\n").expandtabs(100))
+            self.file.write((self.tick + "define " + field_name.upper() + "_MASK" + "\t(" + field_mask + ")\n").expandtabs(100))
+        elif node.width == 1:
             field_mask = hex(1 << node.low)
             if self.tick == "`":
                 field_mask = field_mask.replace("0x", "32'h", 1)
             self.file.write((self.tick + "define " + field_name.upper() + "_LOW" + "\t(" + str(node.low) + ")\n").expandtabs(100))
             self.file.write((self.tick + "define " + field_name.upper() + "_MASK" + "\t(" + field_mask + ")\n").expandtabs(100))
-        elif (node.low != 0 or node.high != 31) or isinstance(node.parent.parent, MemNode):
+        elif node.low != 0 or node.high != 31:
             field_mask = hex(((2 << node.high) - 1) & ~((1 << node.low) -1))
             if self.tick == "`":
                 field_mask = field_mask.replace("0x", "32'h", 1)
