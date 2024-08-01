@@ -4,7 +4,7 @@ name: Verilator
 
 on:
   push:
-    branches: ["main", "dev-goog", "dev-msft", "wkuna/62360-deployable-cov-report"]
+    branches: ["main", "dev-goog", "dev-msft", "wkuna/62907-page-gen"]
   workflow_call:
   workflow_dispatch:
 
@@ -123,8 +123,8 @@ jobs:
     outputs:
       test_names: ${{ steps.output-matrix.outputs.test_names  }}
     env:
-      # Essentially, execute 'smoke_test_uart' only
-      EXCLUDE_TESTS: "smoke_test_veer, smoke_test_mbox, smoke_test_mbox_cg, smoke_test_sha512, smoke_test_sha256, smoke_test_sha256_wntz, smoke_test_sha256_wntz_rand, smoke_test_sha_accel, memCpy_ROM_to_dccm, memCpy_dccm_to_iccm, hello_world_iccm, iccm_lock, c_intr_handler, smoke_test_ecc, smoke_test_hmac, smoke_test_kv, smoke_test_sram_ecc, smoke_test_ras, smoke_test_trng, smoke_test_qspi, smoke_test_hw_config, smoke_test_kv_uds_reset, smoke_test_kv_securitystate, smoke_test_kv_ecc_flow, smoke_test_kv_hmac_flow, smoke_test_kv_hmac_multiblock_flow, smoke_test_kv_crypto_flow, smoke_test_kv_cg, pv_hash_and_sign, smoke_test_pcr_signing, smoke_test_fw_kv_backtoback_hmac, smoke_test_ecc_errortrigger, smoke_test_pcr_zeroize, smoke_test_ahb_mux, smoke_test_doe_rand, smoke_test_doe_scan, smoke_test_zeroize_crypto, smoke_test_doe_cg, smoke_test_datavault_basic, smoke_test_datavault_reset, smoke_test_datavault_lock, smoke_test_wdt, smoke_test_wdt_rst, smoke_test_cg_wdt, smoke_test_clk_gating, smoke_test_iccm_reset"
+      # Essentially, execute 'smoke_test_uart' and 'smoke_test_trng' only
+      EXCLUDE_TESTS: "smoke_test_veer, smoke_test_mbox, smoke_test_mbox_cg, smoke_test_sha512, smoke_test_sha256, smoke_test_sha256_wntz, smoke_test_sha256_wntz_rand, smoke_test_sha_accel, memCpy_ROM_to_dccm, memCpy_dccm_to_iccm, hello_world_iccm, iccm_lock, c_intr_handler, smoke_test_ecc, smoke_test_hmac, smoke_test_kv, smoke_test_sram_ecc, smoke_test_ras, smoke_test_qspi, smoke_test_hw_config, smoke_test_kv_uds_reset, smoke_test_kv_securitystate, smoke_test_kv_ecc_flow, smoke_test_kv_hmac_flow, smoke_test_kv_hmac_multiblock_flow, smoke_test_kv_crypto_flow, smoke_test_kv_cg, pv_hash_and_sign, smoke_test_pcr_signing, smoke_test_fw_kv_backtoback_hmac, smoke_test_ecc_errortrigger, smoke_test_pcr_zeroize, smoke_test_ahb_mux, smoke_test_doe_rand, smoke_test_doe_scan, smoke_test_zeroize_crypto, smoke_test_doe_cg, smoke_test_datavault_basic, smoke_test_datavault_reset, smoke_test_datavault_lock, smoke_test_wdt, smoke_test_wdt_rst, smoke_test_cg_wdt, smoke_test_clk_gating, smoke_test_iccm_reset"
     steps:
       - uses: actions/checkout@v3
       - name: Install deps
@@ -188,6 +188,13 @@ jobs:
         run: |
           echo /opt/riscv/bin >> $GITHUB_PATH
 
+      - name: Setup SiteSpawner
+        run: |
+          python3 -m venv .venv
+          .venv/bin/python3 -m pip install tools/SiteSpawner
+          source .venv/bin/activate
+          echo "PATH=$PATH" >> $GITHUB_ENV
+
       - name: Run Caliptra Verilator Smoke Test
         run: |
           CALIPTRA_ROOT=$(pwd)
@@ -205,8 +212,7 @@ jobs:
 
       - name: Prepare coverage data
         run: |
-          bash .github/scripts/convert_coverage_data.sh tools/scripts/coverage.dat
-          echo "convert_coverage_data.sh exited with RET_CODE = "$?
+          sis convert --dat-dir .
           mkdir -p results
           mv tools/scripts/coverage.info  results/coverage_${{ matrix.test_name }}_${{ matrix.coverage }}.info
 
@@ -257,31 +263,34 @@ jobs:
           name: build_test_verilator_coverage_data
           path: ./
 
+      - name: Setup SiteSpawner
+        run: |
+          python3 -m venv .venv
+          .venv/bin/python3 -m pip install tools/SiteSpawner
+          source .venv/bin/activate
+          echo "PATH=$PATH" >> $GITHUB_ENV
+
       - name: Generate Coverage Dashboard
         if: github.ref_name == 'main'
         run: |
           # TODO: Once deploy URL for the page is known, change '../..' to URL of main index.html page
-          LOGO_SRC=../../../_static/white.svg LOGO_HREF=../../../index.html bash .github/scripts/gen_coverage_reports.sh
+          sis reports --report-dir coverage_dashboard --src-path ./src --src-pattern \*src\*/rtl/\* --logo-src ../../../_static/white.svg --logo-href ../../../index.html
 
       - name: Generate Coverage Dashboard Dev
         if: github.ref_name != 'main'
         run: |
           # TODO: Once deploy URL for the page is known, change '../..' to URL of main index.html page
-          LOGO_SRC=../../../../_static/white.svg LOGO_HREF=../../../../index.html bash .github/scripts/gen_coverage_reports.sh
-
-      - name: Rename Coverage Dashboard
-        run: |
-          mv report coverage_dashboard
+          sis reports --report-dir coverage_dashboard --src-path ./src --src-pattern \*src\*/rtl/\*  --logo-src ../../../../_static/white.svg --logo-href ../../../../index.html
 
       - name: Update webpage
         if: github.event_name != 'pull_request'
         run: |
-          bash .github/scripts/update_webpage.sh ${{ github.ref_name }} ${{ github.event_name }} 0
+          sis webpage --loc-github-ref-name ${{ github.ref_name }} --loc-github-event-name ${{ github.event_name }} --pr-number 0
 
       - name: Update webpage PR
         if: github.event_name == 'pull_request'
         run: |
-          bash .github/scripts/update_webpage.sh ${{ github.ref_name }} ${{ github.event_name }} ${{ github.event.number }}
+          sis webpage --loc-github-ref-name ${{ github.ref_name }} --loc-github-event-name ${{ github.event_name }} --pr-number ${{ github.event.number }}
 
       - name: Pack artifacts
         if: always()
