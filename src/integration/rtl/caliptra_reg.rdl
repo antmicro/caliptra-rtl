@@ -40,6 +40,8 @@ addrmap clp {
 
     entropy_src entropy_src_reg @ 0x2000_3000;
 
+    I3CCSR i3c_reg @ 0x2000_4000;
+
     mbox_csr mbox_csr @ 0x3002_0000;
 
     sha512_acc_csr sha512_acc_csr @ 0x3002_1000;

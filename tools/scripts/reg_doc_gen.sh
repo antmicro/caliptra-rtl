@@ -31,7 +31,8 @@ src/keyvault/rtl/kv_def.rdl \
 src/entropy_src/data/entropy_src.rdl \
 src/csrng/data/csrng.rdl \
 src/spi_host/data/spi_host.rdl \
-src/uart/data/uart.rdl
+src/uart/data/uart.rdl \
+"${I3C_ROOT}"/src/rdl/registers.rdl
 
 python3 tools/scripts/reg_doc_gen.py \
 src/soc_ifc/rtl/caliptra_top_reg.rdl \
