@@ -57,7 +57,9 @@ def reports_handler(args):
 
 
 def webpage_handler(args):
-    update_webpage(args.loc_github_ref_name, args.loc_github_event_name, args.pr_number)
+    update_webpage(
+        args.loc_github_ref_name, args.loc_github_event_name, args.pr_number, args.page_url
+    )
 
 
 def all_handler(args):
@@ -230,7 +232,15 @@ def setup_parser():
             "required": True,
         },
     }
-    webpage_args = [ref_name, event_name, pr_number]
+    page_url = {
+        "name": "--page-url",
+        "options": {
+            "type": str,
+            "metavar": "page_url",
+            "help": "Base URL of the website. Otherwise, will apply relative reference for redirect.",
+        },
+    }
+    webpage_args = [ref_name, event_name, pr_number, page_url]
     create_subparser(
         subparsers=subparsers,
         name="webpage",

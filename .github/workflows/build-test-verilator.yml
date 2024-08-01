@@ -269,6 +269,18 @@ jobs:
           source .venv/bin/activate
           echo "PATH=$PATH" >> $GITHUB_ENV
 
+      - name: Checkout gh-pages
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+          path: ./public.checkout
+
+      - name: Preserve current page
+        run: |
+          mkdir -p ./public.old
+          cp -r ./public.checkout/doctrees ./public.old/ | true
+          cp -r ./public.checkout/html ./public.old/ | true
+
       - name: Generate Coverage Dashboard
         if: github.ref_name == 'main'
         run: |
@@ -290,6 +302,13 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           sis webpage --loc-github-ref-name ${{ github.ref_name }} --loc-github-event-name ${{ github.event_name }} --pr-number ${{ github.event.number }}
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public.new
 
       - name: Pack artifacts
         if: always()

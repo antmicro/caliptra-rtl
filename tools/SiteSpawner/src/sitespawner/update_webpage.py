@@ -3,12 +3,14 @@ import subprocess
 import sys
 from pathlib import Path
 from shutil import copy2, copytree, rmtree
+from jinja2 import Environment, FileSystemLoader
 
 from .common import (
     args_on_debug_logger,
     main_func_log,
     setup_logger,
     webpage_template_dir,
+    template_dir,
 )
 from .generate import generate
 from .update_style import update_style
@@ -38,7 +40,7 @@ def replace_dir(src_dir, dst_dir):
 
 @main_func_log(logger, "Update webpage")
 @args_on_debug_logger(logger)
-def update_webpage(loc_github_ref_name, loc_github_event_name, pr_number):
+def update_webpage(loc_github_ref_name, loc_github_event_name, pr_number, page_url=None):
     """Updates the public part of the gh-pages based on git refs, github events, and PR numbers."""
     # Determine the directory based on the GitHub ref and event
     if loc_github_ref_name == "main":
@@ -92,3 +94,14 @@ def update_webpage(loc_github_ref_name, loc_github_event_name, pr_number):
             copy2(src_file, dst_file)
 
     update_style(new_page_dir)
+
+    if not page_url:
+        page_url = "."
+    else:
+        page_url = page_url.rstrip("//")
+
+    env = Environment(loader=FileSystemLoader(template_dir))
+    redirect = env.get_template("redirect.html").render(page_url=page_url)
+
+    with open(new_page_dir / "index.html", "w") as f:
+        print(redirect, file=f)

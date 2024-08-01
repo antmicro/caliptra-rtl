@@ -35,7 +35,7 @@ where = ["src", "."]
 include = ["template", "styles", "sitespawner"]
 
 [tool.setuptools.package-data]
-"template" = ["coverage_report/*", "webpage/*"]
+"template" = ["coverage_report/*", "webpage/*", "*.html"]
 "styles" = ["*", "assets/*"]
 
 
