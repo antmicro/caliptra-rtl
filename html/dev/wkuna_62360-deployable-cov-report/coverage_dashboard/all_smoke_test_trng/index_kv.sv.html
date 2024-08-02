@@ -1,0 +1,394 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Full
+        coverage report
+    </title>
+    <link rel="stylesheet" type="text/css" href="cov.css">
+    <style>
+        .container {
+            background-color: rgb(169, 169, 169);
+            width: 100%;
+            min-height: 80%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="title-header-shadow">
+        <td class="title-container">
+            <table class="title-header">
+                <td class="title-logo">
+                    <a href=../../../../index.html>
+                        <img src=../../../../_static/white.svg></img>
+                    </a>
+                </td>
+                <td class="title">
+                    Caliptra RTL
+                    Full
+                    coverage report
+                </td>
+            </table>
+        </td>
+    </table>
+    <center>
+        <table class="info-table">
+            <tr class="info-table-view">
+                <td width="10%" class="headerInfo">Current view:</td>
+                <td width="40%" class="headerInfoValue">
+                    <a href=index.html>caliptra-rtl</a>—src—keyvault—rtl—kv.sv
+                </td>
+                <td width=auto></td>
+                <td width="10%"></td>
+                <td width="10%" class="headerCovSummary colTop">Coverage</td>
+                <td width="10%" class="headerCovSummary colTop" title="Covered + Uncovered code">Hit</td>
+                <td width="10%" class="headerCovSummary colTop" title="Exercised code only">Total</td>
+            </tr>
+            <tr>
+                <td class="headerInfo">Test Date:</td>
+                <td class="headerInfoValue">
+                    02-08-2024
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Toggle
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffc000;">
+        37.8%
+    </td>
+    <td class="headerCovSummaryEntry">
+        13
+    </td>
+    <td class="headerCovSummaryEntry">
+        37
+    </td>
+
+            </tr>
+            <tr>
+                <td class="headerInfo">Test:</td>
+                <td class="headerInfoValue">
+                    smoke_test_trng
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Branch
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #0cff00;">
+        97.6%
+    </td>
+    <td class="headerCovSummaryEntry">
+        80
+    </td>
+    <td class="headerCovSummaryEntry">
+        82
+    </td>
+
+            </tr>
+            
+        </table>
+    </center>
+
+    <table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td><br/></td>
+</tr>
+<tr>
+<td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : // SPDX-License-Identifier: Apache-2.0</span>
+<span id="L2"><span class="lineNum">       2</span>              : //</span>
+<span id="L3"><span class="lineNum">       3</span>              : // Licensed under the Apache License, Version 2.0 (the "License");</span>
+<span id="L4"><span class="lineNum">       4</span>              : // you may not use this file except in compliance with the License.</span>
+<span id="L5"><span class="lineNum">       5</span>              : // You may obtain a copy of the License at</span>
+<span id="L6"><span class="lineNum">       6</span>              : //</span>
+<span id="L7"><span class="lineNum">       7</span>              : // http://www.apache.org/licenses/LICENSE-2.0</span>
+<span id="L8"><span class="lineNum">       8</span>              : //</span>
+<span id="L9"><span class="lineNum">       9</span>              : // Unless required by applicable law or agreed to in writing, software</span>
+<span id="L10"><span class="lineNum">      10</span>              : // distributed under the License is distributed on an "AS IS" BASIS,</span>
+<span id="L11"><span class="lineNum">      11</span>              : // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span id="L12"><span class="lineNum">      12</span>              : // See the License for the specific language governing permissions and</span>
+<span id="L13"><span class="lineNum">      13</span>              : // limitations under the License.</span>
+<span id="L14"><span class="lineNum">      14</span>              : //</span>
+<span id="L15"><span class="lineNum">      15</span>              : </span>
+<span id="L16"><span class="lineNum">      16</span>              : </span>
+<span id="L17"><span class="lineNum">      17</span>              : `include "caliptra_macros.svh"</span>
+<span id="L18"><span class="lineNum">      18</span>              : </span>
+<span id="L19"><span class="lineNum">      19</span>              : module kv </span>
+<span id="L20"><span class="lineNum">      20</span>              :     import kv_defines_pkg::*;</span>
+<span id="L21"><span class="lineNum">      21</span>              :     import kv_reg_pkg::*;</span>
+<span id="L22"><span class="lineNum">      22</span>              : </span>
+<span id="L23"><span class="lineNum">      23</span>              :     #(</span>
+<span id="L24"><span class="lineNum">      24</span>              :      parameter AHB_ADDR_WIDTH = KV_ADDR_W</span>
+<span id="L25"><span class="lineNum">      25</span>              :     ,parameter AHB_DATA_WIDTH = 32</span>
+<span id="L26"><span class="lineNum">      26</span>              :     )</span>
+<span id="L27"><span class="lineNum">      27</span>              :     (</span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC tlaBgGNC">      212994 :     input logic clk,</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">           1 :     input logic rst_b,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">           1 :     input logic core_only_rst_b,</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           1 :     input logic cptra_pwrgood,</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic fw_update_rst_window,</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">           2 :     input logic cptra_in_debug_scan_mode,</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic debugUnlock_or_scan_mode_switch,</span></span>
+<span id="L35"><span class="lineNum">      35</span>              :     </span>
+<span id="L36"><span class="lineNum">      36</span>              :     //uC AHB Lite Interface</span>
+<span id="L37"><span class="lineNum">      37</span>              :     //from SLAVES PORT</span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC tlaBgGNC">          16 :     input logic [AHB_ADDR_WIDTH-1:0]      haddr_i,</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">          32 :     input logic [AHB_DATA_WIDTH-1:0]      hwdata_i,</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic                           hsel_i,</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">          31 :     input logic                           hwrite_i,</span></span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">           1 :     input logic                           hready_i,</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">       12948 :     input logic [1:0]                     htrans_i,</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic [2:0]                     hsize_i,</span></span>
+<span id="L45"><span class="lineNum">      45</span>              : </span>
+<span id="L46"><span class="lineNum">      46</span> <span class="tlaUNC">           0 :     output logic                          hresp_o,</span></span>
+<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC tlaBgGNC">           1 :     output logic                          hreadyout_o,</span></span>
+<span id="L48"><span class="lineNum">      48</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic [AHB_DATA_WIDTH-1:0]     hrdata_o,</span></span>
+<span id="L49"><span class="lineNum">      49</span>              : </span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaUNC">           0 :     input kv_read_t [KV_NUM_READ-1:0]     kv_read,</span></span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaUNC">           0 :     input kv_write_t [KV_NUM_WRITE-1:0]   kv_write,</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC">           0 :     output kv_rd_resp_t [KV_NUM_READ-1:0] kv_rd_resp,</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaUNC">           0 :     output kv_wr_resp_t [KV_NUM_WRITE-1:0] kv_wr_resp,</span></span>
+<span id="L54"><span class="lineNum">      54</span>              :     output logic [KV_NUM_DWORDS-1:0][31:0] pcr_signing_key</span>
+<span id="L55"><span class="lineNum">      55</span>              : </span>
+<span id="L56"><span class="lineNum">      56</span>              : );</span>
+<span id="L57"><span class="lineNum">      57</span>              : </span>
+<span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC">           0 : logic uc_req_dv, uc_req_hold;</span></span>
+<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC tlaBgGNC">        5340 : logic uc_req_error;</span></span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC tlaBgUNC">           0 : logic [31:0] uc_req_rdata;</span></span>
+<span id="L61"><span class="lineNum">      61</span> <span class="tlaGNC tlaBgGNC">        5340 : logic kv_reg_read_error, kv_reg_write_error;</span></span>
+<span id="L62"><span class="lineNum">      62</span> <span class="tlaUNC tlaBgUNC">           0 : logic [AHB_ADDR_WIDTH-1:0] uc_req_addr;</span></span>
+<span id="L63"><span class="lineNum">      63</span> <span class="tlaUNC">           0 : kv_uc_req_t uc_req;</span></span>
+<span id="L64"><span class="lineNum">      64</span>              : </span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaUNC">           0 : logic flush_keyvault;</span></span>
+<span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC tlaBgGNC">           1 : logic [31:0] debug_value;</span></span>
+<span id="L67"><span class="lineNum">      67</span>              : </span>
+<span id="L68"><span class="lineNum">      68</span>              : //intermediate signals to make verilator happy</span>
+<span id="L69"><span class="lineNum">      69</span>              : logic [KV_NUM_KEYS-1:0][KV_NUM_DWORDS-1:0] key_entry_we;</span>
+<span id="L70"><span class="lineNum">      70</span> <span class="tlaUNC tlaBgUNC">           0 : logic [KV_NUM_KEYS-1:0] key_entry_ctrl_we;</span></span>
+<span id="L71"><span class="lineNum">      71</span>              : logic [KV_NUM_KEYS-1:0][KV_NUM_DWORDS-1:0][31:0] key_entry_next;</span>
+<span id="L72"><span class="lineNum">      72</span> <span class="tlaUNC">           0 : logic [KV_NUM_KEYS-1:0][KV_NUM_READ-1:0] key_entry_dest_valid_next;</span></span>
+<span id="L73"><span class="lineNum">      73</span> <span class="tlaUNC">           0 : logic [KV_NUM_KEYS-1:0][KV_ENTRY_SIZE_W-1:0] key_entry_last_dword_next;</span></span>
+<span id="L74"><span class="lineNum">      74</span> <span class="tlaUNC">           0 : logic [KV_NUM_KEYS-1:0] lock_wr_q;</span></span>
+<span id="L75"><span class="lineNum">      75</span> <span class="tlaUNC">           0 : logic [KV_NUM_KEYS-1:0] lock_use_q;</span></span>
+<span id="L76"><span class="lineNum">      76</span>              : kv_reg__in_t kv_reg_hwif_in;</span>
+<span id="L77"><span class="lineNum">      77</span>              : kv_reg__out_t kv_reg_hwif_out;</span>
+<span id="L78"><span class="lineNum">      78</span>              : </span>
+<span id="L79"><span class="lineNum">      79</span> <span class="tlaUNC">           0 : logic [KV_NUM_KEYS-1:0] key_entry_clear;</span></span>
+<span id="L80"><span class="lineNum">      80</span>              : </span>
+<span id="L81"><span class="lineNum">      81</span> <span class="tlaUNC">           0 : logic [$clog2(KV_NUM_WRITE)-1:0] kv_write_cnt;</span></span>
+<span id="L82"><span class="lineNum">      82</span> <span class="tlaUNC">           0 : logic kv_multi_write_err;</span></span>
+<span id="L83"><span class="lineNum">      83</span>              : </span>
+<span id="L84"><span class="lineNum">      84</span>              : ahb_slv_sif #(</span>
+<span id="L85"><span class="lineNum">      85</span>              :     .AHB_ADDR_WIDTH(AHB_ADDR_WIDTH),</span>
+<span id="L86"><span class="lineNum">      86</span>              :     .AHB_DATA_WIDTH(AHB_DATA_WIDTH),</span>
+<span id="L87"><span class="lineNum">      87</span>              :     .CLIENT_DATA_WIDTH(32)</span>
+<span id="L88"><span class="lineNum">      88</span>              : )</span>
+<span id="L89"><span class="lineNum">      89</span>              : kv_ahb_slv1 (</span>
+<span id="L90"><span class="lineNum">      90</span>              :     //AMBA AHB Lite INF</span>
+<span id="L91"><span class="lineNum">      91</span>              :     .hclk(clk),</span>
+<span id="L92"><span class="lineNum">      92</span>              :     .hreset_n(rst_b),</span>
+<span id="L93"><span class="lineNum">      93</span>              :     .haddr_i(haddr_i),</span>
+<span id="L94"><span class="lineNum">      94</span>              :     .hwdata_i(hwdata_i),</span>
+<span id="L95"><span class="lineNum">      95</span>              :     .hsel_i(hsel_i),</span>
+<span id="L96"><span class="lineNum">      96</span>              :     .hwrite_i(hwrite_i),</span>
+<span id="L97"><span class="lineNum">      97</span>              :     .hready_i(hready_i),</span>
+<span id="L98"><span class="lineNum">      98</span>              :     .htrans_i(htrans_i),</span>
+<span id="L99"><span class="lineNum">      99</span>              :     .hsize_i(hsize_i),</span>
+<span id="L100"><span class="lineNum">     100</span>              : </span>
+<span id="L101"><span class="lineNum">     101</span>              :     .hresp_o(hresp_o),</span>
+<span id="L102"><span class="lineNum">     102</span>              :     .hreadyout_o(hreadyout_o),</span>
+<span id="L103"><span class="lineNum">     103</span>              :     .hrdata_o(hrdata_o),</span>
+<span id="L104"><span class="lineNum">     104</span>              : </span>
+<span id="L105"><span class="lineNum">     105</span>              : </span>
+<span id="L106"><span class="lineNum">     106</span>              :     //COMPONENT INF</span>
+<span id="L107"><span class="lineNum">     107</span>              :     .dv(uc_req_dv),</span>
+<span id="L108"><span class="lineNum">     108</span>              :     .hld(uc_req_hold),</span>
+<span id="L109"><span class="lineNum">     109</span>              :     .err(uc_req_error),</span>
+<span id="L110"><span class="lineNum">     110</span>              :     .write(uc_req.write),</span>
+<span id="L111"><span class="lineNum">     111</span>              :     .wdata(uc_req.wdata),</span>
+<span id="L112"><span class="lineNum">     112</span>              :     .addr(uc_req_addr),</span>
+<span id="L113"><span class="lineNum">     113</span>              : </span>
+<span id="L114"><span class="lineNum">     114</span>              :     .rdata(uc_req_rdata)</span>
+<span id="L115"><span class="lineNum">     115</span>              : );</span>
+<span id="L116"><span class="lineNum">     116</span>              : </span>
+<span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC tlaBgGNC">           1 : always_comb uc_req.addr = uc_req_addr[KV_ADDR_W-1:0];</span></span>
+<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC">           1 : always_comb uc_req_error = kv_reg_read_error | kv_reg_write_error;</span></span>
+<span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC">           1 : always_comb uc_req_hold = '0;</span></span>
+<span id="L120"><span class="lineNum">     120</span>              : </span>
+<span id="L121"><span class="lineNum">     121</span>              : //Flush the keyvault with the debug value when FW pokes the register or we detect debug mode unlocking</span>
+<span id="L122"><span class="lineNum">     122</span> <span class="tlaGNC">           1 : always_comb flush_keyvault = debugUnlock_or_scan_mode_switch | </span></span>
+<span id="L123"><span class="lineNum">     123</span> <span class="tlaGNC">           1 :                              (cptra_in_debug_scan_mode &amp; kv_reg_hwif_out.CLEAR_SECRETS.wr_debug_values.value);</span></span>
+<span id="L124"><span class="lineNum">     124</span>              : //Pick between keyvault debug mode 0 or 1</span>
+<span id="L125"><span class="lineNum">     125</span> <span class="tlaGNC">           1 : always_comb debug_value = kv_reg_hwif_out.CLEAR_SECRETS.sel_debug_value.value ? CLP_DEBUG_MODE_KV_1 : CLP_DEBUG_MODE_KV_0;</span></span>
+<span id="L126"><span class="lineNum">     126</span>              : </span>
+<span id="L127"><span class="lineNum">     127</span> <span class="tlaGNC">           1 : always_comb begin : keyvault_pcr_signing</span></span>
+<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC">           1 :     for (int dword = 0; dword &lt; KV_NUM_DWORDS; dword++) begin</span></span>
+<span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC">          12 :         pcr_signing_key[dword] = kv_reg_hwif_out.KEY_ENTRY[KV_ENTRY_FOR_SIGNING][dword].data.value;</span></span>
+<span id="L130"><span class="lineNum">     130</span>              :     end </span>
+<span id="L131"><span class="lineNum">     131</span>              : end</span>
+<span id="L132"><span class="lineNum">     132</span>              : </span>
+<span id="L133"><span class="lineNum">     133</span> <span class="tlaGNC">           1 : always_comb begin</span></span>
+<span id="L134"><span class="lineNum">     134</span> <span class="tlaGNC">           1 :     kv_write_cnt = 0;</span></span>
+<span id="L135"><span class="lineNum">     135</span> <span class="tlaGNC">           1 :     for (int client = 0; client &lt; KV_NUM_WRITE; client++)begin</span></span>
+<span id="L136"><span class="lineNum">     136</span> <span class="tlaUNC tlaBgUNC">           0 :         if (kv_write[client].write_en)</span></span>
+<span id="L137"><span class="lineNum">     137</span> <span class="tlaUNC">           0 :             kv_write_cnt = kv_write_cnt + 'd1;</span></span>
+<span id="L138"><span class="lineNum">     138</span>              :     end</span>
+<span id="L139"><span class="lineNum">     139</span>              : end</span>
+<span id="L140"><span class="lineNum">     140</span>              : </span>
+<span id="L141"><span class="lineNum">     141</span> <span class="tlaGNC tlaBgGNC">           1 : always_comb kv_multi_write_err = kv_write_cnt &gt; 1;</span></span>
+<span id="L142"><span class="lineNum">     142</span>              : </span>
+<span id="L143"><span class="lineNum">     143</span>              : //Generate clear signal for each key entry </span>
+<span id="L144"><span class="lineNum">     144</span>              : //don't clear when writes are locked</span>
+<span id="L145"><span class="lineNum">     145</span>              : //hold the clear when writes are in progress</span>
+<span id="L146"><span class="lineNum">     146</span>              : generate</span>
+<span id="L147"><span class="lineNum">     147</span> <span class="tlaGNC">         128 :     for (genvar g_entry = 0; g_entry &lt; KV_NUM_KEYS; g_entry++) begin</span></span>
+<span id="L148"><span class="lineNum">     148</span> <span class="tlaGNC">     3407904 :         always_ff@(posedge clk or negedge rst_b) begin</span></span>
+<span id="L149"><span class="lineNum">     149</span> <span class="tlaGNC">         128 :             if(~rst_b) begin</span></span>
+<span id="L150"><span class="lineNum">     150</span> <span class="tlaGNC">         128 :                 key_entry_clear[g_entry] &lt;= '0;</span></span>
+<span id="L151"><span class="lineNum">     151</span>              :             end</span>
+<span id="L152"><span class="lineNum">     152</span> <span class="tlaGNC">     3407776 :             else begin</span></span>
+<span id="L153"><span class="lineNum">     153</span> <span class="tlaGNC">     3407776 :                 key_entry_clear[g_entry] &lt;= kv_multi_write_err |</span></span>
+<span id="L154"><span class="lineNum">     154</span> <span class="tlaGNC">     3407776 :                                             (kv_reg_hwif_out.KEY_CTRL[g_entry].clear.value &amp; ~lock_wr_q[g_entry] &amp; ~lock_use_q[g_entry]) |</span></span>
+<span id="L155"><span class="lineNum">     155</span> <span class="tlaGNC">     3407776 :                                             (key_entry_clear[g_entry] &amp; key_entry_ctrl_we[g_entry]);</span></span>
+<span id="L156"><span class="lineNum">     156</span>              :             end</span>
+<span id="L157"><span class="lineNum">     157</span>              :         end</span>
+<span id="L158"><span class="lineNum">     158</span>              :     end</span>
+<span id="L159"><span class="lineNum">     159</span>              : endgenerate</span>
+<span id="L160"><span class="lineNum">     160</span>              : </span>
+<span id="L161"><span class="lineNum">     161</span> <span class="tlaGNC">           1 : always_comb begin : keyvault_ctrl</span></span>
+<span id="L162"><span class="lineNum">     162</span>              :     //keyvault control registers</span>
+<span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC">           1 :     for (int entry = 0; entry &lt; KV_NUM_KEYS; entry++) begin</span></span>
+<span id="L164"><span class="lineNum">     164</span>              :         //init for AND-OR</span>
+<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">     6817408 :         key_entry_ctrl_we[entry] = '0;</span></span>
+<span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC">     6817408 :         key_entry_dest_valid_next[entry] = '0; </span></span>
+<span id="L167"><span class="lineNum">     167</span> <span class="tlaGNC">     6817408 :         key_entry_last_dword_next[entry] = '0;</span></span>
+<span id="L168"><span class="lineNum">     168</span>              : </span>
+<span id="L169"><span class="lineNum">     169</span>              :         //Qualify lock signals as they are on fw upd reset and create RDC violations if allowed to reset asynchronously</span>
+<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">     6817408 :         lock_wr_q[entry] = kv_reg_hwif_out.KEY_CTRL[entry].lock_wr.value &amp; ~fw_update_rst_window;</span></span>
+<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">     6817408 :         lock_use_q[entry] = kv_reg_hwif_out.KEY_CTRL[entry].lock_use.value &amp; ~fw_update_rst_window;</span></span>
+<span id="L172"><span class="lineNum">     172</span>              :         </span>
+<span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC">     6817408 :         for (int client = 0; client &lt; KV_NUM_WRITE; client++) begin</span></span>
+<span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">    27269632 :             key_entry_ctrl_we[entry] |= (kv_write[client].write_entry == entry) &amp; kv_write[client].write_en &amp; </span></span>
+<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">    27269632 :                                         ~lock_wr_q[entry] &amp; ~lock_use_q[entry]; </span></span>
+<span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC">    27269632 :             key_entry_dest_valid_next[entry] |= (kv_write[client].write_entry == entry) &amp; kv_write[client].write_en ? kv_write[client].write_dest_valid : '0;</span></span>
+<span id="L177"><span class="lineNum">     177</span>              :             //store the final offset on the last write cycle, we'll use that to signal last dword on reads</span>
+<span id="L178"><span class="lineNum">     178</span> <span class="tlaGNC">    27269632 :             key_entry_last_dword_next[entry] |= (kv_write[client].write_entry == entry) &amp; kv_write[client].write_en ? kv_write[client].write_offset : '0;</span></span>
+<span id="L179"><span class="lineNum">     179</span>              :         end </span>
+<span id="L180"><span class="lineNum">     180</span>              :         //once lock is set, only reset can unset it</span>
+<span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC">     6817408 :         kv_reg_hwif_in.KEY_CTRL[entry].lock_wr.swwel = lock_wr_q[entry];</span></span>
+<span id="L182"><span class="lineNum">     182</span> <span class="tlaGNC">     6817408 :         kv_reg_hwif_in.KEY_CTRL[entry].lock_use.swwel = lock_use_q[entry];</span></span>
+<span id="L183"><span class="lineNum">     183</span>              :         //clear dest valid and last dword</span>
+<span id="L184"><span class="lineNum">     184</span> <span class="tlaGNC">     6817408 :         kv_reg_hwif_in.KEY_CTRL[entry].dest_valid.hwclr = key_entry_clear[entry];</span></span>
+<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC">     6817408 :         kv_reg_hwif_in.KEY_CTRL[entry].last_dword.hwclr = key_entry_clear[entry];</span></span>
+<span id="L186"><span class="lineNum">     186</span>              : </span>
+<span id="L187"><span class="lineNum">     187</span> <span class="tlaGNC">     6817408 :         kv_reg_hwif_in.KEY_CTRL[entry].dest_valid.we = key_entry_ctrl_we[entry] &amp; ~key_entry_clear[entry];</span></span>
+<span id="L188"><span class="lineNum">     188</span> <span class="tlaGNC">     6817408 :         kv_reg_hwif_in.KEY_CTRL[entry].dest_valid.next = {3'd0,key_entry_dest_valid_next[entry]};</span></span>
+<span id="L189"><span class="lineNum">     189</span> <span class="tlaGNC">     6817408 :         kv_reg_hwif_in.KEY_CTRL[entry].last_dword.we = key_entry_ctrl_we[entry] &amp; ~key_entry_clear[entry];</span></span>
+<span id="L190"><span class="lineNum">     190</span> <span class="tlaGNC">     6817408 :         kv_reg_hwif_in.KEY_CTRL[entry].last_dword.next = key_entry_last_dword_next[entry];</span></span>
+<span id="L191"><span class="lineNum">     191</span>              :     end</span>
+<span id="L192"><span class="lineNum">     192</span>              : </span>
+<span id="L193"><span class="lineNum">     193</span>              :     //keyvault storage</span>
+<span id="L194"><span class="lineNum">     194</span>              :     //AND-OR mux writes to each entry from crypto blocks</span>
+<span id="L195"><span class="lineNum">     195</span>              :     //write to the appropriate dest entry and offset when write_en is set</span>
+<span id="L196"><span class="lineNum">     196</span> <span class="tlaGNC">           1 :     for (int entry = 0; entry &lt; KV_NUM_KEYS; entry++) begin</span></span>
+<span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC">     6817408 :         for (int dword = 0; dword &lt; KV_NUM_DWORDS; dword++) begin</span></span>
+<span id="L198"><span class="lineNum">     198</span> <span class="tlaGNC">    81808896 :             kv_reg_hwif_in.KEY_ENTRY[entry][dword].data.swwel = '1; //never allow sw writes</span></span>
+<span id="L199"><span class="lineNum">     199</span>              :             //initialize to 0 for AND-OR mux</span>
+<span id="L200"><span class="lineNum">     200</span> <span class="tlaGNC">    81808896 :             key_entry_we[entry][dword] = '0;</span></span>
+<span id="L201"><span class="lineNum">     201</span> <span class="tlaGNC">    81808896 :             key_entry_next[entry][dword] = '0;</span></span>
+<span id="L202"><span class="lineNum">     202</span> <span class="tlaGNC">    81808896 :             for (int client = 0; client &lt; KV_NUM_WRITE; client++) begin</span></span>
+<span id="L203"><span class="lineNum">     203</span> <span class="tlaGNC">   327235584 :                 key_entry_we[entry][dword] |= ((((kv_write[client].write_entry == entry) &amp; (kv_write[client].write_offset == dword) &amp; </span></span>
+<span id="L204"><span class="lineNum">     204</span> <span class="tlaGNC">   327235584 :                                                 kv_write[client].write_en) | flush_keyvault) &amp; </span></span>
+<span id="L205"><span class="lineNum">     205</span> <span class="tlaGNC">   327235584 :                                               ((~lock_wr_q[entry] &amp; ~lock_use_q[entry]) | debugUnlock_or_scan_mode_switch));</span></span>
+<span id="L206"><span class="lineNum">     206</span> <span class="tlaGNC">   327235584 :                 key_entry_next[entry][dword] |= flush_keyvault ? debug_value :</span></span>
+<span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC">   327235584 :                                                 kv_write[client].write_en &amp; (kv_write[client].write_entry == entry) ? kv_write[client].write_data : '0;</span></span>
+<span id="L208"><span class="lineNum">     208</span>              :             end</span>
+<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC">    81808896 :             kv_reg_hwif_in.KEY_ENTRY[entry][dword].data.we = key_entry_we[entry][dword] &amp; ~key_entry_clear[entry];</span></span>
+<span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">    81808896 :             kv_reg_hwif_in.KEY_ENTRY[entry][dword].data.next = key_entry_next[entry][dword];</span></span>
+<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">    81808896 :             kv_reg_hwif_in.KEY_ENTRY[entry][dword].data.hwclr = key_entry_clear[entry];</span></span>
+<span id="L212"><span class="lineNum">     212</span>              :         end</span>
+<span id="L213"><span class="lineNum">     213</span>              :     end</span>
+<span id="L214"><span class="lineNum">     214</span>              : end</span>
+<span id="L215"><span class="lineNum">     215</span>              : </span>
+<span id="L216"><span class="lineNum">     216</span>              : //read mux for keyvault</span>
+<span id="L217"><span class="lineNum">     217</span>              : //qualify with selected entry, offset</span>
+<span id="L218"><span class="lineNum">     218</span>              : //qualify with lock use bit to ensure that locked values aren't read</span>
+<span id="L219"><span class="lineNum">     219</span>              : //qualify with dest valid to ensure requesting client has permission to read this entry</span>
+<span id="L220"><span class="lineNum">     220</span> <span class="tlaGNC">           1 : always_comb begin : keyvault_readmux</span></span>
+<span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC">           1 :     for (int client = 0; client &lt; KV_NUM_READ; client++) begin  </span></span>
+<span id="L222"><span class="lineNum">     222</span> <span class="tlaGNC">           5 :         kv_rd_resp[client].read_data = '0;</span></span>
+<span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">           5 :         kv_rd_resp[client].error = '0;</span></span>
+<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">           5 :         kv_rd_resp[client].last = '0;</span></span>
+<span id="L225"><span class="lineNum">     225</span> <span class="tlaGNC">           5 :         for (int entry = 0; entry &lt; KV_NUM_KEYS; entry++) begin</span></span>
+<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC">    34087040 :             for (int dword = 0; dword &lt; KV_NUM_DWORDS; dword++) begin</span></span>
+<span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC">   409044480 :                 kv_rd_resp[client].read_data |= (kv_read[client].read_entry == entry) &amp; (kv_read[client].read_offset == dword) &amp;</span></span>
+<span id="L228"><span class="lineNum">     228</span> <span class="tlaGNC">   409044480 :                                                 ~lock_use_q[entry] &amp; kv_reg_hwif_out.KEY_CTRL[entry].dest_valid.value[client] ? </span></span>
+<span id="L229"><span class="lineNum">     229</span> <span class="tlaGNC">   409044480 :                                                  kv_reg_hwif_out.KEY_ENTRY[entry][dword].data.value : '0;</span></span>
+<span id="L230"><span class="lineNum">     230</span>              :             end</span>
+<span id="L231"><span class="lineNum">     231</span>              :         //signal last when reading the last dword</span>
+<span id="L232"><span class="lineNum">     232</span> <span class="tlaGNC">    34087040 :         kv_rd_resp[client].last |= (kv_read[client].read_entry == entry) &amp; (kv_read[client].read_offset == kv_reg_hwif_out.KEY_CTRL[entry].last_dword.value);</span></span>
+<span id="L233"><span class="lineNum">     233</span> <span class="tlaGNC">    34087040 :         kv_rd_resp[client].error |= (kv_read[client].read_entry == entry) &amp; </span></span>
+<span id="L234"><span class="lineNum">     234</span> <span class="tlaGNC">    34087040 :                                     (lock_use_q[entry] | ~kv_reg_hwif_out.KEY_CTRL[entry].dest_valid.value[client]);</span></span>
+<span id="L235"><span class="lineNum">     235</span>              :         end</span>
+<span id="L236"><span class="lineNum">     236</span>              :     end</span>
+<span id="L237"><span class="lineNum">     237</span>              : end</span>
+<span id="L238"><span class="lineNum">     238</span>              : </span>
+<span id="L239"><span class="lineNum">     239</span>              : //Write error when attempting to write to entry that is locked for writes, use, or is being cleared</span>
+<span id="L240"><span class="lineNum">     240</span> <span class="tlaGNC">           1 : always_comb begin : keyvault_write_resp</span></span>
+<span id="L241"><span class="lineNum">     241</span> <span class="tlaGNC">           1 :     for (int client = 0 ; client &lt; KV_NUM_WRITE; client++) begin</span></span>
+<span id="L242"><span class="lineNum">     242</span> <span class="tlaGNC">           4 :         kv_wr_resp[client].error = '0;</span></span>
+<span id="L243"><span class="lineNum">     243</span> <span class="tlaGNC">           4 :         for (int entry = 0; entry &lt; KV_NUM_KEYS; entry++) begin</span></span>
+<span id="L244"><span class="lineNum">     244</span> <span class="tlaGNC">         128 :             kv_wr_resp[client].error |= (kv_write[client].write_entry == entry) &amp; kv_write[client].write_en &amp;</span></span>
+<span id="L245"><span class="lineNum">     245</span> <span class="tlaGNC">         128 :                                         (key_entry_clear[entry] | lock_wr_q[entry] | lock_use_q[entry]);</span></span>
+<span id="L246"><span class="lineNum">     246</span>              :         end</span>
+<span id="L247"><span class="lineNum">     247</span>              :     end</span>
+<span id="L248"><span class="lineNum">     248</span>              : end</span>
+<span id="L249"><span class="lineNum">     249</span>              : </span>
+<span id="L250"><span class="lineNum">     250</span>              : //tie-offs</span>
+<span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">           1 : always_comb begin</span></span>
+<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">           1 :     for (int entry = 0; entry &lt; KV_NUM_KEYS; entry++) begin</span></span>
+<span id="L253"><span class="lineNum">     253</span> <span class="tlaGNC">          32 :         kv_reg_hwif_in.KEY_CTRL[entry].rsvd0.hwclr = '0;</span></span>
+<span id="L254"><span class="lineNum">     254</span>              :     end</span>
+<span id="L255"><span class="lineNum">     255</span>              : end</span>
+<span id="L256"><span class="lineNum">     256</span>              : </span>
+<span id="L257"><span class="lineNum">     257</span>              : </span>
+<span id="L258"><span class="lineNum">     258</span> <span class="tlaGNC">           1 : always_comb kv_reg_hwif_in.hard_reset_b = cptra_pwrgood;</span></span>
+<span id="L259"><span class="lineNum">     259</span> <span class="tlaGNC">           1 : always_comb kv_reg_hwif_in.reset_b = rst_b;</span></span>
+<span id="L260"><span class="lineNum">     260</span> <span class="tlaGNC">           1 : always_comb kv_reg_hwif_in.core_only_rst_b = core_only_rst_b; //Note that this signal will also reset when rst_b is asserted</span></span>
+<span id="L261"><span class="lineNum">     261</span>              : </span>
+<span id="L262"><span class="lineNum">     262</span>              : kv_reg kv_reg1 (</span>
+<span id="L263"><span class="lineNum">     263</span>              :     .clk(clk),</span>
+<span id="L264"><span class="lineNum">     264</span>              :     .rst('0),</span>
+<span id="L265"><span class="lineNum">     265</span>              :     //qualify request so no addresses alias</span>
+<span id="L266"><span class="lineNum">     266</span>              :     .s_cpuif_req(uc_req_dv),</span>
+<span id="L267"><span class="lineNum">     267</span>              :     .s_cpuif_req_is_wr(uc_req.write),</span>
+<span id="L268"><span class="lineNum">     268</span>              :     .s_cpuif_addr(uc_req.addr[KV_REG_ADDR_WIDTH-1:0]),</span>
+<span id="L269"><span class="lineNum">     269</span>              :     .s_cpuif_wr_data(uc_req.wdata),</span>
+<span id="L270"><span class="lineNum">     270</span>              :     .s_cpuif_wr_biten('1),</span>
+<span id="L271"><span class="lineNum">     271</span>              :     .s_cpuif_req_stall_wr(),</span>
+<span id="L272"><span class="lineNum">     272</span>              :     .s_cpuif_req_stall_rd(),</span>
+<span id="L273"><span class="lineNum">     273</span>              :     .s_cpuif_rd_ack(),</span>
+<span id="L274"><span class="lineNum">     274</span>              :     .s_cpuif_rd_err(kv_reg_read_error),</span>
+<span id="L275"><span class="lineNum">     275</span>              :     .s_cpuif_rd_data(uc_req_rdata),</span>
+<span id="L276"><span class="lineNum">     276</span>              :     .s_cpuif_wr_ack(),</span>
+<span id="L277"><span class="lineNum">     277</span>              :     .s_cpuif_wr_err(kv_reg_write_error),</span>
+<span id="L278"><span class="lineNum">     278</span>              :     </span>
+<span id="L279"><span class="lineNum">     279</span>              :     .hwif_in(kv_reg_hwif_in),</span>
+<span id="L280"><span class="lineNum">     280</span>              :     .hwif_out(kv_reg_hwif_out)</span>
+<span id="L281"><span class="lineNum">     281</span>              : );</span>
+<span id="L282"><span class="lineNum">     282</span>              : </span>
+<span id="L283"><span class="lineNum">     283</span>              : endmodule</span>
+        </pre>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

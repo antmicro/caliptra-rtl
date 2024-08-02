@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Full
+        coverage report
+    </title>
+    <link rel="stylesheet" type="text/css" href="cov.css">
+    <style>
+        .container {
+            background-color: rgb(169, 169, 169);
+            width: 100%;
+            min-height: 80%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="title-header-shadow">
+        <td class="title-container">
+            <table class="title-header">
+                <td class="title-logo">
+                    <a href=../../../../index.html>
+                        <img src=../../../../_static/white.svg></img>
+                    </a>
+                </td>
+                <td class="title">
+                    Caliptra RTL
+                    Full
+                    coverage report
+                </td>
+            </table>
+        </td>
+    </table>
+    <center>
+        <table class="info-table">
+            <tr class="info-table-view">
+                <td width="10%" class="headerInfo">Current view:</td>
+                <td width="40%" class="headerInfoValue">
+                    <a href=index.html>caliptra-rtl</a>—src—caliptra_prim—rtl—caliptra_prim_intr_hw.sv
+                </td>
+                <td width=auto></td>
+                <td width="10%"></td>
+                <td width="10%" class="headerCovSummary colTop">Coverage</td>
+                <td width="10%" class="headerCovSummary colTop" title="Covered + Uncovered code">Hit</td>
+                <td width="10%" class="headerCovSummary colTop" title="Exercised code only">Total</td>
+            </tr>
+            <tr>
+                <td class="headerInfo">Test Date:</td>
+                <td class="headerInfoValue">
+                    02-08-2024
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Toggle
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #8bff00;">
+        72.7%
+    </td>
+    <td class="headerCovSummaryEntry">
+        7
+    </td>
+    <td class="headerCovSummaryEntry">
+        11
+    </td>
+
+            </tr>
+            <tr>
+                <td class="headerInfo">Test:</td>
+                <td class="headerInfoValue">
+                    all
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Branch
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #00ff00;">
+        100%
+    </td>
+    <td class="headerCovSummaryEntry">
+        5
+    </td>
+    <td class="headerCovSummaryEntry">
+        5
+    </td>
+
+            </tr>
+            
+        </table>
+    </center>
+
+    <table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td><br/></td>
+</tr>
+<tr>
+<td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : // Copyright lowRISC contributors.</span>
+<span id="L2"><span class="lineNum">       2</span>              : // Licensed under the Apache License, Version 2.0, see LICENSE for details.</span>
+<span id="L3"><span class="lineNum">       3</span>              : // SPDX-License-Identifier: Apache-2.0</span>
+<span id="L4"><span class="lineNum">       4</span>              : //</span>
+<span id="L5"><span class="lineNum">       5</span>              : // Primitive interrupt handler. This assumes the existence of three</span>
+<span id="L6"><span class="lineNum">       6</span>              : // controller registers: INTR_ENABLE, INTR_STATE, INTR_TEST.</span>
+<span id="L7"><span class="lineNum">       7</span>              : // This module can be instantiated once per interrupt field, or</span>
+<span id="L8"><span class="lineNum">       8</span>              : // "bussified" with all fields of the interrupt vector.</span>
+<span id="L9"><span class="lineNum">       9</span>              : </span>
+<span id="L10"><span class="lineNum">      10</span>              : module caliptra_prim_intr_hw # (</span>
+<span id="L11"><span class="lineNum">      11</span>              :   parameter int unsigned Width = 1,</span>
+<span id="L12"><span class="lineNum">      12</span>              :   parameter bit FlopOutput = 1,</span>
+<span id="L13"><span class="lineNum">      13</span>              : </span>
+<span id="L14"><span class="lineNum">      14</span>              :   // IntrT parameter is to hint the logic for the interrupt type. Module</span>
+<span id="L15"><span class="lineNum">      15</span>              :   // supports two interrupt types, *Status* and *Event*.</span>
+<span id="L16"><span class="lineNum">      16</span>              :   //</span>
+<span id="L17"><span class="lineNum">      17</span>              :   // The differences between those two types are:</span>
+<span id="L18"><span class="lineNum">      18</span>              :   // - Status is persistent. Until the root cause is alleviated, the interrupt</span>
+<span id="L19"><span class="lineNum">      19</span>              :   //   keeps asserting.</span>
+<span id="L20"><span class="lineNum">      20</span>              :   // - Event remains high for a relatively short period time without SW</span>
+<span id="L21"><span class="lineNum">      21</span>              :   //   intervention. One distinct example is an error (error could be status</span>
+<span id="L22"><span class="lineNum">      22</span>              :   //   though). If a certain error condition is captured, HW logic may create a</span>
+<span id="L23"><span class="lineNum">      23</span>              :   //   pulse. In this case the interrupt is assumed as an Event interrupt.</span>
+<span id="L24"><span class="lineNum">      24</span>              :   parameter IntrT = "Event" // Event or Status</span>
+<span id="L25"><span class="lineNum">      25</span>              : ) (</span>
+<span id="L26"><span class="lineNum">      26</span>              :   // event</span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC tlaBgGNC">     3833892 :   input  clk_i,</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">          18 :   input  rst_ni,</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">          22 :   input  [Width-1:0]  event_intr_i,</span></span>
+<span id="L30"><span class="lineNum">      30</span>              : </span>
+<span id="L31"><span class="lineNum">      31</span>              :   // register interface</span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC tlaBgUNC">           0 :   input  [Width-1:0]  reg2hw_intr_enable_q_i,</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">        6804 :   input  [Width-1:0]  reg2hw_intr_test_q_i,</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaUNC tlaBgUNC">           0 :   input               reg2hw_intr_test_qe_i,</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">           2 :   input  [Width-1:0]  reg2hw_intr_state_q_i,</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">          24 :   output              hw2reg_intr_state_de_o,</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">          12 :   output [Width-1:0]  hw2reg_intr_state_d_o,</span></span>
+<span id="L38"><span class="lineNum">      38</span>              : </span>
+<span id="L39"><span class="lineNum">      39</span>              :   // outgoing interrupt</span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :   output logic [Width-1:0]  intr_o</span></span>
+<span id="L41"><span class="lineNum">      41</span>              : );</span>
+<span id="L42"><span class="lineNum">      42</span>              : </span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC tlaBgGNC">           2 :   logic [Width-1:0] status; // incl. test</span></span>
+<span id="L44"><span class="lineNum">      44</span>              : </span>
+<span id="L45"><span class="lineNum">      45</span>              :   if (IntrT == "Event") begin : g_intr_event</span>
+<span id="L46"><span class="lineNum">      46</span>              :     logic  [Width-1:0]    new_event;</span>
+<span id="L47"><span class="lineNum">      47</span>              :     assign new_event =</span>
+<span id="L48"><span class="lineNum">      48</span>              :                (({Width{reg2hw_intr_test_qe_i}} &amp; reg2hw_intr_test_q_i) | event_intr_i);</span>
+<span id="L49"><span class="lineNum">      49</span>              :     assign hw2reg_intr_state_de_o = |new_event;</span>
+<span id="L50"><span class="lineNum">      50</span>              :     // for scalar interrupts, this resolves to '1' with new event</span>
+<span id="L51"><span class="lineNum">      51</span>              :     // for vector interrupts, new events are OR'd in to existing interrupt state</span>
+<span id="L52"><span class="lineNum">      52</span>              :     assign hw2reg_intr_state_d_o  =  new_event | reg2hw_intr_state_q_i;</span>
+<span id="L53"><span class="lineNum">      53</span>              : </span>
+<span id="L54"><span class="lineNum">      54</span>              :     assign status = reg2hw_intr_state_q_i ;</span>
+<span id="L55"><span class="lineNum">      55</span>              :   end : g_intr_event</span>
+<span id="L56"><span class="lineNum">      56</span>              :   else if (IntrT == "Status") begin : g_intr_status</span>
+<span id="L57"><span class="lineNum">      57</span>              :     logic [Width-1:0] test_q; // Storing test. Cleared by SW</span>
+<span id="L58"><span class="lineNum">      58</span>              : </span>
+<span id="L59"><span class="lineNum">      59</span>              :     always_ff @(posedge clk_i or negedge rst_ni) begin</span>
+<span id="L60"><span class="lineNum">      60</span>              :       if (!rst_ni) test_q &lt;= '0;</span>
+<span id="L61"><span class="lineNum">      61</span>              :       else if (reg2hw_intr_test_qe_i) test_q &lt;= reg2hw_intr_test_q_i;</span>
+<span id="L62"><span class="lineNum">      62</span>              :     end</span>
+<span id="L63"><span class="lineNum">      63</span>              : </span>
+<span id="L64"><span class="lineNum">      64</span>              :     // TODO: In Status type, INTR_STATE is better to be external type and RO.</span>
+<span id="L65"><span class="lineNum">      65</span>              :     assign hw2reg_intr_state_de_o = 1'b 1; // always represent the status</span>
+<span id="L66"><span class="lineNum">      66</span>              :     assign hw2reg_intr_state_d_o  = event_intr_i | test_q;</span>
+<span id="L67"><span class="lineNum">      67</span>              : </span>
+<span id="L68"><span class="lineNum">      68</span>              :     assign status = event_intr_i | test_q;</span>
+<span id="L69"><span class="lineNum">      69</span>              : </span>
+<span id="L70"><span class="lineNum">      70</span>              :     // To make the timing same to event type, status signal does not use CSR.q,</span>
+<span id="L71"><span class="lineNum">      71</span>              :     // rather the input of the CSR.</span>
+<span id="L72"><span class="lineNum">      72</span>              :     logic unused_reg2hw;</span>
+<span id="L73"><span class="lineNum">      73</span>              :     assign unused_reg2hw = ^reg2hw_intr_state_q_i;</span>
+<span id="L74"><span class="lineNum">      74</span>              :   end : g_intr_status</span>
+<span id="L75"><span class="lineNum">      75</span>              : </span>
+<span id="L76"><span class="lineNum">      76</span>              : </span>
+<span id="L77"><span class="lineNum">      77</span>              :   if (FlopOutput == 1) begin : gen_flop_intr_output</span>
+<span id="L78"><span class="lineNum">      78</span>              :     // flop the interrupt output</span>
+<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC">     1916946 :     always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L80"><span class="lineNum">      80</span> <span class="tlaGNC">          72 :       if (!rst_ni) begin</span></span>
+<span id="L81"><span class="lineNum">      81</span> <span class="tlaGNC">          72 :         intr_o &lt;= '0;</span></span>
+<span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC">     1916874 :       end else begin</span></span>
+<span id="L83"><span class="lineNum">      83</span> <span class="tlaGNC">     1916874 :         intr_o &lt;= status &amp; reg2hw_intr_enable_q_i;</span></span>
+<span id="L84"><span class="lineNum">      84</span>              :       end</span>
+<span id="L85"><span class="lineNum">      85</span>              :     end</span>
+<span id="L86"><span class="lineNum">      86</span>              : </span>
+<span id="L87"><span class="lineNum">      87</span>              :   end else begin : gen_intr_passthrough_output</span>
+<span id="L88"><span class="lineNum">      88</span>              :     logic unused_clk;</span>
+<span id="L89"><span class="lineNum">      89</span>              :     logic unused_rst_n;</span>
+<span id="L90"><span class="lineNum">      90</span>              :     assign unused_clk = clk_i;</span>
+<span id="L91"><span class="lineNum">      91</span>              :     assign unused_rst_n = rst_ni;</span>
+<span id="L92"><span class="lineNum">      92</span>              :     assign intr_o = reg2hw_intr_state_q_i &amp; reg2hw_intr_enable_q_i;</span>
+<span id="L93"><span class="lineNum">      93</span>              :   end</span>
+<span id="L94"><span class="lineNum">      94</span>              : </span>
+<span id="L95"><span class="lineNum">      95</span>              :   `CALIPTRA_ASSERT_INIT(IntrTKind_A, IntrT inside {"Event", "Status"})</span>
+<span id="L96"><span class="lineNum">      96</span>              : </span>
+<span id="L97"><span class="lineNum">      97</span>              : endmodule</span>
+        </pre>
+</td>
+</tr>
+</table>
+
+</body>
+</html>
