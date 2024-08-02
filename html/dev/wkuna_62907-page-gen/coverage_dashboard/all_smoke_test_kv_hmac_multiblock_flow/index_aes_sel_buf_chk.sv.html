@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Full
+        coverage report
+    </title>
+    <link rel="stylesheet" type="text/css" href="cov.css">
+    <style>
+        .container {
+            background-color: rgb(169, 169, 169);
+            width: 100%;
+            min-height: 80%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="title-header-shadow">
+        <td class="title-container">
+            <table class="title-header">
+                <td class="title-logo">
+                    <a href=../../../../index.html>
+                        <img src=../../../../_static/white.svg></img>
+                    </a>
+                </td>
+                <td class="title">
+                    Caliptra RTL
+                    Full
+                    coverage report
+                </td>
+            </table>
+        </td>
+    </table>
+    <center>
+        <table class="info-table">
+            <tr class="info-table-view">
+                <td width="10%" class="headerInfo">Current view:</td>
+                <td width="40%" class="headerInfoValue">
+                    <a href=index.html>caliptra-rtl</a>—src—aes—rtl—aes_sel_buf_chk.sv
+                </td>
+                <td width=auto></td>
+                <td width="10%"></td>
+                <td width="10%" class="headerCovSummary colTop">Coverage</td>
+                <td width="10%" class="headerCovSummary colTop" title="Covered + Uncovered code">Hit</td>
+                <td width="10%" class="headerCovSummary colTop" title="Exercised code only">Total</td>
+            </tr>
+            <tr>
+                <td class="headerInfo">Test Date:</td>
+                <td class="headerInfoValue">
+                    02-08-2024
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Toggle
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #daff00;">
+        57.1%
+    </td>
+    <td class="headerCovSummaryEntry">
+        3
+    </td>
+    <td class="headerCovSummaryEntry">
+        7
+    </td>
+
+            </tr>
+            <tr>
+                <td class="headerInfo">Test:</td>
+                <td class="headerInfoValue">
+                    smoke_test_kv_hmac_multiblock_flow
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Branch
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #7fff00;">
+        75.0%
+    </td>
+    <td class="headerCovSummaryEntry">
+        9
+    </td>
+    <td class="headerCovSummaryEntry">
+        12
+    </td>
+
+            </tr>
+            
+        </table>
+    </center>
+
+    <table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td><br/></td>
+</tr>
+<tr>
+<td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : // Copyright lowRISC contributors.</span>
+<span id="L2"><span class="lineNum">       2</span>              : // Licensed under the Apache License, Version 2.0, see LICENSE for details.</span>
+<span id="L3"><span class="lineNum">       3</span>              : // SPDX-License-Identifier: Apache-2.0</span>
+<span id="L4"><span class="lineNum">       4</span>              : //</span>
+<span id="L5"><span class="lineNum">       5</span>              : // AES mux selector buffer and checker</span>
+<span id="L6"><span class="lineNum">       6</span>              : //</span>
+<span id="L7"><span class="lineNum">       7</span>              : // When using sparse encodings for mux selector signals, this module can be used to:</span>
+<span id="L8"><span class="lineNum">       8</span>              : // 1. Prevent aggressive synthesis optimizations on the selector signal, and</span>
+<span id="L9"><span class="lineNum">       9</span>              : // 2. to check that the selector signal is valid, i.e., doesn't take on invalid values.</span>
+<span id="L10"><span class="lineNum">      10</span>              : // Whenever the selector signal takes on an invalid value, an error is signaled.</span>
+<span id="L11"><span class="lineNum">      11</span>              : </span>
+<span id="L12"><span class="lineNum">      12</span>              : `include "caliptra_prim_assert.sv"</span>
+<span id="L13"><span class="lineNum">      13</span>              : </span>
+<span id="L14"><span class="lineNum">      14</span>              : module aes_sel_buf_chk #(</span>
+<span id="L15"><span class="lineNum">      15</span>              :   parameter int Num      = 2,</span>
+<span id="L16"><span class="lineNum">      16</span>              :   parameter int Width    = 1,</span>
+<span id="L17"><span class="lineNum">      17</span>              :   parameter bit EnSecBuf = 1'b0</span>
+<span id="L18"><span class="lineNum">      18</span>              : ) (</span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC tlaBgGNC">     1563746 :   input  logic             clk_i,  // Used for assertions only.</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           1 :   input  logic             rst_ni, // Used for assertions only.</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaUNC tlaBgUNC">           0 :   input  logic [Width-1:0] sel_i,</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaUNC">           0 :   output logic [Width-1:0] sel_o,</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaUNC">           0 :   output logic             err_o</span></span>
+<span id="L24"><span class="lineNum">      24</span>              : );</span>
+<span id="L25"><span class="lineNum">      25</span>              : </span>
+<span id="L26"><span class="lineNum">      26</span>              :   import aes_reg_pkg::*;</span>
+<span id="L27"><span class="lineNum">      27</span>              :   import aes_pkg::*;</span>
+<span id="L28"><span class="lineNum">      28</span>              : </span>
+<span id="L29"><span class="lineNum">      29</span>              :   // Tie off unused inputs.</span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     1563746 :   logic unused_clk;</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           1 :   logic unused_rst;</span></span>
+<span id="L32"><span class="lineNum">      32</span>              :   assign unused_clk = clk_i;</span>
+<span id="L33"><span class="lineNum">      33</span>              :   assign unused_rst = rst_ni;</span>
+<span id="L34"><span class="lineNum">      34</span>              : </span>
+<span id="L35"><span class="lineNum">      35</span>              :   ////////////</span>
+<span id="L36"><span class="lineNum">      36</span>              :   // Buffer //</span>
+<span id="L37"><span class="lineNum">      37</span>              :   ////////////</span>
+<span id="L38"><span class="lineNum">      38</span>              : </span>
+<span id="L39"><span class="lineNum">      39</span>              :   if (EnSecBuf) begin : gen_sec_buf</span>
+<span id="L40"><span class="lineNum">      40</span>              :     caliptra_prim_sec_anchor_buf #(</span>
+<span id="L41"><span class="lineNum">      41</span>              :       .Width ( Width )</span>
+<span id="L42"><span class="lineNum">      42</span>              :     ) u_caliptra_prim_buf_sel_i (</span>
+<span id="L43"><span class="lineNum">      43</span>              :       .in_i  ( sel_i ),</span>
+<span id="L44"><span class="lineNum">      44</span>              :       .out_o ( sel_o )</span>
+<span id="L45"><span class="lineNum">      45</span>              :     );</span>
+<span id="L46"><span class="lineNum">      46</span>              :   end else begin : gen_buf</span>
+<span id="L47"><span class="lineNum">      47</span>              :     caliptra_prim_buf  #(</span>
+<span id="L48"><span class="lineNum">      48</span>              :       .Width ( Width )</span>
+<span id="L49"><span class="lineNum">      49</span>              :     ) u_caliptra_prim_buf_sel_i (</span>
+<span id="L50"><span class="lineNum">      50</span>              :       .in_i  ( sel_i ),</span>
+<span id="L51"><span class="lineNum">      51</span>              :       .out_o ( sel_o )</span>
+<span id="L52"><span class="lineNum">      52</span>              :     );</span>
+<span id="L53"><span class="lineNum">      53</span>              :   end</span>
+<span id="L54"><span class="lineNum">      54</span>              : </span>
+<span id="L55"><span class="lineNum">      55</span>              :   /////////////</span>
+<span id="L56"><span class="lineNum">      56</span>              :   // Checker //</span>
+<span id="L57"><span class="lineNum">      57</span>              :   /////////////</span>
+<span id="L58"><span class="lineNum">      58</span>              : </span>
+<span id="L59"><span class="lineNum">      59</span>              :   if (Num == 2) begin : gen_mux2_sel_chk</span>
+<span id="L60"><span class="lineNum">      60</span>              :     // Cast to generic type.</span>
+<span id="L61"><span class="lineNum">      61</span>              :     mux2_sel_e sel_chk;</span>
+<span id="L62"><span class="lineNum">      62</span>              :     assign sel_chk = mux2_sel_e'(sel_o);</span>
+<span id="L63"><span class="lineNum">      63</span>              : </span>
+<span id="L64"><span class="lineNum">      64</span>              :     // Actual checker</span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">           6 :     always_comb begin : mux2_sel_chk</span></span>
+<span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">           6 :       unique case (sel_chk)</span></span>
+<span id="L67"><span class="lineNum">      67</span>              :         MUX2_SEL_0,</span>
+<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">     3127496 :         MUX2_SEL_1: err_o = 1'b0;</span></span>
+<span id="L69"><span class="lineNum">      69</span> <span class="tlaUNC tlaBgUNC">           0 :         default:    err_o = 1'b1;</span></span>
+<span id="L70"><span class="lineNum">      70</span>              :       endcase</span>
+<span id="L71"><span class="lineNum">      71</span>              :     end</span>
+<span id="L72"><span class="lineNum">      72</span>              : </span>
+<span id="L73"><span class="lineNum">      73</span>              :     // Assertion</span>
+<span id="L74"><span class="lineNum">      74</span>              :     `CALIPTRA_ASSERT(AesMux2SelValid, !err_o |-&gt; sel_chk inside {</span>
+<span id="L75"><span class="lineNum">      75</span>              :         MUX2_SEL_0,</span>
+<span id="L76"><span class="lineNum">      76</span>              :         MUX2_SEL_1</span>
+<span id="L77"><span class="lineNum">      77</span>              :         })</span>
+<span id="L78"><span class="lineNum">      78</span>              : </span>
+<span id="L79"><span class="lineNum">      79</span>              :   end else if (Num == 3) begin : gen_mux3_sel_chk</span>
+<span id="L80"><span class="lineNum">      80</span>              :     // Cast to generic type.</span>
+<span id="L81"><span class="lineNum">      81</span>              :     mux3_sel_e sel_chk;</span>
+<span id="L82"><span class="lineNum">      82</span>              :     assign sel_chk = mux3_sel_e'(sel_o);</span>
+<span id="L83"><span class="lineNum">      83</span>              : </span>
+<span id="L84"><span class="lineNum">      84</span>              :     // Actual checker</span>
+<span id="L85"><span class="lineNum">      85</span> <span class="tlaGNC tlaBgGNC">           2 :     always_comb begin : mux3_sel_chk</span></span>
+<span id="L86"><span class="lineNum">      86</span> <span class="tlaGNC">           2 :       unique case (sel_chk)</span></span>
+<span id="L87"><span class="lineNum">      87</span>              :         MUX3_SEL_0,</span>
+<span id="L88"><span class="lineNum">      88</span>              :         MUX3_SEL_1,</span>
+<span id="L89"><span class="lineNum">      89</span> <span class="tlaGNC">     1563748 :         MUX3_SEL_2: err_o = 1'b0;</span></span>
+<span id="L90"><span class="lineNum">      90</span> <span class="tlaUNC tlaBgUNC">           0 :         default:    err_o = 1'b1;</span></span>
+<span id="L91"><span class="lineNum">      91</span>              :       endcase</span>
+<span id="L92"><span class="lineNum">      92</span>              :     end</span>
+<span id="L93"><span class="lineNum">      93</span>              : </span>
+<span id="L94"><span class="lineNum">      94</span>              :     // Assertion</span>
+<span id="L95"><span class="lineNum">      95</span>              :     `CALIPTRA_ASSERT(AesMux3SelValid, !err_o |-&gt; sel_chk inside {</span>
+<span id="L96"><span class="lineNum">      96</span>              :         MUX3_SEL_0,</span>
+<span id="L97"><span class="lineNum">      97</span>              :         MUX3_SEL_1,</span>
+<span id="L98"><span class="lineNum">      98</span>              :         MUX3_SEL_2</span>
+<span id="L99"><span class="lineNum">      99</span>              :         })</span>
+<span id="L100"><span class="lineNum">     100</span>              : </span>
+<span id="L101"><span class="lineNum">     101</span>              :   end else if (Num == 4) begin : gen_mux4_sel_chk</span>
+<span id="L102"><span class="lineNum">     102</span>              :     // Cast to generic type.</span>
+<span id="L103"><span class="lineNum">     103</span>              :     mux4_sel_e sel_chk;</span>
+<span id="L104"><span class="lineNum">     104</span>              :     assign sel_chk = mux4_sel_e'(sel_o);</span>
+<span id="L105"><span class="lineNum">     105</span>              : </span>
+<span id="L106"><span class="lineNum">     106</span>              :     // Actual checker</span>
+<span id="L107"><span class="lineNum">     107</span> <span class="tlaGNC tlaBgGNC">           2 :     always_comb begin : mux4_sel_chk</span></span>
+<span id="L108"><span class="lineNum">     108</span> <span class="tlaGNC">           2 :       unique case (sel_chk)</span></span>
+<span id="L109"><span class="lineNum">     109</span>              :         MUX4_SEL_0,</span>
+<span id="L110"><span class="lineNum">     110</span>              :         MUX4_SEL_1,</span>
+<span id="L111"><span class="lineNum">     111</span>              :         MUX4_SEL_2,</span>
+<span id="L112"><span class="lineNum">     112</span> <span class="tlaGNC">     1563748 :         MUX4_SEL_3: err_o = 1'b0;</span></span>
+<span id="L113"><span class="lineNum">     113</span> <span class="tlaUNC tlaBgUNC">           0 :         default:    err_o = 1'b1;</span></span>
+<span id="L114"><span class="lineNum">     114</span>              :       endcase</span>
+<span id="L115"><span class="lineNum">     115</span>              :     end</span>
+<span id="L116"><span class="lineNum">     116</span>              : </span>
+<span id="L117"><span class="lineNum">     117</span>              :     // Assertion</span>
+<span id="L118"><span class="lineNum">     118</span>              :     `CALIPTRA_ASSERT(AesMux4SelValid, !err_o |-&gt; sel_chk inside {</span>
+<span id="L119"><span class="lineNum">     119</span>              :         MUX4_SEL_0,</span>
+<span id="L120"><span class="lineNum">     120</span>              :         MUX4_SEL_1,</span>
+<span id="L121"><span class="lineNum">     121</span>              :         MUX4_SEL_2,</span>
+<span id="L122"><span class="lineNum">     122</span>              :         MUX4_SEL_3</span>
+<span id="L123"><span class="lineNum">     123</span>              :         })</span>
+<span id="L124"><span class="lineNum">     124</span>              : </span>
+<span id="L125"><span class="lineNum">     125</span>              :   end else if (Num == 6) begin : gen_mux6_sel_chk</span>
+<span id="L126"><span class="lineNum">     126</span>              :     // Cast to generic type.</span>
+<span id="L127"><span class="lineNum">     127</span>              :     mux6_sel_e sel_chk;</span>
+<span id="L128"><span class="lineNum">     128</span>              :     assign sel_chk = mux6_sel_e'(sel_o);</span>
+<span id="L129"><span class="lineNum">     129</span>              : </span>
+<span id="L130"><span class="lineNum">     130</span>              :     // Actual checker</span>
+<span id="L131"><span class="lineNum">     131</span>              :     always_comb begin : mux6_sel_chk</span>
+<span id="L132"><span class="lineNum">     132</span>              :       unique case (sel_chk)</span>
+<span id="L133"><span class="lineNum">     133</span>              :         MUX6_SEL_0,</span>
+<span id="L134"><span class="lineNum">     134</span>              :         MUX6_SEL_1,</span>
+<span id="L135"><span class="lineNum">     135</span>              :         MUX6_SEL_2,</span>
+<span id="L136"><span class="lineNum">     136</span>              :         MUX6_SEL_3,</span>
+<span id="L137"><span class="lineNum">     137</span>              :         MUX6_SEL_4,</span>
+<span id="L138"><span class="lineNum">     138</span>              :         MUX6_SEL_5: err_o = 1'b0;</span>
+<span id="L139"><span class="lineNum">     139</span>              :         default:    err_o = 1'b1;</span>
+<span id="L140"><span class="lineNum">     140</span>              :       endcase</span>
+<span id="L141"><span class="lineNum">     141</span>              :     end</span>
+<span id="L142"><span class="lineNum">     142</span>              : </span>
+<span id="L143"><span class="lineNum">     143</span>              :     // Assertion</span>
+<span id="L144"><span class="lineNum">     144</span>              :     `CALIPTRA_ASSERT(AesMux6SelValid, !err_o |-&gt; sel_chk inside {</span>
+<span id="L145"><span class="lineNum">     145</span>              :         MUX6_SEL_0,</span>
+<span id="L146"><span class="lineNum">     146</span>              :         MUX6_SEL_1,</span>
+<span id="L147"><span class="lineNum">     147</span>              :         MUX6_SEL_2,</span>
+<span id="L148"><span class="lineNum">     148</span>              :         MUX6_SEL_3,</span>
+<span id="L149"><span class="lineNum">     149</span>              :         MUX6_SEL_4,</span>
+<span id="L150"><span class="lineNum">     150</span>              :         MUX6_SEL_5</span>
+<span id="L151"><span class="lineNum">     151</span>              :         })</span>
+<span id="L152"><span class="lineNum">     152</span>              : </span>
+<span id="L153"><span class="lineNum">     153</span>              :   end else begin : gen_width_unsupported</span>
+<span id="L154"><span class="lineNum">     154</span>              :     // Selected width not supported, signal error.</span>
+<span id="L155"><span class="lineNum">     155</span>              :     assign err_o = 1'b1;</span>
+<span id="L156"><span class="lineNum">     156</span>              :   end</span>
+<span id="L157"><span class="lineNum">     157</span>              : </span>
+<span id="L158"><span class="lineNum">     158</span>              :   ////////////////</span>
+<span id="L159"><span class="lineNum">     159</span>              :   // Assertions //</span>
+<span id="L160"><span class="lineNum">     160</span>              :   ////////////////</span>
+<span id="L161"><span class="lineNum">     161</span>              : </span>
+<span id="L162"><span class="lineNum">     162</span>              :   // We only have generic sparse encodings defined for certain mux input numbers (see aes_pkg.sv).</span>
+<span id="L163"><span class="lineNum">     163</span>              :   `CALIPTRA_ASSERT_INIT(AesSelBufChkNum, Num inside {2, 3, 4, 6})</span>
+<span id="L164"><span class="lineNum">     164</span>              : </span>
+<span id="L165"><span class="lineNum">     165</span>              : endmodule</span>
+        </pre>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

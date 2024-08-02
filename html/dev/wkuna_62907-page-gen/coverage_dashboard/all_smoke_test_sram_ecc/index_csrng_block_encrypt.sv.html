@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Full
+        coverage report
+    </title>
+    <link rel="stylesheet" type="text/css" href="cov.css">
+    <style>
+        .container {
+            background-color: rgb(169, 169, 169);
+            width: 100%;
+            min-height: 80%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="title-header-shadow">
+        <td class="title-container">
+            <table class="title-header">
+                <td class="title-logo">
+                    <a href=../../../../index.html>
+                        <img src=../../../../_static/white.svg></img>
+                    </a>
+                </td>
+                <td class="title">
+                    Caliptra RTL
+                    Full
+                    coverage report
+                </td>
+            </table>
+        </td>
+    </table>
+    <center>
+        <table class="info-table">
+            <tr class="info-table-view">
+                <td width="10%" class="headerInfo">Current view:</td>
+                <td width="40%" class="headerInfoValue">
+                    <a href=index.html>caliptra-rtl</a>—src—csrng—rtl—csrng_block_encrypt.sv
+                </td>
+                <td width=auto></td>
+                <td width="10%"></td>
+                <td width="10%" class="headerCovSummary colTop">Coverage</td>
+                <td width="10%" class="headerCovSummary colTop" title="Covered + Uncovered code">Hit</td>
+                <td width="10%" class="headerCovSummary colTop" title="Exercised code only">Total</td>
+            </tr>
+            <tr>
+                <td class="headerInfo">Test Date:</td>
+                <td class="headerInfoValue">
+                    02-08-2024
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Toggle
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffa500;">
+        32.4%
+    </td>
+    <td class="headerCovSummaryEntry">
+        11
+    </td>
+    <td class="headerCovSummaryEntry">
+        37
+    </td>
+
+            </tr>
+            <tr>
+                <td class="headerInfo">Test:</td>
+                <td class="headerInfoValue">
+                    smoke_test_sram_ecc
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Branch
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #a9a9a9;">
+        0.0%
+    </td>
+    <td class="headerCovSummaryEntry">
+        0
+    </td>
+    <td class="headerCovSummaryEntry">
+        0
+    </td>
+
+            </tr>
+            
+        </table>
+    </center>
+
+    <table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td><br/></td>
+</tr>
+<tr>
+<td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : // Copyright lowRISC contributors.</span>
+<span id="L2"><span class="lineNum">       2</span>              : // Licensed under the Apache License, Version 2.0, see LICENSE for details.</span>
+<span id="L3"><span class="lineNum">       3</span>              : // SPDX-License-Identifier: Apache-2.0</span>
+<span id="L4"><span class="lineNum">       4</span>              : //</span>
+<span id="L5"><span class="lineNum">       5</span>              : // Description: csrng block encrypt module</span>
+<span id="L6"><span class="lineNum">       6</span>              : //</span>
+<span id="L7"><span class="lineNum">       7</span>              : </span>
+<span id="L8"><span class="lineNum">       8</span>              : module csrng_block_encrypt import csrng_pkg::*; #(</span>
+<span id="L9"><span class="lineNum">       9</span>              :   parameter aes_pkg::sbox_impl_e SBoxImpl = aes_pkg::SBoxImplLut,</span>
+<span id="L10"><span class="lineNum">      10</span>              :   parameter logic [31:0] Cmd = 3,</span>
+<span id="L11"><span class="lineNum">      11</span>              :   parameter logic [31:0] StateId = 4,</span>
+<span id="L12"><span class="lineNum">      12</span>              :   parameter logic [31:0] BlkLen = 128,</span>
+<span id="L13"><span class="lineNum">      13</span>              :   parameter logic [31:0] KeyLen = 256</span>
+<span id="L14"><span class="lineNum">      14</span>              : ) (</span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC tlaBgGNC">      230900 :   input logic                clk_i,</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           1 :   input logic                rst_ni,</span></span>
+<span id="L17"><span class="lineNum">      17</span>              : </span>
+<span id="L18"><span class="lineNum">      18</span>              :    // update interface</span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaUNC tlaBgUNC">           0 :   input logic                block_encrypt_enable_i,</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaUNC">           0 :   input logic                block_encrypt_req_i,</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC tlaBgGNC">           1 :   output logic               block_encrypt_rdy_o,</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaUNC tlaBgUNC">           0 :   input logic [KeyLen-1:0]   block_encrypt_key_i,</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaUNC">           0 :   input logic [BlkLen-1:0]   block_encrypt_v_i,</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaUNC">           0 :   input logic [Cmd-1:0]      block_encrypt_cmd_i,</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC">           0 :   input logic [StateId-1:0]  block_encrypt_id_i,</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaUNC">           0 :   output logic               block_encrypt_ack_o,</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC tlaBgGNC">           1 :   input logic                block_encrypt_rdy_i,</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaUNC tlaBgUNC">           0 :   output logic [Cmd-1:0]     block_encrypt_cmd_o,</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaUNC">           0 :   output logic [StateId-1:0] block_encrypt_id_o,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">           1 :   output logic [BlkLen-1:0]  block_encrypt_v_o,</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           1 :   output logic               block_encrypt_quiet_o,</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           2 :   output logic               block_encrypt_aes_cipher_sm_err_o,</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :   output logic [2:0]         block_encrypt_sfifo_blkenc_err_o</span></span>
+<span id="L34"><span class="lineNum">      34</span>              : );</span>
+<span id="L35"><span class="lineNum">      35</span>              : </span>
+<span id="L36"><span class="lineNum">      36</span>              :   localparam logic[31:0] BlkEncFifoDepth = 1;</span>
+<span id="L37"><span class="lineNum">      37</span>              :   localparam logic[31:0] BlkEncFifoWidth = StateId+Cmd;</span>
+<span id="L38"><span class="lineNum">      38</span>              :   localparam logic[31:0] NumShares = 1;</span>
+<span id="L39"><span class="lineNum">      39</span>              : </span>
+<span id="L40"><span class="lineNum">      40</span>              :   // signals</span>
+<span id="L41"><span class="lineNum">      41</span>              :   // blk_encrypt_in fifo</span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC">           0 :   logic [BlkEncFifoWidth-1:0] sfifo_blkenc_rdata;</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC">           0 :   logic                       sfifo_blkenc_push;</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC">           0 :   logic [BlkEncFifoWidth-1:0] sfifo_blkenc_wdata;</span></span>
+<span id="L45"><span class="lineNum">      45</span> <span class="tlaUNC">           0 :   logic                       sfifo_blkenc_pop;</span></span>
+<span id="L46"><span class="lineNum">      46</span> <span class="tlaUNC">           0 :   logic                       sfifo_blkenc_full;</span></span>
+<span id="L47"><span class="lineNum">      47</span> <span class="tlaUNC">           0 :   logic                       sfifo_blkenc_not_empty;</span></span>
+<span id="L48"><span class="lineNum">      48</span>              :   // breakout</span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaUNC">           0 :   logic [Cmd-1:0]             sfifo_blkenc_cmd;</span></span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaUNC">           0 :   logic [StateId-1:0]         sfifo_blkenc_id;</span></span>
+<span id="L51"><span class="lineNum">      51</span>              : </span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC tlaBgGNC">           1 :   aes_pkg::sp2v_e       cipher_in_valid;</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">           1 :   aes_pkg::sp2v_e       cipher_in_ready;</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">           1 :   aes_pkg::sp2v_e       cipher_out_valid;</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC tlaBgUNC">           0 :   aes_pkg::sp2v_e       cipher_out_ready;</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC tlaBgGNC">           1 :   aes_pkg::sp2v_e       cipher_crypt_busy;</span></span>
+<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">           1 :   logic [BlkLen-1:0]    cipher_data_out;</span></span>
+<span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC tlaBgUNC">           0 :   logic                 aes_cipher_core_enable;</span></span>
+<span id="L59"><span class="lineNum">      59</span>              : </span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC">           0 :   logic [aes_pkg::WidthPRDClearing-1:0] prd_clearing [NumShares];</span></span>
+<span id="L61"><span class="lineNum">      61</span>              : </span>
+<span id="L62"><span class="lineNum">      62</span> <span class="tlaUNC">           0 :   logic [3:0][3:0][7:0] state_init[NumShares];</span></span>
+<span id="L63"><span class="lineNum">      63</span>              : </span>
+<span id="L64"><span class="lineNum">      64</span> <span class="tlaUNC">           0 :   logic [7:0][31:0]     key_init[NumShares];</span></span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaUNC">           0 :   logic [3:0][3:0][7:0] state_done[NumShares];</span></span>
+<span id="L66"><span class="lineNum">      66</span> <span class="tlaUNC">           0 :   logic [3:0][3:0][7:0] state_out;</span></span>
+<span id="L67"><span class="lineNum">      67</span>              : </span>
+<span id="L68"><span class="lineNum">      68</span>              :   assign     prd_clearing[0] = '0;</span>
+<span id="L69"><span class="lineNum">      69</span>              : </span>
+<span id="L70"><span class="lineNum">      70</span>              :   assign     state_init[0] = aes_pkg::aes_transpose({&lt;&lt;8{block_encrypt_v_i}});</span>
+<span id="L71"><span class="lineNum">      71</span>              : </span>
+<span id="L72"><span class="lineNum">      72</span>              :   assign     key_init[0] = {&lt;&lt;8{block_encrypt_key_i}};</span>
+<span id="L73"><span class="lineNum">      73</span>              :   assign     state_out = aes_pkg::aes_transpose(state_done[0]);</span>
+<span id="L74"><span class="lineNum">      74</span>              :   assign     cipher_data_out = {&lt;&lt;8{state_out}};</span>
+<span id="L75"><span class="lineNum">      75</span>              : </span>
+<span id="L76"><span class="lineNum">      76</span>              : </span>
+<span id="L77"><span class="lineNum">      77</span>              :   //--------------------------------------------</span>
+<span id="L78"><span class="lineNum">      78</span>              :   // aes cipher core lifecycle enable</span>
+<span id="L79"><span class="lineNum">      79</span>              :   //--------------------------------------------</span>
+<span id="L80"><span class="lineNum">      80</span>              : </span>
+<span id="L81"><span class="lineNum">      81</span>              :   assign     aes_cipher_core_enable = block_encrypt_enable_i;</span>
+<span id="L82"><span class="lineNum">      82</span>              : </span>
+<span id="L83"><span class="lineNum">      83</span>              :   //--------------------------------------------</span>
+<span id="L84"><span class="lineNum">      84</span>              :   // aes cipher core</span>
+<span id="L85"><span class="lineNum">      85</span>              :   //--------------------------------------------</span>
+<span id="L86"><span class="lineNum">      86</span>              :   assign cipher_in_valid = (aes_cipher_core_enable &amp;&amp; block_encrypt_req_i) ?</span>
+<span id="L87"><span class="lineNum">      87</span>              :       aes_pkg::SP2V_HIGH : aes_pkg::SP2V_LOW;</span>
+<span id="L88"><span class="lineNum">      88</span>              : </span>
+<span id="L89"><span class="lineNum">      89</span>              :   // SEC_CM: AES_CIPHER.FSM.SPARSE</span>
+<span id="L90"><span class="lineNum">      90</span>              :   // SEC_CM: AES_CIPHER.FSM.REDUN</span>
+<span id="L91"><span class="lineNum">      91</span>              :   // SEC_CM: AES_CIPHER.CTRL.SPARSE</span>
+<span id="L92"><span class="lineNum">      92</span>              :   // SEC_CM: AES_CIPHER.FSM.LOCAL_ESC</span>
+<span id="L93"><span class="lineNum">      93</span>              :   // SEC_CM: AES_CIPHER.CTR.REDUN</span>
+<span id="L94"><span class="lineNum">      94</span>              :   // SEC_CM: AES_CIPHER.DATA_REG.LOCAL_ESC</span>
+<span id="L95"><span class="lineNum">      95</span>              : </span>
+<span id="L96"><span class="lineNum">      96</span>              :   aes_cipher_core #(</span>
+<span id="L97"><span class="lineNum">      97</span>              :     .AES192Enable ( 1'b0 ),  // AES192Enable disabled</span>
+<span id="L98"><span class="lineNum">      98</span>              :     .SecMasking   ( 1'b0 ),  // Masking disable</span>
+<span id="L99"><span class="lineNum">      99</span>              :     .SecSBoxImpl  ( SBoxImpl )</span>
+<span id="L100"><span class="lineNum">     100</span>              :   ) u_aes_cipher_core   (</span>
+<span id="L101"><span class="lineNum">     101</span>              :     .clk_i              (clk_i),</span>
+<span id="L102"><span class="lineNum">     102</span>              :     .rst_ni             (rst_ni),</span>
+<span id="L103"><span class="lineNum">     103</span>              : </span>
+<span id="L104"><span class="lineNum">     104</span>              :     .cfg_valid_i        ( 1'b1                       ),</span>
+<span id="L105"><span class="lineNum">     105</span>              :     .in_valid_i         ( cipher_in_valid            ),</span>
+<span id="L106"><span class="lineNum">     106</span>              :     .in_ready_o         ( cipher_in_ready            ),</span>
+<span id="L107"><span class="lineNum">     107</span>              :     .out_valid_o        ( cipher_out_valid           ),</span>
+<span id="L108"><span class="lineNum">     108</span>              :     .out_ready_i        ( cipher_out_ready           ),</span>
+<span id="L109"><span class="lineNum">     109</span>              :     .op_i               ( aes_pkg::CIPH_FWD          ),</span>
+<span id="L110"><span class="lineNum">     110</span>              :     .key_len_i          ( aes_pkg::AES_256           ),</span>
+<span id="L111"><span class="lineNum">     111</span>              :     .crypt_i            ( aes_pkg::SP2V_HIGH         ), // Enable</span>
+<span id="L112"><span class="lineNum">     112</span>              :     .crypt_o            ( cipher_crypt_busy          ),</span>
+<span id="L113"><span class="lineNum">     113</span>              :     .alert_fatal_i      ( 1'b0                       ),</span>
+<span id="L114"><span class="lineNum">     114</span>              :     .alert_o            ( block_encrypt_aes_cipher_sm_err_o),</span>
+<span id="L115"><span class="lineNum">     115</span>              :     .dec_key_gen_i      ( aes_pkg::SP2V_LOW          ), // Disable</span>
+<span id="L116"><span class="lineNum">     116</span>              :     .dec_key_gen_o      (                            ),</span>
+<span id="L117"><span class="lineNum">     117</span>              :     .prng_reseed_i      ( 1'b0                       ), // Disable</span>
+<span id="L118"><span class="lineNum">     118</span>              :     .prng_reseed_o      (                            ),</span>
+<span id="L119"><span class="lineNum">     119</span>              :     .key_clear_i        ( 1'b0                       ), // Disable</span>
+<span id="L120"><span class="lineNum">     120</span>              :     .key_clear_o        (                            ),</span>
+<span id="L121"><span class="lineNum">     121</span>              :     .data_out_clear_i   ( 1'b0                       ), // Disable</span>
+<span id="L122"><span class="lineNum">     122</span>              :     .data_out_clear_o   (                            ),</span>
+<span id="L123"><span class="lineNum">     123</span>              :     .prd_clearing_i     ( prd_clearing               ),</span>
+<span id="L124"><span class="lineNum">     124</span>              :     .force_masks_i      ( 1'b0                       ),</span>
+<span id="L125"><span class="lineNum">     125</span>              :     .data_in_mask_o     (                            ),</span>
+<span id="L126"><span class="lineNum">     126</span>              :     .entropy_req_o      (                            ),</span>
+<span id="L127"><span class="lineNum">     127</span>              :     .entropy_ack_i      ( 1'b0                       ),</span>
+<span id="L128"><span class="lineNum">     128</span>              :     .entropy_i          ( '0                         ),</span>
+<span id="L129"><span class="lineNum">     129</span>              : </span>
+<span id="L130"><span class="lineNum">     130</span>              :     .state_init_i       ( state_init                 ),</span>
+<span id="L131"><span class="lineNum">     131</span>              :     .key_init_i         ( key_init                   ),</span>
+<span id="L132"><span class="lineNum">     132</span>              :     .state_o            ( state_done                 )</span>
+<span id="L133"><span class="lineNum">     133</span>              :   );</span>
+<span id="L134"><span class="lineNum">     134</span>              : </span>
+<span id="L135"><span class="lineNum">     135</span>              : </span>
+<span id="L136"><span class="lineNum">     136</span>              :   //--------------------------------------------</span>
+<span id="L137"><span class="lineNum">     137</span>              :   // cmd / id tracking fifo</span>
+<span id="L138"><span class="lineNum">     138</span>              :   //--------------------------------------------</span>
+<span id="L139"><span class="lineNum">     139</span>              : </span>
+<span id="L140"><span class="lineNum">     140</span>              :   caliptra_prim_fifo_sync #(</span>
+<span id="L141"><span class="lineNum">     141</span>              :     .Width(BlkEncFifoWidth),</span>
+<span id="L142"><span class="lineNum">     142</span>              :     .Pass(0),</span>
+<span id="L143"><span class="lineNum">     143</span>              :     .Depth(BlkEncFifoDepth)</span>
+<span id="L144"><span class="lineNum">     144</span>              :   ) u_caliptra_prim_fifo_sync_blkenc (</span>
+<span id="L145"><span class="lineNum">     145</span>              :     .clk_i    (clk_i),</span>
+<span id="L146"><span class="lineNum">     146</span>              :     .rst_ni   (rst_ni),</span>
+<span id="L147"><span class="lineNum">     147</span>              :     .clr_i    (!block_encrypt_enable_i),</span>
+<span id="L148"><span class="lineNum">     148</span>              :     .wvalid_i (sfifo_blkenc_push),</span>
+<span id="L149"><span class="lineNum">     149</span>              :     .wready_o (),</span>
+<span id="L150"><span class="lineNum">     150</span>              :     .wdata_i  (sfifo_blkenc_wdata),</span>
+<span id="L151"><span class="lineNum">     151</span>              :     .rvalid_o (sfifo_blkenc_not_empty),</span>
+<span id="L152"><span class="lineNum">     152</span>              :     .rready_i (sfifo_blkenc_pop),</span>
+<span id="L153"><span class="lineNum">     153</span>              :     .rdata_o  (sfifo_blkenc_rdata),</span>
+<span id="L154"><span class="lineNum">     154</span>              :     .full_o   (sfifo_blkenc_full),</span>
+<span id="L155"><span class="lineNum">     155</span>              :     .depth_o  (),</span>
+<span id="L156"><span class="lineNum">     156</span>              :     .err_o    ()</span>
+<span id="L157"><span class="lineNum">     157</span>              :   );</span>
+<span id="L158"><span class="lineNum">     158</span>              : </span>
+<span id="L159"><span class="lineNum">     159</span>              :   assign sfifo_blkenc_push = block_encrypt_req_i &amp;&amp; !sfifo_blkenc_full;</span>
+<span id="L160"><span class="lineNum">     160</span>              :   assign sfifo_blkenc_wdata = {block_encrypt_id_i,block_encrypt_cmd_i};</span>
+<span id="L161"><span class="lineNum">     161</span>              : </span>
+<span id="L162"><span class="lineNum">     162</span>              :   assign block_encrypt_rdy_o = (cipher_in_ready == aes_pkg::SP2V_HIGH);</span>
+<span id="L163"><span class="lineNum">     163</span>              : </span>
+<span id="L164"><span class="lineNum">     164</span>              :   assign sfifo_blkenc_pop = block_encrypt_ack_o;</span>
+<span id="L165"><span class="lineNum">     165</span>              :   assign {sfifo_blkenc_id,sfifo_blkenc_cmd} = sfifo_blkenc_rdata;</span>
+<span id="L166"><span class="lineNum">     166</span>              : </span>
+<span id="L167"><span class="lineNum">     167</span>              :   assign block_encrypt_ack_o = block_encrypt_rdy_i &amp;&amp; (cipher_out_valid == aes_pkg::SP2V_HIGH);</span>
+<span id="L168"><span class="lineNum">     168</span>              : </span>
+<span id="L169"><span class="lineNum">     169</span>              :   assign block_encrypt_cmd_o = sfifo_blkenc_cmd;</span>
+<span id="L170"><span class="lineNum">     170</span>              :   assign block_encrypt_id_o = sfifo_blkenc_id;</span>
+<span id="L171"><span class="lineNum">     171</span>              :   assign block_encrypt_v_o = cipher_data_out;</span>
+<span id="L172"><span class="lineNum">     172</span>              : </span>
+<span id="L173"><span class="lineNum">     173</span>              :   assign cipher_out_ready = block_encrypt_rdy_i ? aes_pkg::SP2V_HIGH : aes_pkg::SP2V_LOW;</span>
+<span id="L174"><span class="lineNum">     174</span>              : </span>
+<span id="L175"><span class="lineNum">     175</span>              :   assign block_encrypt_sfifo_blkenc_err_o =</span>
+<span id="L176"><span class="lineNum">     176</span>              :          {(sfifo_blkenc_push &amp;&amp; sfifo_blkenc_full),</span>
+<span id="L177"><span class="lineNum">     177</span>              :           (sfifo_blkenc_pop &amp;&amp; !sfifo_blkenc_not_empty),</span>
+<span id="L178"><span class="lineNum">     178</span>              :           (sfifo_blkenc_full &amp;&amp; !sfifo_blkenc_not_empty)};</span>
+<span id="L179"><span class="lineNum">     179</span>              : </span>
+<span id="L180"><span class="lineNum">     180</span>              :   //--------------------------------------------</span>
+<span id="L181"><span class="lineNum">     181</span>              :   // idle detection</span>
+<span id="L182"><span class="lineNum">     182</span>              :   //--------------------------------------------</span>
+<span id="L183"><span class="lineNum">     183</span>              : </span>
+<span id="L184"><span class="lineNum">     184</span>              :   // simple aes cipher activity detector</span>
+<span id="L185"><span class="lineNum">     185</span>              :   assign block_encrypt_quiet_o =</span>
+<span id="L186"><span class="lineNum">     186</span>              :          ((cipher_in_valid == aes_pkg::SP2V_LOW) || (cipher_in_ready == aes_pkg::SP2V_LOW)) &amp;&amp;</span>
+<span id="L187"><span class="lineNum">     187</span>              :          (cipher_crypt_busy == aes_pkg::SP2V_LOW);</span>
+<span id="L188"><span class="lineNum">     188</span>              : </span>
+<span id="L189"><span class="lineNum">     189</span>              : endmodule</span>
+        </pre>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

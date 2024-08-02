@@ -1,0 +1,543 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Full
+        coverage report
+    </title>
+    <link rel="stylesheet" type="text/css" href="cov.css">
+    <style>
+        .container {
+            background-color: rgb(169, 169, 169);
+            width: 100%;
+            min-height: 80%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="title-header-shadow">
+        <td class="title-container">
+            <table class="title-header">
+                <td class="title-logo">
+                    <a href=../../../../index.html>
+                        <img src=../../../../_static/white.svg></img>
+                    </a>
+                </td>
+                <td class="title">
+                    Caliptra RTL
+                    Full
+                    coverage report
+                </td>
+            </table>
+        </td>
+    </table>
+    <center>
+        <table class="info-table">
+            <tr class="info-table-view">
+                <td width="10%" class="headerInfo">Current view:</td>
+                <td width="40%" class="headerInfoValue">
+                    <a href=index.html>caliptra-rtl</a>—src—hmac—rtl—hmac.sv
+                </td>
+                <td width=auto></td>
+                <td width="10%"></td>
+                <td width="10%" class="headerCovSummary colTop">Coverage</td>
+                <td width="10%" class="headerCovSummary colTop" title="Covered + Uncovered code">Hit</td>
+                <td width="10%" class="headerCovSummary colTop" title="Exercised code only">Total</td>
+            </tr>
+            <tr>
+                <td class="headerInfo">Test Date:</td>
+                <td class="headerInfoValue">
+                    02-08-2024
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Toggle
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff8200;">
+        25.6%
+    </td>
+    <td class="headerCovSummaryEntry">
+        11
+    </td>
+    <td class="headerCovSummaryEntry">
+        43
+    </td>
+
+            </tr>
+            <tr>
+                <td class="headerInfo">Test:</td>
+                <td class="headerInfoValue">
+                    smoke_test_sha_accel
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Branch
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #3fff00;">
+        87.5%
+    </td>
+    <td class="headerCovSummaryEntry">
+        77
+    </td>
+    <td class="headerCovSummaryEntry">
+        88
+    </td>
+
+            </tr>
+            
+        </table>
+    </center>
+
+    <table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td><br/></td>
+</tr>
+<tr>
+<td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : // SPDX-License-Identifier: Apache-2.0</span>
+<span id="L2"><span class="lineNum">       2</span>              : //</span>
+<span id="L3"><span class="lineNum">       3</span>              : // Licensed under the Apache License, Version 2.0 (the "License");</span>
+<span id="L4"><span class="lineNum">       4</span>              : // you may not use this file except in compliance with the License.</span>
+<span id="L5"><span class="lineNum">       5</span>              : // You may obtain a copy of the License at</span>
+<span id="L6"><span class="lineNum">       6</span>              : //</span>
+<span id="L7"><span class="lineNum">       7</span>              : // http://www.apache.org/licenses/LICENSE-2.0</span>
+<span id="L8"><span class="lineNum">       8</span>              : //</span>
+<span id="L9"><span class="lineNum">       9</span>              : // Unless required by applicable law or agreed to in writing, software</span>
+<span id="L10"><span class="lineNum">      10</span>              : // distributed under the License is distributed on an "AS IS" BASIS,</span>
+<span id="L11"><span class="lineNum">      11</span>              : // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span id="L12"><span class="lineNum">      12</span>              : // See the License for the specific language governing permissions and</span>
+<span id="L13"><span class="lineNum">      13</span>              : // limitations under the License.</span>
+<span id="L14"><span class="lineNum">      14</span>              : //</span>
+<span id="L15"><span class="lineNum">      15</span>              : //======================================================================</span>
+<span id="L16"><span class="lineNum">      16</span>              : //</span>
+<span id="L17"><span class="lineNum">      17</span>              : // hmac.sv</span>
+<span id="L18"><span class="lineNum">      18</span>              : // ------</span>
+<span id="L19"><span class="lineNum">      19</span>              : // HMAC-384 top-level wrapper with 32 bit data access.</span>
+<span id="L20"><span class="lineNum">      20</span>              : //</span>
+<span id="L21"><span class="lineNum">      21</span>              : //======================================================================</span>
+<span id="L22"><span class="lineNum">      22</span>              : //`include "kv_defines.svh"</span>
+<span id="L23"><span class="lineNum">      23</span>              : </span>
+<span id="L24"><span class="lineNum">      24</span>              : module hmac </span>
+<span id="L25"><span class="lineNum">      25</span>              :        import hmac_param_pkg::*;</span>
+<span id="L26"><span class="lineNum">      26</span>              :        import hmac_reg_pkg::*;</span>
+<span id="L27"><span class="lineNum">      27</span>              :        import kv_defines_pkg::*;      </span>
+<span id="L28"><span class="lineNum">      28</span>              :       #(</span>
+<span id="L29"><span class="lineNum">      29</span>              :         ADDR_WIDTH = 32,</span>
+<span id="L30"><span class="lineNum">      30</span>              :         DATA_WIDTH = 32</span>
+<span id="L31"><span class="lineNum">      31</span>              :       )(</span>
+<span id="L32"><span class="lineNum">      32</span>              :         // Clock and reset.</span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">      188100 :         input wire           clk,</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">           1 :         input wire           reset_n,</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           1 :         input wire           cptra_pwrgood,</span></span>
+<span id="L36"><span class="lineNum">      36</span>              : </span>
+<span id="L37"><span class="lineNum">      37</span>              :         // Control.</span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           4 :         input wire           cs,</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">           4 :         input wire           we,</span></span>
+<span id="L40"><span class="lineNum">      40</span>              : </span>
+<span id="L41"><span class="lineNum">      41</span>              :         // Data ports.</span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC tlaBgUNC">           0 :         input wire  [ADDR_WIDTH - 1 : 0] address,</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC tlaBgGNC">           4 :         input wire  [DATA_WIDTH - 1 : 0] write_data,</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC tlaBgUNC">           0 :         output wire [DATA_WIDTH - 1 : 0] read_data,</span></span>
+<span id="L45"><span class="lineNum">      45</span>              : </span>
+<span id="L46"><span class="lineNum">      46</span>              :         // KV interface</span>
+<span id="L47"><span class="lineNum">      47</span> <span class="tlaUNC">           0 :         output kv_read_t [1:0] kv_read,</span></span>
+<span id="L48"><span class="lineNum">      48</span> <span class="tlaUNC">           0 :         output kv_write_t kv_write,</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaUNC">           0 :         input kv_rd_resp_t [1:0] kv_rd_resp,</span></span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaUNC">           0 :         input kv_wr_resp_t kv_wr_resp,</span></span>
+<span id="L51"><span class="lineNum">      51</span>              : </span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC">           0 :         output logic busy_o,</span></span>
+<span id="L53"><span class="lineNum">      53</span>              : </span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaUNC">           0 :         output wire error_intr,</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC">           0 :         output wire notif_intr,</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC">           0 :         input logic debugUnlock_or_scan_mode_switch</span></span>
+<span id="L57"><span class="lineNum">      57</span>              :       );</span>
+<span id="L58"><span class="lineNum">      58</span>              : </span>
+<span id="L59"><span class="lineNum">      59</span>              :   //----------------------------------------------------------------</span>
+<span id="L60"><span class="lineNum">      60</span>              :   // Registers including update variables and write enable.</span>
+<span id="L61"><span class="lineNum">      61</span>              :   //----------------------------------------------------------------</span>
+<span id="L62"><span class="lineNum">      62</span> <span class="tlaUNC">           0 :   reg init_reg;</span></span>
+<span id="L63"><span class="lineNum">      63</span> <span class="tlaUNC">           0 :   reg init_new;</span></span>
+<span id="L64"><span class="lineNum">      64</span>              : </span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaUNC">           0 :   reg next_reg;</span></span>
+<span id="L66"><span class="lineNum">      66</span> <span class="tlaUNC">           0 :   reg next_new;</span></span>
+<span id="L67"><span class="lineNum">      67</span>              :   </span>
+<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC tlaBgGNC">           1 :   reg ready_reg;</span></span>
+<span id="L69"><span class="lineNum">      69</span> <span class="tlaUNC tlaBgUNC">           0 :   reg tag_valid_reg;</span></span>
+<span id="L70"><span class="lineNum">      70</span>              : </span>
+<span id="L71"><span class="lineNum">      71</span>              :   localparam BLOCK_SIZE       = 1024;</span>
+<span id="L72"><span class="lineNum">      72</span>              :   localparam KEY_SIZE         = 384;</span>
+<span id="L73"><span class="lineNum">      73</span>              :   localparam TAG_SIZE         = KEY_SIZE;</span>
+<span id="L74"><span class="lineNum">      74</span>              :   localparam LFSR_SEED_SIZE   = 384;</span>
+<span id="L75"><span class="lineNum">      75</span>              :   localparam BLOCK_NUM_DWORDS = BLOCK_SIZE / DATA_WIDTH;</span>
+<span id="L76"><span class="lineNum">      76</span>              :   localparam KEY_NUM_DWORDS   = KEY_SIZE / DATA_WIDTH;</span>
+<span id="L77"><span class="lineNum">      77</span>              :   localparam TAG_NUM_DWORDS   = TAG_SIZE / DATA_WIDTH;</span>
+<span id="L78"><span class="lineNum">      78</span>              :   localparam SEED_NUM_DWORDS  = ((LFSR_SEED_SIZE - 1) / DATA_WIDTH) + 1; </span>
+<span id="L79"><span class="lineNum">      79</span>              : </span>
+<span id="L80"><span class="lineNum">      80</span>              :   reg [KEY_NUM_DWORDS - 1   : 0][DATA_WIDTH - 1 : 0]    key_reg;</span>
+<span id="L81"><span class="lineNum">      81</span>              :   reg [BLOCK_NUM_DWORDS - 1 : 0][DATA_WIDTH - 1 : 0]    block_reg;</span>
+<span id="L82"><span class="lineNum">      82</span>              :   reg [SEED_NUM_DWORDS- 1   : 0][DATA_WIDTH - 1 : 0]    lfsr_seed_reg;</span>
+<span id="L83"><span class="lineNum">      83</span>              : </span>
+<span id="L84"><span class="lineNum">      84</span> <span class="tlaUNC">           0 :   logic zeroize_reg;</span></span>
+<span id="L85"><span class="lineNum">      85</span>              : </span>
+<span id="L86"><span class="lineNum">      86</span>              :   //----------------------------------------------------------------</span>
+<span id="L87"><span class="lineNum">      87</span>              :   // Wires.</span>
+<span id="L88"><span class="lineNum">      88</span>              :   //----------------------------------------------------------------</span>
+<span id="L89"><span class="lineNum">      89</span>              :   wire [KEY_SIZE-1 : 0]         core_key;</span>
+<span id="L90"><span class="lineNum">      90</span>              :   wire [BLOCK_SIZE-1 : 0]       core_block;</span>
+<span id="L91"><span class="lineNum">      91</span> <span class="tlaGNC tlaBgGNC">           1 :   wire                          core_ready;</span></span>
+<span id="L92"><span class="lineNum">      92</span>              :   wire [TAG_SIZE-1 : 0]         core_tag;</span>
+<span id="L93"><span class="lineNum">      93</span> <span class="tlaUNC tlaBgUNC">           0 :   wire                          core_tag_valid;</span></span>
+<span id="L94"><span class="lineNum">      94</span>              :   wire [LFSR_SEED_SIZE-1 : 0]   core_lfsr_seed;</span>
+<span id="L95"><span class="lineNum">      95</span>              :   reg [TAG_NUM_DWORDS - 1 : 0][DATA_WIDTH - 1 : 0] tag_reg;</span>
+<span id="L96"><span class="lineNum">      96</span>              :   reg [TAG_NUM_DWORDS - 1 : 0][DATA_WIDTH - 1 : 0] kv_reg;</span>
+<span id="L97"><span class="lineNum">      97</span>              : </span>
+<span id="L98"><span class="lineNum">      98</span>              :   hmac_reg__in_t hwif_in;</span>
+<span id="L99"><span class="lineNum">      99</span>              :   hmac_reg__out_t hwif_out;</span>
+<span id="L100"><span class="lineNum">     100</span>              : </span>
+<span id="L101"><span class="lineNum">     101</span>              :   //interface with kv client</span>
+<span id="L102"><span class="lineNum">     102</span> <span class="tlaUNC">           0 :   logic kv_key_write_en;</span></span>
+<span id="L103"><span class="lineNum">     103</span> <span class="tlaUNC">           0 :   logic [3:0] kv_key_write_offset;</span></span>
+<span id="L104"><span class="lineNum">     104</span> <span class="tlaUNC">           0 :   logic [31:0] kv_key_write_data;</span></span>
+<span id="L105"><span class="lineNum">     105</span> <span class="tlaUNC">           0 :   logic kv_block_write_en;</span></span>
+<span id="L106"><span class="lineNum">     106</span> <span class="tlaUNC">           0 :   logic [4:0] kv_block_write_offset;</span></span>
+<span id="L107"><span class="lineNum">     107</span> <span class="tlaUNC">           0 :   logic [31:0] kv_block_write_data;</span></span>
+<span id="L108"><span class="lineNum">     108</span>              :   //KV Read Data Present</span>
+<span id="L109"><span class="lineNum">     109</span> <span class="tlaUNC">           0 :   logic kv_key_data_present, kv_key_data_present_set;</span></span>
+<span id="L110"><span class="lineNum">     110</span> <span class="tlaUNC">           0 :   logic [BLOCK_NUM_DWORDS-1:0] block_reg_lock, block_reg_lock_nxt;</span></span>
+<span id="L111"><span class="lineNum">     111</span> <span class="tlaUNC">           0 :   logic kv_data_present, kv_data_present_set, kv_data_present_reset;</span></span>
+<span id="L112"><span class="lineNum">     112</span>              : </span>
+<span id="L113"><span class="lineNum">     113</span> <span class="tlaUNC">           0 :   logic dest_keyvault;</span></span>
+<span id="L114"><span class="lineNum">     114</span> <span class="tlaUNC">           0 :   kv_error_code_e kv_key_error, kv_block_error, kv_write_error;</span></span>
+<span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC tlaBgGNC">           1 :   logic kv_key_ready, kv_key_done;</span></span>
+<span id="L116"><span class="lineNum">     116</span> <span class="tlaGNC">           1 :   logic kv_block_ready, kv_block_done;</span></span>
+<span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC">           1 :   logic kv_write_ready, kv_write_done;</span></span>
+<span id="L118"><span class="lineNum">     118</span>              : </span>
+<span id="L119"><span class="lineNum">     119</span> <span class="tlaUNC tlaBgUNC">           0 :   kv_read_ctrl_reg_t kv_key_read_ctrl_reg;</span></span>
+<span id="L120"><span class="lineNum">     120</span> <span class="tlaUNC">           0 :   kv_read_ctrl_reg_t kv_block_read_ctrl_reg;</span></span>
+<span id="L121"><span class="lineNum">     121</span> <span class="tlaUNC">           0 :   kv_write_ctrl_reg_t kv_write_ctrl_reg;</span></span>
+<span id="L122"><span class="lineNum">     122</span> <span class="tlaUNC">           0 :   logic core_tag_we;</span></span>
+<span id="L123"><span class="lineNum">     123</span>              :   //----------------------------------------------------------------</span>
+<span id="L124"><span class="lineNum">     124</span>              :   // Concurrent connectivity for ports etc.</span>
+<span id="L125"><span class="lineNum">     125</span>              :   //----------------------------------------------------------------</span>
+<span id="L126"><span class="lineNum">     126</span>              :   assign core_block = {block_reg[00], block_reg[01], block_reg[02], block_reg[03],</span>
+<span id="L127"><span class="lineNum">     127</span>              :                        block_reg[04], block_reg[05], block_reg[06], block_reg[07],</span>
+<span id="L128"><span class="lineNum">     128</span>              :                        block_reg[08], block_reg[09], block_reg[10], block_reg[11],</span>
+<span id="L129"><span class="lineNum">     129</span>              :                        block_reg[12], block_reg[13], block_reg[14], block_reg[15],</span>
+<span id="L130"><span class="lineNum">     130</span>              :                        block_reg[16], block_reg[17], block_reg[18], block_reg[19],</span>
+<span id="L131"><span class="lineNum">     131</span>              :                        block_reg[20], block_reg[21], block_reg[22], block_reg[23],</span>
+<span id="L132"><span class="lineNum">     132</span>              :                        block_reg[24], block_reg[25], block_reg[26], block_reg[27],</span>
+<span id="L133"><span class="lineNum">     133</span>              :                        block_reg[28], block_reg[29], block_reg[30], block_reg[31]};</span>
+<span id="L134"><span class="lineNum">     134</span>              : </span>
+<span id="L135"><span class="lineNum">     135</span>              :   assign core_key = {key_reg[00], key_reg[01], key_reg[02], key_reg[03], key_reg[04], key_reg[05],</span>
+<span id="L136"><span class="lineNum">     136</span>              :                      key_reg[06], key_reg[07], key_reg[08], key_reg[09], key_reg[10], key_reg[11]};</span>
+<span id="L137"><span class="lineNum">     137</span>              : </span>
+<span id="L138"><span class="lineNum">     138</span>              :   assign core_lfsr_seed = {lfsr_seed_reg[00], lfsr_seed_reg[01], lfsr_seed_reg[02], lfsr_seed_reg[03], lfsr_seed_reg[04], lfsr_seed_reg[05],</span>
+<span id="L139"><span class="lineNum">     139</span>              :                            lfsr_seed_reg[06], lfsr_seed_reg[07], lfsr_seed_reg[08], lfsr_seed_reg[09], lfsr_seed_reg[10], lfsr_seed_reg[11]};</span>
+<span id="L140"><span class="lineNum">     140</span>              :   </span>
+<span id="L141"><span class="lineNum">     141</span>              :   //rising edge detect on core tag valid</span>
+<span id="L142"><span class="lineNum">     142</span>              :   assign core_tag_we = core_tag_valid &amp; ~tag_valid_reg;</span>
+<span id="L143"><span class="lineNum">     143</span>              : </span>
+<span id="L144"><span class="lineNum">     144</span>              :   //----------------------------------------------------------------</span>
+<span id="L145"><span class="lineNum">     145</span>              :   // core instantiation.</span>
+<span id="L146"><span class="lineNum">     146</span>              :   //----------------------------------------------------------------</span>
+<span id="L147"><span class="lineNum">     147</span>              :   hmac_core core(</span>
+<span id="L148"><span class="lineNum">     148</span>              :                  .clk(clk),</span>
+<span id="L149"><span class="lineNum">     149</span>              :                  .reset_n(reset_n),</span>
+<span id="L150"><span class="lineNum">     150</span>              :                  .zeroize(zeroize_reg),</span>
+<span id="L151"><span class="lineNum">     151</span>              : </span>
+<span id="L152"><span class="lineNum">     152</span>              :                  .init_cmd(init_reg),</span>
+<span id="L153"><span class="lineNum">     153</span>              :                  .next_cmd(next_reg),</span>
+<span id="L154"><span class="lineNum">     154</span>              : </span>
+<span id="L155"><span class="lineNum">     155</span>              :                  .lfsr_seed(core_lfsr_seed),</span>
+<span id="L156"><span class="lineNum">     156</span>              : </span>
+<span id="L157"><span class="lineNum">     157</span>              :                  .key(core_key),</span>
+<span id="L158"><span class="lineNum">     158</span>              : </span>
+<span id="L159"><span class="lineNum">     159</span>              :                  .block_msg(core_block),</span>
+<span id="L160"><span class="lineNum">     160</span>              : </span>
+<span id="L161"><span class="lineNum">     161</span>              :                  .ready(core_ready),</span>
+<span id="L162"><span class="lineNum">     162</span>              :                  .tag(core_tag),</span>
+<span id="L163"><span class="lineNum">     163</span>              :                  .tag_valid(core_tag_valid)</span>
+<span id="L164"><span class="lineNum">     164</span>              :                 );</span>
+<span id="L165"><span class="lineNum">     165</span>              : </span>
+<span id="L166"><span class="lineNum">     166</span>              : </span>
+<span id="L167"><span class="lineNum">     167</span>              :   //----------------------------------------------------------------</span>
+<span id="L168"><span class="lineNum">     168</span>              :   // reg_update</span>
+<span id="L169"><span class="lineNum">     169</span>              :   //</span>
+<span id="L170"><span class="lineNum">     170</span>              :   // Update functionality for all registers in the core.</span>
+<span id="L171"><span class="lineNum">     171</span>              :   // All registers are positive edge triggered with asynchronous</span>
+<span id="L172"><span class="lineNum">     172</span>              :   // active low reset. All registers have write enable.</span>
+<span id="L173"><span class="lineNum">     173</span>              :   //----------------------------------------------------------------</span>
+<span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC tlaBgGNC">       94050 :   always @ (posedge clk or negedge reset_n)</span></span>
+<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">       94050 :     begin : reg_update</span></span>
+<span id="L176"><span class="lineNum">     176</span>              :       integer ii;</span>
+<span id="L177"><span class="lineNum">     177</span>              : </span>
+<span id="L178"><span class="lineNum">     178</span> <span class="tlaGNC">           4 :       if (!reset_n)</span></span>
+<span id="L179"><span class="lineNum">     179</span> <span class="tlaGNC">           4 :         begin</span></span>
+<span id="L180"><span class="lineNum">     180</span> <span class="tlaGNC">           4 :           kv_reg          &lt;= '0;</span></span>
+<span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC">           4 :           tag_reg         &lt;= '0;</span></span>
+<span id="L182"><span class="lineNum">     182</span> <span class="tlaGNC">           4 :           tag_valid_reg   &lt;= '0;</span></span>
+<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC">           4 :           ready_reg       &lt;= '0;</span></span>
+<span id="L184"><span class="lineNum">     184</span> <span class="tlaGNC">           4 :           block_reg_lock  &lt;= '0;</span></span>
+<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC">           4 :           kv_key_data_present &lt;= '0;</span></span>
+<span id="L186"><span class="lineNum">     186</span> <span class="tlaGNC">           4 :           kv_data_present &lt;= '0;</span></span>
+<span id="L187"><span class="lineNum">     187</span>              :         end</span>
+<span id="L188"><span class="lineNum">     188</span> <span class="tlaGNC">       94046 :       else if (zeroize_reg)</span></span>
+<span id="L189"><span class="lineNum">     189</span> <span class="tlaUNC tlaBgUNC">           0 :         begin</span></span>
+<span id="L190"><span class="lineNum">     190</span> <span class="tlaUNC">           0 :           kv_reg          &lt;= '0;</span></span>
+<span id="L191"><span class="lineNum">     191</span> <span class="tlaUNC">           0 :           tag_reg         &lt;= '0;</span></span>
+<span id="L192"><span class="lineNum">     192</span> <span class="tlaUNC">           0 :           tag_valid_reg   &lt;= '0;</span></span>
+<span id="L193"><span class="lineNum">     193</span> <span class="tlaUNC">           0 :           ready_reg       &lt;= '0;</span></span>
+<span id="L194"><span class="lineNum">     194</span> <span class="tlaUNC">           0 :           block_reg_lock  &lt;= '0;</span></span>
+<span id="L195"><span class="lineNum">     195</span> <span class="tlaUNC">           0 :           kv_key_data_present &lt;= '0;</span></span>
+<span id="L196"><span class="lineNum">     196</span> <span class="tlaUNC">           0 :           kv_data_present &lt;= '0;</span></span>
+<span id="L197"><span class="lineNum">     197</span>              :         end</span>
+<span id="L198"><span class="lineNum">     198</span>              :       else</span>
+<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC tlaBgGNC">       94046 :         begin</span></span>
+<span id="L200"><span class="lineNum">     200</span> <span class="tlaGNC">       94046 :           tag_valid_reg &lt;= core_tag_valid;</span></span>
+<span id="L201"><span class="lineNum">     201</span> <span class="tlaGNC">       94046 :           ready_reg     &lt;= core_ready; </span></span>
+<span id="L202"><span class="lineNum">     202</span>              : </span>
+<span id="L203"><span class="lineNum">     203</span>              :           //write to sw register</span>
+<span id="L204"><span class="lineNum">     204</span> <span class="tlaGNC">       94046 :           if (core_tag_we &amp; ~(dest_keyvault | kv_data_present))</span></span>
+<span id="L205"><span class="lineNum">     205</span> <span class="tlaUNC tlaBgUNC">           0 :             tag_reg &lt;= core_tag;</span></span>
+<span id="L206"><span class="lineNum">     206</span> <span class="tlaGNC tlaBgGNC">       94046 :           if (core_tag_we &amp; (dest_keyvault | kv_data_present))</span></span>
+<span id="L207"><span class="lineNum">     207</span> <span class="tlaUNC tlaBgUNC">           0 :             kv_reg &lt;= core_tag;</span></span>
+<span id="L208"><span class="lineNum">     208</span>              : </span>
+<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC tlaBgGNC">       94046 :           block_reg_lock &lt;= block_reg_lock_nxt;</span></span>
+<span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">       94046 :           kv_key_data_present &lt;= kv_key_data_present_set ? '1 :</span></span>
+<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">       94046 :                                  kv_data_present_reset ? '0 : kv_key_data_present;</span></span>
+<span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC">       94046 :           kv_data_present &lt;= kv_data_present_set ? '1 :</span></span>
+<span id="L213"><span class="lineNum">     213</span> <span class="tlaGNC">       94046 :                              kv_data_present_reset ? '0 : kv_data_present;</span></span>
+<span id="L214"><span class="lineNum">     214</span>              :         end</span>
+<span id="L215"><span class="lineNum">     215</span>              :     end // reg_update</span>
+<span id="L216"><span class="lineNum">     216</span>              : </span>
+<span id="L217"><span class="lineNum">     217</span>              : //HMAC register hardware interfaces</span>
+<span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC">           1 : always_comb begin</span></span>
+<span id="L219"><span class="lineNum">     219</span>              :   //drive resets to register block</span>
+<span id="L220"><span class="lineNum">     220</span> <span class="tlaGNC">           1 :   hwif_in.error_reset_b = cptra_pwrgood;</span></span>
+<span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC">           1 :   hwif_in.reset_b = reset_n;</span></span>
+<span id="L222"><span class="lineNum">     222</span>              :   //drive hardware writeable registers from hmac core</span>
+<span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_NAME[0].NAME.next = HMAC_CORE_NAME[31:0];</span></span>
+<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_NAME[1].NAME.next = HMAC_CORE_NAME[63:32];</span></span>
+<span id="L225"><span class="lineNum">     225</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_VERSION[0].VERSION.next = HMAC_CORE_VERSION[31:0];</span></span>
+<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_VERSION[1].VERSION.next = HMAC_CORE_VERSION[63:32];</span></span>
+<span id="L227"><span class="lineNum">     227</span>              : </span>
+<span id="L228"><span class="lineNum">     228</span>              :   //assign hardware readable registers to drive hmac core</span>
+<span id="L229"><span class="lineNum">     229</span>              :   //mask the command until kv clients are idle</span>
+<span id="L230"><span class="lineNum">     230</span> <span class="tlaGNC">           1 :   init_reg = hwif_out.HMAC384_CTRL.INIT.value &amp; kv_key_ready &amp; kv_block_ready;</span></span>
+<span id="L231"><span class="lineNum">     231</span> <span class="tlaGNC">           1 :   next_reg = hwif_out.HMAC384_CTRL.NEXT.value &amp; kv_key_ready &amp; kv_block_ready;</span></span>
+<span id="L232"><span class="lineNum">     232</span> <span class="tlaGNC">           1 :   zeroize_reg = hwif_out.HMAC384_CTRL.ZEROIZE.value || debugUnlock_or_scan_mode_switch;</span></span>
+<span id="L233"><span class="lineNum">     233</span>              : </span>
+<span id="L234"><span class="lineNum">     234</span>              :   //drive hardware writeable registers from hmac core</span>
+<span id="L235"><span class="lineNum">     235</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_STATUS.READY.next = ready_reg;</span></span>
+<span id="L236"><span class="lineNum">     236</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_STATUS.VALID.next = tag_valid_reg;</span></span>
+<span id="L237"><span class="lineNum">     237</span> <span class="tlaGNC">           1 :   for (int dword=0; dword &lt; TAG_NUM_DWORDS; dword++) begin</span></span>
+<span id="L238"><span class="lineNum">     238</span> <span class="tlaGNC">          12 :     hwif_in.HMAC384_TAG[dword].TAG.next = tag_reg[(TAG_NUM_DWORDS - 1)-dword];</span></span>
+<span id="L239"><span class="lineNum">     239</span> <span class="tlaGNC">          12 :     hwif_in.HMAC384_TAG[dword].TAG.hwclr = zeroize_reg;</span></span>
+<span id="L240"><span class="lineNum">     240</span>              :   end</span>
+<span id="L241"><span class="lineNum">     241</span>              :   //drive hardware writable registers from key vault</span>
+<span id="L242"><span class="lineNum">     242</span> <span class="tlaGNC">           1 :   for (int dword=0; dword &lt; BLOCK_NUM_DWORDS; dword++)begin</span></span>
+<span id="L243"><span class="lineNum">     243</span> <span class="tlaGNC">          32 :     hwif_in.HMAC384_BLOCK[dword].BLOCK.we = (kv_block_write_en &amp; (kv_block_write_offset == dword)) &amp; !(zeroize_reg | kv_data_present_reset);</span></span>
+<span id="L244"><span class="lineNum">     244</span> <span class="tlaGNC">          32 :     hwif_in.HMAC384_BLOCK[dword].BLOCK.next = kv_block_write_data;</span></span>
+<span id="L245"><span class="lineNum">     245</span> <span class="tlaGNC">          32 :     hwif_in.HMAC384_BLOCK[dword].BLOCK.hwclr = zeroize_reg | kv_data_present_reset | (kv_block_error == KV_READ_FAIL);</span></span>
+<span id="L246"><span class="lineNum">     246</span> <span class="tlaGNC">          32 :     hwif_in.HMAC384_BLOCK[dword].BLOCK.swwel = block_reg_lock[dword];</span></span>
+<span id="L247"><span class="lineNum">     247</span>              :   end</span>
+<span id="L248"><span class="lineNum">     248</span> <span class="tlaGNC">           1 :   for (int dword=0; dword &lt; KEY_NUM_DWORDS; dword++)begin</span></span>
+<span id="L249"><span class="lineNum">     249</span> <span class="tlaGNC">          12 :     hwif_in.HMAC384_KEY[dword].KEY.we = (kv_key_write_en &amp; (kv_key_write_offset == dword)) &amp; !(zeroize_reg | kv_data_present_reset);</span></span>
+<span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC">          12 :     hwif_in.HMAC384_KEY[dword].KEY.next = kv_key_write_data;</span></span>
+<span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">          12 :     hwif_in.HMAC384_KEY[dword].KEY.hwclr = zeroize_reg | kv_data_present_reset | (kv_key_error == KV_READ_FAIL);</span></span>
+<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">          12 :     hwif_in.HMAC384_KEY[dword].KEY.swwel = kv_key_data_present;</span></span>
+<span id="L253"><span class="lineNum">     253</span>              :   end</span>
+<span id="L254"><span class="lineNum">     254</span>              :   //set ready when keyvault isn't busy</span>
+<span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_RD_KEY_STATUS.READY.next = kv_key_ready;</span></span>
+<span id="L256"><span class="lineNum">     256</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_RD_BLOCK_STATUS.READY.next = kv_block_ready;</span></span>
+<span id="L257"><span class="lineNum">     257</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_WR_STATUS.READY.next = kv_write_ready;</span></span>
+<span id="L258"><span class="lineNum">     258</span>              :   //set error code</span>
+<span id="L259"><span class="lineNum">     259</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_RD_KEY_STATUS.ERROR.next = kv_key_error;</span></span>
+<span id="L260"><span class="lineNum">     260</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_RD_BLOCK_STATUS.ERROR.next = kv_block_error;</span></span>
+<span id="L261"><span class="lineNum">     261</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_WR_STATUS.ERROR.next = kv_write_error;</span></span>
+<span id="L262"><span class="lineNum">     262</span>              :   //set valid when fsm is done</span>
+<span id="L263"><span class="lineNum">     263</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_RD_KEY_STATUS.VALID.hwset = kv_key_done;</span></span>
+<span id="L264"><span class="lineNum">     264</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_RD_BLOCK_STATUS.VALID.hwset = kv_block_done;</span></span>
+<span id="L265"><span class="lineNum">     265</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_WR_STATUS.VALID.hwset = kv_write_done;</span></span>
+<span id="L266"><span class="lineNum">     266</span>              :   //clear valid when new request is made</span>
+<span id="L267"><span class="lineNum">     267</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_RD_KEY_STATUS.VALID.hwclr = kv_key_read_ctrl_reg.read_en;</span></span>
+<span id="L268"><span class="lineNum">     268</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_RD_BLOCK_STATUS.VALID.hwclr = kv_block_read_ctrl_reg.read_en;</span></span>
+<span id="L269"><span class="lineNum">     269</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_WR_STATUS.VALID.hwclr = kv_write_ctrl_reg.write_en;</span></span>
+<span id="L270"><span class="lineNum">     270</span>              :   //clear enable when busy</span>
+<span id="L271"><span class="lineNum">     271</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_RD_KEY_CTRL.read_en.hwclr = ~kv_key_ready;</span></span>
+<span id="L272"><span class="lineNum">     272</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_RD_BLOCK_CTRL.read_en.hwclr = ~kv_block_ready;</span></span>
+<span id="L273"><span class="lineNum">     273</span> <span class="tlaGNC">           1 :   hwif_in.HMAC384_KV_WR_CTRL.write_en.hwclr = ~kv_write_ready;</span></span>
+<span id="L274"><span class="lineNum">     274</span>              :   //assign hardware readable registers to drive hmac core</span>
+<span id="L275"><span class="lineNum">     275</span> <span class="tlaGNC">           1 :   for (int dword=0; dword &lt; KEY_NUM_DWORDS; dword++) begin</span></span>
+<span id="L276"><span class="lineNum">     276</span> <span class="tlaGNC">          12 :     key_reg[dword] = hwif_out.HMAC384_KEY[dword].KEY.value;</span></span>
+<span id="L277"><span class="lineNum">     277</span>              :   end</span>
+<span id="L278"><span class="lineNum">     278</span> <span class="tlaGNC">           1 :   for (int dword=0; dword &lt; BLOCK_NUM_DWORDS; dword++)begin</span></span>
+<span id="L279"><span class="lineNum">     279</span> <span class="tlaGNC">          32 :     block_reg[dword] = hwif_out.HMAC384_BLOCK[dword].BLOCK.value;</span></span>
+<span id="L280"><span class="lineNum">     280</span>              :   end</span>
+<span id="L281"><span class="lineNum">     281</span>              : </span>
+<span id="L282"><span class="lineNum">     282</span> <span class="tlaGNC">           1 :   for (int dword=0; dword &lt; SEED_NUM_DWORDS; dword++)begin</span></span>
+<span id="L283"><span class="lineNum">     283</span> <span class="tlaGNC">          12 :     lfsr_seed_reg[dword] = hwif_out.HMAC384_LFSR_SEED[dword].LFSR_SEED.value;</span></span>
+<span id="L284"><span class="lineNum">     284</span>              :   end</span>
+<span id="L285"><span class="lineNum">     285</span>              : end</span>
+<span id="L286"><span class="lineNum">     286</span>              : </span>
+<span id="L287"><span class="lineNum">     287</span>              : //set the lock for the part of the block being written by KV logic</span>
+<span id="L288"><span class="lineNum">     288</span>              : //release the lock once init has been seen</span>
+<span id="L289"><span class="lineNum">     289</span> <span class="tlaGNC">           1 : always_comb begin</span></span>
+<span id="L290"><span class="lineNum">     290</span> <span class="tlaGNC">           1 :   for (int dword=0; dword&lt; BLOCK_NUM_DWORDS; dword++) begin</span></span>
+<span id="L291"><span class="lineNum">     291</span> <span class="tlaGNC">     6020032 :     if (init_reg | next_reg) begin</span></span>
+<span id="L292"><span class="lineNum">     292</span> <span class="tlaUNC tlaBgUNC">           0 :       block_reg_lock_nxt[dword] = '0;</span></span>
+<span id="L293"><span class="lineNum">     293</span>              :     end</span>
+<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC tlaBgGNC">     6020032 :     else begin</span></span>
+<span id="L295"><span class="lineNum">     295</span> <span class="tlaGNC">     6020032 :       block_reg_lock_nxt[dword] = (kv_block_write_en &amp; (kv_block_write_offset == dword)) ? '1 : block_reg_lock[dword];</span></span>
+<span id="L296"><span class="lineNum">     296</span>              :     end</span>
+<span id="L297"><span class="lineNum">     297</span>              :   end</span>
+<span id="L298"><span class="lineNum">     298</span>              : end</span>
+<span id="L299"><span class="lineNum">     299</span>              : </span>
+<span id="L300"><span class="lineNum">     300</span>              : //keyvault control reg macros for assigning to struct</span>
+<span id="L301"><span class="lineNum">     301</span>              : `CALIPTRA_KV_READ_CTRL_REG2STRUCT(kv_key_read_ctrl_reg, HMAC384_KV_RD_KEY_CTRL)</span>
+<span id="L302"><span class="lineNum">     302</span>              : `CALIPTRA_KV_READ_CTRL_REG2STRUCT(kv_block_read_ctrl_reg, HMAC384_KV_RD_BLOCK_CTRL)</span>
+<span id="L303"><span class="lineNum">     303</span>              : `CALIPTRA_KV_WRITE_CTRL_REG2STRUCT(kv_write_ctrl_reg, HMAC384_KV_WR_CTRL)</span>
+<span id="L304"><span class="lineNum">     304</span>              : </span>
+<span id="L305"><span class="lineNum">     305</span>              : //Force result into KV reg whenever source came from KV</span>
+<span id="L306"><span class="lineNum">     306</span> <span class="tlaGNC">           1 : always_comb kv_key_data_present_set = kv_key_read_ctrl_reg.read_en;</span></span>
+<span id="L307"><span class="lineNum">     307</span> <span class="tlaGNC">           1 : always_comb kv_data_present_set = kv_key_read_ctrl_reg.read_en | kv_block_read_ctrl_reg.read_en;</span></span>
+<span id="L308"><span class="lineNum">     308</span> <span class="tlaGNC">           1 : always_comb kv_data_present_reset = kv_data_present &amp; core_tag_we;</span></span>
+<span id="L309"><span class="lineNum">     309</span>              : </span>
+<span id="L310"><span class="lineNum">     310</span>              : // Register block</span>
+<span id="L311"><span class="lineNum">     311</span>              : hmac_reg i_hmac_reg (</span>
+<span id="L312"><span class="lineNum">     312</span>              :     .clk(clk),</span>
+<span id="L313"><span class="lineNum">     313</span>              :     .rst(1'b0),</span>
+<span id="L314"><span class="lineNum">     314</span>              : </span>
+<span id="L315"><span class="lineNum">     315</span>              :     .s_cpuif_req         (cs),</span>
+<span id="L316"><span class="lineNum">     316</span>              :     .s_cpuif_req_is_wr   (we),</span>
+<span id="L317"><span class="lineNum">     317</span>              :     .s_cpuif_addr        (address[HMAC_REG_ADDR_WIDTH-1:0]),</span>
+<span id="L318"><span class="lineNum">     318</span>              :     .s_cpuif_wr_data     (write_data),</span>
+<span id="L319"><span class="lineNum">     319</span>              :     .s_cpuif_wr_biten    ('1),</span>
+<span id="L320"><span class="lineNum">     320</span>              :     .s_cpuif_req_stall_wr(),</span>
+<span id="L321"><span class="lineNum">     321</span>              :     .s_cpuif_req_stall_rd(),</span>
+<span id="L322"><span class="lineNum">     322</span>              :     .s_cpuif_rd_ack      (),</span>
+<span id="L323"><span class="lineNum">     323</span>              :     .s_cpuif_rd_err      (),</span>
+<span id="L324"><span class="lineNum">     324</span>              :     .s_cpuif_rd_data     (read_data),</span>
+<span id="L325"><span class="lineNum">     325</span>              :     .s_cpuif_wr_ack      (),</span>
+<span id="L326"><span class="lineNum">     326</span>              :     .s_cpuif_wr_err      (),</span>
+<span id="L327"><span class="lineNum">     327</span>              : </span>
+<span id="L328"><span class="lineNum">     328</span>              :     .hwif_in (hwif_in),</span>
+<span id="L329"><span class="lineNum">     329</span>              :     .hwif_out(hwif_out)</span>
+<span id="L330"><span class="lineNum">     330</span>              : );</span>
+<span id="L331"><span class="lineNum">     331</span>              : </span>
+<span id="L332"><span class="lineNum">     332</span>              : //Interrupts hardware interface</span>
+<span id="L333"><span class="lineNum">     333</span>              : assign hwif_in.intr_block_rf.notif_internal_intr_r.notif_cmd_done_sts.hwset = core_tag_we;</span>
+<span id="L334"><span class="lineNum">     334</span>              : assign hwif_in.intr_block_rf.error_internal_intr_r.error0_sts.hwset = 1'b0; // TODO</span>
+<span id="L335"><span class="lineNum">     335</span>              : assign hwif_in.intr_block_rf.error_internal_intr_r.error1_sts.hwset = 1'b0; // TODO</span>
+<span id="L336"><span class="lineNum">     336</span>              : assign hwif_in.intr_block_rf.error_internal_intr_r.error2_sts.hwset = 1'b0; // TODO</span>
+<span id="L337"><span class="lineNum">     337</span>              : assign hwif_in.intr_block_rf.error_internal_intr_r.error3_sts.hwset = 1'b0; // TODO</span>
+<span id="L338"><span class="lineNum">     338</span>              : </span>
+<span id="L339"><span class="lineNum">     339</span>              : assign error_intr = hwif_out.intr_block_rf.error_global_intr_r.intr;</span>
+<span id="L340"><span class="lineNum">     340</span>              : assign notif_intr = hwif_out.intr_block_rf.notif_global_intr_r.intr;</span>
+<span id="L341"><span class="lineNum">     341</span>              : </span>
+<span id="L342"><span class="lineNum">     342</span>              : //Read Key</span>
+<span id="L343"><span class="lineNum">     343</span>              : kv_read_client #(</span>
+<span id="L344"><span class="lineNum">     344</span>              :   .DATA_WIDTH(KEY_SIZE),</span>
+<span id="L345"><span class="lineNum">     345</span>              :   .PAD(0)</span>
+<span id="L346"><span class="lineNum">     346</span>              : )</span>
+<span id="L347"><span class="lineNum">     347</span>              : hmac_key_kv_read</span>
+<span id="L348"><span class="lineNum">     348</span>              : (</span>
+<span id="L349"><span class="lineNum">     349</span>              :     .clk(clk),</span>
+<span id="L350"><span class="lineNum">     350</span>              :     .rst_b(reset_n),</span>
+<span id="L351"><span class="lineNum">     351</span>              :     .zeroize(zeroize_reg),</span>
+<span id="L352"><span class="lineNum">     352</span>              : </span>
+<span id="L353"><span class="lineNum">     353</span>              :     //client control register</span>
+<span id="L354"><span class="lineNum">     354</span>              :     .read_ctrl_reg(kv_key_read_ctrl_reg),</span>
+<span id="L355"><span class="lineNum">     355</span>              : </span>
+<span id="L356"><span class="lineNum">     356</span>              :     //interface with kv</span>
+<span id="L357"><span class="lineNum">     357</span>              :     .kv_read(kv_read[0]),</span>
+<span id="L358"><span class="lineNum">     358</span>              :     .kv_resp(kv_rd_resp[0]),</span>
+<span id="L359"><span class="lineNum">     359</span>              : </span>
+<span id="L360"><span class="lineNum">     360</span>              :     //interface with client</span>
+<span id="L361"><span class="lineNum">     361</span>              :     .write_en(kv_key_write_en),</span>
+<span id="L362"><span class="lineNum">     362</span>              :     .write_offset(kv_key_write_offset),</span>
+<span id="L363"><span class="lineNum">     363</span>              :     .write_data(kv_key_write_data),</span>
+<span id="L364"><span class="lineNum">     364</span>              : </span>
+<span id="L365"><span class="lineNum">     365</span>              :     .error_code(kv_key_error),</span>
+<span id="L366"><span class="lineNum">     366</span>              :     .kv_ready(kv_key_ready),</span>
+<span id="L367"><span class="lineNum">     367</span>              :     .read_done(kv_key_done)</span>
+<span id="L368"><span class="lineNum">     368</span>              : );</span>
+<span id="L369"><span class="lineNum">     369</span>              : </span>
+<span id="L370"><span class="lineNum">     370</span>              : //Read Block</span>
+<span id="L371"><span class="lineNum">     371</span>              : kv_read_client #(</span>
+<span id="L372"><span class="lineNum">     372</span>              :   .DATA_WIDTH(BLOCK_SIZE),</span>
+<span id="L373"><span class="lineNum">     373</span>              :   .HMAC(1),</span>
+<span id="L374"><span class="lineNum">     374</span>              :   .PAD(1)</span>
+<span id="L375"><span class="lineNum">     375</span>              : )</span>
+<span id="L376"><span class="lineNum">     376</span>              : hmac_block_kv_read</span>
+<span id="L377"><span class="lineNum">     377</span>              : (</span>
+<span id="L378"><span class="lineNum">     378</span>              :     .clk(clk),</span>
+<span id="L379"><span class="lineNum">     379</span>              :     .rst_b(reset_n),</span>
+<span id="L380"><span class="lineNum">     380</span>              :     .zeroize(zeroize_reg),</span>
+<span id="L381"><span class="lineNum">     381</span>              : </span>
+<span id="L382"><span class="lineNum">     382</span>              :     //client control register</span>
+<span id="L383"><span class="lineNum">     383</span>              :     .read_ctrl_reg(kv_block_read_ctrl_reg),</span>
+<span id="L384"><span class="lineNum">     384</span>              : </span>
+<span id="L385"><span class="lineNum">     385</span>              :     //interface with kv</span>
+<span id="L386"><span class="lineNum">     386</span>              :     .kv_read(kv_read[1]),</span>
+<span id="L387"><span class="lineNum">     387</span>              :     .kv_resp(kv_rd_resp[1]),</span>
+<span id="L388"><span class="lineNum">     388</span>              : </span>
+<span id="L389"><span class="lineNum">     389</span>              :     //interface with client</span>
+<span id="L390"><span class="lineNum">     390</span>              :     .write_en(kv_block_write_en),</span>
+<span id="L391"><span class="lineNum">     391</span>              :     .write_offset(kv_block_write_offset),</span>
+<span id="L392"><span class="lineNum">     392</span>              :     .write_data(kv_block_write_data),</span>
+<span id="L393"><span class="lineNum">     393</span>              : </span>
+<span id="L394"><span class="lineNum">     394</span>              :     .error_code(kv_block_error),</span>
+<span id="L395"><span class="lineNum">     395</span>              :     .kv_ready(kv_block_ready),</span>
+<span id="L396"><span class="lineNum">     396</span>              :     .read_done(kv_block_done)</span>
+<span id="L397"><span class="lineNum">     397</span>              : );</span>
+<span id="L398"><span class="lineNum">     398</span>              : </span>
+<span id="L399"><span class="lineNum">     399</span>              : //Write to keyvault</span>
+<span id="L400"><span class="lineNum">     400</span>              : kv_write_client #(</span>
+<span id="L401"><span class="lineNum">     401</span>              :   .DATA_WIDTH(TAG_SIZE)</span>
+<span id="L402"><span class="lineNum">     402</span>              : )</span>
+<span id="L403"><span class="lineNum">     403</span>              : hmac_result_kv_write</span>
+<span id="L404"><span class="lineNum">     404</span>              : (</span>
+<span id="L405"><span class="lineNum">     405</span>              :   .clk(clk),</span>
+<span id="L406"><span class="lineNum">     406</span>              :   .rst_b(reset_n),</span>
+<span id="L407"><span class="lineNum">     407</span>              :   .zeroize(zeroize_reg),</span>
+<span id="L408"><span class="lineNum">     408</span>              : </span>
+<span id="L409"><span class="lineNum">     409</span>              :   //client control register</span>
+<span id="L410"><span class="lineNum">     410</span>              :   .write_ctrl_reg(kv_write_ctrl_reg),</span>
+<span id="L411"><span class="lineNum">     411</span>              : </span>
+<span id="L412"><span class="lineNum">     412</span>              :   //interface with kv</span>
+<span id="L413"><span class="lineNum">     413</span>              :   .kv_write(kv_write),</span>
+<span id="L414"><span class="lineNum">     414</span>              :   .kv_resp(kv_wr_resp),</span>
+<span id="L415"><span class="lineNum">     415</span>              : </span>
+<span id="L416"><span class="lineNum">     416</span>              :   //interface with client</span>
+<span id="L417"><span class="lineNum">     417</span>              :   .dest_keyvault(dest_keyvault),</span>
+<span id="L418"><span class="lineNum">     418</span>              :   .dest_data_avail(core_tag_we),</span>
+<span id="L419"><span class="lineNum">     419</span>              :   .dest_data(kv_reg),</span>
+<span id="L420"><span class="lineNum">     420</span>              : </span>
+<span id="L421"><span class="lineNum">     421</span>              :   .error_code(kv_write_error),</span>
+<span id="L422"><span class="lineNum">     422</span>              :   .kv_ready(kv_write_ready),</span>
+<span id="L423"><span class="lineNum">     423</span>              :   .dest_done(kv_write_done)</span>
+<span id="L424"><span class="lineNum">     424</span>              : );</span>
+<span id="L425"><span class="lineNum">     425</span>              : </span>
+<span id="L426"><span class="lineNum">     426</span> <span class="tlaGNC">           1 : always_comb busy_o = ~kv_write_ready | ~kv_block_ready | ~kv_key_ready | ~core_ready;</span></span>
+<span id="L427"><span class="lineNum">     427</span>              : </span>
+<span id="L428"><span class="lineNum">     428</span>              : endmodule // hmac</span>
+<span id="L429"><span class="lineNum">     429</span>              : </span>
+<span id="L430"><span class="lineNum">     430</span>              : //======================================================================</span>
+<span id="L431"><span class="lineNum">     431</span>              : // EOF hmac.sv</span>
+<span id="L432"><span class="lineNum">     432</span>              : //======================================================================</span>
+        </pre>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

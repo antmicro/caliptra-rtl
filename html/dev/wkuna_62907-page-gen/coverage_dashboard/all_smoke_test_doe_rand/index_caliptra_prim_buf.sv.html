@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+        Full
+        coverage report
+    </title>
+    <link rel="stylesheet" type="text/css" href="cov.css">
+    <style>
+        .container {
+            background-color: rgb(169, 169, 169);
+            width: 100%;
+            min-height: 80%;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="title-header-shadow">
+        <td class="title-container">
+            <table class="title-header">
+                <td class="title-logo">
+                    <a href=../../../../index.html>
+                        <img src=../../../../_static/white.svg></img>
+                    </a>
+                </td>
+                <td class="title">
+                    Caliptra RTL
+                    Full
+                    coverage report
+                </td>
+            </table>
+        </td>
+    </table>
+    <center>
+        <table class="info-table">
+            <tr class="info-table-view">
+                <td width="10%" class="headerInfo">Current view:</td>
+                <td width="40%" class="headerInfoValue">
+                    <a href=index.html>caliptra-rtl</a>—src—caliptra_prim—rtl—caliptra_prim_buf.sv
+                </td>
+                <td width=auto></td>
+                <td width="10%"></td>
+                <td width="10%" class="headerCovSummary colTop">Coverage</td>
+                <td width="10%" class="headerCovSummary colTop" title="Covered + Uncovered code">Hit</td>
+                <td width="10%" class="headerCovSummary colTop" title="Exercised code only">Total</td>
+            </tr>
+            <tr>
+                <td class="headerInfo">Test Date:</td>
+                <td class="headerInfoValue">
+                    02-08-2024
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Toggle
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff0000;">
+        0.0%
+    </td>
+    <td class="headerCovSummaryEntry">
+        0
+    </td>
+    <td class="headerCovSummaryEntry">
+        2
+    </td>
+
+            </tr>
+            <tr>
+                <td class="headerInfo">Test:</td>
+                <td class="headerInfoValue">
+                    smoke_test_doe_rand
+                </td>
+                <td></td>
+                
+    <td class="headerCovSummary rowLeft">
+        Branch
+    </td>
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #a9a9a9;">
+        0.0%
+    </td>
+    <td class="headerCovSummaryEntry">
+        0
+    </td>
+    <td class="headerCovSummaryEntry">
+        0
+    </td>
+
+            </tr>
+            
+        </table>
+    </center>
+
+    <table border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td><br/></td>
+</tr>
+<tr>
+<td>
+<pre class="sourceHeading">            Line data    Source code</pre>
+<pre class="source">
+<span id="L1"><span class="lineNum">       1</span>              : // Copyright lowRISC contributors.</span>
+<span id="L2"><span class="lineNum">       2</span>              : // Licensed under the Apache License, Version 2.0, see LICENSE for details.</span>
+<span id="L3"><span class="lineNum">       3</span>              : // SPDX-License-Identifier: Apache-2.0</span>
+<span id="L4"><span class="lineNum">       4</span>              : </span>
+<span id="L5"><span class="lineNum">       5</span>              : // This file is auto-generated.</span>
+<span id="L6"><span class="lineNum">       6</span>              : // Used parser: Verible</span>
+<span id="L7"><span class="lineNum">       7</span>              : </span>
+<span id="L8"><span class="lineNum">       8</span>              : `ifndef PRIM_DEFAULT_IMPL</span>
+<span id="L9"><span class="lineNum">       9</span>              :   `define CALIPTRA_PRIM_DEFAULT_IMPL caliptra_prim_pkg::ImplGeneric</span>
+<span id="L10"><span class="lineNum">      10</span>              : `endif</span>
+<span id="L11"><span class="lineNum">      11</span>              : </span>
+<span id="L12"><span class="lineNum">      12</span>              : // This is to prevent AscentLint warnings in the generated</span>
+<span id="L13"><span class="lineNum">      13</span>              : // abstract prim wrapper. These warnings occur due to the .*</span>
+<span id="L14"><span class="lineNum">      14</span>              : // use. TODO: we may want to move these inline waivers</span>
+<span id="L15"><span class="lineNum">      15</span>              : // into a separate, generated waiver file for consistency.</span>
+<span id="L16"><span class="lineNum">      16</span>              : //ri lint_check_off OUTPUT_NOT_DRIVEN INPUT_NOT_READ HIER_BRANCH_NOT_READ</span>
+<span id="L17"><span class="lineNum">      17</span>              : module caliptra_prim_buf</span>
+<span id="L18"><span class="lineNum">      18</span>              : </span>
+<span id="L19"><span class="lineNum">      19</span>              : #(</span>
+<span id="L20"><span class="lineNum">      20</span>              : parameter int Width = 1</span>
+<span id="L21"><span class="lineNum">      21</span>              : ) (</span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaUNC tlaBgUNC">           0 :   input        [Width-1:0] in_i,</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaUNC">           0 :   output logic [Width-1:0] out_o</span></span>
+<span id="L24"><span class="lineNum">      24</span>              : );</span>
+<span id="L25"><span class="lineNum">      25</span>              :   parameter caliptra_prim_pkg::impl_e Impl = `CALIPTRA_PRIM_DEFAULT_IMPL;</span>
+<span id="L26"><span class="lineNum">      26</span>              : </span>
+<span id="L27"><span class="lineNum">      27</span>              : if (Impl == caliptra_prim_pkg::ImplXilinx) begin : gen_xilinx</span>
+<span id="L28"><span class="lineNum">      28</span>              :     caliptra_prim_xilinx_buf #(</span>
+<span id="L29"><span class="lineNum">      29</span>              :       .Width(Width)</span>
+<span id="L30"><span class="lineNum">      30</span>              :     ) u_impl_xilinx (</span>
+<span id="L31"><span class="lineNum">      31</span>              :       .*</span>
+<span id="L32"><span class="lineNum">      32</span>              :     );</span>
+<span id="L33"><span class="lineNum">      33</span>              : end else begin : gen_generic</span>
+<span id="L34"><span class="lineNum">      34</span>              :     caliptra_prim_generic_buf #(</span>
+<span id="L35"><span class="lineNum">      35</span>              :       .Width(Width)</span>
+<span id="L36"><span class="lineNum">      36</span>              :     ) u_impl_generic (</span>
+<span id="L37"><span class="lineNum">      37</span>              :       .*</span>
+<span id="L38"><span class="lineNum">      38</span>              :     );</span>
+<span id="L39"><span class="lineNum">      39</span>              : end</span>
+<span id="L40"><span class="lineNum">      40</span>              : </span>
+<span id="L41"><span class="lineNum">      41</span>              : endmodule</span>
+<span id="L42"><span class="lineNum">      42</span>              : //ri lint_check_on OUTPUT_NOT_DRIVEN INPUT_NOT_READ HIER_BRANCH_NOT_READ</span>
+        </pre>
+</td>
+</tr>
+</table>
+
+</body>
+</html>
