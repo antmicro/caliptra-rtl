@@ -170,6 +170,16 @@ def setup_parser():
             "help": "Pattern used for designs' source file extraction.",
         },
     }
+    src_remove_pattern = {
+        "name": "--src-remove-pattern",
+        "options": {
+            "metavar": "src_remove_pattern",
+            "action": "append",
+            "default": None,
+            "type": str,
+            "help": "Pattern used for removing designs' source files from coverage report generation.",
+        },
+    }
     src_path = {
         "name": "--src-path",
         "options": {

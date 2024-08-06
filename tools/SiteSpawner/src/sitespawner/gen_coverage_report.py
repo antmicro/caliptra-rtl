@@ -89,6 +89,11 @@ def generate_coverage_reports(
             ["lcov", "--extract", info_file, src_pattern, "-o", info_file],
             stdout=open(f"{info_file}_extraction.log", "w+"),
         )
+        if src_remove_pattern is not None:
+            subprocess.run(
+                ["lcov", "--remove", info_file, " ".join(src_remove_pattern), "-o", info_file],
+                stdout=open(f"{info_file}_remove.log", "w+"),
+            )
 
     # Run LCOV's genhtml to gather source-file pages
     branch_merged = Path("./merged_branch.info")
@@ -192,6 +197,7 @@ def main(args):
     generate_coverage_reports(
         output_dir=report_dir,
         src_pattern=args.src_pattern,
+        src_remove_pattern = args.src_remove_pattern,
         src_path=args.src_path,
         logo_src=args.logo_src,
         logo_href=args.logo_href,
