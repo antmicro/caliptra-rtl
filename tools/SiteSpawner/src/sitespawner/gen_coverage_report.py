@@ -72,7 +72,13 @@ def lcov_genhtml(info_files, path_prefix, src_dir, lcov_report_dir="lcov_report"
 
 @args_on_debug_logger(logger=logger)
 def generate_coverage_reports(
-    output_dir, src_path=None, src_pattern="*", logo_src=None, logo_href=None, info_report_dir=None
+    output_dir,
+    src_path=None,
+    src_pattern="*",
+    src_remove_pattern=None,
+    logo_src=None,
+    logo_href=None,
+    info_report_dir=None,
 ):
     """Iterates over available *.info files, merges them & generates summaries
     for each coverage type with the use of lcov.
@@ -197,7 +203,7 @@ def main(args):
     generate_coverage_reports(
         output_dir=report_dir,
         src_pattern=args.src_pattern,
-        src_remove_pattern = args.src_remove_pattern,
+        src_remove_pattern=args.src_remove_pattern,
         src_path=args.src_path,
         logo_src=args.logo_src,
         logo_href=args.logo_href,

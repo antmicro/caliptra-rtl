@@ -205,7 +205,7 @@ def setup_parser():
             ),
         },
     }
-    reports_args = [logo_src, logo_href, report_dir, src_pattern, src_path, info_report_dir]
+    reports_args = [logo_src, logo_href, report_dir, src_pattern, src_path, info_report_dir, src_remove_pattern]
     create_subparser(
         subparsers=subparsers,
         name="reports",
