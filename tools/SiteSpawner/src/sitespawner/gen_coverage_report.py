@@ -83,7 +83,7 @@ def generate_coverage_reports(
         info_report_dir = curr_dir
 
     # Extract coverage info files
-    info_files = Path.glob(info_report_dir, "**/*.info")
+    info_files = Path(info_report_dir).glob("**/*.info")
     for info_file in info_files:
         subprocess.run(
             ["lcov", "--extract", info_file, src_pattern, "-o", info_file],
@@ -98,7 +98,7 @@ def generate_coverage_reports(
 
     # Find and classify coverage files
     branch_files, toggle_files = {}, {}
-    files = Path.glob(info_report_dir, "**/coverage_*.info")
+    files = Path(info_report_dir).glob("**/coverage_*.info")
 
     for file in files:
         if file.name.endswith("_branch.info"):
@@ -121,7 +121,7 @@ def generate_coverage_reports(
         test_output_dir = Path(output_dir) / f"all_{test_name}"
         (test_output_dir / "_static").mkdir(parents=True, exist_ok=True)
 
-        info_files = Path.glob(info_report_dir, f"**/*{test_name}*.info")
+        info_files = Path(info_report_dir).glob(f"**/*{test_name}*.info")
         lcov_html_dir = curr_dir / "lcov_report"
 
         # TODO: Not optimal, same invoked in 'genhtml.py'
