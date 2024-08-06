@@ -291,7 +291,7 @@ jobs:
         if: github.ref_name != 'main'
         run: |
           # TODO: Once deploy URL for the page is known, change '../..' to URL of main index.html page
-          sis reports --report-dir coverage_dashboard --src-path ./src --src-pattern \*src\*/rtl/\*  --logo-src ../../../../_static/white.svg --logo-href ../../../../index.html
+          sis reports --report-dir coverage_dashboard --src-path ./src --src-pattern \*src\*/rtl/\* --src-remove-pattern aes --src-remove-pattern sha256 --src-remove-pattern sha512 --src-remove-pattern doe  --logo-src ../../../../_static/white.svg --logo-href ../../../../index.html
 
       - name: Update webpage
         if: github.event_name != 'pull_request'
