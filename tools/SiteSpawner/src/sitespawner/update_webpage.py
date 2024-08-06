@@ -64,20 +64,6 @@ def update_webpage(loc_github_ref_name, loc_github_event_name, pr_number, page_u
     else:
         md_source_dir.mkdir(parents=True)
 
-    generate(webpage_template_dir, str(legacy_page_dir / "html"), str(md_source_dir))
-
-    SPHINXBUILD = os.getenv("SPHINXBUILD", "sphinx-build")
-    SPHINXOPTS = os.getenv("SPHINXOPTS")
-
-    logger.info("Building the HTML documentation using Sphinx...")
-
-    cmd = [SPHINXBUILD, "-M", "html", str(md_source_dir), str(new_page_dir)]
-
-    if SPHINXOPTS:
-        cmd.append(SPHINXOPTS)
-
-    subprocess.run(cmd, cwd=legacy_page_dir.parent, check=True)
-
     logger.info("Syncing directories...")
 
     for root, dirs, files in os.walk(legacy_page_dir):
@@ -92,6 +78,20 @@ def update_webpage(loc_github_ref_name, loc_github_event_name, pr_number, page_u
             src_file = root / fname
             dst_file = dst_dir / fname
             copy2(src_file, dst_file)
+
+    generate(webpage_template_dir, str(legacy_page_dir / "html"), str(md_source_dir))
+
+    SPHINXBUILD = os.getenv("SPHINXBUILD", "sphinx-build")
+    SPHINXOPTS = os.getenv("SPHINXOPTS")
+
+    logger.info("Building the HTML documentation using Sphinx...")
+
+    cmd = [SPHINXBUILD, "-M", "html", str(md_source_dir), str(new_page_dir)]
+
+    if SPHINXOPTS:
+        cmd.append(SPHINXOPTS)
+
+    subprocess.run(cmd, cwd=legacy_page_dir.parent, check=True)
 
     update_style(new_page_dir)
 
