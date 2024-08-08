@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -114,7 +114,7 @@
 <span id="L10"><span class="lineNum">      10</span>              :     parameter AHBDataWidth = 64,</span>
 <span id="L11"><span class="lineNum">      11</span>              :     parameter AHBAddrWidth = 32</span>
 <span id="L12"><span class="lineNum">      12</span>              : ) (</span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC tlaBgGNC">      458006 :   input clk_i,</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC tlaBgGNC">      458284 :   input clk_i,</span></span>
 <span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           1 :   input rst_ni,</span></span>
 <span id="L15"><span class="lineNum">      15</span>              :   // AMBA AHB Lite Interface</span>
 <span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">         274 :   input logic [AHBAddrWidth-1:0]  haddr_i,</span></span>
@@ -122,7 +122,7 @@
 <span id="L18"><span class="lineNum">      18</span> <span class="tlaUNC tlaBgUNC">           0 :   input logic                     hsel_i,</span></span>
 <span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC tlaBgGNC">         609 :   input logic                     hwrite_i,</span></span>
 <span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           1 :   input logic                     hready_i,</span></span>
-<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">       17122 :   input logic [1:0]               htrans_i,</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">       17110 :   input logic [1:0]               htrans_i,</span></span>
 <span id="L22"><span class="lineNum">      22</span> <span class="tlaUNC tlaBgUNC">           0 :   input logic [2:0]               hsize_i,</span></span>
 <span id="L23"><span class="lineNum">      23</span>              : </span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaUNC">           0 :   output logic                    hresp_o,</span></span>
@@ -163,10 +163,10 @@
 <span id="L59"><span class="lineNum">      59</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [DW-1:0]  reg_rdata;</span></span>
 <span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC">           0 :   logic           reg_error;</span></span>
 <span id="L61"><span class="lineNum">      61</span>              : </span>
-<span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC tlaBgGNC">       24658 :   logic          addrmiss, wr_err;</span></span>
+<span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC tlaBgGNC">       24634 :   logic          addrmiss, wr_err;</span></span>
 <span id="L63"><span class="lineNum">      63</span>              : </span>
 <span id="L64"><span class="lineNum">      64</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [DW-1:0] reg_rdata_next;</span></span>
-<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC tlaBgGNC">       24658 :   logic reg_busy;</span></span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC tlaBgGNC">       24634 :   logic reg_busy;</span></span>
 <span id="L66"><span class="lineNum">      66</span>              : </span>
 <span id="L67"><span class="lineNum">      67</span>              :   // also check for spurious write enables</span>
 <span id="L68"><span class="lineNum">      68</span> <span class="tlaUNC tlaBgUNC">           0 :   logic reg_we_err;</span></span>
@@ -182,10 +182,10 @@
 <span id="L78"><span class="lineNum">      78</span>              :   );</span>
 <span id="L79"><span class="lineNum">      79</span>              : </span>
 <span id="L80"><span class="lineNum">      80</span> <span class="tlaUNC">           0 :   logic err_q;</span></span>
-<span id="L81"><span class="lineNum">      81</span> <span class="tlaGNC tlaBgGNC">      229316 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L81"><span class="lineNum">      81</span> <span class="tlaGNC tlaBgGNC">      229428 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC">           4 :     if (!rst_ni) begin</span></span>
 <span id="L83"><span class="lineNum">      83</span> <span class="tlaGNC">           4 :       err_q &lt;= '0;</span></span>
-<span id="L84"><span class="lineNum">      84</span> <span class="tlaGNC">      229312 :     end else if (reg_we_err) begin</span></span>
+<span id="L84"><span class="lineNum">      84</span> <span class="tlaGNC">      229424 :     end else if (reg_we_err) begin</span></span>
 <span id="L85"><span class="lineNum">      85</span> <span class="tlaUNC tlaBgUNC">           0 :       err_q &lt;= 1'b1;</span></span>
 <span id="L86"><span class="lineNum">      86</span>              :     end</span>
 <span id="L87"><span class="lineNum">      87</span>              :   end</span>
@@ -255,66 +255,66 @@
 <span id="L151"><span class="lineNum">     151</span>              :   //        or &lt;reg&gt;_{wd|we|qs} if field == 1 or 0</span>
 <span id="L152"><span class="lineNum">     152</span> <span class="tlaUNC">           0 :   logic intr_state_we;</span></span>
 <span id="L153"><span class="lineNum">     153</span> <span class="tlaUNC">           0 :   logic intr_state_tx_watermark_qs;</span></span>
-<span id="L154"><span class="lineNum">     154</span> <span class="tlaGNC tlaBgGNC">         576 :   logic intr_state_tx_watermark_wd;</span></span>
+<span id="L154"><span class="lineNum">     154</span> <span class="tlaGNC tlaBgGNC">         556 :   logic intr_state_tx_watermark_wd;</span></span>
 <span id="L155"><span class="lineNum">     155</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_state_rx_watermark_qs;</span></span>
-<span id="L156"><span class="lineNum">     156</span> <span class="tlaGNC tlaBgGNC">         528 :   logic intr_state_rx_watermark_wd;</span></span>
+<span id="L156"><span class="lineNum">     156</span> <span class="tlaGNC tlaBgGNC">         536 :   logic intr_state_rx_watermark_wd;</span></span>
 <span id="L157"><span class="lineNum">     157</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_state_tx_empty_qs;</span></span>
-<span id="L158"><span class="lineNum">     158</span> <span class="tlaGNC tlaBgGNC">         542 :   logic intr_state_tx_empty_wd;</span></span>
+<span id="L158"><span class="lineNum">     158</span> <span class="tlaGNC tlaBgGNC">         578 :   logic intr_state_tx_empty_wd;</span></span>
 <span id="L159"><span class="lineNum">     159</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_state_rx_overflow_qs;</span></span>
-<span id="L160"><span class="lineNum">     160</span> <span class="tlaGNC tlaBgGNC">         536 :   logic intr_state_rx_overflow_wd;</span></span>
+<span id="L160"><span class="lineNum">     160</span> <span class="tlaGNC tlaBgGNC">         538 :   logic intr_state_rx_overflow_wd;</span></span>
 <span id="L161"><span class="lineNum">     161</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_state_rx_frame_err_qs;</span></span>
-<span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC tlaBgGNC">         544 :   logic intr_state_rx_frame_err_wd;</span></span>
+<span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC tlaBgGNC">         520 :   logic intr_state_rx_frame_err_wd;</span></span>
 <span id="L163"><span class="lineNum">     163</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_state_rx_break_err_qs;</span></span>
-<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC tlaBgGNC">         450 :   logic intr_state_rx_break_err_wd;</span></span>
+<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC tlaBgGNC">         456 :   logic intr_state_rx_break_err_wd;</span></span>
 <span id="L165"><span class="lineNum">     165</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_state_rx_timeout_qs;</span></span>
-<span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC tlaBgGNC">         496 :   logic intr_state_rx_timeout_wd;</span></span>
+<span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC tlaBgGNC">         472 :   logic intr_state_rx_timeout_wd;</span></span>
 <span id="L167"><span class="lineNum">     167</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_state_rx_parity_err_qs;</span></span>
-<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC tlaBgGNC">         178 :   logic intr_state_rx_parity_err_wd;</span></span>
+<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC tlaBgGNC">         190 :   logic intr_state_rx_parity_err_wd;</span></span>
 <span id="L169"><span class="lineNum">     169</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_enable_we;</span></span>
 <span id="L170"><span class="lineNum">     170</span> <span class="tlaUNC">           0 :   logic intr_enable_tx_watermark_qs;</span></span>
-<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC tlaBgGNC">         576 :   logic intr_enable_tx_watermark_wd;</span></span>
+<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC tlaBgGNC">         556 :   logic intr_enable_tx_watermark_wd;</span></span>
 <span id="L172"><span class="lineNum">     172</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_enable_rx_watermark_qs;</span></span>
-<span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC tlaBgGNC">         528 :   logic intr_enable_rx_watermark_wd;</span></span>
+<span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC tlaBgGNC">         536 :   logic intr_enable_rx_watermark_wd;</span></span>
 <span id="L174"><span class="lineNum">     174</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_enable_tx_empty_qs;</span></span>
-<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC tlaBgGNC">         542 :   logic intr_enable_tx_empty_wd;</span></span>
+<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC tlaBgGNC">         578 :   logic intr_enable_tx_empty_wd;</span></span>
 <span id="L176"><span class="lineNum">     176</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_enable_rx_overflow_qs;</span></span>
-<span id="L177"><span class="lineNum">     177</span> <span class="tlaGNC tlaBgGNC">         536 :   logic intr_enable_rx_overflow_wd;</span></span>
+<span id="L177"><span class="lineNum">     177</span> <span class="tlaGNC tlaBgGNC">         538 :   logic intr_enable_rx_overflow_wd;</span></span>
 <span id="L178"><span class="lineNum">     178</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_enable_rx_frame_err_qs;</span></span>
-<span id="L179"><span class="lineNum">     179</span> <span class="tlaGNC tlaBgGNC">         544 :   logic intr_enable_rx_frame_err_wd;</span></span>
+<span id="L179"><span class="lineNum">     179</span> <span class="tlaGNC tlaBgGNC">         520 :   logic intr_enable_rx_frame_err_wd;</span></span>
 <span id="L180"><span class="lineNum">     180</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_enable_rx_break_err_qs;</span></span>
-<span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC tlaBgGNC">         450 :   logic intr_enable_rx_break_err_wd;</span></span>
+<span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC tlaBgGNC">         456 :   logic intr_enable_rx_break_err_wd;</span></span>
 <span id="L182"><span class="lineNum">     182</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_enable_rx_timeout_qs;</span></span>
-<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC tlaBgGNC">         496 :   logic intr_enable_rx_timeout_wd;</span></span>
+<span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC tlaBgGNC">         472 :   logic intr_enable_rx_timeout_wd;</span></span>
 <span id="L184"><span class="lineNum">     184</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_enable_rx_parity_err_qs;</span></span>
-<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC tlaBgGNC">         178 :   logic intr_enable_rx_parity_err_wd;</span></span>
+<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC tlaBgGNC">         190 :   logic intr_enable_rx_parity_err_wd;</span></span>
 <span id="L186"><span class="lineNum">     186</span> <span class="tlaUNC tlaBgUNC">           0 :   logic intr_test_we;</span></span>
-<span id="L187"><span class="lineNum">     187</span> <span class="tlaGNC tlaBgGNC">         576 :   logic intr_test_tx_watermark_wd;</span></span>
-<span id="L188"><span class="lineNum">     188</span> <span class="tlaGNC">         528 :   logic intr_test_rx_watermark_wd;</span></span>
-<span id="L189"><span class="lineNum">     189</span> <span class="tlaGNC">         542 :   logic intr_test_tx_empty_wd;</span></span>
-<span id="L190"><span class="lineNum">     190</span> <span class="tlaGNC">         536 :   logic intr_test_rx_overflow_wd;</span></span>
-<span id="L191"><span class="lineNum">     191</span> <span class="tlaGNC">         544 :   logic intr_test_rx_frame_err_wd;</span></span>
-<span id="L192"><span class="lineNum">     192</span> <span class="tlaGNC">         450 :   logic intr_test_rx_break_err_wd;</span></span>
-<span id="L193"><span class="lineNum">     193</span> <span class="tlaGNC">         496 :   logic intr_test_rx_timeout_wd;</span></span>
-<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC">         178 :   logic intr_test_rx_parity_err_wd;</span></span>
+<span id="L187"><span class="lineNum">     187</span> <span class="tlaGNC tlaBgGNC">         556 :   logic intr_test_tx_watermark_wd;</span></span>
+<span id="L188"><span class="lineNum">     188</span> <span class="tlaGNC">         536 :   logic intr_test_rx_watermark_wd;</span></span>
+<span id="L189"><span class="lineNum">     189</span> <span class="tlaGNC">         578 :   logic intr_test_tx_empty_wd;</span></span>
+<span id="L190"><span class="lineNum">     190</span> <span class="tlaGNC">         538 :   logic intr_test_rx_overflow_wd;</span></span>
+<span id="L191"><span class="lineNum">     191</span> <span class="tlaGNC">         520 :   logic intr_test_rx_frame_err_wd;</span></span>
+<span id="L192"><span class="lineNum">     192</span> <span class="tlaGNC">         456 :   logic intr_test_rx_break_err_wd;</span></span>
+<span id="L193"><span class="lineNum">     193</span> <span class="tlaGNC">         472 :   logic intr_test_rx_timeout_wd;</span></span>
+<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC">         190 :   logic intr_test_rx_parity_err_wd;</span></span>
 <span id="L195"><span class="lineNum">     195</span> <span class="tlaUNC tlaBgUNC">           0 :   logic alert_test_we;</span></span>
-<span id="L196"><span class="lineNum">     196</span> <span class="tlaGNC tlaBgGNC">         576 :   logic alert_test_wd;</span></span>
+<span id="L196"><span class="lineNum">     196</span> <span class="tlaGNC tlaBgGNC">         556 :   logic alert_test_wd;</span></span>
 <span id="L197"><span class="lineNum">     197</span> <span class="tlaUNC tlaBgUNC">           0 :   logic ctrl_we;</span></span>
 <span id="L198"><span class="lineNum">     198</span> <span class="tlaUNC">           0 :   logic ctrl_tx_qs;</span></span>
-<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC tlaBgGNC">         576 :   logic ctrl_tx_wd;</span></span>
+<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC tlaBgGNC">         556 :   logic ctrl_tx_wd;</span></span>
 <span id="L200"><span class="lineNum">     200</span> <span class="tlaUNC tlaBgUNC">           0 :   logic ctrl_rx_qs;</span></span>
-<span id="L201"><span class="lineNum">     201</span> <span class="tlaGNC tlaBgGNC">         528 :   logic ctrl_rx_wd;</span></span>
+<span id="L201"><span class="lineNum">     201</span> <span class="tlaGNC tlaBgGNC">         536 :   logic ctrl_rx_wd;</span></span>
 <span id="L202"><span class="lineNum">     202</span> <span class="tlaUNC tlaBgUNC">           0 :   logic ctrl_nf_qs;</span></span>
-<span id="L203"><span class="lineNum">     203</span> <span class="tlaGNC tlaBgGNC">         542 :   logic ctrl_nf_wd;</span></span>
+<span id="L203"><span class="lineNum">     203</span> <span class="tlaGNC tlaBgGNC">         578 :   logic ctrl_nf_wd;</span></span>
 <span id="L204"><span class="lineNum">     204</span> <span class="tlaUNC tlaBgUNC">           0 :   logic ctrl_slpbk_qs;</span></span>
-<span id="L205"><span class="lineNum">     205</span> <span class="tlaGNC tlaBgGNC">         544 :   logic ctrl_slpbk_wd;</span></span>
+<span id="L205"><span class="lineNum">     205</span> <span class="tlaGNC tlaBgGNC">         520 :   logic ctrl_slpbk_wd;</span></span>
 <span id="L206"><span class="lineNum">     206</span> <span class="tlaUNC tlaBgUNC">           0 :   logic ctrl_llpbk_qs;</span></span>
-<span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC tlaBgGNC">         450 :   logic ctrl_llpbk_wd;</span></span>
+<span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC tlaBgGNC">         456 :   logic ctrl_llpbk_wd;</span></span>
 <span id="L208"><span class="lineNum">     208</span> <span class="tlaUNC tlaBgUNC">           0 :   logic ctrl_parity_en_qs;</span></span>
-<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC tlaBgGNC">         496 :   logic ctrl_parity_en_wd;</span></span>
+<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC tlaBgGNC">         472 :   logic ctrl_parity_en_wd;</span></span>
 <span id="L210"><span class="lineNum">     210</span> <span class="tlaUNC tlaBgUNC">           0 :   logic ctrl_parity_odd_qs;</span></span>
-<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC tlaBgGNC">         178 :   logic ctrl_parity_odd_wd;</span></span>
+<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC tlaBgGNC">         190 :   logic ctrl_parity_odd_wd;</span></span>
 <span id="L212"><span class="lineNum">     212</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [1:0] ctrl_rxblvl_qs;</span></span>
-<span id="L213"><span class="lineNum">     213</span> <span class="tlaGNC tlaBgGNC">         548 :   logic [1:0] ctrl_rxblvl_wd;</span></span>
+<span id="L213"><span class="lineNum">     213</span> <span class="tlaGNC tlaBgGNC">         534 :   logic [1:0] ctrl_rxblvl_wd;</span></span>
 <span id="L214"><span class="lineNum">     214</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [15:0] ctrl_nco_qs;</span></span>
 <span id="L215"><span class="lineNum">     215</span> <span class="tlaGNC tlaBgGNC">          26 :   logic [15:0] ctrl_nco_wd;</span></span>
 <span id="L216"><span class="lineNum">     216</span> <span class="tlaUNC tlaBgUNC">           0 :   logic status_re;</span></span>
@@ -327,27 +327,27 @@
 <span id="L223"><span class="lineNum">     223</span> <span class="tlaUNC tlaBgUNC">           0 :   logic rdata_re;</span></span>
 <span id="L224"><span class="lineNum">     224</span> <span class="tlaUNC">           0 :   logic [7:0] rdata_qs;</span></span>
 <span id="L225"><span class="lineNum">     225</span> <span class="tlaUNC">           0 :   logic wdata_we;</span></span>
-<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC tlaBgGNC">         178 :   logic [7:0] wdata_wd;</span></span>
+<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC tlaBgGNC">         190 :   logic [7:0] wdata_wd;</span></span>
 <span id="L227"><span class="lineNum">     227</span> <span class="tlaUNC tlaBgUNC">           0 :   logic fifo_ctrl_we;</span></span>
-<span id="L228"><span class="lineNum">     228</span> <span class="tlaGNC tlaBgGNC">         576 :   logic fifo_ctrl_rxrst_wd;</span></span>
-<span id="L229"><span class="lineNum">     229</span> <span class="tlaGNC">         528 :   logic fifo_ctrl_txrst_wd;</span></span>
+<span id="L228"><span class="lineNum">     228</span> <span class="tlaGNC tlaBgGNC">         556 :   logic fifo_ctrl_rxrst_wd;</span></span>
+<span id="L229"><span class="lineNum">     229</span> <span class="tlaGNC">         536 :   logic fifo_ctrl_txrst_wd;</span></span>
 <span id="L230"><span class="lineNum">     230</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [2:0] fifo_ctrl_rxilvl_qs;</span></span>
-<span id="L231"><span class="lineNum">     231</span> <span class="tlaGNC tlaBgGNC">         536 :   logic [2:0] fifo_ctrl_rxilvl_wd;</span></span>
+<span id="L231"><span class="lineNum">     231</span> <span class="tlaGNC tlaBgGNC">         520 :   logic [2:0] fifo_ctrl_rxilvl_wd;</span></span>
 <span id="L232"><span class="lineNum">     232</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [1:0] fifo_ctrl_txilvl_qs;</span></span>
-<span id="L233"><span class="lineNum">     233</span> <span class="tlaGNC tlaBgGNC">         450 :   logic [1:0] fifo_ctrl_txilvl_wd;</span></span>
+<span id="L233"><span class="lineNum">     233</span> <span class="tlaGNC tlaBgGNC">         456 :   logic [1:0] fifo_ctrl_txilvl_wd;</span></span>
 <span id="L234"><span class="lineNum">     234</span> <span class="tlaUNC tlaBgUNC">           0 :   logic fifo_status_re;</span></span>
 <span id="L235"><span class="lineNum">     235</span> <span class="tlaUNC">           0 :   logic [5:0] fifo_status_txlvl_qs;</span></span>
 <span id="L236"><span class="lineNum">     236</span> <span class="tlaUNC">           0 :   logic [5:0] fifo_status_rxlvl_qs;</span></span>
 <span id="L237"><span class="lineNum">     237</span> <span class="tlaUNC">           0 :   logic ovrd_we;</span></span>
 <span id="L238"><span class="lineNum">     238</span> <span class="tlaUNC">           0 :   logic ovrd_txen_qs;</span></span>
-<span id="L239"><span class="lineNum">     239</span> <span class="tlaGNC tlaBgGNC">         576 :   logic ovrd_txen_wd;</span></span>
+<span id="L239"><span class="lineNum">     239</span> <span class="tlaGNC tlaBgGNC">         556 :   logic ovrd_txen_wd;</span></span>
 <span id="L240"><span class="lineNum">     240</span> <span class="tlaUNC tlaBgUNC">           0 :   logic ovrd_txval_qs;</span></span>
-<span id="L241"><span class="lineNum">     241</span> <span class="tlaGNC tlaBgGNC">         528 :   logic ovrd_txval_wd;</span></span>
+<span id="L241"><span class="lineNum">     241</span> <span class="tlaGNC tlaBgGNC">         536 :   logic ovrd_txval_wd;</span></span>
 <span id="L242"><span class="lineNum">     242</span> <span class="tlaUNC tlaBgUNC">           0 :   logic val_re;</span></span>
 <span id="L243"><span class="lineNum">     243</span> <span class="tlaUNC">           0 :   logic [15:0] val_qs;</span></span>
 <span id="L244"><span class="lineNum">     244</span> <span class="tlaUNC">           0 :   logic timeout_ctrl_we;</span></span>
 <span id="L245"><span class="lineNum">     245</span> <span class="tlaUNC">           0 :   logic [23:0] timeout_ctrl_val_qs;</span></span>
-<span id="L246"><span class="lineNum">     246</span> <span class="tlaGNC tlaBgGNC">         166 :   logic [23:0] timeout_ctrl_val_wd;</span></span>
+<span id="L246"><span class="lineNum">     246</span> <span class="tlaGNC tlaBgGNC">         164 :   logic [23:0] timeout_ctrl_val_wd;</span></span>
 <span id="L247"><span class="lineNum">     247</span> <span class="tlaUNC tlaBgUNC">           0 :   logic timeout_ctrl_en_qs;</span></span>
 <span id="L248"><span class="lineNum">     248</span> <span class="tlaGNC tlaBgGNC">          26 :   logic timeout_ctrl_en_wd;</span></span>
 <span id="L249"><span class="lineNum">     249</span>              : </span>
@@ -1747,15 +1747,15 @@
 <span id="L1643"><span class="lineNum">    1643</span> <span class="tlaGNC">           1 :   always_comb begin</span></span>
 <span id="L1644"><span class="lineNum">    1644</span> <span class="tlaGNC">           1 :     reg_rdata_next = '0;</span></span>
 <span id="L1645"><span class="lineNum">    1645</span> <span class="tlaGNC">           1 :     unique case (1'b1)</span></span>
-<span id="L1646"><span class="lineNum">    1646</span> <span class="tlaGNC">      229317 :       addr_hit[0]: begin</span></span>
-<span id="L1647"><span class="lineNum">    1647</span> <span class="tlaGNC">      229317 :         reg_rdata_next[0] = intr_state_tx_watermark_qs;</span></span>
-<span id="L1648"><span class="lineNum">    1648</span> <span class="tlaGNC">      229317 :         reg_rdata_next[1] = intr_state_rx_watermark_qs;</span></span>
-<span id="L1649"><span class="lineNum">    1649</span> <span class="tlaGNC">      229317 :         reg_rdata_next[2] = intr_state_tx_empty_qs;</span></span>
-<span id="L1650"><span class="lineNum">    1650</span> <span class="tlaGNC">      229317 :         reg_rdata_next[3] = intr_state_rx_overflow_qs;</span></span>
-<span id="L1651"><span class="lineNum">    1651</span> <span class="tlaGNC">      229317 :         reg_rdata_next[4] = intr_state_rx_frame_err_qs;</span></span>
-<span id="L1652"><span class="lineNum">    1652</span> <span class="tlaGNC">      229317 :         reg_rdata_next[5] = intr_state_rx_break_err_qs;</span></span>
-<span id="L1653"><span class="lineNum">    1653</span> <span class="tlaGNC">      229317 :         reg_rdata_next[6] = intr_state_rx_timeout_qs;</span></span>
-<span id="L1654"><span class="lineNum">    1654</span> <span class="tlaGNC">      229317 :         reg_rdata_next[7] = intr_state_rx_parity_err_qs;</span></span>
+<span id="L1646"><span class="lineNum">    1646</span> <span class="tlaGNC">      229429 :       addr_hit[0]: begin</span></span>
+<span id="L1647"><span class="lineNum">    1647</span> <span class="tlaGNC">      229429 :         reg_rdata_next[0] = intr_state_tx_watermark_qs;</span></span>
+<span id="L1648"><span class="lineNum">    1648</span> <span class="tlaGNC">      229429 :         reg_rdata_next[1] = intr_state_rx_watermark_qs;</span></span>
+<span id="L1649"><span class="lineNum">    1649</span> <span class="tlaGNC">      229429 :         reg_rdata_next[2] = intr_state_tx_empty_qs;</span></span>
+<span id="L1650"><span class="lineNum">    1650</span> <span class="tlaGNC">      229429 :         reg_rdata_next[3] = intr_state_rx_overflow_qs;</span></span>
+<span id="L1651"><span class="lineNum">    1651</span> <span class="tlaGNC">      229429 :         reg_rdata_next[4] = intr_state_rx_frame_err_qs;</span></span>
+<span id="L1652"><span class="lineNum">    1652</span> <span class="tlaGNC">      229429 :         reg_rdata_next[5] = intr_state_rx_break_err_qs;</span></span>
+<span id="L1653"><span class="lineNum">    1653</span> <span class="tlaGNC">      229429 :         reg_rdata_next[6] = intr_state_rx_timeout_qs;</span></span>
+<span id="L1654"><span class="lineNum">    1654</span> <span class="tlaGNC">      229429 :         reg_rdata_next[7] = intr_state_rx_parity_err_qs;</span></span>
 <span id="L1655"><span class="lineNum">    1655</span>              :       end</span>
 <span id="L1656"><span class="lineNum">    1656</span>              : </span>
 <span id="L1657"><span class="lineNum">    1657</span> <span class="tlaUNC tlaBgUNC">           0 :       addr_hit[1]: begin</span></span>
@@ -1846,7 +1846,7 @@
 <span id="L1742"><span class="lineNum">    1742</span>              :   end</span>
 <span id="L1743"><span class="lineNum">    1743</span>              : </span>
 <span id="L1744"><span class="lineNum">    1744</span>              :   // shadow busy</span>
-<span id="L1745"><span class="lineNum">    1745</span> <span class="tlaGNC tlaBgGNC">       24658 :   logic shadow_busy;</span></span>
+<span id="L1745"><span class="lineNum">    1745</span> <span class="tlaGNC tlaBgGNC">       24634 :   logic shadow_busy;</span></span>
 <span id="L1746"><span class="lineNum">    1746</span>              :   assign shadow_busy = 1'b0;</span>
 <span id="L1747"><span class="lineNum">    1747</span>              : </span>
 <span id="L1748"><span class="lineNum">    1748</span>              :   // register busy</span>
@@ -1856,8 +1856,8 @@
 <span id="L1752"><span class="lineNum">    1752</span>              : </span>
 <span id="L1753"><span class="lineNum">    1753</span>              :   // wdata / byte enable are not always fully used</span>
 <span id="L1754"><span class="lineNum">    1754</span>              :   // add a blanket unused statement to handle lint waivers</span>
-<span id="L1755"><span class="lineNum">    1755</span> <span class="tlaGNC">         640 :   logic unused_wdata;</span></span>
-<span id="L1756"><span class="lineNum">    1756</span> <span class="tlaGNC">       24658 :   logic unused_be;</span></span>
+<span id="L1755"><span class="lineNum">    1755</span> <span class="tlaGNC">         650 :   logic unused_wdata;</span></span>
+<span id="L1756"><span class="lineNum">    1756</span> <span class="tlaGNC">       24634 :   logic unused_be;</span></span>
 <span id="L1757"><span class="lineNum">    1757</span>              :   assign unused_wdata = ^reg_wdata;</span>
 <span id="L1758"><span class="lineNum">    1758</span>              :   assign unused_be = ^reg_be;</span>
 <span id="L1759"><span class="lineNum">    1759</span>              : </span>

@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -198,7 +198,7 @@
 <span id="L94"><span class="lineNum">      94</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:0] exu_csr_rs1_x,                  // rs1 for csr instr</span></span>
 <span id="L95"><span class="lineNum">      95</span>              : </span>
 <span id="L96"><span class="lineNum">      96</span> <span class="tlaGNC tlaBgGNC">         476 :    input logic [31:0] lsu_result_m,                   // load result</span></span>
-<span id="L97"><span class="lineNum">      97</span> <span class="tlaGNC">         134 :    input logic [31:0] lsu_result_corr_r,              // load result - corrected data for writing gpr's, not for bypassing</span></span>
+<span id="L97"><span class="lineNum">      97</span> <span class="tlaGNC">         132 :    input logic [31:0] lsu_result_corr_r,              // load result - corrected data for writing gpr's, not for bypassing</span></span>
 <span id="L98"><span class="lineNum">      98</span>              : </span>
 <span id="L99"><span class="lineNum">      99</span> <span class="tlaGNC">        9272 :    input logic exu_flush_final,                       // lower flush or i0 flush at X or D</span></span>
 <span id="L100"><span class="lineNum">     100</span>              : </span>
@@ -223,7 +223,7 @@
 <span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC">       88298 :    output logic        dec_i0_rs2_en_d,               // rs2 enable at decode</span></span>
 <span id="L120"><span class="lineNum">     120</span>              : </span>
 <span id="L121"><span class="lineNum">     121</span> <span class="tlaGNC">       31246 :    output logic [4:0]  dec_i0_rs1_d,                  // rs1 logical source</span></span>
-<span id="L122"><span class="lineNum">     122</span> <span class="tlaGNC">       40142 :    output logic [4:0]  dec_i0_rs2_d,                  // rs2 logical source</span></span>
+<span id="L122"><span class="lineNum">     122</span> <span class="tlaGNC">       40144 :    output logic [4:0]  dec_i0_rs2_d,                  // rs2 logical source</span></span>
 <span id="L123"><span class="lineNum">     123</span>              : </span>
 <span id="L124"><span class="lineNum">     124</span> <span class="tlaGNC">        5546 :    output logic [31:0] dec_i0_immed_d,                // 32b immediate data decode</span></span>
 <span id="L125"><span class="lineNum">     125</span>              : </span>
@@ -444,7 +444,7 @@
 <span id="L340"><span class="lineNum">     340</span> <span class="tlaGNC tlaBgGNC">       18282 :    logic              i0_block_d;</span></span>
 <span id="L341"><span class="lineNum">     341</span> <span class="tlaGNC">       18282 :    logic              i0_block_raw_d;  // This is use to create the raw valid</span></span>
 <span id="L342"><span class="lineNum">     342</span> <span class="tlaGNC">          30 :    logic              ps_stall_in;</span></span>
-<span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC">       39516 :    logic [31:0]       i0_result_x;</span></span>
+<span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC">       39512 :    logic [31:0]       i0_result_x;</span></span>
 <span id="L344"><span class="lineNum">     344</span>              : </span>
 <span id="L345"><span class="lineNum">     345</span> <span class="tlaGNC">           6 :    el2_dest_pkt_t         d_d, x_d, r_d, wbd;</span></span>
 <span id="L346"><span class="lineNum">     346</span> <span class="tlaGNC">           6 :    el2_dest_pkt_t         x_d_in, r_d_in;</span></span>

@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff6600;">
-        20.0%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff4c00;">
+        15.0%
     </td>
     <td class="headerCovSummaryEntry">
-        4
+        3
     </td>
     <td class="headerCovSummaryEntry">
         20
@@ -152,12 +152,12 @@
 <span id="L48"><span class="lineNum">      48</span>              :     )</span>
 <span id="L49"><span class="lineNum">      49</span>              :     (</span>
 <span id="L50"><span class="lineNum">      50</span>              :     // Clock and reset.</span>
-<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC tlaBgGNC">      864324 :     input  wire           clk,</span></span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">          21 :     input  wire           reset_n,</span></span>
-<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">          14 :     input  wire           zeroize,</span></span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC tlaBgGNC">      458284 :     input  wire           clk,</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">           1 :     input  wire           reset_n,</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaUNC tlaBgUNC">           0 :     input  wire           zeroize,</span></span>
 <span id="L54"><span class="lineNum">      54</span>              : </span>
 <span id="L55"><span class="lineNum">      55</span>              :     // from arith_unit</span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC tlaBgUNC">           0 :     input  wire  [2  :   0]                 ecc_cmd_i,</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC">           0 :     input  wire  [2  :   0]                 ecc_cmd_i,</span></span>
 <span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC tlaBgGNC">           3 :     input  wire                             sca_en_i,</span></span>
 <span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC tlaBgUNC">           0 :     input  wire                             digit_i,</span></span>
 <span id="L59"><span class="lineNum">      59</span> <span class="tlaUNC">           0 :     output pm_instr_struct_t                instr_o,</span></span>
@@ -212,14 +212,14 @@
 <span id="L108"><span class="lineNum">     108</span>              :         .douta(prog_instr)</span>
 <span id="L109"><span class="lineNum">     109</span>              :     );</span>
 <span id="L110"><span class="lineNum">     110</span>              :     </span>
-<span id="L111"><span class="lineNum">     111</span> <span class="tlaGNC tlaBgGNC">        4617 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L112"><span class="lineNum">     112</span> <span class="tlaGNC">        4617 :     begin : ff_stalled_reg</span></span>
+<span id="L111"><span class="lineNum">     111</span> <span class="tlaGNC tlaBgGNC">       94050 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L112"><span class="lineNum">     112</span> <span class="tlaGNC">       94050 :     begin : ff_stalled_reg</span></span>
 <span id="L113"><span class="lineNum">     113</span> <span class="tlaGNC">           4 :         if(!reset_n) </span></span>
 <span id="L114"><span class="lineNum">     114</span> <span class="tlaGNC">           4 :             stalled_pipe1 &lt;= '0;</span></span>
-<span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC">        4613 :         else if (zeroize) </span></span>
+<span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC">       94046 :         else if (zeroize) </span></span>
 <span id="L116"><span class="lineNum">     116</span> <span class="tlaUNC tlaBgUNC">           0 :             stalled_pipe1 &lt;= '0;</span></span>
 <span id="L117"><span class="lineNum">     117</span>              :         else</span>
-<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC tlaBgGNC">        4613 :             stalled_pipe1 &lt;= stalled;</span></span>
+<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC tlaBgGNC">       94046 :             stalled_pipe1 &lt;= stalled;</span></span>
 <span id="L119"><span class="lineNum">     119</span>              :     end // ff_stalled_reg</span>
 <span id="L120"><span class="lineNum">     120</span>              : </span>
 <span id="L121"><span class="lineNum">     121</span>              :     //----------------------------------------------------------------</span>
@@ -229,8 +229,8 @@
 <span id="L125"><span class="lineNum">     125</span>              :     // perform different operations.</span>
 <span id="L126"><span class="lineNum">     126</span>              :     // Active low and async reset.</span>
 <span id="L127"><span class="lineNum">     127</span>              :     //----------------------------------------------------------------</span>
-<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC">        4617 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC">        4617 :     begin : pm_fsm</span></span>
+<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC">       94050 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC">       94050 :     begin : pm_fsm</span></span>
 <span id="L130"><span class="lineNum">     130</span> <span class="tlaGNC">           4 :         if(!reset_n) begin</span></span>
 <span id="L131"><span class="lineNum">     131</span> <span class="tlaGNC">           4 :             prog_cntr   &lt;= '0;</span></span>
 <span id="L132"><span class="lineNum">     132</span> <span class="tlaGNC">           4 :             mont_cntr   &lt;= '0;</span></span>
@@ -240,7 +240,7 @@
 <span id="L136"><span class="lineNum">     136</span> <span class="tlaGNC">           4 :             mont_ladder &lt;= '0;</span></span>
 <span id="L137"><span class="lineNum">     137</span> <span class="tlaGNC">           4 :             ecc_cmd_reg &lt;= '0;</span></span>
 <span id="L138"><span class="lineNum">     138</span>              :         end</span>
-<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC">        4613 :         else if (zeroize) begin</span></span>
+<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC">       94046 :         else if (zeroize) begin</span></span>
 <span id="L140"><span class="lineNum">     140</span> <span class="tlaUNC tlaBgUNC">           0 :             prog_cntr   &lt;= '0;</span></span>
 <span id="L141"><span class="lineNum">     141</span> <span class="tlaUNC">           0 :             mont_cntr   &lt;= '0;</span></span>
 <span id="L142"><span class="lineNum">     142</span> <span class="tlaUNC">           0 :             stall_cntr  &lt;= '0;</span></span>
@@ -249,7 +249,7 @@
 <span id="L145"><span class="lineNum">     145</span> <span class="tlaUNC">           0 :             mont_ladder &lt;= '0;</span></span>
 <span id="L146"><span class="lineNum">     146</span> <span class="tlaUNC">           0 :             ecc_cmd_reg &lt;= '0;</span></span>
 <span id="L147"><span class="lineNum">     147</span>              :         end</span>
-<span id="L148"><span class="lineNum">     148</span> <span class="tlaGNC tlaBgGNC">        4613 :         else begin</span></span>
+<span id="L148"><span class="lineNum">     148</span> <span class="tlaGNC tlaBgGNC">       94046 :         else begin</span></span>
 <span id="L149"><span class="lineNum">     149</span> <span class="tlaUNC tlaBgUNC">           0 :             if (stalled &amp; (stall_cntr &gt; 0)) begin</span></span>
 <span id="L150"><span class="lineNum">     150</span> <span class="tlaUNC">           0 :                 stall_cntr &lt;= stall_cntr - 1;</span></span>
 <span id="L151"><span class="lineNum">     151</span>              :             end</span>
@@ -265,11 +265,11 @@
 <span id="L161"><span class="lineNum">     161</span>              :                 endcase</span>
 <span id="L162"><span class="lineNum">     162</span>              :             end</span>
 <span id="L163"><span class="lineNum">     163</span> <span class="tlaUNC">           0 :             else if ((!stalled) | (stalled &amp; (stall_cntr == 0))) begin</span></span>
-<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC tlaBgGNC">        4613 :                 stalled &lt;= 0;</span></span>
-<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">        4613 :                 unique case (prog_cntr)</span></span>
-<span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC">        4613 :                     NOP : begin     // Waiting for new valid command</span></span>
-<span id="L167"><span class="lineNum">     167</span> <span class="tlaGNC">        4613 :                         ecc_cmd_reg &lt;= ecc_cmd_i;</span></span>
-<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">        4613 :                         unique case (ecc_cmd_i)</span></span>
+<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC tlaBgGNC">       94046 :                 stalled &lt;= 0;</span></span>
+<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">       94046 :                 unique case (prog_cntr)</span></span>
+<span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC">       94046 :                     NOP : begin     // Waiting for new valid command</span></span>
+<span id="L167"><span class="lineNum">     167</span> <span class="tlaGNC">       94046 :                         ecc_cmd_reg &lt;= ecc_cmd_i;</span></span>
+<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">       94046 :                         unique case (ecc_cmd_i)</span></span>
 <span id="L169"><span class="lineNum">     169</span> <span class="tlaUNC tlaBgUNC">           0 :                             KEYGEN_CMD : begin  // keygen</span></span>
 <span id="L170"><span class="lineNum">     170</span> <span class="tlaUNC">           0 :                                 mont_cntr &lt;= (sca_en_i)? Secp384_SCA_MONT_COUNT : Secp384_MONT_COUNT;</span></span>
 <span id="L171"><span class="lineNum">     171</span> <span class="tlaUNC">           0 :                                 prog_cntr &lt;= PM_INIT_G_S;</span></span>
@@ -297,10 +297,10 @@
 <span id="L193"><span class="lineNum">     193</span> <span class="tlaUNC">           0 :                                 prog_cntr &lt;= CHK_PK_S;</span></span>
 <span id="L194"><span class="lineNum">     194</span>              :                             end</span>
 <span id="L195"><span class="lineNum">     195</span>              : </span>
-<span id="L196"><span class="lineNum">     196</span> <span class="tlaGNC tlaBgGNC">        4613 :                             default : </span></span>
-<span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC">        4613 :                                 prog_cntr &lt;= NOP;</span></span>
+<span id="L196"><span class="lineNum">     196</span> <span class="tlaGNC tlaBgGNC">       94046 :                             default : </span></span>
+<span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC">       94046 :                                 prog_cntr &lt;= NOP;</span></span>
 <span id="L198"><span class="lineNum">     198</span>              :                         endcase</span>
-<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC">        4613 :                         req_digit_o &lt;= 0;</span></span>
+<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC">       94046 :                         req_digit_o &lt;= 0;</span></span>
 <span id="L200"><span class="lineNum">     200</span>              :                     end</span>
 <span id="L201"><span class="lineNum">     201</span>              :                     </span>
 <span id="L202"><span class="lineNum">     202</span> <span class="tlaUNC tlaBgUNC">           0 :                     VER1_ST_E : begin // Storing the VER1 MONT results before starting VER2</span></span>
@@ -417,31 +417,31 @@
 <span id="L313"><span class="lineNum">     313</span>              :         end</span>
 <span id="L314"><span class="lineNum">     314</span>              :     end // pm_fsm</span>
 <span id="L315"><span class="lineNum">     315</span>              : </span>
-<span id="L316"><span class="lineNum">     316</span> <span class="tlaGNC tlaBgGNC">        4617 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L317"><span class="lineNum">     317</span> <span class="tlaGNC">        4617 :     begin : sequencer_pipeline1</span></span>
+<span id="L316"><span class="lineNum">     316</span> <span class="tlaGNC tlaBgGNC">       94050 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L317"><span class="lineNum">     317</span> <span class="tlaGNC">       94050 :     begin : sequencer_pipeline1</span></span>
 <span id="L318"><span class="lineNum">     318</span> <span class="tlaGNC">           4 :         if (!reset_n) </span></span>
 <span id="L319"><span class="lineNum">     319</span> <span class="tlaGNC">           4 :             prog_instr_pipe1 &lt;= '{UOP_NOP, '0, '0};</span></span>
-<span id="L320"><span class="lineNum">     320</span> <span class="tlaGNC">        4613 :         else if (zeroize) </span></span>
+<span id="L320"><span class="lineNum">     320</span> <span class="tlaGNC">       94046 :         else if (zeroize) </span></span>
 <span id="L321"><span class="lineNum">     321</span> <span class="tlaUNC tlaBgUNC">           0 :             prog_instr_pipe1 &lt;= '{UOP_NOP, '0, '0};</span></span>
-<span id="L322"><span class="lineNum">     322</span> <span class="tlaGNC tlaBgGNC">        4613 :         else begin</span></span>
-<span id="L323"><span class="lineNum">     323</span> <span class="tlaGNC">        4613 :             if (stalled_pipe1) </span></span>
+<span id="L322"><span class="lineNum">     322</span> <span class="tlaGNC tlaBgGNC">       94046 :         else begin</span></span>
+<span id="L323"><span class="lineNum">     323</span> <span class="tlaGNC">       94046 :             if (stalled_pipe1) </span></span>
 <span id="L324"><span class="lineNum">     324</span> <span class="tlaUNC tlaBgUNC">           0 :                 prog_instr_pipe1 &lt;= prog_instr_pipe1;</span></span>
 <span id="L325"><span class="lineNum">     325</span>              :             else </span>
-<span id="L326"><span class="lineNum">     326</span> <span class="tlaGNC tlaBgGNC">        4613 :                 prog_instr_pipe1 &lt;= prog_instr;</span></span>
+<span id="L326"><span class="lineNum">     326</span> <span class="tlaGNC tlaBgGNC">       94046 :                 prog_instr_pipe1 &lt;= prog_instr;</span></span>
 <span id="L327"><span class="lineNum">     327</span>              :         end</span>
 <span id="L328"><span class="lineNum">     328</span>              :     end // sequencer_pipeline1</span>
 <span id="L329"><span class="lineNum">     329</span>              : </span>
-<span id="L330"><span class="lineNum">     330</span> <span class="tlaGNC">        4617 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L331"><span class="lineNum">     331</span> <span class="tlaGNC">        4617 :     begin : sequencer_pipeline2</span></span>
+<span id="L330"><span class="lineNum">     330</span> <span class="tlaGNC">       94050 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L331"><span class="lineNum">     331</span> <span class="tlaGNC">       94050 :     begin : sequencer_pipeline2</span></span>
 <span id="L332"><span class="lineNum">     332</span> <span class="tlaGNC">           4 :         if (!reset_n) </span></span>
 <span id="L333"><span class="lineNum">     333</span> <span class="tlaGNC">           4 :             prog_instr_pipe2 &lt;= '{UOP_NOP, '0, '0};</span></span>
-<span id="L334"><span class="lineNum">     334</span> <span class="tlaGNC">        4613 :         else if (zeroize) </span></span>
+<span id="L334"><span class="lineNum">     334</span> <span class="tlaGNC">       94046 :         else if (zeroize) </span></span>
 <span id="L335"><span class="lineNum">     335</span> <span class="tlaUNC tlaBgUNC">           0 :             prog_instr_pipe2 &lt;= '{UOP_NOP, '0, '0};</span></span>
-<span id="L336"><span class="lineNum">     336</span> <span class="tlaGNC tlaBgGNC">        4613 :         else begin</span></span>
-<span id="L337"><span class="lineNum">     337</span> <span class="tlaGNC">        4613 :             if (stalled_pipe1) </span></span>
+<span id="L336"><span class="lineNum">     336</span> <span class="tlaGNC tlaBgGNC">       94046 :         else begin</span></span>
+<span id="L337"><span class="lineNum">     337</span> <span class="tlaGNC">       94046 :             if (stalled_pipe1) </span></span>
 <span id="L338"><span class="lineNum">     338</span> <span class="tlaUNC tlaBgUNC">           0 :                 prog_instr_pipe2 &lt;= prog_instr_pipe2;</span></span>
 <span id="L339"><span class="lineNum">     339</span>              :             else </span>
-<span id="L340"><span class="lineNum">     340</span> <span class="tlaGNC tlaBgGNC">        4613 :                 prog_instr_pipe2 &lt;= prog_instr_pipe1;</span></span>
+<span id="L340"><span class="lineNum">     340</span> <span class="tlaGNC tlaBgGNC">       94046 :                 prog_instr_pipe2 &lt;= prog_instr_pipe1;</span></span>
 <span id="L341"><span class="lineNum">     341</span>              :         end</span>
 <span id="L342"><span class="lineNum">     342</span>              :     end // sequencer_pipeline2</span>
 <span id="L343"><span class="lineNum">     343</span>              : </span>
@@ -464,16 +464,16 @@
 <span id="L360"><span class="lineNum">     360</span>              :      </span>
 <span id="L361"><span class="lineNum">     361</span>              : </span>
 <span id="L362"><span class="lineNum">     362</span>              :     //Instruction out to arithmetic units and memory</span>
-<span id="L363"><span class="lineNum">     363</span> <span class="tlaGNC">        4617 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L364"><span class="lineNum">     364</span> <span class="tlaGNC">        4617 :     begin : instruction_out</span></span>
+<span id="L363"><span class="lineNum">     363</span> <span class="tlaGNC">       94050 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L364"><span class="lineNum">     364</span> <span class="tlaGNC">       94050 :     begin : instruction_out</span></span>
 <span id="L365"><span class="lineNum">     365</span> <span class="tlaGNC">           4 :         if (!reset_n)</span></span>
 <span id="L366"><span class="lineNum">     366</span> <span class="tlaGNC">           4 :             instr_o &lt;= '{UOP_NOP, '0, '0};</span></span>
-<span id="L367"><span class="lineNum">     367</span> <span class="tlaGNC">        4613 :         else if (zeroize)</span></span>
+<span id="L367"><span class="lineNum">     367</span> <span class="tlaGNC">       94046 :         else if (zeroize)</span></span>
 <span id="L368"><span class="lineNum">     368</span> <span class="tlaUNC tlaBgUNC">           0 :             instr_o &lt;= '{UOP_NOP, '0, '0};</span></span>
-<span id="L369"><span class="lineNum">     369</span> <span class="tlaGNC tlaBgGNC">        4613 :         else begin</span></span>
-<span id="L370"><span class="lineNum">     370</span> <span class="tlaGNC">        4613 :             instr_o.opcode &lt;= prog_instr_pipe2.opcode;</span></span>
+<span id="L369"><span class="lineNum">     369</span> <span class="tlaGNC tlaBgGNC">       94046 :         else begin</span></span>
+<span id="L370"><span class="lineNum">     370</span> <span class="tlaGNC">       94046 :             instr_o.opcode &lt;= prog_instr_pipe2.opcode;</span></span>
 <span id="L371"><span class="lineNum">     371</span>              :             </span>
-<span id="L372"><span class="lineNum">     372</span> <span class="tlaGNC">        4613 :             if (mont_ladder) begin</span></span>
+<span id="L372"><span class="lineNum">     372</span> <span class="tlaGNC">       94046 :             if (mont_ladder) begin</span></span>
 <span id="L373"><span class="lineNum">     373</span>              :                 // constant-time conditional swaps depending on the value of the currently processed bit of secret key</span>
 <span id="L374"><span class="lineNum">     374</span>              : </span>
 <span id="L375"><span class="lineNum">     375</span>              :                 //Addr A for ADD/SUB result</span>
@@ -487,9 +487,9 @@
 <span id="L383"><span class="lineNum">     383</span>              :                 else</span>
 <span id="L384"><span class="lineNum">     384</span> <span class="tlaUNC">           0 :                     instr_o.opb_addr  &lt;= prog_instr_pipe2.opb_addr;  </span></span>
 <span id="L385"><span class="lineNum">     385</span>              :             end</span>
-<span id="L386"><span class="lineNum">     386</span> <span class="tlaGNC tlaBgGNC">        4613 :             else begin</span></span>
-<span id="L387"><span class="lineNum">     387</span> <span class="tlaGNC">        4613 :                 instr_o.opa_addr  &lt;= prog_instr_pipe2.opa_addr;    //Addr A for ADD/SUB result</span></span>
-<span id="L388"><span class="lineNum">     388</span> <span class="tlaGNC">        4613 :                 instr_o.opb_addr  &lt;= prog_instr_pipe2.opb_addr;    //Addr B for MULT result</span></span>
+<span id="L386"><span class="lineNum">     386</span> <span class="tlaGNC tlaBgGNC">       94046 :             else begin</span></span>
+<span id="L387"><span class="lineNum">     387</span> <span class="tlaGNC">       94046 :                 instr_o.opa_addr  &lt;= prog_instr_pipe2.opa_addr;    //Addr A for ADD/SUB result</span></span>
+<span id="L388"><span class="lineNum">     388</span> <span class="tlaGNC">       94046 :                 instr_o.opb_addr  &lt;= prog_instr_pipe2.opb_addr;    //Addr B for MULT result</span></span>
 <span id="L389"><span class="lineNum">     389</span>              :             end </span>
 <span id="L390"><span class="lineNum">     390</span>              :         end</span>
 <span id="L391"><span class="lineNum">     391</span>              :     end // instruction_out</span>

@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -173,7 +173,7 @@
 <span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">          10 :    input logic [pt.LSU_SB_BITS-1:0]        stbuf_addr_any,          // stbuf address (aligned)</span></span>
 <span id="L70"><span class="lineNum">      70</span>              : </span>
 <span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">         312 :    input logic [pt.DCCM_DATA_WIDTH-1:0]    stbuf_data_any,          // the read out from stbuf</span></span>
-<span id="L72"><span class="lineNum">      72</span> <span class="tlaGNC">        5662 :    input logic [pt.DCCM_ECC_WIDTH-1:0]     stbuf_ecc_any,           // the encoded data with ECC bits</span></span>
+<span id="L72"><span class="lineNum">      72</span> <span class="tlaGNC">        5658 :    input logic [pt.DCCM_ECC_WIDTH-1:0]     stbuf_ecc_any,           // the encoded data with ECC bits</span></span>
 <span id="L73"><span class="lineNum">      73</span> <span class="tlaGNC">         156 :    input logic [pt.DCCM_DATA_WIDTH-1:0]    stbuf_fwddata_hi_m,      // stbuf fowarding to load</span></span>
 <span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">         156 :    input logic [pt.DCCM_DATA_WIDTH-1:0]    stbuf_fwddata_lo_m,      // stbuf fowarding to load</span></span>
 <span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">       21668 :    input logic [pt.DCCM_BYTE_WIDTH-1:0]    stbuf_fwdbyteen_hi_m,    // stbuf fowarding to load</span></span>
@@ -194,12 +194,12 @@
 <span id="L90"><span class="lineNum">      90</span> <span class="tlaGNC tlaBgGNC">         156 :    input logic [pt.DCCM_DATA_WIDTH-1:0]    sec_data_hi_r_ff,        // corrected dccm data</span></span>
 <span id="L91"><span class="lineNum">      91</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [pt.DCCM_DATA_WIDTH-1:0]    sec_data_lo_r_ff,        // corrected dccm data</span></span>
 <span id="L92"><span class="lineNum">      92</span> <span class="tlaUNC">           0 :    input logic [pt.DCCM_ECC_WIDTH-1:0]     sec_data_ecc_hi_r_ff,    // the encoded data with ECC bits</span></span>
-<span id="L93"><span class="lineNum">      93</span> <span class="tlaGNC tlaBgGNC">        5662 :    input logic [pt.DCCM_ECC_WIDTH-1:0]     sec_data_ecc_lo_r_ff,    // the encoded data with ECC bits</span></span>
+<span id="L93"><span class="lineNum">      93</span> <span class="tlaGNC tlaBgGNC">        5658 :    input logic [pt.DCCM_ECC_WIDTH-1:0]     sec_data_ecc_lo_r_ff,    // the encoded data with ECC bits</span></span>
 <span id="L94"><span class="lineNum">      94</span>              : </span>
 <span id="L95"><span class="lineNum">      95</span> <span class="tlaGNC">         348 :    output logic [pt.DCCM_DATA_WIDTH-1:0]   dccm_rdata_hi_m,         // data from the dccm</span></span>
 <span id="L96"><span class="lineNum">      96</span> <span class="tlaGNC">         348 :    output logic [pt.DCCM_DATA_WIDTH-1:0]   dccm_rdata_lo_m,         // data from the dccm</span></span>
-<span id="L97"><span class="lineNum">      97</span> <span class="tlaGNC">       16288 :    output logic [pt.DCCM_ECC_WIDTH-1:0]    dccm_data_ecc_hi_m,      // data from the dccm + ecc</span></span>
-<span id="L98"><span class="lineNum">      98</span> <span class="tlaGNC">       16288 :    output logic [pt.DCCM_ECC_WIDTH-1:0]    dccm_data_ecc_lo_m,</span></span>
+<span id="L97"><span class="lineNum">      97</span> <span class="tlaGNC">       16268 :    output logic [pt.DCCM_ECC_WIDTH-1:0]    dccm_data_ecc_hi_m,      // data from the dccm + ecc</span></span>
+<span id="L98"><span class="lineNum">      98</span> <span class="tlaGNC">       16268 :    output logic [pt.DCCM_ECC_WIDTH-1:0]    dccm_data_ecc_lo_m,</span></span>
 <span id="L99"><span class="lineNum">      99</span> <span class="tlaGNC">        3050 :    output logic [pt.DCCM_DATA_WIDTH-1:0]   lsu_ld_data_m,           // right justified, ie load byte will have data at 7:0</span></span>
 <span id="L100"><span class="lineNum">     100</span>              : </span>
 <span id="L101"><span class="lineNum">     101</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic                             lsu_double_ecc_error_m,  // lsu has a DED</span></span>
@@ -215,7 +215,7 @@
 <span id="L111"><span class="lineNum">     111</span> <span class="tlaUNC">           0 :    input logic [31:0]                      dma_dccm_wdata_lo,       // Shift the dma data to lower bits to make it consistent to lsu stores</span></span>
 <span id="L112"><span class="lineNum">     112</span> <span class="tlaUNC">           0 :    input logic [31:0]                      dma_dccm_wdata_hi,       // Shift the dma data to lower bits to make it consistent to lsu stores</span></span>
 <span id="L113"><span class="lineNum">     113</span> <span class="tlaUNC">           0 :    input logic [pt.DCCM_ECC_WIDTH-1:0]     dma_dccm_wdata_ecc_hi,   // ECC bits for the DMA wdata</span></span>
-<span id="L114"><span class="lineNum">     114</span> <span class="tlaGNC tlaBgGNC">        5662 :    input logic [pt.DCCM_ECC_WIDTH-1:0]     dma_dccm_wdata_ecc_lo,   // ECC bits for the DMA wdata</span></span>
+<span id="L114"><span class="lineNum">     114</span> <span class="tlaGNC tlaBgGNC">        5658 :    input logic [pt.DCCM_ECC_WIDTH-1:0]     dma_dccm_wdata_ecc_lo,   // ECC bits for the DMA wdata</span></span>
 <span id="L115"><span class="lineNum">     115</span>              : </span>
 <span id="L116"><span class="lineNum">     116</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [pt.DCCM_DATA_WIDTH-1:0]   store_data_hi_r,</span></span>
 <span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC tlaBgGNC">         144 :    output logic [pt.DCCM_DATA_WIDTH-1:0]   store_data_lo_r,</span></span>

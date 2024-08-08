@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -106,21 +106,21 @@
 <span id="L2"><span class="lineNum">       2</span>              : //  https://github.com/SystemRDL/PeakRDL-regblock</span>
 <span id="L3"><span class="lineNum">       3</span>              : </span>
 <span id="L4"><span class="lineNum">       4</span>              : module dv_reg (</span>
-<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC tlaBgGNC">     3259970 :         input wire clk,</span></span>
-<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">        7686 :         input wire rst,</span></span>
+<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC tlaBgGNC">     3259966 :         input wire clk,</span></span>
+<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">        7706 :         input wire rst,</span></span>
 <span id="L7"><span class="lineNum">       7</span>              : </span>
 <span id="L8"><span class="lineNum">       8</span> <span class="tlaUNC tlaBgUNC">           0 :         input wire s_cpuif_req,</span></span>
 <span id="L9"><span class="lineNum">       9</span> <span class="tlaUNC">           0 :         input wire s_cpuif_req_is_wr,</span></span>
 <span id="L10"><span class="lineNum">      10</span> <span class="tlaUNC">           0 :         input wire [10:0] s_cpuif_addr,</span></span>
 <span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC tlaBgGNC">         242 :         input wire [31:0] s_cpuif_wr_data,</span></span>
 <span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           3 :         input wire [31:0] s_cpuif_wr_biten,</span></span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">        7686 :         output wire s_cpuif_req_stall_wr,</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">        7686 :         output wire s_cpuif_req_stall_rd,</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">        7706 :         output wire s_cpuif_req_stall_wr,</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">        7706 :         output wire s_cpuif_req_stall_rd,</span></span>
 <span id="L15"><span class="lineNum">      15</span> <span class="tlaUNC tlaBgUNC">           0 :         output wire s_cpuif_rd_ack,</span></span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC tlaBgGNC">        7686 :         output wire s_cpuif_rd_err,</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC tlaBgGNC">        7706 :         output wire s_cpuif_rd_err,</span></span>
 <span id="L17"><span class="lineNum">      17</span> <span class="tlaUNC tlaBgUNC">           0 :         output wire [31:0] s_cpuif_rd_data,</span></span>
 <span id="L18"><span class="lineNum">      18</span> <span class="tlaUNC">           0 :         output wire s_cpuif_wr_ack,</span></span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC tlaBgGNC">        7686 :         output wire s_cpuif_wr_err,</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC tlaBgGNC">        7706 :         output wire s_cpuif_wr_err,</span></span>
 <span id="L20"><span class="lineNum">      20</span>              : </span>
 <span id="L21"><span class="lineNum">      21</span>              :         input dv_reg_pkg::dv_reg__in_t hwif_in,</span>
 <span id="L22"><span class="lineNum">      22</span> <span class="tlaUNC tlaBgUNC">           0 :         output dv_reg_pkg::dv_reg__out_t hwif_out</span></span>
@@ -134,15 +134,15 @@
 <span id="L30"><span class="lineNum">      30</span> <span class="tlaUNC">           0 :     logic [10:0] cpuif_addr;</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC tlaBgGNC">         242 :     logic [31:0] cpuif_wr_data;</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           3 :     logic [31:0] cpuif_wr_biten;</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">        7686 :     logic cpuif_req_stall_wr;</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">        7686 :     logic cpuif_req_stall_rd;</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">        7706 :     logic cpuif_req_stall_wr;</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">        7706 :     logic cpuif_req_stall_rd;</span></span>
 <span id="L35"><span class="lineNum">      35</span>              : </span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC tlaBgUNC">           0 :     logic cpuif_rd_ack;</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC tlaBgGNC">        7686 :     logic cpuif_rd_err;</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC tlaBgGNC">        7706 :     logic cpuif_rd_err;</span></span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC tlaBgUNC">           0 :     logic [31:0] cpuif_rd_data;</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC">           0 :     logic cpuif_wr_ack;</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">        7686 :     logic cpuif_wr_err;</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">        7706 :     logic cpuif_wr_err;</span></span>
 <span id="L42"><span class="lineNum">      42</span>              : </span>
 <span id="L43"><span class="lineNum">      43</span>              :     assign cpuif_req = s_cpuif_req;</span>
 <span id="L44"><span class="lineNum">      44</span>              :     assign cpuif_req_is_wr = s_cpuif_req_is_wr;</span>
@@ -343,17 +343,17 @@
 <span id="L239"><span class="lineNum">     239</span>              :             automatic logic load_next_c;</span>
 <span id="L240"><span class="lineNum">     240</span> <span class="tlaGNC">          10 :             next_c = field_storage.StickyDataVaultCtrl[i0].lock_entry.value;</span></span>
 <span id="L241"><span class="lineNum">     241</span> <span class="tlaGNC">          10 :             load_next_c = '0;</span></span>
-<span id="L242"><span class="lineNum">     242</span> <span class="tlaGNC">    32599200 :             if(decoded_reg_strb.StickyDataVaultCtrl[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.StickyDataVaultCtrl[i0].lock_entry.swwel)) begin // SW write</span></span>
+<span id="L242"><span class="lineNum">     242</span> <span class="tlaGNC">    32610680 :             if(decoded_reg_strb.StickyDataVaultCtrl[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.StickyDataVaultCtrl[i0].lock_entry.swwel)) begin // SW write</span></span>
 <span id="L243"><span class="lineNum">     243</span> <span class="tlaUNC tlaBgUNC">           0 :                 next_c = (field_storage.StickyDataVaultCtrl[i0].lock_entry.value &amp; ~decoded_wr_biten[0:0]) | (decoded_wr_data[0:0] &amp; decoded_wr_biten[0:0]);</span></span>
 <span id="L244"><span class="lineNum">     244</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
 <span id="L245"><span class="lineNum">     245</span>              :             end</span>
 <span id="L246"><span class="lineNum">     246</span> <span class="tlaGNC tlaBgGNC">          10 :             field_combo.StickyDataVaultCtrl[i0].lock_entry.next = next_c;</span></span>
 <span id="L247"><span class="lineNum">     247</span> <span class="tlaGNC">          10 :             field_combo.StickyDataVaultCtrl[i0].lock_entry.load_next = load_next_c;</span></span>
 <span id="L248"><span class="lineNum">     248</span>              :         end</span>
-<span id="L249"><span class="lineNum">     249</span> <span class="tlaGNC">    16298860 :         always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
+<span id="L249"><span class="lineNum">     249</span> <span class="tlaGNC">    16304600 :         always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
 <span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC">          20 :             if(~hwif_in.hard_reset_b) begin</span></span>
 <span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">          20 :                 field_storage.StickyDataVaultCtrl[i0].lock_entry.value &lt;= 1'h0;</span></span>
-<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">    16298840 :             end else if(field_combo.StickyDataVaultCtrl[i0].lock_entry.load_next) begin</span></span>
+<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">    16304580 :             end else if(field_combo.StickyDataVaultCtrl[i0].lock_entry.load_next) begin</span></span>
 <span id="L253"><span class="lineNum">     253</span> <span class="tlaUNC tlaBgUNC">           0 :                 field_storage.StickyDataVaultCtrl[i0].lock_entry.value &lt;= field_combo.StickyDataVaultCtrl[i0].lock_entry.next;</span></span>
 <span id="L254"><span class="lineNum">     254</span>              :             end</span>
 <span id="L255"><span class="lineNum">     255</span>              :         end</span>
@@ -367,17 +367,17 @@
 <span id="L263"><span class="lineNum">     263</span>              :                 automatic logic load_next_c;</span>
 <span id="L264"><span class="lineNum">     264</span> <span class="tlaGNC">         120 :                 next_c = field_storage.STICKY_DATA_VAULT_ENTRY[i0][i1].data.value;</span></span>
 <span id="L265"><span class="lineNum">     265</span> <span class="tlaGNC">         120 :                 load_next_c = '0;</span></span>
-<span id="L266"><span class="lineNum">     266</span> <span class="tlaGNC">   391190400 :                 if(decoded_reg_strb.STICKY_DATA_VAULT_ENTRY[i0][i1] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.STICKY_DATA_VAULT_ENTRY[i0][i1].data.swwel)) begin // SW write</span></span>
+<span id="L266"><span class="lineNum">     266</span> <span class="tlaGNC">   391328160 :                 if(decoded_reg_strb.STICKY_DATA_VAULT_ENTRY[i0][i1] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.STICKY_DATA_VAULT_ENTRY[i0][i1].data.swwel)) begin // SW write</span></span>
 <span id="L267"><span class="lineNum">     267</span> <span class="tlaUNC tlaBgUNC">           0 :                     next_c = (field_storage.STICKY_DATA_VAULT_ENTRY[i0][i1].data.value &amp; ~decoded_wr_biten[31:0]) | (decoded_wr_data[31:0] &amp; decoded_wr_biten[31:0]);</span></span>
 <span id="L268"><span class="lineNum">     268</span> <span class="tlaUNC">           0 :                     load_next_c = '1;</span></span>
 <span id="L269"><span class="lineNum">     269</span>              :                 end</span>
 <span id="L270"><span class="lineNum">     270</span> <span class="tlaGNC tlaBgGNC">         120 :                 field_combo.STICKY_DATA_VAULT_ENTRY[i0][i1].data.next = next_c;</span></span>
 <span id="L271"><span class="lineNum">     271</span> <span class="tlaGNC">         120 :                 field_combo.STICKY_DATA_VAULT_ENTRY[i0][i1].data.load_next = load_next_c;</span></span>
 <span id="L272"><span class="lineNum">     272</span>              :             end</span>
-<span id="L273"><span class="lineNum">     273</span> <span class="tlaGNC">   195586320 :             always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
+<span id="L273"><span class="lineNum">     273</span> <span class="tlaGNC">   195655200 :             always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
 <span id="L274"><span class="lineNum">     274</span> <span class="tlaGNC">         240 :                 if(~hwif_in.hard_reset_b) begin</span></span>
 <span id="L275"><span class="lineNum">     275</span> <span class="tlaGNC">         240 :                     field_storage.STICKY_DATA_VAULT_ENTRY[i0][i1].data.value &lt;= 32'h0;</span></span>
-<span id="L276"><span class="lineNum">     276</span> <span class="tlaGNC">   195586080 :                 end else if(field_combo.STICKY_DATA_VAULT_ENTRY[i0][i1].data.load_next) begin</span></span>
+<span id="L276"><span class="lineNum">     276</span> <span class="tlaGNC">   195654960 :                 end else if(field_combo.STICKY_DATA_VAULT_ENTRY[i0][i1].data.load_next) begin</span></span>
 <span id="L277"><span class="lineNum">     277</span> <span class="tlaUNC tlaBgUNC">           0 :                     field_storage.STICKY_DATA_VAULT_ENTRY[i0][i1].data.value &lt;= field_combo.STICKY_DATA_VAULT_ENTRY[i0][i1].data.next;</span></span>
 <span id="L278"><span class="lineNum">     278</span>              :                 end</span>
 <span id="L279"><span class="lineNum">     279</span>              :             end</span>
@@ -390,17 +390,17 @@
 <span id="L286"><span class="lineNum">     286</span>              :             automatic logic load_next_c;</span>
 <span id="L287"><span class="lineNum">     287</span> <span class="tlaGNC">          10 :             next_c = field_storage.DataVaultCtrl[i0].lock_entry.value;</span></span>
 <span id="L288"><span class="lineNum">     288</span> <span class="tlaGNC">          10 :             load_next_c = '0;</span></span>
-<span id="L289"><span class="lineNum">     289</span> <span class="tlaGNC">    32599200 :             if(decoded_reg_strb.DataVaultCtrl[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.DataVaultCtrl[i0].lock_entry.swwel)) begin // SW write</span></span>
+<span id="L289"><span class="lineNum">     289</span> <span class="tlaGNC">    32610680 :             if(decoded_reg_strb.DataVaultCtrl[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.DataVaultCtrl[i0].lock_entry.swwel)) begin // SW write</span></span>
 <span id="L290"><span class="lineNum">     290</span> <span class="tlaUNC tlaBgUNC">           0 :                 next_c = (field_storage.DataVaultCtrl[i0].lock_entry.value &amp; ~decoded_wr_biten[0:0]) | (decoded_wr_data[0:0] &amp; decoded_wr_biten[0:0]);</span></span>
 <span id="L291"><span class="lineNum">     291</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
 <span id="L292"><span class="lineNum">     292</span>              :             end</span>
 <span id="L293"><span class="lineNum">     293</span> <span class="tlaGNC tlaBgGNC">          10 :             field_combo.DataVaultCtrl[i0].lock_entry.next = next_c;</span></span>
 <span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC">          10 :             field_combo.DataVaultCtrl[i0].lock_entry.load_next = load_next_c;</span></span>
 <span id="L295"><span class="lineNum">     295</span>              :         end</span>
-<span id="L296"><span class="lineNum">     296</span> <span class="tlaGNC">    16298880 :         always_ff @(posedge clk or negedge hwif_in.core_only_rst_b) begin</span></span>
+<span id="L296"><span class="lineNum">     296</span> <span class="tlaGNC">    16304620 :         always_ff @(posedge clk or negedge hwif_in.core_only_rst_b) begin</span></span>
 <span id="L297"><span class="lineNum">     297</span> <span class="tlaGNC">        2320 :             if(~hwif_in.core_only_rst_b) begin</span></span>
 <span id="L298"><span class="lineNum">     298</span> <span class="tlaGNC">        2320 :                 field_storage.DataVaultCtrl[i0].lock_entry.value &lt;= 1'h0;</span></span>
-<span id="L299"><span class="lineNum">     299</span> <span class="tlaGNC">    16296560 :             end else if(field_combo.DataVaultCtrl[i0].lock_entry.load_next) begin</span></span>
+<span id="L299"><span class="lineNum">     299</span> <span class="tlaGNC">    16302300 :             end else if(field_combo.DataVaultCtrl[i0].lock_entry.load_next) begin</span></span>
 <span id="L300"><span class="lineNum">     300</span> <span class="tlaUNC tlaBgUNC">           0 :                 field_storage.DataVaultCtrl[i0].lock_entry.value &lt;= field_combo.DataVaultCtrl[i0].lock_entry.next;</span></span>
 <span id="L301"><span class="lineNum">     301</span>              :             end</span>
 <span id="L302"><span class="lineNum">     302</span>              :         end</span>
@@ -414,17 +414,17 @@
 <span id="L310"><span class="lineNum">     310</span>              :                 automatic logic load_next_c;</span>
 <span id="L311"><span class="lineNum">     311</span> <span class="tlaGNC">         120 :                 next_c = field_storage.DATA_VAULT_ENTRY[i0][i1].data.value;</span></span>
 <span id="L312"><span class="lineNum">     312</span> <span class="tlaGNC">         120 :                 load_next_c = '0;</span></span>
-<span id="L313"><span class="lineNum">     313</span> <span class="tlaGNC">   391190400 :                 if(decoded_reg_strb.DATA_VAULT_ENTRY[i0][i1] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.DATA_VAULT_ENTRY[i0][i1].data.swwel)) begin // SW write</span></span>
+<span id="L313"><span class="lineNum">     313</span> <span class="tlaGNC">   391328160 :                 if(decoded_reg_strb.DATA_VAULT_ENTRY[i0][i1] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.DATA_VAULT_ENTRY[i0][i1].data.swwel)) begin // SW write</span></span>
 <span id="L314"><span class="lineNum">     314</span> <span class="tlaUNC tlaBgUNC">           0 :                     next_c = (field_storage.DATA_VAULT_ENTRY[i0][i1].data.value &amp; ~decoded_wr_biten[31:0]) | (decoded_wr_data[31:0] &amp; decoded_wr_biten[31:0]);</span></span>
 <span id="L315"><span class="lineNum">     315</span> <span class="tlaUNC">           0 :                     load_next_c = '1;</span></span>
 <span id="L316"><span class="lineNum">     316</span>              :                 end</span>
 <span id="L317"><span class="lineNum">     317</span> <span class="tlaGNC tlaBgGNC">         120 :                 field_combo.DATA_VAULT_ENTRY[i0][i1].data.next = next_c;</span></span>
 <span id="L318"><span class="lineNum">     318</span> <span class="tlaGNC">         120 :                 field_combo.DATA_VAULT_ENTRY[i0][i1].data.load_next = load_next_c;</span></span>
 <span id="L319"><span class="lineNum">     319</span>              :             end</span>
-<span id="L320"><span class="lineNum">     320</span> <span class="tlaGNC">   195586320 :             always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
+<span id="L320"><span class="lineNum">     320</span> <span class="tlaGNC">   195655200 :             always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
 <span id="L321"><span class="lineNum">     321</span> <span class="tlaGNC">         240 :                 if(~hwif_in.hard_reset_b) begin</span></span>
 <span id="L322"><span class="lineNum">     322</span> <span class="tlaGNC">         240 :                     field_storage.DATA_VAULT_ENTRY[i0][i1].data.value &lt;= 32'h0;</span></span>
-<span id="L323"><span class="lineNum">     323</span> <span class="tlaGNC">   195586080 :                 end else if(field_combo.DATA_VAULT_ENTRY[i0][i1].data.load_next) begin</span></span>
+<span id="L323"><span class="lineNum">     323</span> <span class="tlaGNC">   195654960 :                 end else if(field_combo.DATA_VAULT_ENTRY[i0][i1].data.load_next) begin</span></span>
 <span id="L324"><span class="lineNum">     324</span> <span class="tlaUNC tlaBgUNC">           0 :                     field_storage.DATA_VAULT_ENTRY[i0][i1].data.value &lt;= field_combo.DATA_VAULT_ENTRY[i0][i1].data.next;</span></span>
 <span id="L325"><span class="lineNum">     325</span>              :                 end</span>
 <span id="L326"><span class="lineNum">     326</span>              :             end</span>
@@ -437,17 +437,17 @@
 <span id="L333"><span class="lineNum">     333</span>              :             automatic logic load_next_c;</span>
 <span id="L334"><span class="lineNum">     334</span> <span class="tlaGNC">          10 :             next_c = field_storage.LockableScratchRegCtrl[i0].lock_entry.value;</span></span>
 <span id="L335"><span class="lineNum">     335</span> <span class="tlaGNC">          10 :             load_next_c = '0;</span></span>
-<span id="L336"><span class="lineNum">     336</span> <span class="tlaGNC">    32599200 :             if(decoded_reg_strb.LockableScratchRegCtrl[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.LockableScratchRegCtrl[i0].lock_entry.swwel)) begin // SW write</span></span>
+<span id="L336"><span class="lineNum">     336</span> <span class="tlaGNC">    32610680 :             if(decoded_reg_strb.LockableScratchRegCtrl[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.LockableScratchRegCtrl[i0].lock_entry.swwel)) begin // SW write</span></span>
 <span id="L337"><span class="lineNum">     337</span> <span class="tlaUNC tlaBgUNC">           0 :                 next_c = (field_storage.LockableScratchRegCtrl[i0].lock_entry.value &amp; ~decoded_wr_biten[0:0]) | (decoded_wr_data[0:0] &amp; decoded_wr_biten[0:0]);</span></span>
 <span id="L338"><span class="lineNum">     338</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
 <span id="L339"><span class="lineNum">     339</span>              :             end</span>
 <span id="L340"><span class="lineNum">     340</span> <span class="tlaGNC tlaBgGNC">          10 :             field_combo.LockableScratchRegCtrl[i0].lock_entry.next = next_c;</span></span>
 <span id="L341"><span class="lineNum">     341</span> <span class="tlaGNC">          10 :             field_combo.LockableScratchRegCtrl[i0].lock_entry.load_next = load_next_c;</span></span>
 <span id="L342"><span class="lineNum">     342</span>              :         end</span>
-<span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC">    16298880 :         always_ff @(posedge clk or negedge hwif_in.core_only_rst_b) begin</span></span>
+<span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC">    16304620 :         always_ff @(posedge clk or negedge hwif_in.core_only_rst_b) begin</span></span>
 <span id="L344"><span class="lineNum">     344</span> <span class="tlaGNC">        2320 :             if(~hwif_in.core_only_rst_b) begin</span></span>
 <span id="L345"><span class="lineNum">     345</span> <span class="tlaGNC">        2320 :                 field_storage.LockableScratchRegCtrl[i0].lock_entry.value &lt;= 1'h0;</span></span>
-<span id="L346"><span class="lineNum">     346</span> <span class="tlaGNC">    16296560 :             end else if(field_combo.LockableScratchRegCtrl[i0].lock_entry.load_next) begin</span></span>
+<span id="L346"><span class="lineNum">     346</span> <span class="tlaGNC">    16302300 :             end else if(field_combo.LockableScratchRegCtrl[i0].lock_entry.load_next) begin</span></span>
 <span id="L347"><span class="lineNum">     347</span> <span class="tlaUNC tlaBgUNC">           0 :                 field_storage.LockableScratchRegCtrl[i0].lock_entry.value &lt;= field_combo.LockableScratchRegCtrl[i0].lock_entry.next;</span></span>
 <span id="L348"><span class="lineNum">     348</span>              :             end</span>
 <span id="L349"><span class="lineNum">     349</span>              :         end</span>
@@ -460,17 +460,17 @@
 <span id="L356"><span class="lineNum">     356</span>              :             automatic logic load_next_c;</span>
 <span id="L357"><span class="lineNum">     357</span> <span class="tlaGNC">          10 :             next_c = field_storage.LockableScratchReg[i0].data.value;</span></span>
 <span id="L358"><span class="lineNum">     358</span> <span class="tlaGNC">          10 :             load_next_c = '0;</span></span>
-<span id="L359"><span class="lineNum">     359</span> <span class="tlaGNC">    32599200 :             if(decoded_reg_strb.LockableScratchReg[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.LockableScratchReg[i0].data.swwel)) begin // SW write</span></span>
+<span id="L359"><span class="lineNum">     359</span> <span class="tlaGNC">    32610680 :             if(decoded_reg_strb.LockableScratchReg[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.LockableScratchReg[i0].data.swwel)) begin // SW write</span></span>
 <span id="L360"><span class="lineNum">     360</span> <span class="tlaUNC tlaBgUNC">           0 :                 next_c = (field_storage.LockableScratchReg[i0].data.value &amp; ~decoded_wr_biten[31:0]) | (decoded_wr_data[31:0] &amp; decoded_wr_biten[31:0]);</span></span>
 <span id="L361"><span class="lineNum">     361</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
 <span id="L362"><span class="lineNum">     362</span>              :             end</span>
 <span id="L363"><span class="lineNum">     363</span> <span class="tlaGNC tlaBgGNC">          10 :             field_combo.LockableScratchReg[i0].data.next = next_c;</span></span>
 <span id="L364"><span class="lineNum">     364</span> <span class="tlaGNC">          10 :             field_combo.LockableScratchReg[i0].data.load_next = load_next_c;</span></span>
 <span id="L365"><span class="lineNum">     365</span>              :         end</span>
-<span id="L366"><span class="lineNum">     366</span> <span class="tlaGNC">    16298860 :         always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
+<span id="L366"><span class="lineNum">     366</span> <span class="tlaGNC">    16304600 :         always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
 <span id="L367"><span class="lineNum">     367</span> <span class="tlaGNC">          20 :             if(~hwif_in.hard_reset_b) begin</span></span>
 <span id="L368"><span class="lineNum">     368</span> <span class="tlaGNC">          20 :                 field_storage.LockableScratchReg[i0].data.value &lt;= 32'h0;</span></span>
-<span id="L369"><span class="lineNum">     369</span> <span class="tlaGNC">    16298840 :             end else if(field_combo.LockableScratchReg[i0].data.load_next) begin</span></span>
+<span id="L369"><span class="lineNum">     369</span> <span class="tlaGNC">    16304580 :             end else if(field_combo.LockableScratchReg[i0].data.load_next) begin</span></span>
 <span id="L370"><span class="lineNum">     370</span> <span class="tlaUNC tlaBgUNC">           0 :                 field_storage.LockableScratchReg[i0].data.value &lt;= field_combo.LockableScratchReg[i0].data.next;</span></span>
 <span id="L371"><span class="lineNum">     371</span>              :             end</span>
 <span id="L372"><span class="lineNum">     372</span>              :         end</span>
@@ -482,17 +482,17 @@
 <span id="L378"><span class="lineNum">     378</span>              :             automatic logic load_next_c;</span>
 <span id="L379"><span class="lineNum">     379</span> <span class="tlaGNC">           8 :             next_c = field_storage.NonStickyGenericScratchReg[i0].data.value;</span></span>
 <span id="L380"><span class="lineNum">     380</span> <span class="tlaGNC">           8 :             load_next_c = '0;</span></span>
-<span id="L381"><span class="lineNum">     381</span> <span class="tlaGNC">    13039112 :             if(decoded_reg_strb.NonStickyGenericScratchReg[i0] &amp;&amp; decoded_req_is_wr) begin // SW write</span></span>
+<span id="L381"><span class="lineNum">     381</span> <span class="tlaGNC">    13043704 :             if(decoded_reg_strb.NonStickyGenericScratchReg[i0] &amp;&amp; decoded_req_is_wr) begin // SW write</span></span>
 <span id="L382"><span class="lineNum">     382</span> <span class="tlaUNC tlaBgUNC">           0 :                 next_c = (field_storage.NonStickyGenericScratchReg[i0].data.value &amp; ~decoded_wr_biten[31:0]) | (decoded_wr_data[31:0] &amp; decoded_wr_biten[31:0]);</span></span>
 <span id="L383"><span class="lineNum">     383</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
 <span id="L384"><span class="lineNum">     384</span>              :             end</span>
 <span id="L385"><span class="lineNum">     385</span> <span class="tlaGNC tlaBgGNC">           8 :             field_combo.NonStickyGenericScratchReg[i0].data.next = next_c;</span></span>
 <span id="L386"><span class="lineNum">     386</span> <span class="tlaGNC">           8 :             field_combo.NonStickyGenericScratchReg[i0].data.load_next = load_next_c;</span></span>
 <span id="L387"><span class="lineNum">     387</span>              :         end</span>
-<span id="L388"><span class="lineNum">     388</span> <span class="tlaGNC">    13039104 :         always_ff @(posedge clk or negedge hwif_in.reset_b) begin</span></span>
+<span id="L388"><span class="lineNum">     388</span> <span class="tlaGNC">    13043696 :         always_ff @(posedge clk or negedge hwif_in.reset_b) begin</span></span>
 <span id="L389"><span class="lineNum">     389</span> <span class="tlaGNC">         128 :             if(~hwif_in.reset_b) begin</span></span>
 <span id="L390"><span class="lineNum">     390</span> <span class="tlaGNC">         128 :                 field_storage.NonStickyGenericScratchReg[i0].data.value &lt;= 32'h0;</span></span>
-<span id="L391"><span class="lineNum">     391</span> <span class="tlaGNC">    13038976 :             end else if(field_combo.NonStickyGenericScratchReg[i0].data.load_next) begin</span></span>
+<span id="L391"><span class="lineNum">     391</span> <span class="tlaGNC">    13043568 :             end else if(field_combo.NonStickyGenericScratchReg[i0].data.load_next) begin</span></span>
 <span id="L392"><span class="lineNum">     392</span> <span class="tlaUNC tlaBgUNC">           0 :                 field_storage.NonStickyGenericScratchReg[i0].data.value &lt;= field_combo.NonStickyGenericScratchReg[i0].data.next;</span></span>
 <span id="L393"><span class="lineNum">     393</span>              :             end</span>
 <span id="L394"><span class="lineNum">     394</span>              :         end</span>
@@ -504,17 +504,17 @@
 <span id="L400"><span class="lineNum">     400</span>              :             automatic logic load_next_c;</span>
 <span id="L401"><span class="lineNum">     401</span> <span class="tlaGNC">           8 :             next_c = field_storage.StickyLockableScratchRegCtrl[i0].lock_entry.value;</span></span>
 <span id="L402"><span class="lineNum">     402</span> <span class="tlaGNC">           8 :             load_next_c = '0;</span></span>
-<span id="L403"><span class="lineNum">     403</span> <span class="tlaGNC">    26079360 :             if(decoded_reg_strb.StickyLockableScratchRegCtrl[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.StickyLockableScratchRegCtrl[i0].lock_entry.swwel)) begin // SW write</span></span>
+<span id="L403"><span class="lineNum">     403</span> <span class="tlaGNC">    26088544 :             if(decoded_reg_strb.StickyLockableScratchRegCtrl[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.StickyLockableScratchRegCtrl[i0].lock_entry.swwel)) begin // SW write</span></span>
 <span id="L404"><span class="lineNum">     404</span> <span class="tlaUNC tlaBgUNC">           0 :                 next_c = (field_storage.StickyLockableScratchRegCtrl[i0].lock_entry.value &amp; ~decoded_wr_biten[0:0]) | (decoded_wr_data[0:0] &amp; decoded_wr_biten[0:0]);</span></span>
 <span id="L405"><span class="lineNum">     405</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
 <span id="L406"><span class="lineNum">     406</span>              :             end</span>
 <span id="L407"><span class="lineNum">     407</span> <span class="tlaGNC tlaBgGNC">           8 :             field_combo.StickyLockableScratchRegCtrl[i0].lock_entry.next = next_c;</span></span>
 <span id="L408"><span class="lineNum">     408</span> <span class="tlaGNC">           8 :             field_combo.StickyLockableScratchRegCtrl[i0].lock_entry.load_next = load_next_c;</span></span>
 <span id="L409"><span class="lineNum">     409</span>              :         end</span>
-<span id="L410"><span class="lineNum">     410</span> <span class="tlaGNC">    13039088 :         always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
+<span id="L410"><span class="lineNum">     410</span> <span class="tlaGNC">    13043680 :         always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
 <span id="L411"><span class="lineNum">     411</span> <span class="tlaGNC">          16 :             if(~hwif_in.hard_reset_b) begin</span></span>
 <span id="L412"><span class="lineNum">     412</span> <span class="tlaGNC">          16 :                 field_storage.StickyLockableScratchRegCtrl[i0].lock_entry.value &lt;= 1'h0;</span></span>
-<span id="L413"><span class="lineNum">     413</span> <span class="tlaGNC">    13039072 :             end else if(field_combo.StickyLockableScratchRegCtrl[i0].lock_entry.load_next) begin</span></span>
+<span id="L413"><span class="lineNum">     413</span> <span class="tlaGNC">    13043664 :             end else if(field_combo.StickyLockableScratchRegCtrl[i0].lock_entry.load_next) begin</span></span>
 <span id="L414"><span class="lineNum">     414</span> <span class="tlaUNC tlaBgUNC">           0 :                 field_storage.StickyLockableScratchRegCtrl[i0].lock_entry.value &lt;= field_combo.StickyLockableScratchRegCtrl[i0].lock_entry.next;</span></span>
 <span id="L415"><span class="lineNum">     415</span>              :             end</span>
 <span id="L416"><span class="lineNum">     416</span>              :         end</span>
@@ -527,17 +527,17 @@
 <span id="L423"><span class="lineNum">     423</span>              :             automatic logic load_next_c;</span>
 <span id="L424"><span class="lineNum">     424</span> <span class="tlaGNC">           8 :             next_c = field_storage.StickyLockableScratchReg[i0].data.value;</span></span>
 <span id="L425"><span class="lineNum">     425</span> <span class="tlaGNC">           8 :             load_next_c = '0;</span></span>
-<span id="L426"><span class="lineNum">     426</span> <span class="tlaGNC">    26079360 :             if(decoded_reg_strb.StickyLockableScratchReg[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.StickyLockableScratchReg[i0].data.swwel)) begin // SW write</span></span>
+<span id="L426"><span class="lineNum">     426</span> <span class="tlaGNC">    26088544 :             if(decoded_reg_strb.StickyLockableScratchReg[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.StickyLockableScratchReg[i0].data.swwel)) begin // SW write</span></span>
 <span id="L427"><span class="lineNum">     427</span> <span class="tlaUNC tlaBgUNC">           0 :                 next_c = (field_storage.StickyLockableScratchReg[i0].data.value &amp; ~decoded_wr_biten[31:0]) | (decoded_wr_data[31:0] &amp; decoded_wr_biten[31:0]);</span></span>
 <span id="L428"><span class="lineNum">     428</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
 <span id="L429"><span class="lineNum">     429</span>              :             end</span>
 <span id="L430"><span class="lineNum">     430</span> <span class="tlaGNC tlaBgGNC">           8 :             field_combo.StickyLockableScratchReg[i0].data.next = next_c;</span></span>
 <span id="L431"><span class="lineNum">     431</span> <span class="tlaGNC">           8 :             field_combo.StickyLockableScratchReg[i0].data.load_next = load_next_c;</span></span>
 <span id="L432"><span class="lineNum">     432</span>              :         end</span>
-<span id="L433"><span class="lineNum">     433</span> <span class="tlaGNC">    13039088 :         always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
+<span id="L433"><span class="lineNum">     433</span> <span class="tlaGNC">    13043680 :         always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
 <span id="L434"><span class="lineNum">     434</span> <span class="tlaGNC">          16 :             if(~hwif_in.hard_reset_b) begin</span></span>
 <span id="L435"><span class="lineNum">     435</span> <span class="tlaGNC">          16 :                 field_storage.StickyLockableScratchReg[i0].data.value &lt;= 32'h0;</span></span>
-<span id="L436"><span class="lineNum">     436</span> <span class="tlaGNC">    13039072 :             end else if(field_combo.StickyLockableScratchReg[i0].data.load_next) begin</span></span>
+<span id="L436"><span class="lineNum">     436</span> <span class="tlaGNC">    13043664 :             end else if(field_combo.StickyLockableScratchReg[i0].data.load_next) begin</span></span>
 <span id="L437"><span class="lineNum">     437</span> <span class="tlaUNC tlaBgUNC">           0 :                 field_storage.StickyLockableScratchReg[i0].data.value &lt;= field_combo.StickyLockableScratchReg[i0].data.next;</span></span>
 <span id="L438"><span class="lineNum">     438</span>              :             end</span>
 <span id="L439"><span class="lineNum">     439</span>              :         end</span>
@@ -554,7 +554,7 @@
 <span id="L450"><span class="lineNum">     450</span>              :     // Readback</span>
 <span id="L451"><span class="lineNum">     451</span>              :     //--------------------------------------------------------------------------</span>
 <span id="L452"><span class="lineNum">     452</span>              : </span>
-<span id="L453"><span class="lineNum">     453</span> <span class="tlaGNC tlaBgGNC">        7686 :     logic readback_err;</span></span>
+<span id="L453"><span class="lineNum">     453</span> <span class="tlaGNC tlaBgGNC">        7706 :     logic readback_err;</span></span>
 <span id="L454"><span class="lineNum">     454</span> <span class="tlaUNC tlaBgUNC">           0 :     logic readback_done;</span></span>
 <span id="L455"><span class="lineNum">     455</span> <span class="tlaUNC">           0 :     logic [31:0] readback_data;</span></span>
 <span id="L456"><span class="lineNum">     456</span>              : </span>

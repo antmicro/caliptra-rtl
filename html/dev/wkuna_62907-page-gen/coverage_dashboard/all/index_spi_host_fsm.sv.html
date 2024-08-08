@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -114,8 +114,8 @@
 <span id="L10"><span class="lineNum">      10</span>              : #(</span>
 <span id="L11"><span class="lineNum">      11</span>              :   parameter  int NumCS = 1</span>
 <span id="L12"><span class="lineNum">      12</span>              : ) (</span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC tlaBgGNC">      864324 :   input                              clk_i,</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">          21 :   input                              rst_ni,</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC tlaBgGNC">      458284 :   input                              clk_i,</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           1 :   input                              rst_ni,</span></span>
 <span id="L15"><span class="lineNum">      15</span> <span class="tlaUNC tlaBgUNC">           0 :   input                              en_i,</span></span>
 <span id="L16"><span class="lineNum">      16</span> <span class="tlaUNC">           0 :   input  command_t                   command_i,</span></span>
 <span id="L17"><span class="lineNum">      17</span> <span class="tlaUNC">           0 :   input                              command_valid_i,</span></span>
@@ -251,7 +251,7 @@
 <span id="L147"><span class="lineNum">     147</span> <span class="tlaGNC">           1 :     cmd_speed_d = new_command ? command_i.segment.speed : cmd_speed_q;</span></span>
 <span id="L148"><span class="lineNum">     148</span>              :   end</span>
 <span id="L149"><span class="lineNum">     149</span>              : </span>
-<span id="L150"><span class="lineNum">     150</span> <span class="tlaGNC">        4617 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L150"><span class="lineNum">     150</span> <span class="tlaGNC">       94050 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L151"><span class="lineNum">     151</span> <span class="tlaGNC">           4 :     if (!rst_ni) begin</span></span>
 <span id="L152"><span class="lineNum">     152</span> <span class="tlaGNC">           4 :       csid_q      &lt;= {CSW{1'b0}};</span></span>
 <span id="L153"><span class="lineNum">     153</span> <span class="tlaGNC">           4 :       cpol_q      &lt;= 1'b0;</span></span>
@@ -266,20 +266,20 @@
 <span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC">           4 :       cmd_wr_en_q &lt;= 1'b0;</span></span>
 <span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC">           4 :       cmd_speed_q &lt;= 2'b00;</span></span>
 <span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC">           4 :       cmd_len_q   &lt;= 9'h0;</span></span>
-<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">        4613 :     end else begin</span></span>
-<span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC">        4613 :       csid_q      &lt;= (new_command &amp;&amp; !stall) ? csid : csid_q;</span></span>
-<span id="L167"><span class="lineNum">     167</span> <span class="tlaGNC">        4613 :       cpol_q      &lt;= (new_command &amp;&amp; !stall) ? cpol : cpol_q;</span></span>
-<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">        4613 :       cpha_q      &lt;= (new_command &amp;&amp; !stall) ? cpha : cpha_q;</span></span>
-<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">        4613 :       full_cyc_q  &lt;= (new_command &amp;&amp; !stall) ? full_cyc : full_cyc_q;</span></span>
-<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">        4613 :       csnidle_q   &lt;= (new_command &amp;&amp; !stall) ? csnidle : csnidle_q;</span></span>
-<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">        4613 :       csnlead_q   &lt;= (new_command &amp;&amp; !stall) ? csnlead : csnlead_q;</span></span>
-<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">        4613 :       csntrail_q  &lt;= (new_command &amp;&amp; !stall) ? csntrail : csntrail_q;</span></span>
-<span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC">        4613 :       clkdiv_q    &lt;= (new_command &amp;&amp; !stall) ? clkdiv : clkdiv_q;</span></span>
-<span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">        4613 :       csaat_q     &lt;= (new_command &amp;&amp; !stall) ? csaat : csaat_q;</span></span>
-<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">        4613 :       cmd_wr_en_q &lt;= (new_command &amp;&amp; !stall) ? cmd_wr_en_d : cmd_wr_en_q;</span></span>
-<span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC">        4613 :       cmd_rd_en_q &lt;= (new_command &amp;&amp; !stall) ? cmd_rd_en_d : cmd_rd_en_q;</span></span>
-<span id="L177"><span class="lineNum">     177</span> <span class="tlaGNC">        4613 :       cmd_speed_q &lt;= (new_command &amp;&amp; !stall) ? cmd_speed_d : cmd_speed_q;</span></span>
-<span id="L178"><span class="lineNum">     178</span> <span class="tlaGNC">        4613 :       cmd_len_q   &lt;= (new_command &amp;&amp; !stall) ? cmd_len_d : cmd_len_q;</span></span>
+<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">       94046 :     end else begin</span></span>
+<span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC">       94046 :       csid_q      &lt;= (new_command &amp;&amp; !stall) ? csid : csid_q;</span></span>
+<span id="L167"><span class="lineNum">     167</span> <span class="tlaGNC">       94046 :       cpol_q      &lt;= (new_command &amp;&amp; !stall) ? cpol : cpol_q;</span></span>
+<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">       94046 :       cpha_q      &lt;= (new_command &amp;&amp; !stall) ? cpha : cpha_q;</span></span>
+<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">       94046 :       full_cyc_q  &lt;= (new_command &amp;&amp; !stall) ? full_cyc : full_cyc_q;</span></span>
+<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">       94046 :       csnidle_q   &lt;= (new_command &amp;&amp; !stall) ? csnidle : csnidle_q;</span></span>
+<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">       94046 :       csnlead_q   &lt;= (new_command &amp;&amp; !stall) ? csnlead : csnlead_q;</span></span>
+<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">       94046 :       csntrail_q  &lt;= (new_command &amp;&amp; !stall) ? csntrail : csntrail_q;</span></span>
+<span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC">       94046 :       clkdiv_q    &lt;= (new_command &amp;&amp; !stall) ? clkdiv : clkdiv_q;</span></span>
+<span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">       94046 :       csaat_q     &lt;= (new_command &amp;&amp; !stall) ? csaat : csaat_q;</span></span>
+<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">       94046 :       cmd_wr_en_q &lt;= (new_command &amp;&amp; !stall) ? cmd_wr_en_d : cmd_wr_en_q;</span></span>
+<span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC">       94046 :       cmd_rd_en_q &lt;= (new_command &amp;&amp; !stall) ? cmd_rd_en_d : cmd_rd_en_q;</span></span>
+<span id="L177"><span class="lineNum">     177</span> <span class="tlaGNC">       94046 :       cmd_speed_q &lt;= (new_command &amp;&amp; !stall) ? cmd_speed_d : cmd_speed_q;</span></span>
+<span id="L178"><span class="lineNum">     178</span> <span class="tlaGNC">       94046 :       cmd_len_q   &lt;= (new_command &amp;&amp; !stall) ? cmd_len_d : cmd_len_q;</span></span>
 <span id="L179"><span class="lineNum">     179</span>              :     end</span>
 <span id="L180"><span class="lineNum">     180</span>              :   end</span>
 <span id="L181"><span class="lineNum">     181</span>              : </span>
@@ -301,21 +301,21 @@
 <span id="L197"><span class="lineNum">     197</span>              : </span>
 <span id="L198"><span class="lineNum">     198</span> <span class="tlaUNC tlaBgUNC">           0 :   spi_host_st_e next_state_after_idle;</span></span>
 <span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC tlaBgGNC">           1 :   always_comb begin</span></span>
-<span id="L200"><span class="lineNum">     200</span> <span class="tlaGNC">        4618 :     if (command_valid_i) begin</span></span>
+<span id="L200"><span class="lineNum">     200</span> <span class="tlaGNC">       94051 :     if (command_valid_i) begin</span></span>
 <span id="L201"><span class="lineNum">     201</span> <span class="tlaUNC tlaBgUNC">           0 :       if (config_changed) begin</span></span>
 <span id="L202"><span class="lineNum">     202</span> <span class="tlaUNC">           0 :          next_state_after_idle = CSBSwitch;</span></span>
 <span id="L203"><span class="lineNum">     203</span> <span class="tlaUNC">           0 :       end else begin</span></span>
 <span id="L204"><span class="lineNum">     204</span> <span class="tlaUNC">           0 :          next_state_after_idle = WaitLead;</span></span>
 <span id="L205"><span class="lineNum">     205</span>              :       end</span>
-<span id="L206"><span class="lineNum">     206</span> <span class="tlaGNC tlaBgGNC">        4618 :     end else begin</span></span>
-<span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC">        4618 :       next_state_after_idle = Idle;</span></span>
+<span id="L206"><span class="lineNum">     206</span> <span class="tlaGNC tlaBgGNC">       94051 :     end else begin</span></span>
+<span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC">       94051 :       next_state_after_idle = Idle;</span></span>
 <span id="L208"><span class="lineNum">     208</span>              :     end</span>
 <span id="L209"><span class="lineNum">     209</span>              :   end</span>
 <span id="L210"><span class="lineNum">     210</span>              : </span>
 <span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">           1 :   spi_host_st_e next_state_after_idle_csb_active;</span></span>
 <span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC">           1 :   logic         command_ready_idle_csb_active;</span></span>
 <span id="L213"><span class="lineNum">     213</span> <span class="tlaGNC">           1 :   always_comb begin</span></span>
-<span id="L214"><span class="lineNum">     214</span> <span class="tlaGNC">        4618 :     if (command_valid_i) begin</span></span>
+<span id="L214"><span class="lineNum">     214</span> <span class="tlaGNC">       94051 :     if (command_valid_i) begin</span></span>
 <span id="L215"><span class="lineNum">     215</span> <span class="tlaUNC tlaBgUNC">           0 :       if (command_i.csid != csid_q) begin</span></span>
 <span id="L216"><span class="lineNum">     216</span>              :         //</span>
 <span id="L217"><span class="lineNum">     217</span>              :         // Do not acknowledge the command now, as it will trigger</span>
@@ -330,9 +330,9 @@
 <span id="L226"><span class="lineNum">     226</span> <span class="tlaUNC">           0 :         next_state_after_idle_csb_active = InternalClkLow;</span></span>
 <span id="L227"><span class="lineNum">     227</span> <span class="tlaUNC">           0 :         command_ready_idle_csb_active = 1'b1;</span></span>
 <span id="L228"><span class="lineNum">     228</span>              :       end</span>
-<span id="L229"><span class="lineNum">     229</span> <span class="tlaGNC tlaBgGNC">        4618 :     end else begin</span></span>
-<span id="L230"><span class="lineNum">     230</span> <span class="tlaGNC">        4618 :       next_state_after_idle_csb_active = IdleCSBActive;</span></span>
-<span id="L231"><span class="lineNum">     231</span> <span class="tlaGNC">        4618 :       command_ready_idle_csb_active = 1'b1;</span></span>
+<span id="L229"><span class="lineNum">     229</span> <span class="tlaGNC tlaBgGNC">       94051 :     end else begin</span></span>
+<span id="L230"><span class="lineNum">     230</span> <span class="tlaGNC">       94051 :       next_state_after_idle_csb_active = IdleCSBActive;</span></span>
+<span id="L231"><span class="lineNum">     231</span> <span class="tlaGNC">       94051 :       command_ready_idle_csb_active = 1'b1;</span></span>
 <span id="L232"><span class="lineNum">     232</span>              :     end</span>
 <span id="L233"><span class="lineNum">     233</span>              :   end</span>
 <span id="L234"><span class="lineNum">     234</span>              : </span>
@@ -344,7 +344,7 @@
 <span id="L240"><span class="lineNum">     240</span> <span class="tlaGNC">           1 :     command_ready_int = 1'b0;</span></span>
 <span id="L241"><span class="lineNum">     241</span> <span class="tlaUNC tlaBgUNC">           0 :     if (sw_rst_i) begin</span></span>
 <span id="L242"><span class="lineNum">     242</span> <span class="tlaUNC">           0 :       state_d = Idle;</span></span>
-<span id="L243"><span class="lineNum">     243</span> <span class="tlaGNC tlaBgGNC">        4618 :     end else if (fsm_en) begin</span></span>
+<span id="L243"><span class="lineNum">     243</span> <span class="tlaGNC tlaBgGNC">       94051 :     end else if (fsm_en) begin</span></span>
 <span id="L244"><span class="lineNum">     244</span> <span class="tlaUNC tlaBgUNC">           0 :       unique case (state_q)</span></span>
 <span id="L245"><span class="lineNum">     245</span> <span class="tlaUNC">           0 :         Idle: begin</span></span>
 <span id="L246"><span class="lineNum">     246</span>              :           // Initial state, wait for commands.</span>
@@ -417,13 +417,13 @@
 <span id="L313"><span class="lineNum">     313</span>              :   // Thus stall depends on state_d.  Making state_d depend on stall</span>
 <span id="L314"><span class="lineNum">     314</span>              :   // would create a circular logic loop, and lint errors.  Therefore stall is applied here, not</span>
 <span id="L315"><span class="lineNum">     315</span>              :   // in the previous always_comb block;</span>
-<span id="L316"><span class="lineNum">     316</span> <span class="tlaGNC tlaBgGNC">        4617 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L316"><span class="lineNum">     316</span> <span class="tlaGNC tlaBgGNC">       94050 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L317"><span class="lineNum">     317</span> <span class="tlaGNC">           4 :     if (!rst_ni) begin</span></span>
 <span id="L318"><span class="lineNum">     318</span> <span class="tlaGNC">           4 :       state_q    &lt;= Idle;</span></span>
 <span id="L319"><span class="lineNum">     319</span> <span class="tlaGNC">           4 :       clk_cntr_q &lt;= 16'h0;</span></span>
-<span id="L320"><span class="lineNum">     320</span> <span class="tlaGNC">        4613 :     end else begin</span></span>
-<span id="L321"><span class="lineNum">     321</span> <span class="tlaGNC">        4613 :       state_q    &lt;= stall ? state_q : state_d;</span></span>
-<span id="L322"><span class="lineNum">     322</span> <span class="tlaGNC">        4613 :       clk_cntr_q &lt;= stall ? clk_cntr_q : clk_cntr_d;</span></span>
+<span id="L320"><span class="lineNum">     320</span> <span class="tlaGNC">       94046 :     end else begin</span></span>
+<span id="L321"><span class="lineNum">     321</span> <span class="tlaGNC">       94046 :       state_q    &lt;= stall ? state_q : state_d;</span></span>
+<span id="L322"><span class="lineNum">     322</span> <span class="tlaGNC">       94046 :       clk_cntr_q &lt;= stall ? clk_cntr_q : clk_cntr_d;</span></span>
 <span id="L323"><span class="lineNum">     323</span>              :     end</span>
 <span id="L324"><span class="lineNum">     324</span>              :   end</span>
 <span id="L325"><span class="lineNum">     325</span>              : </span>
@@ -446,7 +446,7 @@
 <span id="L342"><span class="lineNum">     342</span>              :   // correspondence with FSM transitions.</span>
 <span id="L343"><span class="lineNum">     343</span>              :   // New bytes are loaded exactly one state transition behind the time</span>
 <span id="L344"><span class="lineNum">     344</span>              :   // when they would be loaded if CPHA=0</span>
-<span id="L345"><span class="lineNum">     345</span> <span class="tlaGNC tlaBgGNC">        4617 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L345"><span class="lineNum">     345</span> <span class="tlaGNC tlaBgGNC">       94050 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L346"><span class="lineNum">     346</span> <span class="tlaGNC">           4 :     if (!rst_ni) begin</span></span>
 <span id="L347"><span class="lineNum">     347</span> <span class="tlaGNC">           4 :       byte_starting_cpha0_q &lt;= 1'b0;</span></span>
 <span id="L348"><span class="lineNum">     348</span> <span class="tlaGNC">           4 :       byte_ending_cpha0_q   &lt;= 1'b0;</span></span>
@@ -454,7 +454,7 @@
 <span id="L350"><span class="lineNum">     350</span> <span class="tlaGNC">           4 :       speed_cpha1           &lt;= Standard;</span></span>
 <span id="L351"><span class="lineNum">     351</span> <span class="tlaGNC">           4 :       segment_rd_en_cpha1   &lt;= 1'b0;</span></span>
 <span id="L352"><span class="lineNum">     352</span> <span class="tlaGNC">           4 :       new_command_cpha1     &lt;= 1'b0;</span></span>
-<span id="L353"><span class="lineNum">     353</span> <span class="tlaGNC">        4613 :     end else if (state_changing &amp;&amp; !stall) begin</span></span>
+<span id="L353"><span class="lineNum">     353</span> <span class="tlaGNC">       94046 :     end else if (state_changing &amp;&amp; !stall) begin</span></span>
 <span id="L354"><span class="lineNum">     354</span> <span class="tlaUNC tlaBgUNC">           0 :       byte_ending_cpha0_q   &lt;= byte_ending_cpha0;</span></span>
 <span id="L355"><span class="lineNum">     355</span> <span class="tlaUNC">           0 :       byte_starting_cpha0_q &lt;= byte_starting_cpha0;</span></span>
 <span id="L356"><span class="lineNum">     356</span> <span class="tlaUNC">           0 :       bit_shifting_cpha0_q  &lt;= bit_shifting_cpha0;</span></span>
@@ -501,8 +501,8 @@
 <span id="L397"><span class="lineNum">     397</span>              :       // thus "last_bit" is always asserted,</span>
 <span id="L398"><span class="lineNum">     398</span>              :       // and the number of pulses is counted</span>
 <span id="L399"><span class="lineNum">     399</span>              :       // by byte_cntr_d.</span>
-<span id="L400"><span class="lineNum">     400</span> <span class="tlaGNC tlaBgGNC">        4642 :       shift_size = 0;</span></span>
-<span id="L401"><span class="lineNum">     401</span> <span class="tlaGNC">        4642 :       start_bit = 3'h0;</span></span>
+<span id="L400"><span class="lineNum">     400</span> <span class="tlaGNC tlaBgGNC">       94075 :       shift_size = 0;</span></span>
+<span id="L401"><span class="lineNum">     401</span> <span class="tlaGNC">       94075 :       start_bit = 3'h0;</span></span>
 <span id="L402"><span class="lineNum">     402</span> <span class="tlaUNC tlaBgUNC">           0 :     end else begin</span></span>
 <span id="L403"><span class="lineNum">     403</span> <span class="tlaUNC">           0 :       unique case (cmd_speed_d)</span></span>
 <span id="L404"><span class="lineNum">     404</span> <span class="tlaUNC">           0 :         Standard: begin</span></span>
@@ -561,8 +561,8 @@
 <span id="L457"><span class="lineNum">     457</span> <span class="tlaGNC tlaBgGNC">           1 :   always_comb begin</span></span>
 <span id="L458"><span class="lineNum">     458</span> <span class="tlaUNC tlaBgUNC">           0 :     if(sw_rst_i) begin</span></span>
 <span id="L459"><span class="lineNum">     459</span> <span class="tlaUNC">           0 :       wait_cntr_d = 4'b0;</span></span>
-<span id="L460"><span class="lineNum">     460</span> <span class="tlaGNC tlaBgGNC">        4618 :     end else if (!fsm_en) begin</span></span>
-<span id="L461"><span class="lineNum">     461</span> <span class="tlaGNC">        4618 :       wait_cntr_d = wait_cntr_q;</span></span>
+<span id="L460"><span class="lineNum">     460</span> <span class="tlaGNC tlaBgGNC">       94051 :     end else if (!fsm_en) begin</span></span>
+<span id="L461"><span class="lineNum">     461</span> <span class="tlaGNC">       94051 :       wait_cntr_d = wait_cntr_q;</span></span>
 <span id="L462"><span class="lineNum">     462</span> <span class="tlaUNC tlaBgUNC">           0 :     end else if (state_changing) begin</span></span>
 <span id="L463"><span class="lineNum">     463</span> <span class="tlaUNC">           0 :       unique case (state_d)</span></span>
 <span id="L464"><span class="lineNum">     464</span> <span class="tlaUNC">           0 :          WaitLead: begin</span></span>
@@ -590,17 +590,17 @@
 <span id="L486"><span class="lineNum">     486</span>              :     end</span>
 <span id="L487"><span class="lineNum">     487</span>              :   end</span>
 <span id="L488"><span class="lineNum">     488</span>              : </span>
-<span id="L489"><span class="lineNum">     489</span> <span class="tlaGNC tlaBgGNC">        4617 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L489"><span class="lineNum">     489</span> <span class="tlaGNC tlaBgGNC">       94050 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L490"><span class="lineNum">     490</span> <span class="tlaGNC">           4 :     if (!rst_ni) begin</span></span>
 <span id="L491"><span class="lineNum">     491</span> <span class="tlaGNC">           4 :       bit_cntr_q        &lt;= 3'h0;</span></span>
 <span id="L492"><span class="lineNum">     492</span> <span class="tlaGNC">           4 :       byte_cntr_cpha0_q &lt;= 9'h0;</span></span>
 <span id="L493"><span class="lineNum">     493</span> <span class="tlaGNC">           4 :       byte_cntr_cpha1_q &lt;= 9'h0;</span></span>
 <span id="L494"><span class="lineNum">     494</span> <span class="tlaGNC">           4 :       wait_cntr_q       &lt;= 4'h0;</span></span>
-<span id="L495"><span class="lineNum">     495</span> <span class="tlaGNC">        4613 :     end else begin</span></span>
-<span id="L496"><span class="lineNum">     496</span> <span class="tlaGNC">        4613 :       bit_cntr_q        &lt;= stall ? bit_cntr_q        : bit_cntr_d;</span></span>
-<span id="L497"><span class="lineNum">     497</span> <span class="tlaGNC">        4613 :       byte_cntr_cpha0_q &lt;= stall ? byte_cntr_cpha0_q : byte_cntr_cpha0_d;</span></span>
-<span id="L498"><span class="lineNum">     498</span> <span class="tlaGNC">        4613 :       byte_cntr_cpha1_q &lt;= stall ? byte_cntr_cpha1_q : byte_cntr_cpha1_d;</span></span>
-<span id="L499"><span class="lineNum">     499</span> <span class="tlaGNC">        4613 :       wait_cntr_q       &lt;= stall ? wait_cntr_q       : wait_cntr_d;</span></span>
+<span id="L495"><span class="lineNum">     495</span> <span class="tlaGNC">       94046 :     end else begin</span></span>
+<span id="L496"><span class="lineNum">     496</span> <span class="tlaGNC">       94046 :       bit_cntr_q        &lt;= stall ? bit_cntr_q        : bit_cntr_d;</span></span>
+<span id="L497"><span class="lineNum">     497</span> <span class="tlaGNC">       94046 :       byte_cntr_cpha0_q &lt;= stall ? byte_cntr_cpha0_q : byte_cntr_cpha0_d;</span></span>
+<span id="L498"><span class="lineNum">     498</span> <span class="tlaGNC">       94046 :       byte_cntr_cpha1_q &lt;= stall ? byte_cntr_cpha1_q : byte_cntr_cpha1_d;</span></span>
+<span id="L499"><span class="lineNum">     499</span> <span class="tlaGNC">       94046 :       wait_cntr_q       &lt;= stall ? wait_cntr_q       : wait_cntr_d;</span></span>
 <span id="L500"><span class="lineNum">     500</span>              :     end</span>
 <span id="L501"><span class="lineNum">     501</span>              :   end</span>
 <span id="L502"><span class="lineNum">     502</span>              : </span>
@@ -614,13 +614,13 @@
 <span id="L510"><span class="lineNum">     510</span>              : </span>
 <span id="L511"><span class="lineNum">     511</span>              :   assign last_write_o      = (byte_cntr_early == 'h0) &amp; wr_en_o &amp; sr_wr_ready_i;</span>
 <span id="L512"><span class="lineNum">     512</span>              : </span>
-<span id="L513"><span class="lineNum">     513</span> <span class="tlaGNC">        4617 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L513"><span class="lineNum">     513</span> <span class="tlaGNC">       94050 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L514"><span class="lineNum">     514</span> <span class="tlaGNC">           4 :     if (!rst_ni) begin</span></span>
 <span id="L515"><span class="lineNum">     515</span> <span class="tlaGNC">           4 :       sample_en_q &lt;= 1'b0;</span></span>
 <span id="L516"><span class="lineNum">     516</span> <span class="tlaGNC">           4 :       sample_en_q2 &lt;= 1'b0;</span></span>
-<span id="L517"><span class="lineNum">     517</span> <span class="tlaGNC">        4613 :     end else begin</span></span>
-<span id="L518"><span class="lineNum">     518</span> <span class="tlaGNC">        4613 :       sample_en_q  &lt;= (fsm_en &amp;&amp; !stall) ? sample_en_d : sample_en_q;</span></span>
-<span id="L519"><span class="lineNum">     519</span> <span class="tlaGNC">        4613 :       sample_en_q2 &lt;= (fsm_en &amp;&amp; !stall) ? sample_en_q : sample_en_q2;</span></span>
+<span id="L517"><span class="lineNum">     517</span> <span class="tlaGNC">       94046 :     end else begin</span></span>
+<span id="L518"><span class="lineNum">     518</span> <span class="tlaGNC">       94046 :       sample_en_q  &lt;= (fsm_en &amp;&amp; !stall) ? sample_en_d : sample_en_q;</span></span>
+<span id="L519"><span class="lineNum">     519</span> <span class="tlaGNC">       94046 :       sample_en_q2 &lt;= (fsm_en &amp;&amp; !stall) ? sample_en_q : sample_en_q2;</span></span>
 <span id="L520"><span class="lineNum">     520</span>              :     end</span>
 <span id="L521"><span class="lineNum">     521</span>              :   end</span>
 <span id="L522"><span class="lineNum">     522</span>              : </span>
@@ -630,8 +630,8 @@
 <span id="L526"><span class="lineNum">     526</span> <span class="tlaGNC">           1 :     unique case (state_d)</span></span>
 <span id="L527"><span class="lineNum">     527</span> <span class="tlaUNC tlaBgUNC">           0 :       WaitLead, InternalClkLow, InternalClkHigh, IdleCSBActive, WaitTrail:</span></span>
 <span id="L528"><span class="lineNum">     528</span> <span class="tlaUNC">           0 :         csb_single_d = 1'b0;</span></span>
-<span id="L529"><span class="lineNum">     529</span> <span class="tlaGNC tlaBgGNC">        4642 :       default:</span></span>
-<span id="L530"><span class="lineNum">     530</span> <span class="tlaGNC">        4642 :         csb_single_d = 1'b1;</span></span>
+<span id="L529"><span class="lineNum">     529</span> <span class="tlaGNC tlaBgGNC">       94075 :       default:</span></span>
+<span id="L530"><span class="lineNum">     530</span> <span class="tlaGNC">       94075 :         csb_single_d = 1'b1;</span></span>
 <span id="L531"><span class="lineNum">     531</span>              :     endcase</span>
 <span id="L532"><span class="lineNum">     532</span>              :   end</span>
 <span id="L533"><span class="lineNum">     533</span>              : </span>
@@ -649,13 +649,13 @@
 <span id="L545"><span class="lineNum">     545</span>              :   );</span>
 <span id="L546"><span class="lineNum">     546</span>              : </span>
 <span id="L547"><span class="lineNum">     547</span> <span class="tlaGNC">           8 :   for (genvar ii = 0; ii &lt; NumCS; ii = ii + 1) begin : gen_csb_gen</span></span>
-<span id="L548"><span class="lineNum">     548</span> <span class="tlaGNC">        9234 :     always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L548"><span class="lineNum">     548</span> <span class="tlaGNC">      188100 :     always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L549"><span class="lineNum">     549</span> <span class="tlaGNC">           8 :       if (!rst_ni) begin</span></span>
 <span id="L550"><span class="lineNum">     550</span> <span class="tlaGNC">           8 :         csb_q[ii] &lt;= 1'b1;</span></span>
-<span id="L551"><span class="lineNum">     551</span> <span class="tlaGNC">        9226 :       end else begin</span></span>
-<span id="L552"><span class="lineNum">     552</span> <span class="tlaGNC">        9226 :         csb_q[ii] &lt;= (csid != ii) ? 1'b1 :</span></span>
-<span id="L553"><span class="lineNum">     553</span> <span class="tlaGNC">        9226 :                      !stall       ? csb_single_d :</span></span>
-<span id="L554"><span class="lineNum">     554</span> <span class="tlaGNC">        9226 :                      csb_q[ii];</span></span>
+<span id="L551"><span class="lineNum">     551</span> <span class="tlaGNC">      188092 :       end else begin</span></span>
+<span id="L552"><span class="lineNum">     552</span> <span class="tlaGNC">      188092 :         csb_q[ii] &lt;= (csid != ii) ? 1'b1 :</span></span>
+<span id="L553"><span class="lineNum">     553</span> <span class="tlaGNC">      188092 :                      !stall       ? csb_single_d :</span></span>
+<span id="L554"><span class="lineNum">     554</span> <span class="tlaGNC">      188092 :                      csb_q[ii];</span></span>
 <span id="L555"><span class="lineNum">     555</span>              :       end</span>
 <span id="L556"><span class="lineNum">     556</span>              :     end</span>
 <span id="L557"><span class="lineNum">     557</span>              :   end : gen_csb_gen</span>
@@ -664,7 +664,7 @@
 <span id="L560"><span class="lineNum">     560</span>              : </span>
 <span id="L561"><span class="lineNum">     561</span> <span class="tlaGNC">           1 :   always_comb begin</span></span>
 <span id="L562"><span class="lineNum">     562</span> <span class="tlaGNC">           1 :     if (&amp;csb_o) begin</span></span>
-<span id="L563"><span class="lineNum">     563</span> <span class="tlaGNC">        4617 :       sd_en_o[3:0] = 4'h0;</span></span>
+<span id="L563"><span class="lineNum">     563</span> <span class="tlaGNC">       94050 :       sd_en_o[3:0] = 4'h0;</span></span>
 <span id="L564"><span class="lineNum">     564</span> <span class="tlaGNC">           1 :     end else begin</span></span>
 <span id="L565"><span class="lineNum">     565</span> <span class="tlaGNC">           1 :       unique case (speed_o)</span></span>
 <span id="L566"><span class="lineNum">     566</span> <span class="tlaGNC">           1 :         Standard: begin</span></span>

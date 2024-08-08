@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -142,7 +142,7 @@
 <span id="L38"><span class="lineNum">      38</span>              :     parameter DATA_WIDTH = 32</span>
 <span id="L39"><span class="lineNum">      39</span>              :     )</span>
 <span id="L40"><span class="lineNum">      40</span>              :     (      </span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">      458006 :     input  wire                      clka,</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">      458284 :     input  wire                      clka,</span></span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">           1 :     input  wire                      reset_n,</span></span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC tlaBgUNC">           0 :     input  wire                      zeroize,</span></span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC tlaBgGNC">           3 :     input  wire                      ena,</span></span>
@@ -154,18 +154,18 @@
 <span id="L50"><span class="lineNum">      50</span>              :   // ROM content</span>
 <span id="L51"><span class="lineNum">      51</span>              :   //----------------------------------------------------------------</span>
 <span id="L52"><span class="lineNum">      52</span>              :  </span>
-<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC tlaBgGNC">      229316 :     always_ff @(posedge clka or negedge reset_n) </span></span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">      229316 :     begin : prog_rom</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC tlaBgGNC">      229428 :     always_ff @(posedge clka or negedge reset_n) </span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">      229428 :     begin : prog_rom</span></span>
 <span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           4 :         if (!reset_n) begin</span></span>
 <span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">           4 :             douta &lt;= '0;</span></span>
 <span id="L57"><span class="lineNum">      57</span>              :         end</span>
-<span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC">      229312 :         else if (zeroize) begin</span></span>
+<span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC">      229424 :         else if (zeroize) begin</span></span>
 <span id="L59"><span class="lineNum">      59</span> <span class="tlaUNC tlaBgUNC">           0 :             douta &lt;= '0;</span></span>
 <span id="L60"><span class="lineNum">      60</span>              :         end</span>
-<span id="L61"><span class="lineNum">      61</span> <span class="tlaGNC tlaBgGNC">      229312 :         else begin</span></span>
+<span id="L61"><span class="lineNum">      61</span> <span class="tlaGNC tlaBgGNC">      229424 :         else begin</span></span>
 <span id="L62"><span class="lineNum">      62</span> <span class="tlaUNC tlaBgUNC">           0 :             if (ena) begin</span></span>
-<span id="L63"><span class="lineNum">      63</span> <span class="tlaGNC tlaBgGNC">      229312 :                 unique case(addra)</span></span>
-<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">      229312 :                     NOP : douta &lt;= '0;</span></span>
+<span id="L63"><span class="lineNum">      63</span> <span class="tlaGNC tlaBgGNC">      229424 :                 unique case(addra)</span></span>
+<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">      229424 :                     NOP : douta &lt;= '0;</span></span>
 <span id="L65"><span class="lineNum">      65</span> <span class="tlaUNC tlaBgUNC">           0 :                     1   : douta &lt;= '0;</span></span>
 <span id="L66"><span class="lineNum">      66</span>              :                     </span>
 <span id="L67"><span class="lineNum">      67</span>              :                     //R1 INIT with Randomized G</span>

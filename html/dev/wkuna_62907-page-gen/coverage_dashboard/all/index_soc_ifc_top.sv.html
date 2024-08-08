@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #aeff00;">
-        65.8%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffdc00;">
+        43.2%
     </td>
     <td class="headerCovSummaryEntry">
-        96
+        63
     </td>
     <td class="headerCovSummaryEntry">
         146
@@ -131,16 +131,16 @@
 <span id="L27"><span class="lineNum">      27</span>              :     ,parameter AHB_DATA_WIDTH = 32</span>
 <span id="L28"><span class="lineNum">      28</span>              :     )</span>
 <span id="L29"><span class="lineNum">      29</span>              :     (</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     3802985 :     input logic clk,</span></span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">      864324 :     input logic clk_cg,</span></span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">      864324 :     input logic soc_ifc_clk_cg,</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">      864324 :     input logic rdc_clk_cg,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     2566019 :     input logic clk,</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">      458284 :     input logic clk_cg,</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">      458284 :     input logic soc_ifc_clk_cg,</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">      458284 :     input logic rdc_clk_cg,</span></span>
 <span id="L34"><span class="lineNum">      34</span>              : </span>
 <span id="L35"><span class="lineNum">      35</span>              :     //SoC boot signals</span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">           1 :     input logic cptra_pwrgood,</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">          21 :     input logic cptra_rst_b,</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           1 :     input logic cptra_rst_b,</span></span>
 <span id="L38"><span class="lineNum">      38</span>              : </span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">          22 :     output logic ready_for_fuses,</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">           2 :     output logic ready_for_fuses,</span></span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic ready_for_fw_push,</span></span>
 <span id="L41"><span class="lineNum">      41</span> <span class="tlaUNC">           0 :     output logic ready_for_runtime,</span></span>
 <span id="L42"><span class="lineNum">      42</span>              : </span>
@@ -154,50 +154,50 @@
 <span id="L50"><span class="lineNum">      50</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic [1:0][31:0] generic_output_wires,</span></span>
 <span id="L51"><span class="lineNum">      51</span>              : </span>
 <span id="L52"><span class="lineNum">      52</span>              :     //SoC APB Interface</span>
-<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC tlaBgGNC">          22 :     input logic [APB_ADDR_WIDTH-1:0]     paddr_i,</span></span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">          70 :     input logic                          psel_i,</span></span>
-<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">         604 :     input logic                          penable_i,</span></span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">          70 :     input logic                          pwrite_i,</span></span>
-<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">          90 :     input logic [APB_DATA_WIDTH-1:0]     pwdata_i,</span></span>
-<span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC">          48 :     input logic [APB_USER_WIDTH-1:0]     pauser_i,</span></span>
-<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC">           5 :     output logic                         pready_o,</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC tlaBgGNC">           2 :     input logic [APB_ADDR_WIDTH-1:0]     paddr_i,</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">           2 :     input logic                          psel_i,</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">          48 :     input logic                          penable_i,</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">           4 :     input logic                          pwrite_i,</span></span>
+<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">           8 :     input logic [APB_DATA_WIDTH-1:0]     pwdata_i,</span></span>
+<span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic [APB_USER_WIDTH-1:0]     pauser_i,</span></span>
+<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC tlaBgGNC">           1 :     output logic                         pready_o,</span></span>
 <span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic [APB_DATA_WIDTH-1:0]    prdata_o,</span></span>
 <span id="L61"><span class="lineNum">      61</span> <span class="tlaUNC">           0 :     output logic                         pslverr_o,</span></span>
 <span id="L62"><span class="lineNum">      62</span>              : </span>
 <span id="L63"><span class="lineNum">      63</span>              :     //uC AHB Lite Interface</span>
-<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC tlaBgGNC">         320 :     input logic [AHB_ADDR_WIDTH-1:0]  haddr_i,</span></span>
-<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">         460 :     input logic [AHB_DATA_WIDTH-1:0]  hwdata_i,</span></span>
-<span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">         109 :     input logic                       hsel_i,</span></span>
-<span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">        3572 :     input logic                       hwrite_i,</span></span>
-<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">        4124 :     input logic                       hready_i,</span></span>
-<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">      102576 :     input logic [1:0]                 htrans_i,</span></span>
+<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC tlaBgGNC">        1096 :     input logic [AHB_ADDR_WIDTH-1:0]  haddr_i,</span></span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">         130 :     input logic [AHB_DATA_WIDTH-1:0]  hwdata_i,</span></span>
+<span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">         609 :     input logic                       hsel_i,</span></span>
+<span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">        2436 :     input logic                       hwrite_i,</span></span>
+<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">           4 :     input logic                       hready_i,</span></span>
+<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">       68440 :     input logic [1:0]                 htrans_i,</span></span>
 <span id="L70"><span class="lineNum">      70</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic [2:0]                 hsize_i,</span></span>
 <span id="L71"><span class="lineNum">      71</span>              : </span>
 <span id="L72"><span class="lineNum">      72</span> <span class="tlaUNC">           0 :     output logic                      hresp_o,</span></span>
-<span id="L73"><span class="lineNum">      73</span> <span class="tlaGNC tlaBgGNC">        1405 :     output logic                      hreadyout_o,</span></span>
-<span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">           4 :     output logic [AHB_DATA_WIDTH-1:0] hrdata_o,</span></span>
+<span id="L73"><span class="lineNum">      73</span> <span class="tlaGNC tlaBgGNC">           3 :     output logic                      hreadyout_o,</span></span>
+<span id="L74"><span class="lineNum">      74</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic [AHB_DATA_WIDTH-1:0] hrdata_o,</span></span>
 <span id="L75"><span class="lineNum">      75</span>              : </span>
 <span id="L76"><span class="lineNum">      76</span>              :     //SoC Interrupts</span>
-<span id="L77"><span class="lineNum">      77</span> <span class="tlaGNC">          14 :     output logic             cptra_error_fatal,</span></span>
-<span id="L78"><span class="lineNum">      78</span> <span class="tlaGNC">          12 :     output logic             cptra_error_non_fatal,</span></span>
-<span id="L79"><span class="lineNum">      79</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic             trng_req,</span></span>
+<span id="L77"><span class="lineNum">      77</span> <span class="tlaUNC">           0 :     output logic             cptra_error_fatal,</span></span>
+<span id="L78"><span class="lineNum">      78</span> <span class="tlaUNC">           0 :     output logic             cptra_error_non_fatal,</span></span>
+<span id="L79"><span class="lineNum">      79</span> <span class="tlaUNC">           0 :     output logic             trng_req,</span></span>
 <span id="L80"><span class="lineNum">      80</span>              : </span>
 <span id="L81"><span class="lineNum">      81</span>              :     //uC Interrupts</span>
-<span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC tlaBgGNC">          40 :     output wire              soc_ifc_error_intr,</span></span>
-<span id="L83"><span class="lineNum">      83</span> <span class="tlaGNC">          70 :     output wire              soc_ifc_notif_intr,</span></span>
-<span id="L84"><span class="lineNum">      84</span> <span class="tlaUNC tlaBgUNC">           0 :     output wire              sha_error_intr,</span></span>
+<span id="L82"><span class="lineNum">      82</span> <span class="tlaUNC">           0 :     output wire              soc_ifc_error_intr,</span></span>
+<span id="L83"><span class="lineNum">      83</span> <span class="tlaUNC">           0 :     output wire              soc_ifc_notif_intr,</span></span>
+<span id="L84"><span class="lineNum">      84</span> <span class="tlaUNC">           0 :     output wire              sha_error_intr,</span></span>
 <span id="L85"><span class="lineNum">      85</span> <span class="tlaUNC">           0 :     output wire              sha_notif_intr,</span></span>
-<span id="L86"><span class="lineNum">      86</span> <span class="tlaGNC tlaBgGNC">           2 :     output wire              timer_intr,</span></span>
+<span id="L86"><span class="lineNum">      86</span> <span class="tlaGNC tlaBgGNC">           1 :     output wire              timer_intr,</span></span>
 <span id="L87"><span class="lineNum">      87</span>              : </span>
 <span id="L88"><span class="lineNum">      88</span>              :     //SRAM interface</span>
-<span id="L89"><span class="lineNum">      89</span> <span class="tlaGNC">         672 :     output mbox_sram_req_t  mbox_sram_req,</span></span>
-<span id="L90"><span class="lineNum">      90</span> <span class="tlaGNC">           2 :     input  mbox_sram_resp_t mbox_sram_resp,</span></span>
+<span id="L89"><span class="lineNum">      89</span> <span class="tlaUNC tlaBgUNC">           0 :     output mbox_sram_req_t  mbox_sram_req,</span></span>
+<span id="L90"><span class="lineNum">      90</span> <span class="tlaUNC">           0 :     input  mbox_sram_resp_t mbox_sram_resp,</span></span>
 <span id="L91"><span class="lineNum">      91</span>              : </span>
 <span id="L92"><span class="lineNum">      92</span>              :     // RV ECC Status Interface</span>
-<span id="L93"><span class="lineNum">      93</span> <span class="tlaGNC">           8 :     input rv_ecc_sts_t rv_ecc_sts,</span></span>
+<span id="L93"><span class="lineNum">      93</span> <span class="tlaUNC">           0 :     input rv_ecc_sts_t rv_ecc_sts,</span></span>
 <span id="L94"><span class="lineNum">      94</span>              : </span>
 <span id="L95"><span class="lineNum">      95</span>              :     //Obfuscated UDS and FE</span>
-<span id="L96"><span class="lineNum">      96</span> <span class="tlaGNC">          16 :     input  logic clear_obf_secrets,</span></span>
+<span id="L96"><span class="lineNum">      96</span> <span class="tlaGNC tlaBgGNC">           2 :     input  logic clear_obf_secrets,</span></span>
 <span id="L97"><span class="lineNum">      97</span> <span class="tlaUNC tlaBgUNC">           0 :     input  logic scan_mode,</span></span>
 <span id="L98"><span class="lineNum">      98</span> <span class="tlaUNC">           0 :     input  logic [`CLP_OBF_KEY_DWORDS-1:0][31:0] cptra_obf_key,</span></span>
 <span id="L99"><span class="lineNum">      99</span> <span class="tlaUNC">           0 :     output logic [`CLP_OBF_KEY_DWORDS-1:0][31:0] cptra_obf_key_reg,</span></span>
@@ -206,22 +206,22 @@
 <span id="L102"><span class="lineNum">     102</span>              : </span>
 <span id="L103"><span class="lineNum">     103</span>              :     // NMI Vector </span>
 <span id="L104"><span class="lineNum">     104</span> <span class="tlaUNC">           0 :     output logic [31:0] nmi_vector,</span></span>
-<span id="L105"><span class="lineNum">     105</span> <span class="tlaGNC tlaBgGNC">           6 :     output logic nmi_intr,</span></span>
+<span id="L105"><span class="lineNum">     105</span> <span class="tlaGNC tlaBgGNC">           2 :     output logic nmi_intr,</span></span>
 <span id="L106"><span class="lineNum">     106</span>              : </span>
 <span id="L107"><span class="lineNum">     107</span>              :     // ICCM Lock</span>
 <span id="L108"><span class="lineNum">     108</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic iccm_lock,</span></span>
 <span id="L109"><span class="lineNum">     109</span> <span class="tlaUNC">           0 :     input  logic iccm_axs_blocked,</span></span>
 <span id="L110"><span class="lineNum">     110</span>              : </span>
 <span id="L111"><span class="lineNum">     111</span>              :     //Other blocks reset</span>
-<span id="L112"><span class="lineNum">     112</span> <span class="tlaGNC tlaBgGNC">          21 :     output logic cptra_noncore_rst_b,</span></span>
+<span id="L112"><span class="lineNum">     112</span> <span class="tlaGNC tlaBgGNC">           1 :     output logic cptra_noncore_rst_b,</span></span>
 <span id="L113"><span class="lineNum">     113</span>              :     //uC reset</span>
-<span id="L114"><span class="lineNum">     114</span> <span class="tlaGNC">          23 :     output logic cptra_uc_rst_b,</span></span>
+<span id="L114"><span class="lineNum">     114</span> <span class="tlaGNC">           1 :     output logic cptra_uc_rst_b,</span></span>
 <span id="L115"><span class="lineNum">     115</span>              :     //Clock gating</span>
 <span id="L116"><span class="lineNum">     116</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic clk_gating_en,</span></span>
-<span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC tlaBgGNC">          22 :     output logic rdc_clk_dis,</span></span>
-<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC">           2 :     output logic fw_update_rst_window,</span></span>
+<span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC tlaBgGNC">           2 :     output logic rdc_clk_dis,</span></span>
+<span id="L118"><span class="lineNum">     118</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic fw_update_rst_window,</span></span>
 <span id="L119"><span class="lineNum">     119</span>              : </span>
-<span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC">           8 :     input logic crypto_error,</span></span>
+<span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC tlaBgGNC">           2 :     input logic crypto_error,</span></span>
 <span id="L121"><span class="lineNum">     121</span>              : </span>
 <span id="L122"><span class="lineNum">     122</span>              :     //caliptra uncore jtag ports</span>
 <span id="L123"><span class="lineNum">     123</span> <span class="tlaUNC tlaBgUNC">           0 :     input  logic                            cptra_uncore_dmi_reg_en,</span></span>
@@ -232,45 +232,45 @@
 <span id="L128"><span class="lineNum">     128</span>              : );</span>
 <span id="L129"><span class="lineNum">     129</span>              : </span>
 <span id="L130"><span class="lineNum">     130</span>              : //gasket to assemble mailbox request</span>
-<span id="L131"><span class="lineNum">     131</span> <span class="tlaGNC tlaBgGNC">           4 : logic soc_req_dv, soc_req_hold;</span></span>
+<span id="L131"><span class="lineNum">     131</span> <span class="tlaGNC tlaBgGNC">          48 : logic soc_req_dv, soc_req_hold;</span></span>
 <span id="L132"><span class="lineNum">     132</span> <span class="tlaUNC tlaBgUNC">           0 : logic soc_req_error;</span></span>
 <span id="L133"><span class="lineNum">     133</span> <span class="tlaUNC">           0 : logic [APB_DATA_WIDTH-1:0] soc_req_rdata;</span></span>
-<span id="L134"><span class="lineNum">     134</span> <span class="tlaGNC tlaBgGNC">           1 : soc_ifc_req_t soc_req;</span></span>
+<span id="L134"><span class="lineNum">     134</span> <span class="tlaGNC tlaBgGNC">           3 : soc_ifc_req_t soc_req;</span></span>
 <span id="L135"><span class="lineNum">     135</span>              : </span>
 <span id="L136"><span class="lineNum">     136</span>              : //gasket to assemble mailbox request</span>
-<span id="L137"><span class="lineNum">     137</span> <span class="tlaGNC">         658 : logic uc_req_dv, uc_req_hold;</span></span>
+<span id="L137"><span class="lineNum">     137</span> <span class="tlaGNC">       11707 : logic uc_req_dv, uc_req_hold;</span></span>
 <span id="L138"><span class="lineNum">     138</span> <span class="tlaUNC tlaBgUNC">           0 : logic uc_req_error;</span></span>
-<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC tlaBgGNC">           8 : logic [SOC_IFC_DATA_W-1:0] uc_req_rdata;</span></span>
-<span id="L140"><span class="lineNum">     140</span> <span class="tlaGNC">           1 : soc_ifc_req_t uc_req;</span></span>
+<span id="L139"><span class="lineNum">     139</span> <span class="tlaUNC">           0 : logic [SOC_IFC_DATA_W-1:0] uc_req_rdata;</span></span>
+<span id="L140"><span class="lineNum">     140</span> <span class="tlaGNC tlaBgGNC">           1 : soc_ifc_req_t uc_req;</span></span>
 <span id="L141"><span class="lineNum">     141</span>              : </span>
 <span id="L142"><span class="lineNum">     142</span>              : //mbox req inf</span>
-<span id="L143"><span class="lineNum">     143</span> <span class="tlaGNC">          62 : logic mbox_req_dv;</span></span>
-<span id="L144"><span class="lineNum">     144</span> <span class="tlaGNC">        1328 : logic mbox_dir_req_dv;</span></span>
-<span id="L145"><span class="lineNum">     145</span> <span class="tlaGNC">         656 : logic mbox_req_hold;</span></span>
-<span id="L146"><span class="lineNum">     146</span> <span class="tlaGNC">          32 : soc_ifc_req_t mbox_req_data;</span></span>
-<span id="L147"><span class="lineNum">     147</span> <span class="tlaUNC tlaBgUNC">           0 : logic [SOC_IFC_DATA_W-1:0] mbox_rdata;</span></span>
-<span id="L148"><span class="lineNum">     148</span> <span class="tlaGNC tlaBgGNC">           2 : logic [SOC_IFC_DATA_W-1:0] mbox_dir_rdata;</span></span>
-<span id="L149"><span class="lineNum">     149</span> <span class="tlaGNC">       45862 : logic mbox_error;</span></span>
+<span id="L143"><span class="lineNum">     143</span> <span class="tlaUNC tlaBgUNC">           0 : logic mbox_req_dv;</span></span>
+<span id="L144"><span class="lineNum">     144</span> <span class="tlaUNC">           0 : logic mbox_dir_req_dv;</span></span>
+<span id="L145"><span class="lineNum">     145</span> <span class="tlaUNC">           0 : logic mbox_req_hold;</span></span>
+<span id="L146"><span class="lineNum">     146</span> <span class="tlaUNC">           0 : soc_ifc_req_t mbox_req_data;</span></span>
+<span id="L147"><span class="lineNum">     147</span> <span class="tlaUNC">           0 : logic [SOC_IFC_DATA_W-1:0] mbox_rdata;</span></span>
+<span id="L148"><span class="lineNum">     148</span> <span class="tlaUNC">           0 : logic [SOC_IFC_DATA_W-1:0] mbox_dir_rdata;</span></span>
+<span id="L149"><span class="lineNum">     149</span> <span class="tlaGNC tlaBgGNC">       24634 : logic mbox_error;</span></span>
 <span id="L150"><span class="lineNum">     150</span>              : </span>
 <span id="L151"><span class="lineNum">     151</span>              : //sha req inf</span>
-<span id="L152"><span class="lineNum">     152</span> <span class="tlaGNC">          48 : logic sha_req_dv;</span></span>
-<span id="L153"><span class="lineNum">     153</span> <span class="tlaUNC tlaBgUNC">           0 : logic sha_req_hold;</span></span>
-<span id="L154"><span class="lineNum">     154</span> <span class="tlaGNC tlaBgGNC">          48 : soc_ifc_req_t sha_req_data;</span></span>
-<span id="L155"><span class="lineNum">     155</span> <span class="tlaUNC tlaBgUNC">           0 : logic [SOC_IFC_DATA_W-1:0] sha_rdata;</span></span>
-<span id="L156"><span class="lineNum">     156</span> <span class="tlaGNC tlaBgGNC">       45862 : logic sha_error;</span></span>
+<span id="L152"><span class="lineNum">     152</span> <span class="tlaUNC tlaBgUNC">           0 : logic sha_req_dv;</span></span>
+<span id="L153"><span class="lineNum">     153</span> <span class="tlaUNC">           0 : logic sha_req_hold;</span></span>
+<span id="L154"><span class="lineNum">     154</span> <span class="tlaUNC">           0 : soc_ifc_req_t sha_req_data;</span></span>
+<span id="L155"><span class="lineNum">     155</span> <span class="tlaUNC">           0 : logic [SOC_IFC_DATA_W-1:0] sha_rdata;</span></span>
+<span id="L156"><span class="lineNum">     156</span> <span class="tlaGNC tlaBgGNC">       24634 : logic sha_error;</span></span>
 <span id="L157"><span class="lineNum">     157</span>              : </span>
 <span id="L158"><span class="lineNum">     158</span>              : //mbox reg inf</span>
-<span id="L159"><span class="lineNum">     159</span> <span class="tlaGNC">       21449 : logic soc_ifc_reg_req_dv;</span></span>
-<span id="L160"><span class="lineNum">     160</span> <span class="tlaGNC">       45862 : logic soc_ifc_reg_req_hold;</span></span>
-<span id="L161"><span class="lineNum">     161</span> <span class="tlaGNC">          90 : soc_ifc_req_t soc_ifc_reg_req_data;</span></span>
-<span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC">           8 : logic [SOC_IFC_DATA_W-1:0] soc_ifc_reg_rdata_pre, soc_ifc_reg_rdata;</span></span>
-<span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC">       45862 : logic soc_ifc_reg_error, soc_ifc_reg_read_error, soc_ifc_reg_write_error;</span></span>
+<span id="L159"><span class="lineNum">     159</span> <span class="tlaGNC">       11755 : logic soc_ifc_reg_req_dv;</span></span>
+<span id="L160"><span class="lineNum">     160</span> <span class="tlaGNC">       24634 : logic soc_ifc_reg_req_hold;</span></span>
+<span id="L161"><span class="lineNum">     161</span> <span class="tlaGNC">           2 : soc_ifc_req_t soc_ifc_reg_req_data;</span></span>
+<span id="L162"><span class="lineNum">     162</span> <span class="tlaUNC tlaBgUNC">           0 : logic [SOC_IFC_DATA_W-1:0] soc_ifc_reg_rdata_pre, soc_ifc_reg_rdata;</span></span>
+<span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC tlaBgGNC">       24634 : logic soc_ifc_reg_error, soc_ifc_reg_read_error, soc_ifc_reg_write_error;</span></span>
 <span id="L164"><span class="lineNum">     164</span> <span class="tlaUNC tlaBgUNC">           0 : logic soc_ifc_reg_rdata_mask;</span></span>
 <span id="L165"><span class="lineNum">     165</span>              : </span>
 <span id="L166"><span class="lineNum">     166</span> <span class="tlaUNC">           0 : logic sha_sram_req_dv;</span></span>
 <span id="L167"><span class="lineNum">     167</span> <span class="tlaUNC">           0 : logic [MBOX_ADDR_W-1:0] sha_sram_req_addr;</span></span>
-<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC tlaBgGNC">           2 : mbox_sram_resp_t sha_sram_resp;</span></span>
-<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">       45862 : logic sha_sram_hold;</span></span>
+<span id="L168"><span class="lineNum">     168</span> <span class="tlaUNC">           0 : mbox_sram_resp_t sha_sram_resp;</span></span>
+<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC tlaBgGNC">       24634 : logic sha_sram_hold;</span></span>
 <span id="L170"><span class="lineNum">     170</span>              : </span>
 <span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">           1 : logic [4:0][APB_USER_WIDTH-1:0] valid_mbox_users;</span></span>
 <span id="L172"><span class="lineNum">     172</span>              : </span>
@@ -278,36 +278,36 @@
 <span id="L174"><span class="lineNum">     174</span> <span class="tlaUNC tlaBgUNC">           0 : logic uc_mbox_data_avail;</span></span>
 <span id="L175"><span class="lineNum">     175</span> <span class="tlaUNC">           0 : logic uc_mbox_data_avail_d;</span></span>
 <span id="L176"><span class="lineNum">     176</span> <span class="tlaUNC">           0 : logic uc_cmd_avail_p;</span></span>
-<span id="L177"><span class="lineNum">     177</span> <span class="tlaGNC tlaBgGNC">          21 : logic security_state_debug_locked_d;</span></span>
-<span id="L178"><span class="lineNum">     178</span> <span class="tlaGNC">          22 : logic security_state_debug_locked_p;</span></span>
+<span id="L177"><span class="lineNum">     177</span> <span class="tlaGNC tlaBgGNC">           1 : logic security_state_debug_locked_d;</span></span>
+<span id="L178"><span class="lineNum">     178</span> <span class="tlaGNC">           2 : logic security_state_debug_locked_p;</span></span>
 <span id="L179"><span class="lineNum">     179</span> <span class="tlaUNC tlaBgUNC">           0 : logic scan_mode_f;</span></span>
 <span id="L180"><span class="lineNum">     180</span> <span class="tlaUNC">           0 : logic scan_mode_p;</span></span>
-<span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC tlaBgGNC">         350 : logic sram_single_ecc_error;</span></span>
-<span id="L182"><span class="lineNum">     182</span> <span class="tlaGNC">          32 : logic sram_double_ecc_error;</span></span>
-<span id="L183"><span class="lineNum">     183</span> <span class="tlaUNC tlaBgUNC">           0 : logic soc_req_mbox_lock;</span></span>
-<span id="L184"><span class="lineNum">     184</span> <span class="tlaGNC tlaBgGNC">          28 : logic [1:0] generic_input_toggle;</span></span>
-<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC">           4 : mbox_protocol_error_t mbox_protocol_error;</span></span>
-<span id="L186"><span class="lineNum">     186</span> <span class="tlaGNC">           4 : logic mbox_inv_user_p;</span></span>
+<span id="L181"><span class="lineNum">     181</span> <span class="tlaUNC">           0 : logic sram_single_ecc_error;</span></span>
+<span id="L182"><span class="lineNum">     182</span> <span class="tlaUNC">           0 : logic sram_double_ecc_error;</span></span>
+<span id="L183"><span class="lineNum">     183</span> <span class="tlaUNC">           0 : logic soc_req_mbox_lock;</span></span>
+<span id="L184"><span class="lineNum">     184</span> <span class="tlaUNC">           0 : logic [1:0] generic_input_toggle;</span></span>
+<span id="L185"><span class="lineNum">     185</span> <span class="tlaUNC">           0 : mbox_protocol_error_t mbox_protocol_error;</span></span>
+<span id="L186"><span class="lineNum">     186</span> <span class="tlaUNC">           0 : logic mbox_inv_user_p;</span></span>
 <span id="L187"><span class="lineNum">     187</span>              : </span>
-<span id="L188"><span class="lineNum">     188</span> <span class="tlaGNC">           2 : logic iccm_unlock;</span></span>
-<span id="L189"><span class="lineNum">     189</span> <span class="tlaGNC">           2 : logic fw_upd_rst_executed;</span></span>
-<span id="L190"><span class="lineNum">     190</span> <span class="tlaGNC">          21 : logic fuse_wr_done_reg_write_observed;</span></span>
+<span id="L188"><span class="lineNum">     188</span> <span class="tlaUNC">           0 : logic iccm_unlock;</span></span>
+<span id="L189"><span class="lineNum">     189</span> <span class="tlaUNC">           0 : logic fw_upd_rst_executed;</span></span>
+<span id="L190"><span class="lineNum">     190</span> <span class="tlaGNC tlaBgGNC">           1 : logic fuse_wr_done_reg_write_observed;</span></span>
 <span id="L191"><span class="lineNum">     191</span>              : </span>
-<span id="L192"><span class="lineNum">     192</span> <span class="tlaGNC">          16 : logic unmasked_hw_error_fatal_write;</span></span>
-<span id="L193"><span class="lineNum">     193</span> <span class="tlaGNC">          12 : logic unmasked_hw_error_non_fatal_write;</span></span>
-<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC">          12 : logic unmasked_hw_error_non_fatal_is_set;</span></span>
+<span id="L192"><span class="lineNum">     192</span> <span class="tlaGNC">           2 : logic unmasked_hw_error_fatal_write;</span></span>
+<span id="L193"><span class="lineNum">     193</span> <span class="tlaUNC tlaBgUNC">           0 : logic unmasked_hw_error_non_fatal_write;</span></span>
+<span id="L194"><span class="lineNum">     194</span> <span class="tlaUNC">           0 : logic unmasked_hw_error_non_fatal_is_set;</span></span>
 <span id="L195"><span class="lineNum">     195</span>              : </span>
-<span id="L196"><span class="lineNum">     196</span> <span class="tlaGNC">           2 : logic pwrgood_toggle_hint;</span></span>
-<span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC">          21 : logic Warm_Reset_Capture_Flag;</span></span>
+<span id="L196"><span class="lineNum">     196</span> <span class="tlaGNC tlaBgGNC">           2 : logic pwrgood_toggle_hint;</span></span>
+<span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC">           1 : logic Warm_Reset_Capture_Flag;</span></span>
 <span id="L198"><span class="lineNum">     198</span>              : </span>
-<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC">          21 : logic BootFSM_BrkPoint_Latched;</span></span>
+<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC">           1 : logic BootFSM_BrkPoint_Latched;</span></span>
 <span id="L200"><span class="lineNum">     200</span> <span class="tlaUNC tlaBgUNC">           0 : logic BootFSM_BrkPoint_valid;</span></span>
-<span id="L201"><span class="lineNum">     201</span> <span class="tlaGNC tlaBgGNC">          21 : logic BootFSM_BrkPoint_Flag;</span></span>
+<span id="L201"><span class="lineNum">     201</span> <span class="tlaGNC tlaBgGNC">           1 : logic BootFSM_BrkPoint_Flag;</span></span>
 <span id="L202"><span class="lineNum">     202</span>              : </span>
 <span id="L203"><span class="lineNum">     203</span> <span class="tlaUNC tlaBgUNC">           0 : logic dmi_inc_rdptr;</span></span>
 <span id="L204"><span class="lineNum">     204</span> <span class="tlaUNC">           0 : logic cptra_uncore_dmi_reg_dout_access_f;</span></span>
-<span id="L205"><span class="lineNum">     205</span> <span class="tlaGNC tlaBgGNC">           4 : mbox_dmi_reg_t mbox_dmi_reg;</span></span>
-<span id="L206"><span class="lineNum">     206</span> <span class="tlaUNC tlaBgUNC">           0 : logic [31:0] cptra_uncore_dmi_reg_rdata_in;</span></span>
+<span id="L205"><span class="lineNum">     205</span> <span class="tlaUNC">           0 : mbox_dmi_reg_t mbox_dmi_reg;</span></span>
+<span id="L206"><span class="lineNum">     206</span> <span class="tlaUNC">           0 : logic [31:0] cptra_uncore_dmi_reg_rdata_in;</span></span>
 <span id="L207"><span class="lineNum">     207</span>              : </span>
 <span id="L208"><span class="lineNum">     208</span>              : soc_ifc_reg__in_t soc_ifc_reg_hwif_in;</span>
 <span id="L209"><span class="lineNum">     209</span>              : soc_ifc_reg__out_t soc_ifc_reg_hwif_out;</span>
@@ -315,23 +315,23 @@
 <span id="L211"><span class="lineNum">     211</span>              : //WDT signals</span>
 <span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC tlaBgGNC">           1 : logic [WDT_TIMEOUT_PERIOD_NUM_DWORDS-1:0][31:0] timer1_timeout_period;</span></span>
 <span id="L213"><span class="lineNum">     213</span> <span class="tlaGNC">           1 : logic [WDT_TIMEOUT_PERIOD_NUM_DWORDS-1:0][31:0] timer2_timeout_period;</span></span>
-<span id="L214"><span class="lineNum">     214</span> <span class="tlaGNC">           4 : logic timer1_en;</span></span>
-<span id="L215"><span class="lineNum">     215</span> <span class="tlaUNC tlaBgUNC">           0 : logic timer2_en;</span></span>
+<span id="L214"><span class="lineNum">     214</span> <span class="tlaUNC tlaBgUNC">           0 : logic timer1_en;</span></span>
+<span id="L215"><span class="lineNum">     215</span> <span class="tlaUNC">           0 : logic timer2_en;</span></span>
 <span id="L216"><span class="lineNum">     216</span> <span class="tlaUNC">           0 : logic timer1_restart;</span></span>
 <span id="L217"><span class="lineNum">     217</span> <span class="tlaUNC">           0 : logic timer2_restart;</span></span>
-<span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC tlaBgGNC">           6 : logic t1_timeout;</span></span>
-<span id="L219"><span class="lineNum">     219</span> <span class="tlaGNC">           4 : logic t1_timeout_f; //To generate interrupt pulse</span></span>
-<span id="L220"><span class="lineNum">     220</span> <span class="tlaGNC">           6 : logic t1_timeout_p;</span></span>
-<span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC">           6 : logic t2_timeout;</span></span>
-<span id="L222"><span class="lineNum">     222</span> <span class="tlaGNC">           4 : logic t2_timeout_f; //To generate interrupt pulse</span></span>
-<span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">           6 : logic t2_timeout_p;</span></span>
+<span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC tlaBgGNC">           2 : logic t1_timeout;</span></span>
+<span id="L219"><span class="lineNum">     219</span> <span class="tlaUNC tlaBgUNC">           0 : logic t1_timeout_f; //To generate interrupt pulse</span></span>
+<span id="L220"><span class="lineNum">     220</span> <span class="tlaGNC tlaBgGNC">           2 : logic t1_timeout_p;</span></span>
+<span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC">           2 : logic t2_timeout;</span></span>
+<span id="L222"><span class="lineNum">     222</span> <span class="tlaUNC tlaBgUNC">           0 : logic t2_timeout_f; //To generate interrupt pulse</span></span>
+<span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC tlaBgGNC">           2 : logic t2_timeout_p;</span></span>
 <span id="L224"><span class="lineNum">     224</span> <span class="tlaUNC tlaBgUNC">           0 : logic wdt_error_t1_intr_serviced;</span></span>
 <span id="L225"><span class="lineNum">     225</span> <span class="tlaUNC">           0 : logic wdt_error_t2_intr_serviced;</span></span>
 <span id="L226"><span class="lineNum">     226</span>              : </span>
-<span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC tlaBgGNC">         580 : logic valid_trng_user;</span></span>
-<span id="L228"><span class="lineNum">     228</span> <span class="tlaGNC">         604 : logic valid_fuse_user;</span></span>
+<span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC tlaBgGNC">          48 : logic valid_trng_user;</span></span>
+<span id="L228"><span class="lineNum">     228</span> <span class="tlaGNC">          48 : logic valid_fuse_user;</span></span>
 <span id="L229"><span class="lineNum">     229</span>              : </span>
-<span id="L230"><span class="lineNum">     230</span> <span class="tlaGNC">           2 : boot_fsm_state_e boot_fsm_ps;</span></span>
+<span id="L230"><span class="lineNum">     230</span> <span class="tlaGNC">           1 : boot_fsm_state_e boot_fsm_ps;</span></span>
 <span id="L231"><span class="lineNum">     231</span>              : </span>
 <span id="L232"><span class="lineNum">     232</span>              : //Boot FSM</span>
 <span id="L233"><span class="lineNum">     233</span>              : //This module contains the logic required to control the Caliptra Boot Flow</span>
@@ -560,8 +560,8 @@
 <span id="L456"><span class="lineNum">     456</span> <span class="tlaUNC tlaBgUNC">           0 :         if (|(soc_ifc_reg_hwif_out.CPTRA_GENERIC_INPUT_WIRES[i].generic_wires.value ^ generic_input_wires[i])) begin</span></span>
 <span id="L457"><span class="lineNum">     457</span> <span class="tlaUNC">           0 :             generic_input_toggle[i] = 1;</span></span>
 <span id="L458"><span class="lineNum">     458</span>              :         end</span>
-<span id="L459"><span class="lineNum">     459</span> <span class="tlaGNC tlaBgGNC">       37050 :         else begin</span></span>
-<span id="L460"><span class="lineNum">     460</span> <span class="tlaGNC">       37050 :             generic_input_toggle[i] = 0;</span></span>
+<span id="L459"><span class="lineNum">     459</span> <span class="tlaGNC tlaBgGNC">      752514 :         else begin</span></span>
+<span id="L460"><span class="lineNum">     460</span> <span class="tlaGNC">      752514 :             generic_input_toggle[i] = 0;</span></span>
 <span id="L461"><span class="lineNum">     461</span>              :         end</span>
 <span id="L462"><span class="lineNum">     462</span>              :     end</span>
 <span id="L463"><span class="lineNum">     463</span>              : </span>
@@ -575,7 +575,7 @@
 <span id="L471"><span class="lineNum">     471</span>              : assign cptra_in_dbg_or_manuf_mode = ~(security_state.debug_locked) | </span>
 <span id="L472"><span class="lineNum">     472</span>              :                                      ((security_state.debug_locked) &amp; (security_state.device_lifecycle == DEVICE_MANUFACTURING));</span>
 <span id="L473"><span class="lineNum">     473</span>              : </span>
-<span id="L474"><span class="lineNum">     474</span> <span class="tlaGNC">        4617 : always_ff @(posedge rdc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
+<span id="L474"><span class="lineNum">     474</span> <span class="tlaGNC">       94050 : always_ff @(posedge rdc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
 <span id="L475"><span class="lineNum">     475</span> <span class="tlaGNC">           4 :     if (~cptra_noncore_rst_b) begin</span></span>
 <span id="L476"><span class="lineNum">     476</span> <span class="tlaGNC">           4 :         BootFSM_BrkPoint_Latched &lt;= 0;</span></span>
 <span id="L477"><span class="lineNum">     477</span> <span class="tlaGNC">           4 :         BootFSM_BrkPoint_Flag &lt;= 0;</span></span>
@@ -591,17 +591,17 @@
 <span id="L487"><span class="lineNum">     487</span>              : assign BootFSM_BrkPoint_valid = BootFSM_BrkPoint_Latched &amp; cptra_in_dbg_or_manuf_mode;</span>
 <span id="L488"><span class="lineNum">     488</span>              : </span>
 <span id="L489"><span class="lineNum">     489</span>              : // pwrgood_hint informs if the powergood toggled</span>
-<span id="L490"><span class="lineNum">     490</span> <span class="tlaGNC">        4617 : always_ff @(posedge rdc_clk_cg or negedge cptra_pwrgood) begin</span></span>
+<span id="L490"><span class="lineNum">     490</span> <span class="tlaGNC">       94050 : always_ff @(posedge rdc_clk_cg or negedge cptra_pwrgood) begin</span></span>
 <span id="L491"><span class="lineNum">     491</span> <span class="tlaGNC">           1 :      if(~cptra_pwrgood) begin</span></span>
 <span id="L492"><span class="lineNum">     492</span> <span class="tlaGNC">           1 :         pwrgood_toggle_hint &lt;= 1;</span></span>
 <span id="L493"><span class="lineNum">     493</span>              :      end</span>
 <span id="L494"><span class="lineNum">     494</span>              :      // Reset the bit after warm reset deassertion has been observed</span>
 <span id="L495"><span class="lineNum">     495</span> <span class="tlaGNC">           4 :      else if(Warm_Reset_Capture_Flag) begin</span></span>
-<span id="L496"><span class="lineNum">     496</span> <span class="tlaGNC">        4612 :         pwrgood_toggle_hint &lt;= 0;</span></span>
+<span id="L496"><span class="lineNum">     496</span> <span class="tlaGNC">       94045 :         pwrgood_toggle_hint &lt;= 0;</span></span>
 <span id="L497"><span class="lineNum">     497</span>              :      end</span>
 <span id="L498"><span class="lineNum">     498</span>              : end</span>
 <span id="L499"><span class="lineNum">     499</span>              : </span>
-<span id="L500"><span class="lineNum">     500</span> <span class="tlaGNC">        4617 : always_ff @(posedge rdc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
+<span id="L500"><span class="lineNum">     500</span> <span class="tlaGNC">       94050 : always_ff @(posedge rdc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
 <span id="L501"><span class="lineNum">     501</span> <span class="tlaGNC">           4 :     if (~cptra_noncore_rst_b) begin</span></span>
 <span id="L502"><span class="lineNum">     502</span> <span class="tlaGNC">           4 :         Warm_Reset_Capture_Flag &lt;= 0;</span></span>
 <span id="L503"><span class="lineNum">     503</span>              :     end</span>
@@ -617,34 +617,34 @@
 <span id="L513"><span class="lineNum">     513</span> <span class="tlaGNC">           5 :     if (!Warm_Reset_Capture_Flag) begin</span></span>
 <span id="L514"><span class="lineNum">     514</span> <span class="tlaGNC">           5 :          soc_ifc_reg_hwif_in.CPTRA_RESET_REASON.WARM_RESET.next = ~pwrgood_toggle_hint;</span></span>
 <span id="L515"><span class="lineNum">     515</span>              :     end</span>
-<span id="L516"><span class="lineNum">     516</span> <span class="tlaGNC">       13841 :     else if (soc_ifc_reg_hwif_out.CPTRA_RESET_REASON.FW_UPD_RESET.value) begin</span></span>
+<span id="L516"><span class="lineNum">     516</span> <span class="tlaGNC">      282140 :     else if (soc_ifc_reg_hwif_out.CPTRA_RESET_REASON.FW_UPD_RESET.value) begin</span></span>
 <span id="L517"><span class="lineNum">     517</span> <span class="tlaUNC tlaBgUNC">           0 :          soc_ifc_reg_hwif_in.CPTRA_RESET_REASON.WARM_RESET.next = 1'b0;</span></span>
 <span id="L518"><span class="lineNum">     518</span>              :     end </span>
-<span id="L519"><span class="lineNum">     519</span> <span class="tlaGNC tlaBgGNC">       13841 :     else begin</span></span>
-<span id="L520"><span class="lineNum">     520</span> <span class="tlaGNC">       13841 :          soc_ifc_reg_hwif_in.CPTRA_RESET_REASON.WARM_RESET.next = soc_ifc_reg_hwif_out.CPTRA_RESET_REASON.WARM_RESET.value;</span></span>
+<span id="L519"><span class="lineNum">     519</span> <span class="tlaGNC tlaBgGNC">      282140 :     else begin</span></span>
+<span id="L520"><span class="lineNum">     520</span> <span class="tlaGNC">      282140 :          soc_ifc_reg_hwif_in.CPTRA_RESET_REASON.WARM_RESET.next = soc_ifc_reg_hwif_out.CPTRA_RESET_REASON.WARM_RESET.value;</span></span>
 <span id="L521"><span class="lineNum">     521</span>              :     end</span>
 <span id="L522"><span class="lineNum">     522</span>              : end</span>
 <span id="L523"><span class="lineNum">     523</span>              : </span>
 <span id="L524"><span class="lineNum">     524</span>              : </span>
 <span id="L525"><span class="lineNum">     525</span>              : // Generate a pulse to set the interrupt bit</span>
-<span id="L526"><span class="lineNum">     526</span> <span class="tlaGNC">        4617 : always_ff @(posedge rdc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
+<span id="L526"><span class="lineNum">     526</span> <span class="tlaGNC">       94050 : always_ff @(posedge rdc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
 <span id="L527"><span class="lineNum">     527</span> <span class="tlaGNC">           4 :     if (~cptra_noncore_rst_b) begin</span></span>
 <span id="L528"><span class="lineNum">     528</span> <span class="tlaGNC">           4 :         security_state_debug_locked_d &lt;= '0;</span></span>
 <span id="L529"><span class="lineNum">     529</span>              :     end</span>
-<span id="L530"><span class="lineNum">     530</span> <span class="tlaGNC">        4613 :     else begin</span></span>
-<span id="L531"><span class="lineNum">     531</span> <span class="tlaGNC">        4613 :         security_state_debug_locked_d &lt;= security_state.debug_locked;</span></span>
+<span id="L530"><span class="lineNum">     530</span> <span class="tlaGNC">       94046 :     else begin</span></span>
+<span id="L531"><span class="lineNum">     531</span> <span class="tlaGNC">       94046 :         security_state_debug_locked_d &lt;= security_state.debug_locked;</span></span>
 <span id="L532"><span class="lineNum">     532</span>              :     end</span>
 <span id="L533"><span class="lineNum">     533</span>              : end</span>
 <span id="L534"><span class="lineNum">     534</span>              : </span>
 <span id="L535"><span class="lineNum">     535</span> <span class="tlaGNC">           1 : always_comb security_state_debug_locked_p = security_state.debug_locked ^ security_state_debug_locked_d;</span></span>
 <span id="L536"><span class="lineNum">     536</span>              : </span>
 <span id="L537"><span class="lineNum">     537</span>              : // Generate a pulse to set the interrupt bit</span>
-<span id="L538"><span class="lineNum">     538</span> <span class="tlaGNC">        4641 : always_ff @(posedge clk or negedge cptra_noncore_rst_b) begin</span></span>
+<span id="L538"><span class="lineNum">     538</span> <span class="tlaGNC">       94074 : always_ff @(posedge clk or negedge cptra_noncore_rst_b) begin</span></span>
 <span id="L539"><span class="lineNum">     539</span> <span class="tlaGNC">          28 :     if (~cptra_noncore_rst_b) begin</span></span>
 <span id="L540"><span class="lineNum">     540</span> <span class="tlaGNC">          28 :         scan_mode_f &lt;= '0;</span></span>
 <span id="L541"><span class="lineNum">     541</span>              :     end</span>
-<span id="L542"><span class="lineNum">     542</span> <span class="tlaGNC">        4613 :     else begin</span></span>
-<span id="L543"><span class="lineNum">     543</span> <span class="tlaGNC">        4613 :         scan_mode_f &lt;= scan_mode;</span></span>
+<span id="L542"><span class="lineNum">     542</span> <span class="tlaGNC">       94046 :     else begin</span></span>
+<span id="L543"><span class="lineNum">     543</span> <span class="tlaGNC">       94046 :         scan_mode_f &lt;= scan_mode;</span></span>
 <span id="L544"><span class="lineNum">     544</span>              :     end</span>
 <span id="L545"><span class="lineNum">     545</span>              : end</span>
 <span id="L546"><span class="lineNum">     546</span>              : </span>
@@ -676,11 +676,11 @@
 <span id="L572"><span class="lineNum">     572</span>              : // Can't write to RW-able fuses once fuse_done is set (implies the register is being locked using the fuse_wr_done)</span>
 <span id="L573"><span class="lineNum">     573</span>              : /////////////////////////////////////////////////////////////////////////////////////////////////////////////////</span>
 <span id="L574"><span class="lineNum">     574</span>              : </span>
-<span id="L575"><span class="lineNum">     575</span> <span class="tlaGNC">        4617 : always_ff @(posedge soc_ifc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
+<span id="L575"><span class="lineNum">     575</span> <span class="tlaGNC">       94050 : always_ff @(posedge soc_ifc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
 <span id="L576"><span class="lineNum">     576</span> <span class="tlaGNC">           4 :     if(~cptra_noncore_rst_b) begin</span></span>
 <span id="L577"><span class="lineNum">     577</span> <span class="tlaGNC">           4 :         fuse_wr_done_reg_write_observed &lt;= 0;</span></span>
 <span id="L578"><span class="lineNum">     578</span>              :     end</span>
-<span id="L579"><span class="lineNum">     579</span> <span class="tlaGNC">        4613 :     else begin</span></span>
+<span id="L579"><span class="lineNum">     579</span> <span class="tlaGNC">       94046 :     else begin</span></span>
 <span id="L580"><span class="lineNum">     580</span> <span class="tlaGNC">          51 :         if(!fuse_wr_done_reg_write_observed) begin</span></span>
 <span id="L581"><span class="lineNum">     581</span> <span class="tlaGNC">          51 :             fuse_wr_done_reg_write_observed &lt;= soc_ifc_reg_hwif_out.CPTRA_FUSE_WR_DONE.done.swmod;</span></span>
 <span id="L582"><span class="lineNum">     582</span>              :         end</span>
@@ -752,12 +752,12 @@
 <span id="L648"><span class="lineNum">     648</span>              :     end</span>
 <span id="L649"><span class="lineNum">     649</span>              : endgenerate</span>
 <span id="L650"><span class="lineNum">     650</span>              : // Generate a pulse to set the interrupt bit</span>
-<span id="L651"><span class="lineNum">     651</span> <span class="tlaGNC">        4617 : always_ff @(posedge soc_ifc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
+<span id="L651"><span class="lineNum">     651</span> <span class="tlaGNC">       94050 : always_ff @(posedge soc_ifc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
 <span id="L652"><span class="lineNum">     652</span> <span class="tlaGNC">           4 :     if (~cptra_noncore_rst_b) begin</span></span>
 <span id="L653"><span class="lineNum">     653</span> <span class="tlaGNC">           4 :         uc_mbox_data_avail_d &lt;= '0;</span></span>
 <span id="L654"><span class="lineNum">     654</span>              :     end</span>
-<span id="L655"><span class="lineNum">     655</span> <span class="tlaGNC">        4613 :     else begin</span></span>
-<span id="L656"><span class="lineNum">     656</span> <span class="tlaGNC">        4613 :         uc_mbox_data_avail_d &lt;= uc_mbox_data_avail;</span></span>
+<span id="L655"><span class="lineNum">     655</span> <span class="tlaGNC">       94046 :     else begin</span></span>
+<span id="L656"><span class="lineNum">     656</span> <span class="tlaGNC">       94046 :         uc_mbox_data_avail_d &lt;= uc_mbox_data_avail;</span></span>
 <span id="L657"><span class="lineNum">     657</span>              :     end</span>
 <span id="L658"><span class="lineNum">     658</span>              : end</span>
 <span id="L659"><span class="lineNum">     659</span>              : </span>
@@ -783,10 +783,10 @@
 <span id="L679"><span class="lineNum">     679</span>              : </span>
 <span id="L680"><span class="lineNum">     680</span>              : </span>
 <span id="L681"><span class="lineNum">     681</span>              : </span>
-<span id="L682"><span class="lineNum">     682</span> <span class="tlaGNC">       45862 : logic s_cpuif_req_stall_wr_nc;</span></span>
-<span id="L683"><span class="lineNum">     683</span> <span class="tlaGNC">       45862 : logic s_cpuif_req_stall_rd_nc;</span></span>
-<span id="L684"><span class="lineNum">     684</span> <span class="tlaGNC">         346 : logic s_cpuif_rd_ack_nc;</span></span>
-<span id="L685"><span class="lineNum">     685</span> <span class="tlaGNC">       21107 : logic s_cpuif_wr_ack_nc;</span></span>
+<span id="L682"><span class="lineNum">     682</span> <span class="tlaGNC">       24634 : logic s_cpuif_req_stall_wr_nc;</span></span>
+<span id="L683"><span class="lineNum">     683</span> <span class="tlaGNC">       24634 : logic s_cpuif_req_stall_rd_nc;</span></span>
+<span id="L684"><span class="lineNum">     684</span> <span class="tlaGNC">           2 : logic s_cpuif_rd_ack_nc;</span></span>
+<span id="L685"><span class="lineNum">     685</span> <span class="tlaGNC">       11753 : logic s_cpuif_wr_ack_nc;</span></span>
 <span id="L686"><span class="lineNum">     686</span>              : </span>
 <span id="L687"><span class="lineNum">     687</span>              : soc_ifc_reg i_soc_ifc_reg (</span>
 <span id="L688"><span class="lineNum">     688</span>              :     .clk(rdc_clk_cg),</span>
@@ -832,7 +832,7 @@
 <span id="L728"><span class="lineNum">     728</span>              : // sets CPTRA_FW_ERROR_FATAL or when a HW condition occurs that sets a bit</span>
 <span id="L729"><span class="lineNum">     729</span>              : // in CPTRA_HW_ERROR_FATAL</span>
 <span id="L730"><span class="lineNum">     730</span>              : // Interrupt only deasserts on reset</span>
-<span id="L731"><span class="lineNum">     731</span> <span class="tlaGNC">        4617 : always_ff@(posedge rdc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
+<span id="L731"><span class="lineNum">     731</span> <span class="tlaGNC">       94050 : always_ff@(posedge rdc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
 <span id="L732"><span class="lineNum">     732</span> <span class="tlaGNC">           4 :     if(~cptra_noncore_rst_b) begin</span></span>
 <span id="L733"><span class="lineNum">     733</span> <span class="tlaGNC">           4 :         cptra_error_fatal &lt;= 1'b0;</span></span>
 <span id="L734"><span class="lineNum">     734</span>              :     end</span>
@@ -843,17 +843,17 @@
 <span id="L739"><span class="lineNum">     739</span> <span class="tlaUNC">           0 :         cptra_error_fatal &lt;= 1'b1;</span></span>
 <span id="L740"><span class="lineNum">     740</span>              :     end</span>
 <span id="L741"><span class="lineNum">     741</span>              :     // HW event that SETS a new (non-masked) bit results in interrupt assertion</span>
-<span id="L742"><span class="lineNum">     742</span> <span class="tlaGNC tlaBgGNC">        4613 :     else if (unmasked_hw_error_fatal_write) begin</span></span>
+<span id="L742"><span class="lineNum">     742</span> <span class="tlaGNC tlaBgGNC">       94046 :     else if (unmasked_hw_error_fatal_write) begin</span></span>
 <span id="L743"><span class="lineNum">     743</span> <span class="tlaUNC tlaBgUNC">           0 :         cptra_error_fatal &lt;= 1'b1;</span></span>
 <span id="L744"><span class="lineNum">     744</span>              :     end</span>
 <span id="L745"><span class="lineNum">     745</span>              :     // NOTE: There is no mechanism to clear interrupt assertion by design.</span>
 <span id="L746"><span class="lineNum">     746</span>              :     //       Platform MUST perform cptra_rst_b in order to clear cptra_error_fatal</span>
 <span id="L747"><span class="lineNum">     747</span>              :     //       output signal, per the integration spec.</span>
-<span id="L748"><span class="lineNum">     748</span> <span class="tlaGNC tlaBgGNC">        4613 :     else begin</span></span>
-<span id="L749"><span class="lineNum">     749</span> <span class="tlaGNC">        4613 :         cptra_error_fatal &lt;= cptra_error_fatal;</span></span>
+<span id="L748"><span class="lineNum">     748</span> <span class="tlaGNC tlaBgGNC">       94046 :     else begin</span></span>
+<span id="L749"><span class="lineNum">     749</span> <span class="tlaGNC">       94046 :         cptra_error_fatal &lt;= cptra_error_fatal;</span></span>
 <span id="L750"><span class="lineNum">     750</span>              :     end</span>
 <span id="L751"><span class="lineNum">     751</span>              : end</span>
-<span id="L752"><span class="lineNum">     752</span> <span class="tlaGNC">        4617 : always_ff@(posedge rdc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
+<span id="L752"><span class="lineNum">     752</span> <span class="tlaGNC">       94050 : always_ff@(posedge rdc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
 <span id="L753"><span class="lineNum">     753</span> <span class="tlaGNC">           4 :     if(~cptra_noncore_rst_b) begin</span></span>
 <span id="L754"><span class="lineNum">     754</span> <span class="tlaGNC">           4 :         cptra_error_non_fatal &lt;= 1'b0;</span></span>
 <span id="L755"><span class="lineNum">     755</span>              :     end</span>
@@ -869,8 +869,8 @@
 <span id="L765"><span class="lineNum">     765</span>              :     end</span>
 <span id="L766"><span class="lineNum">     766</span>              :     // If FW performs a write that clears all outstanding (unmasked) ERROR_NON_FATAL events, deassert interrupt</span>
 <span id="L767"><span class="lineNum">     767</span> <span class="tlaUNC">           0 :     else if (~unmasked_hw_error_non_fatal_is_set &amp;&amp;</span></span>
-<span id="L768"><span class="lineNum">     768</span> <span class="tlaGNC tlaBgGNC">        4613 :              ~|(~soc_ifc_reg_hwif_out.internal_fw_error_non_fatal_mask.mask.value &amp; soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_NON_FATAL.error_code.value)) begin</span></span>
-<span id="L769"><span class="lineNum">     769</span> <span class="tlaGNC">        4613 :         cptra_error_non_fatal &lt;= 1'b0;</span></span>
+<span id="L768"><span class="lineNum">     768</span> <span class="tlaGNC tlaBgGNC">       94046 :              ~|(~soc_ifc_reg_hwif_out.internal_fw_error_non_fatal_mask.mask.value &amp; soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_NON_FATAL.error_code.value)) begin</span></span>
+<span id="L769"><span class="lineNum">     769</span> <span class="tlaGNC">       94046 :         cptra_error_non_fatal &lt;= 1'b0;</span></span>
 <span id="L770"><span class="lineNum">     770</span>              :     end</span>
 <span id="L771"><span class="lineNum">     771</span> <span class="tlaUNC tlaBgUNC">           0 :     else begin</span></span>
 <span id="L772"><span class="lineNum">     772</span> <span class="tlaUNC">           0 :         cptra_error_non_fatal &lt;= cptra_error_non_fatal;</span></span>
@@ -968,14 +968,14 @@
 <span id="L864"><span class="lineNum">     864</span>              : end</span>
 <span id="L865"><span class="lineNum">     865</span>              : </span>
 <span id="L866"><span class="lineNum">     866</span>              : //Generate t1 and t2 timeout interrupt pulse</span>
-<span id="L867"><span class="lineNum">     867</span> <span class="tlaGNC">        4617 : always_ff @(posedge rdc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
+<span id="L867"><span class="lineNum">     867</span> <span class="tlaGNC">       94050 : always_ff @(posedge rdc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
 <span id="L868"><span class="lineNum">     868</span> <span class="tlaGNC">           4 :     if(!cptra_noncore_rst_b) begin</span></span>
 <span id="L869"><span class="lineNum">     869</span> <span class="tlaGNC">           4 :         t1_timeout_f &lt;= 'b0;</span></span>
 <span id="L870"><span class="lineNum">     870</span> <span class="tlaGNC">           4 :         t2_timeout_f &lt;= 'b0;</span></span>
 <span id="L871"><span class="lineNum">     871</span>              :     end</span>
-<span id="L872"><span class="lineNum">     872</span> <span class="tlaGNC">        4613 :     else begin</span></span>
-<span id="L873"><span class="lineNum">     873</span> <span class="tlaGNC">        4613 :         t1_timeout_f &lt;= t1_timeout;</span></span>
-<span id="L874"><span class="lineNum">     874</span> <span class="tlaGNC">        4613 :         t2_timeout_f &lt;= t2_timeout;</span></span>
+<span id="L872"><span class="lineNum">     872</span> <span class="tlaGNC">       94046 :     else begin</span></span>
+<span id="L873"><span class="lineNum">     873</span> <span class="tlaGNC">       94046 :         t1_timeout_f &lt;= t1_timeout;</span></span>
+<span id="L874"><span class="lineNum">     874</span> <span class="tlaGNC">       94046 :         t2_timeout_f &lt;= t2_timeout;</span></span>
 <span id="L875"><span class="lineNum">     875</span>              :     end</span>
 <span id="L876"><span class="lineNum">     876</span>              : end</span>
 <span id="L877"><span class="lineNum">     877</span>              : </span>
@@ -987,18 +987,18 @@
 <span id="L883"><span class="lineNum">     883</span>              : //       It would be preferable to decode this from interrupt signals somehow,</span>
 <span id="L884"><span class="lineNum">     884</span>              : //       but that would require modifying interrupt register RDL which has been</span>
 <span id="L885"><span class="lineNum">     885</span>              : //       standardized.</span>
-<span id="L886"><span class="lineNum">     886</span> <span class="tlaGNC">        4617 : always_ff @(posedge soc_ifc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
+<span id="L886"><span class="lineNum">     886</span> <span class="tlaGNC">       94050 : always_ff @(posedge soc_ifc_clk_cg or negedge cptra_noncore_rst_b) begin</span></span>
 <span id="L887"><span class="lineNum">     887</span> <span class="tlaGNC">           4 :     if(!cptra_noncore_rst_b) begin</span></span>
 <span id="L888"><span class="lineNum">     888</span> <span class="tlaGNC">           4 :         wdt_error_t1_intr_serviced &lt;= 1'b0;</span></span>
 <span id="L889"><span class="lineNum">     889</span> <span class="tlaGNC">           4 :         wdt_error_t2_intr_serviced &lt;= 1'b0;</span></span>
 <span id="L890"><span class="lineNum">     890</span>              :     end</span>
-<span id="L891"><span class="lineNum">     891</span> <span class="tlaGNC">        4613 :     else if (soc_ifc_reg_req_dv &amp;&amp; soc_ifc_reg_req_data.write &amp;&amp; (soc_ifc_reg_req_data.addr[SOC_IFC_REG_ADDR_WIDTH-1:0] == SOC_IFC_REG_ADDR_WIDTH'(`SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R))) begin</span></span>
+<span id="L891"><span class="lineNum">     891</span> <span class="tlaGNC">       94046 :     else if (soc_ifc_reg_req_dv &amp;&amp; soc_ifc_reg_req_data.write &amp;&amp; (soc_ifc_reg_req_data.addr[SOC_IFC_REG_ADDR_WIDTH-1:0] == SOC_IFC_REG_ADDR_WIDTH'(`SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R))) begin</span></span>
 <span id="L892"><span class="lineNum">     892</span> <span class="tlaUNC tlaBgUNC">           0 :         wdt_error_t1_intr_serviced &lt;= soc_ifc_reg_req_data.wdata[`SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER1_TIMEOUT_STS_LOW] &amp;&amp; t1_timeout;</span></span>
 <span id="L893"><span class="lineNum">     893</span> <span class="tlaUNC">           0 :         wdt_error_t2_intr_serviced &lt;= soc_ifc_reg_req_data.wdata[`SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER2_TIMEOUT_STS_LOW] &amp;&amp; t2_timeout &amp;&amp; timer2_en;</span></span>
 <span id="L894"><span class="lineNum">     894</span>              :     end</span>
-<span id="L895"><span class="lineNum">     895</span> <span class="tlaGNC tlaBgGNC">        4613 :     else begin</span></span>
-<span id="L896"><span class="lineNum">     896</span> <span class="tlaGNC">        4613 :         wdt_error_t1_intr_serviced &lt;= 1'b0;</span></span>
-<span id="L897"><span class="lineNum">     897</span> <span class="tlaGNC">        4613 :         wdt_error_t2_intr_serviced &lt;= 1'b0;</span></span>
+<span id="L895"><span class="lineNum">     895</span> <span class="tlaGNC tlaBgGNC">       94046 :     else begin</span></span>
+<span id="L896"><span class="lineNum">     896</span> <span class="tlaGNC">       94046 :         wdt_error_t1_intr_serviced &lt;= 1'b0;</span></span>
+<span id="L897"><span class="lineNum">     897</span> <span class="tlaGNC">       94046 :         wdt_error_t2_intr_serviced &lt;= 1'b0;</span></span>
 <span id="L898"><span class="lineNum">     898</span>              :     end</span>
 <span id="L899"><span class="lineNum">     899</span>              : end</span>
 <span id="L900"><span class="lineNum">     900</span>              : </span>
@@ -1083,14 +1083,14 @@
 <span id="L979"><span class="lineNum">     979</span>              : //This assumes that reg_en goes low between read accesses</span>
 <span id="L980"><span class="lineNum">     980</span> <span class="tlaGNC">           1 : always_comb dmi_inc_rdptr = cptra_uncore_dmi_reg_dout_access_f &amp; ~cptra_uncore_dmi_reg_en;</span></span>
 <span id="L981"><span class="lineNum">     981</span>              : </span>
-<span id="L982"><span class="lineNum">     982</span> <span class="tlaGNC">        4617 : always_ff @(posedge rdc_clk_cg or negedge cptra_pwrgood) begin</span></span>
+<span id="L982"><span class="lineNum">     982</span> <span class="tlaGNC">       94050 : always_ff @(posedge rdc_clk_cg or negedge cptra_pwrgood) begin</span></span>
 <span id="L983"><span class="lineNum">     983</span> <span class="tlaGNC">           1 :     if (~cptra_pwrgood) begin</span></span>
 <span id="L984"><span class="lineNum">     984</span> <span class="tlaGNC">           1 :         cptra_uncore_dmi_reg_rdata &lt;= '0;</span></span>
 <span id="L985"><span class="lineNum">     985</span> <span class="tlaGNC">           1 :         cptra_uncore_dmi_reg_dout_access_f &lt;= '0;</span></span>
 <span id="L986"><span class="lineNum">     986</span>              :     end</span>
-<span id="L987"><span class="lineNum">     987</span> <span class="tlaGNC">        4616 :     else begin</span></span>
-<span id="L988"><span class="lineNum">     988</span> <span class="tlaGNC">        4616 :         cptra_uncore_dmi_reg_rdata &lt;= cptra_uncore_dmi_reg_en ? cptra_uncore_dmi_reg_rdata_in : cptra_uncore_dmi_reg_rdata;</span></span>
-<span id="L989"><span class="lineNum">     989</span> <span class="tlaGNC">        4616 :         cptra_uncore_dmi_reg_dout_access_f &lt;= cptra_uncore_dmi_reg_en &amp; ~cptra_uncore_dmi_reg_wr_en &amp; (cptra_uncore_dmi_reg_addr == DMI_REG_MBOX_DOUT);</span></span>
+<span id="L987"><span class="lineNum">     987</span> <span class="tlaGNC">       94049 :     else begin</span></span>
+<span id="L988"><span class="lineNum">     988</span> <span class="tlaGNC">       94049 :         cptra_uncore_dmi_reg_rdata &lt;= cptra_uncore_dmi_reg_en ? cptra_uncore_dmi_reg_rdata_in : cptra_uncore_dmi_reg_rdata;</span></span>
+<span id="L989"><span class="lineNum">     989</span> <span class="tlaGNC">       94049 :         cptra_uncore_dmi_reg_dout_access_f &lt;= cptra_uncore_dmi_reg_en &amp; ~cptra_uncore_dmi_reg_wr_en &amp; (cptra_uncore_dmi_reg_addr == DMI_REG_MBOX_DOUT);</span></span>
 <span id="L990"><span class="lineNum">     990</span>              :     end</span>
 <span id="L991"><span class="lineNum">     991</span>              : end</span>
 <span id="L992"><span class="lineNum">     992</span>              : </span>

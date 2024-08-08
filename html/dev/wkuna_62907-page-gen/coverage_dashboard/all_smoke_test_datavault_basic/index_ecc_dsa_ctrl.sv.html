@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -166,7 +166,7 @@
 <span id="L62"><span class="lineNum">      62</span>              :     import kv_defines_pkg::*;</span>
 <span id="L63"><span class="lineNum">      63</span>              :     (</span>
 <span id="L64"><span class="lineNum">      64</span>              :     // Clock and reset.</span>
-<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC tlaBgGNC">      458006 :     input wire           clk,</span></span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC tlaBgGNC">      458284 :     input wire           clk,</span></span>
 <span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">           1 :     input wire           reset_n,</span></span>
 <span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">           1 :     input wire           cptra_pwrgood,</span></span>
 <span id="L68"><span class="lineNum">      68</span>              : </span>
@@ -428,8 +428,8 @@
 <span id="L324"><span class="lineNum">     324</span>              :     end</span>
 <span id="L325"><span class="lineNum">     325</span>              : </span>
 <span id="L326"><span class="lineNum">     326</span>              :     //there is a clk cycle memory read delay between hw_privkey_we and read_reg</span>
-<span id="L327"><span class="lineNum">     327</span> <span class="tlaGNC">      229316 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L328"><span class="lineNum">     328</span> <span class="tlaGNC">      229316 :     begin : ecc_kv_reg</span></span>
+<span id="L327"><span class="lineNum">     327</span> <span class="tlaGNC">      229428 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L328"><span class="lineNum">     328</span> <span class="tlaGNC">      229428 :     begin : ecc_kv_reg</span></span>
 <span id="L329"><span class="lineNum">     329</span> <span class="tlaGNC">           4 :         if (!reset_n) begin</span></span>
 <span id="L330"><span class="lineNum">     330</span> <span class="tlaGNC">           4 :             privkey_we_reg      &lt;= '0;</span></span>
 <span id="L331"><span class="lineNum">     331</span> <span class="tlaGNC">           4 :             privkey_we_reg_ff   &lt;= '0;</span></span>
@@ -437,7 +437,7 @@
 <span id="L333"><span class="lineNum">     333</span> <span class="tlaGNC">           4 :             kv_seed_data_present &lt;= '0;</span></span>
 <span id="L334"><span class="lineNum">     334</span> <span class="tlaGNC">           4 :             kv_key_data_present &lt;= '0;</span></span>
 <span id="L335"><span class="lineNum">     335</span>              :         end</span>
-<span id="L336"><span class="lineNum">     336</span> <span class="tlaGNC">      229312 :         else if (zeroize_reg) begin</span></span>
+<span id="L336"><span class="lineNum">     336</span> <span class="tlaGNC">      229424 :         else if (zeroize_reg) begin</span></span>
 <span id="L337"><span class="lineNum">     337</span> <span class="tlaUNC tlaBgUNC">           0 :             privkey_we_reg      &lt;= '0;</span></span>
 <span id="L338"><span class="lineNum">     338</span> <span class="tlaUNC">           0 :             privkey_we_reg_ff   &lt;= '0;</span></span>
 <span id="L339"><span class="lineNum">     339</span> <span class="tlaUNC">           0 :             kv_reg    &lt;= '0;</span></span>
@@ -445,16 +445,16 @@
 <span id="L341"><span class="lineNum">     341</span> <span class="tlaUNC">           0 :             kv_key_data_present &lt;= '0;</span></span>
 <span id="L342"><span class="lineNum">     342</span>              :         end</span>
 <span id="L343"><span class="lineNum">     343</span>              :         //Store private key here before pushing to keyvault</span>
-<span id="L344"><span class="lineNum">     344</span> <span class="tlaGNC tlaBgGNC">      229312 :         else begin</span></span>
-<span id="L345"><span class="lineNum">     345</span> <span class="tlaGNC">      229312 :             privkey_we_reg &lt;= hw_privkey_we;</span></span>
-<span id="L346"><span class="lineNum">     346</span> <span class="tlaGNC">      229312 :             privkey_we_reg_ff &lt;= privkey_we_reg;</span></span>
-<span id="L347"><span class="lineNum">     347</span> <span class="tlaGNC">      229312 :             if (privkey_out_we &amp; (dest_keyvault | kv_seed_data_present))</span></span>
+<span id="L344"><span class="lineNum">     344</span> <span class="tlaGNC tlaBgGNC">      229424 :         else begin</span></span>
+<span id="L345"><span class="lineNum">     345</span> <span class="tlaGNC">      229424 :             privkey_we_reg &lt;= hw_privkey_we;</span></span>
+<span id="L346"><span class="lineNum">     346</span> <span class="tlaGNC">      229424 :             privkey_we_reg_ff &lt;= privkey_we_reg;</span></span>
+<span id="L347"><span class="lineNum">     347</span> <span class="tlaGNC">      229424 :             if (privkey_out_we &amp; (dest_keyvault | kv_seed_data_present))</span></span>
 <span id="L348"><span class="lineNum">     348</span> <span class="tlaUNC tlaBgUNC">           0 :                 kv_reg &lt;= read_reg;</span></span>
 <span id="L349"><span class="lineNum">     349</span>              : </span>
-<span id="L350"><span class="lineNum">     350</span> <span class="tlaGNC tlaBgGNC">      229312 :             kv_seed_data_present &lt;= kv_seed_data_present_set ? '1 :</span></span>
-<span id="L351"><span class="lineNum">     351</span> <span class="tlaGNC">      229312 :                                     kv_seed_data_present_reset ? '0 : kv_seed_data_present;</span></span>
-<span id="L352"><span class="lineNum">     352</span> <span class="tlaGNC">      229312 :             kv_key_data_present  &lt;= kv_key_data_present_set ? '1 :</span></span>
-<span id="L353"><span class="lineNum">     353</span> <span class="tlaGNC">      229312 :                                     kv_key_data_present_reset ? '0 : kv_key_data_present;</span></span>
+<span id="L350"><span class="lineNum">     350</span> <span class="tlaGNC tlaBgGNC">      229424 :             kv_seed_data_present &lt;= kv_seed_data_present_set ? '1 :</span></span>
+<span id="L351"><span class="lineNum">     351</span> <span class="tlaGNC">      229424 :                                     kv_seed_data_present_reset ? '0 : kv_seed_data_present;</span></span>
+<span id="L352"><span class="lineNum">     352</span> <span class="tlaGNC">      229424 :             kv_key_data_present  &lt;= kv_key_data_present_set ? '1 :</span></span>
+<span id="L353"><span class="lineNum">     353</span> <span class="tlaGNC">      229424 :                                     kv_key_data_present_reset ? '0 : kv_key_data_present;</span></span>
 <span id="L354"><span class="lineNum">     354</span>              :         end</span>
 <span id="L355"><span class="lineNum">     355</span>              :     end</span>
 <span id="L356"><span class="lineNum">     356</span>              : </span>
@@ -557,17 +557,17 @@
 <span id="L453"><span class="lineNum">     453</span>              :     end</span>
 <span id="L454"><span class="lineNum">     454</span>              : </span>
 <span id="L455"><span class="lineNum">     455</span>              :     //transformed msg into modulo q </span>
-<span id="L456"><span class="lineNum">     456</span> <span class="tlaGNC">      229316 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L457"><span class="lineNum">     457</span> <span class="tlaGNC">      229316 :     begin : reduced_msg</span></span>
+<span id="L456"><span class="lineNum">     456</span> <span class="tlaGNC">      229428 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L457"><span class="lineNum">     457</span> <span class="tlaGNC">      229428 :     begin : reduced_msg</span></span>
 <span id="L458"><span class="lineNum">     458</span> <span class="tlaGNC">           4 :         if (!reset_n)</span></span>
 <span id="L459"><span class="lineNum">     459</span> <span class="tlaGNC">           4 :             msg_reduced_reg &lt;= '0;</span></span>
-<span id="L460"><span class="lineNum">     460</span> <span class="tlaGNC">      229312 :         else if (zeroize_reg)</span></span>
+<span id="L460"><span class="lineNum">     460</span> <span class="tlaGNC">      229424 :         else if (zeroize_reg)</span></span>
 <span id="L461"><span class="lineNum">     461</span> <span class="tlaUNC tlaBgUNC">           0 :             msg_reduced_reg &lt;= '0;</span></span>
-<span id="L462"><span class="lineNum">     462</span> <span class="tlaGNC tlaBgGNC">      229312 :         else begin</span></span>
-<span id="L463"><span class="lineNum">     463</span> <span class="tlaGNC">      229312 :             if (msg_reg &gt;= GROUP_ORDER)</span></span>
+<span id="L462"><span class="lineNum">     462</span> <span class="tlaGNC tlaBgGNC">      229424 :         else begin</span></span>
+<span id="L463"><span class="lineNum">     463</span> <span class="tlaGNC">      229424 :             if (msg_reg &gt;= GROUP_ORDER)</span></span>
 <span id="L464"><span class="lineNum">     464</span> <span class="tlaUNC tlaBgUNC">           0 :                 msg_reduced_reg &lt;= msg_reg - GROUP_ORDER;</span></span>
 <span id="L465"><span class="lineNum">     465</span>              :             else</span>
-<span id="L466"><span class="lineNum">     466</span> <span class="tlaGNC tlaBgGNC">      229312 :                 msg_reduced_reg &lt;= msg_reg;</span></span>
+<span id="L466"><span class="lineNum">     466</span> <span class="tlaGNC tlaBgGNC">      229424 :                 msg_reduced_reg &lt;= msg_reg;</span></span>
 <span id="L467"><span class="lineNum">     467</span>              :         end</span>
 <span id="L468"><span class="lineNum">     468</span>              :     end</span>
 <span id="L469"><span class="lineNum">     469</span>              :     </span>
@@ -622,23 +622,23 @@
 <span id="L518"><span class="lineNum">     518</span>              :     //</span>
 <span id="L519"><span class="lineNum">     519</span>              :     // update the internal registers and their wr_en</span>
 <span id="L520"><span class="lineNum">     520</span>              :     //----------------------------------------------------------------</span>
-<span id="L521"><span class="lineNum">     521</span> <span class="tlaGNC">      229316 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L522"><span class="lineNum">     522</span> <span class="tlaGNC">      229316 :     begin : SCALAR_REG</span></span>
+<span id="L521"><span class="lineNum">     521</span> <span class="tlaGNC">      229428 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L522"><span class="lineNum">     522</span> <span class="tlaGNC">      229428 :     begin : SCALAR_REG</span></span>
 <span id="L523"><span class="lineNum">     523</span> <span class="tlaGNC">           4 :         if(!reset_n) begin</span></span>
 <span id="L524"><span class="lineNum">     524</span> <span class="tlaGNC">           4 :             scalar_G_reg &lt;= '0;</span></span>
 <span id="L525"><span class="lineNum">     525</span> <span class="tlaGNC">           4 :             scalar_PK_reg &lt;= '0;</span></span>
 <span id="L526"><span class="lineNum">     526</span>              :         end</span>
-<span id="L527"><span class="lineNum">     527</span> <span class="tlaGNC">      229312 :         else if(zeroize_reg) begin</span></span>
+<span id="L527"><span class="lineNum">     527</span> <span class="tlaGNC">      229424 :         else if(zeroize_reg) begin</span></span>
 <span id="L528"><span class="lineNum">     528</span> <span class="tlaUNC tlaBgUNC">           0 :             scalar_G_reg &lt;= '0;</span></span>
 <span id="L529"><span class="lineNum">     529</span> <span class="tlaUNC">           0 :             scalar_PK_reg &lt;= '0;</span></span>
 <span id="L530"><span class="lineNum">     530</span>              :         end</span>
-<span id="L531"><span class="lineNum">     531</span> <span class="tlaGNC tlaBgGNC">      229312 :         else begin</span></span>
-<span id="L532"><span class="lineNum">     532</span> <span class="tlaGNC">      229312 :             if (!scalar_G_sel)</span></span>
-<span id="L533"><span class="lineNum">     533</span> <span class="tlaGNC">      229312 :                 scalar_G_reg &lt;= hmac_drbg_result;</span></span>
+<span id="L531"><span class="lineNum">     531</span> <span class="tlaGNC tlaBgGNC">      229424 :         else begin</span></span>
+<span id="L532"><span class="lineNum">     532</span> <span class="tlaGNC">      229424 :             if (!scalar_G_sel)</span></span>
+<span id="L533"><span class="lineNum">     533</span> <span class="tlaGNC">      229424 :                 scalar_G_reg &lt;= hmac_drbg_result;</span></span>
 <span id="L534"><span class="lineNum">     534</span> <span class="tlaUNC tlaBgUNC">           0 :             else if (hw_scalar_G_we)</span></span>
 <span id="L535"><span class="lineNum">     535</span> <span class="tlaUNC">           0 :                 scalar_G_reg &lt;= read_reg;</span></span>
 <span id="L536"><span class="lineNum">     536</span>              :             </span>
-<span id="L537"><span class="lineNum">     537</span> <span class="tlaGNC tlaBgGNC">      229312 :             if (hw_scalar_PK_we)</span></span>
+<span id="L537"><span class="lineNum">     537</span> <span class="tlaGNC tlaBgGNC">      229424 :             if (hw_scalar_PK_we)</span></span>
 <span id="L538"><span class="lineNum">     538</span> <span class="tlaUNC tlaBgUNC">           0 :                 scalar_PK_reg &lt;= read_reg;</span></span>
 <span id="L539"><span class="lineNum">     539</span>              :         end</span>
 <span id="L540"><span class="lineNum">     540</span>              :     end</span>
@@ -714,7 +714,7 @@
 <span id="L610"><span class="lineNum">     610</span> <span class="tlaUNC">           0 :                 default               : write_reg = '0;</span></span>
 <span id="L611"><span class="lineNum">     611</span>              :             endcase</span>
 <span id="L612"><span class="lineNum">     612</span>              :         end</span>
-<span id="L613"><span class="lineNum">     613</span> <span class="tlaGNC tlaBgGNC">      229277 :         else if (prog_instr.opcode == DSA_UOP_WR_SCALAR) begin</span></span>
+<span id="L613"><span class="lineNum">     613</span> <span class="tlaGNC tlaBgGNC">      229389 :         else if (prog_instr.opcode == DSA_UOP_WR_SCALAR) begin</span></span>
 <span id="L614"><span class="lineNum">     614</span> <span class="tlaUNC tlaBgUNC">           0 :             unique case (prog_instr.reg_id)</span></span>
 <span id="L615"><span class="lineNum">     615</span> <span class="tlaUNC">           0 :                 SCALAR_PK_ID          : write_reg = (REG_SIZE+RND_SIZE)'(scalar_PK_reg &lt;&lt; RND_SIZE);</span></span>
 <span id="L616"><span class="lineNum">     616</span> <span class="tlaUNC">           0 :                 SCALAR_G_ID           : write_reg = (REG_SIZE+RND_SIZE)'(scalar_G_reg &lt;&lt; RND_SIZE);</span></span>
@@ -725,16 +725,16 @@
 <span id="L621"><span class="lineNum">     621</span>              :     end // write_to_pm_core</span>
 <span id="L622"><span class="lineNum">     622</span>              : </span>
 <span id="L623"><span class="lineNum">     623</span>              :     // Set the input scalar for scalar_blinding module</span>
-<span id="L624"><span class="lineNum">     624</span> <span class="tlaGNC tlaBgGNC">      229316 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L625"><span class="lineNum">     625</span> <span class="tlaGNC">      229316 :     begin : scalar_sca_ctrl</span></span>
+<span id="L624"><span class="lineNum">     624</span> <span class="tlaGNC tlaBgGNC">      229428 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L625"><span class="lineNum">     625</span> <span class="tlaGNC">      229428 :     begin : scalar_sca_ctrl</span></span>
 <span id="L626"><span class="lineNum">     626</span> <span class="tlaGNC">           4 :         if(!reset_n) begin</span></span>
 <span id="L627"><span class="lineNum">     627</span> <span class="tlaGNC">           4 :             scalar_in_reg &lt;= '0;</span></span>
 <span id="L628"><span class="lineNum">     628</span>              :         end</span>
-<span id="L629"><span class="lineNum">     629</span> <span class="tlaGNC">      229312 :         else if(zeroize_reg) begin</span></span>
+<span id="L629"><span class="lineNum">     629</span> <span class="tlaGNC">      229424 :         else if(zeroize_reg) begin</span></span>
 <span id="L630"><span class="lineNum">     630</span> <span class="tlaUNC tlaBgUNC">           0 :             scalar_in_reg &lt;= '0;</span></span>
 <span id="L631"><span class="lineNum">     631</span>              :         end</span>
-<span id="L632"><span class="lineNum">     632</span> <span class="tlaGNC tlaBgGNC">      229312 :         else begin</span></span>
-<span id="L633"><span class="lineNum">     633</span> <span class="tlaGNC">      229312 :             if (prog_instr.opcode == DSA_UOP_SCALAR_SCA) begin</span></span>
+<span id="L632"><span class="lineNum">     632</span> <span class="tlaGNC tlaBgGNC">      229424 :         else begin</span></span>
+<span id="L633"><span class="lineNum">     633</span> <span class="tlaGNC">      229424 :             if (prog_instr.opcode == DSA_UOP_SCALAR_SCA) begin</span></span>
 <span id="L634"><span class="lineNum">     634</span> <span class="tlaUNC tlaBgUNC">           0 :                 scalar_in_reg &lt;= scalar_G_reg;</span></span>
 <span id="L635"><span class="lineNum">     635</span>              :             end</span>
 <span id="L636"><span class="lineNum">     636</span>              :         end</span>
@@ -749,31 +749,31 @@
 <span id="L645"><span class="lineNum">     645</span>              :     //</span>
 <span id="L646"><span class="lineNum">     646</span>              :     // bound check for different input/output registers.</span>
 <span id="L647"><span class="lineNum">     647</span>              :     //----------------------------------------------------------------   </span>
-<span id="L648"><span class="lineNum">     648</span> <span class="tlaGNC tlaBgGNC">      229316 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L649"><span class="lineNum">     649</span> <span class="tlaGNC">      229316 :     begin : pk_chk</span></span>
+<span id="L648"><span class="lineNum">     648</span> <span class="tlaGNC tlaBgGNC">      229428 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L649"><span class="lineNum">     649</span> <span class="tlaGNC">      229428 :     begin : pk_chk</span></span>
 <span id="L650"><span class="lineNum">     650</span> <span class="tlaGNC">           4 :         if(!reset_n) begin</span></span>
 <span id="L651"><span class="lineNum">     651</span> <span class="tlaGNC">           4 :             pk_chk_reg &lt;= '0;</span></span>
 <span id="L652"><span class="lineNum">     652</span>              :         end</span>
-<span id="L653"><span class="lineNum">     653</span> <span class="tlaGNC">      229312 :         else if(zeroize_reg) begin</span></span>
+<span id="L653"><span class="lineNum">     653</span> <span class="tlaGNC">      229424 :         else if(zeroize_reg) begin</span></span>
 <span id="L654"><span class="lineNum">     654</span> <span class="tlaUNC tlaBgUNC">           0 :             pk_chk_reg &lt;= '0;</span></span>
 <span id="L655"><span class="lineNum">     655</span>              :         end</span>
-<span id="L656"><span class="lineNum">     656</span> <span class="tlaGNC tlaBgGNC">      229312 :         else begin</span></span>
-<span id="L657"><span class="lineNum">     657</span> <span class="tlaGNC">      229312 :             if (hw_pk_chk_we) begin</span></span>
+<span id="L656"><span class="lineNum">     656</span> <span class="tlaGNC tlaBgGNC">      229424 :         else begin</span></span>
+<span id="L657"><span class="lineNum">     657</span> <span class="tlaGNC">      229424 :             if (hw_pk_chk_we) begin</span></span>
 <span id="L658"><span class="lineNum">     658</span> <span class="tlaUNC tlaBgUNC">           0 :                 pk_chk_reg &lt;= read_reg;</span></span>
 <span id="L659"><span class="lineNum">     659</span>              :             end</span>
 <span id="L660"><span class="lineNum">     660</span>              :         end</span>
 <span id="L661"><span class="lineNum">     661</span>              :     end // pk_chk</span>
 <span id="L662"><span class="lineNum">     662</span>              : </span>
-<span id="L663"><span class="lineNum">     663</span> <span class="tlaGNC tlaBgGNC">      229316 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L664"><span class="lineNum">     664</span> <span class="tlaGNC">      229316 :     begin : error_detection</span></span>
+<span id="L663"><span class="lineNum">     663</span> <span class="tlaGNC tlaBgGNC">      229428 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L664"><span class="lineNum">     664</span> <span class="tlaGNC">      229428 :     begin : error_detection</span></span>
 <span id="L665"><span class="lineNum">     665</span> <span class="tlaGNC">           4 :         if(!reset_n) begin</span></span>
 <span id="L666"><span class="lineNum">     666</span> <span class="tlaGNC">           4 :             error_flag_reg &lt;= '0;</span></span>
 <span id="L667"><span class="lineNum">     667</span>              :         end</span>
-<span id="L668"><span class="lineNum">     668</span> <span class="tlaGNC">      229312 :         else if(zeroize_reg) begin</span></span>
+<span id="L668"><span class="lineNum">     668</span> <span class="tlaGNC">      229424 :         else if(zeroize_reg) begin</span></span>
 <span id="L669"><span class="lineNum">     669</span> <span class="tlaUNC tlaBgUNC">           0 :             error_flag_reg &lt;= '0;</span></span>
 <span id="L670"><span class="lineNum">     670</span>              :         end</span>
-<span id="L671"><span class="lineNum">     671</span> <span class="tlaGNC tlaBgGNC">      229312 :         else begin</span></span>
-<span id="L672"><span class="lineNum">     672</span> <span class="tlaGNC">      229312 :             error_flag_reg  &lt;= error_flag;</span></span>
+<span id="L671"><span class="lineNum">     671</span> <span class="tlaGNC tlaBgGNC">      229424 :         else begin</span></span>
+<span id="L672"><span class="lineNum">     672</span> <span class="tlaGNC">      229424 :             error_flag_reg  &lt;= error_flag;</span></span>
 <span id="L673"><span class="lineNum">     673</span>              :         end</span>
 <span id="L674"><span class="lineNum">     674</span>              :     end // error_detection</span>
 <span id="L675"><span class="lineNum">     675</span>              : </span>
@@ -800,8 +800,8 @@
 <span id="L696"><span class="lineNum">     696</span>              :     // perform different operations.</span>
 <span id="L697"><span class="lineNum">     697</span>              :     // Active low and async reset.</span>
 <span id="L698"><span class="lineNum">     698</span>              :     //----------------------------------------------------------------</span>
-<span id="L699"><span class="lineNum">     699</span> <span class="tlaGNC">      229316 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L700"><span class="lineNum">     700</span> <span class="tlaGNC">      229316 :     begin : ECDSA_FSM</span></span>
+<span id="L699"><span class="lineNum">     699</span> <span class="tlaGNC">      229428 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L700"><span class="lineNum">     700</span> <span class="tlaGNC">      229428 :     begin : ECDSA_FSM</span></span>
 <span id="L701"><span class="lineNum">     701</span> <span class="tlaGNC">           4 :         if(!reset_n) begin</span></span>
 <span id="L702"><span class="lineNum">     702</span> <span class="tlaGNC">           4 :             prog_cntr           &lt;= DSA_RESET;</span></span>
 <span id="L703"><span class="lineNum">     703</span> <span class="tlaGNC">           4 :             cycle_cnt           &lt;= '0;</span></span>
@@ -815,7 +815,7 @@
 <span id="L711"><span class="lineNum">     711</span> <span class="tlaGNC">           4 :             signing_process     &lt;= 0;</span></span>
 <span id="L712"><span class="lineNum">     712</span> <span class="tlaGNC">           4 :             verifying_process   &lt;= 0;</span></span>
 <span id="L713"><span class="lineNum">     713</span>              :         end</span>
-<span id="L714"><span class="lineNum">     714</span> <span class="tlaGNC">      229312 :         else if(zeroize_reg) begin</span></span>
+<span id="L714"><span class="lineNum">     714</span> <span class="tlaGNC">      229424 :         else if(zeroize_reg) begin</span></span>
 <span id="L715"><span class="lineNum">     715</span> <span class="tlaUNC tlaBgUNC">           0 :             prog_cntr           &lt;= DSA_RESET;</span></span>
 <span id="L716"><span class="lineNum">     716</span> <span class="tlaUNC">           0 :             cycle_cnt           &lt;= '0;</span></span>
 <span id="L717"><span class="lineNum">     717</span> <span class="tlaUNC">           0 :             pm_cmd_reg          &lt;= '0;</span></span>
@@ -828,7 +828,7 @@
 <span id="L724"><span class="lineNum">     724</span> <span class="tlaUNC">           0 :             signing_process     &lt;= 0;</span></span>
 <span id="L725"><span class="lineNum">     725</span> <span class="tlaUNC">           0 :             verifying_process   &lt;= 0;</span></span>
 <span id="L726"><span class="lineNum">     726</span>              :         end</span>
-<span id="L727"><span class="lineNum">     727</span> <span class="tlaGNC tlaBgGNC">      229312 :         else begin</span></span>
+<span id="L727"><span class="lineNum">     727</span> <span class="tlaGNC tlaBgGNC">      229424 :         else begin</span></span>
 <span id="L728"><span class="lineNum">     728</span> <span class="tlaUNC tlaBgUNC">           0 :             if (error_flag_edge) begin</span></span>
 <span id="L729"><span class="lineNum">     729</span> <span class="tlaUNC">           0 :                 prog_cntr       &lt;= DSA_NOP;</span></span>
 <span id="L730"><span class="lineNum">     730</span> <span class="tlaUNC">           0 :                 cycle_cnt       &lt;= 2'd3;</span></span>
@@ -846,15 +846,15 @@
 <span id="L742"><span class="lineNum">     742</span> <span class="tlaGNC tlaBgGNC">          36 :             else if (dsa_busy &amp; (cycle_cnt != 2'd3)) begin</span></span>
 <span id="L743"><span class="lineNum">     743</span> <span class="tlaGNC">          36 :                 cycle_cnt &lt;= cycle_cnt + 1;</span></span>
 <span id="L744"><span class="lineNum">     744</span>              :             end</span>
-<span id="L745"><span class="lineNum">     745</span> <span class="tlaGNC">      229276 :             else begin</span></span>
-<span id="L746"><span class="lineNum">     746</span> <span class="tlaGNC">      229276 :                 cycle_cnt &lt;= '0;</span></span>
-<span id="L747"><span class="lineNum">     747</span> <span class="tlaGNC">      229276 :                 unique case (prog_cntr)</span></span>
-<span id="L748"><span class="lineNum">     748</span> <span class="tlaGNC">      229264 :                     DSA_NOP : begin </span></span>
-<span id="L749"><span class="lineNum">     749</span> <span class="tlaGNC">      229264 :                         keygen_process      &lt;= 0;</span></span>
-<span id="L750"><span class="lineNum">     750</span> <span class="tlaGNC">      229264 :                         signing_process     &lt;= 0;</span></span>
-<span id="L751"><span class="lineNum">     751</span> <span class="tlaGNC">      229264 :                         verifying_process   &lt;= 0;</span></span>
+<span id="L745"><span class="lineNum">     745</span> <span class="tlaGNC">      229388 :             else begin</span></span>
+<span id="L746"><span class="lineNum">     746</span> <span class="tlaGNC">      229388 :                 cycle_cnt &lt;= '0;</span></span>
+<span id="L747"><span class="lineNum">     747</span> <span class="tlaGNC">      229388 :                 unique case (prog_cntr)</span></span>
+<span id="L748"><span class="lineNum">     748</span> <span class="tlaGNC">      229376 :                     DSA_NOP : begin </span></span>
+<span id="L749"><span class="lineNum">     749</span> <span class="tlaGNC">      229376 :                         keygen_process      &lt;= 0;</span></span>
+<span id="L750"><span class="lineNum">     750</span> <span class="tlaGNC">      229376 :                         signing_process     &lt;= 0;</span></span>
+<span id="L751"><span class="lineNum">     751</span> <span class="tlaGNC">      229376 :                         verifying_process   &lt;= 0;</span></span>
 <span id="L752"><span class="lineNum">     752</span>              :                         // Waiting for new valid command </span>
-<span id="L753"><span class="lineNum">     753</span> <span class="tlaGNC">      229264 :                         unique case (cmd_reg)</span></span>
+<span id="L753"><span class="lineNum">     753</span> <span class="tlaGNC">      229376 :                         unique case (cmd_reg)</span></span>
 <span id="L754"><span class="lineNum">     754</span> <span class="tlaUNC tlaBgUNC">           0 :                             KEYGEN : begin  // keygen</span></span>
 <span id="L755"><span class="lineNum">     755</span> <span class="tlaUNC">           0 :                                 prog_cntr &lt;= DSA_KG_S;</span></span>
 <span id="L756"><span class="lineNum">     756</span> <span class="tlaUNC">           0 :                                 dsa_valid_reg &lt;= 0;</span></span>
@@ -878,13 +878,13 @@
 <span id="L774"><span class="lineNum">     774</span> <span class="tlaUNC">           0 :                                 verifying_process &lt;= 1;</span></span>
 <span id="L775"><span class="lineNum">     775</span>              :                             end</span>
 <span id="L776"><span class="lineNum">     776</span>              : </span>
-<span id="L777"><span class="lineNum">     777</span> <span class="tlaGNC tlaBgGNC">      229264 :                             default : begin</span></span>
-<span id="L778"><span class="lineNum">     778</span> <span class="tlaGNC">      229264 :                                 prog_cntr &lt;= DSA_NOP;</span></span>
-<span id="L779"><span class="lineNum">     779</span> <span class="tlaGNC">      229264 :                                 scalar_G_sel &lt;= 0;</span></span>
+<span id="L777"><span class="lineNum">     777</span> <span class="tlaGNC tlaBgGNC">      229376 :                             default : begin</span></span>
+<span id="L778"><span class="lineNum">     778</span> <span class="tlaGNC">      229376 :                                 prog_cntr &lt;= DSA_NOP;</span></span>
+<span id="L779"><span class="lineNum">     779</span> <span class="tlaGNC">      229376 :                                 scalar_G_sel &lt;= 0;</span></span>
 <span id="L780"><span class="lineNum">     780</span>              :                             end</span>
 <span id="L781"><span class="lineNum">     781</span>              :                         endcase</span>
-<span id="L782"><span class="lineNum">     782</span> <span class="tlaGNC">      229264 :                         pm_cmd_reg  &lt;= '0;</span></span>
-<span id="L783"><span class="lineNum">     783</span> <span class="tlaGNC">      229264 :                         hmac_init   &lt;= 0;</span></span>
+<span id="L782"><span class="lineNum">     782</span> <span class="tlaGNC">      229376 :                         pm_cmd_reg  &lt;= '0;</span></span>
+<span id="L783"><span class="lineNum">     783</span> <span class="tlaGNC">      229376 :                         hmac_init   &lt;= 0;</span></span>
 <span id="L784"><span class="lineNum">     784</span>              :                     end                </span>
 <span id="L785"><span class="lineNum">     785</span>              : </span>
 <span id="L786"><span class="lineNum">     786</span> <span class="tlaUNC tlaBgUNC">           0 :                     DSA_KG_E : begin // end of keygen</span></span>
@@ -924,13 +924,13 @@
 <span id="L820"><span class="lineNum">     820</span>              :     end // ECDSA_FSM</span>
 <span id="L821"><span class="lineNum">     821</span>              : </span>
 <span id="L822"><span class="lineNum">     822</span>              :     // Generate a pulse to trig the interupt after finishing the operation</span>
-<span id="L823"><span class="lineNum">     823</span> <span class="tlaGNC">      229316 :     always_ff @(posedge clk or negedge reset_n)</span></span>
+<span id="L823"><span class="lineNum">     823</span> <span class="tlaGNC">      229428 :     always_ff @(posedge clk or negedge reset_n)</span></span>
 <span id="L824"><span class="lineNum">     824</span> <span class="tlaGNC">           4 :         if (!reset_n)</span></span>
 <span id="L825"><span class="lineNum">     825</span> <span class="tlaGNC">           4 :             ecc_status_done_d &lt;= 1'b0;</span></span>
-<span id="L826"><span class="lineNum">     826</span> <span class="tlaGNC">      229312 :         else if (zeroize_reg)</span></span>
+<span id="L826"><span class="lineNum">     826</span> <span class="tlaGNC">      229424 :         else if (zeroize_reg)</span></span>
 <span id="L827"><span class="lineNum">     827</span> <span class="tlaUNC tlaBgUNC">           0 :             ecc_status_done_d &lt;= 1'b0;</span></span>
 <span id="L828"><span class="lineNum">     828</span>              :         else</span>
-<span id="L829"><span class="lineNum">     829</span> <span class="tlaGNC tlaBgGNC">      229312 :             ecc_status_done_d &lt;= hwif_in.ECC_STATUS.VALID.next;</span></span>
+<span id="L829"><span class="lineNum">     829</span> <span class="tlaGNC tlaBgGNC">      229424 :             ecc_status_done_d &lt;= hwif_in.ECC_STATUS.VALID.next;</span></span>
 <span id="L830"><span class="lineNum">     830</span> <span class="tlaGNC">           1 :     always_comb ecc_status_done_p = hwif_in.ECC_STATUS.VALID.next &amp;&amp; !ecc_status_done_d;</span></span>
 <span id="L831"><span class="lineNum">     831</span>              : </span>
 <span id="L832"><span class="lineNum">     832</span>              :     // Set the ready/busy flag of ECC</span>

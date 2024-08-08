@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -154,7 +154,7 @@
 <span id="L50"><span class="lineNum">      50</span>              :   // keep on sending alert events until the next reset.</span>
 <span id="L51"><span class="lineNum">      51</span>              :   parameter bit IsFatal = 1'b0</span>
 <span id="L52"><span class="lineNum">      52</span>              : ) (</span>
-<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC tlaBgGNC">     3259970 :   input             clk_i,</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC tlaBgGNC">     3259966 :   input             clk_i,</span></span>
 <span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">           7 :   input             rst_ni,</span></span>
 <span id="L55"><span class="lineNum">      55</span>              :   // alert test trigger (this will never be latched, even if IsFatal == 1)</span>
 <span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC tlaBgUNC">           0 :   input             alert_test_i,</span></span>
@@ -301,7 +301,7 @@
 <span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC">           2 :     alert_clr = 1'b0;</span></span>
 <span id="L198"><span class="lineNum">     198</span>              : </span>
 <span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC">           2 :     unique case (state_q)</span></span>
-<span id="L200"><span class="lineNum">     200</span> <span class="tlaGNC">     3259778 :       Idle: begin</span></span>
+<span id="L200"><span class="lineNum">     200</span> <span class="tlaGNC">     3260926 :       Idle: begin</span></span>
 <span id="L201"><span class="lineNum">     201</span>              :         // alert always takes precedence</span>
 <span id="L202"><span class="lineNum">     202</span> <span class="tlaUNC tlaBgUNC">           0 :         if (alert_trigger || ping_trigger) begin</span></span>
 <span id="L203"><span class="lineNum">     203</span> <span class="tlaUNC">           0 :           state_d = (alert_trigger) ? AlertHsPhase1 : PingHsPhase1;</span></span>
@@ -376,17 +376,17 @@
 <span id="L272"><span class="lineNum">     272</span>              :     .q_o({alert_nq, alert_pq})</span>
 <span id="L273"><span class="lineNum">     273</span>              :   );</span>
 <span id="L274"><span class="lineNum">     274</span>              : </span>
-<span id="L275"><span class="lineNum">     275</span> <span class="tlaGNC">     3259776 :   always_ff @(posedge clk_i or negedge rst_ni) begin : p_reg</span></span>
+<span id="L275"><span class="lineNum">     275</span> <span class="tlaGNC">     3260924 :   always_ff @(posedge clk_i or negedge rst_ni) begin : p_reg</span></span>
 <span id="L276"><span class="lineNum">     276</span> <span class="tlaGNC">          32 :     if (!rst_ni) begin</span></span>
 <span id="L277"><span class="lineNum">     277</span> <span class="tlaGNC">          32 :       state_q          &lt;= Idle;</span></span>
 <span id="L278"><span class="lineNum">     278</span> <span class="tlaGNC">          32 :       alert_set_q      &lt;= 1'b0;</span></span>
 <span id="L279"><span class="lineNum">     279</span> <span class="tlaGNC">          32 :       alert_test_set_q &lt;= 1'b0;</span></span>
 <span id="L280"><span class="lineNum">     280</span> <span class="tlaGNC">          32 :       ping_set_q       &lt;= 1'b0;</span></span>
-<span id="L281"><span class="lineNum">     281</span> <span class="tlaGNC">     3259744 :     end else begin</span></span>
-<span id="L282"><span class="lineNum">     282</span> <span class="tlaGNC">     3259744 :       state_q          &lt;= state_d;</span></span>
-<span id="L283"><span class="lineNum">     283</span> <span class="tlaGNC">     3259744 :       alert_set_q      &lt;= alert_set_d;</span></span>
-<span id="L284"><span class="lineNum">     284</span> <span class="tlaGNC">     3259744 :       alert_test_set_q &lt;= alert_test_set_d;</span></span>
-<span id="L285"><span class="lineNum">     285</span> <span class="tlaGNC">     3259744 :       ping_set_q       &lt;= ping_set_d;</span></span>
+<span id="L281"><span class="lineNum">     281</span> <span class="tlaGNC">     3260892 :     end else begin</span></span>
+<span id="L282"><span class="lineNum">     282</span> <span class="tlaGNC">     3260892 :       state_q          &lt;= state_d;</span></span>
+<span id="L283"><span class="lineNum">     283</span> <span class="tlaGNC">     3260892 :       alert_set_q      &lt;= alert_set_d;</span></span>
+<span id="L284"><span class="lineNum">     284</span> <span class="tlaGNC">     3260892 :       alert_test_set_q &lt;= alert_test_set_d;</span></span>
+<span id="L285"><span class="lineNum">     285</span> <span class="tlaGNC">     3260892 :       ping_set_q       &lt;= ping_set_d;</span></span>
 <span id="L286"><span class="lineNum">     286</span>              :     end</span>
 <span id="L287"><span class="lineNum">     287</span>              :   end</span>
 <span id="L288"><span class="lineNum">     288</span>              : </span>

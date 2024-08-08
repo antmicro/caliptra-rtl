@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -119,7 +119,7 @@
 <span id="L15"><span class="lineNum">      15</span>              :   parameter  bit EnMasking = 0,</span>
 <span id="L16"><span class="lineNum">      16</span>              :   localparam int Share = (EnMasking) ? 2 : 1</span>
 <span id="L17"><span class="lineNum">      17</span>              : ) (</span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC tlaBgGNC">     3259970 :   input clk_i,</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC tlaBgGNC">     3259966 :   input clk_i,</span></span>
 <span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           7 :   input rst_ni,</span></span>
 <span id="L20"><span class="lineNum">      20</span>              : </span>
 <span id="L21"><span class="lineNum">      21</span>              :   // Message interface (FIFO)</span>
@@ -145,7 +145,7 @@
 <span id="L41"><span class="lineNum">      41</span> <span class="tlaUNC">           0 :   input        keccak_complete_i,</span></span>
 <span id="L42"><span class="lineNum">      42</span>              : </span>
 <span id="L43"><span class="lineNum">      43</span>              :   // configurations</span>
-<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC tlaBgGNC">        7686 :   input sha3_mode_e       mode_i,</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC tlaBgGNC">        7706 :   input sha3_mode_e       mode_i,</span></span>
 <span id="L45"><span class="lineNum">      45</span>              :   // strength_i is used in bytepad operation. bytepad() is used in cSHAKE only.</span>
 <span id="L46"><span class="lineNum">      46</span>              :   // SHA3, SHAKE doesn't have encode_N,S</span>
 <span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">           3 :   input keccak_strength_e strength_i,</span></span>
@@ -338,7 +338,7 @@
 <span id="L234"><span class="lineNum">     234</span>              :   // Inputs</span>
 <span id="L235"><span class="lineNum">     235</span>              : </span>
 <span id="L236"><span class="lineNum">     236</span>              :   // FSM moves to StPrefix only when cSHAKE is enabled</span>
-<span id="L237"><span class="lineNum">     237</span> <span class="tlaGNC tlaBgGNC">        7686 :   logic mode_eq_cshake;</span></span>
+<span id="L237"><span class="lineNum">     237</span> <span class="tlaGNC tlaBgGNC">        7706 :   logic mode_eq_cshake;</span></span>
 <span id="L238"><span class="lineNum">     238</span>              :   assign mode_eq_cshake = (mode_i == CShake) ? 1'b 1 : 1'b 0;</span>
 <span id="L239"><span class="lineNum">     239</span>              : </span>
 <span id="L240"><span class="lineNum">     240</span>              :   // `sent_blocksize` indicates the pad logic pushed block size data into</span>
@@ -369,12 +369,12 @@
 <span id="L265"><span class="lineNum">     265</span>              :   // prefix prior to see the process indicator.</span>
 <span id="L266"><span class="lineNum">     266</span> <span class="tlaUNC tlaBgUNC">           0 :   logic process_latched;</span></span>
 <span id="L267"><span class="lineNum">     267</span>              : </span>
-<span id="L268"><span class="lineNum">     268</span> <span class="tlaGNC tlaBgGNC">     1629888 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L268"><span class="lineNum">     268</span> <span class="tlaGNC tlaBgGNC">     1630462 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L269"><span class="lineNum">     269</span> <span class="tlaGNC">          16 :     if (!rst_ni) begin</span></span>
 <span id="L270"><span class="lineNum">     270</span> <span class="tlaGNC">          16 :       process_latched &lt;= 1'b 0;</span></span>
 <span id="L271"><span class="lineNum">     271</span> <span class="tlaUNC tlaBgUNC">           0 :     end else if (process_i) begin</span></span>
 <span id="L272"><span class="lineNum">     272</span> <span class="tlaUNC">           0 :       process_latched &lt;= 1'b 1;</span></span>
-<span id="L273"><span class="lineNum">     273</span> <span class="tlaGNC tlaBgGNC">     1629872 :     end else if (caliptra_prim_mubi_pkg::mubi4_test_true_strict(done_i)) begin</span></span>
+<span id="L273"><span class="lineNum">     273</span> <span class="tlaGNC tlaBgGNC">     1630446 :     end else if (caliptra_prim_mubi_pkg::mubi4_test_true_strict(done_i)) begin</span></span>
 <span id="L274"><span class="lineNum">     274</span> <span class="tlaUNC tlaBgUNC">           0 :       process_latched &lt;= 1'b0;</span></span>
 <span id="L275"><span class="lineNum">     275</span>              :     end</span>
 <span id="L276"><span class="lineNum">     276</span>              :   end</span>
@@ -395,9 +395,9 @@
 <span id="L291"><span class="lineNum">     291</span>              :   // Next logic and output logic ==============================================</span>
 <span id="L292"><span class="lineNum">     292</span>              :   // SEC_CM: ABSORBED.CTRL.MUBI</span>
 <span id="L293"><span class="lineNum">     293</span> <span class="tlaGNC tlaBgGNC">           1 :   caliptra_prim_mubi_pkg::mubi4_t absorbed_d;</span></span>
-<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC">     1629888 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC">     1630462 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L295"><span class="lineNum">     295</span> <span class="tlaGNC">          16 :     if (!rst_ni) absorbed_o &lt;= caliptra_prim_mubi_pkg::MuBi4False;</span></span>
-<span id="L296"><span class="lineNum">     296</span> <span class="tlaGNC">     1629872 :     else         absorbed_o &lt;= absorbed_d;</span></span>
+<span id="L296"><span class="lineNum">     296</span> <span class="tlaGNC">     1630446 :     else         absorbed_o &lt;= absorbed_d;</span></span>
 <span id="L297"><span class="lineNum">     297</span>              :   end</span>
 <span id="L298"><span class="lineNum">     298</span>              : </span>
 <span id="L299"><span class="lineNum">     299</span> <span class="tlaGNC">           1 :   always_comb begin</span></span>
@@ -427,7 +427,7 @@
 <span id="L323"><span class="lineNum">     323</span>              :       // hashing mode, FSM may push additional prefex in front of the actual</span>
 <span id="L324"><span class="lineNum">     324</span>              :       // message. It means, the message could be back-pressured until the first</span>
 <span id="L325"><span class="lineNum">     325</span>              :       // prefix is processed.</span>
-<span id="L326"><span class="lineNum">     326</span> <span class="tlaGNC">     1629888 :       StPadIdle: begin</span></span>
+<span id="L326"><span class="lineNum">     326</span> <span class="tlaGNC">     1630462 :       StPadIdle: begin</span></span>
 <span id="L327"><span class="lineNum">     327</span> <span class="tlaUNC tlaBgUNC">           0 :         if (start_i) begin</span></span>
 <span id="L328"><span class="lineNum">     328</span>              :           // If cSHAKE, move to Prefix state</span>
 <span id="L329"><span class="lineNum">     329</span> <span class="tlaUNC">           0 :           if (mode_eq_cshake) begin</span></span>
@@ -435,8 +435,8 @@
 <span id="L331"><span class="lineNum">     331</span> <span class="tlaUNC">           0 :           end else begin</span></span>
 <span id="L332"><span class="lineNum">     332</span> <span class="tlaUNC">           0 :             st_d = StMessage;</span></span>
 <span id="L333"><span class="lineNum">     333</span>              :           end</span>
-<span id="L334"><span class="lineNum">     334</span> <span class="tlaGNC tlaBgGNC">     1629888 :         end else begin</span></span>
-<span id="L335"><span class="lineNum">     335</span> <span class="tlaGNC">     1629888 :           st_d = StPadIdle;</span></span>
+<span id="L334"><span class="lineNum">     334</span> <span class="tlaGNC tlaBgGNC">     1630462 :         end else begin</span></span>
+<span id="L335"><span class="lineNum">     335</span> <span class="tlaGNC">     1630462 :           st_d = StPadIdle;</span></span>
 <span id="L336"><span class="lineNum">     336</span>              :         end</span>
 <span id="L337"><span class="lineNum">     337</span>              :       end</span>
 <span id="L338"><span class="lineNum">     338</span>              : </span>
@@ -701,7 +701,7 @@
 <span id="L597"><span class="lineNum">     597</span> <span class="tlaUNC">           0 :       MuxZeroEnd: keccak_data_o = zero_with_endbit;</span></span>
 <span id="L598"><span class="lineNum">     598</span>              : </span>
 <span id="L599"><span class="lineNum">     599</span>              :       // MuxNone</span>
-<span id="L600"><span class="lineNum">     600</span> <span class="tlaGNC tlaBgGNC">     1629889 :       default:  keccak_data_o = '{default:'0};</span></span>
+<span id="L600"><span class="lineNum">     600</span> <span class="tlaGNC tlaBgGNC">     1630463 :       default:  keccak_data_o = '{default:'0};</span></span>
 <span id="L601"><span class="lineNum">     601</span>              :     endcase</span>
 <span id="L602"><span class="lineNum">     602</span>              :   end</span>
 <span id="L603"><span class="lineNum">     603</span>              : </span>
@@ -713,7 +713,7 @@
 <span id="L609"><span class="lineNum">     609</span> <span class="tlaUNC">           0 :       MuxZeroEnd: keccak_valid_o = fsm_keccak_valid;</span></span>
 <span id="L610"><span class="lineNum">     610</span>              : </span>
 <span id="L611"><span class="lineNum">     611</span>              :       // MuxNone</span>
-<span id="L612"><span class="lineNum">     612</span> <span class="tlaGNC tlaBgGNC">     1629889 :       default:  keccak_valid_o = 1'b 0;</span></span>
+<span id="L612"><span class="lineNum">     612</span> <span class="tlaGNC tlaBgGNC">     1630463 :       default:  keccak_valid_o = 1'b 0;</span></span>
 <span id="L613"><span class="lineNum">     613</span>              :     endcase</span>
 <span id="L614"><span class="lineNum">     614</span>              :   end</span>
 <span id="L615"><span class="lineNum">     615</span>              : </span>
@@ -725,7 +725,7 @@
 <span id="L621"><span class="lineNum">     621</span> <span class="tlaUNC">           0 :       MuxZeroEnd: msg_ready_o = 1'b 0;</span></span>
 <span id="L622"><span class="lineNum">     622</span>              : </span>
 <span id="L623"><span class="lineNum">     623</span>              :       // MuxNone</span>
-<span id="L624"><span class="lineNum">     624</span> <span class="tlaGNC tlaBgGNC">     1629889 :       default: msg_ready_o = 1'b 0;</span></span>
+<span id="L624"><span class="lineNum">     624</span> <span class="tlaGNC tlaBgGNC">     1630463 :       default: msg_ready_o = 1'b 0;</span></span>
 <span id="L625"><span class="lineNum">     625</span>              :     endcase</span>
 <span id="L626"><span class="lineNum">     626</span>              :   end</span>
 <span id="L627"><span class="lineNum">     627</span>              : </span>
@@ -766,7 +766,7 @@
 <span id="L662"><span class="lineNum">     662</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [MsgWidth-8-1:0] msg_buf [Share];</span></span>
 <span id="L663"><span class="lineNum">     663</span> <span class="tlaUNC">           0 :   logic [MsgStrbW-1-1:0] msg_strb;</span></span>
 <span id="L664"><span class="lineNum">     664</span>              : </span>
-<span id="L665"><span class="lineNum">     665</span> <span class="tlaGNC tlaBgGNC">     1629888 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L665"><span class="lineNum">     665</span> <span class="tlaGNC tlaBgGNC">     1630462 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L666"><span class="lineNum">     666</span> <span class="tlaGNC">          16 :     if (!rst_ni) begin</span></span>
 <span id="L667"><span class="lineNum">     667</span> <span class="tlaGNC">          16 :       msg_buf  &lt;= '{default:'0};</span></span>
 <span id="L668"><span class="lineNum">     668</span> <span class="tlaGNC">          16 :       msg_strb &lt;= '0;</span></span>
@@ -775,7 +775,7 @@
 <span id="L671"><span class="lineNum">     671</span> <span class="tlaUNC">           0 :         msg_buf[i]  &lt;= msg_data_i[i][0+:(MsgWidth-8)];</span></span>
 <span id="L672"><span class="lineNum">     672</span>              :       end</span>
 <span id="L673"><span class="lineNum">     673</span> <span class="tlaUNC">           0 :       msg_strb &lt;= msg_strb_i[0+:(MsgStrbW-1)];</span></span>
-<span id="L674"><span class="lineNum">     674</span> <span class="tlaGNC tlaBgGNC">     1629872 :     end else if (clr_msgbuf) begin</span></span>
+<span id="L674"><span class="lineNum">     674</span> <span class="tlaGNC tlaBgGNC">     1630446 :     end else if (clr_msgbuf) begin</span></span>
 <span id="L675"><span class="lineNum">     675</span> <span class="tlaUNC tlaBgUNC">           0 :       msg_buf  &lt;= '{default:'0};</span></span>
 <span id="L676"><span class="lineNum">     676</span> <span class="tlaUNC">           0 :       msg_strb &lt;= '0;</span></span>
 <span id="L677"><span class="lineNum">     677</span>              :     end</span>
@@ -823,7 +823,7 @@
 <span id="L719"><span class="lineNum">     719</span>              :   end else begin : gen_funcpad_data_unmasked</span>
 <span id="L720"><span class="lineNum">     720</span> <span class="tlaGNC tlaBgGNC">           1 :     always_comb begin</span></span>
 <span id="L721"><span class="lineNum">     721</span> <span class="tlaGNC">           1 :       unique case (msg_strb)</span></span>
-<span id="L722"><span class="lineNum">     722</span> <span class="tlaGNC">     1629889 :         7'b 000_0000: funcpad_data[0] = {end_of_block, 63'(funcpad)                  };</span></span>
+<span id="L722"><span class="lineNum">     722</span> <span class="tlaGNC">     1630463 :         7'b 000_0000: funcpad_data[0] = {end_of_block, 63'(funcpad)                  };</span></span>
 <span id="L723"><span class="lineNum">     723</span> <span class="tlaUNC tlaBgUNC">           0 :         7'b 000_0001: funcpad_data[0] = {end_of_block, 55'(funcpad), msg_buf[0][ 7:0]};</span></span>
 <span id="L724"><span class="lineNum">     724</span> <span class="tlaUNC">           0 :         7'b 000_0011: funcpad_data[0] = {end_of_block, 47'(funcpad), msg_buf[0][15:0]};</span></span>
 <span id="L725"><span class="lineNum">     725</span> <span class="tlaUNC">           0 :         7'b 000_0111: funcpad_data[0] = {end_of_block, 39'(funcpad), msg_buf[0][23:0]};</span></span>
@@ -881,31 +881,31 @@
 <span id="L777"><span class="lineNum">     777</span>              :   // qualifiers in RTL form is easier.</span>
 <span id="L778"><span class="lineNum">     778</span> <span class="tlaGNC tlaBgGNC">           1 :   logic start_valid, process_valid, absorb_valid, done_valid;</span></span>
 <span id="L779"><span class="lineNum">     779</span>              : </span>
-<span id="L780"><span class="lineNum">     780</span> <span class="tlaGNC">     1629888 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L780"><span class="lineNum">     780</span> <span class="tlaGNC">     1630462 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L781"><span class="lineNum">     781</span> <span class="tlaGNC">          16 :     if (!rst_ni) begin</span></span>
 <span id="L782"><span class="lineNum">     782</span> <span class="tlaGNC">          16 :       start_valid &lt;= 1'b 1;</span></span>
 <span id="L783"><span class="lineNum">     783</span> <span class="tlaUNC tlaBgUNC">           0 :     end else if (start_i) begin</span></span>
 <span id="L784"><span class="lineNum">     784</span> <span class="tlaUNC">           0 :       start_valid &lt;= 1'b 0;</span></span>
-<span id="L785"><span class="lineNum">     785</span> <span class="tlaGNC tlaBgGNC">     1629872 :     end else if (caliptra_prim_mubi_pkg::mubi4_test_true_strict(done_i)) begin</span></span>
+<span id="L785"><span class="lineNum">     785</span> <span class="tlaGNC tlaBgGNC">     1630446 :     end else if (caliptra_prim_mubi_pkg::mubi4_test_true_strict(done_i)) begin</span></span>
 <span id="L786"><span class="lineNum">     786</span> <span class="tlaUNC tlaBgUNC">           0 :       start_valid &lt;= 1'b 1;</span></span>
 <span id="L787"><span class="lineNum">     787</span>              :     end</span>
 <span id="L788"><span class="lineNum">     788</span>              :   end</span>
-<span id="L789"><span class="lineNum">     789</span> <span class="tlaGNC tlaBgGNC">     1629888 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L789"><span class="lineNum">     789</span> <span class="tlaGNC tlaBgGNC">     1630462 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L790"><span class="lineNum">     790</span> <span class="tlaGNC">          16 :     if (!rst_ni) begin</span></span>
 <span id="L791"><span class="lineNum">     791</span> <span class="tlaGNC">          16 :       process_valid &lt;= 1'b 0;</span></span>
 <span id="L792"><span class="lineNum">     792</span> <span class="tlaUNC tlaBgUNC">           0 :     end else if (start_i) begin</span></span>
 <span id="L793"><span class="lineNum">     793</span> <span class="tlaUNC">           0 :       process_valid &lt;= 1'b 1;</span></span>
-<span id="L794"><span class="lineNum">     794</span> <span class="tlaGNC tlaBgGNC">     1629872 :     end else if (process_i) begin</span></span>
+<span id="L794"><span class="lineNum">     794</span> <span class="tlaGNC tlaBgGNC">     1630446 :     end else if (process_i) begin</span></span>
 <span id="L795"><span class="lineNum">     795</span> <span class="tlaUNC tlaBgUNC">           0 :       process_valid &lt;= 1'b 0;</span></span>
 <span id="L796"><span class="lineNum">     796</span>              :     end</span>
 <span id="L797"><span class="lineNum">     797</span>              :   end</span>
 <span id="L798"><span class="lineNum">     798</span>              : </span>
-<span id="L799"><span class="lineNum">     799</span> <span class="tlaGNC tlaBgGNC">     1629888 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L799"><span class="lineNum">     799</span> <span class="tlaGNC tlaBgGNC">     1630462 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L800"><span class="lineNum">     800</span> <span class="tlaGNC">          16 :     if (!rst_ni) begin</span></span>
 <span id="L801"><span class="lineNum">     801</span> <span class="tlaGNC">          16 :       done_valid &lt;= 1'b 0;</span></span>
 <span id="L802"><span class="lineNum">     802</span> <span class="tlaUNC tlaBgUNC">           0 :     end else if (caliptra_prim_mubi_pkg::mubi4_test_true_strict(absorbed_o)) begin</span></span>
 <span id="L803"><span class="lineNum">     803</span> <span class="tlaUNC">           0 :       done_valid &lt;= 1'b 1;</span></span>
-<span id="L804"><span class="lineNum">     804</span> <span class="tlaGNC tlaBgGNC">     1629872 :     end else if (caliptra_prim_mubi_pkg::mubi4_test_true_strict(done_i)) begin</span></span>
+<span id="L804"><span class="lineNum">     804</span> <span class="tlaGNC tlaBgGNC">     1630446 :     end else if (caliptra_prim_mubi_pkg::mubi4_test_true_strict(done_i)) begin</span></span>
 <span id="L805"><span class="lineNum">     805</span> <span class="tlaUNC tlaBgUNC">           0 :       done_valid &lt;= 1'b 0;</span></span>
 <span id="L806"><span class="lineNum">     806</span>              :     end</span>
 <span id="L807"><span class="lineNum">     807</span>              :   end</span>

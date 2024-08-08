@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -136,15 +136,15 @@
 <span id="L32"><span class="lineNum">      32</span>              :   // Reset value for the sync flops</span>
 <span id="L33"><span class="lineNum">      33</span>              :   parameter mubi8_t ResetValue = MuBi8False</span>
 <span id="L34"><span class="lineNum">      34</span>              : ) (</span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">      864324 :   input                          clk_i,</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">          21 :   input                          rst_ni,</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">      458284 :   input                          clk_i,</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">           1 :   input                          rst_ni,</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           3 :   input  mubi8_t                 mubi_i,</span></span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">          21 :   output mubi8_t [NumCopies-1:0] mubi_o</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           1 :   output mubi8_t [NumCopies-1:0] mubi_o</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : );</span>
 <span id="L40"><span class="lineNum">      40</span>              : </span>
 <span id="L41"><span class="lineNum">      41</span>              :   `CALIPTRA_ASSERT_INIT(NumCopiesMustBeGreaterZero_A, NumCopies &gt; 0)</span>
 <span id="L42"><span class="lineNum">      42</span>              : </span>
-<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">          21 :   logic [MuBi8Width-1:0] mubi;</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">           1 :   logic [MuBi8Width-1:0] mubi;</span></span>
 <span id="L44"><span class="lineNum">      44</span>              :   if (AsyncOn) begin : gen_flops</span>
 <span id="L45"><span class="lineNum">      45</span>              :     logic [MuBi8Width-1:0] mubi_sync;</span>
 <span id="L46"><span class="lineNum">      46</span>              :     caliptra_prim_flop_2sync #(</span>

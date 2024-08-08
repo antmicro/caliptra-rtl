@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -124,13 +124,13 @@
 <span id="L20"><span class="lineNum">      20</span>              : `include "el2_param.vh"</span>
 <span id="L21"><span class="lineNum">      21</span>              : )</span>
 <span id="L22"><span class="lineNum">      22</span>              :   (</span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">     3259968 :    input logic           clk,                       // Top level clock</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC tlaBgGNC">     3259964 :    input logic           clk,                       // Top level clock</span></span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           7 :    input logic           rst_l,                     // Reset</span></span>
 <span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic           scan_mode,                 // Scan mode</span></span>
 <span id="L26"><span class="lineNum">      26</span>              : </span>
 <span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC tlaBgGNC">          12 :    input el2_div_pkt_t  dp,                        // valid, sign, rem</span></span>
-<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">         548 :    input logic  [31:0]   dividend,                  // Numerator</span></span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">      161628 :    input logic  [31:0]   divisor,                   // Denominator</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">         478 :    input logic  [31:0]   dividend,                  // Numerator</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">      161580 :    input logic  [31:0]   divisor,                   // Denominator</span></span>
 <span id="L30"><span class="lineNum">      30</span>              : </span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic           cancel,                    // Cancel divide</span></span>
 <span id="L32"><span class="lineNum">      32</span>              : </span>
@@ -1414,16 +1414,16 @@
 <span id="L1310"><span class="lineNum">    1310</span>              : // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</span>
 <span id="L1311"><span class="lineNum">    1311</span>              : module el2_exu_div_new_4bit_fullshortq</span>
 <span id="L1312"><span class="lineNum">    1312</span>              :   (</span>
-<span id="L1313"><span class="lineNum">    1313</span> <span class="tlaGNC tlaBgGNC">     3259968 :    input  logic            clk,                       // Top level clock</span></span>
+<span id="L1313"><span class="lineNum">    1313</span> <span class="tlaGNC tlaBgGNC">     3259964 :    input  logic            clk,                       // Top level clock</span></span>
 <span id="L1314"><span class="lineNum">    1314</span> <span class="tlaGNC">           7 :    input  logic            rst_l,                     // Reset</span></span>
 <span id="L1315"><span class="lineNum">    1315</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic            scan_mode,                 // Scan mode</span></span>
 <span id="L1316"><span class="lineNum">    1316</span>              : </span>
 <span id="L1317"><span class="lineNum">    1317</span> <span class="tlaUNC">           0 :    input  logic            cancel,                    // Flush pipeline</span></span>
 <span id="L1318"><span class="lineNum">    1318</span> <span class="tlaGNC tlaBgGNC">          24 :    input  logic            valid_in,</span></span>
-<span id="L1319"><span class="lineNum">    1319</span> <span class="tlaGNC">       20901 :    input  logic            signed_in,</span></span>
+<span id="L1319"><span class="lineNum">    1319</span> <span class="tlaGNC">       20911 :    input  logic            signed_in,</span></span>
 <span id="L1320"><span class="lineNum">    1320</span> <span class="tlaGNC">          12 :    input  logic            rem_in,</span></span>
-<span id="L1321"><span class="lineNum">    1321</span> <span class="tlaGNC">         548 :    input  logic [31:0]     dividend_in,</span></span>
-<span id="L1322"><span class="lineNum">    1322</span> <span class="tlaGNC">      161628 :    input  logic [31:0]     divisor_in,</span></span>
+<span id="L1321"><span class="lineNum">    1321</span> <span class="tlaGNC">         478 :    input  logic [31:0]     dividend_in,</span></span>
+<span id="L1322"><span class="lineNum">    1322</span> <span class="tlaGNC">      161580 :    input  logic [31:0]     divisor_in,</span></span>
 <span id="L1323"><span class="lineNum">    1323</span>              : </span>
 <span id="L1324"><span class="lineNum">    1324</span> <span class="tlaGNC">          24 :    output logic            valid_out,</span></span>
 <span id="L1325"><span class="lineNum">    1325</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic [31:0]     data_out</span></span>
@@ -1446,7 +1446,7 @@
 <span id="L1342"><span class="lineNum">    1342</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        [31:0]     a_in, a_ff;</span></span>
 <span id="L1343"><span class="lineNum">    1343</span>              : </span>
 <span id="L1344"><span class="lineNum">    1344</span> <span class="tlaGNC tlaBgGNC">          24 :    logic                   b_enable, b_twos_comp;</span></span>
-<span id="L1345"><span class="lineNum">    1345</span> <span class="tlaGNC">      161652 :    logic        [32:0]     b_in;</span></span>
+<span id="L1345"><span class="lineNum">    1345</span> <span class="tlaGNC">      161604 :    logic        [32:0]     b_in;</span></span>
 <span id="L1346"><span class="lineNum">    1346</span> <span class="tlaGNC">           1 :    logic        [37:0]     b_ff;</span></span>
 <span id="L1347"><span class="lineNum">    1347</span>              : </span>
 <span id="L1348"><span class="lineNum">    1348</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        [31:0]     q_in, q_ff;</span></span>

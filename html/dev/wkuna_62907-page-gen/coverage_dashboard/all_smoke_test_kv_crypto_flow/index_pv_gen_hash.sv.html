@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              :     ,localparam NONCE_OFFSET_W = $clog2(NONCE_LEN_DWORD)</span>
 <span id="L28"><span class="lineNum">      28</span>              :     )</span>
 <span id="L29"><span class="lineNum">      29</span>              :     (</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     3259970 :     input logic clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     3259966 :     input logic clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           7 :     input logic rst_b,</span></span>
 <span id="L32"><span class="lineNum">      32</span>              : </span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic start,</span></span>
@@ -254,7 +254,7 @@
 <span id="L150"><span class="lineNum">     150</span> <span class="tlaGNC">           1 :     block_wr_data = '0;</span></span>
 <span id="L151"><span class="lineNum">     151</span>              : </span>
 <span id="L152"><span class="lineNum">     152</span> <span class="tlaGNC">           1 :     unique case (gen_hash_fsm_ps) inside</span></span>
-<span id="L153"><span class="lineNum">     153</span> <span class="tlaGNC">     1629889 :       GEN_HASH_IDLE: begin</span></span>
+<span id="L153"><span class="lineNum">     153</span> <span class="tlaGNC">     1630463 :       GEN_HASH_IDLE: begin</span></span>
 <span id="L154"><span class="lineNum">     154</span> <span class="tlaUNC tlaBgUNC">           0 :         if (arc_GEN_HASH_IDLE_GEN_HASH_BLOCK_0) gen_hash_fsm_ns = GEN_HASH_BLOCK_0;</span></span>
 <span id="L155"><span class="lineNum">     155</span>              :       end</span>
 <span id="L156"><span class="lineNum">     156</span> <span class="tlaUNC">           0 :       GEN_HASH_BLOCK_0: begin</span></span>
@@ -299,7 +299,7 @@
 <span id="L195"><span class="lineNum">     195</span>              :   assign pv_read.read_entry = read_entry;</span>
 <span id="L196"><span class="lineNum">     196</span>              :   assign pv_read.read_offset = read_offset;</span>
 <span id="L197"><span class="lineNum">     197</span>              : </span>
-<span id="L198"><span class="lineNum">     198</span> <span class="tlaGNC tlaBgGNC">     1629888 :   always_ff @(posedge clk or negedge rst_b) begin : api_regs</span></span>
+<span id="L198"><span class="lineNum">     198</span> <span class="tlaGNC tlaBgGNC">     1630462 :   always_ff @(posedge clk or negedge rst_b) begin : api_regs</span></span>
 <span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC">          16 :     if (~rst_b) begin</span></span>
 <span id="L200"><span class="lineNum">     200</span> <span class="tlaGNC">          16 :       gen_hash_fsm_ps &lt;= GEN_HASH_IDLE;</span></span>
 <span id="L201"><span class="lineNum">     201</span> <span class="tlaGNC">          16 :       block_offset_i &lt;= '0;</span></span>
@@ -307,12 +307,12 @@
 <span id="L203"><span class="lineNum">     203</span> <span class="tlaGNC">          16 :       read_entry &lt;= '0;</span></span>
 <span id="L204"><span class="lineNum">     204</span> <span class="tlaGNC">          16 :       read_offset &lt;= '0;</span></span>
 <span id="L205"><span class="lineNum">     205</span>              :     end</span>
-<span id="L206"><span class="lineNum">     206</span> <span class="tlaGNC">     1629872 :     else begin</span></span>
-<span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC">     1629872 :       gen_hash_fsm_ps &lt;= gen_hash_fsm_ns;</span></span>
-<span id="L208"><span class="lineNum">     208</span> <span class="tlaGNC">     1629872 :       block_offset_i &lt;= block_offset_nxt;</span></span>
-<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC">     1629872 :       nonce_offset_i &lt;= nonce_offset_nxt;</span></span>
-<span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">     1629872 :       read_entry &lt;= read_entry_nxt;</span></span>
-<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">     1629872 :       read_offset &lt;= read_offset_nxt;</span></span>
+<span id="L206"><span class="lineNum">     206</span> <span class="tlaGNC">     1630446 :     else begin</span></span>
+<span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC">     1630446 :       gen_hash_fsm_ps &lt;= gen_hash_fsm_ns;</span></span>
+<span id="L208"><span class="lineNum">     208</span> <span class="tlaGNC">     1630446 :       block_offset_i &lt;= block_offset_nxt;</span></span>
+<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC">     1630446 :       nonce_offset_i &lt;= nonce_offset_nxt;</span></span>
+<span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">     1630446 :       read_entry &lt;= read_entry_nxt;</span></span>
+<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">     1630446 :       read_offset &lt;= read_offset_nxt;</span></span>
 <span id="L212"><span class="lineNum">     212</span>              :     end</span>
 <span id="L213"><span class="lineNum">     213</span>              :   end</span>
 <span id="L214"><span class="lineNum">     214</span>              : </span>

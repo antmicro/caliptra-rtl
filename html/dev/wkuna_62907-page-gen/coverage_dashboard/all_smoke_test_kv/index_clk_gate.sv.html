@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -119,7 +119,7 @@
 <span id="L15"><span class="lineNum">      15</span>              : `include "config_defines.svh"</span>
 <span id="L16"><span class="lineNum">      16</span>              : </span>
 <span id="L17"><span class="lineNum">      17</span>              : module clk_gate (</span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC tlaBgGNC">    20107397 :     input logic clk,</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC tlaBgGNC">    20108323 :     input logic clk,</span></span>
 <span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">          35 :     input logic cptra_rst_b,</span></span>
 <span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">          42 :     input logic psel,</span></span>
 <span id="L21"><span class="lineNum">      21</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic clk_gate_en,</span></span>
@@ -129,10 +129,10 @@
 <span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC">           0 :     input logic [63:0] generic_input_wires,</span></span>
 <span id="L26"><span class="lineNum">      26</span> <span class="tlaUNC">           0 :     input logic cptra_error_fatal,</span></span>
 <span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC tlaBgGNC">          20 :     input logic cptra_in_debug_scan_mode,</span></span>
-<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">     8777610 :     output logic clk_cg,</span></span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">     8777610 :     output logic soc_ifc_clk_cg,</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">     8777610 :     output logic rdc_clk_cg,</span></span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">     8777596 :     output logic uc_clk_cg,</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">     8777606 :     output logic clk_cg,</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">     8777606 :     output logic soc_ifc_clk_cg,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">     8777606 :     output logic rdc_clk_cg,</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">     8777592 :     output logic uc_clk_cg,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC tlaBgUNC">           0 :     input  logic cptra_dmi_reg_en_preQ //JTAG access</span></span>
 <span id="L33"><span class="lineNum">      33</span>              : );</span>
 <span id="L34"><span class="lineNum">      34</span>              : </span>
@@ -165,12 +165,12 @@
 <span id="L61"><span class="lineNum">      61</span>              : **********************************************************************/</span>
 <span id="L62"><span class="lineNum">      62</span>              : </span>
 <span id="L63"><span class="lineNum">      63</span>              : //Flop generic input wires to detect change</span>
-<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC tlaBgGNC">     4389087 : always_ff@(posedge clk or negedge cptra_rst_b) begin</span></span>
+<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC tlaBgGNC">     4389661 : always_ff@(posedge clk or negedge cptra_rst_b) begin</span></span>
 <span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">         416 :     if(!cptra_rst_b) begin</span></span>
 <span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC">         416 :         generic_input_wires_f &lt;= 'h0;</span></span>
 <span id="L67"><span class="lineNum">      67</span>              :     end</span>
-<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">     4388671 :     else begin </span></span>
-<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">     4388671 :         generic_input_wires_f &lt;= generic_input_wires;</span></span>
+<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">     4389245 :     else begin </span></span>
+<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">     4389245 :         generic_input_wires_f &lt;= generic_input_wires;</span></span>
 <span id="L70"><span class="lineNum">      70</span>              :     end</span>
 <span id="L71"><span class="lineNum">      71</span>              : end</span>
 <span id="L72"><span class="lineNum">      72</span>              : </span>

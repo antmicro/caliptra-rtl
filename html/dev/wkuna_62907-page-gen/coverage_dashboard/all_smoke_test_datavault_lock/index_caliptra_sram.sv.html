@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -123,7 +123,7 @@
 <span id="L19"><span class="lineNum">      19</span>              : </span>
 <span id="L20"><span class="lineNum">      20</span>              :     )</span>
 <span id="L21"><span class="lineNum">      21</span>              :     (</span>
-<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC tlaBgGNC">    10735294 :     input  logic                       clk_i,</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC tlaBgGNC">    11751786 :     input  logic                       clk_i,</span></span>
 <span id="L23"><span class="lineNum">      23</span>              : </span>
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaUNC tlaBgUNC">           0 :     input  logic                       cs_i,</span></span>
 <span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC">           0 :     input  logic                       we_i,</span></span>
@@ -137,7 +137,7 @@
 <span id="L33"><span class="lineNum">      33</span>              :     //storage element</span>
 <span id="L34"><span class="lineNum">      34</span>              :     logic [7:0] ram [DEPTH][NUM_BYTES-1:0];</span>
 <span id="L35"><span class="lineNum">      35</span>              : </span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">     1429896 :     always @(posedge clk_i) begin</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">     1433715 :     always @(posedge clk_i) begin</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaUNC tlaBgUNC">           0 :         if (cs_i &amp; we_i) begin</span></span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC">           0 :             for (int i = 0; i &lt; NUM_BYTES; i++) begin</span></span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaUNC">           0 :                 ram[addr_i][i] &lt;= wdata_i[i*8 +: 8];</span></span>

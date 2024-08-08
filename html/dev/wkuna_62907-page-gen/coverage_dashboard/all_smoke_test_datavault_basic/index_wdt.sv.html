@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -119,7 +119,7 @@
 <span id="L15"><span class="lineNum">      15</span>              : module wdt</span>
 <span id="L16"><span class="lineNum">      16</span>              :     import soc_ifc_pkg::*;</span>
 <span id="L17"><span class="lineNum">      17</span>              : (</span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC tlaBgGNC">      458006 :     input  logic clk,</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC tlaBgGNC">      458284 :     input  logic clk,</span></span>
 <span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           1 :     input  logic cptra_rst_b,</span></span>
 <span id="L20"><span class="lineNum">      20</span>              :     //Timer inputs</span>
 <span id="L21"><span class="lineNum">      21</span> <span class="tlaUNC tlaBgUNC">           0 :     input  logic timer1_en,</span></span>
@@ -153,11 +153,11 @@
 <span id="L49"><span class="lineNum">      49</span>              : </span>
 <span id="L50"><span class="lineNum">      50</span>              : </span>
 <span id="L51"><span class="lineNum">      51</span>              : //Timer1</span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">      229316 : always_ff @(posedge clk or negedge cptra_rst_b) begin</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">      229428 : always_ff @(posedge clk or negedge cptra_rst_b) begin</span></span>
 <span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">           4 :     if(!cptra_rst_b) begin</span></span>
 <span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">           4 :         timer1_count &lt;= 'h0;</span></span>
 <span id="L55"><span class="lineNum">      55</span>              :     end</span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">      229312 :     else if(timer1_count_en) begin</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">      229424 :     else if(timer1_count_en) begin</span></span>
 <span id="L57"><span class="lineNum">      57</span>              :         //Count up always. If restart = 1, count from 0 again</span>
 <span id="L58"><span class="lineNum">      58</span>              :         //If it timed out, an intr is triggered to core. Don't reset</span>
 <span id="L59"><span class="lineNum">      59</span>              :         //until intr is serviced. If serviced, and t2 has not timed out,</span>
@@ -171,11 +171,11 @@
 <span id="L67"><span class="lineNum">      67</span>              : end</span>
 <span id="L68"><span class="lineNum">      68</span>              : </span>
 <span id="L69"><span class="lineNum">      69</span>              : //Timer2</span>
-<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC tlaBgGNC">      229316 : always_ff @(posedge clk or negedge cptra_rst_b) begin</span></span>
+<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC tlaBgGNC">      229428 : always_ff @(posedge clk or negedge cptra_rst_b) begin</span></span>
 <span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">           4 :     if(!cptra_rst_b) begin</span></span>
 <span id="L72"><span class="lineNum">      72</span> <span class="tlaGNC">           4 :         timer2_count &lt;= 'h0;</span></span>
 <span id="L73"><span class="lineNum">      73</span>              :     end</span>
-<span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">      229312 :     else if(timer2_count_en) begin</span></span>
+<span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">      229424 :     else if(timer2_count_en) begin</span></span>
 <span id="L75"><span class="lineNum">      75</span>              :         //If t1 timed out and an intr was triggered, once that is serviced</span>
 <span id="L76"><span class="lineNum">      76</span>              :         //and t2 has not yet timed out, restart both t1 and t2. Otherwise,</span>
 <span id="L77"><span class="lineNum">      77</span>              :         //hold the count. In case of time out, nmi and fatal error are triggered</span>

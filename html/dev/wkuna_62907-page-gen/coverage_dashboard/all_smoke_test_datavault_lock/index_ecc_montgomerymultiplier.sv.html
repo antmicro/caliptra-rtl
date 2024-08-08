@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -147,7 +147,7 @@
 <span id="L43"><span class="lineNum">      43</span>              : )</span>
 <span id="L44"><span class="lineNum">      44</span>              : (</span>
 <span id="L45"><span class="lineNum">      45</span>              :     // Clock and reset.</span>
-<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC tlaBgGNC">     2550888 :     input  wire                  clk,</span></span>
+<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC tlaBgGNC">     2867382 :     input  wire                  clk,</span></span>
 <span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">           1 :     input  wire                  reset_n,</span></span>
 <span id="L48"><span class="lineNum">      48</span> <span class="tlaUNC tlaBgUNC">           0 :     input  wire                  zeroize,</span></span>
 <span id="L49"><span class="lineNum">      49</span>              : </span>
@@ -200,7 +200,7 @@
 <span id="L96"><span class="lineNum">      96</span> <span class="tlaUNC">           0 :     logic   [(3*S_NUM)-1 : 0]         push_reg;</span></span>
 <span id="L97"><span class="lineNum">      97</span> <span class="tlaGNC tlaBgGNC">           1 :     logic                             push_reg_eq_zero;</span></span>
 <span id="L98"><span class="lineNum">      98</span> <span class="tlaGNC">           1 :     logic                             push_reg_eq_zero_ff;</span></span>
-<span id="L99"><span class="lineNum">      99</span> <span class="tlaGNC">     1275440 :     logic                             odd;</span></span>
+<span id="L99"><span class="lineNum">      99</span> <span class="tlaGNC">     1433687 :     logic                             odd;</span></span>
 <span id="L100"><span class="lineNum">     100</span> <span class="tlaUNC tlaBgUNC">           0 :     logic   [RADIX-1 : 0]             last_s_reg;</span></span>
 <span id="L101"><span class="lineNum">     101</span>              :     logic   [FULL_REG_SIZE-1:0]       p_internal;</span>
 <span id="L102"><span class="lineNum">     102</span>              :     logic   [FULL_REG_SIZE-1:0]       p_subtracted_internal;</span>
@@ -281,33 +281,33 @@
 <span id="L177"><span class="lineNum">     177</span>              :     </span>
 <span id="L178"><span class="lineNum">     178</span>              :     // Determines the input s for the final PE</span>
 <span id="L179"><span class="lineNum">     179</span>              :     assign s_array[PE_UNITS+1] = last_s_reg;</span>
-<span id="L180"><span class="lineNum">     180</span> <span class="tlaGNC">     1429872 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC">     1429872 :     begin</span></span>
+<span id="L180"><span class="lineNum">     180</span> <span class="tlaGNC">     1433691 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC">     1433691 :     begin</span></span>
 <span id="L182"><span class="lineNum">     182</span> <span class="tlaGNC">           4 :         if (~reset_n)</span></span>
 <span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC">           4 :             last_s_reg &lt;= 'b0;</span></span>
 <span id="L184"><span class="lineNum">     184</span> <span class="tlaUNC tlaBgUNC">           0 :         else if (zeroize)</span></span>
 <span id="L185"><span class="lineNum">     185</span> <span class="tlaUNC">           0 :             last_s_reg &lt;= 'b0;</span></span>
-<span id="L186"><span class="lineNum">     186</span> <span class="tlaGNC tlaBgGNC">     1429868 :         else if (start_i)</span></span>
+<span id="L186"><span class="lineNum">     186</span> <span class="tlaGNC tlaBgGNC">     1433687 :         else if (start_i)</span></span>
 <span id="L187"><span class="lineNum">     187</span> <span class="tlaUNC tlaBgUNC">           0 :             last_s_reg &lt;= 'b0;</span></span>
 <span id="L188"><span class="lineNum">     188</span>              :         else</span>
-<span id="L189"><span class="lineNum">     189</span> <span class="tlaGNC tlaBgGNC">     1429868 :             last_s_reg &lt;= c_array[PE_UNITS+1][RADIX-1:0];</span></span>
+<span id="L189"><span class="lineNum">     189</span> <span class="tlaGNC tlaBgGNC">     1433687 :             last_s_reg &lt;= c_array[PE_UNITS+1][RADIX-1:0];</span></span>
 <span id="L190"><span class="lineNum">     190</span>              :     end</span>
 <span id="L191"><span class="lineNum">     191</span>              : </span>
 <span id="L192"><span class="lineNum">     192</span>              :     // Set odd flag</span>
-<span id="L193"><span class="lineNum">     193</span> <span class="tlaGNC">     1429872 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC">     1429872 :     begin</span></span>
+<span id="L193"><span class="lineNum">     193</span> <span class="tlaGNC">     1433691 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC">     1433691 :     begin</span></span>
 <span id="L195"><span class="lineNum">     195</span> <span class="tlaGNC">           4 :         if (~reset_n)</span></span>
 <span id="L196"><span class="lineNum">     196</span> <span class="tlaGNC">           4 :             odd &lt;= 0;</span></span>
 <span id="L197"><span class="lineNum">     197</span> <span class="tlaUNC tlaBgUNC">           0 :         else if (zeroize)</span></span>
 <span id="L198"><span class="lineNum">     198</span> <span class="tlaUNC">           0 :             odd &lt;= 0;</span></span>
-<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC tlaBgGNC">     1429868 :         else if (start_i)</span></span>
+<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC tlaBgGNC">     1433687 :         else if (start_i)</span></span>
 <span id="L200"><span class="lineNum">     200</span> <span class="tlaUNC tlaBgUNC">           0 :             odd &lt;= 1'b1;</span></span>
 <span id="L201"><span class="lineNum">     201</span>              :         else</span>
-<span id="L202"><span class="lineNum">     202</span> <span class="tlaGNC tlaBgGNC">     1429868 :             odd &lt;= ~odd;</span></span>
+<span id="L202"><span class="lineNum">     202</span> <span class="tlaGNC tlaBgGNC">     1433687 :             odd &lt;= ~odd;</span></span>
 <span id="L203"><span class="lineNum">     203</span>              :     end</span>
 <span id="L204"><span class="lineNum">     204</span>              : </span>
-<span id="L205"><span class="lineNum">     205</span> <span class="tlaGNC">     1429872 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L206"><span class="lineNum">     206</span> <span class="tlaGNC">     1429872 :     begin : input_reg</span></span>
+<span id="L205"><span class="lineNum">     205</span> <span class="tlaGNC">     1433691 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L206"><span class="lineNum">     206</span> <span class="tlaGNC">     1433691 :     begin : input_reg</span></span>
 <span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC">           4 :         if (~reset_n) begin</span></span>
 <span id="L208"><span class="lineNum">     208</span> <span class="tlaGNC">           4 :             a_reg &lt;= 'b0;</span></span>
 <span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC">           4 :             b_reg &lt;= 'b0;</span></span>
@@ -320,15 +320,15 @@
 <span id="L216"><span class="lineNum">     216</span> <span class="tlaUNC">           0 :             p_reg &lt;= 'b0;</span></span>
 <span id="L217"><span class="lineNum">     217</span> <span class="tlaUNC">           0 :             n_prime_reg &lt;= 'b0;</span></span>
 <span id="L218"><span class="lineNum">     218</span>              :         end</span>
-<span id="L219"><span class="lineNum">     219</span> <span class="tlaGNC tlaBgGNC">     1429868 :         else if (start_i) begin</span></span>
+<span id="L219"><span class="lineNum">     219</span> <span class="tlaGNC tlaBgGNC">     1433687 :         else if (start_i) begin</span></span>
 <span id="L220"><span class="lineNum">     220</span> <span class="tlaUNC tlaBgUNC">           0 :             a_reg &lt;= {zero_pad, opa_i};</span></span>
 <span id="L221"><span class="lineNum">     221</span> <span class="tlaUNC">           0 :             b_reg &lt;= {zero_pad, opb_i};</span></span>
 <span id="L222"><span class="lineNum">     222</span> <span class="tlaUNC">           0 :             p_reg &lt;= {zero_pad, n_i};</span></span>
 <span id="L223"><span class="lineNum">     223</span> <span class="tlaUNC">           0 :             n_prime_reg &lt;= n_prime_i;</span></span>
-<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC tlaBgGNC">     1429868 :         end else begin</span></span>
-<span id="L225"><span class="lineNum">     225</span> <span class="tlaGNC">      714934 :             if (odd) begin</span></span>
-<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC">      714934 :                 a_reg[(FULL_REG_SIZE-RADIX)-1 : 0] &lt;= a_reg[FULL_REG_SIZE-1 : RADIX];</span></span>
-<span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC">      714934 :                 a_reg[FULL_REG_SIZE-1 : FULL_REG_SIZE-RADIX] &lt;= 'b0; //Shift </span></span>
+<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC tlaBgGNC">     1433687 :         end else begin</span></span>
+<span id="L225"><span class="lineNum">     225</span> <span class="tlaGNC">      716843 :             if (odd) begin</span></span>
+<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC">      716843 :                 a_reg[(FULL_REG_SIZE-RADIX)-1 : 0] &lt;= a_reg[FULL_REG_SIZE-1 : RADIX];</span></span>
+<span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC">      716843 :                 a_reg[FULL_REG_SIZE-1 : FULL_REG_SIZE-RADIX] &lt;= 'b0; //Shift </span></span>
 <span id="L228"><span class="lineNum">     228</span>              :             end </span>
 <span id="L229"><span class="lineNum">     229</span>              :         end</span>
 <span id="L230"><span class="lineNum">     230</span>              :     end // input_reg</span>
@@ -359,31 +359,31 @@
 <span id="L255"><span class="lineNum">     255</span>              :     // Storing the partial results from the system</span>
 <span id="L256"><span class="lineNum">     256</span>              :     genvar t0;</span>
 <span id="L257"><span class="lineNum">     257</span>              :     generate </span>
-<span id="L258"><span class="lineNum">     258</span> <span class="tlaGNC">    10009076 :         for (t0=0; t0 &lt; ((2*(PE_UNITS+1))+1); t0++) begin : gen_t_reg</span></span>
+<span id="L258"><span class="lineNum">     258</span> <span class="tlaGNC">    10035809 :         for (t0=0; t0 &lt; ((2*(PE_UNITS+1))+1); t0++) begin : gen_t_reg</span></span>
 <span id="L259"><span class="lineNum">     259</span>              :             if ((t0 == 0) | (t0 == 1)) begin</span>
-<span id="L260"><span class="lineNum">     260</span> <span class="tlaGNC">     2859744 :                 always_ff @(posedge clk or negedge reset_n) begin</span></span>
+<span id="L260"><span class="lineNum">     260</span> <span class="tlaGNC">     2867382 :                 always_ff @(posedge clk or negedge reset_n) begin</span></span>
 <span id="L261"><span class="lineNum">     261</span> <span class="tlaGNC">           8 :                     if (~reset_n)</span></span>
 <span id="L262"><span class="lineNum">     262</span> <span class="tlaGNC">           8 :                         t_reg[t0] &lt;= '0;</span></span>
 <span id="L263"><span class="lineNum">     263</span> <span class="tlaUNC tlaBgUNC">           0 :                     else if (zeroize)</span></span>
 <span id="L264"><span class="lineNum">     264</span> <span class="tlaUNC">           0 :                         t_reg[t0] &lt;= '0;</span></span>
-<span id="L265"><span class="lineNum">     265</span> <span class="tlaGNC tlaBgGNC">     2859736 :                     else if (push_reg[(2*(PE_UNITS+1)) - t0])</span></span>
+<span id="L265"><span class="lineNum">     265</span> <span class="tlaGNC tlaBgGNC">     2867374 :                     else if (push_reg[(2*(PE_UNITS+1)) - t0])</span></span>
 <span id="L266"><span class="lineNum">     266</span> <span class="tlaUNC tlaBgUNC">           0 :                         t_reg[t0] &lt;= s_array[0];</span></span>
 <span id="L267"><span class="lineNum">     267</span>              :                     else</span>
-<span id="L268"><span class="lineNum">     268</span> <span class="tlaGNC tlaBgGNC">     2859736 :                         t_reg[t0] &lt;= t_reg[t0];</span></span>
+<span id="L268"><span class="lineNum">     268</span> <span class="tlaGNC tlaBgGNC">     2867374 :                         t_reg[t0] &lt;= t_reg[t0];</span></span>
 <span id="L269"><span class="lineNum">     269</span>              :                 end</span>
 <span id="L270"><span class="lineNum">     270</span>              :             end</span>
 <span id="L271"><span class="lineNum">     271</span>              :             else begin</span>
 <span id="L272"><span class="lineNum">     272</span>              :                 localparam int t0_WIDTH  = $clog2((2*(PE_UNITS+1))+1);</span>
 <span id="L273"><span class="lineNum">     273</span>              :                 localparam bit [t0_WIDTH-1:0] t0_unsigned = t0[t0_WIDTH-1:0];</span>
-<span id="L274"><span class="lineNum">     274</span> <span class="tlaGNC">    10009104 :                 always_ff @(posedge clk or negedge reset_n) begin</span></span>
+<span id="L274"><span class="lineNum">     274</span> <span class="tlaGNC">    10035837 :                 always_ff @(posedge clk or negedge reset_n) begin</span></span>
 <span id="L275"><span class="lineNum">     275</span> <span class="tlaGNC">          28 :                     if (~reset_n)</span></span>
 <span id="L276"><span class="lineNum">     276</span> <span class="tlaGNC">          28 :                         t_reg[t0] &lt;= '0;</span></span>
 <span id="L277"><span class="lineNum">     277</span> <span class="tlaUNC tlaBgUNC">           0 :                     else if (zeroize)</span></span>
 <span id="L278"><span class="lineNum">     278</span> <span class="tlaUNC">           0 :                         t_reg[t0] &lt;= '0;</span></span>
-<span id="L279"><span class="lineNum">     279</span> <span class="tlaGNC tlaBgGNC">    10009076 :                     else if (push_reg[(2*(PE_UNITS+1)) - t0])</span></span>
+<span id="L279"><span class="lineNum">     279</span> <span class="tlaGNC tlaBgGNC">    10035809 :                     else if (push_reg[(2*(PE_UNITS+1)) - t0])</span></span>
 <span id="L280"><span class="lineNum">     280</span> <span class="tlaUNC tlaBgUNC">           0 :                         t_reg[t0] &lt;= s_array[t0_unsigned &gt;&gt; 1];</span></span>
 <span id="L281"><span class="lineNum">     281</span>              :                     else</span>
-<span id="L282"><span class="lineNum">     282</span> <span class="tlaGNC tlaBgGNC">    10009076 :                         t_reg[t0] &lt;= t_reg[t0];</span></span>
+<span id="L282"><span class="lineNum">     282</span> <span class="tlaGNC tlaBgGNC">    10035809 :                         t_reg[t0] &lt;= t_reg[t0];</span></span>
 <span id="L283"><span class="lineNum">     283</span>              :                 end</span>
 <span id="L284"><span class="lineNum">     284</span>              :             end</span>
 <span id="L285"><span class="lineNum">     285</span>              :         end // gen_t_reg</span>
@@ -391,19 +391,19 @@
 <span id="L287"><span class="lineNum">     287</span>              : </span>
 <span id="L288"><span class="lineNum">     288</span>              :     genvar t1;</span>
 <span id="L289"><span class="lineNum">     289</span>              :     generate </span>
-<span id="L290"><span class="lineNum">     290</span> <span class="tlaGNC">    12868812 :         for (t1=0; t1 &lt; ((2*(PE_UNITS+1))+1); t1++) begin : gen_sub_t</span></span>
+<span id="L290"><span class="lineNum">     290</span> <span class="tlaGNC">    12903183 :         for (t1=0; t1 &lt; ((2*(PE_UNITS+1))+1); t1++) begin : gen_sub_t</span></span>
 <span id="L291"><span class="lineNum">     291</span>              :             if (t1 == 0)</span>
 <span id="L292"><span class="lineNum">     292</span> <span class="tlaGNC">           1 :                 always_comb sub_b_i[t1] = 1;</span></span>
 <span id="L293"><span class="lineNum">     293</span>              :             else</span>
 <span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC">           8 :                 always_comb sub_b_i[t1] = sub_b_o[t1 - 1];</span></span>
 <span id="L295"><span class="lineNum">     295</span>              :             </span>
-<span id="L296"><span class="lineNum">     296</span> <span class="tlaGNC">    12868848 :             always_ff @(posedge clk or negedge reset_n) begin</span></span>
+<span id="L296"><span class="lineNum">     296</span> <span class="tlaGNC">    12903219 :             always_ff @(posedge clk or negedge reset_n) begin</span></span>
 <span id="L297"><span class="lineNum">     297</span> <span class="tlaGNC">          36 :                 if (~reset_n)</span></span>
 <span id="L298"><span class="lineNum">     298</span> <span class="tlaGNC">          36 :                     sub_b_o[t1] &lt;= '0;</span></span>
-<span id="L299"><span class="lineNum">     299</span> <span class="tlaGNC">    12868812 :                 else if (zeroize)</span></span>
+<span id="L299"><span class="lineNum">     299</span> <span class="tlaGNC">    12903183 :                 else if (zeroize)</span></span>
 <span id="L300"><span class="lineNum">     300</span> <span class="tlaUNC tlaBgUNC">           0 :                     sub_b_o[t1] &lt;= '0;</span></span>
 <span id="L301"><span class="lineNum">     301</span>              :                 else</span>
-<span id="L302"><span class="lineNum">     302</span> <span class="tlaGNC tlaBgGNC">    12868812 :                     sub_b_o[t1] &lt;= sub_res[t1][RADIX];</span></span>
+<span id="L302"><span class="lineNum">     302</span> <span class="tlaGNC tlaBgGNC">    12903183 :                     sub_b_o[t1] &lt;= sub_res[t1][RADIX];</span></span>
 <span id="L303"><span class="lineNum">     303</span>              :             end</span>
 <span id="L304"><span class="lineNum">     304</span>              :         end</span>
 <span id="L305"><span class="lineNum">     305</span>              :     endgenerate</span>
@@ -426,16 +426,16 @@
 <span id="L322"><span class="lineNum">     322</span>              : </span>
 <span id="L323"><span class="lineNum">     323</span>              :     genvar t3;</span>
 <span id="L324"><span class="lineNum">     324</span>              :     generate </span>
-<span id="L325"><span class="lineNum">     325</span> <span class="tlaGNC">    12868812 :         for (t3=0; t3 &lt; ((2*(PE_UNITS+1))+1); t3++) begin : gen_t_sub_reg</span></span>
-<span id="L326"><span class="lineNum">     326</span> <span class="tlaGNC">    12868848 :             always_ff @(posedge clk or negedge reset_n) begin</span></span>
+<span id="L325"><span class="lineNum">     325</span> <span class="tlaGNC">    12903183 :         for (t3=0; t3 &lt; ((2*(PE_UNITS+1))+1); t3++) begin : gen_t_sub_reg</span></span>
+<span id="L326"><span class="lineNum">     326</span> <span class="tlaGNC">    12903219 :             always_ff @(posedge clk or negedge reset_n) begin</span></span>
 <span id="L327"><span class="lineNum">     327</span> <span class="tlaGNC">          36 :                 if (~reset_n)</span></span>
 <span id="L328"><span class="lineNum">     328</span> <span class="tlaGNC">          36 :                     t_subtracted_reg[t3] &lt;= '0;</span></span>
 <span id="L329"><span class="lineNum">     329</span> <span class="tlaUNC tlaBgUNC">           0 :                 else if (zeroize)</span></span>
 <span id="L330"><span class="lineNum">     330</span> <span class="tlaUNC">           0 :                     t_subtracted_reg[t3] &lt;= '0;</span></span>
-<span id="L331"><span class="lineNum">     331</span> <span class="tlaGNC tlaBgGNC">    12868812 :                 else if (push_reg[(2*(PE_UNITS+1)) - t3])</span></span>
+<span id="L331"><span class="lineNum">     331</span> <span class="tlaGNC tlaBgGNC">    12903183 :                 else if (push_reg[(2*(PE_UNITS+1)) - t3])</span></span>
 <span id="L332"><span class="lineNum">     332</span> <span class="tlaUNC tlaBgUNC">           0 :                     t_subtracted_reg[t3] &lt;= sub_res[t3][RADIX-1 : 0];</span></span>
 <span id="L333"><span class="lineNum">     333</span>              :                 else </span>
-<span id="L334"><span class="lineNum">     334</span> <span class="tlaGNC tlaBgGNC">    12868812 :                     t_subtracted_reg[t3] &lt;= t_subtracted_reg[t3];</span></span>
+<span id="L334"><span class="lineNum">     334</span> <span class="tlaGNC tlaBgGNC">    12903183 :                     t_subtracted_reg[t3] &lt;= t_subtracted_reg[t3];</span></span>
 <span id="L335"><span class="lineNum">     335</span>              :             end</span>
 <span id="L336"><span class="lineNum">     336</span>              :         end // gen_t_sub_reg</span>
 <span id="L337"><span class="lineNum">     337</span>              :     endgenerate</span>
@@ -453,24 +453,24 @@
 <span id="L349"><span class="lineNum">     349</span>              :     assign p_o = (last_reduction)? p_subtracted_internal[REG_SIZE-1:0] : p_internal[REG_SIZE-1:0];</span>
 <span id="L350"><span class="lineNum">     350</span>              : </span>
 <span id="L351"><span class="lineNum">     351</span>              :     // Determines when results are ready based on S_NUM</span>
-<span id="L352"><span class="lineNum">     352</span> <span class="tlaGNC">     1429872 :     always_ff @(posedge clk or negedge reset_n) begin</span></span>
+<span id="L352"><span class="lineNum">     352</span> <span class="tlaGNC">     1433691 :     always_ff @(posedge clk or negedge reset_n) begin</span></span>
 <span id="L353"><span class="lineNum">     353</span> <span class="tlaGNC">           4 :         if (!reset_n)</span></span>
 <span id="L354"><span class="lineNum">     354</span> <span class="tlaGNC">           4 :             push_reg &lt;= 'b0;</span></span>
 <span id="L355"><span class="lineNum">     355</span> <span class="tlaUNC tlaBgUNC">           0 :         else if (zeroize)</span></span>
 <span id="L356"><span class="lineNum">     356</span> <span class="tlaUNC">           0 :             push_reg &lt;= 'b0;</span></span>
-<span id="L357"><span class="lineNum">     357</span> <span class="tlaGNC tlaBgGNC">     1429868 :         else if (start_i)</span></span>
+<span id="L357"><span class="lineNum">     357</span> <span class="tlaGNC tlaBgGNC">     1433687 :         else if (start_i)</span></span>
 <span id="L358"><span class="lineNum">     358</span> <span class="tlaUNC tlaBgUNC">           0 :             push_reg[(3*S_NUM)-1] &lt;= 1'b1;</span></span>
 <span id="L359"><span class="lineNum">     359</span>              :         else // one shift to right</span>
-<span id="L360"><span class="lineNum">     360</span> <span class="tlaGNC tlaBgGNC">     1429868 :             push_reg &lt;= {1'b0, push_reg[(3*S_NUM)-1 : 1]};</span></span>
+<span id="L360"><span class="lineNum">     360</span> <span class="tlaGNC tlaBgGNC">     1433687 :             push_reg &lt;= {1'b0, push_reg[(3*S_NUM)-1 : 1]};</span></span>
 <span id="L361"><span class="lineNum">     361</span>              :     end</span>
 <span id="L362"><span class="lineNum">     362</span>              :     </span>
-<span id="L363"><span class="lineNum">     363</span> <span class="tlaGNC">     1429872 :     always_ff @(posedge clk or negedge reset_n) begin</span></span>
+<span id="L363"><span class="lineNum">     363</span> <span class="tlaGNC">     1433691 :     always_ff @(posedge clk or negedge reset_n) begin</span></span>
 <span id="L364"><span class="lineNum">     364</span> <span class="tlaGNC">           4 :         if (!reset_n)</span></span>
 <span id="L365"><span class="lineNum">     365</span> <span class="tlaGNC">           4 :             push_reg_eq_zero_ff &lt;= '0;</span></span>
-<span id="L366"><span class="lineNum">     366</span> <span class="tlaGNC">     1429868 :         else if (zeroize)</span></span>
+<span id="L366"><span class="lineNum">     366</span> <span class="tlaGNC">     1433687 :         else if (zeroize)</span></span>
 <span id="L367"><span class="lineNum">     367</span> <span class="tlaUNC tlaBgUNC">           0 :             push_reg_eq_zero_ff &lt;= '0;</span></span>
 <span id="L368"><span class="lineNum">     368</span>              :         else</span>
-<span id="L369"><span class="lineNum">     369</span> <span class="tlaGNC tlaBgGNC">     1429868 :             push_reg_eq_zero_ff &lt;= push_reg_eq_zero;</span></span>
+<span id="L369"><span class="lineNum">     369</span> <span class="tlaGNC tlaBgGNC">     1433687 :             push_reg_eq_zero_ff &lt;= push_reg_eq_zero;</span></span>
 <span id="L370"><span class="lineNum">     370</span>              :     end</span>
 <span id="L371"><span class="lineNum">     371</span>              : </span>
 <span id="L372"><span class="lineNum">     372</span>              :     assign push_reg_eq_zero = push_reg == 'b0;</span>

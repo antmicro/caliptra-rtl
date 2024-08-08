@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -125,10 +125,10 @@
 <span id="L21"><span class="lineNum">      21</span>              :   // enables additional synchronization logic</span>
 <span id="L22"><span class="lineNum">      22</span>              :   parameter bit AsyncOn = 1'b0</span>
 <span id="L23"><span class="lineNum">      23</span>              : ) (</span>
-<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC tlaBgGNC">     8777610 :   input        clk_i,</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC tlaBgGNC">     8777606 :   input        clk_i,</span></span>
 <span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">          35 :   input        rst_ni,</span></span>
 <span id="L26"><span class="lineNum">      26</span>              :   // input diff pair</span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">       21362 :   input        diff_pi,</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">       21382 :   input        diff_pi,</span></span>
 <span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">          21 :   input        diff_ni,</span></span>
 <span id="L29"><span class="lineNum">      29</span>              :   // logical level and</span>
 <span id="L30"><span class="lineNum">      30</span>              :   // detected edges</span>
@@ -219,10 +219,10 @@
 <span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC">          84 :       unique case (state_q)</span></span>
 <span id="L116"><span class="lineNum">     116</span>              :         // we remain here as long as</span>
 <span id="L117"><span class="lineNum">     117</span>              :         // the diff pair is correctly encoded</span>
-<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC">    43887524 :         IsStd: begin</span></span>
+<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC">    43893264 :         IsStd: begin</span></span>
 <span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC">         126 :           if (diff_check_ok) begin</span></span>
-<span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC">    43887398 :             level_d = level;</span></span>
-<span id="L121"><span class="lineNum">     121</span> <span class="tlaGNC">    43887398 :             if (diff_p_edge &amp;&amp; diff_n_edge) begin</span></span>
+<span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC">    43893138 :             level_d = level;</span></span>
+<span id="L121"><span class="lineNum">     121</span> <span class="tlaGNC">    43893138 :             if (diff_p_edge &amp;&amp; diff_n_edge) begin</span></span>
 <span id="L122"><span class="lineNum">     122</span> <span class="tlaUNC tlaBgUNC">           0 :               if (level) begin</span></span>
 <span id="L123"><span class="lineNum">     123</span> <span class="tlaUNC">           0 :                 rise_o = 1'b1;</span></span>
 <span id="L124"><span class="lineNum">     124</span> <span class="tlaUNC">           0 :               end else begin</span></span>
@@ -252,9 +252,9 @@
 <span id="L148"><span class="lineNum">     148</span>              :         end</span>
 <span id="L149"><span class="lineNum">     149</span>              :         // Signal integrity issue detected, remain here</span>
 <span id="L150"><span class="lineNum">     150</span>              :         // until resolved</span>
-<span id="L151"><span class="lineNum">     151</span> <span class="tlaGNC">     8777146 :         SigInt: begin</span></span>
-<span id="L152"><span class="lineNum">     152</span> <span class="tlaGNC">     8777146 :           sigint_o = 1'b1;</span></span>
-<span id="L153"><span class="lineNum">     153</span> <span class="tlaGNC">     8777146 :           if (diff_check_ok) begin</span></span>
+<span id="L151"><span class="lineNum">     151</span> <span class="tlaGNC">     8778294 :         SigInt: begin</span></span>
+<span id="L152"><span class="lineNum">     152</span> <span class="tlaGNC">     8778294 :           sigint_o = 1'b1;</span></span>
+<span id="L153"><span class="lineNum">     153</span> <span class="tlaGNC">     8778294 :           if (diff_check_ok) begin</span></span>
 <span id="L154"><span class="lineNum">     154</span> <span class="tlaUNC tlaBgUNC">           0 :             state_d  = IsStd;</span></span>
 <span id="L155"><span class="lineNum">     155</span> <span class="tlaUNC">           0 :             sigint_o = 1'b0;</span></span>
 <span id="L156"><span class="lineNum">     156</span>              :           end</span>
@@ -263,17 +263,17 @@
 <span id="L159"><span class="lineNum">     159</span>              :       endcase</span>
 <span id="L160"><span class="lineNum">     160</span>              :     end</span>
 <span id="L161"><span class="lineNum">     161</span>              : </span>
-<span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC tlaBgGNC">    52664628 :     always_ff @(posedge clk_i or negedge rst_ni) begin : p_sync_reg</span></span>
+<span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC tlaBgGNC">    52671516 :     always_ff @(posedge clk_i or negedge rst_ni) begin : p_sync_reg</span></span>
 <span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC">         996 :       if (!rst_ni) begin</span></span>
 <span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC">         996 :         state_q  &lt;= IsStd;</span></span>
 <span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">         996 :         diff_pq  &lt;= 1'b0;</span></span>
 <span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC">         996 :         diff_nq  &lt;= 1'b1;</span></span>
 <span id="L167"><span class="lineNum">     167</span> <span class="tlaGNC">         996 :         level_q  &lt;= 1'b0;</span></span>
-<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">    52663632 :       end else begin</span></span>
-<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">    52663632 :         state_q  &lt;= state_d;</span></span>
-<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">    52663632 :         diff_pq  &lt;= diff_pd;</span></span>
-<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">    52663632 :         diff_nq  &lt;= diff_nd;</span></span>
-<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">    52663632 :         level_q  &lt;= level_d;</span></span>
+<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">    52670520 :       end else begin</span></span>
+<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">    52670520 :         state_q  &lt;= state_d;</span></span>
+<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">    52670520 :         diff_pq  &lt;= diff_pd;</span></span>
+<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">    52670520 :         diff_nq  &lt;= diff_nd;</span></span>
+<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">    52670520 :         level_q  &lt;= level_d;</span></span>
 <span id="L173"><span class="lineNum">     173</span>              :       end</span>
 <span id="L174"><span class="lineNum">     174</span>              :     end</span>
 <span id="L175"><span class="lineNum">     175</span>              : </span>

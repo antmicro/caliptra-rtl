@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -275,7 +275,7 @@
 <span id="L171"><span class="lineNum">     171</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic                      ifu_async_error_start,  // Or of the sb iccm, and all the icache errors sent to aligner to stop</span></span>
 <span id="L172"><span class="lineNum">     172</span> <span class="tlaUNC">           0 :    output logic                      iccm_dma_sb_error,      // Single Bit ECC error from a DMA access</span></span>
 <span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC tlaBgGNC">       67158 :    output logic [1:0]                ic_fetch_val_f,         // valid bytes for fetch. To the Aligner.</span></span>
-<span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">       25420 :    output logic [31:0]               ic_data_f,              // Data read from Icache or ICCM. To the Aligner.</span></span>
+<span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">       25422 :    output logic [31:0]               ic_data_f,              // Data read from Icache or ICCM. To the Aligner.</span></span>
 <span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">       36490 :    output logic [63:0]               ic_premux_data,         // Premuxed data to be muxed with Icache data</span></span>
 <span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC">       36490 :    output logic                      ic_sel_premux_data,     // Select premux data.</span></span>
 <span id="L177"><span class="lineNum">     177</span>              : </span>
@@ -359,7 +359,7 @@
 <span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC">       59471 :    logic           crit_wd_byp_ok_ff ;</span></span>
 <span id="L256"><span class="lineNum">     256</span> <span class="tlaGNC">      116038 :    logic           ic_crit_wd_rdy_new_ff;</span></span>
 <span id="L257"><span class="lineNum">     257</span> <span class="tlaGNC">       23342 :    logic   [79:0]  ic_byp_data_only_pre_new;</span></span>
-<span id="L258"><span class="lineNum">     258</span> <span class="tlaGNC">       16402 :    logic   [79:0]  ic_byp_data_only_new;</span></span>
+<span id="L258"><span class="lineNum">     258</span> <span class="tlaGNC">       16400 :    logic   [79:0]  ic_byp_data_only_new;</span></span>
 <span id="L259"><span class="lineNum">     259</span> <span class="tlaGNC">       69154 :    logic           ic_byp_hit_f ;</span></span>
 <span id="L260"><span class="lineNum">     260</span> <span class="tlaUNC tlaBgUNC">           0 :    logic           ic_valid ;</span></span>
 <span id="L261"><span class="lineNum">     261</span> <span class="tlaUNC">           0 :    logic           ic_valid_ff;</span></span>
@@ -383,7 +383,7 @@
 <span id="L279"><span class="lineNum">     279</span> <span class="tlaGNC">      282664 :    logic           sel_mb_addr ;</span></span>
 <span id="L280"><span class="lineNum">     280</span> <span class="tlaGNC">      282661 :    logic           sel_mb_addr_ff ;</span></span>
 <span id="L281"><span class="lineNum">     281</span> <span class="tlaGNC">      104372 :    logic           sel_mb_status_addr ;</span></span>
-<span id="L282"><span class="lineNum">     282</span> <span class="tlaGNC">       25420 :    logic [63:0]    ic_final_data;</span></span>
+<span id="L282"><span class="lineNum">     282</span> <span class="tlaGNC">       25422 :    logic [63:0]    ic_final_data;</span></span>
 <span id="L283"><span class="lineNum">     283</span>              : </span>
 <span id="L284"><span class="lineNum">     284</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [pt.ICACHE_INDEX_HI:pt.ICACHE_TAG_INDEX_LO] ifu_ic_rw_int_addr_ff ;</span></span>
 <span id="L285"><span class="lineNum">     285</span> <span class="tlaUNC">           0 :    logic [pt.ICACHE_INDEX_HI:pt.ICACHE_TAG_INDEX_LO] ifu_status_wr_addr_ff ;</span></span>

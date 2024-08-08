@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -129,7 +129,7 @@
 <span id="L25"><span class="lineNum">      25</span>              :     // ---------------------------------------</span>
 <span id="L26"><span class="lineNum">      26</span>              :     // Global clock/reset</span>
 <span id="L27"><span class="lineNum">      27</span>              :     // ---------------------------------------</span>
-<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC tlaBgGNC">      458006 :     input logic     hclk,</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC tlaBgGNC">      458284 :     input logic     hclk,</span></span>
 <span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">           1 :     input logic     hreset_n,</span></span>
 <span id="L30"><span class="lineNum">      30</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic     force_bus_idle,</span></span>
 <span id="L31"><span class="lineNum">      31</span>              :     // ---------------------------------------</span>
@@ -138,7 +138,7 @@
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">         274 :     input logic     [AHB_LITE_ADDR_WIDTH-1:0]   haddr_i,</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">          26 :     input logic     [AHB_LITE_DATA_WIDTH-1:0]   hwdata_i,</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">         609 :     input logic                                 hwrite_i,</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">       17122 :     input logic     [1:0]                       htrans_i, </span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">       17110 :     input logic     [1:0]                       htrans_i, </span></span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic     [2:0]                       hsize_i,</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC">           0 :     output logic                                hresp_o,</span></span>
@@ -157,7 +157,7 @@
 <span id="L53"><span class="lineNum">      53</span> <span class="tlaUNC">           0 :     output logic    [NUM_RESPONDERS-1:0]                            hsel_o, </span></span>
 <span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC tlaBgGNC">         609 :     output logic    [NUM_RESPONDERS-1:0]                            hwrite_o, </span></span>
 <span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           1 :     output logic    [NUM_RESPONDERS-1:0]                            hresponderready_o,</span></span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">       17122 :     output logic    [NUM_RESPONDERS-1:0][1:0]                       htrans_o,</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">       17110 :     output logic    [NUM_RESPONDERS-1:0][1:0]                       htrans_o,</span></span>
 <span id="L57"><span class="lineNum">      57</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic    [NUM_RESPONDERS-1:0][2:0]                       hsize_o,</span></span>
 <span id="L58"><span class="lineNum">      58</span>              : </span>
 <span id="L59"><span class="lineNum">      59</span>              :     // ----------------------------------------------</span>
@@ -189,7 +189,7 @@
 <span id="L85"><span class="lineNum">      85</span> <span class="tlaUNC">           0 :     logic                                               hresp_error;</span></span>
 <span id="L86"><span class="lineNum">      86</span> <span class="tlaUNC">           0 :     logic                                               hresp_error_r;</span></span>
 <span id="L87"><span class="lineNum">      87</span>              : </span>
-<span id="L88"><span class="lineNum">      88</span> <span class="tlaGNC tlaBgGNC">       17122 :     logic [1:0]                                         htrans_q;</span></span>
+<span id="L88"><span class="lineNum">      88</span> <span class="tlaGNC tlaBgGNC">       17110 :     logic [1:0]                                         htrans_q;</span></span>
 <span id="L89"><span class="lineNum">      89</span>              : </span>
 <span id="L90"><span class="lineNum">      90</span>              : </span>
 <span id="L91"><span class="lineNum">      91</span> <span class="tlaGNC">           1 :     always_comb htrans_q = force_bus_idle ? AHB_XFER_IDLE : htrans_i;</span></span>
@@ -205,22 +205,22 @@
 <span id="L101"><span class="lineNum">     101</span>              :     endgenerate</span>
 <span id="L102"><span class="lineNum">     102</span>              : </span>
 <span id="L103"><span class="lineNum">     103</span>              :     // Pulse during address phase indicating an access was attempted to a disabled responder</span>
-<span id="L104"><span class="lineNum">     104</span> <span class="tlaGNC">      229316 :     always @(posedge hclk or negedge hreset_n) begin</span></span>
+<span id="L104"><span class="lineNum">     104</span> <span class="tlaGNC">      229428 :     always @(posedge hclk or negedge hreset_n) begin</span></span>
 <span id="L105"><span class="lineNum">     105</span> <span class="tlaGNC">           4 :         if (!hreset_n)</span></span>
 <span id="L106"><span class="lineNum">     106</span> <span class="tlaGNC">           4 :             access_blocked_o &lt;= '0;</span></span>
-<span id="L107"><span class="lineNum">     107</span> <span class="tlaGNC">      229312 :         else if (|htrans_q &amp;&amp; hinitiator_ready_int_q &amp;&amp; |hsel_blocked)</span></span>
+<span id="L107"><span class="lineNum">     107</span> <span class="tlaGNC">      229424 :         else if (|htrans_q &amp;&amp; hinitiator_ready_int_q &amp;&amp; |hsel_blocked)</span></span>
 <span id="L108"><span class="lineNum">     108</span> <span class="tlaUNC tlaBgUNC">           0 :             access_blocked_o &lt;= hsel_blocked;</span></span>
 <span id="L109"><span class="lineNum">     109</span>              :         else</span>
-<span id="L110"><span class="lineNum">     110</span> <span class="tlaGNC tlaBgGNC">      229312 :             access_blocked_o &lt;= '0;</span></span>
+<span id="L110"><span class="lineNum">     110</span> <span class="tlaGNC tlaBgGNC">      229424 :             access_blocked_o &lt;= '0;</span></span>
 <span id="L111"><span class="lineNum">     111</span>              :     end</span>
 <span id="L112"><span class="lineNum">     112</span>              : </span>
-<span id="L113"><span class="lineNum">     113</span> <span class="tlaGNC">      229316 :     always @(posedge hclk or negedge hreset_n) begin</span></span>
+<span id="L113"><span class="lineNum">     113</span> <span class="tlaGNC">      229428 :     always @(posedge hclk or negedge hreset_n) begin</span></span>
 <span id="L114"><span class="lineNum">     114</span> <span class="tlaGNC">           4 :         if (!hreset_n)</span></span>
 <span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC">           4 :             pending_hsel    &lt;= '0;</span></span>
-<span id="L116"><span class="lineNum">     116</span> <span class="tlaGNC">        8552 :         else if (|htrans_q &amp;&amp; hinitiator_ready_int_q)</span></span>
-<span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC">        8552 :             pending_hsel    &lt;= hsel_o_int;</span></span>
+<span id="L116"><span class="lineNum">     116</span> <span class="tlaGNC">        8557 :         else if (|htrans_q &amp;&amp; hinitiator_ready_int_q)</span></span>
+<span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC">        8557 :             pending_hsel    &lt;= hsel_o_int;</span></span>
 <span id="L118"><span class="lineNum">     118</span> <span class="tlaUNC tlaBgUNC">           0 :         else if (hinitiator_ready_int_q)</span></span>
-<span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC tlaBgGNC">      220760 :             pending_hsel    &lt;= '0;</span></span>
+<span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC tlaBgGNC">      220867 :             pending_hsel    &lt;= '0;</span></span>
 <span id="L120"><span class="lineNum">     120</span>              :     end</span>
 <span id="L121"><span class="lineNum">     121</span>              : </span>
 <span id="L122"><span class="lineNum">     122</span> <span class="tlaGNC">           1 :     always_comb begin</span></span>
@@ -229,20 +229,20 @@
 <span id="L125"><span class="lineNum">     125</span> <span class="tlaGNC">           1 :         hresp_error = htrans_q inside {AHB_XFER_NONSEQ, AHB_XFER_SEQ} &amp;&amp; hinitiator_ready_int_q &amp;&amp; ~|hsel_o_int;</span></span>
 <span id="L126"><span class="lineNum">     126</span>              :     end</span>
 <span id="L127"><span class="lineNum">     127</span>              : </span>
-<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC">      229316 :     always @(posedge hclk or negedge hreset_n) begin</span></span>
+<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC">      229428 :     always @(posedge hclk or negedge hreset_n) begin</span></span>
 <span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC">           4 :         if (!hreset_n)</span></span>
 <span id="L130"><span class="lineNum">     130</span> <span class="tlaGNC">           4 :             hinitiator_ready_default &lt;= 1'b1;</span></span>
 <span id="L131"><span class="lineNum">     131</span>              :         else</span>
-<span id="L132"><span class="lineNum">     132</span> <span class="tlaGNC">      229312 :             hinitiator_ready_default &lt;= !hresp_error;</span></span>
+<span id="L132"><span class="lineNum">     132</span> <span class="tlaGNC">      229424 :             hinitiator_ready_default &lt;= !hresp_error;</span></span>
 <span id="L133"><span class="lineNum">     133</span>              :     end</span>
 <span id="L134"><span class="lineNum">     134</span>              : </span>
-<span id="L135"><span class="lineNum">     135</span> <span class="tlaGNC">      229316 :     always @(posedge hclk or negedge hreset_n) begin</span></span>
+<span id="L135"><span class="lineNum">     135</span> <span class="tlaGNC">      229428 :     always @(posedge hclk or negedge hreset_n) begin</span></span>
 <span id="L136"><span class="lineNum">     136</span> <span class="tlaGNC">           4 :         if (!hreset_n)</span></span>
 <span id="L137"><span class="lineNum">     137</span> <span class="tlaGNC">           4 :             hresp_error_r &lt;= 1'b0;</span></span>
 <span id="L138"><span class="lineNum">     138</span> <span class="tlaUNC tlaBgUNC">           0 :         else if (hresp_error)</span></span>
 <span id="L139"><span class="lineNum">     139</span> <span class="tlaUNC">           0 :             hresp_error_r &lt;= 1'b1;</span></span>
 <span id="L140"><span class="lineNum">     140</span> <span class="tlaUNC">           0 :         else if (hinitiator_ready_int_q)</span></span>
-<span id="L141"><span class="lineNum">     141</span> <span class="tlaGNC tlaBgGNC">      229312 :             hresp_error_r &lt;= 1'b0;</span></span>
+<span id="L141"><span class="lineNum">     141</span> <span class="tlaGNC tlaBgGNC">      229424 :             hresp_error_r &lt;= 1'b0;</span></span>
 <span id="L142"><span class="lineNum">     142</span>              :         else</span>
 <span id="L143"><span class="lineNum">     143</span> <span class="tlaUNC tlaBgUNC">           0 :             hresp_error_r &lt;= hresp_error_r;</span></span>
 <span id="L144"><span class="lineNum">     144</span>              :     end</span>
@@ -269,15 +269,15 @@
 <span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">           1 :         hresp_o                 = hresp_error_r;</span></span>
 <span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC">           1 :         hinitiator_ready_int    = hinitiator_ready_default; // Deassert for hresp = 1, first cycle</span></span>
 <span id="L167"><span class="lineNum">     167</span> <span class="tlaGNC">           1 :         for (int rr = 0; rr &lt; NUM_RESPONDERS; rr++) begin</span></span>
-<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">      229341 :             if (hsel_o_int[rr] == 1'b1) begin</span></span>
-<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">      229341 :                 hinitiator_ready_int    = hreadyout_i[rr];</span></span>
+<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">      229453 :             if (hsel_o_int[rr] == 1'b1) begin</span></span>
+<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">      229453 :                 hinitiator_ready_int    = hreadyout_i[rr];</span></span>
 <span id="L170"><span class="lineNum">     170</span>              :             end</span>
 <span id="L171"><span class="lineNum">     171</span>              :         end</span>
 <span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">           1 :         for (int rr = 0; rr &lt; NUM_RESPONDERS; rr++) begin</span></span>
-<span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC">        8552 :             if (pending_hsel[rr] == 1'b1) begin</span></span>
-<span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">        8552 :                 hrdata_o                = hrdata_i[rr];</span></span>
-<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">        8552 :                 hresp_o                 = hresp_i[rr];</span></span>
-<span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC">        8552 :                 hinitiator_ready_int    = hreadyout_i[rr];</span></span>
+<span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC">        8557 :             if (pending_hsel[rr] == 1'b1) begin</span></span>
+<span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">        8557 :                 hrdata_o                = hrdata_i[rr];</span></span>
+<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">        8557 :                 hresp_o                 = hresp_i[rr];</span></span>
+<span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC">        8557 :                 hinitiator_ready_int    = hreadyout_i[rr];</span></span>
 <span id="L177"><span class="lineNum">     177</span>              :             end</span>
 <span id="L178"><span class="lineNum">     178</span>              :         end</span>
 <span id="L179"><span class="lineNum">     179</span> <span class="tlaGNC">           1 :         hinitiator_ready_int_q = hinitiator_ready_int | force_bus_idle;</span></span>

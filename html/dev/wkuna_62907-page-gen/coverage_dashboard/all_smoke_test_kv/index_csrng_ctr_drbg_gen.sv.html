@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -121,7 +121,7 @@
 <span id="L17"><span class="lineNum">      17</span>              :   parameter logic [31:0] SeedLen = 384,</span>
 <span id="L18"><span class="lineNum">      18</span>              :   parameter logic [31:0] CtrLen  = 32</span>
 <span id="L19"><span class="lineNum">      19</span>              : ) (</span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC tlaBgGNC">     8777610 :   input logic                clk_i,</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC tlaBgGNC">     8777606 :   input logic                clk_i,</span></span>
 <span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">          35 :   input logic                rst_ni,</span></span>
 <span id="L22"><span class="lineNum">      22</span>              : </span>
 <span id="L23"><span class="lineNum">      23</span>              :    // command interface</span>
@@ -322,15 +322,15 @@
 <span id="L218"><span class="lineNum">     218</span>              :   // SEC_CM: UPDATE.FSM.SPARSE</span>
 <span id="L219"><span class="lineNum">     219</span>              :   `CALIPTRA_PRIM_FLOP_SPARSE_FSM(u_state_regs, state_d, state_q, state_e, ReqIdle)</span>
 <span id="L220"><span class="lineNum">     220</span>              : </span>
-<span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC tlaBgGNC">     4388719 :   always_ff @(posedge clk_i or negedge rst_ni)</span></span>
+<span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC tlaBgGNC">     4389293 :   always_ff @(posedge clk_i or negedge rst_ni)</span></span>
 <span id="L222"><span class="lineNum">     222</span> <span class="tlaGNC">          83 :     if (!rst_ni) begin</span></span>
 <span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">          83 :       interate_ctr_q     &lt;= '0;</span></span>
 <span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">          83 :       update_adata_q     &lt;= '{default:0};</span></span>
 <span id="L225"><span class="lineNum">     225</span> <span class="tlaGNC">          83 :       update_adata_vld_q &lt;= '{default:0};</span></span>
-<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC">     4388636 :     end else begin</span></span>
-<span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC">     4388636 :       interate_ctr_q     &lt;= interate_ctr_d;</span></span>
-<span id="L228"><span class="lineNum">     228</span> <span class="tlaGNC">     4388636 :       update_adata_q     &lt;= update_adata_d;</span></span>
-<span id="L229"><span class="lineNum">     229</span> <span class="tlaGNC">     4388636 :       update_adata_vld_q &lt;= update_adata_vld_d;</span></span>
+<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC">     4389210 :     end else begin</span></span>
+<span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC">     4389210 :       interate_ctr_q     &lt;= interate_ctr_d;</span></span>
+<span id="L228"><span class="lineNum">     228</span> <span class="tlaGNC">     4389210 :       update_adata_q     &lt;= update_adata_d;</span></span>
+<span id="L229"><span class="lineNum">     229</span> <span class="tlaGNC">     4389210 :       update_adata_vld_q &lt;= update_adata_vld_d;</span></span>
 <span id="L230"><span class="lineNum">     230</span>              :     end</span>
 <span id="L231"><span class="lineNum">     231</span>              : </span>
 <span id="L232"><span class="lineNum">     232</span>              : </span>
@@ -442,13 +442,13 @@
 <span id="L338"><span class="lineNum">     338</span> <span class="tlaGNC">           7 :     ctr_drbg_gen_es_ack_o = 1'b0;</span></span>
 <span id="L339"><span class="lineNum">     339</span> <span class="tlaGNC">           7 :     unique case (state_q)</span></span>
 <span id="L340"><span class="lineNum">     340</span>              :       // ReqIdle: increment v this cycle, push in next</span>
-<span id="L341"><span class="lineNum">     341</span> <span class="tlaGNC">     4388719 :       ReqIdle: begin</span></span>
+<span id="L341"><span class="lineNum">     341</span> <span class="tlaGNC">     4389293 :       ReqIdle: begin</span></span>
 <span id="L342"><span class="lineNum">     342</span>              :         // Prioritize halt requests from entropy_src over disable, as CSRNG would otherwise starve</span>
 <span id="L343"><span class="lineNum">     343</span>              :         // those requests while it is idle.</span>
 <span id="L344"><span class="lineNum">     344</span> <span class="tlaUNC tlaBgUNC">           0 :         if (ctr_drbg_gen_es_req_i) begin</span></span>
 <span id="L345"><span class="lineNum">     345</span> <span class="tlaUNC">           0 :           state_d = ESHalt;</span></span>
-<span id="L346"><span class="lineNum">     346</span> <span class="tlaGNC tlaBgGNC">     4388719 :         end else if (!ctr_drbg_gen_enable_i) begin</span></span>
-<span id="L347"><span class="lineNum">     347</span> <span class="tlaGNC">     4388719 :           state_d = ReqIdle;</span></span>
+<span id="L346"><span class="lineNum">     346</span> <span class="tlaGNC tlaBgGNC">     4389293 :         end else if (!ctr_drbg_gen_enable_i) begin</span></span>
+<span id="L347"><span class="lineNum">     347</span> <span class="tlaGNC">     4389293 :           state_d = ReqIdle;</span></span>
 <span id="L348"><span class="lineNum">     348</span> <span class="tlaUNC tlaBgUNC">           0 :         end else if (sfifo_genreq_not_empty &amp;&amp; !sfifo_adstage_full) begin</span></span>
 <span id="L349"><span class="lineNum">     349</span> <span class="tlaUNC">           0 :           v_ctr_load = 1'b1;</span></span>
 <span id="L350"><span class="lineNum">     350</span> <span class="tlaUNC">           0 :           state_d = ReqSend;</span></span>

@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              : )</span>
 <span id="L28"><span class="lineNum">      28</span>              : (</span>
 <span id="L29"><span class="lineNum">      29</span>              :       // Clock and reset.</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">      458006 :       input wire            clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">      458284 :       input wire            clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           1 :       input wire            reset_n,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC tlaBgUNC">           0 :       input wire            zeroize,</span></span>
 <span id="L33"><span class="lineNum">      33</span>              :       </span>
@@ -277,28 +277,28 @@
 <span id="L173"><span class="lineNum">     173</span>              :   // All registers are positive edge triggered with asynchronous</span>
 <span id="L174"><span class="lineNum">     174</span>              :   // active low reset. All registers have write enable.</span>
 <span id="L175"><span class="lineNum">     175</span>              :   //----------------------------------------------------------------</span>
-<span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC tlaBgGNC">      229316 :   always @ (posedge clk or negedge reset_n)</span></span>
-<span id="L177"><span class="lineNum">     177</span> <span class="tlaGNC">      229316 :     begin : reg_update</span></span>
+<span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC tlaBgGNC">      229428 :   always @ (posedge clk or negedge reset_n)</span></span>
+<span id="L177"><span class="lineNum">     177</span> <span class="tlaGNC">      229428 :     begin : reg_update</span></span>
 <span id="L178"><span class="lineNum">     178</span> <span class="tlaGNC">           4 :       if (!reset_n)</span></span>
 <span id="L179"><span class="lineNum">     179</span> <span class="tlaGNC">           4 :         begin</span></span>
 <span id="L180"><span class="lineNum">     180</span> <span class="tlaGNC">           4 :           digest_valid_reg &lt;= 0;</span></span>
 <span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC">           4 :           hmac_ctrl_reg  &lt;= CTRL_IDLE;</span></span>
 <span id="L182"><span class="lineNum">     182</span> <span class="tlaGNC">           4 :           hmac_ctrl_last &lt;= CTRL_IDLE;</span></span>
 <span id="L183"><span class="lineNum">     183</span>              :         end</span>
-<span id="L184"><span class="lineNum">     184</span> <span class="tlaGNC">      229312 :       else if (zeroize)</span></span>
+<span id="L184"><span class="lineNum">     184</span> <span class="tlaGNC">      229424 :       else if (zeroize)</span></span>
 <span id="L185"><span class="lineNum">     185</span> <span class="tlaUNC tlaBgUNC">           0 :         begin</span></span>
 <span id="L186"><span class="lineNum">     186</span> <span class="tlaUNC">           0 :           digest_valid_reg &lt;= 0;</span></span>
 <span id="L187"><span class="lineNum">     187</span> <span class="tlaUNC">           0 :           hmac_ctrl_reg  &lt;= CTRL_IDLE;</span></span>
 <span id="L188"><span class="lineNum">     188</span> <span class="tlaUNC">           0 :           hmac_ctrl_last &lt;= CTRL_IDLE;</span></span>
 <span id="L189"><span class="lineNum">     189</span>              :         end</span>
 <span id="L190"><span class="lineNum">     190</span>              :       else</span>
-<span id="L191"><span class="lineNum">     191</span> <span class="tlaGNC tlaBgGNC">      229312 :         begin</span></span>
-<span id="L192"><span class="lineNum">     192</span> <span class="tlaGNC">      229312 :           hmac_ctrl_last &lt;= hmac_ctrl_reg;</span></span>
+<span id="L191"><span class="lineNum">     191</span> <span class="tlaGNC tlaBgGNC">      229424 :         begin</span></span>
+<span id="L192"><span class="lineNum">     192</span> <span class="tlaGNC">      229424 :           hmac_ctrl_last &lt;= hmac_ctrl_reg;</span></span>
 <span id="L193"><span class="lineNum">     193</span>              : </span>
-<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC">      229312 :           if (digest_valid_we)</span></span>
+<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC">      229424 :           if (digest_valid_we)</span></span>
 <span id="L195"><span class="lineNum">     195</span> <span class="tlaUNC tlaBgUNC">           0 :             digest_valid_reg &lt;= digest_valid_new;</span></span>
 <span id="L196"><span class="lineNum">     196</span>              : </span>
-<span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC tlaBgGNC">      229312 :           if (hmac_ctrl_we)</span></span>
+<span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC tlaBgGNC">      229424 :           if (hmac_ctrl_we)</span></span>
 <span id="L198"><span class="lineNum">     198</span> <span class="tlaUNC tlaBgUNC">           0 :             hmac_ctrl_reg &lt;= hmac_ctrl_new;</span></span>
 <span id="L199"><span class="lineNum">     199</span>              : </span>
 <span id="L200"><span class="lineNum">     200</span>              : </span>
@@ -369,12 +369,12 @@
 <span id="L265"><span class="lineNum">     265</span> <span class="tlaUNC">           0 :             H2_block = HMAC_padded;</span></span>
 <span id="L266"><span class="lineNum">     266</span>              :           end</span>
 <span id="L267"><span class="lineNum">     267</span>              : </span>
-<span id="L268"><span class="lineNum">     268</span> <span class="tlaGNC tlaBgGNC">      229317 :         default:</span></span>
-<span id="L269"><span class="lineNum">     269</span> <span class="tlaGNC">      229317 :           begin</span></span>
-<span id="L270"><span class="lineNum">     270</span> <span class="tlaGNC">      229317 :             H1_init = 0;</span></span>
-<span id="L271"><span class="lineNum">     271</span> <span class="tlaGNC">      229317 :             H1_next = 0;</span></span>
-<span id="L272"><span class="lineNum">     272</span> <span class="tlaGNC">      229317 :             H2_init = 0;</span></span>
-<span id="L273"><span class="lineNum">     273</span> <span class="tlaGNC">      229317 :             H2_next = 0;</span></span>
+<span id="L268"><span class="lineNum">     268</span> <span class="tlaGNC tlaBgGNC">      229429 :         default:</span></span>
+<span id="L269"><span class="lineNum">     269</span> <span class="tlaGNC">      229429 :           begin</span></span>
+<span id="L270"><span class="lineNum">     270</span> <span class="tlaGNC">      229429 :             H1_init = 0;</span></span>
+<span id="L271"><span class="lineNum">     271</span> <span class="tlaGNC">      229429 :             H1_next = 0;</span></span>
+<span id="L272"><span class="lineNum">     272</span> <span class="tlaGNC">      229429 :             H2_init = 0;</span></span>
+<span id="L273"><span class="lineNum">     273</span> <span class="tlaGNC">      229429 :             H2_next = 0;</span></span>
 <span id="L274"><span class="lineNum">     274</span>              :           end</span>
 <span id="L275"><span class="lineNum">     275</span>              :       endcase</span>
 <span id="L276"><span class="lineNum">     276</span>              :     end</span>
@@ -393,11 +393,11 @@
 <span id="L289"><span class="lineNum">     289</span> <span class="tlaGNC">           1 :       hmac_ctrl_we     = 0;</span></span>
 <span id="L290"><span class="lineNum">     290</span>              : </span>
 <span id="L291"><span class="lineNum">     291</span> <span class="tlaGNC">           1 :       unique case (hmac_ctrl_reg)</span></span>
-<span id="L292"><span class="lineNum">     292</span> <span class="tlaGNC">      229317 :         CTRL_IDLE:</span></span>
-<span id="L293"><span class="lineNum">     293</span> <span class="tlaGNC">      229317 :           begin</span></span>
-<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC">      229317 :             ready_flag = 1;</span></span>
+<span id="L292"><span class="lineNum">     292</span> <span class="tlaGNC">      229429 :         CTRL_IDLE:</span></span>
+<span id="L293"><span class="lineNum">     293</span> <span class="tlaGNC">      229429 :           begin</span></span>
+<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC">      229429 :             ready_flag = 1;</span></span>
 <span id="L295"><span class="lineNum">     295</span>              : </span>
-<span id="L296"><span class="lineNum">     296</span> <span class="tlaGNC">      229317 :             if (init_cmd)</span></span>
+<span id="L296"><span class="lineNum">     296</span> <span class="tlaGNC">      229429 :             if (init_cmd)</span></span>
 <span id="L297"><span class="lineNum">     297</span> <span class="tlaUNC tlaBgUNC">           0 :               begin</span></span>
 <span id="L298"><span class="lineNum">     298</span> <span class="tlaUNC">           0 :                 digest_valid_new = 0;</span></span>
 <span id="L299"><span class="lineNum">     299</span> <span class="tlaUNC">           0 :                 digest_valid_we  = 1;</span></span>
@@ -405,7 +405,7 @@
 <span id="L301"><span class="lineNum">     301</span> <span class="tlaUNC">           0 :                 hmac_ctrl_we     = 1;</span></span>
 <span id="L302"><span class="lineNum">     302</span>              :               end</span>
 <span id="L303"><span class="lineNum">     303</span>              : </span>
-<span id="L304"><span class="lineNum">     304</span> <span class="tlaGNC tlaBgGNC">      229317 :             if (next_cmd)</span></span>
+<span id="L304"><span class="lineNum">     304</span> <span class="tlaGNC tlaBgGNC">      229429 :             if (next_cmd)</span></span>
 <span id="L305"><span class="lineNum">     305</span> <span class="tlaUNC tlaBgUNC">           0 :               begin</span></span>
 <span id="L306"><span class="lineNum">     306</span> <span class="tlaUNC">           0 :                 digest_valid_new = 0;</span></span>
 <span id="L307"><span class="lineNum">     307</span> <span class="tlaUNC">           0 :                 digest_valid_we  = 1;</span></span>

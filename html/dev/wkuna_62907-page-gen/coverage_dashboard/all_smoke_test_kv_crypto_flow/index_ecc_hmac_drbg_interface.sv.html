@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -147,7 +147,7 @@
 <span id="L43"><span class="lineNum">      43</span>              :     )</span>
 <span id="L44"><span class="lineNum">      44</span>              :     (</span>
 <span id="L45"><span class="lineNum">      45</span>              :     // Clock and reset.</span>
-<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC tlaBgGNC">     3259970 :     input wire                      clk,</span></span>
+<span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC tlaBgGNC">     3259966 :     input wire                      clk,</span></span>
 <span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">           7 :     input wire                      reset_n,</span></span>
 <span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">           4 :     input wire                      zeroize,</span></span>
 <span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">           2 :     input wire                      keygen_sign,</span></span>
@@ -251,7 +251,7 @@
 <span id="L147"><span class="lineNum">     147</span> <span class="tlaGNC">        1782 :             MASKING_RND_ST: hmac_drbg_entropy = IV;</span></span>
 <span id="L148"><span class="lineNum">     148</span> <span class="tlaGNC">        1782 :             KEYGEN_ST:      hmac_drbg_entropy = keygen_seed;</span></span>
 <span id="L149"><span class="lineNum">     149</span> <span class="tlaGNC">        1782 :             SIGN_ST:        hmac_drbg_entropy = privKey;</span></span>
-<span id="L150"><span class="lineNum">     150</span> <span class="tlaGNC">     1613851 :             default:        hmac_drbg_entropy = '0;</span></span>
+<span id="L150"><span class="lineNum">     150</span> <span class="tlaGNC">     1614425 :             default:        hmac_drbg_entropy = '0;</span></span>
 <span id="L151"><span class="lineNum">     151</span>              :         endcase</span>
 <span id="L152"><span class="lineNum">     152</span>              :     end // hmac_drbg_entropy_input</span>
 <span id="L153"><span class="lineNum">     153</span>              : </span>
@@ -264,7 +264,7 @@
 <span id="L160"><span class="lineNum">     160</span> <span class="tlaGNC">        1782 :             MASKING_RND_ST: hmac_drbg_nonce = counter_nonce_reg;</span></span>
 <span id="L161"><span class="lineNum">     161</span> <span class="tlaGNC">        1782 :             KEYGEN_ST:      hmac_drbg_nonce = keygen_nonce;</span></span>
 <span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC">        1782 :             SIGN_ST:        hmac_drbg_nonce = hashed_msg;</span></span>
-<span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC">     1613851 :             default:        hmac_drbg_nonce = counter_nonce_reg;</span></span>
+<span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC">     1614425 :             default:        hmac_drbg_nonce = counter_nonce_reg;</span></span>
 <span id="L164"><span class="lineNum">     164</span>              :         endcase</span>
 <span id="L165"><span class="lineNum">     165</span>              :     end // hmac_drbg_nonce_input</span>
 <span id="L166"><span class="lineNum">     166</span>              : </span>
@@ -295,8 +295,8 @@
 <span id="L191"><span class="lineNum">     191</span>              :     //</span>
 <span id="L192"><span class="lineNum">     192</span>              :     // update the internal registers</span>
 <span id="L193"><span class="lineNum">     193</span>              :     //----------------------------------------------------------------</span>
-<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC">     1629888 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L195"><span class="lineNum">     195</span> <span class="tlaGNC">     1629888 :     begin //reg_update</span></span>
+<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC">     1630462 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L195"><span class="lineNum">     195</span> <span class="tlaGNC">     1630462 :     begin //reg_update</span></span>
 <span id="L196"><span class="lineNum">     196</span> <span class="tlaGNC">          16 :         if (!reset_n) begin</span></span>
 <span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC">          16 :             lambda_reg &lt;= '0;</span></span>
 <span id="L198"><span class="lineNum">     198</span> <span class="tlaGNC">          16 :             scalar_rnd_reg &lt;= '0;</span></span>
@@ -331,48 +331,48 @@
 <span id="L227"><span class="lineNum">     227</span>              :             end</span>
 <span id="L228"><span class="lineNum">     228</span>              :     end //reg_update</span>
 <span id="L229"><span class="lineNum">     229</span>              : </span>
-<span id="L230"><span class="lineNum">     230</span> <span class="tlaGNC tlaBgGNC">     1629888 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L231"><span class="lineNum">     231</span> <span class="tlaGNC">     1629888 :     begin : state_reg_update</span></span>
+<span id="L230"><span class="lineNum">     230</span> <span class="tlaGNC tlaBgGNC">     1630462 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L231"><span class="lineNum">     231</span> <span class="tlaGNC">     1630462 :     begin : state_reg_update</span></span>
 <span id="L232"><span class="lineNum">     232</span> <span class="tlaGNC">          16 :         if (!reset_n)</span></span>
 <span id="L233"><span class="lineNum">     233</span> <span class="tlaGNC">          16 :             state_reg       &lt;= IDLE_ST;</span></span>
 <span id="L234"><span class="lineNum">     234</span> <span class="tlaGNC">           2 :         else if (zeroize)</span></span>
 <span id="L235"><span class="lineNum">     235</span> <span class="tlaGNC">           2 :             state_reg       &lt;= IDLE_ST;</span></span>
 <span id="L236"><span class="lineNum">     236</span>              :         else</span>
-<span id="L237"><span class="lineNum">     237</span> <span class="tlaGNC">     1629870 :             state_reg       &lt;= state_next;</span></span>
+<span id="L237"><span class="lineNum">     237</span> <span class="tlaGNC">     1630444 :             state_reg       &lt;= state_next;</span></span>
 <span id="L238"><span class="lineNum">     238</span>              :     end // state_reg_update</span>
 <span id="L239"><span class="lineNum">     239</span>              : </span>
-<span id="L240"><span class="lineNum">     240</span> <span class="tlaGNC">     1629888 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L241"><span class="lineNum">     241</span> <span class="tlaGNC">     1629888 :     begin : ff_state_reg</span></span>
+<span id="L240"><span class="lineNum">     240</span> <span class="tlaGNC">     1630462 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L241"><span class="lineNum">     241</span> <span class="tlaGNC">     1630462 :     begin : ff_state_reg</span></span>
 <span id="L242"><span class="lineNum">     242</span> <span class="tlaGNC">          16 :         if (!reset_n)</span></span>
 <span id="L243"><span class="lineNum">     243</span> <span class="tlaGNC">          16 :             state_reg_last  &lt;= IDLE_ST;</span></span>
 <span id="L244"><span class="lineNum">     244</span> <span class="tlaGNC">           2 :         else if (zeroize)</span></span>
 <span id="L245"><span class="lineNum">     245</span> <span class="tlaGNC">           2 :             state_reg_last  &lt;= IDLE_ST;</span></span>
 <span id="L246"><span class="lineNum">     246</span>              :         else </span>
-<span id="L247"><span class="lineNum">     247</span> <span class="tlaGNC">     1629870 :             state_reg_last  &lt;= state_reg;</span></span>
+<span id="L247"><span class="lineNum">     247</span> <span class="tlaGNC">     1630444 :             state_reg_last  &lt;= state_reg;</span></span>
 <span id="L248"><span class="lineNum">     248</span>              :     end // ff_state_reg</span>
 <span id="L249"><span class="lineNum">     249</span>              : </span>
-<span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC">     1629888 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">     1629888 :     begin : ff_hamc_valid</span></span>
+<span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC">     1630462 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">     1630462 :     begin : ff_hamc_valid</span></span>
 <span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">          16 :         if (!reset_n)</span></span>
 <span id="L253"><span class="lineNum">     253</span> <span class="tlaGNC">          16 :             hmac_drbg_valid_last &lt;= '0;</span></span>
 <span id="L254"><span class="lineNum">     254</span> <span class="tlaGNC">           2 :         else if (zeroize)</span></span>
 <span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC">           2 :             hmac_drbg_valid_last &lt;= '0;</span></span>
 <span id="L256"><span class="lineNum">     256</span>              :         else</span>
-<span id="L257"><span class="lineNum">     257</span> <span class="tlaGNC">     1629870 :             hmac_drbg_valid_last &lt;= hmac_drbg_valid;</span></span>
+<span id="L257"><span class="lineNum">     257</span> <span class="tlaGNC">     1630444 :             hmac_drbg_valid_last &lt;= hmac_drbg_valid;</span></span>
 <span id="L258"><span class="lineNum">     258</span>              :     end //ff_hamc_valid</span>
 <span id="L259"><span class="lineNum">     259</span>              : </span>
-<span id="L260"><span class="lineNum">     260</span> <span class="tlaGNC">     1629888 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L261"><span class="lineNum">     261</span> <span class="tlaGNC">     1629888 :     begin : counter_reg_update</span></span>
+<span id="L260"><span class="lineNum">     260</span> <span class="tlaGNC">     1630462 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L261"><span class="lineNum">     261</span> <span class="tlaGNC">     1630462 :     begin : counter_reg_update</span></span>
 <span id="L262"><span class="lineNum">     262</span> <span class="tlaGNC">          16 :         if (!reset_n)</span></span>
 <span id="L263"><span class="lineNum">     263</span> <span class="tlaGNC">          16 :             counter_reg       &lt;= '0;</span></span>
 <span id="L264"><span class="lineNum">     264</span> <span class="tlaGNC">           2 :         else if (zeroize)</span></span>
 <span id="L265"><span class="lineNum">     265</span> <span class="tlaGNC">           2 :             counter_reg       &lt;= '0;</span></span>
 <span id="L266"><span class="lineNum">     266</span>              :         else</span>
-<span id="L267"><span class="lineNum">     267</span> <span class="tlaGNC">     1629870 :             counter_reg       &lt;= counter_reg + 1;</span></span>
+<span id="L267"><span class="lineNum">     267</span> <span class="tlaGNC">     1630444 :             counter_reg       &lt;= counter_reg + 1;</span></span>
 <span id="L268"><span class="lineNum">     268</span>              :     end // counter_reg_update</span>
 <span id="L269"><span class="lineNum">     269</span>              : </span>
-<span id="L270"><span class="lineNum">     270</span> <span class="tlaGNC">     1629888 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L271"><span class="lineNum">     271</span> <span class="tlaGNC">     1629888 :     begin : counter_nonce_update</span></span>
+<span id="L270"><span class="lineNum">     270</span> <span class="tlaGNC">     1630462 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L271"><span class="lineNum">     271</span> <span class="tlaGNC">     1630462 :     begin : counter_nonce_update</span></span>
 <span id="L272"><span class="lineNum">     272</span> <span class="tlaGNC">          16 :         if (!reset_n)</span></span>
 <span id="L273"><span class="lineNum">     273</span> <span class="tlaGNC">          16 :             counter_nonce_reg       &lt;= '0;</span></span>
 <span id="L274"><span class="lineNum">     274</span> <span class="tlaGNC">           2 :         else if (zeroize)</span></span>
@@ -395,7 +395,7 @@
 <span id="L291"><span class="lineNum">     291</span> <span class="tlaGNC">           1 :     begin : interface_fsm</span></span>
 <span id="L292"><span class="lineNum">     292</span> <span class="tlaGNC">           1 :         state_next = IDLE_ST;</span></span>
 <span id="L293"><span class="lineNum">     293</span> <span class="tlaGNC">           1 :         unique case(state_reg)</span></span>
-<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC">     1613847 :             IDLE_ST:        state_next = (en &amp; hmac_drbg_ready)? LFSR_ST : IDLE_ST;</span></span>
+<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC">     1614421 :             IDLE_ST:        state_next = (en &amp; hmac_drbg_ready)? LFSR_ST : IDLE_ST;</span></span>
 <span id="L295"><span class="lineNum">     295</span> <span class="tlaGNC">        3564 :             LFSR_ST:        state_next = (hmac_done_edge)? LAMBDA_ST : LFSR_ST;</span></span>
 <span id="L296"><span class="lineNum">     296</span> <span class="tlaGNC">        3564 :             LAMBDA_ST:      state_next = (hmac_done_edge)? SCALAR_RND_ST : LAMBDA_ST;</span></span>
 <span id="L297"><span class="lineNum">     297</span> <span class="tlaGNC">        3564 :             SCALAR_RND_ST:  state_next = (hmac_done_edge)? RND_DONE_ST : SCALAR_RND_ST;</span></span>

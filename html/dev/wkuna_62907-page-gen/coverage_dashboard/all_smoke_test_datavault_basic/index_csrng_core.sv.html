@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -121,7 +121,7 @@
 <span id="L17"><span class="lineNum">      17</span>              :   parameter cs_keymgr_div_t RndCnstCsKeymgrDivNonProduction = CsKeymgrDivWidth'(0),</span>
 <span id="L18"><span class="lineNum">      18</span>              :   parameter cs_keymgr_div_t RndCnstCsKeymgrDivProduction = CsKeymgrDivWidth'(0)</span>
 <span id="L19"><span class="lineNum">      19</span>              : ) (</span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC tlaBgGNC">      458006 :   input logic                                     clk_i,</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC tlaBgGNC">      458284 :   input logic                                     clk_i,</span></span>
 <span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           1 :   input logic                                     rst_ni,</span></span>
 <span id="L22"><span class="lineNum">      22</span>              : </span>
 <span id="L23"><span class="lineNum">      23</span> <span class="tlaUNC tlaBgUNC">           0 :   input  csrng_reg_pkg::csrng_reg2hw_t            reg2hw,</span></span>
@@ -142,7 +142,7 @@
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC">           0 :   output entropy_src_pkg::cs_aes_halt_rsp_t       cs_aes_halt_o,</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
 <span id="L40"><span class="lineNum">      40</span>              :   // Application Interfaces</span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">       24658 :   input  csrng_req_t [NHwApps-1:0]                csrng_cmd_i,</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">       24634 :   input  csrng_req_t [NHwApps-1:0]                csrng_cmd_i,</span></span>
 <span id="L42"><span class="lineNum">      42</span>              :   output csrng_rsp_t [NHwApps-1:0]                csrng_cmd_o,</span>
 <span id="L43"><span class="lineNum">      43</span>              : </span>
 <span id="L44"><span class="lineNum">      44</span>              :   // Alerts</span>
@@ -234,7 +234,7 @@
 <span id="L130"><span class="lineNum">     130</span>              : </span>
 <span id="L131"><span class="lineNum">     131</span> <span class="tlaUNC">           0 :   logic                        cmd_result_wr_req;</span></span>
 <span id="L132"><span class="lineNum">     132</span> <span class="tlaUNC">           0 :   logic                        cmd_result_ack;</span></span>
-<span id="L133"><span class="lineNum">     133</span> <span class="tlaGNC tlaBgGNC">       24658 :   logic                        cmd_result_ack_sts;</span></span>
+<span id="L133"><span class="lineNum">     133</span> <span class="tlaGNC tlaBgGNC">       24634 :   logic                        cmd_result_ack_sts;</span></span>
 <span id="L134"><span class="lineNum">     134</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [Cmd-1:0]              cmd_result_ccmd;</span></span>
 <span id="L135"><span class="lineNum">     135</span> <span class="tlaGNC tlaBgGNC">           1 :   logic                        cmd_result_ack_rdy;</span></span>
 <span id="L136"><span class="lineNum">     136</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [StateId-1:0]          cmd_result_inst_id;</span></span>
@@ -459,8 +459,8 @@
 <span id="L355"><span class="lineNum">     355</span> <span class="tlaGNC">           1 :   logic [1:0]                efuse_sw_app_enable;</span></span>
 <span id="L356"><span class="lineNum">     356</span>              : </span>
 <span id="L357"><span class="lineNum">     357</span> <span class="tlaUNC tlaBgUNC">           0 :   logic                      unused_err_code_test_bit;</span></span>
-<span id="L358"><span class="lineNum">     358</span> <span class="tlaGNC tlaBgGNC">       24658 :   logic                      unused_reg2hw_genbits;</span></span>
-<span id="L359"><span class="lineNum">     359</span> <span class="tlaGNC">       24658 :   logic                      unused_int_state_val;</span></span>
+<span id="L358"><span class="lineNum">     358</span> <span class="tlaGNC tlaBgGNC">       24634 :   logic                      unused_reg2hw_genbits;</span></span>
+<span id="L359"><span class="lineNum">     359</span> <span class="tlaGNC">       24634 :   logic                      unused_int_state_val;</span></span>
 <span id="L360"><span class="lineNum">     360</span>              : </span>
 <span id="L361"><span class="lineNum">     361</span> <span class="tlaGNC">           1 :   caliptra_prim_mubi_pkg::mubi8_t [1:0] en_csrng_sw_app_read;</span></span>
 <span id="L362"><span class="lineNum">     362</span> <span class="tlaGNC">           1 :   caliptra_prim_mubi_pkg::mubi4_t [CsEnableCopies-1:0] mubi_cs_enable_fanout;</span></span>
@@ -483,7 +483,7 @@
 <span id="L379"><span class="lineNum">     379</span> <span class="tlaUNC">           0 :   logic                      cs_rdata_capt_vld_q, cs_rdata_capt_vld_d;</span></span>
 <span id="L380"><span class="lineNum">     380</span> <span class="tlaGNC tlaBgGNC">           1 :   logic                      sw_rdy_sts_q, sw_rdy_sts_d;</span></span>
 <span id="L381"><span class="lineNum">     381</span>              : </span>
-<span id="L382"><span class="lineNum">     382</span> <span class="tlaGNC">      229316 :   always_ff @(posedge clk_i or negedge rst_ni)</span></span>
+<span id="L382"><span class="lineNum">     382</span> <span class="tlaGNC">      229428 :   always_ff @(posedge clk_i or negedge rst_ni)</span></span>
 <span id="L383"><span class="lineNum">     383</span> <span class="tlaGNC">           4 :     if (!rst_ni) begin</span></span>
 <span id="L384"><span class="lineNum">     384</span> <span class="tlaGNC">           4 :       acmd_q                  &lt;= '0;</span></span>
 <span id="L385"><span class="lineNum">     385</span> <span class="tlaGNC">           4 :       shid_q                  &lt;= '0;</span></span>
@@ -500,22 +500,22 @@
 <span id="L396"><span class="lineNum">     396</span> <span class="tlaGNC">           4 :       cs_rdata_capt_q         &lt;= '0;</span></span>
 <span id="L397"><span class="lineNum">     397</span> <span class="tlaGNC">           4 :       cs_rdata_capt_vld_q     &lt;= '0;</span></span>
 <span id="L398"><span class="lineNum">     398</span> <span class="tlaGNC">           4 :       sw_rdy_sts_q            &lt;= '0;</span></span>
-<span id="L399"><span class="lineNum">     399</span> <span class="tlaGNC">      229312 :     end else begin</span></span>
-<span id="L400"><span class="lineNum">     400</span> <span class="tlaGNC">      229312 :       acmd_q                  &lt;= acmd_d;</span></span>
-<span id="L401"><span class="lineNum">     401</span> <span class="tlaGNC">      229312 :       shid_q                  &lt;= shid_d;</span></span>
-<span id="L402"><span class="lineNum">     402</span> <span class="tlaGNC">      229312 :       gen_last_q              &lt;= gen_last_d;</span></span>
-<span id="L403"><span class="lineNum">     403</span> <span class="tlaGNC">      229312 :       flag0_q                 &lt;= flag0_d;</span></span>
-<span id="L404"><span class="lineNum">     404</span> <span class="tlaGNC">      229312 :       cmd_arb_idx_q           &lt;= cmd_arb_idx_d;</span></span>
-<span id="L405"><span class="lineNum">     405</span> <span class="tlaGNC">      229312 :       statedb_wr_select_q     &lt;= statedb_wr_select_d;</span></span>
-<span id="L406"><span class="lineNum">     406</span> <span class="tlaGNC">      229312 :       genbits_stage_fips_sw_q &lt;= genbits_stage_fips_sw_d;</span></span>
-<span id="L407"><span class="lineNum">     407</span> <span class="tlaGNC">      229312 :       cmd_req_dly_q           &lt;= cmd_req_dly_d;</span></span>
-<span id="L408"><span class="lineNum">     408</span> <span class="tlaGNC">      229312 :       cmd_req_ccmd_dly_q      &lt;= cmd_req_ccmd_dly_d;</span></span>
-<span id="L409"><span class="lineNum">     409</span> <span class="tlaGNC">      229312 :       cs_aes_halt_q           &lt;= cs_aes_halt_d;</span></span>
-<span id="L410"><span class="lineNum">     410</span> <span class="tlaGNC">      229312 :       entropy_src_seed_q      &lt;= entropy_src_seed_d;</span></span>
-<span id="L411"><span class="lineNum">     411</span> <span class="tlaGNC">      229312 :       entropy_src_fips_q      &lt;= entropy_src_fips_d;</span></span>
-<span id="L412"><span class="lineNum">     412</span> <span class="tlaGNC">      229312 :       cs_rdata_capt_q         &lt;= cs_rdata_capt_d;</span></span>
-<span id="L413"><span class="lineNum">     413</span> <span class="tlaGNC">      229312 :       cs_rdata_capt_vld_q     &lt;= cs_rdata_capt_vld_d;</span></span>
-<span id="L414"><span class="lineNum">     414</span> <span class="tlaGNC">      229312 :       sw_rdy_sts_q            &lt;= sw_rdy_sts_d;</span></span>
+<span id="L399"><span class="lineNum">     399</span> <span class="tlaGNC">      229424 :     end else begin</span></span>
+<span id="L400"><span class="lineNum">     400</span> <span class="tlaGNC">      229424 :       acmd_q                  &lt;= acmd_d;</span></span>
+<span id="L401"><span class="lineNum">     401</span> <span class="tlaGNC">      229424 :       shid_q                  &lt;= shid_d;</span></span>
+<span id="L402"><span class="lineNum">     402</span> <span class="tlaGNC">      229424 :       gen_last_q              &lt;= gen_last_d;</span></span>
+<span id="L403"><span class="lineNum">     403</span> <span class="tlaGNC">      229424 :       flag0_q                 &lt;= flag0_d;</span></span>
+<span id="L404"><span class="lineNum">     404</span> <span class="tlaGNC">      229424 :       cmd_arb_idx_q           &lt;= cmd_arb_idx_d;</span></span>
+<span id="L405"><span class="lineNum">     405</span> <span class="tlaGNC">      229424 :       statedb_wr_select_q     &lt;= statedb_wr_select_d;</span></span>
+<span id="L406"><span class="lineNum">     406</span> <span class="tlaGNC">      229424 :       genbits_stage_fips_sw_q &lt;= genbits_stage_fips_sw_d;</span></span>
+<span id="L407"><span class="lineNum">     407</span> <span class="tlaGNC">      229424 :       cmd_req_dly_q           &lt;= cmd_req_dly_d;</span></span>
+<span id="L408"><span class="lineNum">     408</span> <span class="tlaGNC">      229424 :       cmd_req_ccmd_dly_q      &lt;= cmd_req_ccmd_dly_d;</span></span>
+<span id="L409"><span class="lineNum">     409</span> <span class="tlaGNC">      229424 :       cs_aes_halt_q           &lt;= cs_aes_halt_d;</span></span>
+<span id="L410"><span class="lineNum">     410</span> <span class="tlaGNC">      229424 :       entropy_src_seed_q      &lt;= entropy_src_seed_d;</span></span>
+<span id="L411"><span class="lineNum">     411</span> <span class="tlaGNC">      229424 :       entropy_src_fips_q      &lt;= entropy_src_fips_d;</span></span>
+<span id="L412"><span class="lineNum">     412</span> <span class="tlaGNC">      229424 :       cs_rdata_capt_q         &lt;= cs_rdata_capt_d;</span></span>
+<span id="L413"><span class="lineNum">     413</span> <span class="tlaGNC">      229424 :       cs_rdata_capt_vld_q     &lt;= cs_rdata_capt_vld_d;</span></span>
+<span id="L414"><span class="lineNum">     414</span> <span class="tlaGNC">      229424 :       sw_rdy_sts_q            &lt;= sw_rdy_sts_d;</span></span>
 <span id="L415"><span class="lineNum">     415</span>              :     end</span>
 <span id="L416"><span class="lineNum">     416</span>              : </span>
 <span id="L417"><span class="lineNum">     417</span>              :   //--------------------------------------------</span>

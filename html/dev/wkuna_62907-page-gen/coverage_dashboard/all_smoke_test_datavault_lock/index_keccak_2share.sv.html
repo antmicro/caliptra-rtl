@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -129,7 +129,7 @@
 <span id="L25"><span class="lineNum">      25</span>              :   parameter  bit EnMasking = 0,                // Enable secure hardening</span>
 <span id="L26"><span class="lineNum">      26</span>              :   localparam int Share     = EnMasking ? 2 : 1</span>
 <span id="L27"><span class="lineNum">      27</span>              : ) (</span>
-<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC tlaBgGNC">     2550888 :   input clk_i,</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC tlaBgGNC">     2867382 :   input clk_i,</span></span>
 <span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">           1 :   input rst_ni,</span></span>
 <span id="L30"><span class="lineNum">      30</span>              : </span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           3 :   input  lc_ctrl_pkg::lc_tx_t lc_escalate_en_i, // Used to disable SVAs when escalating.</span></span>
@@ -137,7 +137,7 @@
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC tlaBgUNC">           0 :   input         [RndW-1:0] rnd_i, // Current round index</span></span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">           1 :   input mubi4_t            phase_sel_i, // Output mux contol. Used when EnMasking := 1</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaUNC tlaBgUNC">           0 :   input              [1:0] cycle_i, // Current cycle index. Used when EnMasking := 1</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">      148262 :   input                    rand_aux_i, // Auxiliary randomness input. Used when EnMasking := 1</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">      173318 :   input                    rand_aux_i, // Auxiliary randomness input. Used when EnMasking := 1</span></span>
 <span id="L37"><span class="lineNum">      37</span>              :   input      [Width/2-1:0] rand_i, // Randomness for remasking. Used when EnMasking := 1</span>
 <span id="L38"><span class="lineNum">      38</span>              :   input        [Width-1:0] s_i      [Share],</span>
 <span id="L39"><span class="lineNum">      39</span>              :   output logic [Width-1:0] s_o      [Share]</span>
@@ -544,9 +544,9 @@
 <span id="L440"><span class="lineNum">     440</span> <span class="tlaGNC">           1 :   function automatic box_t bitarray_to_box(logic [Width-1:0] s_in);</span></span>
 <span id="L441"><span class="lineNum">     441</span>              :     automatic box_t box;</span>
 <span id="L442"><span class="lineNum">     442</span> <span class="tlaGNC">           1 :     for (int y = 0 ; y &lt; 5 ; y++) begin</span></span>
-<span id="L443"><span class="lineNum">     443</span> <span class="tlaGNC">     7149365 :       for (int x = 0 ; x &lt; 5 ; x++) begin</span></span>
-<span id="L444"><span class="lineNum">     444</span> <span class="tlaGNC">    35746825 :         for (int z = 0 ; z &lt; W ; z++) begin</span></span>
-<span id="L445"><span class="lineNum">     445</span> <span class="tlaGNC">  2287796800 :           box[x][y][z] = s_in[W*(5*y+x) + z];</span></span>
+<span id="L443"><span class="lineNum">     443</span> <span class="tlaGNC">     7168460 :       for (int x = 0 ; x &lt; 5 ; x++) begin</span></span>
+<span id="L444"><span class="lineNum">     444</span> <span class="tlaGNC">    35842300 :         for (int z = 0 ; z &lt; W ; z++) begin</span></span>
+<span id="L445"><span class="lineNum">     445</span> <span class="tlaGNC">  2293907200 :           box[x][y][z] = s_in[W*(5*y+x) + z];</span></span>
 <span id="L446"><span class="lineNum">     446</span>              :         end</span>
 <span id="L447"><span class="lineNum">     447</span>              :       end</span>
 <span id="L448"><span class="lineNum">     448</span>              :     end</span>
@@ -557,9 +557,9 @@
 <span id="L453"><span class="lineNum">     453</span> <span class="tlaGNC">           1 :   function automatic logic [Width-1:0] box_to_bitarray(box_t state);</span></span>
 <span id="L454"><span class="lineNum">     454</span>              :     automatic logic [Width-1:0] bitarray;</span>
 <span id="L455"><span class="lineNum">     455</span> <span class="tlaGNC">           1 :     for (int y = 0 ; y &lt; 5 ; y++) begin</span></span>
-<span id="L456"><span class="lineNum">     456</span> <span class="tlaGNC">     7149365 :       for (int x = 0 ; x &lt; 5 ; x++) begin</span></span>
-<span id="L457"><span class="lineNum">     457</span> <span class="tlaGNC">    35746825 :         for (int z = 0 ; z &lt; W ; z++) begin</span></span>
-<span id="L458"><span class="lineNum">     458</span> <span class="tlaGNC">  2287796800 :           bitarray[W*(5*y+x)+z] = state[x][y][z];</span></span>
+<span id="L456"><span class="lineNum">     456</span> <span class="tlaGNC">     7168460 :       for (int x = 0 ; x &lt; 5 ; x++) begin</span></span>
+<span id="L457"><span class="lineNum">     457</span> <span class="tlaGNC">    35842300 :         for (int z = 0 ; z &lt; W ; z++) begin</span></span>
+<span id="L458"><span class="lineNum">     458</span> <span class="tlaGNC">  2293907200 :           bitarray[W*(5*y+x)+z] = state[x][y][z];</span></span>
 <span id="L459"><span class="lineNum">     459</span>              :         end</span>
 <span id="L460"><span class="lineNum">     460</span>              :       end</span>
 <span id="L461"><span class="lineNum">     461</span>              :     end</span>
@@ -593,10 +593,10 @@
 <span id="L489"><span class="lineNum">     489</span> <span class="tlaGNC">           5 :       c[x] = state[x][0] ^ state[x][1] ^ state[x][2] ^ state[x][3] ^ state[x][4];</span></span>
 <span id="L490"><span class="lineNum">     490</span>              :     end</span>
 <span id="L491"><span class="lineNum">     491</span> <span class="tlaGNC">           1 :     for (int x = 0 ; x &lt; 5 ; x++) begin</span></span>
-<span id="L492"><span class="lineNum">     492</span> <span class="tlaGNC">     7149365 :       for (int z = 0 ; z &lt; W ; z++) begin</span></span>
+<span id="L492"><span class="lineNum">     492</span> <span class="tlaGNC">     7168460 :       for (int z = 0 ; z &lt; W ; z++) begin</span></span>
 <span id="L493"><span class="lineNum">     493</span>              :         logic [$clog2(W)-1:0] index_z;</span>
-<span id="L494"><span class="lineNum">     494</span> <span class="tlaGNC">   457559360 :         index_z = (z == 0) ? W-1 : z-1; // (z+1)%W</span></span>
-<span id="L495"><span class="lineNum">     495</span> <span class="tlaGNC">   457559360 :         d[x][z] = c[ThetaIndexX1[x]][z] ^ c[ThetaIndexX2[x]][index_z];</span></span>
+<span id="L494"><span class="lineNum">     494</span> <span class="tlaGNC">   458781440 :         index_z = (z == 0) ? W-1 : z-1; // (z+1)%W</span></span>
+<span id="L495"><span class="lineNum">     495</span> <span class="tlaGNC">   458781440 :         d[x][z] = c[ThetaIndexX1[x]][z] ^ c[ThetaIndexX2[x]][index_z];</span></span>
 <span id="L496"><span class="lineNum">     496</span>              :       end</span>
 <span id="L497"><span class="lineNum">     497</span>              :     end</span>
 <span id="L498"><span class="lineNum">     498</span> <span class="tlaGNC">           1 :     for (int x = 0 ; x &lt; 5 ; x++) begin</span></span>

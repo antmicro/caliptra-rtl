@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -135,8 +135,8 @@
 <span id="L31"><span class="lineNum">      31</span>              : //    Whichever comes later.</span>
 <span id="L32"><span class="lineNum">      32</span>              : </span>
 <span id="L33"><span class="lineNum">      33</span>              : module entropy_src_enable_delay import caliptra_prim_mubi_pkg::*; (</span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">      864324 :   input logic  clk_i,</span></span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">          21 :   input logic  rst_ni,</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC tlaBgGNC">      458284 :   input logic  clk_i,</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           1 :   input logic  rst_ni,</span></span>
 <span id="L36"><span class="lineNum">      36</span>              : </span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaUNC tlaBgUNC">           0 :   input logic  enable_i,</span></span>
 <span id="L38"><span class="lineNum">      38</span>              : </span>
@@ -170,17 +170,17 @@
 <span id="L66"><span class="lineNum">      66</span> <span class="tlaGNC tlaBgGNC">           1 :   mubi4_t                   sha3_done_q;</span></span>
 <span id="L67"><span class="lineNum">      67</span> <span class="tlaUNC tlaBgUNC">           0 :   logic                     extend_enable_q;</span></span>
 <span id="L68"><span class="lineNum">      68</span>              : </span>
-<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC tlaBgGNC">        4617 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC tlaBgGNC">       94050 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">           4 :     if (!rst_ni) begin</span></span>
 <span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">           4 :       sha3_active_post_en_q   &lt;= 1'b0;</span></span>
 <span id="L72"><span class="lineNum">      72</span> <span class="tlaGNC">           4 :       fifo_timer_q            &lt;= '0;</span></span>
 <span id="L73"><span class="lineNum">      73</span> <span class="tlaGNC">           4 :       sha3_done_q             &lt;= caliptra_prim_mubi_pkg::MuBi4False;</span></span>
 <span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">           4 :       extend_enable_q         &lt;= 1'b0;</span></span>
-<span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">        4613 :     end else begin</span></span>
-<span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC">        4613 :       sha3_active_post_en_q   &lt;= sha3_active_post_en_d;</span></span>
-<span id="L77"><span class="lineNum">      77</span> <span class="tlaGNC">        4613 :       fifo_timer_q            &lt;= fifo_timer_d;</span></span>
-<span id="L78"><span class="lineNum">      78</span> <span class="tlaGNC">        4613 :       sha3_done_q             &lt;= sha3_done_i;</span></span>
-<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC">        4613 :       extend_enable_q         &lt;= extend_enable;</span></span>
+<span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">       94046 :     end else begin</span></span>
+<span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC">       94046 :       sha3_active_post_en_q   &lt;= sha3_active_post_en_d;</span></span>
+<span id="L77"><span class="lineNum">      77</span> <span class="tlaGNC">       94046 :       fifo_timer_q            &lt;= fifo_timer_d;</span></span>
+<span id="L78"><span class="lineNum">      78</span> <span class="tlaGNC">       94046 :       sha3_done_q             &lt;= sha3_done_i;</span></span>
+<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC">       94046 :       extend_enable_q         &lt;= extend_enable;</span></span>
 <span id="L80"><span class="lineNum">      80</span>              :     end</span>
 <span id="L81"><span class="lineNum">      81</span>              :   end</span>
 <span id="L82"><span class="lineNum">      82</span>              : </span>

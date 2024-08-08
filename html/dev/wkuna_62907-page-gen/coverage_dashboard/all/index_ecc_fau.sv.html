@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff7700;">
-        23.5%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff5900;">
+        17.6%
     </td>
     <td class="headerCovSummaryEntry">
-        3
+        2
     </td>
     <td class="headerCovSummaryEntry">
         17
@@ -131,12 +131,12 @@
 <span id="L27"><span class="lineNum">      27</span>              :     )</span>
 <span id="L28"><span class="lineNum">      28</span>              :     (</span>
 <span id="L29"><span class="lineNum">      29</span>              :     // Clock and reset.</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">      864324 :     input wire           clk,</span></span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">          21 :     input wire           reset_n,</span></span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">          14 :     input wire           zeroize,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">      458284 :     input wire           clk,</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           1 :     input wire           reset_n,</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC tlaBgUNC">           0 :     input wire           zeroize,</span></span>
 <span id="L33"><span class="lineNum">      33</span>              : </span>
 <span id="L34"><span class="lineNum">      34</span>              :     // DATA PORT</span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaUNC tlaBgUNC">           0 :     input  wire                 add_en_i,</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaUNC">           0 :     input  wire                 add_en_i,</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC">           0 :     input  wire                 sub_i,</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaUNC">           0 :     input  wire                 mult_en_i,</span></span>
 <span id="L38"><span class="lineNum">      38</span>              :     input  wire [REG_SIZE-1:0]  prime_i,</span>
@@ -161,7 +161,7 @@
 <span id="L57"><span class="lineNum">      57</span> <span class="tlaUNC">           0 :     reg                     sub;</span></span>
 <span id="L58"><span class="lineNum">      58</span>              : </span>
 <span id="L59"><span class="lineNum">      59</span> <span class="tlaUNC">           0 :     logic                   add_ready_o;</span></span>
-<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC tlaBgGNC">          22 :     logic                   mult_ready_o;</span></span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC tlaBgGNC">           2 :     logic                   mult_ready_o;</span></span>
 <span id="L61"><span class="lineNum">      61</span>              : </span>
 <span id="L62"><span class="lineNum">      62</span> <span class="tlaUNC tlaBgUNC">           0 :     logic                   ready_garbage_bit;</span></span>
 <span id="L63"><span class="lineNum">      63</span>              : </span>
@@ -216,37 +216,37 @@
 <span id="L112"><span class="lineNum">     112</span>              :     //----------------------------------------------------------------</span>
 <span id="L113"><span class="lineNum">     113</span>              :     // Registers including update enables.</span>
 <span id="L114"><span class="lineNum">     114</span>              :     //----------------------------------------------------------------</span>
-<span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC tlaBgGNC">        4617 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L116"><span class="lineNum">     116</span> <span class="tlaGNC">        4617 :     begin</span></span>
+<span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC tlaBgGNC">       94050 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L116"><span class="lineNum">     116</span> <span class="tlaGNC">       94050 :     begin</span></span>
 <span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC">           4 :         if (!reset_n) begin</span></span>
 <span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC">           4 :             mult_start &lt;= '0;</span></span>
 <span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC">           4 :             add_start &lt;= '0;</span></span>
 <span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC">           4 :             sub &lt;= '0;</span></span>
 <span id="L121"><span class="lineNum">     121</span>              :         end</span>
-<span id="L122"><span class="lineNum">     122</span> <span class="tlaGNC">        4613 :         else if (zeroize) begin</span></span>
+<span id="L122"><span class="lineNum">     122</span> <span class="tlaGNC">       94046 :         else if (zeroize) begin</span></span>
 <span id="L123"><span class="lineNum">     123</span> <span class="tlaUNC tlaBgUNC">           0 :             mult_start &lt;= '0;</span></span>
 <span id="L124"><span class="lineNum">     124</span> <span class="tlaUNC">           0 :             add_start &lt;= '0;</span></span>
 <span id="L125"><span class="lineNum">     125</span> <span class="tlaUNC">           0 :             sub &lt;= '0;</span></span>
 <span id="L126"><span class="lineNum">     126</span>              :         end</span>
-<span id="L127"><span class="lineNum">     127</span> <span class="tlaGNC tlaBgGNC">        4613 :         else begin</span></span>
-<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC">        4613 :             mult_start &lt;= mult_en_i;</span></span>
-<span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC">        4613 :             add_start &lt;= add_en_i;</span></span>
-<span id="L130"><span class="lineNum">     130</span> <span class="tlaGNC">        4613 :             sub &lt;= sub_i;</span></span>
+<span id="L127"><span class="lineNum">     127</span> <span class="tlaGNC tlaBgGNC">       94046 :         else begin</span></span>
+<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC">       94046 :             mult_start &lt;= mult_en_i;</span></span>
+<span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC">       94046 :             add_start &lt;= add_en_i;</span></span>
+<span id="L130"><span class="lineNum">     130</span> <span class="tlaGNC">       94046 :             sub &lt;= sub_i;</span></span>
 <span id="L131"><span class="lineNum">     131</span>              :         end</span>
 <span id="L132"><span class="lineNum">     132</span>              :     end</span>
 <span id="L133"><span class="lineNum">     133</span>              : </span>
-<span id="L134"><span class="lineNum">     134</span> <span class="tlaGNC">        4617 :     always_ff @(posedge clk or negedge reset_n) begin</span></span>
+<span id="L134"><span class="lineNum">     134</span> <span class="tlaGNC">       94050 :     always_ff @(posedge clk or negedge reset_n) begin</span></span>
 <span id="L135"><span class="lineNum">     135</span> <span class="tlaGNC">           4 :         if (!reset_n) begin</span></span>
 <span id="L136"><span class="lineNum">     136</span> <span class="tlaGNC">           4 :             mult_start_dly &lt;= '0;</span></span>
 <span id="L137"><span class="lineNum">     137</span> <span class="tlaGNC">           4 :             add_start_dly  &lt;= '0;</span></span>
 <span id="L138"><span class="lineNum">     138</span>              :         end</span>
-<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC">        4613 :         else if (zeroize) begin</span></span>
+<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC">       94046 :         else if (zeroize) begin</span></span>
 <span id="L140"><span class="lineNum">     140</span> <span class="tlaUNC tlaBgUNC">           0 :             mult_start_dly &lt;= '0;</span></span>
 <span id="L141"><span class="lineNum">     141</span> <span class="tlaUNC">           0 :             add_start_dly  &lt;= '0;</span></span>
 <span id="L142"><span class="lineNum">     142</span>              :         end</span>
-<span id="L143"><span class="lineNum">     143</span> <span class="tlaGNC tlaBgGNC">        4613 :         else begin</span></span>
-<span id="L144"><span class="lineNum">     144</span> <span class="tlaGNC">        4613 :             mult_start_dly &lt;= mult_start;</span></span>
-<span id="L145"><span class="lineNum">     145</span> <span class="tlaGNC">        4613 :             add_start_dly  &lt;= add_start;</span></span>
+<span id="L143"><span class="lineNum">     143</span> <span class="tlaGNC tlaBgGNC">       94046 :         else begin</span></span>
+<span id="L144"><span class="lineNum">     144</span> <span class="tlaGNC">       94046 :             mult_start_dly &lt;= mult_start;</span></span>
+<span id="L145"><span class="lineNum">     145</span> <span class="tlaGNC">       94046 :             add_start_dly  &lt;= add_start;</span></span>
 <span id="L146"><span class="lineNum">     146</span>              :         end</span>
 <span id="L147"><span class="lineNum">     147</span>              :     end</span>
 <span id="L148"><span class="lineNum">     148</span>              :     </span>

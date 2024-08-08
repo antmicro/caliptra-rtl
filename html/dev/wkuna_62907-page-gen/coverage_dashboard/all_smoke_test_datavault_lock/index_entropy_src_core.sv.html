@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -117,7 +117,7 @@
 <span id="L13"><span class="lineNum">      13</span>              : #(</span>
 <span id="L14"><span class="lineNum">      14</span>              :   parameter int EsFifoDepth = 4</span>
 <span id="L15"><span class="lineNum">      15</span>              : ) (</span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC tlaBgGNC">     2550888 :   input logic clk_i,</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC tlaBgGNC">     2867382 :   input logic clk_i,</span></span>
 <span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           1 :   input logic rst_ni,</span></span>
 <span id="L18"><span class="lineNum">      18</span>              : </span>
 <span id="L19"><span class="lineNum">      19</span>              :   input  entropy_src_reg_pkg::entropy_src_reg2hw_t reg2hw,</span>
@@ -144,7 +144,7 @@
 <span id="L40"><span class="lineNum">      40</span>              : </span>
 <span id="L41"><span class="lineNum">      41</span>              :   // External Health Test Interface</span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC tlaBgGNC">           2 :   output entropy_src_xht_req_t entropy_src_xht_o,</span></span>
-<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">      148262 :   input  entropy_src_xht_rsp_t entropy_src_xht_i,</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">      173318 :   input  entropy_src_xht_rsp_t entropy_src_xht_i,</span></span>
 <span id="L44"><span class="lineNum">      44</span>              : </span>
 <span id="L45"><span class="lineNum">      45</span> <span class="tlaUNC tlaBgUNC">           0 :   output logic           recov_alert_test_o,</span></span>
 <span id="L46"><span class="lineNum">      46</span> <span class="tlaUNC">           0 :   output logic           fatal_alert_test_o,</span></span>
@@ -295,7 +295,7 @@
 <span id="L191"><span class="lineNum">     191</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [HalfRegWidth-1:0] health_test_bypass_window;</span></span>
 <span id="L192"><span class="lineNum">     192</span> <span class="tlaUNC">           0 :   logic [HalfRegWidth-1:0] health_test_window;</span></span>
 <span id="L193"><span class="lineNum">     193</span>              : </span>
-<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC tlaBgGNC">         314 :   logic [HalfRegWidth-1:0] repcnt_fips_threshold;</span></span>
+<span id="L194"><span class="lineNum">     194</span> <span class="tlaGNC tlaBgGNC">         162 :   logic [HalfRegWidth-1:0] repcnt_fips_threshold;</span></span>
 <span id="L195"><span class="lineNum">     195</span> <span class="tlaGNC">           1 :   logic [HalfRegWidth-1:0] repcnt_fips_threshold_oneway;</span></span>
 <span id="L196"><span class="lineNum">     196</span> <span class="tlaUNC tlaBgUNC">           0 :   logic                    repcnt_fips_threshold_wr;</span></span>
 <span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC tlaBgGNC">          26 :   logic [HalfRegWidth-1:0] repcnt_bypass_threshold;</span></span>
@@ -311,7 +311,7 @@
 <span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC tlaBgGNC">           2 :   logic                     repcnt_fails_cntr_err;</span></span>
 <span id="L208"><span class="lineNum">     208</span> <span class="tlaGNC">           2 :   logic                     repcnt_alert_cntr_err;</span></span>
 <span id="L209"><span class="lineNum">     209</span>              : </span>
-<span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">         314 :   logic [HalfRegWidth-1:0] repcnts_fips_threshold;</span></span>
+<span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">         162 :   logic [HalfRegWidth-1:0] repcnts_fips_threshold;</span></span>
 <span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">           1 :   logic [HalfRegWidth-1:0] repcnts_fips_threshold_oneway;</span></span>
 <span id="L212"><span class="lineNum">     212</span> <span class="tlaUNC tlaBgUNC">           0 :   logic                    repcnts_fips_threshold_wr;</span></span>
 <span id="L213"><span class="lineNum">     213</span> <span class="tlaGNC tlaBgGNC">          26 :   logic [HalfRegWidth-1:0] repcnts_bypass_threshold;</span></span>
@@ -327,14 +327,14 @@
 <span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC tlaBgGNC">           2 :   logic                     repcnts_fails_cntr_err;</span></span>
 <span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">           2 :   logic                     repcnts_alert_cntr_err;</span></span>
 <span id="L225"><span class="lineNum">     225</span>              : </span>
-<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC">         314 :   logic [HalfRegWidth-1:0] adaptp_hi_fips_threshold;</span></span>
+<span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC">         162 :   logic [HalfRegWidth-1:0] adaptp_hi_fips_threshold;</span></span>
 <span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC">           1 :   logic [HalfRegWidth-1:0] adaptp_hi_fips_threshold_oneway;</span></span>
 <span id="L228"><span class="lineNum">     228</span> <span class="tlaUNC tlaBgUNC">           0 :   logic                    adaptp_hi_fips_threshold_wr;</span></span>
 <span id="L229"><span class="lineNum">     229</span> <span class="tlaGNC tlaBgGNC">          26 :   logic [HalfRegWidth-1:0] adaptp_hi_bypass_threshold;</span></span>
 <span id="L230"><span class="lineNum">     230</span> <span class="tlaGNC">           1 :   logic [HalfRegWidth-1:0] adaptp_hi_bypass_threshold_oneway;</span></span>
 <span id="L231"><span class="lineNum">     231</span> <span class="tlaUNC tlaBgUNC">           0 :   logic                    adaptp_hi_bypass_threshold_wr;</span></span>
 <span id="L232"><span class="lineNum">     232</span> <span class="tlaGNC tlaBgGNC">           1 :   logic [HalfRegWidth-1:0] adaptp_hi_threshold;</span></span>
-<span id="L233"><span class="lineNum">     233</span> <span class="tlaGNC">         314 :   logic [HalfRegWidth-1:0] adaptp_lo_fips_threshold;</span></span>
+<span id="L233"><span class="lineNum">     233</span> <span class="tlaGNC">         162 :   logic [HalfRegWidth-1:0] adaptp_lo_fips_threshold;</span></span>
 <span id="L234"><span class="lineNum">     234</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [HalfRegWidth-1:0] adaptp_lo_fips_threshold_oneway;</span></span>
 <span id="L235"><span class="lineNum">     235</span> <span class="tlaUNC">           0 :   logic                    adaptp_lo_fips_threshold_wr;</span></span>
 <span id="L236"><span class="lineNum">     236</span> <span class="tlaGNC tlaBgGNC">          26 :   logic [HalfRegWidth-1:0] adaptp_lo_bypass_threshold;</span></span>
@@ -358,7 +358,7 @@
 <span id="L254"><span class="lineNum">     254</span> <span class="tlaGNC">           2 :   logic                     adaptp_hi_alert_cntr_err;</span></span>
 <span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC">           2 :   logic                     adaptp_lo_alert_cntr_err;</span></span>
 <span id="L256"><span class="lineNum">     256</span>              : </span>
-<span id="L257"><span class="lineNum">     257</span> <span class="tlaGNC">         314 :   logic [HalfRegWidth-1:0] bucket_fips_threshold;</span></span>
+<span id="L257"><span class="lineNum">     257</span> <span class="tlaGNC">         162 :   logic [HalfRegWidth-1:0] bucket_fips_threshold;</span></span>
 <span id="L258"><span class="lineNum">     258</span> <span class="tlaGNC">           1 :   logic [HalfRegWidth-1:0] bucket_fips_threshold_oneway;</span></span>
 <span id="L259"><span class="lineNum">     259</span> <span class="tlaUNC tlaBgUNC">           0 :   logic                    bucket_fips_threshold_wr;</span></span>
 <span id="L260"><span class="lineNum">     260</span> <span class="tlaGNC tlaBgGNC">          26 :   logic [HalfRegWidth-1:0] bucket_bypass_threshold;</span></span>
@@ -374,14 +374,14 @@
 <span id="L270"><span class="lineNum">     270</span> <span class="tlaGNC tlaBgGNC">           2 :   logic                     bucket_fails_cntr_err;</span></span>
 <span id="L271"><span class="lineNum">     271</span> <span class="tlaGNC">           2 :   logic                     bucket_alert_cntr_err;</span></span>
 <span id="L272"><span class="lineNum">     272</span>              : </span>
-<span id="L273"><span class="lineNum">     273</span> <span class="tlaGNC">         314 :   logic [HalfRegWidth-1:0] markov_hi_fips_threshold;</span></span>
+<span id="L273"><span class="lineNum">     273</span> <span class="tlaGNC">         162 :   logic [HalfRegWidth-1:0] markov_hi_fips_threshold;</span></span>
 <span id="L274"><span class="lineNum">     274</span> <span class="tlaGNC">           1 :   logic [HalfRegWidth-1:0] markov_hi_fips_threshold_oneway;</span></span>
 <span id="L275"><span class="lineNum">     275</span> <span class="tlaUNC tlaBgUNC">           0 :   logic                    markov_hi_fips_threshold_wr;</span></span>
 <span id="L276"><span class="lineNum">     276</span> <span class="tlaGNC tlaBgGNC">          26 :   logic [HalfRegWidth-1:0] markov_hi_bypass_threshold;</span></span>
 <span id="L277"><span class="lineNum">     277</span> <span class="tlaGNC">           1 :   logic [HalfRegWidth-1:0] markov_hi_bypass_threshold_oneway;</span></span>
 <span id="L278"><span class="lineNum">     278</span> <span class="tlaUNC tlaBgUNC">           0 :   logic                    markov_hi_bypass_threshold_wr;</span></span>
 <span id="L279"><span class="lineNum">     279</span> <span class="tlaGNC tlaBgGNC">           1 :   logic [HalfRegWidth-1:0] markov_hi_threshold;</span></span>
-<span id="L280"><span class="lineNum">     280</span> <span class="tlaGNC">         314 :   logic [HalfRegWidth-1:0] markov_lo_fips_threshold;</span></span>
+<span id="L280"><span class="lineNum">     280</span> <span class="tlaGNC">         162 :   logic [HalfRegWidth-1:0] markov_lo_fips_threshold;</span></span>
 <span id="L281"><span class="lineNum">     281</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [HalfRegWidth-1:0] markov_lo_fips_threshold_oneway;</span></span>
 <span id="L282"><span class="lineNum">     282</span> <span class="tlaUNC">           0 :   logic                    markov_lo_fips_threshold_wr;</span></span>
 <span id="L283"><span class="lineNum">     283</span> <span class="tlaGNC tlaBgGNC">          26 :   logic [HalfRegWidth-1:0] markov_lo_bypass_threshold;</span></span>
@@ -405,33 +405,33 @@
 <span id="L301"><span class="lineNum">     301</span> <span class="tlaGNC">           2 :   logic                     markov_hi_alert_cntr_err;</span></span>
 <span id="L302"><span class="lineNum">     302</span> <span class="tlaGNC">           2 :   logic                     markov_lo_alert_cntr_err;</span></span>
 <span id="L303"><span class="lineNum">     303</span>              : </span>
-<span id="L304"><span class="lineNum">     304</span> <span class="tlaGNC">         314 :   logic [HalfRegWidth-1:0] extht_hi_fips_threshold;</span></span>
+<span id="L304"><span class="lineNum">     304</span> <span class="tlaGNC">         162 :   logic [HalfRegWidth-1:0] extht_hi_fips_threshold;</span></span>
 <span id="L305"><span class="lineNum">     305</span> <span class="tlaGNC">           1 :   logic [HalfRegWidth-1:0] extht_hi_fips_threshold_oneway;</span></span>
 <span id="L306"><span class="lineNum">     306</span> <span class="tlaUNC tlaBgUNC">           0 :   logic                    extht_hi_fips_threshold_wr;</span></span>
 <span id="L307"><span class="lineNum">     307</span> <span class="tlaGNC tlaBgGNC">          26 :   logic [HalfRegWidth-1:0] extht_hi_bypass_threshold;</span></span>
 <span id="L308"><span class="lineNum">     308</span> <span class="tlaGNC">           1 :   logic [HalfRegWidth-1:0] extht_hi_bypass_threshold_oneway;</span></span>
 <span id="L309"><span class="lineNum">     309</span> <span class="tlaUNC tlaBgUNC">           0 :   logic                    extht_hi_bypass_threshold_wr;</span></span>
 <span id="L310"><span class="lineNum">     310</span> <span class="tlaGNC tlaBgGNC">           1 :   logic [HalfRegWidth-1:0] extht_hi_threshold;</span></span>
-<span id="L311"><span class="lineNum">     311</span> <span class="tlaGNC">         314 :   logic [HalfRegWidth-1:0] extht_lo_fips_threshold;</span></span>
+<span id="L311"><span class="lineNum">     311</span> <span class="tlaGNC">         162 :   logic [HalfRegWidth-1:0] extht_lo_fips_threshold;</span></span>
 <span id="L312"><span class="lineNum">     312</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [HalfRegWidth-1:0] extht_lo_fips_threshold_oneway;</span></span>
 <span id="L313"><span class="lineNum">     313</span> <span class="tlaUNC">           0 :   logic                    extht_lo_fips_threshold_wr;</span></span>
 <span id="L314"><span class="lineNum">     314</span> <span class="tlaGNC tlaBgGNC">          26 :   logic [HalfRegWidth-1:0] extht_lo_bypass_threshold;</span></span>
 <span id="L315"><span class="lineNum">     315</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [HalfRegWidth-1:0] extht_lo_bypass_threshold_oneway;</span></span>
 <span id="L316"><span class="lineNum">     316</span> <span class="tlaUNC">           0 :   logic                    extht_lo_bypass_threshold_wr;</span></span>
 <span id="L317"><span class="lineNum">     317</span> <span class="tlaUNC">           0 :   logic [HalfRegWidth-1:0] extht_lo_threshold;</span></span>
-<span id="L318"><span class="lineNum">     318</span> <span class="tlaGNC tlaBgGNC">      148262 :   logic [HalfRegWidth-1:0] extht_event_cnt_hi;</span></span>
-<span id="L319"><span class="lineNum">     319</span> <span class="tlaGNC">      148262 :   logic [HalfRegWidth-1:0] extht_event_cnt_lo;</span></span>
+<span id="L318"><span class="lineNum">     318</span> <span class="tlaGNC tlaBgGNC">      173318 :   logic [HalfRegWidth-1:0] extht_event_cnt_hi;</span></span>
+<span id="L319"><span class="lineNum">     319</span> <span class="tlaGNC">      173318 :   logic [HalfRegWidth-1:0] extht_event_cnt_lo;</span></span>
 <span id="L320"><span class="lineNum">     320</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [HalfRegWidth-1:0] extht_hi_event_hwm_fips;</span></span>
-<span id="L321"><span class="lineNum">     321</span> <span class="tlaGNC tlaBgGNC">        1020 :   logic [HalfRegWidth-1:0] extht_hi_event_hwm_bypass;</span></span>
+<span id="L321"><span class="lineNum">     321</span> <span class="tlaGNC tlaBgGNC">         588 :   logic [HalfRegWidth-1:0] extht_hi_event_hwm_bypass;</span></span>
 <span id="L322"><span class="lineNum">     322</span> <span class="tlaGNC">           1 :   logic [HalfRegWidth-1:0] extht_lo_event_hwm_fips;</span></span>
 <span id="L323"><span class="lineNum">     323</span> <span class="tlaGNC">           1 :   logic [HalfRegWidth-1:0] extht_lo_event_hwm_bypass;</span></span>
 <span id="L324"><span class="lineNum">     324</span> <span class="tlaUNC tlaBgUNC">           0 :   logic [FullRegWidth-1:0] extht_hi_total_fails;</span></span>
 <span id="L325"><span class="lineNum">     325</span> <span class="tlaUNC">           0 :   logic [FullRegWidth-1:0] extht_lo_total_fails;</span></span>
 <span id="L326"><span class="lineNum">     326</span> <span class="tlaUNC">           0 :   logic [EighthRegWidth-1:0] extht_hi_fail_count;</span></span>
 <span id="L327"><span class="lineNum">     327</span> <span class="tlaUNC">           0 :   logic [EighthRegWidth-1:0] extht_lo_fail_count;</span></span>
-<span id="L328"><span class="lineNum">     328</span> <span class="tlaGNC tlaBgGNC">      148262 :   logic                     extht_hi_fail_pulse;</span></span>
-<span id="L329"><span class="lineNum">     329</span> <span class="tlaGNC">      148262 :   logic                     extht_lo_fail_pulse;</span></span>
-<span id="L330"><span class="lineNum">     330</span> <span class="tlaGNC">      148262 :   logic                     extht_cont_test;</span></span>
+<span id="L328"><span class="lineNum">     328</span> <span class="tlaGNC tlaBgGNC">      173318 :   logic                     extht_hi_fail_pulse;</span></span>
+<span id="L329"><span class="lineNum">     329</span> <span class="tlaGNC">      173318 :   logic                     extht_lo_fail_pulse;</span></span>
+<span id="L330"><span class="lineNum">     330</span> <span class="tlaGNC">      173318 :   logic                     extht_cont_test;</span></span>
 <span id="L331"><span class="lineNum">     331</span> <span class="tlaGNC">           2 :   logic                     extht_hi_fails_cntr_err;</span></span>
 <span id="L332"><span class="lineNum">     332</span> <span class="tlaGNC">           2 :   logic                     extht_lo_fails_cntr_err;</span></span>
 <span id="L333"><span class="lineNum">     333</span> <span class="tlaGNC">           2 :   logic                     extht_hi_alert_cntr_err;</span></span>
@@ -554,8 +554,8 @@
 <span id="L450"><span class="lineNum">     450</span>              : </span>
 <span id="L451"><span class="lineNum">     451</span> <span class="tlaUNC">           0 :   logic                    unused_err_code_test_bit;</span></span>
 <span id="L452"><span class="lineNum">     452</span> <span class="tlaUNC">           0 :   logic                    unused_sha3_state;</span></span>
-<span id="L453"><span class="lineNum">     453</span> <span class="tlaGNC tlaBgGNC">      148262 :   logic                    unused_entropy_data;</span></span>
-<span id="L454"><span class="lineNum">     454</span> <span class="tlaGNC">      148262 :   logic                    unused_fw_ov_rd_data;</span></span>
+<span id="L453"><span class="lineNum">     453</span> <span class="tlaGNC tlaBgGNC">      173318 :   logic                    unused_entropy_data;</span></span>
+<span id="L454"><span class="lineNum">     454</span> <span class="tlaGNC">      173318 :   logic                    unused_fw_ov_rd_data;</span></span>
 <span id="L455"><span class="lineNum">     455</span>              : </span>
 <span id="L456"><span class="lineNum">     456</span> <span class="tlaGNC">           1 :   caliptra_prim_mubi_pkg::mubi8_t en_entropy_src_fw_read;</span></span>
 <span id="L457"><span class="lineNum">     457</span> <span class="tlaGNC">           1 :   caliptra_prim_mubi_pkg::mubi8_t en_entropy_src_fw_over;</span></span>
@@ -594,7 +594,7 @@
 <span id="L490"><span class="lineNum">     490</span> <span class="tlaUNC">           0 :   logic        sha3_flush_q, sha3_flush_d;</span></span>
 <span id="L491"><span class="lineNum">     491</span> <span class="tlaUNC">           0 :   logic [1:0]  fw_ov_corrupted_q, fw_ov_corrupted_d;</span></span>
 <span id="L492"><span class="lineNum">     492</span>              : </span>
-<span id="L493"><span class="lineNum">     493</span> <span class="tlaGNC tlaBgGNC">     1429872 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L493"><span class="lineNum">     493</span> <span class="tlaGNC tlaBgGNC">     1433691 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L494"><span class="lineNum">     494</span> <span class="tlaGNC">           4 :     if (!rst_ni) begin</span></span>
 <span id="L495"><span class="lineNum">     495</span> <span class="tlaGNC">           4 :       ht_failed_q            &lt;= '0;</span></span>
 <span id="L496"><span class="lineNum">     496</span> <span class="tlaGNC">           4 :       ht_done_pulse_q        &lt;= '0;</span></span>
@@ -608,19 +608,19 @@
 <span id="L504"><span class="lineNum">     504</span> <span class="tlaGNC">           4 :       sha3_flush_q           &lt;= '0;</span></span>
 <span id="L505"><span class="lineNum">     505</span> <span class="tlaGNC">           4 :       sha3_start_mask_q      &lt;= '0;</span></span>
 <span id="L506"><span class="lineNum">     506</span> <span class="tlaGNC">           4 :       fw_ov_corrupted_q      &lt;= 2'b00;</span></span>
-<span id="L507"><span class="lineNum">     507</span> <span class="tlaGNC">     1429868 :     end else begin</span></span>
-<span id="L508"><span class="lineNum">     508</span> <span class="tlaGNC">     1429868 :       ht_failed_q            &lt;= ht_failed_d;</span></span>
-<span id="L509"><span class="lineNum">     509</span> <span class="tlaGNC">     1429868 :       ht_done_pulse_q        &lt;= ht_done_pulse_d;</span></span>
-<span id="L510"><span class="lineNum">     510</span> <span class="tlaGNC">     1429868 :       sha3_err_q             &lt;= sha3_err_d;</span></span>
-<span id="L511"><span class="lineNum">     511</span> <span class="tlaGNC">     1429868 :       cs_aes_halt_q          &lt;= cs_aes_halt_d;</span></span>
-<span id="L512"><span class="lineNum">     512</span> <span class="tlaGNC">     1429868 :       es_rdata_capt_q        &lt;= es_rdata_capt_d;</span></span>
-<span id="L513"><span class="lineNum">     513</span> <span class="tlaGNC">     1429868 :       es_rdata_capt_vld_q    &lt;= es_rdata_capt_vld_d;</span></span>
-<span id="L514"><span class="lineNum">     514</span> <span class="tlaGNC">     1429868 :       fw_ov_sha3_start_pfe_q &lt;= fw_ov_sha3_start_pfe;</span></span>
-<span id="L515"><span class="lineNum">     515</span> <span class="tlaGNC">     1429868 :       sha3_msg_rdy_mask_q    &lt;= sha3_msg_rdy_mask_d;</span></span>
-<span id="L516"><span class="lineNum">     516</span> <span class="tlaGNC">     1429868 :       sha3_flush_q           &lt;= sha3_flush_d;</span></span>
-<span id="L517"><span class="lineNum">     517</span> <span class="tlaGNC">     1429868 :       sha3_start_mask_q      &lt;= sha3_start_mask_d;</span></span>
-<span id="L518"><span class="lineNum">     518</span> <span class="tlaGNC">     1429868 :       mubi_mod_en_dly_q      &lt;= mubi_mod_en_dly_d;</span></span>
-<span id="L519"><span class="lineNum">     519</span> <span class="tlaGNC">     1429868 :       fw_ov_corrupted_q      &lt;= fw_ov_corrupted_d;</span></span>
+<span id="L507"><span class="lineNum">     507</span> <span class="tlaGNC">     1433687 :     end else begin</span></span>
+<span id="L508"><span class="lineNum">     508</span> <span class="tlaGNC">     1433687 :       ht_failed_q            &lt;= ht_failed_d;</span></span>
+<span id="L509"><span class="lineNum">     509</span> <span class="tlaGNC">     1433687 :       ht_done_pulse_q        &lt;= ht_done_pulse_d;</span></span>
+<span id="L510"><span class="lineNum">     510</span> <span class="tlaGNC">     1433687 :       sha3_err_q             &lt;= sha3_err_d;</span></span>
+<span id="L511"><span class="lineNum">     511</span> <span class="tlaGNC">     1433687 :       cs_aes_halt_q          &lt;= cs_aes_halt_d;</span></span>
+<span id="L512"><span class="lineNum">     512</span> <span class="tlaGNC">     1433687 :       es_rdata_capt_q        &lt;= es_rdata_capt_d;</span></span>
+<span id="L513"><span class="lineNum">     513</span> <span class="tlaGNC">     1433687 :       es_rdata_capt_vld_q    &lt;= es_rdata_capt_vld_d;</span></span>
+<span id="L514"><span class="lineNum">     514</span> <span class="tlaGNC">     1433687 :       fw_ov_sha3_start_pfe_q &lt;= fw_ov_sha3_start_pfe;</span></span>
+<span id="L515"><span class="lineNum">     515</span> <span class="tlaGNC">     1433687 :       sha3_msg_rdy_mask_q    &lt;= sha3_msg_rdy_mask_d;</span></span>
+<span id="L516"><span class="lineNum">     516</span> <span class="tlaGNC">     1433687 :       sha3_flush_q           &lt;= sha3_flush_d;</span></span>
+<span id="L517"><span class="lineNum">     517</span> <span class="tlaGNC">     1433687 :       sha3_start_mask_q      &lt;= sha3_start_mask_d;</span></span>
+<span id="L518"><span class="lineNum">     518</span> <span class="tlaGNC">     1433687 :       mubi_mod_en_dly_q      &lt;= mubi_mod_en_dly_d;</span></span>
+<span id="L519"><span class="lineNum">     519</span> <span class="tlaGNC">     1433687 :       fw_ov_corrupted_q      &lt;= fw_ov_corrupted_d;</span></span>
 <span id="L520"><span class="lineNum">     520</span>              :     end</span>
 <span id="L521"><span class="lineNum">     521</span>              :   end</span>
 <span id="L522"><span class="lineNum">     522</span>              : </span>
@@ -2444,11 +2444,11 @@
 <span id="L2340"><span class="lineNum">    2340</span>              :                                 !sfifo_observe_not_empty                 ? 1'b1 :</span>
 <span id="L2341"><span class="lineNum">    2341</span>              :                                 sfifo_observe_gate_q;</span>
 <span id="L2342"><span class="lineNum">    2342</span>              : </span>
-<span id="L2343"><span class="lineNum">    2343</span> <span class="tlaGNC">     1429872 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L2343"><span class="lineNum">    2343</span> <span class="tlaGNC">     1433691 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L2344"><span class="lineNum">    2344</span> <span class="tlaGNC">           4 :     if (!rst_ni) begin</span></span>
 <span id="L2345"><span class="lineNum">    2345</span> <span class="tlaGNC">           4 :       sfifo_observe_gate_q &lt;= 1'b1;</span></span>
-<span id="L2346"><span class="lineNum">    2346</span> <span class="tlaGNC">     1429868 :     end else begin</span></span>
-<span id="L2347"><span class="lineNum">    2347</span> <span class="tlaGNC">     1429868 :       sfifo_observe_gate_q &lt;= sfifo_observe_gate_d;</span></span>
+<span id="L2346"><span class="lineNum">    2346</span> <span class="tlaGNC">     1433687 :     end else begin</span></span>
+<span id="L2347"><span class="lineNum">    2347</span> <span class="tlaGNC">     1433687 :       sfifo_observe_gate_q &lt;= sfifo_observe_gate_d;</span></span>
 <span id="L2348"><span class="lineNum">    2348</span>              :     end</span>
 <span id="L2349"><span class="lineNum">    2349</span>              :   end</span>
 <span id="L2350"><span class="lineNum">    2350</span>              : </span>

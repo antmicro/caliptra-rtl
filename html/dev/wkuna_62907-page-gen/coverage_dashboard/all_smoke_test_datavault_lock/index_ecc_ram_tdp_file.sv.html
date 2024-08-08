@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -130,7 +130,7 @@
 <span id="L26"><span class="lineNum">      26</span>              :     parameter DATA_WIDTH = 32</span>
 <span id="L27"><span class="lineNum">      27</span>              :     )</span>
 <span id="L28"><span class="lineNum">      28</span>              :     (      </span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC tlaBgGNC">     2550888 :     input  wire                      clk,</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC tlaBgGNC">     2867382 :     input  wire                      clk,</span></span>
 <span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">           1 :     input  wire                      reset_n,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaUNC tlaBgUNC">           0 :     input  wire                      zeroize,</span></span>
 <span id="L32"><span class="lineNum">      32</span>              :     </span>
@@ -151,37 +151,37 @@
 <span id="L47"><span class="lineNum">      47</span>              :     localparam ADDR_LENGTH = 2**ADDR_WIDTH;</span>
 <span id="L48"><span class="lineNum">      48</span>              :     reg [DATA_WIDTH-1:0]    mem[ADDR_LENGTH-1:0];</span>
 <span id="L49"><span class="lineNum">      49</span>              : </span>
-<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC tlaBgGNC">     1429872 :     always_ff @ (posedge clk or negedge reset_n) </span></span>
-<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">     1429872 :     begin : reading_memory</span></span>
+<span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC tlaBgGNC">     1433691 :     always_ff @ (posedge clk or negedge reset_n) </span></span>
+<span id="L51"><span class="lineNum">      51</span> <span class="tlaGNC">     1433691 :     begin : reading_memory</span></span>
 <span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">           4 :         if (!reset_n) begin</span></span>
 <span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">           4 :             douta &lt;= '0;</span></span>
 <span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">           4 :             doutb &lt;= '0;</span></span>
 <span id="L55"><span class="lineNum">      55</span>              :         end</span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">     1429868 :         else if (zeroize) begin</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">     1433687 :         else if (zeroize) begin</span></span>
 <span id="L57"><span class="lineNum">      57</span> <span class="tlaUNC tlaBgUNC">           0 :             douta &lt;= '0;</span></span>
 <span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC">           0 :             doutb &lt;= '0;</span></span>
 <span id="L59"><span class="lineNum">      59</span>              :         end</span>
-<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC tlaBgGNC">     1429868 :         else begin</span></span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC tlaBgGNC">     1433687 :         else begin</span></span>
 <span id="L61"><span class="lineNum">      61</span> <span class="tlaUNC tlaBgUNC">           0 :             if (ena)</span></span>
-<span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC tlaBgGNC">     1429868 :                 douta &lt;= mem[addra];</span></span>
+<span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC tlaBgGNC">     1433687 :                 douta &lt;= mem[addra];</span></span>
 <span id="L63"><span class="lineNum">      63</span>              : </span>
 <span id="L64"><span class="lineNum">      64</span> <span class="tlaUNC tlaBgUNC">           0 :             if (enb)</span></span>
-<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC tlaBgGNC">     1429868 :                 doutb &lt;= mem[addrb];</span></span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC tlaBgGNC">     1433687 :                 doutb &lt;= mem[addrb];</span></span>
 <span id="L66"><span class="lineNum">      66</span>              :         end</span>
 <span id="L67"><span class="lineNum">      67</span>              :     end // reading_memory</span>
 <span id="L68"><span class="lineNum">      68</span>              : </span>
-<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">     1429872 :     always_ff @ (posedge clk or negedge reset_n) </span></span>
-<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">     1429872 :     begin : writing_memory</span></span>
+<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">     1433691 :     always_ff @ (posedge clk or negedge reset_n) </span></span>
+<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">     1433691 :     begin : writing_memory</span></span>
 <span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">           4 :         if (!reset_n) begin</span></span>
 <span id="L72"><span class="lineNum">      72</span> <span class="tlaGNC">           4 :             for (int i0 = 0; i0 &lt; ADDR_LENGTH; i0++)</span></span>
 <span id="L73"><span class="lineNum">      73</span> <span class="tlaGNC">         256 :                 mem[i0] &lt;= '0;</span></span>
 <span id="L74"><span class="lineNum">      74</span>              :         end</span>
-<span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">     1429868 :         else if (zeroize) begin</span></span>
+<span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">     1433687 :         else if (zeroize) begin</span></span>
 <span id="L76"><span class="lineNum">      76</span> <span class="tlaUNC tlaBgUNC">           0 :             for (int i0 = 0; i0 &lt; ADDR_LENGTH; i0++)</span></span>
 <span id="L77"><span class="lineNum">      77</span> <span class="tlaUNC">           0 :                 mem[i0] &lt;= '0;</span></span>
 <span id="L78"><span class="lineNum">      78</span>              :         end</span>
-<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC tlaBgGNC">     1429868 :         else begin</span></span>
-<span id="L80"><span class="lineNum">      80</span> <span class="tlaGNC">     1429868 :             if (ena &amp; wea)</span></span>
+<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC tlaBgGNC">     1433687 :         else begin</span></span>
+<span id="L80"><span class="lineNum">      80</span> <span class="tlaGNC">     1433687 :             if (ena &amp; wea)</span></span>
 <span id="L81"><span class="lineNum">      81</span> <span class="tlaUNC tlaBgUNC">           0 :                 mem[addra] &lt;= dina;</span></span>
 <span id="L82"><span class="lineNum">      82</span>              : </span>
 <span id="L83"><span class="lineNum">      83</span> <span class="tlaGNC tlaBgGNC">          40 :             if (enb &amp; web)</span></span>

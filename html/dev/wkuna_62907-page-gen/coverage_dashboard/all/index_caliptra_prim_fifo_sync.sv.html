@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -119,13 +119,13 @@
 <span id="L15"><span class="lineNum">      15</span>              :   // derived parameter</span>
 <span id="L16"><span class="lineNum">      16</span>              :   localparam int          DepthW     = caliptra_prim_util_pkg::vbits(Depth+1)</span>
 <span id="L17"><span class="lineNum">      17</span>              : ) (</span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC tlaBgGNC">      864324 :   input                   clk_i,</span></span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">          21 :   input                   rst_ni,</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC tlaBgGNC">      458284 :   input                   clk_i,</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           1 :   input                   rst_ni,</span></span>
 <span id="L20"><span class="lineNum">      20</span>              :   // synchronous clear / flush port</span>
 <span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           1 :   input                   clr_i,</span></span>
 <span id="L22"><span class="lineNum">      22</span>              :   // write port</span>
 <span id="L23"><span class="lineNum">      23</span> <span class="tlaUNC tlaBgUNC">           0 :   input                   wvalid_i,</span></span>
-<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC tlaBgGNC">          23 :   output                  wready_o,</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC tlaBgGNC">           3 :   output                  wready_o,</span></span>
 <span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC tlaBgUNC">           0 :   input   [Width-1:0]     wdata_i,</span></span>
 <span id="L26"><span class="lineNum">      26</span>              :   // read port</span>
 <span id="L27"><span class="lineNum">      27</span> <span class="tlaUNC">           0 :   output                  rvalid_o,</span></span>
@@ -134,7 +134,7 @@
 <span id="L30"><span class="lineNum">      30</span>              :   // occupancy</span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaUNC">           0 :   output                  full_o,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC">           0 :   output  [DepthW-1:0]    depth_o,</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">       45862 :   output                  err_o</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">       24634 :   output                  err_o</span></span>
 <span id="L34"><span class="lineNum">      34</span>              : );</span>
 <span id="L35"><span class="lineNum">      35</span>              : </span>
 <span id="L36"><span class="lineNum">      36</span>              : </span>
@@ -170,7 +170,7 @@
 <span id="L66"><span class="lineNum">      66</span>              : </span>
 <span id="L67"><span class="lineNum">      67</span>              :     // module under reset flag</span>
 <span id="L68"><span class="lineNum">      68</span>              :     logic under_rst;</span>
-<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">        4617 :     always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">       94050 :     always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">           4 :       if (!rst_ni) begin</span></span>
 <span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">           4 :         under_rst &lt;= 1'b1;</span></span>
 <span id="L72"><span class="lineNum">      72</span> <span class="tlaGNC">           1 :       end else if (under_rst) begin</span></span>
@@ -257,7 +257,7 @@
 <span id="L153"><span class="lineNum">     153</span>              :     if (Depth == 1) begin : gen_depth_eq1</span>
 <span id="L154"><span class="lineNum">     154</span>              :       assign storage_rdata = storage[0];</span>
 <span id="L155"><span class="lineNum">     155</span>              : </span>
-<span id="L156"><span class="lineNum">     156</span> <span class="tlaGNC">        4617 :       always_ff @(posedge clk_i)</span></span>
+<span id="L156"><span class="lineNum">     156</span> <span class="tlaGNC">       94050 :       always_ff @(posedge clk_i)</span></span>
 <span id="L157"><span class="lineNum">     157</span> <span class="tlaUNC tlaBgUNC">           0 :         if (fifo_incr_wptr) begin</span></span>
 <span id="L158"><span class="lineNum">     158</span> <span class="tlaUNC">           0 :           storage[0] &lt;= wdata_i;</span></span>
 <span id="L159"><span class="lineNum">     159</span>              :         end</span>
@@ -265,7 +265,7 @@
 <span id="L161"><span class="lineNum">     161</span>              :     end else begin : gen_depth_gt1</span>
 <span id="L162"><span class="lineNum">     162</span>              :       assign storage_rdata = storage[fifo_rptr[PTR_WIDTH-2:0]];</span>
 <span id="L163"><span class="lineNum">     163</span>              : </span>
-<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC tlaBgGNC">        4617 :       always_ff @(posedge clk_i)</span></span>
+<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC tlaBgGNC">       94050 :       always_ff @(posedge clk_i)</span></span>
 <span id="L165"><span class="lineNum">     165</span> <span class="tlaUNC tlaBgUNC">           0 :         if (fifo_incr_wptr) begin</span></span>
 <span id="L166"><span class="lineNum">     166</span> <span class="tlaUNC">           0 :           storage[fifo_wptr[PTR_WIDTH-2:0]] &lt;= wdata_i;</span></span>
 <span id="L167"><span class="lineNum">     167</span>              :         end</span>

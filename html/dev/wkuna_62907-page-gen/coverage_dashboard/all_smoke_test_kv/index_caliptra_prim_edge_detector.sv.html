@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -119,7 +119,7 @@
 <span id="L15"><span class="lineNum">      15</span>              :   // It is assumed that the input signal is glitch free (registered input).</span>
 <span id="L16"><span class="lineNum">      16</span>              :   parameter bit EnSync  = 1'b 1</span>
 <span id="L17"><span class="lineNum">      17</span>              : ) (</span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC tlaBgGNC">    17555220 :   input clk_i,</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC tlaBgGNC">    17555212 :   input clk_i,</span></span>
 <span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">          70 :   input rst_ni,</span></span>
 <span id="L20"><span class="lineNum">      20</span>              : </span>
 <span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">          28 :   input        [Width-1:0] d_i,</span></span>
@@ -148,9 +148,9 @@
 <span id="L44"><span class="lineNum">      44</span>              : </span>
 <span id="L45"><span class="lineNum">      45</span>              :   assign q_sync_o = q_sync_d;</span>
 <span id="L46"><span class="lineNum">      46</span>              : </span>
-<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC tlaBgGNC">     8777438 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC tlaBgGNC">     8778586 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">         166 :     if (!rst_ni) q_sync_q &lt;= ResetValue;</span></span>
-<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">     8777272 :     else         q_sync_q &lt;= q_sync_d;</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">     8778420 :     else         q_sync_q &lt;= q_sync_d;</span></span>
 <span id="L50"><span class="lineNum">      50</span>              :   end</span>
 <span id="L51"><span class="lineNum">      51</span>              : </span>
 <span id="L52"><span class="lineNum">      52</span>              :   assign q_posedge_pulse_o = q_sync_d &amp; ~q_sync_q;</span>

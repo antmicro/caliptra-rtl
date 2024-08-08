@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              :     // ---------------------------------------</span>
 <span id="L28"><span class="lineNum">      28</span>              :     // Global clock/reset</span>
 <span id="L29"><span class="lineNum">      29</span>              :     // ---------------------------------------</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">      458006 :     input logic     hclk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">      458284 :     input logic     hclk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           1 :     input logic     hreset_n,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic     force_bus_idle,</span></span>
 <span id="L33"><span class="lineNum">      33</span>              : </span>
@@ -142,7 +142,7 @@
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">         274 :     input logic     [AHB_LITE_ADDR_WIDTH-1:0]   haddr_i_0,</span></span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">          26 :     input logic     [AHB_LITE_DATA_WIDTH-1:0]   hwdata_i_0,</span></span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">         609 :     input logic                                 hwrite_i_0,</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">       17122 :     input logic     [1:0]                       htrans_i_0, </span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">       17110 :     input logic     [1:0]                       htrans_i_0, </span></span>
 <span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic     [2:0]                       hsize_i_0,</span></span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC tlaBgGNC">           1 :     input logic                                 hready_i_0,</span></span>
 <span id="L44"><span class="lineNum">      44</span>              : </span>
@@ -177,7 +177,7 @@
 <span id="L73"><span class="lineNum">      73</span> <span class="tlaGNC">           3 :     output logic                                hsel_o, </span></span>
 <span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">         609 :     output logic                                hwrite_o, </span></span>
 <span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">           1 :     output logic                                hready_o,</span></span>
-<span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC">       17122 :     output logic    [1:0]                       htrans_o,</span></span>
+<span id="L76"><span class="lineNum">      76</span> <span class="tlaGNC">       17110 :     output logic    [1:0]                       htrans_o,</span></span>
 <span id="L77"><span class="lineNum">      77</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic    [2:0]                       hsize_o</span></span>
 <span id="L78"><span class="lineNum">      78</span>              : </span>
 <span id="L79"><span class="lineNum">      79</span>              : );</span>
@@ -204,7 +204,7 @@
 <span id="L100"><span class="lineNum">     100</span> <span class="tlaGNC">           1 : always_comb initiator0_address_ph = hsel_i_0 &amp; hready_i_0 &amp; htrans_i_0 inside {2'b10, 2'b11} &amp; ~force_bus_idle;</span></span>
 <span id="L101"><span class="lineNum">     101</span> <span class="tlaGNC">           1 : always_comb initiator1_address_ph = hsel_i_1 &amp; hready_i_1 &amp; htrans_i_1 inside {2'b10, 2'b11} &amp; ~force_bus_idle;</span></span>
 <span id="L102"><span class="lineNum">     102</span>              : </span>
-<span id="L103"><span class="lineNum">     103</span> <span class="tlaGNC">      229316 : always_ff @(posedge hclk or negedge hreset_n) begin</span></span>
+<span id="L103"><span class="lineNum">     103</span> <span class="tlaGNC">      229428 : always_ff @(posedge hclk or negedge hreset_n) begin</span></span>
 <span id="L104"><span class="lineNum">     104</span> <span class="tlaGNC">           4 :     if (~hreset_n) begin</span></span>
 <span id="L105"><span class="lineNum">     105</span> <span class="tlaGNC">           4 :         initiator0_pend_haddr &lt;= '0;</span></span>
 <span id="L106"><span class="lineNum">     106</span> <span class="tlaGNC">           4 :         initiator1_pend_haddr &lt;= '0;</span></span>
@@ -219,24 +219,24 @@
 <span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC">           4 :         initiator0_data_ph_nq &lt;= '0;</span></span>
 <span id="L116"><span class="lineNum">     116</span> <span class="tlaGNC">           4 :         initiator1_data_ph_nq &lt;= '0;</span></span>
 <span id="L117"><span class="lineNum">     117</span>              :     end</span>
-<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC">      229258 :     else begin</span></span>
+<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC">      229370 :     else begin</span></span>
 <span id="L119"><span class="lineNum">     119</span>              :         //Capture the address during the address phase for each initiator</span>
-<span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC">      229258 :         initiator0_pend_haddr &lt;= initiator0_address_ph &amp; ~initiator0_pend_addr_ph ? haddr_i_0 : initiator0_pend_haddr;</span></span>
-<span id="L121"><span class="lineNum">     121</span> <span class="tlaGNC">      229258 :         initiator1_pend_haddr &lt;= initiator1_address_ph &amp; ~initiator1_pend_addr_ph ? haddr_i_1 : initiator1_pend_haddr;</span></span>
-<span id="L122"><span class="lineNum">     122</span> <span class="tlaGNC">      229258 :         initiator0_pend_htrans &lt;= initiator0_address_ph &amp; ~initiator0_pend_addr_ph ? htrans_i_0 : initiator0_pend_htrans;</span></span>
-<span id="L123"><span class="lineNum">     123</span> <span class="tlaGNC">      229258 :         initiator1_pend_htrans &lt;= initiator1_address_ph &amp; ~initiator1_pend_addr_ph ? htrans_i_1 : initiator1_pend_htrans;</span></span>
-<span id="L124"><span class="lineNum">     124</span> <span class="tlaGNC">      229258 :         initiator0_pend_hsize &lt;= initiator0_address_ph &amp; ~initiator0_pend_addr_ph ? hsize_i_0 : initiator0_pend_hsize;</span></span>
-<span id="L125"><span class="lineNum">     125</span> <span class="tlaGNC">      229258 :         initiator1_pend_hsize &lt;= initiator1_address_ph &amp; ~initiator1_pend_addr_ph ? hsize_i_1 : initiator1_pend_hsize;</span></span>
-<span id="L126"><span class="lineNum">     126</span> <span class="tlaGNC">      229258 :         initiator0_pend_hwrite &lt;= initiator0_address_ph &amp; ~initiator0_pend_addr_ph ? hwrite_i_0 : initiator0_pend_hwrite;</span></span>
-<span id="L127"><span class="lineNum">     127</span> <span class="tlaGNC">      229258 :         initiator1_pend_hwrite &lt;= initiator1_address_ph &amp; ~initiator1_pend_addr_ph ? hwrite_i_1 : initiator1_pend_hwrite;</span></span>
+<span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC">      229370 :         initiator0_pend_haddr &lt;= initiator0_address_ph &amp; ~initiator0_pend_addr_ph ? haddr_i_0 : initiator0_pend_haddr;</span></span>
+<span id="L121"><span class="lineNum">     121</span> <span class="tlaGNC">      229370 :         initiator1_pend_haddr &lt;= initiator1_address_ph &amp; ~initiator1_pend_addr_ph ? haddr_i_1 : initiator1_pend_haddr;</span></span>
+<span id="L122"><span class="lineNum">     122</span> <span class="tlaGNC">      229370 :         initiator0_pend_htrans &lt;= initiator0_address_ph &amp; ~initiator0_pend_addr_ph ? htrans_i_0 : initiator0_pend_htrans;</span></span>
+<span id="L123"><span class="lineNum">     123</span> <span class="tlaGNC">      229370 :         initiator1_pend_htrans &lt;= initiator1_address_ph &amp; ~initiator1_pend_addr_ph ? htrans_i_1 : initiator1_pend_htrans;</span></span>
+<span id="L124"><span class="lineNum">     124</span> <span class="tlaGNC">      229370 :         initiator0_pend_hsize &lt;= initiator0_address_ph &amp; ~initiator0_pend_addr_ph ? hsize_i_0 : initiator0_pend_hsize;</span></span>
+<span id="L125"><span class="lineNum">     125</span> <span class="tlaGNC">      229370 :         initiator1_pend_hsize &lt;= initiator1_address_ph &amp; ~initiator1_pend_addr_ph ? hsize_i_1 : initiator1_pend_hsize;</span></span>
+<span id="L126"><span class="lineNum">     126</span> <span class="tlaGNC">      229370 :         initiator0_pend_hwrite &lt;= initiator0_address_ph &amp; ~initiator0_pend_addr_ph ? hwrite_i_0 : initiator0_pend_hwrite;</span></span>
+<span id="L127"><span class="lineNum">     127</span> <span class="tlaGNC">      229370 :         initiator1_pend_hwrite &lt;= initiator1_address_ph &amp; ~initiator1_pend_addr_ph ? hwrite_i_1 : initiator1_pend_hwrite;</span></span>
 <span id="L128"><span class="lineNum">     128</span>              : </span>
 <span id="L129"><span class="lineNum">     129</span>              :         //Capture pending address phase when initiators collide</span>
-<span id="L130"><span class="lineNum">     130</span> <span class="tlaGNC">      229258 :         initiator0_pend_addr_ph_nq &lt;= (initiator0_address_ph | initiator0_pend_addr_ph) &amp; ~(hreadyout_i &amp; initiator0_gnt);</span></span>
-<span id="L131"><span class="lineNum">     131</span> <span class="tlaGNC">      229258 :         initiator1_pend_addr_ph_nq &lt;= (initiator1_address_ph | initiator1_pend_addr_ph) &amp; ~(hreadyout_i &amp; initiator1_gnt); </span></span>
+<span id="L130"><span class="lineNum">     130</span> <span class="tlaGNC">      229370 :         initiator0_pend_addr_ph_nq &lt;= (initiator0_address_ph | initiator0_pend_addr_ph) &amp; ~(hreadyout_i &amp; initiator0_gnt);</span></span>
+<span id="L131"><span class="lineNum">     131</span> <span class="tlaGNC">      229370 :         initiator1_pend_addr_ph_nq &lt;= (initiator1_address_ph | initiator1_pend_addr_ph) &amp; ~(hreadyout_i &amp; initiator1_gnt); </span></span>
 <span id="L132"><span class="lineNum">     132</span>              : </span>
 <span id="L133"><span class="lineNum">     133</span>              :         //Transition to data phase when endpoint accepts address phase, hold when not ready</span>
-<span id="L134"><span class="lineNum">     134</span> <span class="tlaGNC">      229258 :         initiator0_data_ph_nq &lt;= (initiator0_gnt) | (initiator0_data_ph &amp; ~hreadyout_i);</span></span>
-<span id="L135"><span class="lineNum">     135</span> <span class="tlaGNC">      229258 :         initiator1_data_ph_nq &lt;= (initiator1_gnt) | (initiator1_data_ph &amp; ~hreadyout_i);</span></span>
+<span id="L134"><span class="lineNum">     134</span> <span class="tlaGNC">      229370 :         initiator0_data_ph_nq &lt;= (initiator0_gnt) | (initiator0_data_ph &amp; ~hreadyout_i);</span></span>
+<span id="L135"><span class="lineNum">     135</span> <span class="tlaGNC">      229370 :         initiator1_data_ph_nq &lt;= (initiator1_gnt) | (initiator1_data_ph &amp; ~hreadyout_i);</span></span>
 <span id="L136"><span class="lineNum">     136</span>              :     end</span>
 <span id="L137"><span class="lineNum">     137</span>              : end</span>
 <span id="L138"><span class="lineNum">     138</span>              : </span>

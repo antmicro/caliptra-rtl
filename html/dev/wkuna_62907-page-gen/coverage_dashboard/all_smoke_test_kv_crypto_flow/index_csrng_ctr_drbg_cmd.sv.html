@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -118,7 +118,7 @@
 <span id="L14"><span class="lineNum">      14</span>              :   parameter logic [31:0] SeedLen = 384,</span>
 <span id="L15"><span class="lineNum">      15</span>              :   parameter logic [31:0] CtrLen  = 32</span>
 <span id="L16"><span class="lineNum">      16</span>              : ) (</span>
-<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC tlaBgGNC">     3259970 :   input logic                clk_i,</span></span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC tlaBgGNC">     3259966 :   input logic                clk_i,</span></span>
 <span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           7 :   input logic                rst_ni,</span></span>
 <span id="L19"><span class="lineNum">      19</span>              : </span>
 <span id="L20"><span class="lineNum">      20</span>              :    // command interface</span>
@@ -137,7 +137,7 @@
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC">           0 :   input logic                ctr_drbg_cmd_fips_i,</span></span>
 <span id="L34"><span class="lineNum">      34</span>              : </span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaUNC">           0 :   output logic               ctr_drbg_cmd_ack_o, // final ack when update process has been completed</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">        7686 :   output logic               ctr_drbg_cmd_sts_o, // final ack status</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">        7706 :   output logic               ctr_drbg_cmd_sts_o, // final ack status</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           1 :   input logic                ctr_drbg_cmd_rdy_i, // ready to process the ack above</span></span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC tlaBgUNC">           0 :   output logic [Cmd-1:0]     ctr_drbg_cmd_ccmd_o,</span></span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaUNC">           0 :   output logic [StateId-1:0] ctr_drbg_cmd_inst_id_o,</span></span>
@@ -230,11 +230,11 @@
 <span id="L126"><span class="lineNum">     126</span>              :   // flops</span>
 <span id="L127"><span class="lineNum">     127</span> <span class="tlaUNC">           0 :   logic                        gen_adata_null_q, gen_adata_null_d;</span></span>
 <span id="L128"><span class="lineNum">     128</span>              : </span>
-<span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC tlaBgGNC">     1629888 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC tlaBgGNC">     1630462 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L130"><span class="lineNum">     130</span> <span class="tlaGNC">          16 :     if (!rst_ni) begin</span></span>
 <span id="L131"><span class="lineNum">     131</span> <span class="tlaGNC">          16 :       gen_adata_null_q  &lt;= '0;</span></span>
-<span id="L132"><span class="lineNum">     132</span> <span class="tlaGNC">     1629872 :     end else begin</span></span>
-<span id="L133"><span class="lineNum">     133</span> <span class="tlaGNC">     1629872 :       gen_adata_null_q  &lt;= gen_adata_null_d;</span></span>
+<span id="L132"><span class="lineNum">     132</span> <span class="tlaGNC">     1630446 :     end else begin</span></span>
+<span id="L133"><span class="lineNum">     133</span> <span class="tlaGNC">     1630446 :       gen_adata_null_q  &lt;= gen_adata_null_d;</span></span>
 <span id="L134"><span class="lineNum">     134</span>              :     end</span>
 <span id="L135"><span class="lineNum">     135</span>              :   end</span>
 <span id="L136"><span class="lineNum">     136</span>              : </span>

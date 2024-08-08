@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -128,7 +128,7 @@
 <span id="L24"><span class="lineNum">      24</span>              :    ,localparam DATA_OFFSET_W = $clog2(DATA_WIDTH/32)</span>
 <span id="L25"><span class="lineNum">      25</span>              : )</span>
 <span id="L26"><span class="lineNum">      26</span>              : (</span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC tlaBgGNC">      458006 :     input logic clk,</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC tlaBgGNC">      458284 :     input logic clk,</span></span>
 <span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           1 :     input logic rst_b,</span></span>
 <span id="L29"><span class="lineNum">      29</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic zeroize,</span></span>
 <span id="L30"><span class="lineNum">      30</span>              : </span>
@@ -182,16 +182,16 @@
 <span id="L78"><span class="lineNum">      78</span>              : </span>
 <span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC">           1 : always_comb write_data = write_pad ? pad_data : kv_resp.read_data;</span></span>
 <span id="L80"><span class="lineNum">      80</span>              : </span>
-<span id="L81"><span class="lineNum">      81</span> <span class="tlaGNC">      229316 : always_ff @(posedge clk or negedge rst_b) begin</span></span>
+<span id="L81"><span class="lineNum">      81</span> <span class="tlaGNC">      229428 : always_ff @(posedge clk or negedge rst_b) begin</span></span>
 <span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC">           4 :     if (!rst_b) begin</span></span>
 <span id="L83"><span class="lineNum">      83</span> <span class="tlaGNC">           4 :         error_code &lt;= KV_SUCCESS;</span></span>
 <span id="L84"><span class="lineNum">      84</span>              :     end</span>
-<span id="L85"><span class="lineNum">      85</span> <span class="tlaGNC">      229312 :     else if (zeroize) begin</span></span>
+<span id="L85"><span class="lineNum">      85</span> <span class="tlaGNC">      229424 :     else if (zeroize) begin</span></span>
 <span id="L86"><span class="lineNum">      86</span> <span class="tlaUNC tlaBgUNC">           0 :         error_code &lt;= KV_SUCCESS;</span></span>
 <span id="L87"><span class="lineNum">      87</span>              :     end</span>
-<span id="L88"><span class="lineNum">      88</span> <span class="tlaGNC tlaBgGNC">      229312 :     else begin</span></span>
-<span id="L89"><span class="lineNum">      89</span> <span class="tlaGNC">      229312 :         error_code &lt;= read_ctrl_reg.read_en &amp; kv_resp.error ? KV_READ_FAIL : </span></span>
-<span id="L90"><span class="lineNum">      90</span> <span class="tlaGNC">      229312 :                       read_ctrl_reg.read_en &amp; ~kv_resp.error ? KV_SUCCESS : error_code;</span></span>
+<span id="L88"><span class="lineNum">      88</span> <span class="tlaGNC tlaBgGNC">      229424 :     else begin</span></span>
+<span id="L89"><span class="lineNum">      89</span> <span class="tlaGNC">      229424 :         error_code &lt;= read_ctrl_reg.read_en &amp; kv_resp.error ? KV_READ_FAIL : </span></span>
+<span id="L90"><span class="lineNum">      90</span> <span class="tlaGNC">      229424 :                       read_ctrl_reg.read_en &amp; ~kv_resp.error ? KV_SUCCESS : error_code;</span></span>
 <span id="L91"><span class="lineNum">      91</span>              :     end</span>
 <span id="L92"><span class="lineNum">      92</span>              : end</span>
 <span id="L93"><span class="lineNum">      93</span>              : </span>

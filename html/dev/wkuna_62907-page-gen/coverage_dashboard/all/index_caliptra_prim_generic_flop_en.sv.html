@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -113,8 +113,8 @@
 <span id="L9"><span class="lineNum">       9</span>              :   parameter bit               EnSecBuf   = 0,</span>
 <span id="L10"><span class="lineNum">      10</span>              :   parameter logic [Width-1:0] ResetValue = 0</span>
 <span id="L11"><span class="lineNum">      11</span>              : ) (</span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC tlaBgGNC">      864324 :   input                    clk_i,</span></span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">          21 :   input                    rst_ni,</span></span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC tlaBgGNC">      458284 :   input                    clk_i,</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           1 :   input                    rst_ni,</span></span>
 <span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           1 :   input                    en_i,</span></span>
 <span id="L15"><span class="lineNum">      15</span> <span class="tlaUNC tlaBgUNC">           0 :   input        [Width-1:0] d_i,</span></span>
 <span id="L16"><span class="lineNum">      16</span> <span class="tlaUNC">           0 :   output logic [Width-1:0] q_o</span></span>
@@ -132,11 +132,11 @@
 <span id="L28"><span class="lineNum">      28</span>              :     assign en = en_i;</span>
 <span id="L29"><span class="lineNum">      29</span>              :   end</span>
 <span id="L30"><span class="lineNum">      30</span>              : </span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">        4617 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">       94050 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           4 :     if (!rst_ni) begin</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">           4 :       q_o &lt;= ResetValue;</span></span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaUNC tlaBgUNC">           0 :     end else if (en) begin</span></span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">        4613 :       q_o &lt;= d_i;</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">       94046 :       q_o &lt;= d_i;</span></span>
 <span id="L36"><span class="lineNum">      36</span>              :     end</span>
 <span id="L37"><span class="lineNum">      37</span>              :   end</span>
 <span id="L38"><span class="lineNum">      38</span>              : </span>

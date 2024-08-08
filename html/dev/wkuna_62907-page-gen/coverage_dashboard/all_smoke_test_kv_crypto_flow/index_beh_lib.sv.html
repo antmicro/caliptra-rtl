@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -141,10 +141,10 @@
 <span id="L37"><span class="lineNum">      37</span>              : `endif</span>
 <span id="L38"><span class="lineNum">      38</span>              : </span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">           3 :    always_ff @(posedge clk or negedge rst_l) begin</span></span>
-<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">        9833 :       if (rst_l == 0)</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">        9845 :       if (rst_l == 0)</span></span>
 <span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">           3 :         dout[WIDTH-1:0] &lt;= 0;</span></span>
 <span id="L42"><span class="lineNum">      42</span>              :       else</span>
-<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">        9833 :         dout[WIDTH-1:0] &lt;= din[WIDTH-1:0];</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">        9845 :         dout[WIDTH-1:0] &lt;= din[WIDTH-1:0];</span></span>
 <span id="L44"><span class="lineNum">      44</span>              :    end</span>
 <span id="L45"><span class="lineNum">      45</span>              : </span>
 <span id="L46"><span class="lineNum">      46</span>              : end</span>
@@ -153,11 +153,11 @@
 <span id="L49"><span class="lineNum">      49</span>              : // rvdff with 2:1 input mux to flop din iff sel==1</span>
 <span id="L50"><span class="lineNum">      50</span>              : module rvdffs #( parameter WIDTH=1, SHORT=0 )</span>
 <span id="L51"><span class="lineNum">      51</span>              :    (</span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">        2961 :      input logic [WIDTH-1:0] din,</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">        2929 :      input logic [WIDTH-1:0] din,</span></span>
 <span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">           3 :      input logic             en,</span></span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">     3259966 :      input logic           clk,</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">     3259962 :      input logic           clk,</span></span>
 <span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           7 :      input logic                   rst_l,</span></span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">        2961 :      output logic [WIDTH-1:0] dout</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">        2929 :      output logic [WIDTH-1:0] dout</span></span>
 <span id="L57"><span class="lineNum">      57</span>              :      );</span>
 <span id="L58"><span class="lineNum">      58</span>              : </span>
 <span id="L59"><span class="lineNum">      59</span>              : if (SHORT == 1) begin : genblock</span>
@@ -194,9 +194,9 @@
 <span id="L90"><span class="lineNum">      90</span>              : module rvdff_fpga #( parameter WIDTH=1, SHORT=0 )</span>
 <span id="L91"><span class="lineNum">      91</span>              :    (</span>
 <span id="L92"><span class="lineNum">      92</span> <span class="tlaUNC tlaBgUNC">           0 :      input logic [WIDTH-1:0] din,</span></span>
-<span id="L93"><span class="lineNum">      93</span> <span class="tlaGNC tlaBgGNC">       20972 :      input logic           clk,</span></span>
+<span id="L93"><span class="lineNum">      93</span> <span class="tlaGNC tlaBgGNC">       20982 :      input logic           clk,</span></span>
 <span id="L94"><span class="lineNum">      94</span> <span class="tlaGNC">          22 :      input logic           clken,</span></span>
-<span id="L95"><span class="lineNum">      95</span> <span class="tlaGNC">     3259968 :      input logic           rawclk,</span></span>
+<span id="L95"><span class="lineNum">      95</span> <span class="tlaGNC">     3259964 :      input logic           rawclk,</span></span>
 <span id="L96"><span class="lineNum">      96</span> <span class="tlaGNC">           7 :      input logic           rst_l,</span></span>
 <span id="L97"><span class="lineNum">      97</span>              : </span>
 <span id="L98"><span class="lineNum">      98</span> <span class="tlaUNC tlaBgUNC">           0 :      output logic [WIDTH-1:0] dout</span></span>
@@ -219,9 +219,9 @@
 <span id="L115"><span class="lineNum">     115</span>              :    (</span>
 <span id="L116"><span class="lineNum">     116</span> <span class="tlaGNC tlaBgGNC">       17519 :      input logic [WIDTH-1:0] din,</span></span>
 <span id="L117"><span class="lineNum">     117</span> <span class="tlaUNC tlaBgUNC">           0 :      input logic             en,</span></span>
-<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC tlaBgGNC">     6519932 :      input logic           clk,</span></span>
+<span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC tlaBgGNC">     6519924 :      input logic           clk,</span></span>
 <span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC">           3 :      input logic           clken,</span></span>
-<span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC">     3259968 :      input logic           rawclk,</span></span>
+<span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC">     3259964 :      input logic           rawclk,</span></span>
 <span id="L121"><span class="lineNum">     121</span> <span class="tlaGNC">           7 :      input logic           rst_l,</span></span>
 <span id="L122"><span class="lineNum">     122</span>              : </span>
 <span id="L123"><span class="lineNum">     123</span> <span class="tlaUNC tlaBgUNC">           0 :      output logic [WIDTH-1:0] dout</span></span>
@@ -244,14 +244,14 @@
 <span id="L140"><span class="lineNum">     140</span>              : module rvdffsc_fpga #( parameter WIDTH=1, SHORT=0 )</span>
 <span id="L141"><span class="lineNum">     141</span>              :    (</span>
 <span id="L142"><span class="lineNum">     142</span> <span class="tlaGNC tlaBgGNC">          30 :      input logic [WIDTH-1:0] din,</span></span>
-<span id="L143"><span class="lineNum">     143</span> <span class="tlaGNC">      262122 :      input logic             en,</span></span>
+<span id="L143"><span class="lineNum">     143</span> <span class="tlaGNC">      262134 :      input logic             en,</span></span>
 <span id="L144"><span class="lineNum">     144</span> <span class="tlaUNC tlaBgUNC">           0 :      input logic             clear,</span></span>
-<span id="L145"><span class="lineNum">     145</span> <span class="tlaGNC tlaBgGNC">     9779898 :      input logic             clk,</span></span>
+<span id="L145"><span class="lineNum">     145</span> <span class="tlaGNC tlaBgGNC">     9779886 :      input logic             clk,</span></span>
 <span id="L146"><span class="lineNum">     146</span> <span class="tlaGNC">           6 :      input logic             clken,</span></span>
-<span id="L147"><span class="lineNum">     147</span> <span class="tlaGNC">     6519936 :      input logic             rawclk,</span></span>
+<span id="L147"><span class="lineNum">     147</span> <span class="tlaGNC">     6519928 :      input logic             rawclk,</span></span>
 <span id="L148"><span class="lineNum">     148</span> <span class="tlaGNC">          10 :      input logic             rst_l,</span></span>
 <span id="L149"><span class="lineNum">     149</span>              : </span>
-<span id="L150"><span class="lineNum">     150</span> <span class="tlaGNC">       48272 :      output logic [WIDTH-1:0] dout</span></span>
+<span id="L150"><span class="lineNum">     150</span> <span class="tlaGNC">       48302 :      output logic [WIDTH-1:0] dout</span></span>
 <span id="L151"><span class="lineNum">     151</span>              :      );</span>
 <span id="L152"><span class="lineNum">     152</span>              : </span>
 <span id="L153"><span class="lineNum">     153</span> <span class="tlaUNC tlaBgUNC">           0 :    logic [WIDTH-1:0]          din_new;</span></span>
@@ -272,7 +272,7 @@
 <span id="L168"><span class="lineNum">     168</span>              :    (</span>
 <span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC tlaBgGNC">           2 :      input  logic [WIDTH-1:0] din,</span></span>
 <span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">         792 :      input  logic           en,</span></span>
-<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">     3259968 :      input  logic           clk,</span></span>
+<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">     3259964 :      input  logic           clk,</span></span>
 <span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">           7 :      input  logic           rst_l,</span></span>
 <span id="L173"><span class="lineNum">     173</span> <span class="tlaUNC tlaBgUNC">           0 :      input  logic             scan_mode,</span></span>
 <span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC tlaBgGNC">          20 :      output logic [WIDTH-1:0] dout</span></span>
@@ -311,9 +311,9 @@
 <span id="L207"><span class="lineNum">     207</span>              : module rvdffpcie #( parameter WIDTH=31 )</span>
 <span id="L208"><span class="lineNum">     208</span>              :    (</span>
 <span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC">         570 :      input  logic [WIDTH-1:0] din,</span></span>
-<span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">     3259968 :      input  logic             clk,</span></span>
+<span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">     3259964 :      input  logic             clk,</span></span>
 <span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">           7 :      input  logic             rst_l,</span></span>
-<span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC">      518568 :      input  logic             en,</span></span>
+<span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC">      518560 :      input  logic             en,</span></span>
 <span id="L213"><span class="lineNum">     213</span> <span class="tlaUNC tlaBgUNC">           0 :      input  logic             scan_mode,</span></span>
 <span id="L214"><span class="lineNum">     214</span> <span class="tlaGNC tlaBgGNC">         570 :      output logic [WIDTH-1:0] dout</span></span>
 <span id="L215"><span class="lineNum">     215</span>              :      );</span>
@@ -344,7 +344,7 @@
 <span id="L240"><span class="lineNum">     240</span>              : module rvdfflie #( parameter WIDTH=16, LEFT=8 )</span>
 <span id="L241"><span class="lineNum">     241</span>              :    (</span>
 <span id="L242"><span class="lineNum">     242</span> <span class="tlaGNC">         570 :      input  logic [WIDTH-1:0] din,</span></span>
-<span id="L243"><span class="lineNum">     243</span> <span class="tlaGNC">     3259968 :      input  logic             clk,</span></span>
+<span id="L243"><span class="lineNum">     243</span> <span class="tlaGNC">     3259964 :      input  logic             clk,</span></span>
 <span id="L244"><span class="lineNum">     244</span> <span class="tlaGNC">           7 :      input  logic             rst_l,</span></span>
 <span id="L245"><span class="lineNum">     245</span> <span class="tlaGNC">           3 :      input  logic             en,</span></span>
 <span id="L246"><span class="lineNum">     246</span> <span class="tlaUNC tlaBgUNC">           0 :      input  logic             scan_mode,</span></span>
@@ -399,7 +399,7 @@
 <span id="L295"><span class="lineNum">     295</span>              : module rvdffppe #( parameter integer WIDTH = 39 )</span>
 <span id="L296"><span class="lineNum">     296</span>              :    (</span>
 <span id="L297"><span class="lineNum">     297</span> <span class="tlaGNC">          10 :      input  logic [WIDTH-1:0] din,</span></span>
-<span id="L298"><span class="lineNum">     298</span> <span class="tlaGNC">     3259968 :      input  logic             clk,</span></span>
+<span id="L298"><span class="lineNum">     298</span> <span class="tlaGNC">     3259964 :      input  logic             clk,</span></span>
 <span id="L299"><span class="lineNum">     299</span> <span class="tlaGNC">           7 :      input  logic             rst_l,</span></span>
 <span id="L300"><span class="lineNum">     300</span> <span class="tlaGNC">      259090 :      input  logic             en,</span></span>
 <span id="L301"><span class="lineNum">     301</span> <span class="tlaUNC tlaBgUNC">           0 :      input  logic             scan_mode,</span></span>
@@ -443,7 +443,7 @@
 <span id="L339"><span class="lineNum">     339</span>              :    (</span>
 <span id="L340"><span class="lineNum">     340</span> <span class="tlaGNC">          20 :      input  logic [WIDTH-1:0] din,</span></span>
 <span id="L341"><span class="lineNum">     341</span>              : </span>
-<span id="L342"><span class="lineNum">     342</span> <span class="tlaGNC">     3259968 :      input  logic           clk,</span></span>
+<span id="L342"><span class="lineNum">     342</span> <span class="tlaGNC">     3259964 :      input  logic           clk,</span></span>
 <span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC">           7 :      input  logic           rst_l,</span></span>
 <span id="L344"><span class="lineNum">     344</span> <span class="tlaUNC tlaBgUNC">           0 :      input  logic             scan_mode,</span></span>
 <span id="L345"><span class="lineNum">     345</span> <span class="tlaGNC tlaBgGNC">          20 :      output logic [WIDTH-1:0] dout</span></span>
@@ -486,7 +486,7 @@
 <span id="L382"><span class="lineNum">     382</span>              :    (</span>
 <span id="L383"><span class="lineNum">     383</span> <span class="tlaGNC">          72 :      input  logic [WIDTH-1:0] din,</span></span>
 <span id="L384"><span class="lineNum">     384</span>              : </span>
-<span id="L385"><span class="lineNum">     385</span> <span class="tlaGNC">     3259968 :      input  logic           clk,</span></span>
+<span id="L385"><span class="lineNum">     385</span> <span class="tlaGNC">     3259964 :      input  logic           clk,</span></span>
 <span id="L386"><span class="lineNum">     386</span> <span class="tlaGNC">           7 :      input  logic           rst_l,</span></span>
 <span id="L387"><span class="lineNum">     387</span> <span class="tlaUNC tlaBgUNC">           0 :      input  logic           scan_mode,</span></span>
 <span id="L388"><span class="lineNum">     388</span> <span class="tlaGNC tlaBgGNC">           3 :      input  logic           en,</span></span>
@@ -520,7 +520,7 @@
 <span id="L416"><span class="lineNum">     416</span>              : </span>
 <span id="L417"><span class="lineNum">     417</span>              : module rvsyncss #(parameter WIDTH = 251)</span>
 <span id="L418"><span class="lineNum">     418</span>              :    (</span>
-<span id="L419"><span class="lineNum">     419</span> <span class="tlaGNC">     3259966 :      input  logic                 clk,</span></span>
+<span id="L419"><span class="lineNum">     419</span> <span class="tlaGNC">     3259962 :      input  logic                 clk,</span></span>
 <span id="L420"><span class="lineNum">     420</span> <span class="tlaGNC">           3 :      input  logic                 rst_l,</span></span>
 <span id="L421"><span class="lineNum">     421</span> <span class="tlaGNC">           2 :      input  logic [WIDTH-1:0]     din,</span></span>
 <span id="L422"><span class="lineNum">     422</span> <span class="tlaUNC tlaBgUNC">           0 :      output logic [WIDTH-1:0]     dout</span></span>
@@ -535,8 +535,8 @@
 <span id="L431"><span class="lineNum">     431</span>              : </span>
 <span id="L432"><span class="lineNum">     432</span>              : module rvsyncss_fpga #(parameter WIDTH = 251)</span>
 <span id="L433"><span class="lineNum">     433</span>              :    (</span>
-<span id="L434"><span class="lineNum">     434</span> <span class="tlaGNC tlaBgGNC">     3259966 :      input  logic                 gw_clk,</span></span>
-<span id="L435"><span class="lineNum">     435</span> <span class="tlaGNC">     3259968 :      input  logic                 rawclk,</span></span>
+<span id="L434"><span class="lineNum">     434</span> <span class="tlaGNC tlaBgGNC">     3259962 :      input  logic                 gw_clk,</span></span>
+<span id="L435"><span class="lineNum">     435</span> <span class="tlaGNC">     3259964 :      input  logic                 rawclk,</span></span>
 <span id="L436"><span class="lineNum">     436</span> <span class="tlaGNC">           1 :      input  logic                 clken,</span></span>
 <span id="L437"><span class="lineNum">     437</span> <span class="tlaGNC">           7 :      input  logic                 rst_l,</span></span>
 <span id="L438"><span class="lineNum">     438</span> <span class="tlaUNC tlaBgUNC">           0 :      input  logic [WIDTH-1:0]     din,</span></span>
@@ -552,10 +552,10 @@
 <span id="L448"><span class="lineNum">     448</span>              : </span>
 <span id="L449"><span class="lineNum">     449</span>              : module rvlsadder</span>
 <span id="L450"><span class="lineNum">     450</span>              :   (</span>
-<span id="L451"><span class="lineNum">     451</span> <span class="tlaGNC">       20828 :     input logic [31:0] rs1,</span></span>
+<span id="L451"><span class="lineNum">     451</span> <span class="tlaGNC">       20822 :     input logic [31:0] rs1,</span></span>
 <span id="L452"><span class="lineNum">     452</span> <span class="tlaGNC">          24 :     input logic [11:0] offset,</span></span>
 <span id="L453"><span class="lineNum">     453</span>              : </span>
-<span id="L454"><span class="lineNum">     454</span> <span class="tlaGNC">       20628 :     output logic [31:0] dout</span></span>
+<span id="L454"><span class="lineNum">     454</span> <span class="tlaGNC">       20618 :     output logic [31:0] dout</span></span>
 <span id="L455"><span class="lineNum">     455</span>              :     );</span>
 <span id="L456"><span class="lineNum">     456</span>              : </span>
 <span id="L457"><span class="lineNum">     457</span> <span class="tlaGNC">        1866 :    logic                cout;</span></span>
@@ -582,17 +582,17 @@
 <span id="L478"><span class="lineNum">     478</span>              : </span>
 <span id="L479"><span class="lineNum">     479</span>              : module rvbradder</span>
 <span id="L480"><span class="lineNum">     480</span>              :   (</span>
-<span id="L481"><span class="lineNum">     481</span> <span class="tlaGNC">         948 :     input [31:1] pc,</span></span>
-<span id="L482"><span class="lineNum">     482</span> <span class="tlaGNC">      186694 :     input [12:1] offset,</span></span>
+<span id="L481"><span class="lineNum">     481</span> <span class="tlaGNC">         956 :     input [31:1] pc,</span></span>
+<span id="L482"><span class="lineNum">     482</span> <span class="tlaGNC">      186754 :     input [12:1] offset,</span></span>
 <span id="L483"><span class="lineNum">     483</span>              : </span>
-<span id="L484"><span class="lineNum">     484</span> <span class="tlaGNC">         852 :     output [31:1] dout</span></span>
+<span id="L484"><span class="lineNum">     484</span> <span class="tlaGNC">         862 :     output [31:1] dout</span></span>
 <span id="L485"><span class="lineNum">     485</span>              :     );</span>
 <span id="L486"><span class="lineNum">     486</span>              : </span>
-<span id="L487"><span class="lineNum">     487</span> <span class="tlaGNC">      526046 :    logic          cout;</span></span>
-<span id="L488"><span class="lineNum">     488</span> <span class="tlaGNC">      340376 :    logic          sign;</span></span>
+<span id="L487"><span class="lineNum">     487</span> <span class="tlaGNC">      526060 :    logic          cout;</span></span>
+<span id="L488"><span class="lineNum">     488</span> <span class="tlaGNC">      340396 :    logic          sign;</span></span>
 <span id="L489"><span class="lineNum">     489</span>              : </span>
-<span id="L490"><span class="lineNum">     490</span> <span class="tlaGNC">     6329481 :    logic [31:13]  pc_inc;</span></span>
-<span id="L491"><span class="lineNum">     491</span> <span class="tlaGNC">     6329481 :    logic [31:13]  pc_dec;</span></span>
+<span id="L490"><span class="lineNum">     490</span> <span class="tlaGNC">     6330407 :    logic [31:13]  pc_inc;</span></span>
+<span id="L491"><span class="lineNum">     491</span> <span class="tlaGNC">     6330407 :    logic [31:13]  pc_dec;</span></span>
 <span id="L492"><span class="lineNum">     492</span>              : </span>
 <span id="L493"><span class="lineNum">     493</span>              :    assign {cout,dout[12:1]} = {1'b0,pc[12:1]} + {1'b0,offset[12:1]};</span>
 <span id="L494"><span class="lineNum">     494</span>              : </span>
@@ -701,7 +701,7 @@
 <span id="L597"><span class="lineNum">     597</span>              : // Check if the S_ADDR &lt;= addr &lt; E_ADDR</span>
 <span id="L598"><span class="lineNum">     598</span>              : module rvrangecheck  #(CCM_SADR = 32'h0,</span>
 <span id="L599"><span class="lineNum">     599</span>              :                        CCM_SIZE  = 128) (</span>
-<span id="L600"><span class="lineNum">     600</span> <span class="tlaGNC tlaBgGNC">       12799 :    input  logic [31:0]   addr,                             // Address to be checked for range</span></span>
+<span id="L600"><span class="lineNum">     600</span> <span class="tlaGNC tlaBgGNC">       12843 :    input  logic [31:0]   addr,                             // Address to be checked for range</span></span>
 <span id="L601"><span class="lineNum">     601</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic          in_range,                            // S_ADDR &lt;= start_addr &lt; E_ADDR</span></span>
 <span id="L602"><span class="lineNum">     602</span> <span class="tlaUNC">           0 :    output logic          in_region</span></span>
 <span id="L603"><span class="lineNum">     603</span>              : );</span>
@@ -747,7 +747,7 @@
 <span id="L643"><span class="lineNum">     643</span> <span class="tlaUNC tlaBgUNC">           0 :                       input [31:0] din,</span></span>
 <span id="L644"><span class="lineNum">     644</span> <span class="tlaUNC">           0 :                       output [6:0] ecc_out</span></span>
 <span id="L645"><span class="lineNum">     645</span>              :                       );</span>
-<span id="L646"><span class="lineNum">     646</span> <span class="tlaGNC tlaBgGNC">        6792 : logic [5:0] ecc_out_temp;</span></span>
+<span id="L646"><span class="lineNum">     646</span> <span class="tlaGNC tlaBgGNC">        6820 : logic [5:0] ecc_out_temp;</span></span>
 <span id="L647"><span class="lineNum">     647</span>              : </span>
 <span id="L648"><span class="lineNum">     648</span>              :    assign ecc_out_temp[0] = din[0]^din[1]^din[3]^din[4]^din[6]^din[8]^din[10]^din[11]^din[13]^din[15]^din[17]^din[19]^din[21]^din[23]^din[25]^din[26]^din[28]^din[30];</span>
 <span id="L649"><span class="lineNum">     649</span>              :    assign ecc_out_temp[1] = din[0]^din[2]^din[3]^din[5]^din[6]^din[9]^din[10]^din[12]^din[13]^din[16]^din[17]^din[20]^din[21]^din[24]^din[25]^din[27]^din[28]^din[31];</span>
@@ -764,7 +764,7 @@
 <span id="L660"><span class="lineNum">     660</span> <span class="tlaUNC tlaBgUNC">           0 :                       input         en,</span></span>
 <span id="L661"><span class="lineNum">     661</span> <span class="tlaUNC">           0 :                       input [31:0]  din,</span></span>
 <span id="L662"><span class="lineNum">     662</span> <span class="tlaUNC">           0 :                       input [6:0]   ecc_in,</span></span>
-<span id="L663"><span class="lineNum">     663</span> <span class="tlaGNC tlaBgGNC">        7686 :                       input         sed_ded,    // only do detection and no correction. Used for the I$</span></span>
+<span id="L663"><span class="lineNum">     663</span> <span class="tlaGNC tlaBgGNC">        7706 :                       input         sed_ded,    // only do detection and no correction. Used for the I$</span></span>
 <span id="L664"><span class="lineNum">     664</span> <span class="tlaUNC tlaBgUNC">           0 :                       output [31:0] dout,</span></span>
 <span id="L665"><span class="lineNum">     665</span> <span class="tlaUNC">           0 :                       output [6:0]  ecc_out,</span></span>
 <span id="L666"><span class="lineNum">     666</span> <span class="tlaUNC">           0 :                       output        single_ecc_error,</span></span>
@@ -774,7 +774,7 @@
 <span id="L670"><span class="lineNum">     670</span>              : </span>
 <span id="L671"><span class="lineNum">     671</span> <span class="tlaUNC">           0 :    logic [6:0]                      ecc_check;</span></span>
 <span id="L672"><span class="lineNum">     672</span> <span class="tlaUNC">           0 :    logic [38:0]                     error_mask;</span></span>
-<span id="L673"><span class="lineNum">     673</span> <span class="tlaGNC tlaBgGNC">        1612 :    logic [38:0]                     din_plus_parity, dout_plus_parity;</span></span>
+<span id="L673"><span class="lineNum">     673</span> <span class="tlaGNC tlaBgGNC">        1556 :    logic [38:0]                     din_plus_parity, dout_plus_parity;</span></span>
 <span id="L674"><span class="lineNum">     674</span>              : </span>
 <span id="L675"><span class="lineNum">     675</span>              :    // Generate the ecc bits</span>
 <span id="L676"><span class="lineNum">     676</span>              :    assign ecc_check[0] = ecc_in[0]^din[0]^din[1]^din[3]^din[4]^din[6]^din[8]^din[10]^din[11]^din[13]^din[15]^din[17]^din[19]^din[21]^din[23]^din[25]^din[26]^din[28]^din[30];</span>
@@ -805,8 +805,8 @@
 <span id="L701"><span class="lineNum">     701</span>              : endmodule // rvecc_decode</span>
 <span id="L702"><span class="lineNum">     702</span>              : </span>
 <span id="L703"><span class="lineNum">     703</span>              : module rvecc_encode_64  (</span>
-<span id="L704"><span class="lineNum">     704</span> <span class="tlaGNC">      260269 :                       input [63:0] din,</span></span>
-<span id="L705"><span class="lineNum">     705</span> <span class="tlaGNC">      648581 :                       output [6:0] ecc_out</span></span>
+<span id="L704"><span class="lineNum">     704</span> <span class="tlaGNC">      260287 :                       input [63:0] din,</span></span>
+<span id="L705"><span class="lineNum">     705</span> <span class="tlaGNC">      648609 :                       output [6:0] ecc_out</span></span>
 <span id="L706"><span class="lineNum">     706</span>              :                       );</span>
 <span id="L707"><span class="lineNum">     707</span>              :   assign ecc_out[0] = din[0]^din[1]^din[3]^din[4]^din[6]^din[8]^din[10]^din[11]^din[13]^din[15]^din[17]^din[19]^din[21]^din[23]^din[25]^din[26]^din[28]^din[30]^din[32]^din[34]^din[36]^din[38]^din[40]^din[42]^din[44]^din[46]^din[48]^din[50]^din[52]^din[54]^din[56]^din[57]^din[59]^din[61]^din[63];</span>
 <span id="L708"><span class="lineNum">     708</span>              : </span>
@@ -856,18 +856,18 @@
 <span id="L752"><span class="lineNum">     752</span>              : `ifndef TECH_SPECIFIC_EC_RV_ICG</span>
 <span id="L753"><span class="lineNum">     753</span>              : module `TEC_RV_ICG</span>
 <span id="L754"><span class="lineNum">     754</span>              :   (</span>
-<span id="L755"><span class="lineNum">     755</span> <span class="tlaGNC">     1022238 :    input logic SE, EN, CK,</span></span>
-<span id="L756"><span class="lineNum">     756</span> <span class="tlaGNC">   156313098 :    output Q</span></span>
+<span id="L755"><span class="lineNum">     755</span> <span class="tlaGNC">     1024898 :    input logic SE, EN, CK,</span></span>
+<span id="L756"><span class="lineNum">     756</span> <span class="tlaGNC">   156315930 :    output Q</span></span>
 <span id="L757"><span class="lineNum">     757</span>              :    );</span>
 <span id="L758"><span class="lineNum">     758</span>              : </span>
-<span id="L759"><span class="lineNum">     759</span> <span class="tlaGNC">    22332290 :    logic  en_ff;</span></span>
-<span id="L760"><span class="lineNum">     760</span> <span class="tlaGNC">    26088475 :    logic  enable;</span></span>
+<span id="L759"><span class="lineNum">     759</span> <span class="tlaGNC">    22332924 :    logic  en_ff;</span></span>
+<span id="L760"><span class="lineNum">     760</span> <span class="tlaGNC">    26089045 :    logic  enable;</span></span>
 <span id="L761"><span class="lineNum">     761</span>              : </span>
 <span id="L762"><span class="lineNum">     762</span>              :    assign      enable = EN | SE;</span>
 <span id="L763"><span class="lineNum">     763</span>              : </span>
 <span id="L764"><span class="lineNum">     764</span>              : `ifdef VERILATOR</span>
-<span id="L765"><span class="lineNum">     765</span> <span class="tlaGNC">  1432668038 :    always @(negedge CK) begin</span></span>
-<span id="L766"><span class="lineNum">     766</span> <span class="tlaGNC">  1432668038 :       en_ff &lt;= enable;</span></span>
+<span id="L765"><span class="lineNum">     765</span> <span class="tlaGNC">  1433172584 :    always @(negedge CK) begin</span></span>
+<span id="L766"><span class="lineNum">     766</span> <span class="tlaGNC">  1433172584 :       en_ff &lt;= enable;</span></span>
 <span id="L767"><span class="lineNum">     767</span>              :    end</span>
 <span id="L768"><span class="lineNum">     768</span>              : `else</span>
 <span id="L769"><span class="lineNum">     769</span>              :    always @(CK, enable) begin</span>
@@ -883,13 +883,13 @@
 <span id="L779"><span class="lineNum">     779</span>              : `ifndef RV_FPGA_OPTIMIZE</span>
 <span id="L780"><span class="lineNum">     780</span>              : module rvclkhdr</span>
 <span id="L781"><span class="lineNum">     781</span>              :   (</span>
-<span id="L782"><span class="lineNum">     782</span> <span class="tlaGNC">    25261728 :    input  logic en,</span></span>
-<span id="L783"><span class="lineNum">     783</span> <span class="tlaGNC">   345556608 :    input  logic clk,</span></span>
+<span id="L782"><span class="lineNum">     782</span> <span class="tlaGNC">    25262154 :    input  logic en,</span></span>
+<span id="L783"><span class="lineNum">     783</span> <span class="tlaGNC">   345556184 :    input  logic clk,</span></span>
 <span id="L784"><span class="lineNum">     784</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic scan_mode,</span></span>
-<span id="L785"><span class="lineNum">     785</span> <span class="tlaGNC tlaBgGNC">   136820884 :    output logic l1clk</span></span>
+<span id="L785"><span class="lineNum">     785</span> <span class="tlaGNC tlaBgGNC">   136823286 :    output logic l1clk</span></span>
 <span id="L786"><span class="lineNum">     786</span>              :    );</span>
 <span id="L787"><span class="lineNum">     787</span>              : </span>
-<span id="L788"><span class="lineNum">     788</span> <span class="tlaGNC">      814716 :    logic   SE;</span></span>
+<span id="L788"><span class="lineNum">     788</span> <span class="tlaGNC">      816836 :    logic   SE;</span></span>
 <span id="L789"><span class="lineNum">     789</span>              :    assign       SE = 0;</span>
 <span id="L790"><span class="lineNum">     790</span>              : </span>
 <span id="L791"><span class="lineNum">     791</span>              : `ifdef TECH_SPECIFIC_EC_RV_ICG</span>
@@ -903,13 +903,13 @@
 <span id="L799"><span class="lineNum">     799</span>              : </span>
 <span id="L800"><span class="lineNum">     800</span>              : module rvoclkhdr</span>
 <span id="L801"><span class="lineNum">     801</span>              :   (</span>
-<span id="L802"><span class="lineNum">     802</span> <span class="tlaGNC">      826747 :    input  logic en,</span></span>
-<span id="L803"><span class="lineNum">     803</span> <span class="tlaGNC">    88019140 :    input  logic clk,</span></span>
+<span id="L802"><span class="lineNum">     802</span> <span class="tlaGNC">      826891 :    input  logic en,</span></span>
+<span id="L803"><span class="lineNum">     803</span> <span class="tlaGNC">    88019032 :    input  logic clk,</span></span>
 <span id="L804"><span class="lineNum">     804</span> <span class="tlaUNC tlaBgUNC">           0 :    input  logic scan_mode,</span></span>
-<span id="L805"><span class="lineNum">     805</span> <span class="tlaGNC tlaBgGNC">    19492214 :    output logic l1clk</span></span>
+<span id="L805"><span class="lineNum">     805</span> <span class="tlaGNC tlaBgGNC">    19492644 :    output logic l1clk</span></span>
 <span id="L806"><span class="lineNum">     806</span>              :    );</span>
 <span id="L807"><span class="lineNum">     807</span>              : </span>
-<span id="L808"><span class="lineNum">     808</span> <span class="tlaGNC">      207522 :    logic   SE;</span></span>
+<span id="L808"><span class="lineNum">     808</span> <span class="tlaGNC">      208062 :    logic   SE;</span></span>
 <span id="L809"><span class="lineNum">     809</span>              :    assign       SE = 0;</span>
 <span id="L810"><span class="lineNum">     810</span>              : </span>
 <span id="L811"><span class="lineNum">     811</span>              : `ifdef RV_FPGA_OPTIMIZE</span>

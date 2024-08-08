@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -127,7 +127,7 @@
 <span id="L23"><span class="lineNum">      23</span>              :    ,localparam OFFSET_W = $clog2(DATA_WIDTH/32)</span>
 <span id="L24"><span class="lineNum">      24</span>              : )</span>
 <span id="L25"><span class="lineNum">      25</span>              : (</span>
-<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC tlaBgGNC">     3259970 :     input logic clk,</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC tlaBgGNC">     3259966 :     input logic clk,</span></span>
 <span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           7 :     input logic rst_b,</span></span>
 <span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           4 :     input logic zeroize,</span></span>
 <span id="L29"><span class="lineNum">      29</span>              : </span>
@@ -153,9 +153,9 @@
 <span id="L49"><span class="lineNum">      49</span>              : localparam KV_NUM_DWORDS_W = $clog2(KV_MAX_DWORDS);</span>
 <span id="L50"><span class="lineNum">      50</span>              : localparam KV_PAD_LENGTH_START = 28;</span>
 <span id="L51"><span class="lineNum">      51</span>              : </span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">        7686 : logic [KV_NUM_DWORDS_W:0] num_dwords_data;</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">        7706 : logic [KV_NUM_DWORDS_W:0] num_dwords_data;</span></span>
 <span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">           1 : logic [KV_NUM_DWORDS_W:0] num_dwords_total;</span></span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">        7686 : logic [31:0] length_for_pad;</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">        7706 : logic [31:0] length_for_pad;</span></span>
 <span id="L55"><span class="lineNum">      55</span>              : </span>
 <span id="L56"><span class="lineNum">      56</span>              : //declare fsm state variables</span>
 <span id="L57"><span class="lineNum">      57</span>              : typedef enum logic [2:0] {</span>
@@ -171,7 +171,7 @@
 <span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC">           4 : logic arc_KV_IDLE_KV_RW;</span></span>
 <span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">           6 : logic arc_KV_RW_KV_DONE;</span></span>
 <span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">           3 : logic arc_KV_DONE_KV_IDLE;</span></span>
-<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">        7686 : logic arc_KV_RW_KV_PAD;</span></span>
+<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">        7706 : logic arc_KV_RW_KV_PAD;</span></span>
 <span id="L71"><span class="lineNum">      71</span> <span class="tlaUNC tlaBgUNC">           0 : logic arc_KV_PAD_KV_ZERO;</span></span>
 <span id="L72"><span class="lineNum">      72</span> <span class="tlaUNC">           0 : logic arc_KV_ZERO_KV_LENGTH;</span></span>
 <span id="L73"><span class="lineNum">      73</span> <span class="tlaUNC">           0 : logic arc_KV_LENGTH_KV_DONE;</span></span>
@@ -212,7 +212,7 @@
 <span id="L108"><span class="lineNum">     108</span> <span class="tlaGNC">           1 :     pad_data = '0;</span></span>
 <span id="L109"><span class="lineNum">     109</span> <span class="tlaGNC">           1 :     done = '0;</span></span>
 <span id="L110"><span class="lineNum">     110</span> <span class="tlaGNC">           1 :     unique case (kv_fsm_ps)</span></span>
-<span id="L111"><span class="lineNum">     111</span> <span class="tlaGNC">     1629823 :         KV_IDLE: begin</span></span>
+<span id="L111"><span class="lineNum">     111</span> <span class="tlaGNC">     1630397 :         KV_IDLE: begin</span></span>
 <span id="L112"><span class="lineNum">     112</span> <span class="tlaGNC">           3 :             if (arc_KV_IDLE_KV_RW) kv_fsm_ns = KV_RW;</span></span>
 <span id="L113"><span class="lineNum">     113</span>              :         end</span>
 <span id="L114"><span class="lineNum">     114</span> <span class="tlaGNC">          36 :         KV_RW: begin</span></span>
@@ -255,7 +255,7 @@
 <span id="L151"><span class="lineNum">     151</span>              :     endcase</span>
 <span id="L152"><span class="lineNum">     152</span>              : end</span>
 <span id="L153"><span class="lineNum">     153</span>              : </span>
-<span id="L154"><span class="lineNum">     154</span> <span class="tlaGNC tlaBgGNC">     1629888 : always_ff @(posedge clk or negedge rst_b) begin</span></span>
+<span id="L154"><span class="lineNum">     154</span> <span class="tlaGNC tlaBgGNC">     1630462 : always_ff @(posedge clk or negedge rst_b) begin</span></span>
 <span id="L155"><span class="lineNum">     155</span> <span class="tlaGNC">          16 :     if (!rst_b) begin</span></span>
 <span id="L156"><span class="lineNum">     156</span> <span class="tlaGNC">          16 :         kv_fsm_ps &lt;= KV_IDLE;</span></span>
 <span id="L157"><span class="lineNum">     157</span> <span class="tlaGNC">          16 :         offset &lt;= '0;</span></span>
@@ -264,25 +264,25 @@
 <span id="L160"><span class="lineNum">     160</span> <span class="tlaGNC">           2 :         kv_fsm_ps &lt;= KV_IDLE;</span></span>
 <span id="L161"><span class="lineNum">     161</span> <span class="tlaGNC">           2 :         offset &lt;= '0;</span></span>
 <span id="L162"><span class="lineNum">     162</span>              :     end</span>
-<span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC">     1629870 :     else begin</span></span>
-<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC">     1629870 :         kv_fsm_ps &lt;= kv_fsm_ns;</span></span>
-<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">     1629870 :         offset &lt;= offset_rst ? '0 :</span></span>
-<span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC">     1629870 :                   offset_en ? offset_nxt : offset;</span></span>
+<span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC">     1630444 :     else begin</span></span>
+<span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC">     1630444 :         kv_fsm_ps &lt;= kv_fsm_ns;</span></span>
+<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">     1630444 :         offset &lt;= offset_rst ? '0 :</span></span>
+<span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC">     1630444 :                   offset_en ? offset_nxt : offset;</span></span>
 <span id="L167"><span class="lineNum">     167</span>              :     end</span>
 <span id="L168"><span class="lineNum">     168</span>              : end</span>
 <span id="L169"><span class="lineNum">     169</span>              : </span>
 <span id="L170"><span class="lineNum">     170</span>              : generate</span>
 <span id="L171"><span class="lineNum">     171</span>              :     if (PAD==1) begin</span>
-<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">     1629888 :         always_ff @(posedge clk or negedge rst_b) begin</span></span>
+<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">     1630462 :         always_ff @(posedge clk or negedge rst_b) begin</span></span>
 <span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC">          16 :             if (!rst_b) begin</span></span>
 <span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC">          16 :                 num_dwords_data &lt;= '0;</span></span>
 <span id="L175"><span class="lineNum">     175</span>              :             end</span>
 <span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC">           2 :             else if (zeroize) begin</span></span>
 <span id="L177"><span class="lineNum">     177</span> <span class="tlaGNC">           2 :                 num_dwords_data &lt;= '0;</span></span>
 <span id="L178"><span class="lineNum">     178</span>              :             end</span>
-<span id="L179"><span class="lineNum">     179</span> <span class="tlaGNC">     1629870 :             else begin</span></span>
+<span id="L179"><span class="lineNum">     179</span> <span class="tlaGNC">     1630444 :             else begin</span></span>
 <span id="L180"><span class="lineNum">     180</span>              :                 //store the offset_nxt on the last cycle of valid data, this is the number of dwords of valid data</span>
-<span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC">     1629870 :                 num_dwords_data &lt;= arc_KV_RW_KV_PAD ? offset_nxt : num_dwords_data;</span></span>
+<span id="L181"><span class="lineNum">     181</span> <span class="tlaGNC">     1630444 :                 num_dwords_data &lt;= arc_KV_RW_KV_PAD ? offset_nxt : num_dwords_data;</span></span>
 <span id="L182"><span class="lineNum">     182</span>              :             end</span>
 <span id="L183"><span class="lineNum">     183</span>              :         end</span>
 <span id="L184"><span class="lineNum">     184</span>              :     end else begin</span>

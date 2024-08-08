@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -133,7 +133,7 @@
 <span id="L29"><span class="lineNum">      29</span>              :     import csrng_pkg::*;</span>
 <span id="L30"><span class="lineNum">      30</span>              : `endif</span>
 <span id="L31"><span class="lineNum">      31</span>              :     (</span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">     4427777 :     input logic                        clk,</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">     4427855 :     input logic                        clk,</span></span>
 <span id="L33"><span class="lineNum">      33</span>              : </span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">           3 :     input logic                        cptra_pwrgood,</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           5 :     input logic                        cptra_rst_b,</span></span>
@@ -187,7 +187,7 @@
 <span id="L83"><span class="lineNum">      83</span>              :     //SRAM interface for imem</span>
 <span id="L84"><span class="lineNum">      84</span> <span class="tlaGNC tlaBgGNC">       59477 :     output logic imem_cs,</span></span>
 <span id="L85"><span class="lineNum">      85</span> <span class="tlaGNC">        9426 :     output logic [`CALIPTRA_IMEM_ADDR_WIDTH-1:0] imem_addr,</span></span>
-<span id="L86"><span class="lineNum">      86</span> <span class="tlaGNC">       53622 :     input  logic [`CALIPTRA_IMEM_DATA_WIDTH-1:0] imem_rdata,</span></span>
+<span id="L86"><span class="lineNum">      86</span> <span class="tlaGNC">       53610 :     input  logic [`CALIPTRA_IMEM_DATA_WIDTH-1:0] imem_rdata,</span></span>
 <span id="L87"><span class="lineNum">      87</span>              : </span>
 <span id="L88"><span class="lineNum">      88</span> <span class="tlaGNC">           6 :     output logic                       ready_for_fuses,</span></span>
 <span id="L89"><span class="lineNum">      89</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic                       ready_for_fw_push,</span></span>
@@ -367,7 +367,7 @@
 <span id="L263"><span class="lineNum">     263</span> <span class="tlaGNC">           1 :     logic imem_hreadyout;</span></span>
 <span id="L264"><span class="lineNum">     264</span> <span class="tlaGNC">       63369 :     logic [1:0] imem_htrans;</span></span>
 <span id="L265"><span class="lineNum">     265</span> <span class="tlaUNC tlaBgUNC">           0 :     logic [2:0] imem_hsize;</span></span>
-<span id="L266"><span class="lineNum">     266</span> <span class="tlaGNC tlaBgGNC">       53622 :     logic [63:0] imem_hrdata;</span></span>
+<span id="L266"><span class="lineNum">     266</span> <span class="tlaGNC tlaBgGNC">       53610 :     logic [63:0] imem_hrdata;</span></span>
 <span id="L267"><span class="lineNum">     267</span> <span class="tlaUNC tlaBgUNC">           0 :     logic imem_hresp;</span></span>
 <span id="L268"><span class="lineNum">     268</span>              :     </span>
 <span id="L269"><span class="lineNum">     269</span> <span class="tlaUNC">           0 :     logic lsu_addr_ph, lsu_data_ph, lsu_sel;</span></span>

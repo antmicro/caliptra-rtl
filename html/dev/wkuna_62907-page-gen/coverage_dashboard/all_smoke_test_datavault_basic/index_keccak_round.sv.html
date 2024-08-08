@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -134,7 +134,7 @@
 <span id="L30"><span class="lineNum">      30</span>              :   parameter  bit EnMasking = 1'b0,  // Enable SCA hardening, requires Width &gt;= 50</span>
 <span id="L31"><span class="lineNum">      31</span>              :   localparam int Share     = EnMasking ? 2 : 1</span>
 <span id="L32"><span class="lineNum">      32</span>              : ) (</span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">      458006 :   input clk_i,</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">      458284 :   input clk_i,</span></span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">           1 :   input rst_ni,</span></span>
 <span id="L35"><span class="lineNum">      35</span>              : </span>
 <span id="L36"><span class="lineNum">      36</span>              :   // Message Feed</span>
@@ -145,10 +145,10 @@
 <span id="L41"><span class="lineNum">      41</span>              : </span>
 <span id="L42"><span class="lineNum">      42</span>              :   // In-process control</span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaUNC tlaBgUNC">           0 :   input                    run_i,  // Pulse signal to initiates Keccak full round</span></span>
-<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC tlaBgGNC">       24658 :   input                    rand_valid_i,</span></span>
-<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">       24658 :   input                    rand_early_i,</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC tlaBgGNC">       24634 :   input                    rand_valid_i,</span></span>
+<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">       24634 :   input                    rand_early_i,</span></span>
 <span id="L46"><span class="lineNum">      46</span>              :   input      [Width/2-1:0] rand_data_i,</span>
-<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">       24658 :   input                    rand_aux_i,</span></span>
+<span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">       24634 :   input                    rand_aux_i,</span></span>
 <span id="L48"><span class="lineNum">      48</span> <span class="tlaUNC tlaBgUNC">           0 :   output logic             rand_consumed_o,</span></span>
 <span id="L49"><span class="lineNum">      49</span>              : </span>
 <span id="L50"><span class="lineNum">      50</span> <span class="tlaUNC">           0 :   output logic             complete_o, // Indicates full round is done</span></span>
@@ -229,7 +229,7 @@
 <span id="L125"><span class="lineNum">     125</span>              :   // Random value and valid signal used in Keccak_p</span>
 <span id="L126"><span class="lineNum">     126</span> <span class="tlaUNC">           0 :   logic               keccak_rand_consumed;</span></span>
 <span id="L127"><span class="lineNum">     127</span>              :   logic [Width/2-1:0] keccak_rand_data;</span>
-<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC tlaBgGNC">       24658 :   logic               keccak_rand_aux;</span></span>
+<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC tlaBgGNC">       24634 :   logic               keccak_rand_aux;</span></span>
 <span id="L129"><span class="lineNum">     129</span>              : </span>
 <span id="L130"><span class="lineNum">     130</span>              :   //////////////////////</span>
 <span id="L131"><span class="lineNum">     131</span>              :   // Keccak Round FSM //</span>
@@ -320,7 +320,7 @@
 <span id="L216"><span class="lineNum">     216</span> <span class="tlaGNC">           1 :     sparse_fsm_error_o = 1'b 0;</span></span>
 <span id="L217"><span class="lineNum">     217</span>              : </span>
 <span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC">           1 :     unique case (keccak_st)</span></span>
-<span id="L219"><span class="lineNum">     219</span> <span class="tlaGNC">      229316 :       StIdle: begin</span></span>
+<span id="L219"><span class="lineNum">     219</span> <span class="tlaGNC">      229428 :       StIdle: begin</span></span>
 <span id="L220"><span class="lineNum">     220</span> <span class="tlaUNC tlaBgUNC">           0 :         if (valid_i) begin</span></span>
 <span id="L221"><span class="lineNum">     221</span>              :           // State machine allows Sponge Absorbing only in Idle state.</span>
 <span id="L222"><span class="lineNum">     222</span> <span class="tlaUNC">           0 :           keccak_st_d = StIdle;</span></span>
@@ -338,11 +338,11 @@
 <span id="L234"><span class="lineNum">     234</span> <span class="tlaUNC">           0 :         end else if (EnMasking &amp;&amp; run_i) begin</span></span>
 <span id="L235"><span class="lineNum">     235</span>              :           // Masked version of Keccak handling</span>
 <span id="L236"><span class="lineNum">     236</span> <span class="tlaUNC">           0 :           keccak_st_d = StPhase1;</span></span>
-<span id="L237"><span class="lineNum">     237</span> <span class="tlaGNC tlaBgGNC">      229316 :         end else if (!EnMasking &amp;&amp; run_i) begin</span></span>
+<span id="L237"><span class="lineNum">     237</span> <span class="tlaGNC tlaBgGNC">      229428 :         end else if (!EnMasking &amp;&amp; run_i) begin</span></span>
 <span id="L238"><span class="lineNum">     238</span>              :           // Unmasked version of Keccak handling</span>
 <span id="L239"><span class="lineNum">     239</span> <span class="tlaUNC tlaBgUNC">           0 :           keccak_st_d = StActive;</span></span>
-<span id="L240"><span class="lineNum">     240</span> <span class="tlaGNC tlaBgGNC">      229316 :         end else begin</span></span>
-<span id="L241"><span class="lineNum">     241</span> <span class="tlaGNC">      229316 :           keccak_st_d = StIdle;</span></span>
+<span id="L240"><span class="lineNum">     240</span> <span class="tlaGNC tlaBgGNC">      229428 :         end else begin</span></span>
+<span id="L241"><span class="lineNum">     241</span> <span class="tlaGNC">      229428 :           keccak_st_d = StIdle;</span></span>
 <span id="L242"><span class="lineNum">     242</span>              :         end</span>
 <span id="L243"><span class="lineNum">     243</span>              :       end</span>
 <span id="L244"><span class="lineNum">     244</span>              : </span>
@@ -484,12 +484,12 @@
 <span id="L380"><span class="lineNum">     380</span>              : </span>
 <span id="L381"><span class="lineNum">     381</span>              :   logic [Width-1:0] storage   [Share];</span>
 <span id="L382"><span class="lineNum">     382</span>              :   logic [Width-1:0] storage_d [Share];</span>
-<span id="L383"><span class="lineNum">     383</span> <span class="tlaGNC">      229316 :   always_ff @(posedge clk_i or negedge rst_n) begin</span></span>
+<span id="L383"><span class="lineNum">     383</span> <span class="tlaGNC">      229428 :   always_ff @(posedge clk_i or negedge rst_n) begin</span></span>
 <span id="L384"><span class="lineNum">     384</span> <span class="tlaGNC">           4 :     if (!rst_n) begin</span></span>
 <span id="L385"><span class="lineNum">     385</span> <span class="tlaGNC">           4 :       storage &lt;= '{default:'0};</span></span>
 <span id="L386"><span class="lineNum">     386</span> <span class="tlaUNC tlaBgUNC">           0 :     end else if (rst_storage) begin</span></span>
 <span id="L387"><span class="lineNum">     387</span> <span class="tlaUNC">           0 :       storage &lt;= '{default:'0};</span></span>
-<span id="L388"><span class="lineNum">     388</span> <span class="tlaGNC tlaBgGNC">      229312 :     end else if (update_storage) begin</span></span>
+<span id="L388"><span class="lineNum">     388</span> <span class="tlaGNC tlaBgGNC">      229424 :     end else if (update_storage) begin</span></span>
 <span id="L389"><span class="lineNum">     389</span> <span class="tlaUNC tlaBgUNC">           0 :       storage &lt;= storage_d;</span></span>
 <span id="L390"><span class="lineNum">     390</span>              :     end</span>
 <span id="L391"><span class="lineNum">     391</span>              :   end</span>
@@ -503,7 +503,7 @@
 <span id="L399"><span class="lineNum">     399</span>              : </span>
 <span id="L400"><span class="lineNum">     400</span> <span class="tlaGNC tlaBgGNC">           1 :   always_comb begin</span></span>
 <span id="L401"><span class="lineNum">     401</span> <span class="tlaGNC">           1 :     storage_d = keccak_out;</span></span>
-<span id="L402"><span class="lineNum">     402</span> <span class="tlaGNC">      229317 :     if (xor_message) begin</span></span>
+<span id="L402"><span class="lineNum">     402</span> <span class="tlaGNC">      229429 :     if (xor_message) begin</span></span>
 <span id="L403"><span class="lineNum">     403</span> <span class="tlaUNC tlaBgUNC">           0 :       for (int j = 0 ; j &lt; Share ; j++) begin</span></span>
 <span id="L404"><span class="lineNum">     404</span> <span class="tlaUNC">           0 :         for (int unsigned i = 0 ; i &lt; DInEntry ; i++) begin</span></span>
 <span id="L405"><span class="lineNum">     405</span>              :           // TODO: handle If Width is not integer divisable by DInWidth</span>
@@ -526,7 +526,7 @@
 <span id="L422"><span class="lineNum">     422</span> <span class="tlaGNC tlaBgGNC">           1 :   always_comb begin : chk_rst_storage</span></span>
 <span id="L423"><span class="lineNum">     423</span> <span class="tlaGNC">           1 :     rst_storage_error = 1'b 0;</span></span>
 <span id="L424"><span class="lineNum">     424</span>              : </span>
-<span id="L425"><span class="lineNum">     425</span> <span class="tlaGNC">      229317 :     if (rst_storage) begin</span></span>
+<span id="L425"><span class="lineNum">     425</span> <span class="tlaGNC">      229429 :     if (rst_storage) begin</span></span>
 <span id="L426"><span class="lineNum">     426</span>              :       // FSM should be in StIdle and clear_i should be high</span>
 <span id="L427"><span class="lineNum">     427</span> <span class="tlaUNC tlaBgUNC">           0 :       if ((keccak_st != StIdle) ||</span></span>
 <span id="L428"><span class="lineNum">     428</span> <span class="tlaUNC">           0 :         caliptra_prim_mubi_pkg::mubi4_test_false_loose(clear_i)) begin</span></span>
@@ -584,11 +584,11 @@
 <span id="L480"><span class="lineNum">     480</span>              :   );</span>
 <span id="L481"><span class="lineNum">     481</span>              : </span>
 <span id="L482"><span class="lineNum">     482</span>              :   // completion signal</span>
-<span id="L483"><span class="lineNum">     483</span> <span class="tlaGNC tlaBgGNC">      229316 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L483"><span class="lineNum">     483</span> <span class="tlaGNC tlaBgGNC">      229428 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L484"><span class="lineNum">     484</span> <span class="tlaGNC">           4 :     if (!rst_ni) begin</span></span>
 <span id="L485"><span class="lineNum">     485</span> <span class="tlaGNC">           4 :       complete_o &lt;= 1'b 0;</span></span>
-<span id="L486"><span class="lineNum">     486</span> <span class="tlaGNC">      229312 :     end else begin</span></span>
-<span id="L487"><span class="lineNum">     487</span> <span class="tlaGNC">      229312 :       complete_o &lt;= complete_d;</span></span>
+<span id="L486"><span class="lineNum">     486</span> <span class="tlaGNC">      229424 :     end else begin</span></span>
+<span id="L487"><span class="lineNum">     487</span> <span class="tlaGNC">      229424 :       complete_o &lt;= complete_d;</span></span>
 <span id="L488"><span class="lineNum">     488</span>              :     end</span>
 <span id="L489"><span class="lineNum">     489</span>              :   end</span>
 <span id="L490"><span class="lineNum">     490</span>              : </span>

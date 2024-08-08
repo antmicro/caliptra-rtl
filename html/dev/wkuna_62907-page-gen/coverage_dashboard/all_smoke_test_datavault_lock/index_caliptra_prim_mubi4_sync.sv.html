@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -136,7 +136,7 @@
 <span id="L32"><span class="lineNum">      32</span>              :   // Reset value for the sync flops</span>
 <span id="L33"><span class="lineNum">      33</span>              :   parameter mubi4_t ResetValue = MuBi4False</span>
 <span id="L34"><span class="lineNum">      34</span>              : ) (</span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">     2550888 :   input                          clk_i,</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC tlaBgGNC">     2867382 :   input                          clk_i,</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">           1 :   input                          rst_ni,</span></span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           1 :   input  mubi4_t                 mubi_i,</span></span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           1 :   output mubi4_t [NumCopies-1:0] mubi_o</span></span>
@@ -245,11 +245,11 @@
 <span id="L141"><span class="lineNum">     141</span>              :     // for modules where clock and reset are used for assertions only</span>
 <span id="L142"><span class="lineNum">     142</span>              :     // This logic will be removed for synthesis since it is unloaded.</span>
 <span id="L143"><span class="lineNum">     143</span>              :     mubi4_t unused_logic;</span>
-<span id="L144"><span class="lineNum">     144</span> <span class="tlaGNC">     1429872 :     always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L144"><span class="lineNum">     144</span> <span class="tlaGNC">     1433691 :     always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L145"><span class="lineNum">     145</span> <span class="tlaGNC">           4 :       if (!rst_ni) begin</span></span>
 <span id="L146"><span class="lineNum">     146</span> <span class="tlaGNC">           4 :          unused_logic &lt;= MuBi4False;</span></span>
-<span id="L147"><span class="lineNum">     147</span> <span class="tlaGNC">     1429868 :       end else begin</span></span>
-<span id="L148"><span class="lineNum">     148</span> <span class="tlaGNC">     1429868 :          unused_logic &lt;= mubi_i;</span></span>
+<span id="L147"><span class="lineNum">     147</span> <span class="tlaGNC">     1433687 :       end else begin</span></span>
+<span id="L148"><span class="lineNum">     148</span> <span class="tlaGNC">     1433687 :          unused_logic &lt;= mubi_i;</span></span>
 <span id="L149"><span class="lineNum">     149</span>              :       end</span>
 <span id="L150"><span class="lineNum">     150</span>              :     end</span>
 <span id="L151"><span class="lineNum">     151</span>              : </span>

@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -131,7 +131,7 @@
 <span id="L27"><span class="lineNum">      27</span>              :     )</span>
 <span id="L28"><span class="lineNum">      28</span>              :     (</span>
 <span id="L29"><span class="lineNum">      29</span>              :     // Clock and reset.</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     3259970 :     input wire           clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     3259966 :     input wire           clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           7 :     input wire           reset_n,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           4 :     input wire           zeroize,</span></span>
 <span id="L33"><span class="lineNum">      33</span>              : </span>
@@ -216,8 +216,8 @@
 <span id="L112"><span class="lineNum">     112</span>              :     //----------------------------------------------------------------</span>
 <span id="L113"><span class="lineNum">     113</span>              :     // Registers including update enables.</span>
 <span id="L114"><span class="lineNum">     114</span>              :     //----------------------------------------------------------------</span>
-<span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC tlaBgGNC">     1629888 :     always_ff @(posedge clk or negedge reset_n) </span></span>
-<span id="L116"><span class="lineNum">     116</span> <span class="tlaGNC">     1629888 :     begin</span></span>
+<span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC tlaBgGNC">     1630462 :     always_ff @(posedge clk or negedge reset_n) </span></span>
+<span id="L116"><span class="lineNum">     116</span> <span class="tlaGNC">     1630462 :     begin</span></span>
 <span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC">          16 :         if (!reset_n) begin</span></span>
 <span id="L118"><span class="lineNum">     118</span> <span class="tlaGNC">          16 :             mult_start &lt;= '0;</span></span>
 <span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC">          16 :             add_start &lt;= '0;</span></span>
@@ -228,14 +228,14 @@
 <span id="L124"><span class="lineNum">     124</span> <span class="tlaGNC">           2 :             add_start &lt;= '0;</span></span>
 <span id="L125"><span class="lineNum">     125</span> <span class="tlaGNC">           2 :             sub &lt;= '0;</span></span>
 <span id="L126"><span class="lineNum">     126</span>              :         end</span>
-<span id="L127"><span class="lineNum">     127</span> <span class="tlaGNC">     1629870 :         else begin</span></span>
-<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC">     1629870 :             mult_start &lt;= mult_en_i;</span></span>
-<span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC">     1629870 :             add_start &lt;= add_en_i;</span></span>
-<span id="L130"><span class="lineNum">     130</span> <span class="tlaGNC">     1629870 :             sub &lt;= sub_i;</span></span>
+<span id="L127"><span class="lineNum">     127</span> <span class="tlaGNC">     1630444 :         else begin</span></span>
+<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC">     1630444 :             mult_start &lt;= mult_en_i;</span></span>
+<span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC">     1630444 :             add_start &lt;= add_en_i;</span></span>
+<span id="L130"><span class="lineNum">     130</span> <span class="tlaGNC">     1630444 :             sub &lt;= sub_i;</span></span>
 <span id="L131"><span class="lineNum">     131</span>              :         end</span>
 <span id="L132"><span class="lineNum">     132</span>              :     end</span>
 <span id="L133"><span class="lineNum">     133</span>              : </span>
-<span id="L134"><span class="lineNum">     134</span> <span class="tlaGNC">     1629888 :     always_ff @(posedge clk or negedge reset_n) begin</span></span>
+<span id="L134"><span class="lineNum">     134</span> <span class="tlaGNC">     1630462 :     always_ff @(posedge clk or negedge reset_n) begin</span></span>
 <span id="L135"><span class="lineNum">     135</span> <span class="tlaGNC">          16 :         if (!reset_n) begin</span></span>
 <span id="L136"><span class="lineNum">     136</span> <span class="tlaGNC">          16 :             mult_start_dly &lt;= '0;</span></span>
 <span id="L137"><span class="lineNum">     137</span> <span class="tlaGNC">          16 :             add_start_dly  &lt;= '0;</span></span>
@@ -244,9 +244,9 @@
 <span id="L140"><span class="lineNum">     140</span> <span class="tlaGNC">           2 :             mult_start_dly &lt;= '0;</span></span>
 <span id="L141"><span class="lineNum">     141</span> <span class="tlaGNC">           2 :             add_start_dly  &lt;= '0;</span></span>
 <span id="L142"><span class="lineNum">     142</span>              :         end</span>
-<span id="L143"><span class="lineNum">     143</span> <span class="tlaGNC">     1629870 :         else begin</span></span>
-<span id="L144"><span class="lineNum">     144</span> <span class="tlaGNC">     1629870 :             mult_start_dly &lt;= mult_start;</span></span>
-<span id="L145"><span class="lineNum">     145</span> <span class="tlaGNC">     1629870 :             add_start_dly  &lt;= add_start;</span></span>
+<span id="L143"><span class="lineNum">     143</span> <span class="tlaGNC">     1630444 :         else begin</span></span>
+<span id="L144"><span class="lineNum">     144</span> <span class="tlaGNC">     1630444 :             mult_start_dly &lt;= mult_start;</span></span>
+<span id="L145"><span class="lineNum">     145</span> <span class="tlaGNC">     1630444 :             add_start_dly  &lt;= add_start;</span></span>
 <span id="L146"><span class="lineNum">     146</span>              :         end</span>
 <span id="L147"><span class="lineNum">     147</span>              :     end</span>
 <span id="L148"><span class="lineNum">     148</span>              :     </span>

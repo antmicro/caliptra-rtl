@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -119,7 +119,7 @@
 <span id="L15"><span class="lineNum">      15</span>              :   parameter AHBDataWidth = 64,</span>
 <span id="L16"><span class="lineNum">      16</span>              :   parameter AHBAddrWidth = 32</span>
 <span id="L17"><span class="lineNum">      17</span>              : ) (</span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC tlaBgGNC">     3259970 :   input              clk_i,</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC tlaBgGNC">     3259966 :   input              clk_i,</span></span>
 <span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           7 :   input              rst_ni,</span></span>
 <span id="L20"><span class="lineNum">      20</span>              : </span>
 <span id="L21"><span class="lineNum">      21</span>              :   // AMBA AHB Lite Interface</span>
@@ -128,7 +128,7 @@
 <span id="L24"><span class="lineNum">      24</span> <span class="tlaUNC tlaBgUNC">           0 :   input logic                     hsel_i,</span></span>
 <span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC tlaBgGNC">          81 :   input logic                     hwrite_i,</span></span>
 <span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           1 :   input logic                     hready_i,</span></span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">       20972 :   input logic [1:0]               htrans_i,</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">       20982 :   input logic [1:0]               htrans_i,</span></span>
 <span id="L28"><span class="lineNum">      28</span> <span class="tlaUNC tlaBgUNC">           0 :   input logic [2:0]               hsize_i,</span></span>
 <span id="L29"><span class="lineNum">      29</span>              : </span>
 <span id="L30"><span class="lineNum">      30</span> <span class="tlaUNC">           0 :   output logic                    hresp_o,</span></span>
@@ -235,13 +235,13 @@
 <span id="L131"><span class="lineNum">     131</span> <span class="tlaGNC tlaBgGNC">           8 :   logic command_busy;</span></span>
 <span id="L132"><span class="lineNum">     132</span> <span class="tlaUNC tlaBgUNC">           0 :   logic core_command_ready;</span></span>
 <span id="L133"><span class="lineNum">     133</span>              : </span>
-<span id="L134"><span class="lineNum">     134</span> <span class="tlaGNC tlaBgGNC">         334 :   command_t core_command, command;</span></span>
+<span id="L134"><span class="lineNum">     134</span> <span class="tlaGNC tlaBgGNC">         328 :   command_t core_command, command;</span></span>
 <span id="L135"><span class="lineNum">     135</span> <span class="tlaUNC tlaBgUNC">           0 :   logic error_csid_inval;</span></span>
 <span id="L136"><span class="lineNum">     136</span> <span class="tlaUNC">           0 :   logic error_cmd_inval;</span></span>
 <span id="L137"><span class="lineNum">     137</span> <span class="tlaUNC">           0 :   logic error_busy;</span></span>
 <span id="L138"><span class="lineNum">     138</span> <span class="tlaUNC">           0 :   logic test_csid_inval;</span></span>
-<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC tlaBgGNC">        1510 :   logic test_dir_inval;</span></span>
-<span id="L140"><span class="lineNum">     140</span> <span class="tlaGNC">        1150 :   logic test_speed_inval;</span></span>
+<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC tlaBgGNC">        1504 :   logic test_dir_inval;</span></span>
+<span id="L140"><span class="lineNum">     140</span> <span class="tlaGNC">        1144 :   logic test_speed_inval;</span></span>
 <span id="L141"><span class="lineNum">     141</span>              : </span>
 <span id="L142"><span class="lineNum">     142</span>              :   assign test_csid_inval  = (reg2hw.csid.q &gt;= NumCS);</span>
 <span id="L143"><span class="lineNum">     143</span>              : </span>
@@ -249,15 +249,15 @@
 <span id="L145"><span class="lineNum">     145</span> <span class="tlaGNC">           1 :     test_speed_inval           = 1'b1;</span></span>
 <span id="L146"><span class="lineNum">     146</span> <span class="tlaGNC">           1 :     test_dir_inval             = 1'b1;</span></span>
 <span id="L147"><span class="lineNum">     147</span> <span class="tlaGNC">           1 :     unique case (reg2hw.command.speed.q)</span></span>
-<span id="L148"><span class="lineNum">     148</span> <span class="tlaGNC">     1566669 :       Standard: begin</span></span>
-<span id="L149"><span class="lineNum">     149</span> <span class="tlaGNC">     1566669 :         test_dir_inval   = 1'b0;</span></span>
-<span id="L150"><span class="lineNum">     150</span> <span class="tlaGNC">     1566669 :         test_speed_inval = 1'b0;</span></span>
+<span id="L148"><span class="lineNum">     148</span> <span class="tlaGNC">     1567247 :       Standard: begin</span></span>
+<span id="L149"><span class="lineNum">     149</span> <span class="tlaGNC">     1567247 :         test_dir_inval   = 1'b0;</span></span>
+<span id="L150"><span class="lineNum">     150</span> <span class="tlaGNC">     1567247 :         test_speed_inval = 1'b0;</span></span>
 <span id="L151"><span class="lineNum">     151</span>              :       end</span>
 <span id="L152"><span class="lineNum">     152</span> <span class="tlaGNC">       42817 :       Dual, Quad: begin</span></span>
 <span id="L153"><span class="lineNum">     153</span> <span class="tlaGNC">       42817 :         test_dir_inval   = (reg2hw.command.direction.q == Bidir);</span></span>
 <span id="L154"><span class="lineNum">     154</span> <span class="tlaGNC">       42817 :         test_speed_inval = 1'b0;</span></span>
 <span id="L155"><span class="lineNum">     155</span>              :       end</span>
-<span id="L156"><span class="lineNum">     156</span> <span class="tlaGNC">       20476 :       default: begin</span></span>
+<span id="L156"><span class="lineNum">     156</span> <span class="tlaGNC">       20472 :       default: begin</span></span>
 <span id="L157"><span class="lineNum">     157</span>              :       end</span>
 <span id="L158"><span class="lineNum">     158</span>              :     endcase</span>
 <span id="L159"><span class="lineNum">     159</span>              :   end</span>
@@ -266,17 +266,17 @@
 <span id="L162"><span class="lineNum">     162</span> <span class="tlaGNC">           1 :     command.segment.cmd_rd_en = 1'b0;</span></span>
 <span id="L163"><span class="lineNum">     163</span> <span class="tlaGNC">           1 :     command.segment.cmd_wr_en = 1'b0;</span></span>
 <span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC">           1 :     unique case (reg2hw.command.direction.q)</span></span>
-<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">       12587 :       RdOnly: begin</span></span>
-<span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC">       12587 :         command.segment.cmd_rd_en = 1'b1;</span></span>
+<span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">       12579 :       RdOnly: begin</span></span>
+<span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC">       12579 :         command.segment.cmd_rd_en = 1'b1;</span></span>
 <span id="L167"><span class="lineNum">     167</span>              :       end</span>
-<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">       40630 :       WrOnly: begin</span></span>
-<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">       40630 :         command.segment.cmd_wr_en = 1'b1;</span></span>
+<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">       40626 :       WrOnly: begin</span></span>
+<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">       40626 :         command.segment.cmd_wr_en = 1'b1;</span></span>
 <span id="L170"><span class="lineNum">     170</span>              :       end</span>
-<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">       19952 :       Bidir: begin</span></span>
-<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">       19952 :         command.segment.cmd_rd_en = 1'b1;</span></span>
-<span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC">       19952 :         command.segment.cmd_wr_en = 1'b1;</span></span>
+<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">       19960 :       Bidir: begin</span></span>
+<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">       19960 :         command.segment.cmd_rd_en = 1'b1;</span></span>
+<span id="L173"><span class="lineNum">     173</span> <span class="tlaGNC">       19960 :         command.segment.cmd_wr_en = 1'b1;</span></span>
 <span id="L174"><span class="lineNum">     174</span>              :       end</span>
-<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">     1556793 :       default: begin</span></span>
+<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">     1557371 :       default: begin</span></span>
 <span id="L176"><span class="lineNum">     176</span>              :       end</span>
 <span id="L177"><span class="lineNum">     177</span>              :     endcase</span>
 <span id="L178"><span class="lineNum">     178</span>              :   end</span>
@@ -415,7 +415,7 @@
 <span id="L311"><span class="lineNum">     311</span>              :   assign hw2reg.status.txfull.de  = 1'b1;</span>
 <span id="L312"><span class="lineNum">     312</span>              : </span>
 <span id="L313"><span class="lineNum">     313</span> <span class="tlaUNC tlaBgUNC">           0 :   logic error_overflow, error_underflow;</span></span>
-<span id="L314"><span class="lineNum">     314</span> <span class="tlaGNC tlaBgGNC">        7686 :   logic error_access_inval;</span></span>
+<span id="L314"><span class="lineNum">     314</span> <span class="tlaGNC tlaBgGNC">        7706 :   logic error_access_inval;</span></span>
 <span id="L315"><span class="lineNum">     315</span>              : </span>
 <span id="L316"><span class="lineNum">     316</span>              :   // Since the DATA FIFOs are essentially directly connected to SW registers, it is an error if</span>
 <span id="L317"><span class="lineNum">     317</span>              :   // there is ever a need for flow control.</span>
@@ -634,7 +634,7 @@
 <span id="L530"><span class="lineNum">     530</span>              :   assign event_rx_full  = rx_full_d &amp; ~rx_full_q;</span>
 <span id="L531"><span class="lineNum">     531</span>              :   assign rx_full_d      = rx_full;</span>
 <span id="L532"><span class="lineNum">     532</span>              : </span>
-<span id="L533"><span class="lineNum">     533</span> <span class="tlaGNC tlaBgGNC">     1629888 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L533"><span class="lineNum">     533</span> <span class="tlaGNC tlaBgGNC">     1630462 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L534"><span class="lineNum">     534</span> <span class="tlaGNC">          16 :     if (!rst_ni) begin</span></span>
 <span id="L535"><span class="lineNum">     535</span> <span class="tlaGNC">          16 :       idle_q     &lt;= 1'b0;</span></span>
 <span id="L536"><span class="lineNum">     536</span> <span class="tlaGNC">          16 :       ready_q    &lt;= 1'b0;</span></span>
@@ -642,13 +642,13 @@
 <span id="L538"><span class="lineNum">     538</span> <span class="tlaGNC">          16 :       rx_wm_q    &lt;= 1'b0;</span></span>
 <span id="L539"><span class="lineNum">     539</span> <span class="tlaGNC">          16 :       tx_empty_q &lt;= 1'b0;</span></span>
 <span id="L540"><span class="lineNum">     540</span> <span class="tlaGNC">          16 :       rx_full_q  &lt;= 1'b0;</span></span>
-<span id="L541"><span class="lineNum">     541</span> <span class="tlaGNC">     1629872 :     end else begin</span></span>
-<span id="L542"><span class="lineNum">     542</span> <span class="tlaGNC">     1629872 :       idle_q     &lt;= idle_d;</span></span>
-<span id="L543"><span class="lineNum">     543</span> <span class="tlaGNC">     1629872 :       ready_q    &lt;= ready_d;</span></span>
-<span id="L544"><span class="lineNum">     544</span> <span class="tlaGNC">     1629872 :       tx_wm_q    &lt;= tx_wm_d;</span></span>
-<span id="L545"><span class="lineNum">     545</span> <span class="tlaGNC">     1629872 :       rx_wm_q    &lt;= rx_wm_d;</span></span>
-<span id="L546"><span class="lineNum">     546</span> <span class="tlaGNC">     1629872 :       tx_empty_q &lt;= tx_empty_d;</span></span>
-<span id="L547"><span class="lineNum">     547</span> <span class="tlaGNC">     1629872 :       rx_full_q  &lt;= rx_full_d;</span></span>
+<span id="L541"><span class="lineNum">     541</span> <span class="tlaGNC">     1630446 :     end else begin</span></span>
+<span id="L542"><span class="lineNum">     542</span> <span class="tlaGNC">     1630446 :       idle_q     &lt;= idle_d;</span></span>
+<span id="L543"><span class="lineNum">     543</span> <span class="tlaGNC">     1630446 :       ready_q    &lt;= ready_d;</span></span>
+<span id="L544"><span class="lineNum">     544</span> <span class="tlaGNC">     1630446 :       tx_wm_q    &lt;= tx_wm_d;</span></span>
+<span id="L545"><span class="lineNum">     545</span> <span class="tlaGNC">     1630446 :       rx_wm_q    &lt;= rx_wm_d;</span></span>
+<span id="L546"><span class="lineNum">     546</span> <span class="tlaGNC">     1630446 :       tx_empty_q &lt;= tx_empty_d;</span></span>
+<span id="L547"><span class="lineNum">     547</span> <span class="tlaGNC">     1630446 :       rx_full_q  &lt;= rx_full_d;</span></span>
 <span id="L548"><span class="lineNum">     548</span>              :     end</span>
 <span id="L549"><span class="lineNum">     549</span>              :   end</span>
 <span id="L550"><span class="lineNum">     550</span>              : </span>

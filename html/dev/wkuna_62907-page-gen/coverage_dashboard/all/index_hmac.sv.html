@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ffb100;">
-        34.9%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff6a00;">
+        20.9%
     </td>
     <td class="headerCovSummaryEntry">
-        15
+        8
     </td>
     <td class="headerCovSummaryEntry">
         43
@@ -134,17 +134,17 @@
 <span id="L30"><span class="lineNum">      30</span>              :         DATA_WIDTH = 32</span>
 <span id="L31"><span class="lineNum">      31</span>              :       )(</span>
 <span id="L32"><span class="lineNum">      32</span>              :         // Clock and reset.</span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">      864324 :         input wire           clk,</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">          21 :         input wire           reset_n,</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">      458284 :         input wire           clk,</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">           1 :         input wire           reset_n,</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           1 :         input wire           cptra_pwrgood,</span></span>
 <span id="L36"><span class="lineNum">      36</span>              : </span>
 <span id="L37"><span class="lineNum">      37</span>              :         // Control.</span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">          52 :         input wire           cs,</span></span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">          52 :         input wire           we,</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC tlaBgUNC">           0 :         input wire           cs,</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaUNC">           0 :         input wire           we,</span></span>
 <span id="L40"><span class="lineNum">      40</span>              : </span>
 <span id="L41"><span class="lineNum">      41</span>              :         // Data ports.</span>
-<span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC tlaBgUNC">           0 :         input wire  [ADDR_WIDTH - 1 : 0] address,</span></span>
-<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC tlaBgGNC">          92 :         input wire  [DATA_WIDTH - 1 : 0] write_data,</span></span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaUNC">           0 :         input wire  [ADDR_WIDTH - 1 : 0] address,</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC tlaBgGNC">          26 :         input wire  [DATA_WIDTH - 1 : 0] write_data,</span></span>
 <span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC tlaBgUNC">           0 :         output wire [DATA_WIDTH - 1 : 0] read_data,</span></span>
 <span id="L45"><span class="lineNum">      45</span>              : </span>
 <span id="L46"><span class="lineNum">      46</span>              :         // KV interface</span>
@@ -153,23 +153,23 @@
 <span id="L49"><span class="lineNum">      49</span> <span class="tlaUNC">           0 :         input kv_rd_resp_t [1:0] kv_rd_resp,</span></span>
 <span id="L50"><span class="lineNum">      50</span> <span class="tlaUNC">           0 :         input kv_wr_resp_t kv_wr_resp,</span></span>
 <span id="L51"><span class="lineNum">      51</span>              : </span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC tlaBgGNC">           4 :         output logic busy_o,</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC">           0 :         output logic busy_o,</span></span>
 <span id="L53"><span class="lineNum">      53</span>              : </span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaUNC tlaBgUNC">           0 :         output wire error_intr,</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaUNC">           0 :         output wire error_intr,</span></span>
 <span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC">           0 :         output wire notif_intr,</span></span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC tlaBgGNC">          14 :         input logic debugUnlock_or_scan_mode_switch</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC">           0 :         input logic debugUnlock_or_scan_mode_switch</span></span>
 <span id="L57"><span class="lineNum">      57</span>              :       );</span>
 <span id="L58"><span class="lineNum">      58</span>              : </span>
 <span id="L59"><span class="lineNum">      59</span>              :   //----------------------------------------------------------------</span>
 <span id="L60"><span class="lineNum">      60</span>              :   // Registers including update variables and write enable.</span>
 <span id="L61"><span class="lineNum">      61</span>              :   //----------------------------------------------------------------</span>
-<span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC">           4 :   reg init_reg;</span></span>
-<span id="L63"><span class="lineNum">      63</span> <span class="tlaUNC tlaBgUNC">           0 :   reg init_new;</span></span>
+<span id="L62"><span class="lineNum">      62</span> <span class="tlaUNC">           0 :   reg init_reg;</span></span>
+<span id="L63"><span class="lineNum">      63</span> <span class="tlaUNC">           0 :   reg init_new;</span></span>
 <span id="L64"><span class="lineNum">      64</span>              : </span>
 <span id="L65"><span class="lineNum">      65</span> <span class="tlaUNC">           0 :   reg next_reg;</span></span>
 <span id="L66"><span class="lineNum">      66</span> <span class="tlaUNC">           0 :   reg next_new;</span></span>
 <span id="L67"><span class="lineNum">      67</span>              :   </span>
-<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC tlaBgGNC">          21 :   reg ready_reg;</span></span>
+<span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC tlaBgGNC">           1 :   reg ready_reg;</span></span>
 <span id="L69"><span class="lineNum">      69</span> <span class="tlaUNC tlaBgUNC">           0 :   reg tag_valid_reg;</span></span>
 <span id="L70"><span class="lineNum">      70</span>              : </span>
 <span id="L71"><span class="lineNum">      71</span>              :   localparam BLOCK_SIZE       = 1024;</span>
@@ -185,14 +185,14 @@
 <span id="L81"><span class="lineNum">      81</span>              :   reg [BLOCK_NUM_DWORDS - 1 : 0][DATA_WIDTH - 1 : 0]    block_reg;</span>
 <span id="L82"><span class="lineNum">      82</span>              :   reg [SEED_NUM_DWORDS- 1   : 0][DATA_WIDTH - 1 : 0]    lfsr_seed_reg;</span>
 <span id="L83"><span class="lineNum">      83</span>              : </span>
-<span id="L84"><span class="lineNum">      84</span> <span class="tlaGNC tlaBgGNC">          14 :   logic zeroize_reg;</span></span>
+<span id="L84"><span class="lineNum">      84</span> <span class="tlaUNC">           0 :   logic zeroize_reg;</span></span>
 <span id="L85"><span class="lineNum">      85</span>              : </span>
 <span id="L86"><span class="lineNum">      86</span>              :   //----------------------------------------------------------------</span>
 <span id="L87"><span class="lineNum">      87</span>              :   // Wires.</span>
 <span id="L88"><span class="lineNum">      88</span>              :   //----------------------------------------------------------------</span>
 <span id="L89"><span class="lineNum">      89</span>              :   wire [KEY_SIZE-1 : 0]         core_key;</span>
 <span id="L90"><span class="lineNum">      90</span>              :   wire [BLOCK_SIZE-1 : 0]       core_block;</span>
-<span id="L91"><span class="lineNum">      91</span> <span class="tlaGNC">           5 :   wire                          core_ready;</span></span>
+<span id="L91"><span class="lineNum">      91</span> <span class="tlaGNC tlaBgGNC">           1 :   wire                          core_ready;</span></span>
 <span id="L92"><span class="lineNum">      92</span>              :   wire [TAG_SIZE-1 : 0]         core_tag;</span>
 <span id="L93"><span class="lineNum">      93</span> <span class="tlaUNC tlaBgUNC">           0 :   wire                          core_tag_valid;</span></span>
 <span id="L94"><span class="lineNum">      94</span>              :   wire [LFSR_SEED_SIZE-1 : 0]   core_lfsr_seed;</span>
@@ -275,8 +275,8 @@
 <span id="L171"><span class="lineNum">     171</span>              :   // All registers are positive edge triggered with asynchronous</span>
 <span id="L172"><span class="lineNum">     172</span>              :   // active low reset. All registers have write enable.</span>
 <span id="L173"><span class="lineNum">     173</span>              :   //----------------------------------------------------------------</span>
-<span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC tlaBgGNC">        4617 :   always @ (posedge clk or negedge reset_n)</span></span>
-<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">        4617 :     begin : reg_update</span></span>
+<span id="L174"><span class="lineNum">     174</span> <span class="tlaGNC tlaBgGNC">       94050 :   always @ (posedge clk or negedge reset_n)</span></span>
+<span id="L175"><span class="lineNum">     175</span> <span class="tlaGNC">       94050 :     begin : reg_update</span></span>
 <span id="L176"><span class="lineNum">     176</span>              :       integer ii;</span>
 <span id="L177"><span class="lineNum">     177</span>              : </span>
 <span id="L178"><span class="lineNum">     178</span> <span class="tlaGNC">           4 :       if (!reset_n)</span></span>
@@ -289,7 +289,7 @@
 <span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC">           4 :           kv_key_data_present &lt;= '0;</span></span>
 <span id="L186"><span class="lineNum">     186</span> <span class="tlaGNC">           4 :           kv_data_present &lt;= '0;</span></span>
 <span id="L187"><span class="lineNum">     187</span>              :         end</span>
-<span id="L188"><span class="lineNum">     188</span> <span class="tlaGNC">        4613 :       else if (zeroize_reg)</span></span>
+<span id="L188"><span class="lineNum">     188</span> <span class="tlaGNC">       94046 :       else if (zeroize_reg)</span></span>
 <span id="L189"><span class="lineNum">     189</span> <span class="tlaUNC tlaBgUNC">           0 :         begin</span></span>
 <span id="L190"><span class="lineNum">     190</span> <span class="tlaUNC">           0 :           kv_reg          &lt;= '0;</span></span>
 <span id="L191"><span class="lineNum">     191</span> <span class="tlaUNC">           0 :           tag_reg         &lt;= '0;</span></span>
@@ -300,21 +300,21 @@
 <span id="L196"><span class="lineNum">     196</span> <span class="tlaUNC">           0 :           kv_data_present &lt;= '0;</span></span>
 <span id="L197"><span class="lineNum">     197</span>              :         end</span>
 <span id="L198"><span class="lineNum">     198</span>              :       else</span>
-<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC tlaBgGNC">        4613 :         begin</span></span>
-<span id="L200"><span class="lineNum">     200</span> <span class="tlaGNC">        4613 :           tag_valid_reg &lt;= core_tag_valid;</span></span>
-<span id="L201"><span class="lineNum">     201</span> <span class="tlaGNC">        4613 :           ready_reg     &lt;= core_ready; </span></span>
+<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC tlaBgGNC">       94046 :         begin</span></span>
+<span id="L200"><span class="lineNum">     200</span> <span class="tlaGNC">       94046 :           tag_valid_reg &lt;= core_tag_valid;</span></span>
+<span id="L201"><span class="lineNum">     201</span> <span class="tlaGNC">       94046 :           ready_reg     &lt;= core_ready; </span></span>
 <span id="L202"><span class="lineNum">     202</span>              : </span>
 <span id="L203"><span class="lineNum">     203</span>              :           //write to sw register</span>
-<span id="L204"><span class="lineNum">     204</span> <span class="tlaGNC">        4613 :           if (core_tag_we &amp; ~(dest_keyvault | kv_data_present))</span></span>
+<span id="L204"><span class="lineNum">     204</span> <span class="tlaGNC">       94046 :           if (core_tag_we &amp; ~(dest_keyvault | kv_data_present))</span></span>
 <span id="L205"><span class="lineNum">     205</span> <span class="tlaUNC tlaBgUNC">           0 :             tag_reg &lt;= core_tag;</span></span>
-<span id="L206"><span class="lineNum">     206</span> <span class="tlaGNC tlaBgGNC">        4613 :           if (core_tag_we &amp; (dest_keyvault | kv_data_present))</span></span>
+<span id="L206"><span class="lineNum">     206</span> <span class="tlaGNC tlaBgGNC">       94046 :           if (core_tag_we &amp; (dest_keyvault | kv_data_present))</span></span>
 <span id="L207"><span class="lineNum">     207</span> <span class="tlaUNC tlaBgUNC">           0 :             kv_reg &lt;= core_tag;</span></span>
 <span id="L208"><span class="lineNum">     208</span>              : </span>
-<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC tlaBgGNC">        4613 :           block_reg_lock &lt;= block_reg_lock_nxt;</span></span>
-<span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">        4613 :           kv_key_data_present &lt;= kv_key_data_present_set ? '1 :</span></span>
-<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">        4613 :                                  kv_data_present_reset ? '0 : kv_key_data_present;</span></span>
-<span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC">        4613 :           kv_data_present &lt;= kv_data_present_set ? '1 :</span></span>
-<span id="L213"><span class="lineNum">     213</span> <span class="tlaGNC">        4613 :                              kv_data_present_reset ? '0 : kv_data_present;</span></span>
+<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC tlaBgGNC">       94046 :           block_reg_lock &lt;= block_reg_lock_nxt;</span></span>
+<span id="L210"><span class="lineNum">     210</span> <span class="tlaGNC">       94046 :           kv_key_data_present &lt;= kv_key_data_present_set ? '1 :</span></span>
+<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC">       94046 :                                  kv_data_present_reset ? '0 : kv_key_data_present;</span></span>
+<span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC">       94046 :           kv_data_present &lt;= kv_data_present_set ? '1 :</span></span>
+<span id="L213"><span class="lineNum">     213</span> <span class="tlaGNC">       94046 :                              kv_data_present_reset ? '0 : kv_data_present;</span></span>
 <span id="L214"><span class="lineNum">     214</span>              :         end</span>
 <span id="L215"><span class="lineNum">     215</span>              :     end // reg_update</span>
 <span id="L216"><span class="lineNum">     216</span>              : </span>
@@ -392,11 +392,11 @@
 <span id="L288"><span class="lineNum">     288</span>              : //release the lock once init has been seen</span>
 <span id="L289"><span class="lineNum">     289</span> <span class="tlaGNC">           1 : always_comb begin</span></span>
 <span id="L290"><span class="lineNum">     290</span> <span class="tlaGNC">           1 :   for (int dword=0; dword&lt; BLOCK_NUM_DWORDS; dword++) begin</span></span>
-<span id="L291"><span class="lineNum">     291</span> <span class="tlaGNC">      296320 :     if (init_reg | next_reg) begin</span></span>
+<span id="L291"><span class="lineNum">     291</span> <span class="tlaGNC">     6020032 :     if (init_reg | next_reg) begin</span></span>
 <span id="L292"><span class="lineNum">     292</span> <span class="tlaUNC tlaBgUNC">           0 :       block_reg_lock_nxt[dword] = '0;</span></span>
 <span id="L293"><span class="lineNum">     293</span>              :     end</span>
-<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC tlaBgGNC">      296320 :     else begin</span></span>
-<span id="L295"><span class="lineNum">     295</span> <span class="tlaGNC">      296320 :       block_reg_lock_nxt[dword] = (kv_block_write_en &amp; (kv_block_write_offset == dword)) ? '1 : block_reg_lock[dword];</span></span>
+<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC tlaBgGNC">     6020032 :     else begin</span></span>
+<span id="L295"><span class="lineNum">     295</span> <span class="tlaGNC">     6020032 :       block_reg_lock_nxt[dword] = (kv_block_write_en &amp; (kv_block_write_offset == dword)) ? '1 : block_reg_lock[dword];</span></span>
 <span id="L296"><span class="lineNum">     296</span>              :     end</span>
 <span id="L297"><span class="lineNum">     297</span>              :   end</span>
 <span id="L298"><span class="lineNum">     298</span>              : end</span>

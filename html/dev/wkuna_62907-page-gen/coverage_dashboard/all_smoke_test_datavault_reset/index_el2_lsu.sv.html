@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -156,7 +156,7 @@
 <span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC tlaBgUNC">           0 :    input logic [31:0]                      dec_tlu_mrac_ff,       // CSR for memory region control</span></span>
 <span id="L53"><span class="lineNum">      53</span>              : </span>
 <span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC tlaBgGNC">         476 :    output logic [31:0]                     lsu_result_m,          // lsu load data</span></span>
-<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">         134 :    output logic [31:0]                     lsu_result_corr_r,     // This is the ECC corrected data going to RF</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">         132 :    output logic [31:0]                     lsu_result_corr_r,     // This is the ECC corrected data going to RF</span></span>
 <span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic                            lsu_load_stall_any,    // This is for blocking loads in the decode</span></span>
 <span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC tlaBgGNC">         472 :    output logic                            lsu_store_stall_any,   // This is for blocking stores in the decode</span></span>
 <span id="L58"><span class="lineNum">      58</span> <span class="tlaUNC tlaBgUNC">           0 :    output logic                            lsu_fastint_stall_any, // Stall the fastint in decode-1 stage</span></span>
@@ -300,7 +300,7 @@
 <span id="L196"><span class="lineNum">     196</span>              : </span>
 <span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC tlaBgGNC">        3050 :    logic [31:0] lsu_ld_data_m;</span></span>
 <span id="L198"><span class="lineNum">     198</span> <span class="tlaGNC">         348 :    logic [31:0] dccm_rdata_hi_m, dccm_rdata_lo_m;</span></span>
-<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC">       16288 :    logic [6:0]  dccm_data_ecc_hi_m, dccm_data_ecc_lo_m;</span></span>
+<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC">       16268 :    logic [6:0]  dccm_data_ecc_hi_m, dccm_data_ecc_lo_m;</span></span>
 <span id="L200"><span class="lineNum">     200</span> <span class="tlaUNC tlaBgUNC">           0 :    logic        lsu_single_ecc_error_m;</span></span>
 <span id="L201"><span class="lineNum">     201</span> <span class="tlaUNC">           0 :    logic        lsu_double_ecc_error_m;</span></span>
 <span id="L202"><span class="lineNum">     202</span>              : </span>
@@ -337,9 +337,9 @@
 <span id="L233"><span class="lineNum">     233</span> <span class="tlaUNC tlaBgUNC">           0 :    logic                          stbuf_reqvld_flushed_any;</span></span>
 <span id="L234"><span class="lineNum">     234</span> <span class="tlaGNC tlaBgGNC">          10 :    logic [pt.LSU_SB_BITS-1:0]     stbuf_addr_any;</span></span>
 <span id="L235"><span class="lineNum">     235</span> <span class="tlaGNC">         312 :    logic [pt.DCCM_DATA_WIDTH-1:0] stbuf_data_any;</span></span>
-<span id="L236"><span class="lineNum">     236</span> <span class="tlaGNC">        5662 :    logic [pt.DCCM_ECC_WIDTH-1:0]  stbuf_ecc_any;</span></span>
+<span id="L236"><span class="lineNum">     236</span> <span class="tlaGNC">        5658 :    logic [pt.DCCM_ECC_WIDTH-1:0]  stbuf_ecc_any;</span></span>
 <span id="L237"><span class="lineNum">     237</span> <span class="tlaGNC">         156 :    logic [pt.DCCM_DATA_WIDTH-1:0] sec_data_lo_r_ff, sec_data_hi_r_ff;</span></span>
-<span id="L238"><span class="lineNum">     238</span> <span class="tlaGNC">        5662 :    logic [pt.DCCM_ECC_WIDTH-1:0]  sec_data_ecc_hi_r_ff, sec_data_ecc_lo_r_ff;</span></span>
+<span id="L238"><span class="lineNum">     238</span> <span class="tlaGNC">        5658 :    logic [pt.DCCM_ECC_WIDTH-1:0]  sec_data_ecc_hi_r_ff, sec_data_ecc_lo_r_ff;</span></span>
 <span id="L239"><span class="lineNum">     239</span>              : </span>
 <span id="L240"><span class="lineNum">     240</span> <span class="tlaGNC">       65178 :    logic                          lsu_cmpen_m;</span></span>
 <span id="L241"><span class="lineNum">     241</span> <span class="tlaGNC">         156 :    logic [pt.DCCM_DATA_WIDTH-1:0] stbuf_fwddata_hi_m;</span></span>

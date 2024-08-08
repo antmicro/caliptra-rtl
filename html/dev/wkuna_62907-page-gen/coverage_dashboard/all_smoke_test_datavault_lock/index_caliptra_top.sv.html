@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -133,7 +133,7 @@
 <span id="L29"><span class="lineNum">      29</span>              :     import csrng_pkg::*;</span>
 <span id="L30"><span class="lineNum">      30</span>              : `endif</span>
 <span id="L31"><span class="lineNum">      31</span>              :     (</span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">    10735294 :     input logic                        clk,</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">    11751786 :     input logic                        clk,</span></span>
 <span id="L33"><span class="lineNum">      33</span>              : </span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">           1 :     input logic                        cptra_pwrgood,</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           1 :     input logic                        cptra_rst_b,</span></span>
@@ -185,9 +185,9 @@
 <span id="L81"><span class="lineNum">      81</span> <span class="tlaUNC">           0 :     input  logic [MBOX_DATA_AND_ECC_W-1:0] mbox_sram_rdata,</span></span>
 <span id="L82"><span class="lineNum">      82</span>              : </span>
 <span id="L83"><span class="lineNum">      83</span>              :     //SRAM interface for imem</span>
-<span id="L84"><span class="lineNum">      84</span> <span class="tlaGNC tlaBgGNC">      199335 :     output logic imem_cs,</span></span>
-<span id="L85"><span class="lineNum">      85</span> <span class="tlaGNC">        6184 :     output logic [`CALIPTRA_IMEM_ADDR_WIDTH-1:0] imem_addr,</span></span>
-<span id="L86"><span class="lineNum">      86</span> <span class="tlaGNC">      155804 :     input  logic [`CALIPTRA_IMEM_DATA_WIDTH-1:0] imem_rdata,</span></span>
+<span id="L84"><span class="lineNum">      84</span> <span class="tlaGNC tlaBgGNC">      225163 :     output logic imem_cs,</span></span>
+<span id="L85"><span class="lineNum">      85</span> <span class="tlaGNC">        4286 :     output logic [`CALIPTRA_IMEM_ADDR_WIDTH-1:0] imem_addr,</span></span>
+<span id="L86"><span class="lineNum">      86</span> <span class="tlaGNC">      169968 :     input  logic [`CALIPTRA_IMEM_DATA_WIDTH-1:0] imem_rdata,</span></span>
 <span id="L87"><span class="lineNum">      87</span>              : </span>
 <span id="L88"><span class="lineNum">      88</span> <span class="tlaGNC">           2 :     output logic                       ready_for_fuses,</span></span>
 <span id="L89"><span class="lineNum">      89</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic                       ready_for_fw_push,</span></span>
@@ -228,25 +228,25 @@
 <span id="L124"><span class="lineNum">     124</span>              :     //clock gating signals</span>
 <span id="L125"><span class="lineNum">     125</span> <span class="tlaUNC tlaBgUNC">           0 :     logic                       clk_gating_en   ;</span></span>
 <span id="L126"><span class="lineNum">     126</span> <span class="tlaGNC tlaBgGNC">           2 :     logic                       rdc_clk_dis     ;</span></span>
-<span id="L127"><span class="lineNum">     127</span> <span class="tlaGNC">     2550888 :     logic                       clk_cg          ;</span></span>
-<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC">     2550888 :     logic                       soc_ifc_clk_cg  ;</span></span>
-<span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC">     2550888 :     logic                       rdc_clk_cg      ;</span></span>
-<span id="L130"><span class="lineNum">     130</span> <span class="tlaGNC">     2550888 :     logic                       uc_clk_cg       ;</span></span>
+<span id="L127"><span class="lineNum">     127</span> <span class="tlaGNC">     2867382 :     logic                       clk_cg          ;</span></span>
+<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC">     2867382 :     logic                       soc_ifc_clk_cg  ;</span></span>
+<span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC">     2867382 :     logic                       rdc_clk_cg      ;</span></span>
+<span id="L130"><span class="lineNum">     130</span> <span class="tlaGNC">     2867382 :     logic                       uc_clk_cg       ;</span></span>
 <span id="L131"><span class="lineNum">     131</span>              : </span>
-<span id="L132"><span class="lineNum">     132</span> <span class="tlaGNC">       11891 :     logic        [31:0]         ic_haddr        ;</span></span>
-<span id="L133"><span class="lineNum">     133</span> <span class="tlaGNC">      148262 :     logic        [2:0]          ic_hburst       ;</span></span>
-<span id="L134"><span class="lineNum">     134</span> <span class="tlaGNC">      148262 :     logic                       ic_hmastlock    ;</span></span>
+<span id="L132"><span class="lineNum">     132</span> <span class="tlaGNC">       12927 :     logic        [31:0]         ic_haddr        ;</span></span>
+<span id="L133"><span class="lineNum">     133</span> <span class="tlaGNC">      173318 :     logic        [2:0]          ic_hburst       ;</span></span>
+<span id="L134"><span class="lineNum">     134</span> <span class="tlaGNC">      173318 :     logic                       ic_hmastlock    ;</span></span>
 <span id="L135"><span class="lineNum">     135</span> <span class="tlaGNC">           3 :     logic        [3:0]          ic_hprot        ;</span></span>
 <span id="L136"><span class="lineNum">     136</span> <span class="tlaUNC tlaBgUNC">           0 :     logic        [2:0]          ic_hsize        ;</span></span>
-<span id="L137"><span class="lineNum">     137</span> <span class="tlaGNC tlaBgGNC">      199333 :     logic        [1:0]          ic_htrans       ;</span></span>
+<span id="L137"><span class="lineNum">     137</span> <span class="tlaGNC tlaBgGNC">      225161 :     logic        [1:0]          ic_htrans       ;</span></span>
 <span id="L138"><span class="lineNum">     138</span> <span class="tlaUNC tlaBgUNC">           0 :     logic                       ic_hwrite       ;</span></span>
-<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC tlaBgGNC">      157680 :     logic        [63:0]         ic_hrdata       ;</span></span>
+<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC tlaBgGNC">      172324 :     logic        [63:0]         ic_hrdata       ;</span></span>
 <span id="L140"><span class="lineNum">     140</span> <span class="tlaGNC">           3 :     logic                       ic_hready       ;</span></span>
 <span id="L141"><span class="lineNum">     141</span> <span class="tlaUNC tlaBgUNC">           0 :     logic                       ic_hresp        ;</span></span>
 <span id="L142"><span class="lineNum">     142</span>              : </span>
-<span id="L143"><span class="lineNum">     143</span> <span class="tlaGNC tlaBgGNC">       32718 :     logic        [31:0]         trace_rv_i_insn_ip;</span></span>
-<span id="L144"><span class="lineNum">     144</span> <span class="tlaGNC">       11891 :     logic        [31:0]         trace_rv_i_address_ip;</span></span>
-<span id="L145"><span class="lineNum">     145</span> <span class="tlaGNC">      208158 :     logic                       trace_rv_i_valid_ip;</span></span>
+<span id="L143"><span class="lineNum">     143</span> <span class="tlaGNC tlaBgGNC">       35838 :     logic        [31:0]         trace_rv_i_insn_ip;</span></span>
+<span id="L144"><span class="lineNum">     144</span> <span class="tlaGNC">       12919 :     logic        [31:0]         trace_rv_i_address_ip;</span></span>
+<span id="L145"><span class="lineNum">     145</span> <span class="tlaGNC">      234414 :     logic                       trace_rv_i_valid_ip;</span></span>
 <span id="L146"><span class="lineNum">     146</span> <span class="tlaUNC tlaBgUNC">           0 :     logic                       trace_rv_i_exception_ip;</span></span>
 <span id="L147"><span class="lineNum">     147</span> <span class="tlaUNC">           0 :     logic        [4:0]          trace_rv_i_ecause_ip;</span></span>
 <span id="L148"><span class="lineNum">     148</span> <span class="tlaUNC">           0 :     logic                       trace_rv_i_interrupt_ip;</span></span>
@@ -312,18 +312,18 @@
 <span id="L208"><span class="lineNum">     208</span> <span class="tlaUNC">           0 :     wire ecc_notif_intr;</span></span>
 <span id="L209"><span class="lineNum">     209</span> <span class="tlaUNC">           0 :     wire hmac_error_intr;</span></span>
 <span id="L210"><span class="lineNum">     210</span> <span class="tlaUNC">           0 :     wire hmac_notif_intr;</span></span>
-<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC tlaBgGNC">      148262 :     wire kv_error_intr;</span></span>
-<span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC">      148262 :     wire kv_notif_intr;</span></span>
+<span id="L211"><span class="lineNum">     211</span> <span class="tlaGNC tlaBgGNC">      173318 :     wire kv_error_intr;</span></span>
+<span id="L212"><span class="lineNum">     212</span> <span class="tlaGNC">      173318 :     wire kv_notif_intr;</span></span>
 <span id="L213"><span class="lineNum">     213</span> <span class="tlaUNC tlaBgUNC">           0 :     wire sha512_error_intr;</span></span>
 <span id="L214"><span class="lineNum">     214</span> <span class="tlaUNC">           0 :     wire sha512_notif_intr;</span></span>
 <span id="L215"><span class="lineNum">     215</span> <span class="tlaUNC">           0 :     wire sha256_error_intr;</span></span>
 <span id="L216"><span class="lineNum">     216</span> <span class="tlaUNC">           0 :     wire sha256_notif_intr;</span></span>
-<span id="L217"><span class="lineNum">     217</span> <span class="tlaGNC tlaBgGNC">      148262 :     wire qspi_error_intr;</span></span>
-<span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC">      148262 :     wire qspi_notif_intr;</span></span>
-<span id="L219"><span class="lineNum">     219</span> <span class="tlaGNC">      148262 :     wire uart_error_intr;</span></span>
-<span id="L220"><span class="lineNum">     220</span> <span class="tlaGNC">      148262 :     wire uart_notif_intr;</span></span>
-<span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC">      148262 :     wire i3c_error_intr;</span></span>
-<span id="L222"><span class="lineNum">     222</span> <span class="tlaGNC">      148262 :     wire i3c_notif_intr;</span></span>
+<span id="L217"><span class="lineNum">     217</span> <span class="tlaGNC tlaBgGNC">      173318 :     wire qspi_error_intr;</span></span>
+<span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC">      173318 :     wire qspi_notif_intr;</span></span>
+<span id="L219"><span class="lineNum">     219</span> <span class="tlaGNC">      173318 :     wire uart_error_intr;</span></span>
+<span id="L220"><span class="lineNum">     220</span> <span class="tlaGNC">      173318 :     wire uart_notif_intr;</span></span>
+<span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC">      173318 :     wire i3c_error_intr;</span></span>
+<span id="L222"><span class="lineNum">     222</span> <span class="tlaGNC">      173318 :     wire i3c_notif_intr;</span></span>
 <span id="L223"><span class="lineNum">     223</span> <span class="tlaUNC tlaBgUNC">           0 :     wire soc_ifc_error_intr;</span></span>
 <span id="L224"><span class="lineNum">     224</span> <span class="tlaUNC">           0 :     wire soc_ifc_notif_intr;</span></span>
 <span id="L225"><span class="lineNum">     225</span> <span class="tlaUNC">           0 :     wire sha_error_intr;</span></span>
@@ -339,7 +339,7 @@
 <span id="L235"><span class="lineNum">     235</span> <span class="tlaUNC">           0 :     pv_read_t [PV_NUM_READ-1:0]  pv_read;</span></span>
 <span id="L236"><span class="lineNum">     236</span> <span class="tlaUNC">           0 :     pv_write_t [PV_NUM_WRITE-1:0]  pv_write;</span></span>
 <span id="L237"><span class="lineNum">     237</span> <span class="tlaUNC">           0 :     pv_rd_resp_t [PV_NUM_READ-1:0] pv_rd_resp;</span></span>
-<span id="L238"><span class="lineNum">     238</span> <span class="tlaGNC tlaBgGNC">      148262 :     pv_wr_resp_t [PV_NUM_WRITE-1:0] pv_wr_resp;</span></span>
+<span id="L238"><span class="lineNum">     238</span> <span class="tlaGNC tlaBgGNC">      173318 :     pv_wr_resp_t [PV_NUM_WRITE-1:0] pv_wr_resp;</span></span>
 <span id="L239"><span class="lineNum">     239</span>              : </span>
 <span id="L240"><span class="lineNum">     240</span>              :     pcr_signing_t pcr_signing_data;</span>
 <span id="L241"><span class="lineNum">     241</span>              : </span>
@@ -360,14 +360,14 @@
 <span id="L256"><span class="lineNum">     256</span>              :     logic [`CLP_OBF_UDS_DWORDS-1:0][31:0] obf_uds_seed_dbg;</span>
 <span id="L257"><span class="lineNum">     257</span> <span class="tlaGNC">           2 :     logic                                 cptra_in_debug_scan_mode;</span></span>
 <span id="L258"><span class="lineNum">     258</span>              : </span>
-<span id="L259"><span class="lineNum">     259</span> <span class="tlaGNC">       76747 :     logic [31:0] imem_haddr;</span></span>
-<span id="L260"><span class="lineNum">     260</span> <span class="tlaGNC">      195021 :     logic imem_hsel;</span></span>
-<span id="L261"><span class="lineNum">     261</span> <span class="tlaGNC">      189926 :     logic imem_hwrite;</span></span>
+<span id="L259"><span class="lineNum">     259</span> <span class="tlaGNC">       82521 :     logic [31:0] imem_haddr;</span></span>
+<span id="L260"><span class="lineNum">     260</span> <span class="tlaGNC">      220849 :     logic imem_hsel;</span></span>
+<span id="L261"><span class="lineNum">     261</span> <span class="tlaGNC">      217020 :     logic imem_hwrite;</span></span>
 <span id="L262"><span class="lineNum">     262</span> <span class="tlaGNC">           1 :     logic imem_hready;</span></span>
 <span id="L263"><span class="lineNum">     263</span> <span class="tlaGNC">           1 :     logic imem_hreadyout;</span></span>
-<span id="L264"><span class="lineNum">     264</span> <span class="tlaGNC">      225613 :     logic [1:0] imem_htrans;</span></span>
+<span id="L264"><span class="lineNum">     264</span> <span class="tlaGNC">      253663 :     logic [1:0] imem_htrans;</span></span>
 <span id="L265"><span class="lineNum">     265</span> <span class="tlaUNC tlaBgUNC">           0 :     logic [2:0] imem_hsize;</span></span>
-<span id="L266"><span class="lineNum">     266</span> <span class="tlaGNC tlaBgGNC">      155804 :     logic [63:0] imem_hrdata;</span></span>
+<span id="L266"><span class="lineNum">     266</span> <span class="tlaGNC tlaBgGNC">      169968 :     logic [63:0] imem_hrdata;</span></span>
 <span id="L267"><span class="lineNum">     267</span> <span class="tlaUNC tlaBgUNC">           0 :     logic imem_hresp;</span></span>
 <span id="L268"><span class="lineNum">     268</span>              :     </span>
 <span id="L269"><span class="lineNum">     269</span> <span class="tlaUNC">           0 :     logic lsu_addr_ph, lsu_data_ph, lsu_sel;</span></span>
@@ -465,10 +465,10 @@
 <span id="L361"><span class="lineNum">     361</span>              :    // RTL instance</span>
 <span id="L362"><span class="lineNum">     362</span>              :    //=========================================================================-</span>
 <span id="L363"><span class="lineNum">     363</span>              : //FIXME TIE OFFS</span>
-<span id="L364"><span class="lineNum">     364</span> <span class="tlaGNC">      148262 : logic [31:0] reset_vector;</span></span>
+<span id="L364"><span class="lineNum">     364</span> <span class="tlaGNC">      173318 : logic [31:0] reset_vector;</span></span>
 <span id="L365"><span class="lineNum">     365</span> <span class="tlaUNC tlaBgUNC">           0 : logic [31:0] nmi_vector;</span></span>
 <span id="L366"><span class="lineNum">     366</span> <span class="tlaGNC tlaBgGNC">           2 : logic nmi_int;</span></span>
-<span id="L367"><span class="lineNum">     367</span> <span class="tlaGNC">      148262 : logic soft_int;</span></span>
+<span id="L367"><span class="lineNum">     367</span> <span class="tlaGNC">      173318 : logic soft_int;</span></span>
 <span id="L368"><span class="lineNum">     368</span> <span class="tlaGNC">           1 : logic timer_int;</span></span>
 <span id="L369"><span class="lineNum">     369</span>              : </span>
 <span id="L370"><span class="lineNum">     370</span>              : assign reset_vector = `RV_RESET_VEC;</span>
@@ -703,7 +703,7 @@
 <span id="L599"><span class="lineNum">     599</span>              :     );</span>
 <span id="L600"><span class="lineNum">     600</span>              : </span>
 <span id="L601"><span class="lineNum">     601</span>              :     // Security State value captured on a Caliptra reset deassertion (0-&gt;1 signal transition)</span>
-<span id="L602"><span class="lineNum">     602</span> <span class="tlaGNC">     1429896 :     always_ff @(posedge clk or negedge cptra_noncore_rst_b) begin</span></span>
+<span id="L602"><span class="lineNum">     602</span> <span class="tlaGNC">     1433715 :     always_ff @(posedge clk or negedge cptra_noncore_rst_b) begin</span></span>
 <span id="L603"><span class="lineNum">     603</span> <span class="tlaGNC">          28 :         if (~cptra_noncore_rst_b) begin</span></span>
 <span id="L604"><span class="lineNum">     604</span> <span class="tlaGNC">          28 :             cptra_security_state_Latched_d &lt;= '{device_lifecycle: DEVICE_PRODUCTION, debug_locked: 1'b1}; //Setting the default value to be debug locked and in production mode</span></span>
 <span id="L605"><span class="lineNum">     605</span> <span class="tlaGNC">          28 :             cptra_security_state_Latched_f &lt;= '{device_lifecycle: DEVICE_PRODUCTION, debug_locked: 1'b1};</span></span>
@@ -714,19 +714,19 @@
 <span id="L610"><span class="lineNum">     610</span> <span class="tlaGNC">           1 :             cptra_security_state_Latched_d &lt;= security_state;</span></span>
 <span id="L611"><span class="lineNum">     611</span> <span class="tlaGNC">           1 :             cptra_security_state_captured &lt;= 1;</span></span>
 <span id="L612"><span class="lineNum">     612</span>              :         end</span>
-<span id="L613"><span class="lineNum">     613</span> <span class="tlaGNC">     1429867 :         else begin</span></span>
-<span id="L614"><span class="lineNum">     614</span> <span class="tlaGNC">     1429867 :             cptra_security_state_Latched_f &lt;= cptra_security_state_Latched_d;</span></span>
+<span id="L613"><span class="lineNum">     613</span> <span class="tlaGNC">     1433686 :         else begin</span></span>
+<span id="L614"><span class="lineNum">     614</span> <span class="tlaGNC">     1433686 :             cptra_security_state_Latched_f &lt;= cptra_security_state_Latched_d;</span></span>
 <span id="L615"><span class="lineNum">     615</span>              :         end</span>
 <span id="L616"><span class="lineNum">     616</span>              :     end</span>
 <span id="L617"><span class="lineNum">     617</span>              : </span>
-<span id="L618"><span class="lineNum">     618</span> <span class="tlaGNC">     1429896 :     always_ff @(posedge clk or negedge cptra_pwrgood) begin</span></span>
+<span id="L618"><span class="lineNum">     618</span> <span class="tlaGNC">     1433715 :     always_ff @(posedge clk or negedge cptra_pwrgood) begin</span></span>
 <span id="L619"><span class="lineNum">     619</span> <span class="tlaGNC">          15 :         if (~cptra_pwrgood) begin</span></span>
 <span id="L620"><span class="lineNum">     620</span> <span class="tlaGNC">          15 :             cptra_scan_mode_Latched_d &lt;= '0;</span></span>
 <span id="L621"><span class="lineNum">     621</span> <span class="tlaGNC">          15 :             cptra_scan_mode_Latched_f &lt;= '0;</span></span>
 <span id="L622"><span class="lineNum">     622</span>              :         end</span>
-<span id="L623"><span class="lineNum">     623</span> <span class="tlaGNC">     1429881 :         else begin</span></span>
-<span id="L624"><span class="lineNum">     624</span> <span class="tlaGNC">     1429881 :             cptra_scan_mode_Latched_d &lt;= scan_mode;</span></span>
-<span id="L625"><span class="lineNum">     625</span> <span class="tlaGNC">     1429881 :             cptra_scan_mode_Latched_f &lt;= cptra_scan_mode_Latched_d;</span></span>
+<span id="L623"><span class="lineNum">     623</span> <span class="tlaGNC">     1433700 :         else begin</span></span>
+<span id="L624"><span class="lineNum">     624</span> <span class="tlaGNC">     1433700 :             cptra_scan_mode_Latched_d &lt;= scan_mode;</span></span>
+<span id="L625"><span class="lineNum">     625</span> <span class="tlaGNC">     1433700 :             cptra_scan_mode_Latched_f &lt;= cptra_scan_mode_Latched_d;</span></span>
 <span id="L626"><span class="lineNum">     626</span>              :         end</span>
 <span id="L627"><span class="lineNum">     627</span>              :     end</span>
 <span id="L628"><span class="lineNum">     628</span>              : </span>

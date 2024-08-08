@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -118,7 +118,7 @@
 <span id="L14"><span class="lineNum">      14</span>              :   parameter logic [31:0] SeedLen = 384,</span>
 <span id="L15"><span class="lineNum">      15</span>              :   parameter logic [31:0] CtrLen  = 32</span>
 <span id="L16"><span class="lineNum">      16</span>              : ) (</span>
-<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC tlaBgGNC">      458006 :   input logic                clk_i,</span></span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC tlaBgGNC">      458284 :   input logic                clk_i,</span></span>
 <span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           1 :   input logic                rst_ni,</span></span>
 <span id="L19"><span class="lineNum">      19</span>              : </span>
 <span id="L20"><span class="lineNum">      20</span>              :    // update interface</span>
@@ -325,19 +325,19 @@
 <span id="L221"><span class="lineNum">     221</span>              :   `CALIPTRA_PRIM_FLOP_SPARSE_FSM(u_outblk_state_regs, outblk_state_d,</span>
 <span id="L222"><span class="lineNum">     222</span>              :       outblk_state_q, outblk_state_e, AckIdle)</span>
 <span id="L223"><span class="lineNum">     223</span>              : </span>
-<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">      229316 :   always_ff @(posedge clk_i or negedge rst_ni)</span></span>
+<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">      229428 :   always_ff @(posedge clk_i or negedge rst_ni)</span></span>
 <span id="L225"><span class="lineNum">     225</span> <span class="tlaGNC">           4 :     if (!rst_ni) begin</span></span>
 <span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC">           4 :       interate_ctr_q     &lt;= '0;</span></span>
 <span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC">           4 :       concat_ctr_q       &lt;= '0;</span></span>
 <span id="L228"><span class="lineNum">     228</span> <span class="tlaGNC">           4 :       concat_outblk_q    &lt;= '0;</span></span>
 <span id="L229"><span class="lineNum">     229</span> <span class="tlaGNC">           4 :       concat_ccmd_q      &lt;= '0;</span></span>
 <span id="L230"><span class="lineNum">     230</span> <span class="tlaGNC">           4 :       concat_inst_id_q   &lt;= '0;</span></span>
-<span id="L231"><span class="lineNum">     231</span> <span class="tlaGNC">      229312 :     end else begin</span></span>
-<span id="L232"><span class="lineNum">     232</span> <span class="tlaGNC">      229312 :       interate_ctr_q     &lt;= interate_ctr_d;</span></span>
-<span id="L233"><span class="lineNum">     233</span> <span class="tlaGNC">      229312 :       concat_ctr_q       &lt;= concat_ctr_d;</span></span>
-<span id="L234"><span class="lineNum">     234</span> <span class="tlaGNC">      229312 :       concat_outblk_q    &lt;= concat_outblk_d;</span></span>
-<span id="L235"><span class="lineNum">     235</span> <span class="tlaGNC">      229312 :       concat_ccmd_q      &lt;= concat_ccmd_d;</span></span>
-<span id="L236"><span class="lineNum">     236</span> <span class="tlaGNC">      229312 :       concat_inst_id_q   &lt;= concat_inst_id_d;</span></span>
+<span id="L231"><span class="lineNum">     231</span> <span class="tlaGNC">      229424 :     end else begin</span></span>
+<span id="L232"><span class="lineNum">     232</span> <span class="tlaGNC">      229424 :       interate_ctr_q     &lt;= interate_ctr_d;</span></span>
+<span id="L233"><span class="lineNum">     233</span> <span class="tlaGNC">      229424 :       concat_ctr_q       &lt;= concat_ctr_d;</span></span>
+<span id="L234"><span class="lineNum">     234</span> <span class="tlaGNC">      229424 :       concat_outblk_q    &lt;= concat_outblk_d;</span></span>
+<span id="L235"><span class="lineNum">     235</span> <span class="tlaGNC">      229424 :       concat_ccmd_q      &lt;= concat_ccmd_d;</span></span>
+<span id="L236"><span class="lineNum">     236</span> <span class="tlaGNC">      229424 :       concat_inst_id_q   &lt;= concat_inst_id_d;</span></span>
 <span id="L237"><span class="lineNum">     237</span>              :     end // else: !if(!rst_ni)</span>
 <span id="L238"><span class="lineNum">     238</span>              : </span>
 <span id="L239"><span class="lineNum">     239</span>              : </span>
@@ -434,13 +434,13 @@
 <span id="L330"><span class="lineNum">     330</span> <span class="tlaGNC">           1 :     ctr_drbg_upd_es_ack_o = 1'b0;</span></span>
 <span id="L331"><span class="lineNum">     331</span> <span class="tlaGNC">           1 :     unique case (blk_enc_state_q)</span></span>
 <span id="L332"><span class="lineNum">     332</span>              :       // ReqIdle: increment v this cycle, push in next</span>
-<span id="L333"><span class="lineNum">     333</span> <span class="tlaGNC">      229316 :       ReqIdle: begin</span></span>
+<span id="L333"><span class="lineNum">     333</span> <span class="tlaGNC">      229428 :       ReqIdle: begin</span></span>
 <span id="L334"><span class="lineNum">     334</span>              :         // Prioritize halt requests from entropy_src over disable, as CSRNG would otherwise starve</span>
 <span id="L335"><span class="lineNum">     335</span>              :         // those requests while it is idle.</span>
 <span id="L336"><span class="lineNum">     336</span> <span class="tlaUNC tlaBgUNC">           0 :         if (ctr_drbg_upd_es_req_i) begin</span></span>
 <span id="L337"><span class="lineNum">     337</span> <span class="tlaUNC">           0 :           blk_enc_state_d = ESHalt;</span></span>
-<span id="L338"><span class="lineNum">     338</span> <span class="tlaGNC tlaBgGNC">      229316 :         end else if (!ctr_drbg_upd_enable_i) begin</span></span>
-<span id="L339"><span class="lineNum">     339</span> <span class="tlaGNC">      229316 :           blk_enc_state_d = ReqIdle;</span></span>
+<span id="L338"><span class="lineNum">     338</span> <span class="tlaGNC tlaBgGNC">      229428 :         end else if (!ctr_drbg_upd_enable_i) begin</span></span>
+<span id="L339"><span class="lineNum">     339</span> <span class="tlaGNC">      229428 :           blk_enc_state_d = ReqIdle;</span></span>
 <span id="L340"><span class="lineNum">     340</span> <span class="tlaUNC tlaBgUNC">           0 :         end else if (sfifo_updreq_not_empty &amp;&amp; !sfifo_bencreq_full &amp;&amp; !sfifo_pdata_full) begin</span></span>
 <span id="L341"><span class="lineNum">     341</span> <span class="tlaUNC">           0 :           v_ctr_load = 1'b1;</span></span>
 <span id="L342"><span class="lineNum">     342</span> <span class="tlaUNC">           0 :           sfifo_pdata_push = 1'b1;</span></span>
@@ -637,9 +637,9 @@
 <span id="L533"><span class="lineNum">     533</span> <span class="tlaGNC">           1 :     ctr_drbg_updob_sm_err_o = 1'b0;</span></span>
 <span id="L534"><span class="lineNum">     534</span> <span class="tlaGNC">           1 :     unique case (outblk_state_q)</span></span>
 <span id="L535"><span class="lineNum">     535</span>              :       // AckIdle: increment v this cycle, push in next</span>
-<span id="L536"><span class="lineNum">     536</span> <span class="tlaGNC">      229316 :       AckIdle: begin</span></span>
-<span id="L537"><span class="lineNum">     537</span> <span class="tlaGNC">      229316 :         if (!ctr_drbg_upd_enable_i) begin</span></span>
-<span id="L538"><span class="lineNum">     538</span> <span class="tlaGNC">      229316 :           outblk_state_d = AckIdle;</span></span>
+<span id="L536"><span class="lineNum">     536</span> <span class="tlaGNC">      229428 :       AckIdle: begin</span></span>
+<span id="L537"><span class="lineNum">     537</span> <span class="tlaGNC">      229428 :         if (!ctr_drbg_upd_enable_i) begin</span></span>
+<span id="L538"><span class="lineNum">     538</span> <span class="tlaGNC">      229428 :           outblk_state_d = AckIdle;</span></span>
 <span id="L539"><span class="lineNum">     539</span> <span class="tlaUNC tlaBgUNC">           0 :         end else if (sfifo_bencack_not_empty &amp;&amp; sfifo_pdata_not_empty &amp;&amp; !sfifo_final_full) begin</span></span>
 <span id="L540"><span class="lineNum">     540</span> <span class="tlaUNC">           0 :           outblk_state_d = Load;</span></span>
 <span id="L541"><span class="lineNum">     541</span>              :         end</span>

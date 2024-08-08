@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -131,21 +131,21 @@
 <span id="L27"><span class="lineNum">      27</span>              : )</span>
 <span id="L28"><span class="lineNum">      28</span>              : (</span>
 <span id="L29"><span class="lineNum">      29</span>              :     // Clock and reset.</span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     8777610 :     input  wire              clk,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC tlaBgGNC">     8777606 :     input  wire              clk,</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">          35 :     input  wire              reset_n,</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">          14 :     input  wire              zeroize,</span></span>
 <span id="L33"><span class="lineNum">      33</span>              : </span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">      204274 :     input  wire              start_in,</span></span>
 <span id="L35"><span class="lineNum">      35</span>              :     // DATA PORT</span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">      385864 :     input  wire [RADIX-1:0]  a_in,</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">       47188 :     input  wire [RADIX-1:0]  b_in,</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">      386654 :     input  wire [RADIX-1:0]  a_in,</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">       47370 :     input  wire [RADIX-1:0]  b_in,</span></span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           6 :     input  wire [RADIX-1:0]  p_in,</span></span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">     1327818 :     input  wire [RADIX-1:0]  s_in,</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">     1328586 :     input  wire [RADIX-1:0]  s_in,</span></span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC tlaBgUNC">           0 :     input  wire [RADIX-1:0]  n_prime_in,</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">     4388737 :     input  wire              odd,</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">     4388735 :     input  wire              odd,</span></span>
 <span id="L42"><span class="lineNum">      42</span>              : </span>
-<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">      385864 :     output logic [RADIX-1:0] a_out,</span></span>
-<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">      946544 :     output logic [RADIX-1:0] m_out,</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">      386654 :     output logic [RADIX-1:0] a_out,</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">      947208 :     output logic [RADIX-1:0] m_out,</span></span>
 <span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">          82 :     output logic [RADIX  :0] c_out</span></span>
 <span id="L46"><span class="lineNum">      46</span>              : );</span>
 <span id="L47"><span class="lineNum">      47</span>              : </span>
@@ -153,34 +153,34 @@
 <span id="L49"><span class="lineNum">      49</span>              :     //----------------------------------------------------------------</span>
 <span id="L50"><span class="lineNum">      50</span>              :     // ecc_pe_first</span>
 <span id="L51"><span class="lineNum">      51</span>              :     //----------------------------------------------------------------</span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">     1277086 :     logic  [RADIX-1:0]        s_reg;</span></span>
-<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">      908876 :     logic  [RADIX-1:0]        s_val;</span></span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">      385864 :     logic  [RADIX-1:0]        a_reg;</span></span>
-<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">      385864 :     logic  [RADIX-1:0]        a_val;</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">     1277982 :     logic  [RADIX-1:0]        s_reg;</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">      910100 :     logic  [RADIX-1:0]        s_val;</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">      386654 :     logic  [RADIX-1:0]        a_reg;</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">      386654 :     logic  [RADIX-1:0]        a_val;</span></span>
 <span id="L56"><span class="lineNum">      56</span>              : </span>
-<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">      161962 :     logic  [(2*RADIX)-1 : 0]  mult_out_0;</span></span>
-<span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC">      161962 :     logic  [RADIX-1 : 0]      mult_out_0_MSW;</span></span>
-<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC">      237884 :     logic  [RADIX-1 : 0]      mult_out_0_LSW;</span></span>
+<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">      161700 :     logic  [(2*RADIX)-1 : 0]  mult_out_0;</span></span>
+<span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC">      161700 :     logic  [RADIX-1 : 0]      mult_out_0_MSW;</span></span>
+<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC">      237288 :     logic  [RADIX-1 : 0]      mult_out_0_LSW;</span></span>
 <span id="L60"><span class="lineNum">      60</span>              : </span>
-<span id="L61"><span class="lineNum">      61</span> <span class="tlaGNC">      398404 :     logic  [RADIX   : 0]      res_0;</span></span>
-<span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC">      908696 :     logic  [RADIX-1 : 0]      sum_0;</span></span>
-<span id="L63"><span class="lineNum">      63</span> <span class="tlaGNC">      398404 :     logic                     carry_0;</span></span>
-<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">      946544 :     logic  [RADIX-1 : 0]      sum_0_reg;</span></span>
+<span id="L61"><span class="lineNum">      61</span> <span class="tlaGNC">      398808 :     logic  [RADIX   : 0]      res_0;</span></span>
+<span id="L62"><span class="lineNum">      62</span> <span class="tlaGNC">      909726 :     logic  [RADIX-1 : 0]      sum_0;</span></span>
+<span id="L63"><span class="lineNum">      63</span> <span class="tlaGNC">      398808 :     logic                     carry_0;</span></span>
+<span id="L64"><span class="lineNum">      64</span> <span class="tlaGNC">      947208 :     logic  [RADIX-1 : 0]      sum_0_reg;</span></span>
 <span id="L65"><span class="lineNum">      65</span>              : </span>
 <span id="L66"><span class="lineNum">      66</span> <span class="tlaUNC tlaBgUNC">           0 :     logic  [RADIX   : 0]      res_1;</span></span>
-<span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC tlaBgGNC">      204006 :     logic                     carry_1;</span></span>
+<span id="L67"><span class="lineNum">      67</span> <span class="tlaGNC tlaBgGNC">      204108 :     logic                     carry_1;</span></span>
 <span id="L68"><span class="lineNum">      68</span>              : </span>
-<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">      428086 :     logic  [RADIX   : 0]      c_0;</span></span>
-<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">      428086 :     logic  [RADIX   : 0]      c_0_reg;</span></span>
-<span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">      961324 :     logic  [RADIX   : 0]      c_1;</span></span>
+<span id="L69"><span class="lineNum">      69</span> <span class="tlaGNC">      428534 :     logic  [RADIX   : 0]      c_0;</span></span>
+<span id="L70"><span class="lineNum">      70</span> <span class="tlaGNC">      428534 :     logic  [RADIX   : 0]      c_0_reg;</span></span>
+<span id="L71"><span class="lineNum">      71</span> <span class="tlaGNC">      962024 :     logic  [RADIX   : 0]      c_1;</span></span>
 <span id="L72"><span class="lineNum">      72</span>              : </span>
-<span id="L73"><span class="lineNum">      73</span> <span class="tlaGNC">      910660 :     logic  [(2*RADIX)-1 : 0]  mult_out_1;</span></span>
-<span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">      908448 :     logic  [RADIX-1 : 0]      m_temp;</span></span>
-<span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">      946544 :     logic  [RADIX-1 : 0]      m_temp_reg;</span></span>
+<span id="L73"><span class="lineNum">      73</span> <span class="tlaGNC">      911708 :     logic  [(2*RADIX)-1 : 0]  mult_out_1;</span></span>
+<span id="L74"><span class="lineNum">      74</span> <span class="tlaGNC">      909412 :     logic  [RADIX-1 : 0]      m_temp;</span></span>
+<span id="L75"><span class="lineNum">      75</span> <span class="tlaGNC">      947208 :     logic  [RADIX-1 : 0]      m_temp_reg;</span></span>
 <span id="L76"><span class="lineNum">      76</span>              : </span>
-<span id="L77"><span class="lineNum">      77</span> <span class="tlaGNC">      961758 :     logic  [(2*RADIX)-1 : 0]  mult_out_2;</span></span>
-<span id="L78"><span class="lineNum">      78</span> <span class="tlaGNC">      961134 :     logic  [RADIX-1 : 0]      mult_out_2_MSW;</span></span>
-<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC">      950082 :     logic  [RADIX-1 : 0]      mult_out_2_LSW;</span></span>
+<span id="L77"><span class="lineNum">      77</span> <span class="tlaGNC">      962408 :     logic  [(2*RADIX)-1 : 0]  mult_out_2;</span></span>
+<span id="L78"><span class="lineNum">      78</span> <span class="tlaGNC">      962048 :     logic  [RADIX-1 : 0]      mult_out_2_MSW;</span></span>
+<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC">      950566 :     logic  [RADIX-1 : 0]      mult_out_2_LSW;</span></span>
 <span id="L80"><span class="lineNum">      80</span>              : </span>
 <span id="L81"><span class="lineNum">      81</span> <span class="tlaUNC tlaBgUNC">           0 :     logic                     carry_garbage_bit;</span></span>
 <span id="L82"><span class="lineNum">      82</span>              : </span>
@@ -247,7 +247,7 @@
 <span id="L143"><span class="lineNum">     143</span>              :     // register updates</span>
 <span id="L144"><span class="lineNum">     144</span>              :     //</span>
 <span id="L145"><span class="lineNum">     145</span>              :     //----------------------------------------------------------------</span>
-<span id="L146"><span class="lineNum">     146</span> <span class="tlaGNC">     4388719 :     always_ff @(posedge clk or negedge reset_n) begin</span></span>
+<span id="L146"><span class="lineNum">     146</span> <span class="tlaGNC">     4389293 :     always_ff @(posedge clk or negedge reset_n) begin</span></span>
 <span id="L147"><span class="lineNum">     147</span> <span class="tlaGNC">          83 :         if(~reset_n) begin</span></span>
 <span id="L148"><span class="lineNum">     148</span> <span class="tlaGNC">          83 :             c_0_reg &lt;= 'b0;</span></span>
 <span id="L149"><span class="lineNum">     149</span> <span class="tlaGNC">          83 :             sum_0_reg &lt;= 'b0;</span></span>
@@ -268,16 +268,16 @@
 <span id="L164"><span class="lineNum">     164</span> <span class="tlaGNC">      102137 :             m_temp_reg &lt;= 'b0;</span></span>
 <span id="L165"><span class="lineNum">     165</span> <span class="tlaGNC">      102137 :             s_reg &lt;= 'b0;</span></span>
 <span id="L166"><span class="lineNum">     166</span> <span class="tlaGNC">      102137 :             a_reg &lt;= 'b0;</span></span>
-<span id="L167"><span class="lineNum">     167</span> <span class="tlaGNC">     4286492 :         end else begin</span></span>
-<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">     4286492 :             s_reg &lt;= s_in;</span></span>
-<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">     4286492 :             a_reg &lt;= a_in;</span></span>
-<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">     4286492 :             m_temp_reg &lt;= m_temp;</span></span>
-<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">     4286492 :             c_0_reg &lt;= c_0;</span></span>
-<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">     4286492 :             sum_0_reg &lt;= sum_0;</span></span>
+<span id="L167"><span class="lineNum">     167</span> <span class="tlaGNC">     4287066 :         end else begin</span></span>
+<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC">     4287066 :             s_reg &lt;= s_in;</span></span>
+<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">     4287066 :             a_reg &lt;= a_in;</span></span>
+<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">     4287066 :             m_temp_reg &lt;= m_temp;</span></span>
+<span id="L171"><span class="lineNum">     171</span> <span class="tlaGNC">     4287066 :             c_0_reg &lt;= c_0;</span></span>
+<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">     4287066 :             sum_0_reg &lt;= sum_0;</span></span>
 <span id="L173"><span class="lineNum">     173</span>              :         end</span>
 <span id="L174"><span class="lineNum">     174</span>              :     end</span>
 <span id="L175"><span class="lineNum">     175</span>              : </span>
-<span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC">     4388719 :     always_ff @(posedge clk or negedge reset_n) begin</span></span>
+<span id="L176"><span class="lineNum">     176</span> <span class="tlaGNC">     4389293 :     always_ff @(posedge clk or negedge reset_n) begin</span></span>
 <span id="L177"><span class="lineNum">     177</span> <span class="tlaGNC">          83 :         if (~reset_n) begin</span></span>
 <span id="L178"><span class="lineNum">     178</span> <span class="tlaGNC">          83 :             a_out &lt;= 'b0;</span></span>
 <span id="L179"><span class="lineNum">     179</span>              :         end</span>
@@ -286,12 +286,12 @@
 <span id="L182"><span class="lineNum">     182</span>              :         end</span>
 <span id="L183"><span class="lineNum">     183</span> <span class="tlaGNC">      578688 :         else if (start_in) begin</span></span>
 <span id="L184"><span class="lineNum">     184</span> <span class="tlaGNC">      102137 :             a_out &lt;= 'b0;</span></span>
-<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC">     4286492 :         end else begin</span></span>
-<span id="L186"><span class="lineNum">     186</span> <span class="tlaGNC">     4286492 :             a_out &lt;= a_val;</span></span>
+<span id="L185"><span class="lineNum">     185</span> <span class="tlaGNC">     4287066 :         end else begin</span></span>
+<span id="L186"><span class="lineNum">     186</span> <span class="tlaGNC">     4287066 :             a_out &lt;= a_val;</span></span>
 <span id="L187"><span class="lineNum">     187</span>              :         end</span>
 <span id="L188"><span class="lineNum">     188</span>              :     end</span>
 <span id="L189"><span class="lineNum">     189</span>              : </span>
-<span id="L190"><span class="lineNum">     190</span> <span class="tlaGNC">     4388719 :     always_ff @(posedge clk or negedge reset_n) begin</span></span>
+<span id="L190"><span class="lineNum">     190</span> <span class="tlaGNC">     4389293 :     always_ff @(posedge clk or negedge reset_n) begin</span></span>
 <span id="L191"><span class="lineNum">     191</span> <span class="tlaGNC">          83 :         if (~reset_n) begin</span></span>
 <span id="L192"><span class="lineNum">     192</span> <span class="tlaGNC">          83 :             m_out &lt;= 'b0;</span></span>
 <span id="L193"><span class="lineNum">     193</span>              :         end</span>
@@ -300,8 +300,8 @@
 <span id="L196"><span class="lineNum">     196</span>              :         end</span>
 <span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC">      578688 :         else if (start_in) begin</span></span>
 <span id="L198"><span class="lineNum">     198</span> <span class="tlaGNC">      102137 :             m_out &lt;= 'b0;</span></span>
-<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC">     4286492 :         end else begin</span></span>
-<span id="L200"><span class="lineNum">     200</span> <span class="tlaGNC">     4286492 :             m_out &lt;= m_temp;</span></span>
+<span id="L199"><span class="lineNum">     199</span> <span class="tlaGNC">     4287066 :         end else begin</span></span>
+<span id="L200"><span class="lineNum">     200</span> <span class="tlaGNC">     4287066 :             m_out &lt;= m_temp;</span></span>
 <span id="L201"><span class="lineNum">     201</span>              :         end</span>
 <span id="L202"><span class="lineNum">     202</span>              :     end</span>
 <span id="L203"><span class="lineNum">     203</span>              : </span>

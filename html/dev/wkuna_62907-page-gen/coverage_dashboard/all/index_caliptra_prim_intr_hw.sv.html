@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -128,13 +128,13 @@
 <span id="L24"><span class="lineNum">      24</span>              :   parameter IntrT = "Event" // Event or Status</span>
 <span id="L25"><span class="lineNum">      25</span>              : ) (</span>
 <span id="L26"><span class="lineNum">      26</span>              :   // event</span>
-<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC tlaBgGNC">    15557832 :   input  clk_i,</span></span>
-<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">         378 :   input  rst_ni,</span></span>
+<span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC tlaBgGNC">     8249112 :   input  clk_i,</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">          18 :   input  rst_ni,</span></span>
 <span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">           8 :   input  [Width-1:0]  event_intr_i,</span></span>
 <span id="L30"><span class="lineNum">      30</span>              : </span>
 <span id="L31"><span class="lineNum">      31</span>              :   // register interface</span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC tlaBgUNC">           0 :   input  [Width-1:0]  reg2hw_intr_enable_q_i,</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">       15026 :   input  [Width-1:0]  reg2hw_intr_test_q_i,</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">        9354 :   input  [Width-1:0]  reg2hw_intr_test_q_i,</span></span>
 <span id="L34"><span class="lineNum">      34</span> <span class="tlaUNC tlaBgUNC">           0 :   input               reg2hw_intr_test_qe_i,</span></span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaUNC">           0 :   input  [Width-1:0]  reg2hw_intr_state_q_i,</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">          10 :   output              hw2reg_intr_state_de_o,</span></span>
@@ -180,11 +180,11 @@
 <span id="L76"><span class="lineNum">      76</span>              : </span>
 <span id="L77"><span class="lineNum">      77</span>              :   if (FlopOutput == 1) begin : gen_flop_intr_output</span>
 <span id="L78"><span class="lineNum">      78</span>              :     // flop the interrupt output</span>
-<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC tlaBgGNC">       83106 :     always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC tlaBgGNC">     1692900 :     always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L80"><span class="lineNum">      80</span> <span class="tlaGNC">          72 :       if (!rst_ni) begin</span></span>
 <span id="L81"><span class="lineNum">      81</span> <span class="tlaGNC">          72 :         intr_o &lt;= '0;</span></span>
-<span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC">       83034 :       end else begin</span></span>
-<span id="L83"><span class="lineNum">      83</span> <span class="tlaGNC">       83034 :         intr_o &lt;= status &amp; reg2hw_intr_enable_q_i;</span></span>
+<span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC">     1692828 :       end else begin</span></span>
+<span id="L83"><span class="lineNum">      83</span> <span class="tlaGNC">     1692828 :         intr_o &lt;= status &amp; reg2hw_intr_enable_q_i;</span></span>
 <span id="L84"><span class="lineNum">      84</span>              :       end</span>
 <span id="L85"><span class="lineNum">      85</span>              :     end</span>
 <span id="L86"><span class="lineNum">      86</span>              : </span>

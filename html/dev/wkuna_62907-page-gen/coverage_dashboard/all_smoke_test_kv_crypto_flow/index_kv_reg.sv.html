@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -106,21 +106,21 @@
 <span id="L2"><span class="lineNum">       2</span>              : //  https://github.com/SystemRDL/PeakRDL-regblock</span>
 <span id="L3"><span class="lineNum">       3</span>              : </span>
 <span id="L4"><span class="lineNum">       4</span>              : module kv_reg (</span>
-<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC tlaBgGNC">     3259970 :         input wire clk,</span></span>
-<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">        7686 :         input wire rst,</span></span>
+<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC tlaBgGNC">     3259966 :         input wire clk,</span></span>
+<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">        7706 :         input wire rst,</span></span>
 <span id="L7"><span class="lineNum">       7</span>              : </span>
 <span id="L8"><span class="lineNum">       8</span> <span class="tlaUNC tlaBgUNC">           0 :         input wire s_cpuif_req,</span></span>
 <span id="L9"><span class="lineNum">       9</span> <span class="tlaUNC">           0 :         input wire s_cpuif_req_is_wr,</span></span>
 <span id="L10"><span class="lineNum">      10</span> <span class="tlaUNC">           0 :         input wire [11:0] s_cpuif_addr,</span></span>
 <span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC tlaBgGNC">         242 :         input wire [31:0] s_cpuif_wr_data,</span></span>
 <span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           3 :         input wire [31:0] s_cpuif_wr_biten,</span></span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">        7686 :         output wire s_cpuif_req_stall_wr,</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">        7686 :         output wire s_cpuif_req_stall_rd,</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">        7706 :         output wire s_cpuif_req_stall_wr,</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">        7706 :         output wire s_cpuif_req_stall_rd,</span></span>
 <span id="L15"><span class="lineNum">      15</span> <span class="tlaUNC tlaBgUNC">           0 :         output wire s_cpuif_rd_ack,</span></span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC tlaBgGNC">        7686 :         output wire s_cpuif_rd_err,</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC tlaBgGNC">        7706 :         output wire s_cpuif_rd_err,</span></span>
 <span id="L17"><span class="lineNum">      17</span> <span class="tlaUNC tlaBgUNC">           0 :         output wire [31:0] s_cpuif_rd_data,</span></span>
 <span id="L18"><span class="lineNum">      18</span> <span class="tlaUNC">           0 :         output wire s_cpuif_wr_ack,</span></span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC tlaBgGNC">        7686 :         output wire s_cpuif_wr_err,</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC tlaBgGNC">        7706 :         output wire s_cpuif_wr_err,</span></span>
 <span id="L20"><span class="lineNum">      20</span>              : </span>
 <span id="L21"><span class="lineNum">      21</span>              :         input kv_reg_pkg::kv_reg__in_t hwif_in,</span>
 <span id="L22"><span class="lineNum">      22</span>              :         output kv_reg_pkg::kv_reg__out_t hwif_out</span>
@@ -134,15 +134,15 @@
 <span id="L30"><span class="lineNum">      30</span> <span class="tlaUNC">           0 :     logic [11:0] cpuif_addr;</span></span>
 <span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC tlaBgGNC">         242 :     logic [31:0] cpuif_wr_data;</span></span>
 <span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           3 :     logic [31:0] cpuif_wr_biten;</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">        7686 :     logic cpuif_req_stall_wr;</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">        7686 :     logic cpuif_req_stall_rd;</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">        7706 :     logic cpuif_req_stall_wr;</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">        7706 :     logic cpuif_req_stall_rd;</span></span>
 <span id="L35"><span class="lineNum">      35</span>              : </span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC tlaBgUNC">           0 :     logic cpuif_rd_ack;</span></span>
-<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC tlaBgGNC">        7686 :     logic cpuif_rd_err;</span></span>
+<span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC tlaBgGNC">        7706 :     logic cpuif_rd_err;</span></span>
 <span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC tlaBgUNC">           0 :     logic [31:0] cpuif_rd_data;</span></span>
 <span id="L39"><span class="lineNum">      39</span>              : </span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC">           0 :     logic cpuif_wr_ack;</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">        7686 :     logic cpuif_wr_err;</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">        7706 :     logic cpuif_wr_err;</span></span>
 <span id="L42"><span class="lineNum">      42</span>              : </span>
 <span id="L43"><span class="lineNum">      43</span>              :     assign cpuif_req = s_cpuif_req;</span>
 <span id="L44"><span class="lineNum">      44</span>              :     assign cpuif_req_is_wr = s_cpuif_req_is_wr;</span>
@@ -298,17 +298,17 @@
 <span id="L194"><span class="lineNum">     194</span>              :             automatic logic load_next_c;</span>
 <span id="L195"><span class="lineNum">     195</span> <span class="tlaGNC">          32 :             next_c = field_storage.KEY_CTRL[i0].lock_wr.value;</span></span>
 <span id="L196"><span class="lineNum">     196</span> <span class="tlaGNC">          32 :             load_next_c = '0;</span></span>
-<span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC">   156476096 :             if(decoded_reg_strb.KEY_CTRL[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.KEY_CTRL[i0].lock_wr.swwel)) begin // SW write</span></span>
+<span id="L197"><span class="lineNum">     197</span> <span class="tlaGNC">   156531200 :             if(decoded_reg_strb.KEY_CTRL[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.KEY_CTRL[i0].lock_wr.swwel)) begin // SW write</span></span>
 <span id="L198"><span class="lineNum">     198</span> <span class="tlaUNC tlaBgUNC">           0 :                 next_c = (field_storage.KEY_CTRL[i0].lock_wr.value &amp; ~decoded_wr_biten[0:0]) | (decoded_wr_data[0:0] &amp; decoded_wr_biten[0:0]);</span></span>
 <span id="L199"><span class="lineNum">     199</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
 <span id="L200"><span class="lineNum">     200</span>              :             end</span>
 <span id="L201"><span class="lineNum">     201</span> <span class="tlaGNC tlaBgGNC">          32 :             field_combo.KEY_CTRL[i0].lock_wr.next = next_c;</span></span>
 <span id="L202"><span class="lineNum">     202</span> <span class="tlaGNC">          32 :             field_combo.KEY_CTRL[i0].lock_wr.load_next = load_next_c;</span></span>
 <span id="L203"><span class="lineNum">     203</span>              :         end</span>
-<span id="L204"><span class="lineNum">     204</span> <span class="tlaGNC">    52156416 :         always_ff @(posedge clk or negedge hwif_in.core_only_rst_b) begin</span></span>
+<span id="L204"><span class="lineNum">     204</span> <span class="tlaGNC">    52174784 :         always_ff @(posedge clk or negedge hwif_in.core_only_rst_b) begin</span></span>
 <span id="L205"><span class="lineNum">     205</span> <span class="tlaGNC">        7424 :             if(~hwif_in.core_only_rst_b) begin</span></span>
 <span id="L206"><span class="lineNum">     206</span> <span class="tlaGNC">        7424 :                 field_storage.KEY_CTRL[i0].lock_wr.value &lt;= 1'h0;</span></span>
-<span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC">    52148992 :             end else if(field_combo.KEY_CTRL[i0].lock_wr.load_next) begin</span></span>
+<span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC">    52167360 :             end else if(field_combo.KEY_CTRL[i0].lock_wr.load_next) begin</span></span>
 <span id="L208"><span class="lineNum">     208</span> <span class="tlaUNC tlaBgUNC">           0 :                 field_storage.KEY_CTRL[i0].lock_wr.value &lt;= field_combo.KEY_CTRL[i0].lock_wr.next;</span></span>
 <span id="L209"><span class="lineNum">     209</span>              :             end</span>
 <span id="L210"><span class="lineNum">     210</span>              :         end</span>
@@ -319,17 +319,17 @@
 <span id="L215"><span class="lineNum">     215</span>              :             automatic logic load_next_c;</span>
 <span id="L216"><span class="lineNum">     216</span> <span class="tlaGNC">          32 :             next_c = field_storage.KEY_CTRL[i0].lock_use.value;</span></span>
 <span id="L217"><span class="lineNum">     217</span> <span class="tlaGNC">          32 :             load_next_c = '0;</span></span>
-<span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC">   156476096 :             if(decoded_reg_strb.KEY_CTRL[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.KEY_CTRL[i0].lock_use.swwel)) begin // SW write</span></span>
+<span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC">   156531200 :             if(decoded_reg_strb.KEY_CTRL[i0] &amp;&amp; decoded_req_is_wr &amp;&amp; !(hwif_in.KEY_CTRL[i0].lock_use.swwel)) begin // SW write</span></span>
 <span id="L219"><span class="lineNum">     219</span> <span class="tlaUNC tlaBgUNC">           0 :                 next_c = (field_storage.KEY_CTRL[i0].lock_use.value &amp; ~decoded_wr_biten[1:1]) | (decoded_wr_data[1:1] &amp; decoded_wr_biten[1:1]);</span></span>
 <span id="L220"><span class="lineNum">     220</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
 <span id="L221"><span class="lineNum">     221</span>              :             end</span>
 <span id="L222"><span class="lineNum">     222</span> <span class="tlaGNC tlaBgGNC">          32 :             field_combo.KEY_CTRL[i0].lock_use.next = next_c;</span></span>
 <span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">          32 :             field_combo.KEY_CTRL[i0].lock_use.load_next = load_next_c;</span></span>
 <span id="L224"><span class="lineNum">     224</span>              :         end</span>
-<span id="L225"><span class="lineNum">     225</span> <span class="tlaGNC">    52156416 :         always_ff @(posedge clk or negedge hwif_in.core_only_rst_b) begin</span></span>
+<span id="L225"><span class="lineNum">     225</span> <span class="tlaGNC">    52174784 :         always_ff @(posedge clk or negedge hwif_in.core_only_rst_b) begin</span></span>
 <span id="L226"><span class="lineNum">     226</span> <span class="tlaGNC">        7424 :             if(~hwif_in.core_only_rst_b) begin</span></span>
 <span id="L227"><span class="lineNum">     227</span> <span class="tlaGNC">        7424 :                 field_storage.KEY_CTRL[i0].lock_use.value &lt;= 1'h0;</span></span>
-<span id="L228"><span class="lineNum">     228</span> <span class="tlaGNC">    52148992 :             end else if(field_combo.KEY_CTRL[i0].lock_use.load_next) begin</span></span>
+<span id="L228"><span class="lineNum">     228</span> <span class="tlaGNC">    52167360 :             end else if(field_combo.KEY_CTRL[i0].lock_use.load_next) begin</span></span>
 <span id="L229"><span class="lineNum">     229</span> <span class="tlaUNC tlaBgUNC">           0 :                 field_storage.KEY_CTRL[i0].lock_use.value &lt;= field_combo.KEY_CTRL[i0].lock_use.next;</span></span>
 <span id="L230"><span class="lineNum">     230</span>              :             end</span>
 <span id="L231"><span class="lineNum">     231</span>              :         end</span>
@@ -340,21 +340,21 @@
 <span id="L236"><span class="lineNum">     236</span>              :             automatic logic load_next_c;</span>
 <span id="L237"><span class="lineNum">     237</span> <span class="tlaGNC">          32 :             next_c = field_storage.KEY_CTRL[i0].clear.value;</span></span>
 <span id="L238"><span class="lineNum">     238</span> <span class="tlaGNC">          32 :             load_next_c = '0;</span></span>
-<span id="L239"><span class="lineNum">     239</span> <span class="tlaGNC">    52158784 :             if(decoded_reg_strb.KEY_CTRL[i0] &amp;&amp; decoded_req_is_wr) begin // SW write</span></span>
+<span id="L239"><span class="lineNum">     239</span> <span class="tlaGNC">    52177152 :             if(decoded_reg_strb.KEY_CTRL[i0] &amp;&amp; decoded_req_is_wr) begin // SW write</span></span>
 <span id="L240"><span class="lineNum">     240</span> <span class="tlaUNC tlaBgUNC">           0 :                 next_c = (field_storage.KEY_CTRL[i0].clear.value &amp; ~decoded_wr_biten[2:2]) | (decoded_wr_data[2:2] &amp; decoded_wr_biten[2:2]);</span></span>
 <span id="L241"><span class="lineNum">     241</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
-<span id="L242"><span class="lineNum">     242</span> <span class="tlaGNC tlaBgGNC">    52158784 :             end else begin // singlepulse clears back to 0</span></span>
-<span id="L243"><span class="lineNum">     243</span> <span class="tlaGNC">    52158784 :                 next_c = '0;</span></span>
-<span id="L244"><span class="lineNum">     244</span> <span class="tlaGNC">    52158784 :                 load_next_c = '1;</span></span>
+<span id="L242"><span class="lineNum">     242</span> <span class="tlaGNC tlaBgGNC">    52177152 :             end else begin // singlepulse clears back to 0</span></span>
+<span id="L243"><span class="lineNum">     243</span> <span class="tlaGNC">    52177152 :                 next_c = '0;</span></span>
+<span id="L244"><span class="lineNum">     244</span> <span class="tlaGNC">    52177152 :                 load_next_c = '1;</span></span>
 <span id="L245"><span class="lineNum">     245</span>              :             end</span>
 <span id="L246"><span class="lineNum">     246</span> <span class="tlaGNC">          32 :             field_combo.KEY_CTRL[i0].clear.next = next_c;</span></span>
 <span id="L247"><span class="lineNum">     247</span> <span class="tlaGNC">          32 :             field_combo.KEY_CTRL[i0].clear.load_next = load_next_c;</span></span>
 <span id="L248"><span class="lineNum">     248</span>              :         end</span>
-<span id="L249"><span class="lineNum">     249</span> <span class="tlaGNC">    52156416 :         always_ff @(posedge clk or negedge hwif_in.reset_b) begin</span></span>
+<span id="L249"><span class="lineNum">     249</span> <span class="tlaGNC">    52174784 :         always_ff @(posedge clk or negedge hwif_in.reset_b) begin</span></span>
 <span id="L250"><span class="lineNum">     250</span> <span class="tlaGNC">         512 :             if(~hwif_in.reset_b) begin</span></span>
 <span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">         512 :                 field_storage.KEY_CTRL[i0].clear.value &lt;= 1'h0;</span></span>
 <span id="L252"><span class="lineNum">     252</span> <span class="tlaUNC tlaBgUNC">           0 :             end else if(field_combo.KEY_CTRL[i0].clear.load_next) begin</span></span>
-<span id="L253"><span class="lineNum">     253</span> <span class="tlaGNC tlaBgGNC">    52155904 :                 field_storage.KEY_CTRL[i0].clear.value &lt;= field_combo.KEY_CTRL[i0].clear.next;</span></span>
+<span id="L253"><span class="lineNum">     253</span> <span class="tlaGNC tlaBgGNC">    52174272 :                 field_storage.KEY_CTRL[i0].clear.value &lt;= field_combo.KEY_CTRL[i0].clear.next;</span></span>
 <span id="L254"><span class="lineNum">     254</span>              :             end</span>
 <span id="L255"><span class="lineNum">     255</span>              :         end</span>
 <span id="L256"><span class="lineNum">     256</span>              :         assign hwif_out.KEY_CTRL[i0].clear.value = field_storage.KEY_CTRL[i0].clear.value;</span>
@@ -367,17 +367,17 @@
 <span id="L263"><span class="lineNum">     263</span> <span class="tlaUNC tlaBgUNC">           0 :             if(decoded_reg_strb.KEY_CTRL[i0] &amp;&amp; decoded_req_is_wr) begin // SW write</span></span>
 <span id="L264"><span class="lineNum">     264</span> <span class="tlaUNC">           0 :                 next_c = (field_storage.KEY_CTRL[i0].rsvd0.value &amp; ~decoded_wr_biten[3:3]) | (decoded_wr_data[3:3] &amp; decoded_wr_biten[3:3]);</span></span>
 <span id="L265"><span class="lineNum">     265</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
-<span id="L266"><span class="lineNum">     266</span> <span class="tlaGNC tlaBgGNC">   156476096 :             end else if(hwif_in.KEY_CTRL[i0].rsvd0.hwclr) begin // HW Clear</span></span>
+<span id="L266"><span class="lineNum">     266</span> <span class="tlaGNC tlaBgGNC">   156531200 :             end else if(hwif_in.KEY_CTRL[i0].rsvd0.hwclr) begin // HW Clear</span></span>
 <span id="L267"><span class="lineNum">     267</span> <span class="tlaUNC tlaBgUNC">           0 :                 next_c = '0;</span></span>
 <span id="L268"><span class="lineNum">     268</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
 <span id="L269"><span class="lineNum">     269</span>              :             end</span>
 <span id="L270"><span class="lineNum">     270</span> <span class="tlaGNC tlaBgGNC">          32 :             field_combo.KEY_CTRL[i0].rsvd0.next = next_c;</span></span>
 <span id="L271"><span class="lineNum">     271</span> <span class="tlaGNC">          32 :             field_combo.KEY_CTRL[i0].rsvd0.load_next = load_next_c;</span></span>
 <span id="L272"><span class="lineNum">     272</span>              :         end</span>
-<span id="L273"><span class="lineNum">     273</span> <span class="tlaGNC">    52156416 :         always_ff @(posedge clk or negedge hwif_in.reset_b) begin</span></span>
+<span id="L273"><span class="lineNum">     273</span> <span class="tlaGNC">    52174784 :         always_ff @(posedge clk or negedge hwif_in.reset_b) begin</span></span>
 <span id="L274"><span class="lineNum">     274</span> <span class="tlaGNC">         512 :             if(~hwif_in.reset_b) begin</span></span>
 <span id="L275"><span class="lineNum">     275</span> <span class="tlaGNC">         512 :                 field_storage.KEY_CTRL[i0].rsvd0.value &lt;= 1'h0;</span></span>
-<span id="L276"><span class="lineNum">     276</span> <span class="tlaGNC">    52155904 :             end else if(field_combo.KEY_CTRL[i0].rsvd0.load_next) begin</span></span>
+<span id="L276"><span class="lineNum">     276</span> <span class="tlaGNC">    52174272 :             end else if(field_combo.KEY_CTRL[i0].rsvd0.load_next) begin</span></span>
 <span id="L277"><span class="lineNum">     277</span> <span class="tlaUNC tlaBgUNC">           0 :                 field_storage.KEY_CTRL[i0].rsvd0.value &lt;= field_combo.KEY_CTRL[i0].rsvd0.next;</span></span>
 <span id="L278"><span class="lineNum">     278</span>              :             end</span>
 <span id="L279"><span class="lineNum">     279</span>              :         end</span>
@@ -388,17 +388,17 @@
 <span id="L284"><span class="lineNum">     284</span>              :             automatic logic load_next_c;</span>
 <span id="L285"><span class="lineNum">     285</span> <span class="tlaGNC">          32 :             next_c = field_storage.KEY_CTRL[i0].rsvd1.value;</span></span>
 <span id="L286"><span class="lineNum">     286</span> <span class="tlaGNC">          32 :             load_next_c = '0;</span></span>
-<span id="L287"><span class="lineNum">     287</span> <span class="tlaGNC">    52158784 :             if(decoded_reg_strb.KEY_CTRL[i0] &amp;&amp; decoded_req_is_wr) begin // SW write</span></span>
+<span id="L287"><span class="lineNum">     287</span> <span class="tlaGNC">    52177152 :             if(decoded_reg_strb.KEY_CTRL[i0] &amp;&amp; decoded_req_is_wr) begin // SW write</span></span>
 <span id="L288"><span class="lineNum">     288</span> <span class="tlaUNC tlaBgUNC">           0 :                 next_c = (field_storage.KEY_CTRL[i0].rsvd1.value &amp; ~decoded_wr_biten[8:4]) | (decoded_wr_data[8:4] &amp; decoded_wr_biten[8:4]);</span></span>
 <span id="L289"><span class="lineNum">     289</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
 <span id="L290"><span class="lineNum">     290</span>              :             end</span>
 <span id="L291"><span class="lineNum">     291</span> <span class="tlaGNC tlaBgGNC">          32 :             field_combo.KEY_CTRL[i0].rsvd1.next = next_c;</span></span>
 <span id="L292"><span class="lineNum">     292</span> <span class="tlaGNC">          32 :             field_combo.KEY_CTRL[i0].rsvd1.load_next = load_next_c;</span></span>
 <span id="L293"><span class="lineNum">     293</span>              :         end</span>
-<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC">    52156416 :         always_ff @(posedge clk or negedge hwif_in.reset_b) begin</span></span>
+<span id="L294"><span class="lineNum">     294</span> <span class="tlaGNC">    52174784 :         always_ff @(posedge clk or negedge hwif_in.reset_b) begin</span></span>
 <span id="L295"><span class="lineNum">     295</span> <span class="tlaGNC">         512 :             if(~hwif_in.reset_b) begin</span></span>
 <span id="L296"><span class="lineNum">     296</span> <span class="tlaGNC">         512 :                 field_storage.KEY_CTRL[i0].rsvd1.value &lt;= 5'h0;</span></span>
-<span id="L297"><span class="lineNum">     297</span> <span class="tlaGNC">    52155904 :             end else if(field_combo.KEY_CTRL[i0].rsvd1.load_next) begin</span></span>
+<span id="L297"><span class="lineNum">     297</span> <span class="tlaGNC">    52174272 :             end else if(field_combo.KEY_CTRL[i0].rsvd1.load_next) begin</span></span>
 <span id="L298"><span class="lineNum">     298</span> <span class="tlaUNC tlaBgUNC">           0 :                 field_storage.KEY_CTRL[i0].rsvd1.value &lt;= field_combo.KEY_CTRL[i0].rsvd1.next;</span></span>
 <span id="L299"><span class="lineNum">     299</span>              :             end</span>
 <span id="L300"><span class="lineNum">     300</span>              :         end</span>
@@ -412,14 +412,14 @@
 <span id="L308"><span class="lineNum">     308</span> <span class="tlaGNC">         228 :             if(hwif_in.KEY_CTRL[i0].dest_valid.we) begin // HW Write - we</span></span>
 <span id="L309"><span class="lineNum">     309</span> <span class="tlaGNC">         228 :                 next_c = hwif_in.KEY_CTRL[i0].dest_valid.next;</span></span>
 <span id="L310"><span class="lineNum">     310</span> <span class="tlaGNC">         228 :                 load_next_c = '1;</span></span>
-<span id="L311"><span class="lineNum">     311</span> <span class="tlaGNC">   156475868 :             end else if(hwif_in.KEY_CTRL[i0].dest_valid.hwclr) begin // HW Clear</span></span>
+<span id="L311"><span class="lineNum">     311</span> <span class="tlaGNC">   156530972 :             end else if(hwif_in.KEY_CTRL[i0].dest_valid.hwclr) begin // HW Clear</span></span>
 <span id="L312"><span class="lineNum">     312</span> <span class="tlaUNC tlaBgUNC">           0 :                 next_c = '0;</span></span>
 <span id="L313"><span class="lineNum">     313</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
 <span id="L314"><span class="lineNum">     314</span>              :             end</span>
 <span id="L315"><span class="lineNum">     315</span> <span class="tlaGNC tlaBgGNC">          32 :             field_combo.KEY_CTRL[i0].dest_valid.next = next_c;</span></span>
 <span id="L316"><span class="lineNum">     316</span> <span class="tlaGNC">          32 :             field_combo.KEY_CTRL[i0].dest_valid.load_next = load_next_c;</span></span>
 <span id="L317"><span class="lineNum">     317</span>              :         end</span>
-<span id="L318"><span class="lineNum">     318</span> <span class="tlaGNC">    52156352 :         always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
+<span id="L318"><span class="lineNum">     318</span> <span class="tlaGNC">    52174720 :         always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
 <span id="L319"><span class="lineNum">     319</span> <span class="tlaGNC">          64 :             if(~hwif_in.hard_reset_b) begin</span></span>
 <span id="L320"><span class="lineNum">     320</span> <span class="tlaGNC">          64 :                 field_storage.KEY_CTRL[i0].dest_valid.value &lt;= 8'h0;</span></span>
 <span id="L321"><span class="lineNum">     321</span> <span class="tlaGNC">          76 :             end else if(field_combo.KEY_CTRL[i0].dest_valid.load_next) begin</span></span>
@@ -436,14 +436,14 @@
 <span id="L332"><span class="lineNum">     332</span> <span class="tlaGNC">         228 :             if(hwif_in.KEY_CTRL[i0].last_dword.we) begin // HW Write - we</span></span>
 <span id="L333"><span class="lineNum">     333</span> <span class="tlaGNC">         228 :                 next_c = hwif_in.KEY_CTRL[i0].last_dword.next;</span></span>
 <span id="L334"><span class="lineNum">     334</span> <span class="tlaGNC">         228 :                 load_next_c = '1;</span></span>
-<span id="L335"><span class="lineNum">     335</span> <span class="tlaGNC">   156475868 :             end else if(hwif_in.KEY_CTRL[i0].last_dword.hwclr) begin // HW Clear</span></span>
+<span id="L335"><span class="lineNum">     335</span> <span class="tlaGNC">   156530972 :             end else if(hwif_in.KEY_CTRL[i0].last_dword.hwclr) begin // HW Clear</span></span>
 <span id="L336"><span class="lineNum">     336</span> <span class="tlaUNC tlaBgUNC">           0 :                 next_c = '0;</span></span>
 <span id="L337"><span class="lineNum">     337</span> <span class="tlaUNC">           0 :                 load_next_c = '1;</span></span>
 <span id="L338"><span class="lineNum">     338</span>              :             end</span>
 <span id="L339"><span class="lineNum">     339</span> <span class="tlaGNC tlaBgGNC">          32 :             field_combo.KEY_CTRL[i0].last_dword.next = next_c;</span></span>
 <span id="L340"><span class="lineNum">     340</span> <span class="tlaGNC">          32 :             field_combo.KEY_CTRL[i0].last_dword.load_next = load_next_c;</span></span>
 <span id="L341"><span class="lineNum">     341</span>              :         end</span>
-<span id="L342"><span class="lineNum">     342</span> <span class="tlaGNC">    52156352 :         always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
+<span id="L342"><span class="lineNum">     342</span> <span class="tlaGNC">    52174720 :         always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
 <span id="L343"><span class="lineNum">     343</span> <span class="tlaGNC">          64 :             if(~hwif_in.hard_reset_b) begin</span></span>
 <span id="L344"><span class="lineNum">     344</span> <span class="tlaGNC">          64 :                 field_storage.KEY_CTRL[i0].last_dword.value &lt;= 4'h0;</span></span>
 <span id="L345"><span class="lineNum">     345</span> <span class="tlaGNC">          76 :             end else if(field_combo.KEY_CTRL[i0].last_dword.load_next) begin</span></span>
@@ -466,14 +466,14 @@
 <span id="L362"><span class="lineNum">     362</span> <span class="tlaGNC tlaBgGNC">         228 :                 end else if(hwif_in.KEY_ENTRY[i0][i1].data.we) begin // HW Write - we</span></span>
 <span id="L363"><span class="lineNum">     363</span> <span class="tlaGNC">         228 :                     next_c = hwif_in.KEY_ENTRY[i0][i1].data.next;</span></span>
 <span id="L364"><span class="lineNum">     364</span> <span class="tlaGNC">         228 :                     load_next_c = '1;</span></span>
-<span id="L365"><span class="lineNum">     365</span> <span class="tlaGNC">  1877712924 :                 end else if(hwif_in.KEY_ENTRY[i0][i1].data.hwclr) begin // HW Clear</span></span>
+<span id="L365"><span class="lineNum">     365</span> <span class="tlaGNC">  1878374172 :                 end else if(hwif_in.KEY_ENTRY[i0][i1].data.hwclr) begin // HW Clear</span></span>
 <span id="L366"><span class="lineNum">     366</span> <span class="tlaUNC tlaBgUNC">           0 :                     next_c = '0;</span></span>
 <span id="L367"><span class="lineNum">     367</span> <span class="tlaUNC">           0 :                     load_next_c = '1;</span></span>
 <span id="L368"><span class="lineNum">     368</span>              :                 end</span>
 <span id="L369"><span class="lineNum">     369</span> <span class="tlaGNC tlaBgGNC">         384 :                 field_combo.KEY_ENTRY[i0][i1].data.next = next_c;</span></span>
 <span id="L370"><span class="lineNum">     370</span> <span class="tlaGNC">         384 :                 field_combo.KEY_ENTRY[i0][i1].data.load_next = load_next_c;</span></span>
 <span id="L371"><span class="lineNum">     371</span>              :             end</span>
-<span id="L372"><span class="lineNum">     372</span> <span class="tlaGNC">   625876224 :             always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
+<span id="L372"><span class="lineNum">     372</span> <span class="tlaGNC">   626096640 :             always_ff @(posedge clk or negedge hwif_in.hard_reset_b) begin</span></span>
 <span id="L373"><span class="lineNum">     373</span> <span class="tlaGNC">         768 :                 if(~hwif_in.hard_reset_b) begin</span></span>
 <span id="L374"><span class="lineNum">     374</span> <span class="tlaGNC">         768 :                     field_storage.KEY_ENTRY[i0][i1].data.value &lt;= 32'h0;</span></span>
 <span id="L375"><span class="lineNum">     375</span> <span class="tlaGNC">          76 :                 end else if(field_combo.KEY_ENTRY[i0][i1].data.load_next) begin</span></span>
@@ -492,18 +492,18 @@
 <span id="L388"><span class="lineNum">     388</span> <span class="tlaUNC tlaBgUNC">           0 :         if(decoded_reg_strb.CLEAR_SECRETS &amp;&amp; decoded_req_is_wr) begin // SW write</span></span>
 <span id="L389"><span class="lineNum">     389</span> <span class="tlaUNC">           0 :             next_c = (field_storage.CLEAR_SECRETS.wr_debug_values.value &amp; ~decoded_wr_biten[0:0]) | (decoded_wr_data[0:0] &amp; decoded_wr_biten[0:0]);</span></span>
 <span id="L390"><span class="lineNum">     390</span> <span class="tlaUNC">           0 :             load_next_c = '1;</span></span>
-<span id="L391"><span class="lineNum">     391</span> <span class="tlaGNC tlaBgGNC">     1629962 :         end else begin // singlepulse clears back to 0</span></span>
-<span id="L392"><span class="lineNum">     392</span> <span class="tlaGNC">     1629962 :             next_c = '0;</span></span>
-<span id="L393"><span class="lineNum">     393</span> <span class="tlaGNC">     1629962 :             load_next_c = '1;</span></span>
+<span id="L391"><span class="lineNum">     391</span> <span class="tlaGNC tlaBgGNC">     1630536 :         end else begin // singlepulse clears back to 0</span></span>
+<span id="L392"><span class="lineNum">     392</span> <span class="tlaGNC">     1630536 :             next_c = '0;</span></span>
+<span id="L393"><span class="lineNum">     393</span> <span class="tlaGNC">     1630536 :             load_next_c = '1;</span></span>
 <span id="L394"><span class="lineNum">     394</span>              :         end</span>
 <span id="L395"><span class="lineNum">     395</span> <span class="tlaGNC">           1 :         field_combo.CLEAR_SECRETS.wr_debug_values.next = next_c;</span></span>
 <span id="L396"><span class="lineNum">     396</span> <span class="tlaGNC">           1 :         field_combo.CLEAR_SECRETS.wr_debug_values.load_next = load_next_c;</span></span>
 <span id="L397"><span class="lineNum">     397</span>              :     end</span>
-<span id="L398"><span class="lineNum">     398</span> <span class="tlaGNC">     1629888 :     always_ff @(posedge clk or negedge hwif_in.reset_b) begin</span></span>
+<span id="L398"><span class="lineNum">     398</span> <span class="tlaGNC">     1630462 :     always_ff @(posedge clk or negedge hwif_in.reset_b) begin</span></span>
 <span id="L399"><span class="lineNum">     399</span> <span class="tlaGNC">          16 :         if(~hwif_in.reset_b) begin</span></span>
 <span id="L400"><span class="lineNum">     400</span> <span class="tlaGNC">          16 :             field_storage.CLEAR_SECRETS.wr_debug_values.value &lt;= 1'h0;</span></span>
 <span id="L401"><span class="lineNum">     401</span> <span class="tlaUNC tlaBgUNC">           0 :         end else if(field_combo.CLEAR_SECRETS.wr_debug_values.load_next) begin</span></span>
-<span id="L402"><span class="lineNum">     402</span> <span class="tlaGNC tlaBgGNC">     1629872 :             field_storage.CLEAR_SECRETS.wr_debug_values.value &lt;= field_combo.CLEAR_SECRETS.wr_debug_values.next;</span></span>
+<span id="L402"><span class="lineNum">     402</span> <span class="tlaGNC tlaBgGNC">     1630446 :             field_storage.CLEAR_SECRETS.wr_debug_values.value &lt;= field_combo.CLEAR_SECRETS.wr_debug_values.next;</span></span>
 <span id="L403"><span class="lineNum">     403</span>              :         end</span>
 <span id="L404"><span class="lineNum">     404</span>              :     end</span>
 <span id="L405"><span class="lineNum">     405</span>              :     assign hwif_out.CLEAR_SECRETS.wr_debug_values.value = field_storage.CLEAR_SECRETS.wr_debug_values.value;</span>
@@ -520,10 +520,10 @@
 <span id="L416"><span class="lineNum">     416</span> <span class="tlaGNC tlaBgGNC">           1 :         field_combo.CLEAR_SECRETS.sel_debug_value.next = next_c;</span></span>
 <span id="L417"><span class="lineNum">     417</span> <span class="tlaGNC">           1 :         field_combo.CLEAR_SECRETS.sel_debug_value.load_next = load_next_c;</span></span>
 <span id="L418"><span class="lineNum">     418</span>              :     end</span>
-<span id="L419"><span class="lineNum">     419</span> <span class="tlaGNC">     1629888 :     always_ff @(posedge clk or negedge hwif_in.reset_b) begin</span></span>
+<span id="L419"><span class="lineNum">     419</span> <span class="tlaGNC">     1630462 :     always_ff @(posedge clk or negedge hwif_in.reset_b) begin</span></span>
 <span id="L420"><span class="lineNum">     420</span> <span class="tlaGNC">          16 :         if(~hwif_in.reset_b) begin</span></span>
 <span id="L421"><span class="lineNum">     421</span> <span class="tlaGNC">          16 :             field_storage.CLEAR_SECRETS.sel_debug_value.value &lt;= 1'h0;</span></span>
-<span id="L422"><span class="lineNum">     422</span> <span class="tlaGNC">     1629872 :         end else if(field_combo.CLEAR_SECRETS.sel_debug_value.load_next) begin</span></span>
+<span id="L422"><span class="lineNum">     422</span> <span class="tlaGNC">     1630446 :         end else if(field_combo.CLEAR_SECRETS.sel_debug_value.load_next) begin</span></span>
 <span id="L423"><span class="lineNum">     423</span> <span class="tlaUNC tlaBgUNC">           0 :             field_storage.CLEAR_SECRETS.sel_debug_value.value &lt;= field_combo.CLEAR_SECRETS.sel_debug_value.next;</span></span>
 <span id="L424"><span class="lineNum">     424</span>              :         end</span>
 <span id="L425"><span class="lineNum">     425</span>              :     end</span>
@@ -540,7 +540,7 @@
 <span id="L436"><span class="lineNum">     436</span>              :     // Readback</span>
 <span id="L437"><span class="lineNum">     437</span>              :     //--------------------------------------------------------------------------</span>
 <span id="L438"><span class="lineNum">     438</span>              : </span>
-<span id="L439"><span class="lineNum">     439</span> <span class="tlaGNC tlaBgGNC">        7686 :     logic readback_err;</span></span>
+<span id="L439"><span class="lineNum">     439</span> <span class="tlaGNC tlaBgGNC">        7706 :     logic readback_err;</span></span>
 <span id="L440"><span class="lineNum">     440</span> <span class="tlaUNC tlaBgUNC">           0 :     logic readback_done;</span></span>
 <span id="L441"><span class="lineNum">     441</span> <span class="tlaUNC">           0 :     logic [31:0] readback_data;</span></span>
 <span id="L442"><span class="lineNum">     442</span>              : </span>

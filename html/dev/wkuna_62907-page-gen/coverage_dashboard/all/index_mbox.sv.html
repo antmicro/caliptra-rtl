@@ -51,18 +51,18 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
     <td class="headerCovSummary rowLeft">
         Toggle
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ecff00;">
-        53.6%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #ff3600;">
+        10.7%
     </td>
     <td class="headerCovSummaryEntry">
-        45
+        8
     </td>
     <td class="headerCovSummaryEntry">
         84
@@ -79,11 +79,11 @@
     <td class="headerCovSummary rowLeft">
         Branch
     </td>
-    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #b4ff00;">
-        64.7%
+    <td class="headerCovSummaryEntry" style="color: #0E1116; background-color: #a4ff00;">
+        67.7%
     </td>
     <td class="headerCovSummaryEntry">
-        150
+        157
     </td>
     <td class="headerCovSummaryEntry">
         232
@@ -126,42 +126,42 @@
 <span id="L22"><span class="lineNum">      22</span>              :     ,parameter SIZE_KB = 128</span>
 <span id="L23"><span class="lineNum">      23</span>              :     )</span>
 <span id="L24"><span class="lineNum">      24</span>              :     (</span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC tlaBgGNC">      864324 :     input logic         clk,</span></span>
-<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">          21 :     input logic         rst_b,</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC tlaBgGNC">      458284 :     input logic         clk,</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           1 :     input logic         rst_b,</span></span>
 <span id="L27"><span class="lineNum">      27</span>              : </span>
 <span id="L28"><span class="lineNum">      28</span>              :     //mailbox request</span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaGNC">          62 :     input logic         req_dv,</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaGNC">         656 :     output logic        req_hold,</span></span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">        1328 :     input logic         dir_req_dv,</span></span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">          32 :     input soc_ifc_req_t req_data,</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">       45862 :     output logic        mbox_error,</span></span>
+<span id="L29"><span class="lineNum">      29</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic         req_dv,</span></span>
+<span id="L30"><span class="lineNum">      30</span> <span class="tlaUNC">           0 :     output logic        req_hold,</span></span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaUNC">           0 :     input logic         dir_req_dv,</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC">           0 :     input soc_ifc_req_t req_data,</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC tlaBgGNC">       24634 :     output logic        mbox_error,</span></span>
 <span id="L34"><span class="lineNum">      34</span>              : </span>
 <span id="L35"><span class="lineNum">      35</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic [DATA_W-1:0] rdata,</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC tlaBgGNC">           2 :     output logic [DATA_W-1:0] dir_rdata,</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC">           0 :     output logic [DATA_W-1:0] dir_rdata,</span></span>
 <span id="L37"><span class="lineNum">      37</span>              : </span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic sha_sram_req_dv,</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC">           0 :     input logic sha_sram_req_dv,</span></span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaUNC">           0 :     input logic [MBOX_ADDR_W-1:0] sha_sram_req_addr,</span></span>
-<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC tlaBgGNC">           2 :     output mbox_sram_resp_t sha_sram_resp,</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">       45862 :     output logic sha_sram_hold, // Throttle the SRAM requests when writing corrected ECC</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC">           0 :     output mbox_sram_resp_t sha_sram_resp,</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC tlaBgGNC">       24634 :     output logic sha_sram_hold, // Throttle the SRAM requests when writing corrected ECC</span></span>
 <span id="L42"><span class="lineNum">      42</span>              : </span>
 <span id="L43"><span class="lineNum">      43</span>              :     //SRAM interface</span>
-<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">         672 :     output mbox_sram_req_t  mbox_sram_req,</span></span>
-<span id="L45"><span class="lineNum">      45</span> <span class="tlaGNC">           2 :     input  mbox_sram_resp_t mbox_sram_resp,</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaUNC tlaBgUNC">           0 :     output mbox_sram_req_t  mbox_sram_req,</span></span>
+<span id="L45"><span class="lineNum">      45</span> <span class="tlaUNC">           0 :     input  mbox_sram_resp_t mbox_sram_resp,</span></span>
 <span id="L46"><span class="lineNum">      46</span>              : </span>
 <span id="L47"><span class="lineNum">      47</span>              :     // ECC Status</span>
-<span id="L48"><span class="lineNum">      48</span> <span class="tlaGNC">         350 :     output logic sram_single_ecc_error,</span></span>
-<span id="L49"><span class="lineNum">      49</span> <span class="tlaGNC">          32 :     output logic sram_double_ecc_error,</span></span>
+<span id="L48"><span class="lineNum">      48</span> <span class="tlaUNC">           0 :     output logic sram_single_ecc_error,</span></span>
+<span id="L49"><span class="lineNum">      49</span> <span class="tlaUNC">           0 :     output logic sram_double_ecc_error,</span></span>
 <span id="L50"><span class="lineNum">      50</span>              : </span>
 <span id="L51"><span class="lineNum">      51</span>              :     //interrupts</span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC tlaBgUNC">           0 :     output logic uc_mbox_data_avail,</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaUNC">           0 :     output logic uc_mbox_data_avail,</span></span>
 <span id="L53"><span class="lineNum">      53</span> <span class="tlaUNC">           0 :     output logic soc_mbox_data_avail,</span></span>
 <span id="L54"><span class="lineNum">      54</span> <span class="tlaUNC">           0 :     output logic soc_req_mbox_lock,</span></span>
-<span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC tlaBgGNC">           4 :     output mbox_protocol_error_t mbox_protocol_error,</span></span>
-<span id="L56"><span class="lineNum">      56</span> <span class="tlaGNC">           4 :     output logic mbox_inv_pauser_axs,</span></span>
+<span id="L55"><span class="lineNum">      55</span> <span class="tlaUNC">           0 :     output mbox_protocol_error_t mbox_protocol_error,</span></span>
+<span id="L56"><span class="lineNum">      56</span> <span class="tlaUNC">           0 :     output logic mbox_inv_pauser_axs,</span></span>
 <span id="L57"><span class="lineNum">      57</span>              : </span>
 <span id="L58"><span class="lineNum">      58</span>              :     //DMI reg access</span>
-<span id="L59"><span class="lineNum">      59</span> <span class="tlaUNC tlaBgUNC">           0 :     input logic dmi_inc_rdptr,</span></span>
-<span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC tlaBgGNC">           4 :     output mbox_dmi_reg_t dmi_reg</span></span>
+<span id="L59"><span class="lineNum">      59</span> <span class="tlaUNC">           0 :     input logic dmi_inc_rdptr,</span></span>
+<span id="L60"><span class="lineNum">      60</span> <span class="tlaUNC">           0 :     output mbox_dmi_reg_t dmi_reg</span></span>
 <span id="L61"><span class="lineNum">      61</span>              : </span>
 <span id="L62"><span class="lineNum">      62</span>              : );</span>
 <span id="L63"><span class="lineNum">      63</span>              : </span>
@@ -179,13 +179,13 @@
 <span id="L75"><span class="lineNum">      75</span>              : //requests are granted only to the device that has locked the mailbox</span>
 <span id="L76"><span class="lineNum">      76</span>              : </span>
 <span id="L77"><span class="lineNum">      77</span>              : //present and next state</span>
-<span id="L78"><span class="lineNum">      78</span> <span class="tlaGNC">           4 : mbox_fsm_state_e mbox_fsm_ns;</span></span>
-<span id="L79"><span class="lineNum">      79</span> <span class="tlaGNC">           4 : mbox_fsm_state_e mbox_fsm_ps;</span></span>
+<span id="L78"><span class="lineNum">      78</span> <span class="tlaUNC">           0 : mbox_fsm_state_e mbox_fsm_ns;</span></span>
+<span id="L79"><span class="lineNum">      79</span> <span class="tlaUNC">           0 : mbox_fsm_state_e mbox_fsm_ps;</span></span>
 <span id="L80"><span class="lineNum">      80</span>              : </span>
 <span id="L81"><span class="lineNum">      81</span>              : //arcs between states</span>
-<span id="L82"><span class="lineNum">      82</span> <span class="tlaGNC">          22 : logic arc_FORCE_MBOX_UNLOCK;</span></span>
-<span id="L83"><span class="lineNum">      83</span> <span class="tlaGNC">          20 : logic arc_MBOX_IDLE_MBOX_RDY_FOR_CMD;</span></span>
-<span id="L84"><span class="lineNum">      84</span> <span class="tlaUNC tlaBgUNC">           0 : logic arc_MBOX_RDY_FOR_CMD_MBOX_RDY_FOR_DLEN;</span></span>
+<span id="L82"><span class="lineNum">      82</span> <span class="tlaUNC">           0 : logic arc_FORCE_MBOX_UNLOCK;</span></span>
+<span id="L83"><span class="lineNum">      83</span> <span class="tlaUNC">           0 : logic arc_MBOX_IDLE_MBOX_RDY_FOR_CMD;</span></span>
+<span id="L84"><span class="lineNum">      84</span> <span class="tlaUNC">           0 : logic arc_MBOX_RDY_FOR_CMD_MBOX_RDY_FOR_DLEN;</span></span>
 <span id="L85"><span class="lineNum">      85</span> <span class="tlaUNC">           0 : logic arc_MBOX_RDY_FOR_DLEN_MBOX_RDY_FOR_DATA;</span></span>
 <span id="L86"><span class="lineNum">      86</span> <span class="tlaUNC">           0 : logic arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_UC;</span></span>
 <span id="L87"><span class="lineNum">      87</span> <span class="tlaUNC">           0 : logic arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_SOC;</span></span>
@@ -193,16 +193,16 @@
 <span id="L89"><span class="lineNum">      89</span> <span class="tlaUNC">           0 : logic arc_MBOX_EXECUTE_SOC_MBOX_IDLE;</span></span>
 <span id="L90"><span class="lineNum">      90</span> <span class="tlaUNC">           0 : logic arc_MBOX_EXECUTE_UC_MBOX_EXECUTE_SOC;</span></span>
 <span id="L91"><span class="lineNum">      91</span> <span class="tlaUNC">           0 : logic arc_MBOX_EXECUTE_SOC_MBOX_EXECUTE_UC;</span></span>
-<span id="L92"><span class="lineNum">      92</span> <span class="tlaGNC tlaBgGNC">           4 : logic arc_MBOX_RDY_FOR_CMD_MBOX_ERROR;</span></span>
-<span id="L93"><span class="lineNum">      93</span> <span class="tlaUNC tlaBgUNC">           0 : logic arc_MBOX_RDY_FOR_DLEN_MBOX_ERROR;</span></span>
+<span id="L92"><span class="lineNum">      92</span> <span class="tlaUNC">           0 : logic arc_MBOX_RDY_FOR_CMD_MBOX_ERROR;</span></span>
+<span id="L93"><span class="lineNum">      93</span> <span class="tlaUNC">           0 : logic arc_MBOX_RDY_FOR_DLEN_MBOX_ERROR;</span></span>
 <span id="L94"><span class="lineNum">      94</span> <span class="tlaUNC">           0 : logic arc_MBOX_RDY_FOR_DATA_MBOX_ERROR;</span></span>
 <span id="L95"><span class="lineNum">      95</span> <span class="tlaUNC">           0 : logic arc_MBOX_EXECUTE_UC_MBOX_ERROR;</span></span>
 <span id="L96"><span class="lineNum">      96</span> <span class="tlaUNC">           0 : logic arc_MBOX_EXECUTE_SOC_MBOX_ERROR;</span></span>
 <span id="L97"><span class="lineNum">      97</span>              : </span>
 <span id="L98"><span class="lineNum">      98</span>              : //sram</span>
-<span id="L99"><span class="lineNum">      99</span> <span class="tlaGNC tlaBgGNC">         288 : logic [DATA_W-1:0] sram_wdata;</span></span>
-<span id="L100"><span class="lineNum">     100</span> <span class="tlaGNC">         890 : logic [MBOX_ECC_DATA_W-1:0] sram_wdata_ecc;</span></span>
-<span id="L101"><span class="lineNum">     101</span> <span class="tlaUNC tlaBgUNC">           0 : logic [DEPTH_LOG2-1:0] sram_waddr;</span></span>
+<span id="L99"><span class="lineNum">      99</span> <span class="tlaUNC">           0 : logic [DATA_W-1:0] sram_wdata;</span></span>
+<span id="L100"><span class="lineNum">     100</span> <span class="tlaUNC">           0 : logic [MBOX_ECC_DATA_W-1:0] sram_wdata_ecc;</span></span>
+<span id="L101"><span class="lineNum">     101</span> <span class="tlaUNC">           0 : logic [DEPTH_LOG2-1:0] sram_waddr;</span></span>
 <span id="L102"><span class="lineNum">     102</span> <span class="tlaUNC">           0 : logic [DEPTH_LOG2-1:0] mbox_wrptr, mbox_wrptr_nxt;</span></span>
 <span id="L103"><span class="lineNum">     103</span> <span class="tlaUNC">           0 : logic mbox_wr_full, mbox_wr_full_nxt;</span></span>
 <span id="L104"><span class="lineNum">     104</span> <span class="tlaUNC">           0 : logic inc_wrptr;</span></span>
@@ -212,22 +212,22 @@
 <span id="L108"><span class="lineNum">     108</span> <span class="tlaUNC">           0 : logic inc_rdptr;</span></span>
 <span id="L109"><span class="lineNum">     109</span> <span class="tlaUNC">           0 : logic rst_mbox_rdptr;</span></span>
 <span id="L110"><span class="lineNum">     110</span> <span class="tlaUNC">           0 : logic rst_mbox_wrptr;</span></span>
-<span id="L111"><span class="lineNum">     111</span> <span class="tlaGNC tlaBgGNC">        1798 : logic sram_rd_ecc_en;</span></span>
-<span id="L112"><span class="lineNum">     112</span> <span class="tlaGNC">        1530 : logic [DATA_W-1:0] sram_rdata;</span></span>
-<span id="L113"><span class="lineNum">     113</span> <span class="tlaGNC">        5474 : logic [MBOX_ECC_DATA_W-1:0] sram_rdata_ecc;</span></span>
-<span id="L114"><span class="lineNum">     114</span> <span class="tlaGNC">        1528 : logic [DATA_W-1:0] sram_rdata_cor;</span></span>
-<span id="L115"><span class="lineNum">     115</span> <span class="tlaGNC">        5474 : logic [MBOX_ECC_DATA_W-1:0] sram_rdata_cor_ecc;</span></span>
-<span id="L116"><span class="lineNum">     116</span> <span class="tlaGNC">         672 : logic sram_we;</span></span>
-<span id="L117"><span class="lineNum">     117</span> <span class="tlaUNC tlaBgUNC">           0 : logic mbox_protocol_sram_we;</span></span>
+<span id="L111"><span class="lineNum">     111</span> <span class="tlaUNC">           0 : logic sram_rd_ecc_en;</span></span>
+<span id="L112"><span class="lineNum">     112</span> <span class="tlaUNC">           0 : logic [DATA_W-1:0] sram_rdata;</span></span>
+<span id="L113"><span class="lineNum">     113</span> <span class="tlaUNC">           0 : logic [MBOX_ECC_DATA_W-1:0] sram_rdata_ecc;</span></span>
+<span id="L114"><span class="lineNum">     114</span> <span class="tlaUNC">           0 : logic [DATA_W-1:0] sram_rdata_cor;</span></span>
+<span id="L115"><span class="lineNum">     115</span> <span class="tlaUNC">           0 : logic [MBOX_ECC_DATA_W-1:0] sram_rdata_cor_ecc;</span></span>
+<span id="L116"><span class="lineNum">     116</span> <span class="tlaUNC">           0 : logic sram_we;</span></span>
+<span id="L117"><span class="lineNum">     117</span> <span class="tlaUNC">           0 : logic mbox_protocol_sram_we;</span></span>
 <span id="L118"><span class="lineNum">     118</span> <span class="tlaUNC">           0 : logic mbox_protocol_sram_rd, mbox_protocol_sram_rd_f;</span></span>
-<span id="L119"><span class="lineNum">     119</span> <span class="tlaGNC tlaBgGNC">         656 : logic dir_req_dv_q, dir_req_rd_phase;</span></span>
-<span id="L120"><span class="lineNum">     120</span> <span class="tlaGNC">         672 : logic dir_req_wr_ph;</span></span>
-<span id="L121"><span class="lineNum">     121</span> <span class="tlaGNC">           8 : logic mask_rdata;</span></span>
-<span id="L122"><span class="lineNum">     122</span> <span class="tlaUNC tlaBgUNC">           0 : logic [DEPTH_LOG2-1:0] dir_req_addr;</span></span>
+<span id="L119"><span class="lineNum">     119</span> <span class="tlaUNC">           0 : logic dir_req_dv_q, dir_req_rd_phase;</span></span>
+<span id="L120"><span class="lineNum">     120</span> <span class="tlaUNC">           0 : logic dir_req_wr_ph;</span></span>
+<span id="L121"><span class="lineNum">     121</span> <span class="tlaUNC">           0 : logic mask_rdata;</span></span>
+<span id="L122"><span class="lineNum">     122</span> <span class="tlaUNC">           0 : logic [DEPTH_LOG2-1:0] dir_req_addr;</span></span>
 <span id="L123"><span class="lineNum">     123</span>              : </span>
-<span id="L124"><span class="lineNum">     124</span> <span class="tlaGNC tlaBgGNC">           4 : logic soc_has_lock, soc_has_lock_nxt;</span></span>
-<span id="L125"><span class="lineNum">     125</span> <span class="tlaGNC">          28 : logic valid_requester;</span></span>
-<span id="L126"><span class="lineNum">     126</span> <span class="tlaUNC tlaBgUNC">           0 : logic valid_receiver;</span></span>
+<span id="L124"><span class="lineNum">     124</span> <span class="tlaUNC">           0 : logic soc_has_lock, soc_has_lock_nxt;</span></span>
+<span id="L125"><span class="lineNum">     125</span> <span class="tlaUNC">           0 : logic valid_requester;</span></span>
+<span id="L126"><span class="lineNum">     126</span> <span class="tlaUNC">           0 : logic valid_receiver;</span></span>
 <span id="L127"><span class="lineNum">     127</span>              : </span>
 <span id="L128"><span class="lineNum">     128</span> <span class="tlaUNC">           0 : logic [DEPTH_LOG2:0] mbox_dlen_in_dws;</span></span>
 <span id="L129"><span class="lineNum">     129</span> <span class="tlaUNC">           0 : logic latch_dlen_in_dws;</span></span>
@@ -236,22 +236,22 @@
 <span id="L132"><span class="lineNum">     132</span> <span class="tlaUNC">           0 : logic mbox_rd_valid, mbox_rd_valid_f;</span></span>
 <span id="L133"><span class="lineNum">     133</span> <span class="tlaGNC tlaBgGNC">           1 : logic wrptr_inc_valid;</span></span>
 <span id="L134"><span class="lineNum">     134</span>              : </span>
-<span id="L135"><span class="lineNum">     135</span> <span class="tlaGNC">           4 : mbox_protocol_error_t mbox_protocol_error_nxt;</span></span>
+<span id="L135"><span class="lineNum">     135</span> <span class="tlaUNC tlaBgUNC">           0 : mbox_protocol_error_t mbox_protocol_error_nxt;</span></span>
 <span id="L136"><span class="lineNum">     136</span>              : </span>
 <span id="L137"><span class="lineNum">     137</span>              : //csr</span>
-<span id="L138"><span class="lineNum">     138</span> <span class="tlaUNC tlaBgUNC">           0 : logic [DATA_W-1:0] csr_rdata;</span></span>
-<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC tlaBgGNC">       45862 : logic read_error;</span></span>
-<span id="L140"><span class="lineNum">     140</span> <span class="tlaGNC">       45862 : logic write_error;</span></span>
+<span id="L138"><span class="lineNum">     138</span> <span class="tlaUNC">           0 : logic [DATA_W-1:0] csr_rdata;</span></span>
+<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC tlaBgGNC">       24634 : logic read_error;</span></span>
+<span id="L140"><span class="lineNum">     140</span> <span class="tlaGNC">       24634 : logic write_error;</span></span>
 <span id="L141"><span class="lineNum">     141</span>              : </span>
-<span id="L142"><span class="lineNum">     142</span> <span class="tlaGNC">          28 : mbox_csr__in_t hwif_in;</span></span>
-<span id="L143"><span class="lineNum">     143</span> <span class="tlaGNC">           8 : mbox_csr__out_t hwif_out;</span></span>
+<span id="L142"><span class="lineNum">     142</span> <span class="tlaUNC tlaBgUNC">           0 : mbox_csr__in_t hwif_in;</span></span>
+<span id="L143"><span class="lineNum">     143</span> <span class="tlaUNC">           0 : mbox_csr__out_t hwif_out;</span></span>
 <span id="L144"><span class="lineNum">     144</span>              : </span>
 <span id="L145"><span class="lineNum">     145</span>              : assign mbox_error = read_error | write_error;</span>
 <span id="L146"><span class="lineNum">     146</span>              : </span>
 <span id="L147"><span class="lineNum">     147</span>              : //Determine if this is a valid request from the requester side</span>
 <span id="L148"><span class="lineNum">     148</span>              : //1) uC requests are valid if uc has lock</span>
 <span id="L149"><span class="lineNum">     149</span>              : //2) SoC requests are valid if soc has lock and it's the user that locked it </span>
-<span id="L150"><span class="lineNum">     150</span> <span class="tlaGNC">           1 : always_comb valid_requester = hwif_out.mbox_lock.lock.value &amp; </span></span>
+<span id="L150"><span class="lineNum">     150</span> <span class="tlaGNC tlaBgGNC">           1 : always_comb valid_requester = hwif_out.mbox_lock.lock.value &amp; </span></span>
 <span id="L151"><span class="lineNum">     151</span> <span class="tlaGNC">           1 :                               ((~req_data.soc_req &amp; (~soc_has_lock || (mbox_fsm_ps == MBOX_EXECUTE_UC))) |</span></span>
 <span id="L152"><span class="lineNum">     152</span> <span class="tlaGNC">           1 :                                ( req_data.soc_req &amp; soc_has_lock &amp; (req_data.user == hwif_out.mbox_user.user.value)));</span></span>
 <span id="L153"><span class="lineNum">     153</span>              : </span>
@@ -353,31 +353,31 @@
 <span id="L249"><span class="lineNum">     249</span> <span class="tlaGNC">           1 :     mbox_fsm_ns = mbox_fsm_ps;</span></span>
 <span id="L250"><span class="lineNum">     250</span>              : </span>
 <span id="L251"><span class="lineNum">     251</span> <span class="tlaGNC">           1 :     unique case (mbox_fsm_ps)</span></span>
-<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">        4618 :         MBOX_IDLE: begin</span></span>
-<span id="L253"><span class="lineNum">     253</span> <span class="tlaGNC">        9260 :             if (arc_MBOX_IDLE_MBOX_RDY_FOR_CMD) begin</span></span>
-<span id="L254"><span class="lineNum">     254</span> <span class="tlaUNC tlaBgUNC">           0 :                 mbox_fsm_ns = MBOX_RDY_FOR_CMD;</span></span>
-<span id="L255"><span class="lineNum">     255</span> <span class="tlaUNC">           0 :                 soc_has_lock_nxt = req_data.soc_req; //remember if soc or uc requested the lock</span></span>
+<span id="L252"><span class="lineNum">     252</span> <span class="tlaGNC">        7751 :         MBOX_IDLE: begin</span></span>
+<span id="L253"><span class="lineNum">     253</span> <span class="tlaGNC">           2 :             if (arc_MBOX_IDLE_MBOX_RDY_FOR_CMD) begin</span></span>
+<span id="L254"><span class="lineNum">     254</span> <span class="tlaGNC">           2 :                 mbox_fsm_ns = MBOX_RDY_FOR_CMD;</span></span>
+<span id="L255"><span class="lineNum">     255</span> <span class="tlaGNC">           2 :                 soc_has_lock_nxt = req_data.soc_req; //remember if soc or uc requested the lock</span></span>
 <span id="L256"><span class="lineNum">     256</span>              :             end</span>
 <span id="L257"><span class="lineNum">     257</span>              :             // Flag a non-fatal error, but don't change states, if mbox is already IDLE</span>
 <span id="L258"><span class="lineNum">     258</span>              :             // when an unexpected SOC access happens</span>
-<span id="L259"><span class="lineNum">     259</span> <span class="tlaGNC tlaBgGNC">        9260 :             if (req_dv &amp;&amp; req_data.soc_req &amp;&amp; !req_hold &amp;&amp; (req_data.write || hwif_out.mbox_dataout.dataout.swacc)) begin</span></span>
+<span id="L259"><span class="lineNum">     259</span> <span class="tlaGNC">       15526 :             if (req_dv &amp;&amp; req_data.soc_req &amp;&amp; !req_hold &amp;&amp; (req_data.write || hwif_out.mbox_dataout.dataout.swacc)) begin</span></span>
 <span id="L260"><span class="lineNum">     260</span> <span class="tlaUNC tlaBgUNC">           0 :                 mbox_protocol_error_nxt.axs_without_lock = 1'b1;</span></span>
 <span id="L261"><span class="lineNum">     261</span>              :             end</span>
 <span id="L262"><span class="lineNum">     262</span>              :         end</span>
-<span id="L263"><span class="lineNum">     263</span> <span class="tlaUNC">           0 :         MBOX_RDY_FOR_CMD: begin</span></span>
-<span id="L264"><span class="lineNum">     264</span> <span class="tlaUNC">           0 :             if (arc_MBOX_RDY_FOR_CMD_MBOX_RDY_FOR_DLEN) begin</span></span>
+<span id="L263"><span class="lineNum">     263</span> <span class="tlaGNC tlaBgGNC">       86300 :         MBOX_RDY_FOR_CMD: begin</span></span>
+<span id="L264"><span class="lineNum">     264</span> <span class="tlaUNC tlaBgUNC">           0 :             if (arc_MBOX_RDY_FOR_CMD_MBOX_RDY_FOR_DLEN) begin</span></span>
 <span id="L265"><span class="lineNum">     265</span> <span class="tlaUNC">           0 :                 mbox_fsm_ns = MBOX_RDY_FOR_DLEN;</span></span>
 <span id="L266"><span class="lineNum">     266</span>              :             end</span>
-<span id="L267"><span class="lineNum">     267</span> <span class="tlaUNC">           0 :             else if (arc_MBOX_RDY_FOR_CMD_MBOX_ERROR) begin</span></span>
-<span id="L268"><span class="lineNum">     268</span> <span class="tlaUNC">           0 :                 mbox_fsm_ns = MBOX_ERROR;</span></span>
+<span id="L267"><span class="lineNum">     267</span> <span class="tlaGNC tlaBgGNC">      172600 :             else if (arc_MBOX_RDY_FOR_CMD_MBOX_ERROR) begin</span></span>
+<span id="L268"><span class="lineNum">     268</span> <span class="tlaUNC tlaBgUNC">           0 :                 mbox_fsm_ns = MBOX_ERROR;</span></span>
 <span id="L269"><span class="lineNum">     269</span> <span class="tlaUNC">           0 :                 mbox_protocol_error_nxt.axs_incorrect_order = 1'b1;</span></span>
 <span id="L270"><span class="lineNum">     270</span>              :             end</span>
-<span id="L271"><span class="lineNum">     271</span> <span class="tlaUNC">           0 :             if (arc_FORCE_MBOX_UNLOCK) begin</span></span>
-<span id="L272"><span class="lineNum">     272</span> <span class="tlaUNC">           0 :                 mbox_fsm_ns = MBOX_IDLE;</span></span>
-<span id="L273"><span class="lineNum">     273</span> <span class="tlaUNC">           0 :                 mbox_protocol_error_nxt = '{default: 0};</span></span>
+<span id="L271"><span class="lineNum">     271</span> <span class="tlaGNC tlaBgGNC">           2 :             if (arc_FORCE_MBOX_UNLOCK) begin</span></span>
+<span id="L272"><span class="lineNum">     272</span> <span class="tlaGNC">           2 :                 mbox_fsm_ns = MBOX_IDLE;</span></span>
+<span id="L273"><span class="lineNum">     273</span> <span class="tlaGNC">           2 :                 mbox_protocol_error_nxt = '{default: 0};</span></span>
 <span id="L274"><span class="lineNum">     274</span>              :             end</span>
 <span id="L275"><span class="lineNum">     275</span>              :         end</span>
-<span id="L276"><span class="lineNum">     276</span> <span class="tlaUNC">           0 :         MBOX_RDY_FOR_DLEN: begin</span></span>
+<span id="L276"><span class="lineNum">     276</span> <span class="tlaUNC tlaBgUNC">           0 :         MBOX_RDY_FOR_DLEN: begin</span></span>
 <span id="L277"><span class="lineNum">     277</span> <span class="tlaUNC">           0 :             if (arc_MBOX_RDY_FOR_DLEN_MBOX_RDY_FOR_DATA) begin</span></span>
 <span id="L278"><span class="lineNum">     278</span> <span class="tlaUNC">           0 :                 mbox_fsm_ns = MBOX_RDY_FOR_DATA;</span></span>
 <span id="L279"><span class="lineNum">     279</span> <span class="tlaUNC">           0 :                 rst_mbox_wrptr = 1;</span></span>
@@ -496,7 +496,7 @@
 <span id="L392"><span class="lineNum">     392</span> <span class="tlaGNC">           1 : always_comb mbox_protocol_sram_we = inc_wrptr &amp; ~mbox_wr_full;</span></span>
 <span id="L393"><span class="lineNum">     393</span>              : </span>
 <span id="L394"><span class="lineNum">     394</span>              : //flops</span>
-<span id="L395"><span class="lineNum">     395</span> <span class="tlaGNC">        4617 : always_ff @(posedge clk or negedge rst_b) begin</span></span>
+<span id="L395"><span class="lineNum">     395</span> <span class="tlaGNC">       94050 : always_ff @(posedge clk or negedge rst_b) begin</span></span>
 <span id="L396"><span class="lineNum">     396</span> <span class="tlaGNC">           4 :     if (!rst_b)begin</span></span>
 <span id="L397"><span class="lineNum">     397</span> <span class="tlaGNC">           4 :         mbox_fsm_ps &lt;= MBOX_IDLE;</span></span>
 <span id="L398"><span class="lineNum">     398</span> <span class="tlaGNC">           4 :         soc_has_lock &lt;= '0;</span></span>
@@ -511,22 +511,22 @@
 <span id="L407"><span class="lineNum">     407</span> <span class="tlaGNC">           4 :         mbox_protocol_error &lt;= '0;</span></span>
 <span id="L408"><span class="lineNum">     408</span> <span class="tlaGNC">           4 :         sram_rd_ecc_en &lt;= '0;</span></span>
 <span id="L409"><span class="lineNum">     409</span>              :     end</span>
-<span id="L410"><span class="lineNum">     410</span> <span class="tlaGNC">        4613 :     else begin</span></span>
-<span id="L411"><span class="lineNum">     411</span> <span class="tlaGNC">        4613 :         mbox_fsm_ps &lt;= mbox_fsm_ns;</span></span>
-<span id="L412"><span class="lineNum">     412</span> <span class="tlaGNC">        4613 :         soc_has_lock &lt;= arc_MBOX_IDLE_MBOX_RDY_FOR_CMD ? soc_has_lock_nxt : </span></span>
-<span id="L413"><span class="lineNum">     413</span> <span class="tlaGNC">        4613 :                         hwif_out.mbox_lock.lock.value ? soc_has_lock : '0;</span></span>
-<span id="L414"><span class="lineNum">     414</span> <span class="tlaGNC">        4613 :         dir_req_rd_phase &lt;= dir_req_dv_q &amp; ~sha_sram_req_dv &amp; ~req_data.write;</span></span>
-<span id="L415"><span class="lineNum">     415</span> <span class="tlaGNC">        4613 :         mbox_wrptr &lt;= ((inc_wrptr &amp; wrptr_inc_valid) | rst_mbox_wrptr) ? mbox_wrptr_nxt : mbox_wrptr;</span></span>
-<span id="L416"><span class="lineNum">     416</span> <span class="tlaGNC">        4613 :         mbox_wr_full &lt;= (inc_wrptr | rst_mbox_wrptr) ? mbox_wr_full_nxt : mbox_wr_full;</span></span>
-<span id="L417"><span class="lineNum">     417</span> <span class="tlaGNC">        4613 :         mbox_rdptr &lt;= (mbox_protocol_sram_rd) ? mbox_rdptr_nxt : mbox_rdptr;</span></span>
-<span id="L418"><span class="lineNum">     418</span> <span class="tlaGNC">        4613 :         mbox_protocol_sram_rd_f &lt;= (mbox_protocol_sram_rd | mbox_protocol_sram_rd_f) ? mbox_protocol_sram_rd : mbox_protocol_sram_rd_f;</span></span>
-<span id="L419"><span class="lineNum">     419</span> <span class="tlaGNC">        4613 :         mbox_rd_full &lt;= (inc_rdptr | rst_mbox_rdptr) ? mbox_rd_full_nxt : mbox_rd_full;</span></span>
-<span id="L420"><span class="lineNum">     420</span> <span class="tlaGNC">        4613 :         mbox_rd_valid_f &lt;= (mbox_rd_valid | mbox_rd_valid_f) ? mbox_rd_valid : mbox_rd_valid_f;</span></span>
+<span id="L410"><span class="lineNum">     410</span> <span class="tlaGNC">       94046 :     else begin</span></span>
+<span id="L411"><span class="lineNum">     411</span> <span class="tlaGNC">       94046 :         mbox_fsm_ps &lt;= mbox_fsm_ns;</span></span>
+<span id="L412"><span class="lineNum">     412</span> <span class="tlaGNC">       94046 :         soc_has_lock &lt;= arc_MBOX_IDLE_MBOX_RDY_FOR_CMD ? soc_has_lock_nxt : </span></span>
+<span id="L413"><span class="lineNum">     413</span> <span class="tlaGNC">       94046 :                         hwif_out.mbox_lock.lock.value ? soc_has_lock : '0;</span></span>
+<span id="L414"><span class="lineNum">     414</span> <span class="tlaGNC">       94046 :         dir_req_rd_phase &lt;= dir_req_dv_q &amp; ~sha_sram_req_dv &amp; ~req_data.write;</span></span>
+<span id="L415"><span class="lineNum">     415</span> <span class="tlaGNC">       94046 :         mbox_wrptr &lt;= ((inc_wrptr &amp; wrptr_inc_valid) | rst_mbox_wrptr) ? mbox_wrptr_nxt : mbox_wrptr;</span></span>
+<span id="L416"><span class="lineNum">     416</span> <span class="tlaGNC">       94046 :         mbox_wr_full &lt;= (inc_wrptr | rst_mbox_wrptr) ? mbox_wr_full_nxt : mbox_wr_full;</span></span>
+<span id="L417"><span class="lineNum">     417</span> <span class="tlaGNC">       94046 :         mbox_rdptr &lt;= (mbox_protocol_sram_rd) ? mbox_rdptr_nxt : mbox_rdptr;</span></span>
+<span id="L418"><span class="lineNum">     418</span> <span class="tlaGNC">       94046 :         mbox_protocol_sram_rd_f &lt;= (mbox_protocol_sram_rd | mbox_protocol_sram_rd_f) ? mbox_protocol_sram_rd : mbox_protocol_sram_rd_f;</span></span>
+<span id="L419"><span class="lineNum">     419</span> <span class="tlaGNC">       94046 :         mbox_rd_full &lt;= (inc_rdptr | rst_mbox_rdptr) ? mbox_rd_full_nxt : mbox_rd_full;</span></span>
+<span id="L420"><span class="lineNum">     420</span> <span class="tlaGNC">       94046 :         mbox_rd_valid_f &lt;= (mbox_rd_valid | mbox_rd_valid_f) ? mbox_rd_valid : mbox_rd_valid_f;</span></span>
 <span id="L421"><span class="lineNum">     421</span>              :                              </span>
-<span id="L422"><span class="lineNum">     422</span> <span class="tlaGNC">        4613 :         dlen_in_dws &lt;= latch_dlen_in_dws ? dlen_in_dws_nxt : dlen_in_dws;                    </span></span>
-<span id="L423"><span class="lineNum">     423</span> <span class="tlaGNC">        4613 :         mbox_protocol_error &lt;= mbox_protocol_error_nxt;</span></span>
+<span id="L422"><span class="lineNum">     422</span> <span class="tlaGNC">       94046 :         dlen_in_dws &lt;= latch_dlen_in_dws ? dlen_in_dws_nxt : dlen_in_dws;                    </span></span>
+<span id="L423"><span class="lineNum">     423</span> <span class="tlaGNC">       94046 :         mbox_protocol_error &lt;= mbox_protocol_error_nxt;</span></span>
 <span id="L424"><span class="lineNum">     424</span>              :         //enable ecc for mbox protocol, direct reads, or SHA direct reads</span>
-<span id="L425"><span class="lineNum">     425</span> <span class="tlaGNC">        4613 :         sram_rd_ecc_en &lt;= mbox_protocol_sram_rd | (dir_req_dv_q &amp; ~sha_sram_req_dv &amp; ~req_data.write) | sha_sram_req_dv;</span></span>
+<span id="L425"><span class="lineNum">     425</span> <span class="tlaGNC">       94046 :         sram_rd_ecc_en &lt;= mbox_protocol_sram_rd | (dir_req_dv_q &amp; ~sha_sram_req_dv &amp; ~req_data.write) | sha_sram_req_dv;</span></span>
 <span id="L426"><span class="lineNum">     426</span>              :     end</span>
 <span id="L427"><span class="lineNum">     427</span>              : end</span>
 <span id="L428"><span class="lineNum">     428</span>              : </span>
@@ -666,10 +666,10 @@
 <span id="L562"><span class="lineNum">     562</span> <span class="tlaGNC">           1 :                                    hwif_out.mbox_status.status.value            /* [3:0] */</span></span>
 <span id="L563"><span class="lineNum">     563</span>              :                                    };</span>
 <span id="L564"><span class="lineNum">     564</span>              : </span>
-<span id="L565"><span class="lineNum">     565</span> <span class="tlaGNC">       45862 : logic s_cpuif_req_stall_wr_nc;</span></span>
-<span id="L566"><span class="lineNum">     566</span> <span class="tlaGNC">       45862 : logic s_cpuif_req_stall_rd_nc;</span></span>
-<span id="L567"><span class="lineNum">     567</span> <span class="tlaGNC">          40 : logic s_cpuif_rd_ack_nc;</span></span>
-<span id="L568"><span class="lineNum">     568</span> <span class="tlaGNC">          22 : logic s_cpuif_wr_ack_nc;</span></span>
+<span id="L565"><span class="lineNum">     565</span> <span class="tlaGNC">       24634 : logic s_cpuif_req_stall_wr_nc;</span></span>
+<span id="L566"><span class="lineNum">     566</span> <span class="tlaGNC">       24634 : logic s_cpuif_req_stall_rd_nc;</span></span>
+<span id="L567"><span class="lineNum">     567</span> <span class="tlaUNC tlaBgUNC">           0 : logic s_cpuif_rd_ack_nc;</span></span>
+<span id="L568"><span class="lineNum">     568</span> <span class="tlaUNC">           0 : logic s_cpuif_wr_ack_nc;</span></span>
 <span id="L569"><span class="lineNum">     569</span>              : </span>
 <span id="L570"><span class="lineNum">     570</span>              : mbox_csr</span>
 <span id="L571"><span class="lineNum">     571</span>              : mbox_csr1(</span>

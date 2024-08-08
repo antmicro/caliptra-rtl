@@ -51,7 +51,7 @@
             <tr>
                 <td class="headerInfo">Test Date:</td>
                 <td class="headerInfoValue">
-                    02-08-2024
+                    08-08-2024
                 </td>
                 <td></td>
                 
@@ -123,8 +123,8 @@
 <span id="L19"><span class="lineNum">      19</span>              :   // derived parameter</span>
 <span id="L20"><span class="lineNum">      20</span>              :   localparam int Share = (EnMasking) ? 2 : 1</span>
 <span id="L21"><span class="lineNum">      21</span>              : ) (</span>
-<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC tlaBgGNC">      864324 :   input clk_i,</span></span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">          21 :   input rst_ni,</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC tlaBgGNC">      458284 :   input clk_i,</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">           1 :   input rst_ni,</span></span>
 <span id="L24"><span class="lineNum">      24</span>              : </span>
 <span id="L25"><span class="lineNum">      25</span>              :   // MSG interface</span>
 <span id="L26"><span class="lineNum">      26</span> <span class="tlaUNC tlaBgUNC">           0 :   input                       msg_valid_i,</span></span>
@@ -133,17 +133,17 @@
 <span id="L29"><span class="lineNum">      29</span> <span class="tlaUNC">           0 :   output logic                msg_ready_o,</span></span>
 <span id="L30"><span class="lineNum">      30</span>              : </span>
 <span id="L31"><span class="lineNum">      31</span>              :   // Entropy interface</span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">       45862 :   input                     rand_valid_i,</span></span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">       45862 :   input                     rand_early_i,</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC tlaBgGNC">       24634 :   input                     rand_valid_i,</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">       24634 :   input                     rand_early_i,</span></span>
 <span id="L34"><span class="lineNum">      34</span>              :   input      [StateW/2-1:0] rand_data_i,</span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">       45862 :   input                     rand_aux_i,</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">       24634 :   input                     rand_aux_i,</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC tlaBgUNC">           0 :   output logic              rand_consumed_o,</span></span>
 <span id="L37"><span class="lineNum">      37</span>              : </span>
 <span id="L38"><span class="lineNum">      38</span>              :   // N, S: Used in cSHAKE mode only</span>
 <span id="L39"><span class="lineNum">      39</span>              :   input [NSRegisterSize*8-1:0] ns_data_i, // See sha3_pkg for details</span>
 <span id="L40"><span class="lineNum">      40</span>              : </span>
 <span id="L41"><span class="lineNum">      41</span>              :   // configurations</span>
-<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC tlaBgGNC">       45862 :   input sha3_mode_e       mode_i,     // see sha3pad for details</span></span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC tlaBgGNC">       24634 :   input sha3_mode_e       mode_i,     // see sha3pad for details</span></span>
 <span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">           3 :   input keccak_strength_e strength_i, // see sha3pad for details</span></span>
 <span id="L44"><span class="lineNum">      44</span>              : </span>
 <span id="L45"><span class="lineNum">      45</span>              :   // controls</span>
@@ -153,7 +153,7 @@
 <span id="L49"><span class="lineNum">      49</span>              :   // run_i is a pulse signal to trigger the keccak_round manually by SW.</span>
 <span id="L50"><span class="lineNum">      50</span>              :   // It is used to run additional keccak_f after sponge absorbing is completed.</span>
 <span id="L51"><span class="lineNum">      51</span>              :   // See `keccak_run` signal</span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC tlaBgGNC">       45862 :   input                        run_i,</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC tlaBgGNC">       24634 :   input                        run_i,</span></span>
 <span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">           1 :   input caliptra_prim_mubi_pkg::mubi4_t done_i,    // see sha3pad for details</span></span>
 <span id="L54"><span class="lineNum">      54</span>              : </span>
 <span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           1 :   output caliptra_prim_mubi_pkg::mubi4_t absorbed_o,</span></span>
@@ -269,19 +269,19 @@
 <span id="L165"><span class="lineNum">     165</span>              :   // Latch absorbed signal as kmac_keymgr asserts `CmdDone` when it sees</span>
 <span id="L166"><span class="lineNum">     166</span>              :   // `absorbed` signal. When this signal goes out, the state is still in</span>
 <span id="L167"><span class="lineNum">     167</span>              :   // `StAbsorb`. Next state is `StSqueeze`.</span>
-<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC tlaBgGNC">        4617 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L168"><span class="lineNum">     168</span> <span class="tlaGNC tlaBgGNC">       94050 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC">           4 :     if (!rst_ni) absorbed_o &lt;= caliptra_prim_mubi_pkg::MuBi4False;</span></span>
-<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">        4613 :     else         absorbed_o &lt;= absorbed;</span></span>
+<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">       94046 :     else         absorbed_o &lt;= absorbed;</span></span>
 <span id="L171"><span class="lineNum">     171</span>              :   end</span>
 <span id="L172"><span class="lineNum">     172</span>              : </span>
 <span id="L173"><span class="lineNum">     173</span>              :   // Squeezing output</span>
 <span id="L174"><span class="lineNum">     174</span>              :   assign squeezing_o = squeezing;</span>
 <span id="L175"><span class="lineNum">     175</span>              : </span>
 <span id="L176"><span class="lineNum">     176</span>              :   // processing</span>
-<span id="L177"><span class="lineNum">     177</span> <span class="tlaGNC">        4617 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
+<span id="L177"><span class="lineNum">     177</span> <span class="tlaGNC">       94050 :   always_ff @(posedge clk_i or negedge rst_ni) begin</span></span>
 <span id="L178"><span class="lineNum">     178</span> <span class="tlaGNC">           4 :     if (!rst_ni)        processing &lt;= 1'b 0;</span></span>
 <span id="L179"><span class="lineNum">     179</span> <span class="tlaUNC tlaBgUNC">           0 :     else if (process_i) processing &lt;= 1'b 1;</span></span>
-<span id="L180"><span class="lineNum">     180</span> <span class="tlaGNC tlaBgGNC">        4613 :     else if (caliptra_prim_mubi_pkg::mubi4_test_true_strict(absorbed)) begin</span></span>
+<span id="L180"><span class="lineNum">     180</span> <span class="tlaGNC tlaBgGNC">       94046 :     else if (caliptra_prim_mubi_pkg::mubi4_test_true_strict(absorbed)) begin</span></span>
 <span id="L181"><span class="lineNum">     181</span> <span class="tlaUNC tlaBgUNC">           0 :       processing &lt;= 1'b 0;</span></span>
 <span id="L182"><span class="lineNum">     182</span>              :     end</span>
 <span id="L183"><span class="lineNum">     183</span>              :   end</span>
@@ -325,13 +325,13 @@
 <span id="L221"><span class="lineNum">     221</span> <span class="tlaGNC">           1 :     sha3_state_error = 1'b 0;</span></span>
 <span id="L222"><span class="lineNum">     222</span>              : </span>
 <span id="L223"><span class="lineNum">     223</span> <span class="tlaGNC">           1 :     unique case (st)</span></span>
-<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">        4617 :       StIdle_sparse: begin</span></span>
+<span id="L224"><span class="lineNum">     224</span> <span class="tlaGNC">       94050 :       StIdle_sparse: begin</span></span>
 <span id="L225"><span class="lineNum">     225</span> <span class="tlaUNC tlaBgUNC">           0 :         if (start_i) begin</span></span>
 <span id="L226"><span class="lineNum">     226</span> <span class="tlaUNC">           0 :           st_d = StAbsorb_sparse;</span></span>
 <span id="L227"><span class="lineNum">     227</span>              : </span>
 <span id="L228"><span class="lineNum">     228</span> <span class="tlaUNC">           0 :           keccak_start = 1'b 1;</span></span>
-<span id="L229"><span class="lineNum">     229</span> <span class="tlaGNC tlaBgGNC">        4617 :         end else begin</span></span>
-<span id="L230"><span class="lineNum">     230</span> <span class="tlaGNC">        4617 :           st_d = StIdle_sparse;</span></span>
+<span id="L229"><span class="lineNum">     229</span> <span class="tlaGNC tlaBgGNC">       94050 :         end else begin</span></span>
+<span id="L230"><span class="lineNum">     230</span> <span class="tlaGNC">       94050 :           st_d = StIdle_sparse;</span></span>
 <span id="L231"><span class="lineNum">     231</span>              :         end</span>
 <span id="L232"><span class="lineNum">     232</span>              :       end</span>
 <span id="L233"><span class="lineNum">     233</span>              : </span>
@@ -405,7 +405,7 @@
 <span id="L301"><span class="lineNum">     301</span>              :   // State --&gt; Digest output</span>
 <span id="L302"><span class="lineNum">     302</span> <span class="tlaGNC tlaBgGNC">           1 :   always_comb begin : state_guarded_mux</span></span>
 <span id="L303"><span class="lineNum">     303</span> <span class="tlaGNC">           1 :     unique case (mux_sel)</span></span>
-<span id="L304"><span class="lineNum">     304</span> <span class="tlaGNC">        4618 :       MuxGuard:   state_guarded = '{default: '0};</span></span>
+<span id="L304"><span class="lineNum">     304</span> <span class="tlaGNC">       94051 :       MuxGuard:   state_guarded = '{default: '0};</span></span>
 <span id="L305"><span class="lineNum">     305</span> <span class="tlaUNC tlaBgUNC">           0 :       MuxRelease: state_guarded = state;</span></span>
 <span id="L306"><span class="lineNum">     306</span> <span class="tlaUNC">           0 :       default:    state_guarded = '{default: '0}; // a valid, safe output</span></span>
 <span id="L307"><span class="lineNum">     307</span>              :     endcase</span>
@@ -424,7 +424,7 @@
 <span id="L320"><span class="lineNum">     320</span> <span class="tlaGNC">           1 :     error_o = '{valid: 1'b0, code: ErrNone, info: '0};</span></span>
 <span id="L321"><span class="lineNum">     321</span>              : </span>
 <span id="L322"><span class="lineNum">     322</span> <span class="tlaGNC">           1 :     unique case (st)</span></span>
-<span id="L323"><span class="lineNum">     323</span> <span class="tlaGNC">        4617 :       StIdle_sparse: begin</span></span>
+<span id="L323"><span class="lineNum">     323</span> <span class="tlaGNC">       94050 :       StIdle_sparse: begin</span></span>
 <span id="L324"><span class="lineNum">     324</span> <span class="tlaUNC tlaBgUNC">           0 :         if (process_i || run_i ||</span></span>
 <span id="L325"><span class="lineNum">     325</span> <span class="tlaUNC">           0 :           caliptra_prim_mubi_pkg::mubi4_test_true_loose(done_i)) begin</span></span>
 <span id="L326"><span class="lineNum">     326</span> <span class="tlaUNC">           0 :           error_o = '{</span></span>
