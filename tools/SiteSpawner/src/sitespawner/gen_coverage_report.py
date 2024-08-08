@@ -97,7 +97,7 @@ def generate_coverage_reports(
         )
         if src_remove_pattern is not None:
             subprocess.run(
-                ["lcov", "--remove", info_file, " ".join(src_remove_pattern), "-o", info_file],
+                ["lcov", "--remove", info_file, *src_remove_pattern, "-o", info_file],
                 stdout=open(f"{info_file}_remove.log", "w+"),
             )
 
