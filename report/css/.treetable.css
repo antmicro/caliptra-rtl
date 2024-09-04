@@ -1,0 +1,87 @@
+.wordwrap { word-wrap: break-word; word-break: break-all; }
+
+table.treetable span.indenter {
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -webkit-user-select: none;
+  width: 19px;
+}
+
+table.treetable span.indenter a {
+  background-position: left center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  text-decoration: none;
+  width: 19px;
+}
+
+table.treetable {
+  line-height: 1;
+  margin: .6em 0 1.8em 0;
+  border-spacing: 1px;
+}
+
+table.treetable caption {
+  font-size: .9em;
+  font-weight: bold;
+  margin-bottom: .2em;
+}
+
+table.treetable thead {
+  background-repeat: repeat-x;
+  background-size: 100% 100%;
+-moz-background-size: 100% 100%;
+-o-background-size: 100% 100%;
+-webkit-background-size: 100% 100%;
+  font-size: .7em;
+  color: #222222;
+  font-weight: bold;}
+
+table.treetable td {
+  height: 23px;}
+
+table.treetable thead tr th {
+  padding: .3em 1em .1em 1em;
+  text-align: left;
+  height: 23px;
+}
+
+table.treetable tbody tr td {
+  cursor: default;
+  padding: .3em 1em;
+}
+
+table.treetable th {
+  border: 1px solid #31363C;
+}
+
+table.treetable span {
+  background-position: center left;
+  background-repeat: no-repeat;
+  padding: .2em 0 .2em 1.5em;
+}
+
+table.treetable tr.collapsed span.indenter a {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATAgMAAAAPPt5fAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURUxpcf///4CAgAAAAI2v2RAAAAABdFJOUwBA5thmAAAAIUlEQVQI12NgwA+0Vi0AkqqhCSCyFEGq/0cXgaiBqMcHADpDCgtboc3FAAAAAElFTkSuQmCC);
+}
+
+table.treetable tr.expanded span.indenter a {
+   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATAgMAAAAPPt5fAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURUxpcf///4CAgAAAAI2v2RAAAAABdFJOUwBA5thmAAAAHklEQVQI12NgwA+0Vi0AkqqhCWik+v8ErOIQ9fgAAB3DCYvqsy1AAAAAAElFTkSuQmCC);
+}
+
+table.treetable tr td.selected {
+  border-top-color: #0000ff;
+  border-bottom-color: #0000ff;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  color: #000;
+}
+table.treetable tr.accept {
+  background-color: #a3bce4;
+  color: #fff
+}

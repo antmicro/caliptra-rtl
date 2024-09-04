@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Group :: ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Group : ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Group : <a href="#"  onclick="showContent('ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component')">ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td><b>SCORE</b></td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="s5 cl rt"> 53.12</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/cad/tools/mentor/questa_vip/2022.2/questa_mvc_src/sv/ahb/analysis/ahb_coverage_component.svh')">/home/cad/tools/mentor/questa_vip/2022.2/questa_mvc_src/sv/ahb/analysis/ahb_coverage_component.svh</a><br clear=all>
+<br clear=all>
+</div>
+<hr>
+<br clear=all>
+<span class=repname>Summary for Group   ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component
+</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s4">
+<td><a href="#var_tbl_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component" >Variables</a></td>
+<td class="rt">22</td>
+<td class="rt">13</td>
+<td class="rt">9</td>
+<td class="rt">53.12 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="var_tbl_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component">Variables for Group  ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">VARIABLE</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>COMMENT</td></tr><tr class="s5">
+<td><a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_okay"  onclick="checkLink(this)" target="detailFrame">transfer_after_okay</a></td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s2">
+<td><a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_error"  onclick="checkLink(this)" target="detailFrame">transfer_after_error</a></td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">25.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_retry"  onclick="checkLink(this)" target="detailFrame">transfer_after_retry</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_split"  onclick="checkLink(this)" target="detailFrame">transfer_after_split</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.pipelined_b2b_transfers"  onclick="checkLink(this)" target="detailFrame">pipelined_b2b_transfers</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.idle_transfer_after_locked_transfer"  onclick="checkLink(this)" target="detailFrame">idle_transfer_after_locked_transfer</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.idle_at_xfail"  onclick="checkLink(this)" target="detailFrame">idle_at_xfail</a></td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.new_transfer_at_xfail"  onclick="checkLink(this)" target="detailFrame">new_transfer_at_xfail</a></td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.access_with_no_wait"  onclick="checkLink(this)" target="detailFrame">access_with_no_wait</a></td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.access_with_wait"  onclick="checkLink(this)" target="detailFrame">access_with_wait</a></td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div>
+<br clear=all>
+<a name="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_okay"></a><span class="repname" id="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_okay">Summary for Variable transfer_after_okay</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>Automatically Generated Bins</td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for transfer_after_okay</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>auto_AHB_BUSY</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>auto_AHB_SEQ</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto_AHB_IDLE</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto_AHB_NONSEQ</td>
+<td class="rt">269882584</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_error"></a><span class="repname" id="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_error">Summary for Variable transfer_after_error</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s2">
+<td>Automatically Generated Bins</td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">25.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for transfer_after_error</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>auto_AHB_BUSY</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>auto_AHB_NONSEQ</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>auto_AHB_SEQ</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto_AHB_IDLE</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_retry"></a><span class="repname" id="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_retry">Summary for Variable transfer_after_retry</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for transfer_after_retry</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>auto_AHB_NONSEQ</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>auto_AHB_BUSY</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr><tr class="wht">
+<td>auto_AHB_SEQ</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr><tr class="wht">
+<td>seq_transfer</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr><tr class="wht">
+<td>busy_transfer</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto_AHB_IDLE</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_split"></a><span class="repname" id="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_split">Summary for Variable transfer_after_split</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for transfer_after_split</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>auto_AHB_NONSEQ</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>auto_AHB_BUSY</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr><tr class="wht">
+<td>auto_AHB_SEQ</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr><tr class="wht">
+<td>seq_transfer</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr><tr class="wht">
+<td>busy_transfer</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto_AHB_IDLE</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.pipelined_b2b_transfers"></a><span class="repname" id="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.pipelined_b2b_transfers">Summary for Variable pipelined_b2b_transfers</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for pipelined_b2b_transfers</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">2343830</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.idle_transfer_after_locked_transfer"></a><span class="repname" id="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.idle_transfer_after_locked_transfer">Summary for Variable idle_transfer_after_locked_transfer</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for idle_transfer_after_locked_transfer</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[1]]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.idle_at_xfail"></a><span class="repname" id="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.idle_at_xfail">Summary for Variable idle_at_xfail</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for idle_at_xfail</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td nowrap>[auto[0] - auto[1]]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.new_transfer_at_xfail"></a><span class="repname" id="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.new_transfer_at_xfail">Summary for Variable new_transfer_at_xfail</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for new_transfer_at_xfail</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td nowrap>[auto[0] - auto[1]]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.access_with_no_wait"></a><span class="repname" id="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.access_with_no_wait">Summary for Variable access_with_no_wait</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for access_with_no_wait</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>no_wait</td>
+<td class="rt">14010</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.access_with_wait"></a><span class="repname" id="inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.access_with_wait">Summary for Variable access_with_wait</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for access_with_wait</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>with_wait</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul>
+    <li>
+      <a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_okay">Variable : transfer_after_okay</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_error">Variable : transfer_after_error</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_retry">Variable : transfer_after_retry</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.transfer_after_split">Variable : transfer_after_split</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.pipelined_b2b_transfers">Variable : pipelined_b2b_transfers</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.idle_transfer_after_locked_transfer">Variable : idle_transfer_after_locked_transfer</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.idle_at_xfail">Variable : idle_at_xfail</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.new_transfer_at_xfail">Variable : new_transfer_at_xfail</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.access_with_no_wait">Variable : access_with_no_wait</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_master_coverage_component#(1,1,1,32,64,64)::master_cov_component.access_with_wait">Variable : access_with_wait</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Assertions</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Assertions</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<b>Assertions by Category</b><table class="noborder">
+<col width="180">
+<col span="3" width="60"><tr class="sortablehead"><td> </td><td>ASSERT</td><td>PROPERTIES</td><td>SEQUENCES</td>
+<tr class="wht"><td class="lf">Total</td><td>1491</td><td>453</td><td>0</td></tr>
+<tr class="wht"><td class="lf">Category 0</td><td>1491</td><td>453</td><td>0</td></tr>
+</table>
+<hr>
+<br clear=all>
+<b>Assertions by Severity</b><table class="noborder">
+<col width="180">
+<col span="3" width="60"><tr class="sortablehead"><td> </td><td>ASSERT</td><td>PROPERTIES</td><td>SEQUENCES</td>
+<tr class="wht"><td class="lf">Total</td><td>1491</td><td>453</td><td>0</td></tr>
+<tr class="wht"><td class="lf">Severity 0</td><td>1491</td><td>453</td><td>0</td></tr>
+</table>
+<hr>
+<br clear=all>
+<b>Summary for Assertions</b><table class="noborder">
+<col width="180">
+<col span="2" width="60"><tr class="sortablehead"><td> </td><td>NUMBER</td><td>PERCENT</td>
+<tr class="wht"><td class="lf">Total Number</td><td>1491</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf"><a href="asserts.html#tag_ast_no_covr">Uncovered</a></td><td>487</td><td>32.66</td></tr>
+<tr class="wht"><td class="lf"><a href="asserts_1.html#tag_ast_succ">Success</a></td><td>999</td><td>67.00</td></tr>
+<tr class="wht"><td class="lf">Failure</td><td>0</td><td>0.00</td></tr>
+<tr class="wht"><td class="lf"><a href="asserts_6.html#tag_ast_incp">Incomplete</a></td><td>19</td><td>1.27</td></tr>
+<tr class="wht"><td class="lf"><a href="asserts_6.html#tag_ast_no_attp">Without Attempts</a></td><td>9</td><td>0.60</td></tr>
+<tr class="wht"><td class="lf"><a href="asserts_6.html#tag_ast_excl">Excluded</a></td><td>5</td><td>0.34</td></tr>
+</table>
+<hr>
+<br clear=all>
+<b>Summary for Cover Properties</b><table class="noborder">
+<col width="180">
+<col span="2" width="60"><tr class="sortablehead"><td> </td><td>NUMBER</td><td>PERCENT</td>
+<tr class="wht"><td class="lf">Total Number</td><td>453</td><td>100.00</td></tr>
+<tr class="wht"><td class="lf"><a href="asserts_6.html#tag_pro_no_covr">Uncovered</a></td><td>96</td><td>21.19</td></tr>
+<tr class="wht"><td class="lf"><a href="asserts_6.html#tag_pro_match">Matches</a></td><td>357</td><td>78.81</td></tr>
+</table>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+Go <a href="asserts_7.html">previous page</a>
+<br clear=all>
+<table class="sortable rt">
+<col width="180">
+<col span="5" width="60"><tr class="sortablehead">
+<td class="alfsrt">COVER PROPERTIES<td>CATEGORY</td><td>SEVERITY</td><td>ATTEMPTS</td><td>MATCHES</td><td>INCOMPLETE</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_clear_corerst" title="mod99.html#1274908002" href="mod99.html#1274908002">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_clear_corerst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">10130</td><td>246</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_clear_warmrst" title="mod99.html#173543356" href="mod99.html#173543356">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_clear_warmrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">9925</td><td>451</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_clear_secr_coldrst" title="mod99.html#1543685687" href="mod99.html#1543685687">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_clear_secr_coldrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">6179</td><td>31</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_clear_secr_warmrst" title="mod99.html#1533996342" href="mod99.html#1533996342">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_clear_secr_warmrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">6210</td><td>0</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_use_coldrst" title="mod99.html#1822019581" href="mod99.html#1822019581">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_use_coldrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">1630</td><td>555</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_use_corerst" title="mod99.html#1511969400" href="mod99.html#1511969400">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_use_corerst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">1967</td><td>218</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_use_warmrst" title="mod99.html#12974558" href="mod99.html#12974558">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_use_warmrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">1752</td><td>433</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_wr_coldrst" title="mod99.html#1766044833" href="mod99.html#1766044833">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_wr_coldrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">1658</td><td>586</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_wr_corerst" title="mod99.html#2053141116" href="mod99.html#2053141116">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_wr_corerst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">2024</td><td>220</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_wr_warmrst" title="mod99.html#392356190" href="mod99.html#392356190">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[7].covprop_lock_wr_warmrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">1797</td><td>447</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_clear_coldrst" title="mod99.html#1109855580" href="mod99.html#1109855580">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_clear_coldrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">9728</td><td>546</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_clear_corerst" title="mod99.html#1020171457" href="mod99.html#1020171457">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_clear_corerst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">10061</td><td>213</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_clear_warmrst" title="mod99.html#81193189" href="mod99.html#81193189">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_clear_warmrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">9857</td><td>417</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_clear_secr_coldrst" title="mod99.html#1288949142" href="mod99.html#1288949142">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_clear_secr_coldrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">6231</td><td>25</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_clear_secr_warmrst" title="mod99.html#1279259797" href="mod99.html#1279259797">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_clear_secr_warmrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">6256</td><td>0</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_use_coldrst" title="mod99.html#1567283036" href="mod99.html#1567283036">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_use_coldrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">1664</td><td>564</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_use_corerst" title="mod99.html#1257232855" href="mod99.html#1257232855">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_use_corerst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">2008</td><td>220</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_use_warmrst" title="mod99.html#241761987" href="mod99.html#241761987">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_use_warmrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">1794</td><td>434</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_wr_coldrst" title="mod99.html#2020781378" href="mod99.html#2020781378">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_wr_coldrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">1668</td><td>584</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_wr_corerst" title="mod99.html#1987089635" href="mod99.html#1987089635">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_wr_corerst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">2019</td><td>233</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_wr_warmrst" title="mod99.html#137619645" href="mod99.html#137619645">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[8].covprop_lock_wr_warmrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">1794</td><td>458</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_clear_coldrst" title="mod99.html#855119035" href="mod99.html#855119035">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_clear_coldrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">9793</td><td>567</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_clear_corerst" title="mod99.html#765434912" href="mod99.html#765434912">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_clear_corerst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">10143</td><td>217</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_clear_warmrst" title="mod99.html#335929734" href="mod99.html#335929734">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_clear_warmrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">9921</td><td>439</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_clear_secr_coldrst" title="mod99.html#1034212597" href="mod99.html#1034212597">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_clear_secr_coldrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">6082</td><td>30</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_clear_secr_warmrst" title="mod99.html#1024523252" href="mod99.html#1024523252">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_clear_secr_warmrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">6112</td><td>0</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_use_coldrst" title="mod99.html#1312546491" href="mod99.html#1312546491">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_use_coldrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">1669</td><td>583</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_use_corerst" title="mod99.html#1002496310" href="mod99.html#1002496310">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_use_corerst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">2015</td><td>237</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_use_warmrst" title="mod99.html#496498532" href="mod99.html#496498532">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_use_warmrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">1798</td><td>454</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_wr_coldrst" title="mod99.html#2019449373" href="mod99.html#2019449373">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_wr_coldrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">1624</td><td>540</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_wr_corerst" title="mod99.html#1732353090" href="mod99.html#1732353090">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_wr_corerst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">1935</td><td>229</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+<tr class="wht"><td class="lf"><a name="tag_hvp_ast_hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_wr_warmrst" title="mod99.html#117116900" href="mod99.html#117116900">hdl_top.caliptra_top_dut.key_vault1.i_keyvault_cov_props.genblk1[9].covprop_lock_wr_warmrst</a>
+</td><td>0</td><td>0</td><td class="s9">2147483647</td><td class="s9">1751</td><td>413</td><td class="ct"><a title="/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv" href="javascript:void(0);" onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/keyvault/coverage/keyvault_cov_props.sv')"><img class="sourcefile"></a>
+</td></tr>
+</table>
+<br clear=all>
+</div>

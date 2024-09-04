@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Group :: mbox_cov_grp</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Group : mbox_cov_grp</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Group : <a href="#"  onclick="showContent('mbox_cov_grp')">mbox_cov_grp</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td><b>SCORE</b></td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="s9 cl rt"> 98.08</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/soc_ifc/coverage/soc_ifc_cov_if.sv')">/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/soc_ifc/coverage/soc_ifc_cov_if.sv</a><br clear=all>
+<br clear=all>
+</div>
+<hr>
+<br clear=all>
+<span class=repname>Summary for Group   mbox_cov_grp
+</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s9">
+<td><a href="#var_tbl_mbox_cov_grp" >Variables</a></td>
+<td class="rt">85</td>
+<td class="rt">1</td>
+<td class="rt">84</td>
+<td class="rt">98.08 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="var_tbl_mbox_cov_grp">Variables for Group  mbox_cov_grp
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">VARIABLE</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.mbox_fsm_ps_cp"  onclick="checkLink(this)" target="detailFrame">mbox_fsm_ps_cp</a></td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.arc_FORCE_MBOX_UNLOCK_cp"  onclick="checkLink(this)" target="detailFrame">arc_FORCE_MBOX_UNLOCK_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.arc_MBOX_IDLE_MBOX_RDY_FOR_CMD_cp"  onclick="checkLink(this)" target="detailFrame">arc_MBOX_IDLE_MBOX_RDY_FOR_CMD_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_CMD_MBOX_RDY_FOR_DLEN_cp"  onclick="checkLink(this)" target="detailFrame">arc_MBOX_RDY_FOR_CMD_MBOX_RDY_FOR_DLEN_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_DLEN_MBOX_RDY_FOR_DATA_cp"  onclick="checkLink(this)" target="detailFrame">arc_MBOX_RDY_FOR_DLEN_MBOX_RDY_FOR_DATA_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_UC_cp"  onclick="checkLink(this)" target="detailFrame">arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_UC_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_SOC_cp"  onclick="checkLink(this)" target="detailFrame">arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_SOC_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_UC_MBOX_IDLE_cp"  onclick="checkLink(this)" target="detailFrame">arc_MBOX_EXECUTE_UC_MBOX_IDLE_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_SOC_MBOX_IDLE_cp"  onclick="checkLink(this)" target="detailFrame">arc_MBOX_EXECUTE_SOC_MBOX_IDLE_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_UC_MBOX_EXECUTE_SOC_cp"  onclick="checkLink(this)" target="detailFrame">arc_MBOX_EXECUTE_UC_MBOX_EXECUTE_SOC_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_SOC_MBOX_EXECUTE_UC_cp"  onclick="checkLink(this)" target="detailFrame">arc_MBOX_EXECUTE_SOC_MBOX_EXECUTE_UC_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.soc_has_lock_cp"  onclick="checkLink(this)" target="detailFrame">soc_has_lock_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.mask_rdata_cp"  onclick="checkLink(this)" target="detailFrame">mask_rdata_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.dlen_in_dws_cp"  onclick="checkLink(this)" target="detailFrame">dlen_in_dws_cp</a></td>
+<td class="rt">36</td>
+<td class="rt">0</td>
+<td class="rt">36</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.sram_single_ecc_error_cp"  onclick="checkLink(this)" target="detailFrame">sram_single_ecc_error_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.sram_double_ecc_error_cp"  onclick="checkLink(this)" target="detailFrame">sram_double_ecc_error_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.req_hold0_cp"  onclick="checkLink(this)" target="detailFrame">req_hold0_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.req_hold1_cp"  onclick="checkLink(this)" target="detailFrame">req_hold1_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.req_hold2_cp"  onclick="checkLink(this)" target="detailFrame">req_hold2_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_mbox_cov_grp.sha_sram_hold_cp"  onclick="checkLink(this)" target="detailFrame">sha_sram_hold_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.dlen_gt_mbox_size_cp"  onclick="checkLink(this)" target="detailFrame">dlen_gt_mbox_size_cp</a></td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.req_wrptr_gt_dlen_cp"  onclick="checkLink(this)" target="detailFrame">req_wrptr_gt_dlen_cp</a></td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.resp_wrptr_gt_dlen_cp"  onclick="checkLink(this)" target="detailFrame">resp_wrptr_gt_dlen_cp</a></td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.wrptr_rollover_cp"  onclick="checkLink(this)" target="detailFrame">wrptr_rollover_cp</a></td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.rdptr_gt_dlen_cp"  onclick="checkLink(this)" target="detailFrame">rdptr_gt_dlen_cp</a></td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_mbox_cov_grp.rdptr_rollover_cp"  onclick="checkLink(this)" target="detailFrame">rdptr_rollover_cp</a></td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.mbox_fsm_ps_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.mbox_fsm_ps_cp">Summary for Variable mbox_fsm_ps_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for mbox_fsm_ps_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto_MBOX_IDLE</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto_MBOX_RDY_FOR_CMD</td>
+<td class="rt">323713202</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto_MBOX_RDY_FOR_DLEN</td>
+<td class="rt">1019233</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto_MBOX_RDY_FOR_DATA</td>
+<td class="rt">981703982</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto_MBOX_EXECUTE_UC</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto_MBOX_EXECUTE_SOC</td>
+<td class="rt">621919058</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto_MBOX_ERROR</td>
+<td class="rt">22407643</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.arc_FORCE_MBOX_UNLOCK_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.arc_FORCE_MBOX_UNLOCK_cp">Summary for Variable arc_FORCE_MBOX_UNLOCK_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for arc_FORCE_MBOX_UNLOCK_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">6488</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.arc_MBOX_IDLE_MBOX_RDY_FOR_CMD_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.arc_MBOX_IDLE_MBOX_RDY_FOR_CMD_cp">Summary for Variable arc_MBOX_IDLE_MBOX_RDY_FOR_CMD_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for arc_MBOX_IDLE_MBOX_RDY_FOR_CMD_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">52134</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_CMD_MBOX_RDY_FOR_DLEN_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_CMD_MBOX_RDY_FOR_DLEN_cp">Summary for Variable arc_MBOX_RDY_FOR_CMD_MBOX_RDY_FOR_DLEN_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for arc_MBOX_RDY_FOR_CMD_MBOX_RDY_FOR_DLEN_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">50401</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_DLEN_MBOX_RDY_FOR_DATA_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_DLEN_MBOX_RDY_FOR_DATA_cp">Summary for Variable arc_MBOX_RDY_FOR_DLEN_MBOX_RDY_FOR_DATA_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for arc_MBOX_RDY_FOR_DLEN_MBOX_RDY_FOR_DATA_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">50392</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_UC_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_UC_cp">Summary for Variable arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_UC_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_UC_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">46210</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_SOC_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_SOC_cp">Summary for Variable arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_SOC_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_SOC_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">2208</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_UC_MBOX_IDLE_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_UC_MBOX_IDLE_cp">Summary for Variable arc_MBOX_EXECUTE_UC_MBOX_IDLE_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for arc_MBOX_EXECUTE_UC_MBOX_IDLE_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">2017</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_SOC_MBOX_IDLE_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_SOC_MBOX_IDLE_cp">Summary for Variable arc_MBOX_EXECUTE_SOC_MBOX_IDLE_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for arc_MBOX_EXECUTE_SOC_MBOX_IDLE_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">41815</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_UC_MBOX_EXECUTE_SOC_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_UC_MBOX_EXECUTE_SOC_cp">Summary for Variable arc_MBOX_EXECUTE_UC_MBOX_EXECUTE_SOC_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for arc_MBOX_EXECUTE_UC_MBOX_EXECUTE_SOC_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">43237</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_SOC_MBOX_EXECUTE_UC_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_SOC_MBOX_EXECUTE_UC_cp">Summary for Variable arc_MBOX_EXECUTE_SOC_MBOX_EXECUTE_UC_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for arc_MBOX_EXECUTE_SOC_MBOX_EXECUTE_UC_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">2031</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.soc_has_lock_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.soc_has_lock_cp">Summary for Variable soc_has_lock_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for soc_has_lock_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.mask_rdata_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.mask_rdata_cp">Summary for Variable mask_rdata_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for mask_rdata_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">242935</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.dlen_in_dws_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.dlen_in_dws_cp">Summary for Variable dlen_in_dws_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">36</td>
+<td class="rt">0</td>
+<td class="rt">36</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for dlen_in_dws_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>full</td>
+<td class="rt">54479943</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>almost_full</td>
+<td class="rt">26731141</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[0002:0400]</td>
+<td class="rt">1387058588</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[0401:07ff]</td>
+<td class="rt">3856045</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[0800:0bfe]</td>
+<td class="rt">5926672</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[0bff:0ffd]</td>
+<td class="rt">2191951</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[0ffe:13fc]</td>
+<td class="rt">10976786</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[13fd:17fb]</td>
+<td class="rt">14193653</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[17fc:1bfa]</td>
+<td class="rt">11132752</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[1bfb:1ff9]</td>
+<td class="rt">1149432994</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[1ffa:23f8]</td>
+<td class="rt">953648637</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[23f9:27f7]</td>
+<td class="rt">18936108</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[27f8:2bf6]</td>
+<td class="rt">15825018</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[2bf7:2ff5]</td>
+<td class="rt">14944055</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[2ff6:33f4]</td>
+<td class="rt">11763133</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[33f5:37f3]</td>
+<td class="rt">12176052</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[37f4:3bf2]</td>
+<td class="rt">8544003</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[3bf3:3ff1]</td>
+<td class="rt">16930307</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[3ff2:43f0]</td>
+<td class="rt">16694448</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[43f1:47ef]</td>
+<td class="rt">13958835</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[47f0:4bee]</td>
+<td class="rt">15512806</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[4bef:4fed]</td>
+<td class="rt">17095031</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[4fee:53ec]</td>
+<td class="rt">7682535</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[53ed:57eb]</td>
+<td class="rt">30287618</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[57ec:5bea]</td>
+<td class="rt">39033740</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[5beb:5fe9]</td>
+<td class="rt">16462384</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[5fea:63e8]</td>
+<td class="rt">10269275</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[63e9:67e7]</td>
+<td class="rt">38256561</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[67e8:6be6]</td>
+<td class="rt">156801361</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[6be7:6fe5]</td>
+<td class="rt">15676466</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[6fe6:73e4]</td>
+<td class="rt">6109843</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[73e5:77e3]</td>
+<td class="rt">29063561</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[77e4:7be2]</td>
+<td class="rt">16089783</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>range[7be3:7ffe]</td>
+<td class="rt">32564643</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>one</td>
+<td class="rt">12372407</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>zero</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.sram_single_ecc_error_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.sram_single_ecc_error_cp">Summary for Variable sram_single_ecc_error_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for sram_single_ecc_error_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">4769366</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.sram_double_ecc_error_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.sram_double_ecc_error_cp">Summary for Variable sram_double_ecc_error_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for sram_double_ecc_error_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">3196</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.req_hold0_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.req_hold0_cp">Summary for Variable req_hold0_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for req_hold0_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">13200</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.req_hold1_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.req_hold1_cp">Summary for Variable req_hold1_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for req_hold1_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">34451</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.req_hold2_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.req_hold2_cp">Summary for Variable req_hold2_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for req_hold2_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">16</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.sha_sram_hold_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.sha_sram_hold_cp">Summary for Variable sha_sram_hold_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for sha_sram_hold_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[1]]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.dlen_gt_mbox_size_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.dlen_gt_mbox_size_cp">Summary for Variable dlen_gt_mbox_size_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for dlen_gt_mbox_size_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>one</td>
+<td class="rt">37611869</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.req_wrptr_gt_dlen_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.req_wrptr_gt_dlen_cp">Summary for Variable req_wrptr_gt_dlen_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for req_wrptr_gt_dlen_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>one</td>
+<td class="rt">886100834</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.resp_wrptr_gt_dlen_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.resp_wrptr_gt_dlen_cp">Summary for Variable resp_wrptr_gt_dlen_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for resp_wrptr_gt_dlen_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>one</td>
+<td class="rt">66786085</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.wrptr_rollover_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.wrptr_rollover_cp">Summary for Variable wrptr_rollover_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for wrptr_rollover_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>one</td>
+<td class="rt">4189326</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.rdptr_gt_dlen_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.rdptr_gt_dlen_cp">Summary for Variable rdptr_gt_dlen_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for rdptr_gt_dlen_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>one</td>
+<td class="rt">354</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_mbox_cov_grp.rdptr_rollover_cp"></a><span class="repname" id="inst_tag_mbox_cov_grp.rdptr_rollover_cp">Summary for Variable rdptr_rollover_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for rdptr_rollover_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>one</td>
+<td class="rt">10382672</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.mbox_fsm_ps_cp">Variable : mbox_fsm_ps_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.arc_FORCE_MBOX_UNLOCK_cp">Variable : arc_FORCE_MBOX_UNLOCK_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.arc_MBOX_IDLE_MBOX_RDY_FOR_CMD_cp">Variable : arc_MBOX_IDLE_MBOX_RDY_FOR_CMD_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_CMD_MBOX_RDY_FOR_DLEN_cp">Variable : arc_MBOX_RDY_FOR_CMD_MBOX_RDY_FOR_DLEN_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_DLEN_MBOX_RDY_FOR_DATA_cp">Variable : arc_MBOX_RDY_FOR_DLEN_MBOX_RDY_FOR_DATA_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_UC_cp">Variable : arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_UC_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_SOC_cp">Variable : arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_SOC_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_UC_MBOX_IDLE_cp">Variable : arc_MBOX_EXECUTE_UC_MBOX_IDLE_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_SOC_MBOX_IDLE_cp">Variable : arc_MBOX_EXECUTE_SOC_MBOX_IDLE_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_UC_MBOX_EXECUTE_SOC_cp">Variable : arc_MBOX_EXECUTE_UC_MBOX_EXECUTE_SOC_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.arc_MBOX_EXECUTE_SOC_MBOX_EXECUTE_UC_cp">Variable : arc_MBOX_EXECUTE_SOC_MBOX_EXECUTE_UC_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.soc_has_lock_cp">Variable : soc_has_lock_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.mask_rdata_cp">Variable : mask_rdata_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.dlen_in_dws_cp">Variable : dlen_in_dws_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.sram_single_ecc_error_cp">Variable : sram_single_ecc_error_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.sram_double_ecc_error_cp">Variable : sram_double_ecc_error_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.req_hold0_cp">Variable : req_hold0_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.req_hold1_cp">Variable : req_hold1_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.req_hold2_cp">Variable : req_hold2_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.sha_sram_hold_cp">Variable : sha_sram_hold_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.dlen_gt_mbox_size_cp">Variable : dlen_gt_mbox_size_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.req_wrptr_gt_dlen_cp">Variable : req_wrptr_gt_dlen_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.resp_wrptr_gt_dlen_cp">Variable : resp_wrptr_gt_dlen_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.wrptr_rollover_cp">Variable : wrptr_rollover_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.rdptr_gt_dlen_cp">Variable : rdptr_gt_dlen_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_mbox_cov_grp.rdptr_rollover_cp">Variable : rdptr_rollover_cp</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

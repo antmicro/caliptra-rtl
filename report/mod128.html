@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: rvdffsc</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_rvdffsc'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_rvdffsc')">rvdffsc</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 87.01</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128.html#Toggle" > 87.01</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/root/_scratch_filepath_/uvmf_caliptra_top/_scratch_filepath_/beh_lib.sv')">/root/_scratch_filepath_/uvmf_caliptra_top/_scratch_filepath_/beh_lib.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4148"  onclick="showContent('inst_tag_4148')">hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.sb_axi4_to_ahb.buf_state_ff.genblock.dffsc</a></td>
+<td class="s1 cl rt"> 15.38</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s1 cl rt"><a href="mod128_1.html#inst_tag_4148_Toggle" > 15.38</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4142"  onclick="showContent('inst_tag_4142')">hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.ifu_axi4_to_ahb.wrbuf_vldff.genblock.dffsc</a></td>
+<td class="s2 cl rt"> 28.57</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s2 cl rt"><a href="mod128_1.html#inst_tag_4142_Toggle" > 28.57</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4143"  onclick="showContent('inst_tag_4143')">hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.ifu_axi4_to_ahb.wrbuf_data_vldff.genblock.dffsc</a></td>
+<td class="s2 cl rt"> 28.57</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s2 cl rt"><a href="mod128_1.html#inst_tag_4143_Toggle" > 28.57</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4146"  onclick="showContent('inst_tag_4146')">hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.sb_axi4_to_ahb.wrbuf_vldff.genblock.dffsc</a></td>
+<td class="s2 cl rt"> 28.57</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s2 cl rt"><a href="mod128_1.html#inst_tag_4146_Toggle" > 28.57</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4147"  onclick="showContent('inst_tag_4147')">hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.sb_axi4_to_ahb.wrbuf_data_vldff.genblock.dffsc</a></td>
+<td class="s2 cl rt"> 28.57</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s2 cl rt"><a href="mod128_1.html#inst_tag_4147_Toggle" > 28.57</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4149"  onclick="showContent('inst_tag_4149')">hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.sb_axi4_to_ahb.buf_cmd_doneff.genblock.dffsc</a></td>
+<td class="s2 cl rt"> 28.57</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s2 cl rt"><a href="mod128_1.html#inst_tag_4149_Toggle" > 28.57</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4088"  onclick="showContent('inst_tag_4088')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[0].stbuf_killff</a></td>
+<td class="s4 cl rt"> 42.86</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"><a href="mod128_0.html#inst_tag_4088_Toggle" > 42.86</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4091"  onclick="showContent('inst_tag_4091')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[1].stbuf_killff</a></td>
+<td class="s4 cl rt"> 42.86</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"><a href="mod128_0.html#inst_tag_4091_Toggle" > 42.86</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4094"  onclick="showContent('inst_tag_4094')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[2].stbuf_killff</a></td>
+<td class="s4 cl rt"> 42.86</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"><a href="mod128_0.html#inst_tag_4094_Toggle" > 42.86</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4097"  onclick="showContent('inst_tag_4097')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[3].stbuf_killff</a></td>
+<td class="s4 cl rt"> 42.86</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"><a href="mod128_0.html#inst_tag_4097_Toggle" > 42.86</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4102"  onclick="showContent('inst_tag_4102')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.bus_intf.bus_buffer.genblock[1].buf_errorff</a></td>
+<td class="s4 cl rt"> 42.86</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"><a href="mod128_0.html#inst_tag_4102_Toggle" > 42.86</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4103"  onclick="showContent('inst_tag_4103')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.bus_intf.bus_buffer.genblock[2].buf_errorff</a></td>
+<td class="s4 cl rt"> 42.86</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"><a href="mod128_0.html#inst_tag_4103_Toggle" > 42.86</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4104"  onclick="showContent('inst_tag_4104')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.bus_intf.bus_buffer.genblock[3].buf_errorff</a></td>
+<td class="s4 cl rt"> 42.86</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"><a href="mod128_0.html#inst_tag_4104_Toggle" > 42.86</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4145"  onclick="showContent('inst_tag_4145')">hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.ifu_axi4_to_ahb.buf_cmd_doneff.genblock.dffsc</a></td>
+<td class="s5 cl rt"> 57.14</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"><a href="mod128_1.html#inst_tag_4145_Toggle" > 57.14</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4109"  onclick="showContent('inst_tag_4109')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[0].fifo_error_dff</a></td>
+<td class="s7 cl rt"> 70.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"><a href="mod128_0.html#inst_tag_4109_Toggle" > 70.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4115"  onclick="showContent('inst_tag_4115')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[1].fifo_error_dff</a></td>
+<td class="s7 cl rt"> 70.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"><a href="mod128_0.html#inst_tag_4115_Toggle" > 70.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4121"  onclick="showContent('inst_tag_4121')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[2].fifo_error_dff</a></td>
+<td class="s7 cl rt"> 70.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"><a href="mod128_0.html#inst_tag_4121_Toggle" > 70.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4127"  onclick="showContent('inst_tag_4127')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[3].fifo_error_dff</a></td>
+<td class="s7 cl rt"> 70.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"><a href="mod128_0.html#inst_tag_4127_Toggle" > 70.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4133"  onclick="showContent('inst_tag_4133')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[4].fifo_error_dff</a></td>
+<td class="s7 cl rt"> 70.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"><a href="mod128_0.html#inst_tag_4133_Toggle" > 70.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4087"  onclick="showContent('inst_tag_4087')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[0].stbuf_vldff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4087_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4090"  onclick="showContent('inst_tag_4090')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[1].stbuf_vldff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4090_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4093"  onclick="showContent('inst_tag_4093')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[2].stbuf_vldff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4093_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4096"  onclick="showContent('inst_tag_4096')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[3].stbuf_vldff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4096_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4099"  onclick="showContent('inst_tag_4099')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.bus_intf.bus_buffer.ibuf_valid_ff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4099_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4100"  onclick="showContent('inst_tag_4100')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.bus_intf.bus_buffer.obuf_valid_ff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4100_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4101"  onclick="showContent('inst_tag_4101')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.bus_intf.bus_buffer.genblock[0].buf_errorff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4101_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4105"  onclick="showContent('inst_tag_4105')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.wrbuf_vldff.genblock.dffsc</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4105_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4106"  onclick="showContent('inst_tag_4106')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.wrbuf_data_vldff.genblock.dffsc</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4106_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4107"  onclick="showContent('inst_tag_4107')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.rdbuf_vldff.genblock.dffsc</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4107_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4108"  onclick="showContent('inst_tag_4108')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[0].fifo_valid_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4108_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4110"  onclick="showContent('inst_tag_4110')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[0].fifo_error_bus_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4110_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4111"  onclick="showContent('inst_tag_4111')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[0].fifo_rpend_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4111_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4112"  onclick="showContent('inst_tag_4112')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[0].fifo_done_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4112_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4113"  onclick="showContent('inst_tag_4113')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[0].fifo_done_bus_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4113_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4114"  onclick="showContent('inst_tag_4114')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[1].fifo_valid_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4114_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4116"  onclick="showContent('inst_tag_4116')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[1].fifo_error_bus_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4116_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4117"  onclick="showContent('inst_tag_4117')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[1].fifo_rpend_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4117_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4118"  onclick="showContent('inst_tag_4118')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[1].fifo_done_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4118_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4119"  onclick="showContent('inst_tag_4119')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[1].fifo_done_bus_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4119_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4120"  onclick="showContent('inst_tag_4120')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[2].fifo_valid_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4120_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4122"  onclick="showContent('inst_tag_4122')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[2].fifo_error_bus_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4122_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4123"  onclick="showContent('inst_tag_4123')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[2].fifo_rpend_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4123_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4124"  onclick="showContent('inst_tag_4124')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[2].fifo_done_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4124_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4125"  onclick="showContent('inst_tag_4125')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[2].fifo_done_bus_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4125_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4126"  onclick="showContent('inst_tag_4126')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[3].fifo_valid_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4126_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4128"  onclick="showContent('inst_tag_4128')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[3].fifo_error_bus_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4128_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4129"  onclick="showContent('inst_tag_4129')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[3].fifo_rpend_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4129_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4130"  onclick="showContent('inst_tag_4130')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[3].fifo_done_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4130_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4131"  onclick="showContent('inst_tag_4131')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[3].fifo_done_bus_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4131_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4132"  onclick="showContent('inst_tag_4132')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[4].fifo_valid_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_0.html#inst_tag_4132_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4134"  onclick="showContent('inst_tag_4134')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[4].fifo_error_bus_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_1.html#inst_tag_4134_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4135"  onclick="showContent('inst_tag_4135')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[4].fifo_rpend_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_1.html#inst_tag_4135_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4136"  onclick="showContent('inst_tag_4136')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[4].fifo_done_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_1.html#inst_tag_4136_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4137"  onclick="showContent('inst_tag_4137')">hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[4].fifo_done_bus_dff</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_1.html#inst_tag_4137_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4138"  onclick="showContent('inst_tag_4138')">hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.lsu_axi4_to_ahb.wrbuf_vldff.genblock.dffsc</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_1.html#inst_tag_4138_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4139"  onclick="showContent('inst_tag_4139')">hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.lsu_axi4_to_ahb.wrbuf_data_vldff.genblock.dffsc</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_1.html#inst_tag_4139_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4141"  onclick="showContent('inst_tag_4141')">hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.lsu_axi4_to_ahb.buf_cmd_doneff.genblock.dffsc</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_1.html#inst_tag_4141_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4150"  onclick="showContent('inst_tag_4150')">hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.dma_ahb_to_axi4.cmdbuf_vldff.genblock.dffsc</a></td>
+<td class="s8 cl rt"> 85.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod128_1.html#inst_tag_4150_Toggle" > 85.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4140"  onclick="showContent('inst_tag_4140')">hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.lsu_axi4_to_ahb.buf_state_ff.genblock.dffsc</a></td>
+<td class="s9 cl rt"> 92.31</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod128_1.html#inst_tag_4140_Toggle" > 92.31</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_1.html#inst_tag_4144"  onclick="showContent('inst_tag_4144')">hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.ifu_axi4_to_ahb.buf_state_ff.genblock.dffsc</a></td>
+<td class="s9 cl rt"> 92.31</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod128_1.html#inst_tag_4144_Toggle" > 92.31</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4089"  onclick="showContent('inst_tag_4089')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[0].stbuf_byteenff</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod128_0.html#inst_tag_4089_Toggle" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4092"  onclick="showContent('inst_tag_4092')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[1].stbuf_byteenff</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod128_0.html#inst_tag_4092_Toggle" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4095"  onclick="showContent('inst_tag_4095')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[2].stbuf_byteenff</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod128_0.html#inst_tag_4095_Toggle" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod128_0.html#inst_tag_4098"  onclick="showContent('inst_tag_4098')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[3].stbuf_byteenff</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod128_0.html#inst_tag_4098_Toggle" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_rvdffsc'>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="1635247609"></a>
+<a href="mod128.html" >\RTL.rvdffsc  ( parameter WIDTH=1,SHORT=0 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4087_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[0].stbuf_vldff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s4 cl rt"> 42.86</td>
+<td class="s4 cl rt"> 42.86</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4088_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[0].stbuf_killff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4090_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[1].stbuf_vldff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s4 cl rt"> 42.86</td>
+<td class="s4 cl rt"> 42.86</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4091_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[1].stbuf_killff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4093_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[2].stbuf_vldff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s4 cl rt"> 42.86</td>
+<td class="s4 cl rt"> 42.86</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4094_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[2].stbuf_killff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4096_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[3].stbuf_vldff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s4 cl rt"> 42.86</td>
+<td class="s4 cl rt"> 42.86</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4097_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[3].stbuf_killff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4099_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.bus_intf.bus_buffer.ibuf_valid_ff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4100_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.bus_intf.bus_buffer.obuf_valid_ff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4101_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.bus_intf.bus_buffer.genblock[0].buf_errorff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s4 cl rt"> 42.86</td>
+<td class="s4 cl rt"> 42.86</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4102_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.bus_intf.bus_buffer.genblock[1].buf_errorff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s4 cl rt"> 42.86</td>
+<td class="s4 cl rt"> 42.86</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4103_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.bus_intf.bus_buffer.genblock[2].buf_errorff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s4 cl rt"> 42.86</td>
+<td class="s4 cl rt"> 42.86</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4104_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.bus_intf.bus_buffer.genblock[3].buf_errorff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4105_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.wrbuf_vldff.genblock.dffsc</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4106_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.wrbuf_data_vldff.genblock.dffsc</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4107_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.rdbuf_vldff.genblock.dffsc</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4108_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[0].fifo_valid_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4110_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[0].fifo_error_bus_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4111_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[0].fifo_rpend_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4112_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[0].fifo_done_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4113_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[0].fifo_done_bus_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4114_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[1].fifo_valid_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4116_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[1].fifo_error_bus_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4117_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[1].fifo_rpend_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4118_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[1].fifo_done_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4119_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[1].fifo_done_bus_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4120_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[2].fifo_valid_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4122_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[2].fifo_error_bus_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4123_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[2].fifo_rpend_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4124_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[2].fifo_done_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4125_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[2].fifo_done_bus_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4126_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[3].fifo_valid_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4128_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[3].fifo_error_bus_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4129_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[3].fifo_rpend_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4130_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[3].fifo_done_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4131_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[3].fifo_done_bus_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4132_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[4].fifo_valid_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4134_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[4].fifo_error_bus_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4135_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[4].fifo_rpend_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4136_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[4].fifo_done_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4137_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[4].fifo_done_bus_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4138_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.lsu_axi4_to_ahb.wrbuf_vldff.genblock.dffsc</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4139_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.lsu_axi4_to_ahb.wrbuf_data_vldff.genblock.dffsc</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4141_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.lsu_axi4_to_ahb.buf_cmd_doneff.genblock.dffsc</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s2 cl rt"> 28.57</td>
+<td class="s2 cl rt"> 28.57</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4142_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.ifu_axi4_to_ahb.wrbuf_vldff.genblock.dffsc</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s2 cl rt"> 28.57</td>
+<td class="s2 cl rt"> 28.57</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4143_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.ifu_axi4_to_ahb.wrbuf_data_vldff.genblock.dffsc</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s5 cl rt"> 57.14</td>
+<td class="s5 cl rt"> 57.14</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4145_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.ifu_axi4_to_ahb.buf_cmd_doneff.genblock.dffsc</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s2 cl rt"> 28.57</td>
+<td class="s2 cl rt"> 28.57</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4146_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.sb_axi4_to_ahb.wrbuf_vldff.genblock.dffsc</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s2 cl rt"> 28.57</td>
+<td class="s2 cl rt"> 28.57</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4147_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.sb_axi4_to_ahb.wrbuf_data_vldff.genblock.dffsc</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s2 cl rt"> 28.57</td>
+<td class="s2 cl rt"> 28.57</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4149_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.sb_axi4_to_ahb.buf_cmd_doneff.genblock.dffsc</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 85.71</td>
+<td class="s8 cl rt"> 85.71</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4150_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.dma_ahb_to_axi4.cmdbuf_vldff.genblock.dffsc</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">6</td>
+<td class="rt">85.71 </td>
+</tr><tr class="s8">
+<td>Total Bits</td>
+<td class="rt">14</td>
+<td class="rt">12</td>
+<td class="rt">85.71 </td>
+</tr><tr class="s8">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">7</td>
+<td class="rt">6</td>
+<td class="rt">85.71 </td>
+</tr><tr class="s8">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">7</td>
+<td class="rt">6</td>
+<td class="rt">85.71 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Ports</td>
+<td class="rt">6</td>
+<td class="rt">5</td>
+<td class="rt">83.33 </td>
+</tr><tr class="s8">
+<td>Port Bits</td>
+<td class="rt">12</td>
+<td class="rt">10</td>
+<td class="rt">83.33 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">6</td>
+<td class="rt">5</td>
+<td class="rt">83.33 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">6</td>
+<td class="rt">5</td>
+<td class="rt">83.33 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>din</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dout</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>din_new</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="476042760"></a>
+<a href="mod128.html" >\RTL.rvdffsc  ( parameter WIDTH=2,SHORT=0 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s7 cl rt"> 70.00</td>
+<td class="s7 cl rt"> 70.00</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4109_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[0].fifo_error_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s7 cl rt"> 70.00</td>
+<td class="s7 cl rt"> 70.00</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4115_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[1].fifo_error_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s7 cl rt"> 70.00</td>
+<td class="s7 cl rt"> 70.00</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4121_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[2].fifo_error_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s7 cl rt"> 70.00</td>
+<td class="s7 cl rt"> 70.00</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4127_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[3].fifo_error_dff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s7 cl rt"> 70.00</td>
+<td class="s7 cl rt"> 70.00</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4133_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dma_ctrl.GenFifo[4].fifo_error_dff</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">4</td>
+<td class="rt">57.14 </td>
+</tr><tr class="s7">
+<td>Total Bits</td>
+<td class="rt">20</td>
+<td class="rt">14</td>
+<td class="rt">70.00 </td>
+</tr><tr class="s7">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">10</td>
+<td class="rt">7</td>
+<td class="rt">70.00 </td>
+</tr><tr class="s7">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">10</td>
+<td class="rt">7</td>
+<td class="rt">70.00 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s6">
+<td>Ports</td>
+<td class="rt">6</td>
+<td class="rt">4</td>
+<td class="rt">66.67 </td>
+</tr><tr class="s7">
+<td>Port Bits</td>
+<td class="rt">16</td>
+<td class="rt">12</td>
+<td class="rt">75.00 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">8</td>
+<td class="rt">6</td>
+<td class="rt">75.00 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">8</td>
+<td class="rt">6</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s0">
+<td>Signals</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr><tr class="s5">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s5">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s5">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>din[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dout[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>din_new[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>din_new[1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="403656202"></a>
+<a href="mod128.html" >\RTL.rvdffsc  ( parameter WIDTH=4,SHORT=0 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4089_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[0].stbuf_byteenff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4092_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[1].stbuf_byteenff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4095_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[2].stbuf_byteenff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod128_0.html#inst_tag_4098_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.stbuf.Gen_dccm_enable.GenStBuf[3].stbuf_byteenff</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Total Bits</td>
+<td class="rt">32</td>
+<td class="rt">32</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">16</td>
+<td class="rt">16</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">16</td>
+<td class="rt">16</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Ports</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Port Bits</td>
+<td class="rt">24</td>
+<td class="rt">24</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">12</td>
+<td class="rt">12</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">12</td>
+<td class="rt">12</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">8</td>
+<td class="rt">8</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>din[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dout[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>din_new[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="1707634167"></a>
+<a href="mod128.html" >\RTL.rvdffsc  ( parameter WIDTH=3,SHORT=0 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s9 cl rt"> 92.31</td>
+<td class="s9 cl rt"> 92.31</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4140_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.lsu_axi4_to_ahb.buf_state_ff.genblock.dffsc</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s9 cl rt"> 92.31</td>
+<td class="s9 cl rt"> 92.31</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4144_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.ifu_axi4_to_ahb.buf_state_ff.genblock.dffsc</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s1 cl rt"> 15.38</td>
+<td class="s1 cl rt"> 15.38</td>
+</tr></table>
+<span class=inst><a href="mod128_1.html#inst_tag_4148_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.Gen_AXI_To_AHB.sb_axi4_to_ahb.buf_state_ff.genblock.dffsc</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">6</td>
+<td class="rt">85.71 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">26</td>
+<td class="rt">24</td>
+<td class="rt">92.31 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">13</td>
+<td class="rt">12</td>
+<td class="rt">92.31 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">13</td>
+<td class="rt">12</td>
+<td class="rt">92.31 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Ports</td>
+<td class="rt">6</td>
+<td class="rt">5</td>
+<td class="rt">83.33 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">20</td>
+<td class="rt">18</td>
+<td class="rt">90.00 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">10</td>
+<td class="rt">9</td>
+<td class="rt">90.00 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">10</td>
+<td class="rt">9</td>
+<td class="rt">90.00 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>din[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dout[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>din_new[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

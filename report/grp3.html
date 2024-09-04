@@ -1,0 +1,3669 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Group :: ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Group : ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Group : <a href="#"  onclick="showContent('ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}')">ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td><b>SCORE</b></td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="s1 cl rt"> 16.33</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/cad/tools/mentor/questa_vip/2022.2/questa_mvc_src/sv/ahb/analysis/ahb_lite_master_covergroups.svh')">/home/cad/tools/mentor/questa_vip/2022.2/questa_mvc_src/sv/ahb/analysis/ahb_lite_master_covergroups.svh</a><br clear=all>
+<br clear=all>
+</div>
+<hr>
+<br clear=all>
+<span class=repname>Summary for Group   ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}
+</span>
+<br clear=all>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td><a href="#var_tbl_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}" >Variables</a></td>
+<td class="rt">142</td>
+<td class="rt">128</td>
+<td class="rt">14</td>
+<td class="rt">20.55 </td>
+</tr><tr class="s0">
+<td><a href="#crs_tbl_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}" >Crosses</a></td>
+<td class="rt">228</td>
+<td class="rt">215</td>
+<td class="rt">13</td>
+<td class="rt">11.71 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="var_tbl_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}">Variables for Group  ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">VARIABLE</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_id"  onclick="checkLink(this)" target="detailFrame">slave_id</a></td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s1">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.burst_type"  onclick="checkLink(this)" target="detailFrame">burst_type</a></td>
+<td class="rt">8</td>
+<td class="rt">7</td>
+<td class="rt">1</td>
+<td class="rt">12.50 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.read_or_write_per_beat"  onclick="checkLink(this)" target="detailFrame">read_or_write_per_beat</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_size"  onclick="checkLink(this)" target="detailFrame">transfer_size</a></td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.last_address_on_1k_boundary"  onclick="checkLink(this)" target="detailFrame">last_address_on_1k_boundary</a></td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_response"  onclick="checkLink(this)" target="detailFrame">slave_response</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.okay_slave_response"  onclick="checkLink(this)" target="detailFrame">okay_slave_response</a></td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.b2b_slave_error"  onclick="checkLink(this)" target="detailFrame">b2b_slave_error</a></td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.master_started_new_transfer_on_error"  onclick="checkLink(this)" target="detailFrame">master_started_new_transfer_on_error</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s2">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_type"  onclick="checkLink(this)" target="detailFrame">transfer_type</a></td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">25.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.idle_transfer_type"  onclick="checkLink(this)" target="detailFrame">idle_transfer_type</a></td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.active_transfer_type"  onclick="checkLink(this)" target="detailFrame">active_transfer_type</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.sequential_transfer_type"  onclick="checkLink(this)" target="detailFrame">sequential_transfer_type</a></td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_type"  onclick="checkLink(this)" target="detailFrame">busy_transfer_type</a></td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s1">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_type_transition"  onclick="checkLink(this)" target="detailFrame">transfer_type_transition</a></td>
+<td class="rt">9</td>
+<td class="rt">8</td>
+<td class="rt">1</td>
+<td class="rt">11.11 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.ebt_after_busy"  onclick="checkLink(this)" target="detailFrame">ebt_after_busy</a></td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap4_beat"  onclick="checkLink(this)" target="detailFrame">addr_wrap4_beat</a></td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap8_beat"  onclick="checkLink(this)" target="detailFrame">addr_wrap8_beat</a></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap16_beat"  onclick="checkLink(this)" target="detailFrame">addr_wrap16_beat</a></td>
+<td class="rt">15</td>
+<td class="rt">15</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr4_burst_beat"  onclick="checkLink(this)" target="detailFrame">incr4_burst_beat</a></td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap4_burst_beat"  onclick="checkLink(this)" target="detailFrame">wrap4_burst_beat</a></td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr8_burst_beat"  onclick="checkLink(this)" target="detailFrame">incr8_burst_beat</a></td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap8_burst_beat"  onclick="checkLink(this)" target="detailFrame">wrap8_burst_beat</a></td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr16_burst_beat"  onclick="checkLink(this)" target="detailFrame">incr16_burst_beat</a></td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap16_burst_beat"  onclick="checkLink(this)" target="detailFrame">wrap16_burst_beat</a></td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_burst_beat"  onclick="checkLink(this)" target="detailFrame">incr_burst_beat</a></td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr4_busy_beat"  onclick="checkLink(this)" target="detailFrame">incr4_busy_beat</a></td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap4_busy_beat"  onclick="checkLink(this)" target="detailFrame">wrap4_busy_beat</a></td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr8_busy_beat"  onclick="checkLink(this)" target="detailFrame">incr8_busy_beat</a></td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap8_busy_beat"  onclick="checkLink(this)" target="detailFrame">wrap8_busy_beat</a></td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr16_busy_beat"  onclick="checkLink(this)" target="detailFrame">incr16_busy_beat</a></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap16_busy_beat"  onclick="checkLink(this)" target="detailFrame">wrap16_busy_beat</a></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_busy_beat"  onclick="checkLink(this)" target="detailFrame">incr_busy_beat</a></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_after_early_termination"  onclick="checkLink(this)" target="detailFrame">incr_after_early_termination</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="crs_tbl_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}">Crosses for Group  ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CROSS</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>PRINT MISSING</td><td>COMMENT</td></tr><tr class="s5">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_id"  onclick="checkLink(this)" target="detailFrame">slave_responseXslave_id</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s2">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_typeXslave_id"  onclick="checkLink(this)" target="detailFrame">transfer_typeXslave_id</a></td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">25.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s2">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_typeXread_or_write_per_beatXslave_id"  onclick="checkLink(this)" target="detailFrame">transfer_typeXread_or_write_per_beatXslave_id</a></td>
+<td class="rt">8</td>
+<td class="rt">6</td>
+<td class="rt">2</td>
+<td class="rt">25.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXslave_id"  onclick="checkLink(this)" target="detailFrame">busy_transfer_typeXslave_id</a></td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_after_early_terminationXslave_id"  onclick="checkLink(this)" target="detailFrame">incr_after_early_terminationXslave_id</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap4_beatXread_or_write_per_beatXslave_id"  onclick="checkLink(this)" target="detailFrame">addr_wrap4_beatXread_or_write_per_beatXslave_id</a></td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap8_beatXread_or_write_per_beatXslave_id"  onclick="checkLink(this)" target="detailFrame">addr_wrap8_beatXread_or_write_per_beatXslave_id</a></td>
+<td class="rt">14</td>
+<td class="rt">14</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap16_beatXread_or_write_per_beatXslave_id"  onclick="checkLink(this)" target="detailFrame">addr_wrap16_beatXread_or_write_per_beatXslave_id</a></td>
+<td class="rt">30</td>
+<td class="rt">30</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.address_boundary_1kXslave_id"  onclick="checkLink(this)" target="detailFrame">address_boundary_1kXslave_id</a></td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.b2b_slave_errorXread_or_write_per_beatXslave_id"  onclick="checkLink(this)" target="detailFrame">b2b_slave_errorXread_or_write_per_beatXslave_id</a></td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.burst_typeXslave_responseXslave_id"  onclick="checkLink(this)" target="detailFrame">burst_typeXslave_responseXslave_id</a></td>
+<td class="rt">16</td>
+<td class="rt">15</td>
+<td class="rt">1</td>
+<td class="rt">6.25  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.read_or_write_per_beatXslave_responseXslave_id"  onclick="checkLink(this)" target="detailFrame">read_or_write_per_beatXslave_responseXslave_id</a></td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s2">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.read_or_write_per_beatXtransfer_typeXslave_id"  onclick="checkLink(this)" target="detailFrame">read_or_write_per_beatXtransfer_typeXslave_id</a></td>
+<td class="rt">8</td>
+<td class="rt">6</td>
+<td class="rt">2</td>
+<td class="rt">25.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.idle_transfer_typeXokay_slave_responseXslave_id"  onclick="checkLink(this)" target="detailFrame">idle_transfer_typeXokay_slave_responseXslave_id</a></td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXokay_slave_responseXslave_id"  onclick="checkLink(this)" target="detailFrame">busy_transfer_typeXokay_slave_responseXslave_id</a></td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s2">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.active_transfer_typeXslave_responseXslave_id"  onclick="checkLink(this)" target="detailFrame">active_transfer_typeXslave_responseXslave_id</a></td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">25.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr4_busy_beat"  onclick="checkLink(this)" target="detailFrame">busy_transfer_typeXincr4_busy_beat</a></td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXwrap4_busy_beat"  onclick="checkLink(this)" target="detailFrame">busy_transfer_typeXwrap4_busy_beat</a></td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr8_busy_beat"  onclick="checkLink(this)" target="detailFrame">busy_transfer_typeXincr8_busy_beat</a></td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXwrap8_busy_beat"  onclick="checkLink(this)" target="detailFrame">busy_transfer_typeXwrap8_busy_beat</a></td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr16_busy_beat"  onclick="checkLink(this)" target="detailFrame">busy_transfer_typeXincr16_busy_beat</a></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXwrap16_busy_beat"  onclick="checkLink(this)" target="detailFrame">busy_transfer_typeXwrap16_busy_beat</a></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr_busy_beat"  onclick="checkLink(this)" target="detailFrame">busy_transfer_typeXincr_busy_beat</a></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr4_burst_beat"  onclick="checkLink(this)" target="detailFrame">slave_responseXslave_idXincr4_burst_beat</a></td>
+<td class="rt">8</td>
+<td class="rt">8</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXwrap4_burst_beat"  onclick="checkLink(this)" target="detailFrame">slave_responseXslave_idXwrap4_burst_beat</a></td>
+<td class="rt">8</td>
+<td class="rt">8</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr8_burst_beat"  onclick="checkLink(this)" target="detailFrame">slave_responseXslave_idXincr8_burst_beat</a></td>
+<td class="rt">10</td>
+<td class="rt">10</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXwrap8_burst_beat"  onclick="checkLink(this)" target="detailFrame">slave_responseXslave_idXwrap8_burst_beat</a></td>
+<td class="rt">10</td>
+<td class="rt">10</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr16_burst_beat"  onclick="checkLink(this)" target="detailFrame">slave_responseXslave_idXincr16_burst_beat</a></td>
+<td class="rt">12</td>
+<td class="rt">12</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXwrap16_burst_beat"  onclick="checkLink(this)" target="detailFrame">slave_responseXslave_idXwrap16_burst_beat</a></td>
+<td class="rt">12</td>
+<td class="rt">12</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr_burst_beat"  onclick="checkLink(this)" target="detailFrame">slave_responseXslave_idXincr_burst_beat</a></td>
+<td class="rt">12</td>
+<td class="rt">12</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_reponseXslave_idXburst_type"  onclick="checkLink(this)" target="detailFrame">slave_reponseXslave_idXburst_type</a></td>
+<td class="rt">15</td>
+<td class="rt">14</td>
+<td class="rt">1</td>
+<td class="rt">6.67  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_id">Summary for Variable slave_id</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for slave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>slave_id_0</td>
+<td class="rt">269882307</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.burst_type"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.burst_type">Summary for Variable burst_type</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s1">
+<td>Automatically Generated Bins</td>
+<td class="rt">8</td>
+<td class="rt">7</td>
+<td class="rt">1</td>
+<td class="rt">12.50 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for burst_type</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>auto_AHB_INCR</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>auto_AHB_WRAP4</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>auto_AHB_INCR4</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>auto_AHB_WRAP8</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>auto_AHB_INCR8</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>auto_AHB_WRAP16</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>auto_AHB_INCR16</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto_AHB_SINGLE</td>
+<td class="rt">269882307</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.read_or_write_per_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.read_or_write_per_beat">Summary for Variable read_or_write_per_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for read_or_write_per_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto_AHB_READ</td>
+<td class="rt">214669384</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto_AHB_WRITE</td>
+<td class="rt">55212923</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_size"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_size">Summary for Variable transfer_size</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for transfer_size</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>transfer_size_AHB_BITS_16</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>transfer_size_AHB_BITS_64</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>transfer_size_AHB_BITS_8</td>
+<td class="rt">8907554</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>transfer_size_AHB_BITS_32</td>
+<td class="rt">260974753</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.last_address_on_1k_boundary"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.last_address_on_1k_boundary">Summary for Variable last_address_on_1k_boundary</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for last_address_on_1k_boundary</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>ignore_address_bins</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>last_address_on_1k</td>
+<td class="rt">116109</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_response"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_response">Summary for Variable slave_response</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for slave_response</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>error_reponse</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>okay_response</td>
+<td class="rt">269882307</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.okay_slave_response"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.okay_slave_response">Summary for Variable okay_slave_response</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for okay_slave_response</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>okay_response</td>
+<td class="rt">269882307</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.b2b_slave_error"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.b2b_slave_error">Summary for Variable b2b_slave_error</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for b2b_slave_error</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>error_after_error</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.master_started_new_transfer_on_error"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.master_started_new_transfer_on_error">Summary for Variable master_started_new_transfer_on_error</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for master_started_new_transfer_on_error</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[1]]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">269882307</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_type"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_type">Summary for Variable transfer_type</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s2">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">25.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for transfer_type</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>seq_transfer</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>busy_transfer</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>idle_transfer</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>nonseq_transfer</td>
+<td class="rt">269882307</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.idle_transfer_type"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.idle_transfer_type">Summary for Variable idle_transfer_type</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for idle_transfer_type</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>idle_transfer</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.active_transfer_type"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.active_transfer_type">Summary for Variable active_transfer_type</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for active_transfer_type</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>seq_transfer</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>nonseq_transfer</td>
+<td class="rt">269882307</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.sequential_transfer_type"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.sequential_transfer_type">Summary for Variable sequential_transfer_type</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for sequential_transfer_type</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>seq_transfer</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_type"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_type">Summary for Variable busy_transfer_type</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for busy_transfer_type</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>busy_transfer</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_type_transition"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_type_transition">Summary for Variable transfer_type_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s1">
+<td>User Defined Bins</td>
+<td class="rt">9</td>
+<td class="rt">8</td>
+<td class="rt">1</td>
+<td class="rt">11.11 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for transfer_type_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>busy_seq</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>seq_idle</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>seq_busy</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>seq_seq</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>seq_nonseq</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>nonseq_busy</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>nonseq_seq</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>idle_nonseq</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>nonseq_nonseq</td>
+<td class="rt">269868297</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.ebt_after_busy"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.ebt_after_busy">Summary for Variable ebt_after_busy</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for ebt_after_busy</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>busy_idle</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>busy_nonseq</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap4_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap4_beat">Summary for Variable addr_wrap4_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for addr_wrap4_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>addr_wrap4_beat_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap4_beat_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap4_beat_4</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap8_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap8_beat">Summary for Variable addr_wrap8_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for addr_wrap8_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>addr_wrap8_beat_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap8_beat_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap8_beat_4</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap8_beat_5</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap8_beat_6</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap8_beat_7</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap8_beat_8</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap16_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap16_beat">Summary for Variable addr_wrap16_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">15</td>
+<td class="rt">15</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for addr_wrap16_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>addr_wrap16_beat_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap16_beat_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap16_beat_4</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap16_beat_5</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap16_beat_6</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap16_beat_7</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap16_beat_8</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap16_beat_9</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap16_beat_10</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap16_beat_11</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap16_beat_12</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap16_beat_13</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap16_beat_14</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap16_beat_15</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>addr_wrap16_beat_16</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr4_burst_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr4_burst_beat">Summary for Variable incr4_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for incr4_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>incr4_beats_0</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr4_beats_1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr4_beats_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr4_beats_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap4_burst_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap4_burst_beat">Summary for Variable wrap4_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for wrap4_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>wrap4_beats_0</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap4_beats_1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap4_beats_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap4_beats_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr8_burst_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr8_burst_beat">Summary for Variable incr8_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for incr8_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>incr8_beats_4_7</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr8_beats_0_3_0</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr8_beats_0_3_1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr8_beats_0_3_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr8_beats_0_3_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap8_burst_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap8_burst_beat">Summary for Variable wrap8_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for wrap8_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>wrap8_beats_4_7</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap8_beats_0_3_0</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap8_beats_0_3_1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap8_beats_0_3_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap8_beats_0_3_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr16_burst_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr16_burst_beat">Summary for Variable incr16_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for incr16_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>incr8_beats_8_15</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr8_beats_4_7</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr8_beats_0_3_0</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr8_beats_0_3_1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr8_beats_0_3_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr8_beats_0_3_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap16_burst_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap16_burst_beat">Summary for Variable wrap16_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for wrap16_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>wrap16_beats_8_15</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap16_beats_4_7</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap16_beats_0_3_0</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap16_beats_0_3_1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap16_beats_0_3_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap16_beats_0_3_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_burst_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_burst_beat">Summary for Variable incr_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for incr_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>incr_beats_rest</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr_beats_4_7</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr_beats_0_3_0</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr_beats_0_3_1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr_beats_0_3_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr_beats_0_3_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr4_busy_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr4_busy_beat">Summary for Variable incr4_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for incr4_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>incr4_busy_beats_1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr4_busy_beats_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap4_busy_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap4_busy_beat">Summary for Variable wrap4_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for wrap4_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>wrap4_busy_beats_1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap4_busy_beats_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr8_busy_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr8_busy_beat">Summary for Variable incr8_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for incr8_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>incr8_busy_beats_1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr8_busy_beats_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr8_busy_beats_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr8_busy_beats_4</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr8_busy_beats_5</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr8_busy_beats_6</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap8_busy_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap8_busy_beat">Summary for Variable wrap8_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for wrap8_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>wrap8_busy_beats_1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap8_busy_beats_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap8_busy_beats_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap8_busy_beats_4</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap8_busy_beats_5</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap8_busy_beats_6</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr16_busy_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr16_busy_beat">Summary for Variable incr16_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for incr16_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>incr16_busy_beats_rest</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr16_busy_beats_1_7_1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr16_busy_beats_1_7_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr16_busy_beats_1_7_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr16_busy_beats_1_7_4</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr16_busy_beats_1_7_5</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr16_busy_beats_1_7_6</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap16_busy_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap16_busy_beat">Summary for Variable wrap16_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for wrap16_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>wrap16_busy_beats_rest</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap16_busy_beats_1_7_1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap16_busy_beats_1_7_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap16_busy_beats_1_7_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap16_busy_beats_1_7_4</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap16_busy_beats_1_7_5</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>wrap16_busy_beats_1_7_6</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_busy_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_busy_beat">Summary for Variable incr_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for incr_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>incr16_wrap16_busy_beats_rest</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr16_wrap16_busy_beats_1_7_1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr16_wrap16_busy_beats_1_7_2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr16_wrap16_busy_beats_1_7_3</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr16_wrap16_busy_beats_1_7_4</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr16_wrap16_busy_beats_1_7_5</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>incr16_wrap16_busy_beats_1_7_6</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_after_early_termination"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_after_early_termination">Summary for Variable incr_after_early_termination</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for incr_after_early_termination</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[1]]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">269882307</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_id">Summary for Cross slave_responseXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: slave_response slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s5">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for slave_responseXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Element holes</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[error_reponse]</td>
+<td align=center>*</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>okay_response</td>
+<td>slave_id_0</td>
+<td class="rt">269882307</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_typeXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_typeXslave_id">Summary for Cross transfer_typeXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: transfer_type slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s2">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">25.00 </td>
+<td class="rt">3</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for transfer_typeXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Element holes</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">transfer_type</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[seq_transfer]</td>
+<td align=center>*</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>[busy_transfer , idle_transfer]</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">transfer_type</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>nonseq_transfer</td>
+<td>slave_id_0</td>
+<td class="rt">269882307</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_typeXread_or_write_per_beatXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_typeXread_or_write_per_beatXslave_id">Summary for Cross transfer_typeXread_or_write_per_beatXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: transfer_type read_or_write_per_beat slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s2">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">8</td>
+<td class="rt">6</td>
+<td class="rt">2</td>
+<td class="rt">25.00 </td>
+<td class="rt">6</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for transfer_typeXread_or_write_per_beatXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Element holes</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">transfer_type</td><td class="alfsrt">read_or_write_per_beat</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[seq_transfer]</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+</tr><tr class="s3">
+<td>[busy_transfer , idle_transfer]</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">4</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">transfer_type</td><td class="alfsrt">read_or_write_per_beat</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>nonseq_transfer</td>
+<td>auto_AHB_READ</td>
+<td>slave_id_0</td>
+<td class="rt">214669384</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>nonseq_transfer</td>
+<td>auto_AHB_WRITE</td>
+<td>slave_id_0</td>
+<td class="rt">55212923</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXslave_id">Summary for Cross busy_transfer_typeXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: busy_transfer_type slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for busy_transfer_typeXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">busy_transfer_type</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_after_early_terminationXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_after_early_terminationXslave_id">Summary for Cross incr_after_early_terminationXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: incr_after_early_termination slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s5">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for incr_after_early_terminationXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Element holes</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">incr_after_early_termination</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[1]]</td>
+<td align=center>*</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">incr_after_early_termination</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td>slave_id_0</td>
+<td class="rt">269882307</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap4_beatXread_or_write_per_beatXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap4_beatXread_or_write_per_beatXslave_id">Summary for Cross addr_wrap4_beatXread_or_write_per_beatXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: addr_wrap4_beat read_or_write_per_beat slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">6</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for addr_wrap4_beatXread_or_write_per_beatXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">addr_wrap4_beat</td><td class="alfsrt">read_or_write_per_beat</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">6</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap8_beatXread_or_write_per_beatXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap8_beatXread_or_write_per_beatXslave_id">Summary for Cross addr_wrap8_beatXread_or_write_per_beatXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: addr_wrap8_beat read_or_write_per_beat slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">14</td>
+<td class="rt">14</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">14</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for addr_wrap8_beatXread_or_write_per_beatXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">addr_wrap8_beat</td><td class="alfsrt">read_or_write_per_beat</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">14</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap16_beatXread_or_write_per_beatXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap16_beatXread_or_write_per_beatXslave_id">Summary for Cross addr_wrap16_beatXread_or_write_per_beatXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: addr_wrap16_beat read_or_write_per_beat slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">30</td>
+<td class="rt">30</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">30</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for addr_wrap16_beatXread_or_write_per_beatXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">addr_wrap16_beat</td><td class="alfsrt">read_or_write_per_beat</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">30</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.address_boundary_1kXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.address_boundary_1kXslave_id">Summary for Cross address_boundary_1kXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: last_address_on_1k_boundary slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s10">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for address_boundary_1kXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">last_address_on_1k_boundary</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>last_address_on_1k</td>
+<td>slave_id_0</td>
+<td class="rt">116109</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.b2b_slave_errorXread_or_write_per_beatXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.b2b_slave_errorXread_or_write_per_beatXslave_id">Summary for Cross b2b_slave_errorXread_or_write_per_beatXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: b2b_slave_error read_or_write_per_beat slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">2</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for b2b_slave_errorXread_or_write_per_beatXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">b2b_slave_error</td><td class="alfsrt">read_or_write_per_beat</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.burst_typeXslave_responseXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.burst_typeXslave_responseXslave_id">Summary for Cross burst_typeXslave_responseXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: burst_type slave_response slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">16</td>
+<td class="rt">15</td>
+<td class="rt">1</td>
+<td class="rt">6.25  </td>
+<td class="rt">15</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for burst_typeXslave_responseXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Element holes</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">burst_type</td><td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto_AHB_SINGLE]</td>
+<td>[error_reponse]</td>
+<td align=center>*</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>[auto_AHB_INCR , auto_AHB_WRAP4 , auto_AHB_INCR4 , auto_AHB_WRAP8 , auto_AHB_INCR8 , auto_AHB_WRAP16 , auto_AHB_INCR16]</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">14</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">burst_type</td><td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto_AHB_SINGLE</td>
+<td>okay_response</td>
+<td>slave_id_0</td>
+<td class="rt">269882307</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.read_or_write_per_beatXslave_responseXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.read_or_write_per_beatXslave_responseXslave_id">Summary for Cross read_or_write_per_beatXslave_responseXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: read_or_write_per_beat slave_response slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s5">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+<td class="rt">2</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for read_or_write_per_beatXslave_responseXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Element holes</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">read_or_write_per_beat</td><td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td>[error_reponse]</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">read_or_write_per_beat</td><td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto_AHB_READ</td>
+<td>okay_response</td>
+<td>slave_id_0</td>
+<td class="rt">214669384</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto_AHB_WRITE</td>
+<td>okay_response</td>
+<td>slave_id_0</td>
+<td class="rt">55212923</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.read_or_write_per_beatXtransfer_typeXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.read_or_write_per_beatXtransfer_typeXslave_id">Summary for Cross read_or_write_per_beatXtransfer_typeXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: read_or_write_per_beat transfer_type slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s2">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">8</td>
+<td class="rt">6</td>
+<td class="rt">2</td>
+<td class="rt">25.00 </td>
+<td class="rt">6</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for read_or_write_per_beatXtransfer_typeXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Element holes</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">read_or_write_per_beat</td><td class="alfsrt">transfer_type</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td>[seq_transfer]</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+</tr><tr class="s3">
+<td align=center>*</td>
+<td>[busy_transfer , idle_transfer]</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">4</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">read_or_write_per_beat</td><td class="alfsrt">transfer_type</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto_AHB_READ</td>
+<td>nonseq_transfer</td>
+<td>slave_id_0</td>
+<td class="rt">214669384</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto_AHB_WRITE</td>
+<td>nonseq_transfer</td>
+<td>slave_id_0</td>
+<td class="rt">55212923</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.idle_transfer_typeXokay_slave_responseXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.idle_transfer_typeXokay_slave_responseXslave_id">Summary for Cross idle_transfer_typeXokay_slave_responseXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: idle_transfer_type okay_slave_response slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for idle_transfer_typeXokay_slave_responseXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">idle_transfer_type</td><td class="alfsrt">okay_slave_response</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXokay_slave_responseXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXokay_slave_responseXslave_id">Summary for Cross busy_transfer_typeXokay_slave_responseXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: busy_transfer_type okay_slave_response slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for busy_transfer_typeXokay_slave_responseXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">busy_transfer_type</td><td class="alfsrt">okay_slave_response</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.active_transfer_typeXslave_responseXslave_id"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.active_transfer_typeXslave_responseXslave_id">Summary for Cross active_transfer_typeXslave_responseXslave_id</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: active_transfer_type slave_response slave_id<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s2">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">25.00 </td>
+<td class="rt">3</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for active_transfer_typeXslave_responseXslave_id</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Element holes</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">active_transfer_type</td><td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[seq_transfer]</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+</tr><tr class="s3">
+<td>[nonseq_transfer]</td>
+<td>[error_reponse]</td>
+<td align=center>*</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">active_transfer_type</td><td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>nonseq_transfer</td>
+<td>okay_response</td>
+<td>slave_id_0</td>
+<td class="rt">269882307</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr4_busy_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr4_busy_beat">Summary for Cross busy_transfer_typeXincr4_busy_beat</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: busy_transfer_type incr4_busy_beat<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">2</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for busy_transfer_typeXincr4_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">busy_transfer_type</td><td class="alfsrt">incr4_busy_beat</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXwrap4_busy_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXwrap4_busy_beat">Summary for Cross busy_transfer_typeXwrap4_busy_beat</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: busy_transfer_type wrap4_busy_beat<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">2</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for busy_transfer_typeXwrap4_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">busy_transfer_type</td><td class="alfsrt">wrap4_busy_beat</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">2</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr8_busy_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr8_busy_beat">Summary for Cross busy_transfer_typeXincr8_busy_beat</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: busy_transfer_type incr8_busy_beat<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">6</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for busy_transfer_typeXincr8_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">busy_transfer_type</td><td class="alfsrt">incr8_busy_beat</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">6</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXwrap8_busy_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXwrap8_busy_beat">Summary for Cross busy_transfer_typeXwrap8_busy_beat</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: busy_transfer_type wrap8_busy_beat<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">6</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">6</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for busy_transfer_typeXwrap8_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">busy_transfer_type</td><td class="alfsrt">wrap8_busy_beat</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">6</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr16_busy_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr16_busy_beat">Summary for Cross busy_transfer_typeXincr16_busy_beat</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: busy_transfer_type incr16_busy_beat<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">7</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for busy_transfer_typeXincr16_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">busy_transfer_type</td><td class="alfsrt">incr16_busy_beat</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">7</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXwrap16_busy_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXwrap16_busy_beat">Summary for Cross busy_transfer_typeXwrap16_busy_beat</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: busy_transfer_type wrap16_busy_beat<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">7</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for busy_transfer_typeXwrap16_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">busy_transfer_type</td><td class="alfsrt">wrap16_busy_beat</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">7</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr_busy_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr_busy_beat">Summary for Cross busy_transfer_typeXincr_busy_beat</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: busy_transfer_type incr_busy_beat<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">7</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for busy_transfer_typeXincr_busy_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">busy_transfer_type</td><td class="alfsrt">incr_busy_beat</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">7</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr4_burst_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr4_burst_beat">Summary for Cross slave_responseXslave_idXincr4_burst_beat</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: slave_response slave_id incr4_burst_beat<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">8</td>
+<td class="rt">8</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">8</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for slave_responseXslave_idXincr4_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td class="alfsrt">incr4_burst_beat</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">8</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXwrap4_burst_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXwrap4_burst_beat">Summary for Cross slave_responseXslave_idXwrap4_burst_beat</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: slave_response slave_id wrap4_burst_beat<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">8</td>
+<td class="rt">8</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">8</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for slave_responseXslave_idXwrap4_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td class="alfsrt">wrap4_burst_beat</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">8</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr8_burst_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr8_burst_beat">Summary for Cross slave_responseXslave_idXincr8_burst_beat</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: slave_response slave_id incr8_burst_beat<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">10</td>
+<td class="rt">10</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">10</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for slave_responseXslave_idXincr8_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td class="alfsrt">incr8_burst_beat</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">10</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXwrap8_burst_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXwrap8_burst_beat">Summary for Cross slave_responseXslave_idXwrap8_burst_beat</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: slave_response slave_id wrap8_burst_beat<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">10</td>
+<td class="rt">10</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">10</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for slave_responseXslave_idXwrap8_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td class="alfsrt">wrap8_burst_beat</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">10</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr16_burst_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr16_burst_beat">Summary for Cross slave_responseXslave_idXincr16_burst_beat</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: slave_response slave_id incr16_burst_beat<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">12</td>
+<td class="rt">12</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">12</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for slave_responseXslave_idXincr16_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td class="alfsrt">incr16_burst_beat</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">12</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXwrap16_burst_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXwrap16_burst_beat">Summary for Cross slave_responseXslave_idXwrap16_burst_beat</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: slave_response slave_id wrap16_burst_beat<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">12</td>
+<td class="rt">12</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">12</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for slave_responseXslave_idXwrap16_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td class="alfsrt">wrap16_burst_beat</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">12</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr_burst_beat"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr_burst_beat">Summary for Cross slave_responseXslave_idXincr_burst_beat</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: slave_response slave_id incr_burst_beat<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">12</td>
+<td class="rt">12</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">12</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for slave_responseXslave_idXincr_burst_beat</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td class="alfsrt">incr_burst_beat</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center>*</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">12</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_reponseXslave_idXburst_type"></a><span class="repname" id="inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_reponseXslave_idXburst_type">Summary for Cross slave_reponseXslave_idXburst_type</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: slave_response slave_id burst_type<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s0">
+<td>TOTAL</td>
+<td class="rt">15</td>
+<td class="rt">14</td>
+<td class="rt">1</td>
+<td class="rt">6.67  </td>
+<td class="rt">14</td>
+</tr><tr class="s0">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">14</td>
+<td class="rt">14</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">14</td>
+</tr><tr class="s10">
+<td>User Defined Cross Bins</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for slave_reponseXslave_idXburst_type</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Element holes</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">slave_response</td><td class="alfsrt">slave_id</td><td class="alfsrt">burst_type</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td align=center>*</td>
+<td align=center>*</td>
+<td>[auto_AHB_INCR , auto_AHB_WRAP4 , auto_AHB_INCR4 , auto_AHB_WRAP8 , auto_AHB_INCR8 , auto_AHB_WRAP16 , auto_AHB_INCR16]</td>
+<td align=center nowrap>--</td>
+<td align=center nowrap>--</td>
+<td class="rt">14</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Cross Bins for slave_reponseXslave_idXburst_type</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>single_transfer</td>
+<td class="rt">269882307</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_id">Variable : slave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.burst_type">Variable : burst_type</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.read_or_write_per_beat">Variable : read_or_write_per_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_size">Variable : transfer_size</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.last_address_on_1k_boundary">Variable : last_address_on_1k_boundary</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_response">Variable : slave_response</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.okay_slave_response">Variable : okay_slave_response</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.b2b_slave_error">Variable : b2b_slave_error</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.master_started_new_transfer_on_error">Variable : master_started_new_transfer_on_error</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_type">Variable : transfer_type</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.idle_transfer_type">Variable : idle_transfer_type</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.active_transfer_type">Variable : active_transfer_type</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.sequential_transfer_type">Variable : sequential_transfer_type</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_type">Variable : busy_transfer_type</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_type_transition">Variable : transfer_type_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.ebt_after_busy">Variable : ebt_after_busy</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap4_beat">Variable : addr_wrap4_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap8_beat">Variable : addr_wrap8_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap16_beat">Variable : addr_wrap16_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr4_burst_beat">Variable : incr4_burst_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap4_burst_beat">Variable : wrap4_burst_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr8_burst_beat">Variable : incr8_burst_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap8_burst_beat">Variable : wrap8_burst_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr16_burst_beat">Variable : incr16_burst_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap16_burst_beat">Variable : wrap16_burst_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_burst_beat">Variable : incr_burst_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr4_busy_beat">Variable : incr4_busy_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap4_busy_beat">Variable : wrap4_busy_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr8_busy_beat">Variable : incr8_busy_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap8_busy_beat">Variable : wrap8_busy_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr16_busy_beat">Variable : incr16_busy_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.wrap16_busy_beat">Variable : wrap16_busy_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_busy_beat">Variable : incr_busy_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_after_early_termination">Variable : incr_after_early_termination</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_id">Cross : slave_responseXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_typeXslave_id">Cross : transfer_typeXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.transfer_typeXread_or_write_per_beatXslave_id">Cross : transfer_typeXread_or_write_per_beatXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXslave_id">Cross : busy_transfer_typeXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.incr_after_early_terminationXslave_id">Cross : incr_after_early_terminationXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap4_beatXread_or_write_per_beatXslave_id">Cross : addr_wrap4_beatXread_or_write_per_beatXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap8_beatXread_or_write_per_beatXslave_id">Cross : addr_wrap8_beatXread_or_write_per_beatXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.addr_wrap16_beatXread_or_write_per_beatXslave_id">Cross : addr_wrap16_beatXread_or_write_per_beatXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.address_boundary_1kXslave_id">Cross : address_boundary_1kXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.b2b_slave_errorXread_or_write_per_beatXslave_id">Cross : b2b_slave_errorXread_or_write_per_beatXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.burst_typeXslave_responseXslave_id">Cross : burst_typeXslave_responseXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.read_or_write_per_beatXslave_responseXslave_id">Cross : read_or_write_per_beatXslave_responseXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.read_or_write_per_beatXtransfer_typeXslave_id">Cross : read_or_write_per_beatXtransfer_typeXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.idle_transfer_typeXokay_slave_responseXslave_id">Cross : idle_transfer_typeXokay_slave_responseXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXokay_slave_responseXslave_id">Cross : busy_transfer_typeXokay_slave_responseXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.active_transfer_typeXslave_responseXslave_id">Cross : active_transfer_typeXslave_responseXslave_id</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr4_busy_beat">Cross : busy_transfer_typeXincr4_busy_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXwrap4_busy_beat">Cross : busy_transfer_typeXwrap4_busy_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr8_busy_beat">Cross : busy_transfer_typeXincr8_busy_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXwrap8_busy_beat">Cross : busy_transfer_typeXwrap8_busy_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr16_busy_beat">Cross : busy_transfer_typeXincr16_busy_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXwrap16_busy_beat">Cross : busy_transfer_typeXwrap16_busy_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.busy_transfer_typeXincr_busy_beat">Cross : busy_transfer_typeXincr_busy_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr4_burst_beat">Cross : slave_responseXslave_idXincr4_burst_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXwrap4_burst_beat">Cross : slave_responseXslave_idXwrap4_burst_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr8_burst_beat">Cross : slave_responseXslave_idXincr8_burst_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXwrap8_burst_beat">Cross : slave_responseXslave_idXwrap8_burst_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr16_burst_beat">Cross : slave_responseXslave_idXincr16_burst_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXwrap16_burst_beat">Cross : slave_responseXslave_idXwrap16_burst_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_responseXslave_idXincr_burst_beat">Cross : slave_responseXslave_idXincr_burst_beat</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_master_covergroups#(1,1,1,32,64,64)::master_single_transfer_cov::SHAPE{m_max_transfer_size=3}.slave_reponseXslave_idXburst_type">Cross : slave_reponseXslave_idXburst_type</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>
