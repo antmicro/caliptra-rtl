@@ -1247,6 +1247,7 @@ soc_ifc_top1
 
     .cptra_pwrgood(cptra_pwrgood),
     .cptra_rst_b  (cptra_rst_b  ),
+    .cptra_panic  (cptra_panic  ),
 
     .ready_for_fuses(ready_for_fuses),
     .ready_for_mb_processing(ready_for_mb_processing),

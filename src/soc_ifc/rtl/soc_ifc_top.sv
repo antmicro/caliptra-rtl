@@ -42,6 +42,7 @@ module soc_ifc_top
     //SoC boot signals
     input logic cptra_pwrgood,
     input logic cptra_rst_b,
+    input logic cptra_panic,
 
     output logic ready_for_fuses,
     output logic ready_for_mb_processing,
@@ -297,6 +298,7 @@ soc_ifc_boot_fsm i_soc_ifc_boot_fsm (
     .clk(clk),
     .cptra_pwrgood(cptra_pwrgood),
     .cptra_rst_b (cptra_rst_b),
+    .cptra_panic (cptra_panic),
     .scan_mode(scan_mode),
     .fw_update_rst (soc_ifc_reg_hwif_out.internal_fw_update_reset.core_rst.value),
     .fw_update_rst_wait_cycles (soc_ifc_reg_hwif_out.internal_fw_update_reset_wait_cycles.wait_cycles.value),
