@@ -19,7 +19,6 @@ module soc_ifc_boot_fsm
     input logic clk,
     input logic cptra_pwrgood,
     input logic cptra_rst_b,
-    input logic cptra_panic,
     input logic scan_mode,
     input logic fw_update_rst,
     input logic [7:0] fw_update_rst_wait_cycles,
@@ -233,8 +232,8 @@ end
 
 //protect resets during scan mode
 //utilize warm reset pin to drive reset during scan mode
-assign cptra_noncore_rst_b = scan_mode ? cptra_rst_b : cptra_noncore_rst_b_nq | cptra_panic;
-assign cptra_uc_rst_b = scan_mode ? cptra_rst_b : cptra_uc_rst_b_nq | cptra_panic;
+assign cptra_noncore_rst_b = scan_mode ? cptra_rst_b : cptra_noncore_rst_b_nq;
+assign cptra_uc_rst_b = scan_mode ? cptra_rst_b : cptra_uc_rst_b_nq;
 
 //uC reset generation
 always_ff @(posedge clk or negedge cptra_rst_b) begin

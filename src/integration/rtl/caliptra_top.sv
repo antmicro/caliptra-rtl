@@ -1260,7 +1260,6 @@ soc_ifc_top1
 
     .cptra_pwrgood(cptra_pwrgood),
     .cptra_rst_b  (cptra_rst_b  ),
-    .cptra_panic  (cptra_panic  ),
 
     .ready_for_fuses(ready_for_fuses),
     .ready_for_mb_processing(ready_for_mb_processing),
@@ -1370,6 +1369,8 @@ soc_ifc_top1
     .fw_update_rst_window(fw_update_rst_window),
     //multiple cryptos operating at once, assert fatal error
     .crypto_error(crypto_error),
+    // DCLS error
+    .dcls_error  (cptra_panic ),
     //caliptra uncore jtag ports
     .cptra_uncore_dmi_reg_en( cptra_uncore_dmi_reg_en ),
     .cptra_uncore_dmi_reg_wr_en( cptra_uncore_dmi_reg_wr_en ),
