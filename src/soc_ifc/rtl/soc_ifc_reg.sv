@@ -2437,8 +2437,10 @@ module soc_ifc_reg (
     assign hwif_out.CPTRA_HW_ERROR_FATAL.crypto_err.value = field_storage.CPTRA_HW_ERROR_FATAL.crypto_err.value;
     // Field: soc_ifc_reg.CPTRA_HW_ERROR_FATAL.dcls_error
     always_comb begin
-        automatic logic [0:0] next_c = field_storage.CPTRA_HW_ERROR_FATAL.dcls_error.value;
-        automatic logic load_next_c = '0;
+        automatic logic [0:0] next_c;
+        automatic logic load_next_c;
+        next_c = field_storage.CPTRA_HW_ERROR_FATAL.dcls_error.value;
+        load_next_c = '0;
         if(decoded_reg_strb.CPTRA_HW_ERROR_FATAL && decoded_req_is_wr) begin // SW write 1 clear
             next_c = field_storage.CPTRA_HW_ERROR_FATAL.dcls_error.value & ~(decoded_wr_data[4:4] & decoded_wr_biten[4:4]);
             load_next_c = '1;
