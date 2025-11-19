@@ -24,6 +24,7 @@
 module el2_veer_wrapper
 import el2_pkg::*;
  #(
+  parameter CSS_IDCODE_VALUE = 32'h0000_0000,
 `include "el2_param.vh"
 )
 (
@@ -886,7 +887,9 @@ import el2_pkg::*;
 
    logic unused_dmi_hard_reset;
    //  JTAG/DMI instance
-   dmi_wrapper  dmi_wrapper (
+   dmi_wrapper  #(
+    .CSS_IDCODE_VALUE(CSS_IDCODE_VALUE)
+   ) dmi_wrapper (
     // JTAG signals
     .trst_n      (jtag_trst_n),     // JTAG reset
     .tck         (jtag_tck),        // JTAG clock

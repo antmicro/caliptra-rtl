@@ -28,7 +28,9 @@ module caliptra_top
     import entropy_src_pkg::*;
     import csrng_pkg::*;
 `endif
-    (
+#(
+	parameter CSS_IDCODE_VALUE = 32'h0000_0000
+) (
     input logic                        clk,
 
     input logic                        cptra_pwrgood,
@@ -440,7 +442,9 @@ always_comb begin
   el2_icache_stub.ic_tag_data_raw_pre = '0;
 end
 
-el2_veer_wrapper rvtop (
+el2_veer_wrapper #(
+	.CSS_IDCODE_VALUE(CSS_IDCODE_VALUE)
+) rvtop (
 `ifdef CALIPTRA_FORCE_CPU_RESET
     .rst_l                  ( 1'b0 ),
 `else

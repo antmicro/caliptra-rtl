@@ -14,7 +14,8 @@
 // limitations under the License
 
 module rvjtag_tap #(
-parameter AWIDTH = 7
+parameter AWIDTH = 7,
+parameter CSS_IDCODE_VALUE = 32'h0000_0000
 )
 (
 input               trst,
@@ -63,7 +64,7 @@ wire shift_ir;
 wire pause_ir ;
 wire update_ir ;
 wire capture_ir;
-wire[1:0] dr_en;
+wire[2:0] dr_en;
 wire [5:0] abits;
 
 assign abits = AWIDTH[5:0];
@@ -141,6 +142,7 @@ end
 
 assign dr_en[0]   = ir == 5'b10000;
 assign dr_en[1]   = ir == 5'b10001;
+assign dr_en[2]   = ir == 5'b00001;
 
 ///////////////////////////////////////////////////////
 //                      Shift register
@@ -160,6 +162,7 @@ always_comb begin
     case(1)
     shift_dr:   begin
                     case(1)
+                    dr_en[2]:   nsr = {{USER_DR_LENGTH-32{1'b0}},tdi, sr[31:1]};
                     dr_en[1]:   nsr = {tdi, sr[USER_DR_LENGTH-1:1]};
                     dr_en[0]:   nsr = {{USER_DR_LENGTH-32{1'b0}},tdi, sr[31:1]};
                     default:    nsr = {{USER_DR_LENGTH-1{1'b0}},tdi}; // bypass
@@ -170,6 +173,7 @@ always_comb begin
                     case(1)
                     dr_en[0]:   nsr = {{USER_DR_LENGTH-15{1'b0}}, idle, dmi_stat, abits, version};
                     dr_en[1]:   nsr = {{AWIDTH{1'b0}}, rd_data, rd_status};
+                    dr_en[2]:   nsr = {{USER_DR_LENGTH-15{1'b0}}, CSS_IDCODE_VALUE};
                     endcase
                 end
     shift_ir:   nsr = {{USER_DR_LENGTH-5{1'b0}},tdi, sr[4:1]};
