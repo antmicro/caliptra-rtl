@@ -61,7 +61,7 @@ import soc_ifc_pkg::*;
     // Register INF
     input  logic                      dv,
     input var soc_ifc_req_t           req_data,
-    output logic                      hold,
+    output logic                      req_hold,
     output logic [SOC_IFC_DATA_W-1:0] rdata,
     output logic                      error,
 
@@ -230,8 +230,8 @@ import soc_ifc_pkg::*;
         .hwif_in             (hwif_in                                                       ),
         .hwif_out            (hwif_out                                                      )
     );
-    assign error = reg_rd_err   || reg_wr_err;
-    assign hold  = reg_rd_stall || reg_wr_stall;
+    assign error    = reg_rd_err   || reg_wr_err;
+    assign req_hold = reg_rd_stall || reg_wr_stall;
 
 
     always_comb begin
