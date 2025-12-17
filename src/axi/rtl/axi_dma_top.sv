@@ -52,7 +52,7 @@ import soc_ifc_pkg::*;
     // Component INF
     input logic dv,
     input var soc_ifc_req_t req_data,
-    output logic hold,
+    output logic req_hold,
     output logic [SOC_IFC_DATA_W-1:0] rdata,
     output logic error,
 
@@ -136,7 +136,7 @@ import soc_ifc_pkg::*;
         // Register INF
         .dv      (dv      ),
         .req_data(req_data),
-        .hold    (hold    ),
+        .req_hold(req_hold),
         .rdata   (rdata   ),
         .error   (error   ),
 
