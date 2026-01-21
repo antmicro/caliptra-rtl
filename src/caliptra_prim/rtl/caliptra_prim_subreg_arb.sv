@@ -75,9 +75,12 @@ module caliptra_prim_subreg_arb
         assign wr_data = caliptra_prim_mubi_pkg::mubi16_or_hi(caliptra_prim_mubi_pkg::mubi16_t'(de ? d : q),
                                                               (we ? caliptra_prim_mubi_pkg::mubi16_t'(wd) :
                                                                     caliptra_prim_mubi_pkg::MuBi16False));
-      end else begin : gen_invalid_mubi
+      end
+`ifndef SYNTHESIS
+      else begin : gen_invalid_mubi
         $error("%m: Invalid width for MuBi");
       end
+`endif
     end else begin : gen_non_mubi
       assign wr_data = (de ? d : q) | (we ? wd : '0);
     end
@@ -103,9 +106,12 @@ module caliptra_prim_subreg_arb
         assign wr_data = caliptra_prim_mubi_pkg::mubi16_and_hi(caliptra_prim_mubi_pkg::mubi16_t'(de ? d : q),
                                                                (we ? caliptra_prim_mubi_pkg::mubi16_t'(~wd) :
                                                                      caliptra_prim_mubi_pkg::MuBi16True));
-      end else begin : gen_invalid_mubi
+      end
+`ifndef SYNTHESIS
+      else begin : gen_invalid_mubi
         $error("%m: Invalid width for MuBi");
       end
+`endif
     end else begin : gen_non_mubi
       assign wr_data = (de ? d : q) & (we ? ~wd : '1);
     end
@@ -128,9 +134,12 @@ module caliptra_prim_subreg_arb
         assign wr_data = caliptra_prim_mubi_pkg::mubi16_and_hi(caliptra_prim_mubi_pkg::mubi16_t'(de ? d : q),
                                                                (we ? caliptra_prim_mubi_pkg::mubi16_t'(wd) :
                                                                      caliptra_prim_mubi_pkg::MuBi16True));
-      end else begin : gen_invalid_mubi
+      end
+`ifndef SYNTHESIS
+      else begin : gen_invalid_mubi
         $error("%m: Invalid width for MuBi");
       end
+`endif
     end else begin : gen_non_mubi
       assign wr_data = (de ? d : q) & (we ? wd : '1);
     end
@@ -155,9 +164,12 @@ module caliptra_prim_subreg_arb
         assign wr_data = caliptra_prim_mubi_pkg::mubi16_and_hi(caliptra_prim_mubi_pkg::mubi16_t'(de ? d : q),
                                                                (we ? caliptra_prim_mubi_pkg::mubi16_t'(wd) :
                                                                      caliptra_prim_mubi_pkg::MuBi16True));
-      end else begin : gen_invalid_mubi
+      end
+`ifndef SYNTHESIS
+      else begin : gen_invalid_mubi
         $error("%m: Invalid width for MuBi");
       end
+`endif
     end else begin : gen_non_mubi
       assign wr_data = (de ? d : q) & (we ? '0 : '1);
     end
