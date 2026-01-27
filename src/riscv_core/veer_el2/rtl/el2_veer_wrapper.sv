@@ -24,7 +24,7 @@
 module el2_veer_wrapper
 import el2_pkg::*;
  #(
-  parameter CSS_IDCODE_VALUE = 32'h0000_0000,
+  parameter CSS_IDCODE_VALUE = 32'h0000_0001,
 `include "el2_param.vh"
 )
 (

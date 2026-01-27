@@ -22,7 +22,7 @@
 //-------------------------------------------------------------------------------------
 
 module dmi_wrapper #(
-	parameter CSS_IDCODE_VALUE=32'h0000_0000
+	parameter CSS_IDCODE_VALUE=32'h0000_0001
 ) (
 
   // JTAG signals
