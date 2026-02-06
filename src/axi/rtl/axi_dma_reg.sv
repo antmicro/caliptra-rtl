@@ -2170,10 +2170,6 @@ module axi_dma_reg (
         end
         field_combo.intr_block_rf.error_cmd_dec_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_cmd_dec_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_cmd_dec_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_cmd_dec_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_cmd_dec_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_cmd_dec_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -2204,10 +2200,6 @@ module axi_dma_reg (
         end
         field_combo.intr_block_rf.error_axi_rd_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_axi_rd_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_axi_rd_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_axi_rd_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_axi_rd_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_axi_rd_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -2238,10 +2230,6 @@ module axi_dma_reg (
         end
         field_combo.intr_block_rf.error_axi_wr_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_axi_wr_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_axi_wr_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_axi_wr_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_axi_wr_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_axi_wr_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -2272,10 +2260,6 @@ module axi_dma_reg (
         end
         field_combo.intr_block_rf.error_mbox_lock_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_mbox_lock_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_mbox_lock_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_mbox_lock_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_mbox_lock_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_mbox_lock_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -2306,10 +2290,6 @@ module axi_dma_reg (
         end
         field_combo.intr_block_rf.error_sha_lock_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_sha_lock_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_sha_lock_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_sha_lock_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_sha_lock_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_sha_lock_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -2340,10 +2320,6 @@ module axi_dma_reg (
         end
         field_combo.intr_block_rf.error_fifo_oflow_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_fifo_oflow_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_fifo_oflow_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_fifo_oflow_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_fifo_oflow_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_fifo_oflow_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -2374,10 +2350,6 @@ module axi_dma_reg (
         end
         field_combo.intr_block_rf.error_fifo_uflow_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_fifo_uflow_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_fifo_uflow_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_fifo_uflow_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_fifo_uflow_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_fifo_uflow_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -2408,10 +2380,6 @@ module axi_dma_reg (
         end
         field_combo.intr_block_rf.notif_txn_done_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.notif_txn_done_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.notif_txn_done_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.notif_txn_done_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.notif_txn_done_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.notif_txn_done_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -2442,10 +2410,6 @@ module axi_dma_reg (
         end
         field_combo.intr_block_rf.notif_fifo_empty_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.notif_fifo_empty_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.notif_fifo_empty_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.notif_fifo_empty_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.notif_fifo_empty_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.notif_fifo_empty_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -2476,10 +2440,6 @@ module axi_dma_reg (
         end
         field_combo.intr_block_rf.notif_fifo_not_empty_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.notif_fifo_not_empty_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.notif_fifo_not_empty_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.notif_fifo_not_empty_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.notif_fifo_not_empty_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.notif_fifo_not_empty_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -2510,10 +2470,6 @@ module axi_dma_reg (
         end
         field_combo.intr_block_rf.notif_fifo_full_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.notif_fifo_full_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.notif_fifo_full_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.notif_fifo_full_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.notif_fifo_full_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.notif_fifo_full_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -2544,10 +2500,6 @@ module axi_dma_reg (
         end
         field_combo.intr_block_rf.notif_fifo_not_full_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.notif_fifo_not_full_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.notif_fifo_not_full_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.notif_fifo_not_full_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.notif_fifo_not_full_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.notif_fifo_not_full_intr_count_r.cnt.load_next = load_next_c;
     end
