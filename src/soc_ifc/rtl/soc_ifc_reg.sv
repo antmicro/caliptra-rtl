@@ -6135,10 +6135,6 @@ module soc_ifc_reg (
         end
         field_combo.intr_block_rf.error_internal_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_internal_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_internal_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_internal_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_internal_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_internal_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -6169,10 +6165,6 @@ module soc_ifc_reg (
         end
         field_combo.intr_block_rf.error_inv_dev_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_inv_dev_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_inv_dev_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_inv_dev_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_inv_dev_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_inv_dev_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -6203,10 +6195,6 @@ module soc_ifc_reg (
         end
         field_combo.intr_block_rf.error_cmd_fail_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_cmd_fail_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_cmd_fail_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_cmd_fail_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_cmd_fail_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_cmd_fail_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -6237,10 +6225,6 @@ module soc_ifc_reg (
         end
         field_combo.intr_block_rf.error_bad_fuse_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_bad_fuse_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_bad_fuse_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_bad_fuse_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_bad_fuse_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_bad_fuse_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -6271,10 +6255,6 @@ module soc_ifc_reg (
         end
         field_combo.intr_block_rf.error_iccm_blocked_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_iccm_blocked_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_iccm_blocked_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_iccm_blocked_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_iccm_blocked_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_iccm_blocked_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -6305,10 +6285,6 @@ module soc_ifc_reg (
         end
         field_combo.intr_block_rf.error_mbox_ecc_unc_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_mbox_ecc_unc_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_mbox_ecc_unc_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_mbox_ecc_unc_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_mbox_ecc_unc_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_mbox_ecc_unc_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -6339,10 +6315,6 @@ module soc_ifc_reg (
         end
         field_combo.intr_block_rf.error_wdt_timer1_timeout_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_wdt_timer1_timeout_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_wdt_timer1_timeout_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_wdt_timer1_timeout_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_wdt_timer1_timeout_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_wdt_timer1_timeout_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -6373,10 +6345,6 @@ module soc_ifc_reg (
         end
         field_combo.intr_block_rf.error_wdt_timer2_timeout_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.error_wdt_timer2_timeout_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.error_wdt_timer2_timeout_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.error_wdt_timer2_timeout_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.error_wdt_timer2_timeout_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.error_wdt_timer2_timeout_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -6407,10 +6375,6 @@ module soc_ifc_reg (
         end
         field_combo.intr_block_rf.notif_cmd_avail_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.notif_cmd_avail_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.notif_cmd_avail_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.notif_cmd_avail_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.notif_cmd_avail_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.notif_cmd_avail_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -6441,10 +6405,6 @@ module soc_ifc_reg (
         end
         field_combo.intr_block_rf.notif_mbox_ecc_cor_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.notif_mbox_ecc_cor_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.notif_mbox_ecc_cor_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.notif_mbox_ecc_cor_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.notif_mbox_ecc_cor_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.notif_mbox_ecc_cor_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -6475,10 +6435,6 @@ module soc_ifc_reg (
         end
         field_combo.intr_block_rf.notif_debug_locked_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.notif_debug_locked_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.notif_debug_locked_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.notif_debug_locked_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.notif_debug_locked_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.notif_debug_locked_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -6509,10 +6465,6 @@ module soc_ifc_reg (
         end
         field_combo.intr_block_rf.notif_scan_mode_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.notif_scan_mode_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.notif_scan_mode_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.notif_scan_mode_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.notif_scan_mode_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.notif_scan_mode_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -6543,10 +6495,6 @@ module soc_ifc_reg (
         end
         field_combo.intr_block_rf.notif_soc_req_lock_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.notif_soc_req_lock_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.notif_soc_req_lock_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.notif_soc_req_lock_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.notif_soc_req_lock_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.notif_soc_req_lock_intr_count_r.cnt.load_next = load_next_c;
     end
@@ -6577,10 +6525,6 @@ module soc_ifc_reg (
         end
         field_combo.intr_block_rf.notif_gen_in_toggle_intr_count_r.cnt.incrthreshold = (field_storage.intr_block_rf.notif_gen_in_toggle_intr_count_r.cnt.value >= 32'hffffffff);
         field_combo.intr_block_rf.notif_gen_in_toggle_intr_count_r.cnt.incrsaturate = (field_storage.intr_block_rf.notif_gen_in_toggle_intr_count_r.cnt.value >= 32'hffffffff);
-        if(next_c > 32'hffffffff) begin
-            next_c = 32'hffffffff;
-            load_next_c = '1;
-        end
         field_combo.intr_block_rf.notif_gen_in_toggle_intr_count_r.cnt.next = next_c;
         field_combo.intr_block_rf.notif_gen_in_toggle_intr_count_r.cnt.load_next = load_next_c;
     end
