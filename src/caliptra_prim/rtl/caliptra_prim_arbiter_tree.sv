@@ -59,7 +59,8 @@ module caliptra_prim_arbiter_tree #(
 
   // req_chk_i is used for gating assertions only.
   logic unused_req_chk;
-  assign unused_req_chk = req_chk_i;
+  // ready_i is used, included only to silence UnloadedInPort-ML violation
+  assign unused_req_chk = ^{req_chk_i, ready_i};
 
   `CALIPTRA_ASSERT_INIT(CheckNGreaterZero_A, N > 0)
 

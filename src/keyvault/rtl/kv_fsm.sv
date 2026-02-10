@@ -48,7 +48,6 @@ module kv_fsm
 //max dwords for SHA/HMAC blocks that need padding
 localparam KV_MAX_DWORDS = 1024/32;
 localparam KV_NUM_DWORDS_W = $clog2(KV_MAX_DWORDS);
-localparam KV_PAD_LENGTH_START = 28;
 
 logic [KV_NUM_DWORDS_W:0] num_dwords_data;
 logic [KV_NUM_DWORDS_W:0] num_dwords_total;
@@ -77,9 +76,8 @@ logic offset_en;
 logic offset_rst;
 logic [KV_NUM_DWORDS_W:0] offset, offset_nxt;
 
-//data width is in bits, divide by 32 to get dwords
-assign num_dwords_total = pcr_hash_extend ? 'd12 :
-                          ((PAD == 1) ? KV_MAX_DWORDS : $bits(num_dwords_total)'(num_dwords));
+assign num_dwords_total = $bits(num_dwords_total)'(pcr_hash_extend ? 'd12 :
+                                                   ((PAD == 1) ? KV_MAX_DWORDS : num_dwords));
 
 always_comb ready = (kv_fsm_ps == KV_IDLE);
 
@@ -148,6 +146,8 @@ always_comb begin : kv_fsm_comb
             done = '1;
         end
         default: begin
+          // Repeated to avoid lint violation
+          kv_fsm_ns = kv_fsm_ps;
         end
     endcase
 end
@@ -169,7 +169,7 @@ always_ff @(posedge clk or negedge rst_b) begin
 end
 
 generate
-    if (PAD==1) begin
+    if (PAD==1) begin : gen_pad
         always_ff @(posedge clk or negedge rst_b) begin
             if (!rst_b) begin
                 num_dwords_data <= '0;
@@ -182,8 +182,19 @@ generate
                 num_dwords_data <= arc_KV_RW_KV_PAD ? offset_nxt : num_dwords_data;
             end
         end
-    end else begin
+    end else begin : gen_no_pad
         always_comb num_dwords_data = '0;
+        // Add an unloaded flop to make use of input 'last'
+        // This is done to specifically address lint complaints of unused input ports
+        // Since the flop is unloaded it will be removed during synthesis
+        logic unused_signal;
+        always_ff @(posedge clk or negedge rst_b) begin
+          if (!rst_b) begin
+            unused_signal <= '0;
+          end else begin
+            unused_signal <= last;
+          end
+        end
     end
 endgenerate
 

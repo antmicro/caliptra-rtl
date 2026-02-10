@@ -1086,7 +1086,7 @@ module aes_clp_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.error0_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -1116,7 +1116,7 @@ module aes_clp_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.error1_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -1146,7 +1146,7 @@ module aes_clp_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.error2_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -1176,7 +1176,7 @@ module aes_clp_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.error3_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -1206,7 +1206,7 @@ module aes_clp_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.notif_cmd_done_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;

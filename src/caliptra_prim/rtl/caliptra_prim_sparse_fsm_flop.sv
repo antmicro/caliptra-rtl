@@ -62,6 +62,10 @@ module caliptra_prim_sparse_fsm_flop #(
   logic unused_assert_connected;
 
   `CALIPTRA_ASSERT_INIT_NET(AssertConnected_A, unused_assert_connected === 1'b1 || !EnableAlertTriggerSVA)
+  `else
+  // To avoid lint violation
+  logic unused_param;
+  assign unused_param = EnableAlertTriggerSVA;
   `endif
 
 endmodule

@@ -128,8 +128,8 @@ module doe_core_cbc(
   reg [127 : 0]  IV_decry_next;
   reg IV_updated_delayed;
 
-  reg [1:0] IV_enc_state;
-  reg [1:0] IV_dec_state;
+  reg [1:0] IV_enc_state, IV_enc_state_next;
+  reg [1:0] IV_dec_state, IV_dec_state_next;
 
   reg [127:0] block_msg_encr;
   
@@ -206,7 +206,42 @@ module doe_core_cbc(
   // be preserved and updated after each encry/decry. The following
   // FSM provides this functionality
   //----------------------------------------------------------------
+  always_comb
+  begin:IV_enc_state_fsm
+    case (IV_enc_state)
+        st_IV_engine_idle:
+            if(enc_ready & enc_next)
+                IV_enc_state_next = st_IV_engine_stars;
+            else
+                IV_enc_state_next = st_IV_engine_idle;
+        st_IV_engine_stars:
+            if (IV_updated_delayed)
+                IV_enc_state_next = st_IV_engine_idle;
+            else
+                IV_enc_state_next = st_IV_engine_stars;
+        default: IV_enc_state_next = st_IV_engine_idle;
+    endcase //IV_enc_state
+  end
 
+  always_comb
+  begin:IV_dec_state_fsm
+      case (IV_dec_state)
+          st_IV_engine_idle:
+              if(dec_ready & dec_next)
+                  IV_dec_state_next = st_IV_1st_decrypt;
+              else
+                  IV_dec_state_next = st_IV_engine_idle;
+          st_IV_1st_decrypt:
+              if(IV_updated_delayed)
+                  IV_dec_state_next = st_IV_engine_idle;
+              else if(dec_ready & dec_next)
+                  IV_dec_state_next = st_IV_engine_stars;
+              else
+                  IV_dec_state_next = st_IV_1st_decrypt;
+          st_IV_engine_stars: IV_dec_state_next = st_IV_1st_decrypt;
+          default:            IV_dec_state_next = st_IV_engine_idle;
+      endcase //IV_dec_state
+  end
 
   always @ (posedge clk or negedge reset_n)
   begin:IV_storage_management
@@ -230,7 +265,7 @@ module doe_core_cbc(
         end
       else
         begin
-            
+
         // ENCRYPTION IV CONTROLLER
             if(IV_updated_delayed)
                 IV_encry <= IV;
@@ -239,74 +274,46 @@ module doe_core_cbc(
             else
                 IV_encry <= IV_encry;
 
-            case (IV_enc_state)
-                st_IV_engine_idle:
-                begin
-                    if(enc_ready & enc_next)
-                        IV_enc_state <= st_IV_engine_stars;
-                    else
-                        IV_enc_state <= st_IV_engine_idle;                 
-                end
-                st_IV_engine_stars:
-                begin
-                    if (IV_updated_delayed)
-                        IV_enc_state <= st_IV_engine_idle;
-                    else
-                        IV_enc_state <= st_IV_engine_stars;                 
-                end
-                default:
-                begin
-                  IV_enc_state <= st_IV_engine_idle;
-                end
-            endcase //IV_enc_state
-
         // DECRYPTION IV CONTROLLER
             case (IV_dec_state)
                 st_IV_engine_idle:
                 begin
                     IV_decry_next <= block_msg;
                     IV_decry      <= IV;
-                    if(dec_ready & dec_next)
-                        IV_dec_state <= st_IV_1st_decrypt;
-                    else
-                        IV_dec_state  <= st_IV_engine_idle;                 
                 end
                 st_IV_1st_decrypt:
-                begin                    
+                begin
                     if(IV_updated_delayed)
                     begin
                         IV_decry_next <= IV;
                         IV_decry      <= IV;
-                        IV_dec_state  <= st_IV_engine_idle;
                     end
                     else if(dec_ready & dec_next)
                     begin
-                        IV_dec_state  <= st_IV_engine_stars;
                         IV_decry_next <= block_msg;
                         IV_decry      <= IV_decry_next;
                     end
                     else
                     begin
-                        IV_dec_state  <= st_IV_1st_decrypt;
                         IV_decry_next <= IV_decry_next;
                         IV_decry      <= IV_decry;
-                    end              
+                    end
                 end
                 st_IV_engine_stars:
                 begin
-                    IV_dec_state  <= st_IV_1st_decrypt;
                     IV_decry_next <= IV_decry_next;
-                    IV_decry      <= IV_decry;             
+                    IV_decry      <= IV_decry;
                 end
                 default:
-                begin 
-                    IV_dec_state  <= st_IV_engine_idle; 
+                begin
                     IV_decry_next <= IV;
                     IV_decry      <= IV;
                 end
-            endcase //IV_dec_state  
-             
-            IV_updated_delayed <= IV_updated;      
+            endcase //IV_dec_state
+
+            IV_enc_state       <= IV_enc_state_next;
+            IV_dec_state       <= IV_dec_state_next;
+            IV_updated_delayed <= IV_updated;
         end
   end //IV_storage_management
 

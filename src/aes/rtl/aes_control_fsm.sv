@@ -1136,7 +1136,7 @@ module aes_control_fsm
                                 prng_reseed_rate_i == PER_64 ? BlockCtrWidth'(63)   :
                                 prng_reseed_rate_i == PER_8K ? BlockCtrWidth'(8191) : '0;
 
-    assign block_ctr_decr_val = block_ctr_q - BlockCtrWidth'(1);
+    assign block_ctr_decr_val = block_ctr_q - 1;
 
     assign block_ctr_d = block_ctr_set  ? block_ctr_set_val  :
                          block_ctr_decr ? block_ctr_decr_val : block_ctr_q;

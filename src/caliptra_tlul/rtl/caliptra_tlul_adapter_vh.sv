@@ -8,11 +8,11 @@ module caliptra_tlul_adapter_vh
   import caliptra_tlul_pkg::*;
   import caliptra_prim_mubi_pkg::mubi4_t;
 #(
-  parameter int ADDR_WIDTH = TL_AW,
-  parameter int DATA_WIDTH = TL_DW,
-  parameter int MASK_WIDTH = DATA_WIDTH >> 3,
-  parameter int USER_WIDTH = 32,
-  parameter int ID_WIDTH   = TL_AIW,
+  parameter int unsigned ADDR_WIDTH = TL_AW,
+  parameter int unsigned DATA_WIDTH = TL_DW,
+  parameter int unsigned MASK_WIDTH = DATA_WIDTH >> 3,
+  parameter int unsigned USER_WIDTH = 32,
+  parameter int unsigned ID_WIDTH   = TL_AIW,
 
   parameter bit [ADDR_WIDTH-1:0] VH_REGISTER_ADDRESS_OFFSET = 32'h0000_0100,
 

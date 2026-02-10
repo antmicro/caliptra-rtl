@@ -59,7 +59,7 @@ module ecc_fau #(
     logic                   add_ready_o;
     logic                   mult_ready_o;
 
-    logic                   ready_garbage_bit;
+    logic                   unused_signals;
 
     assign mult_opa = opa_i;
     assign mult_opb = opb_i;
@@ -146,7 +146,7 @@ module ecc_fau #(
         end
     end
     
-    assign ready_garbage_bit = add_ready_o & mult_ready_o;
+    assign unused_signals = add_ready_o & mult_ready_o;
     
     // generate a pulse enable for mult
     assign mult_start_edge = mult_start & ~mult_start_dly;

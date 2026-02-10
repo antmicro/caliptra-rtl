@@ -23,9 +23,7 @@ module axi_mgr_wr import axi_pkg::*; #(
     parameter DW = 32,
               BC = DW/8,       // Byte Count
               BW = $clog2(BC), // Byte count Width
-    parameter UW = 32,
-    parameter IW = 1,
-              ID_NUM = 1 << IW
+    parameter UW = 32
 ) (
     input logic clk,
     input logic rst_n,
@@ -128,7 +126,7 @@ module axi_mgr_wr import axi_pkg::*; #(
         m_axi_if.awsize  = BW;
         m_axi_if.awlen   = axi_ctx.len;
         m_axi_if.awuser  = axuser;
-        m_axi_if.awid    = IW'(0);
+        m_axi_if.awid    = '0;
         m_axi_if.awlock  = axi_ctx.lock;
     end
 

@@ -16,36 +16,36 @@ package lc_ctrl_state_pkg;
   // General size declarations //
   ///////////////////////////////
 
-  parameter int LcValueWidth = 16;
+  parameter int unsigned LcValueWidth = 16;
 
-  parameter int NumLcStateValues = 20;
-  parameter int LcStateWidth = NumLcStateValues * LcValueWidth;
-  parameter int NumLcStates = 21;
-  parameter int DecLcStateWidth = vbits(NumLcStates);
-  parameter int NumSocDbgStateValues = 2;
-  parameter int SocDbgStateWidth = NumSocDbgStateValues * LcValueWidth;
-  parameter int NumOwnershipStateValues = 8;
-  parameter int OwnershipStateWidth = NumOwnershipStateValues * LcValueWidth;
-  parameter int NumAuthStateValues = 2;
-  parameter int AuthStateWidth = NumAuthStateValues * LcValueWidth;
+  parameter int unsigned NumLcStateValues = 20;
+  parameter int unsigned LcStateWidth = NumLcStateValues * LcValueWidth;
+  parameter int unsigned NumLcStates = 21;
+  parameter int unsigned DecLcStateWidth = vbits(NumLcStates);
+  parameter int unsigned NumSocDbgStateValues = 2;
+  parameter int unsigned SocDbgStateWidth = NumSocDbgStateValues * LcValueWidth;
+  parameter int unsigned NumOwnershipStateValues = 8;
+  parameter int unsigned OwnershipStateWidth = NumOwnershipStateValues * LcValueWidth;
+  parameter int unsigned NumAuthStateValues = 2;
+  parameter int unsigned AuthStateWidth = NumAuthStateValues * LcValueWidth;
 
   // Redundant version used in the CSRs.
-  parameter int DecLcStateNumRep = 32/DecLcStateWidth;
-  parameter int ExtDecLcStateWidth = DecLcStateNumRep*DecLcStateWidth;
+  parameter int unsigned DecLcStateNumRep = 32/DecLcStateWidth;
+  parameter int unsigned ExtDecLcStateWidth = DecLcStateNumRep*DecLcStateWidth;
 
-  parameter int NumLcCountValues = 24;
-  parameter int LcCountWidth = NumLcCountValues * LcValueWidth;
-  parameter int NumLcCountStates = 25;
-  parameter int DecLcCountWidth = vbits(NumLcCountStates);
+  parameter int unsigned NumLcCountValues = 24;
+  parameter int unsigned LcCountWidth = NumLcCountValues * LcValueWidth;
+  parameter int unsigned NumLcCountStates = 25;
+  parameter int unsigned DecLcCountWidth = vbits(NumLcCountStates);
 
   // This state is not stored in OTP, but inferred from the locked
   // status of the secret partitions. Hence, only the decoded ID state
   // is declared here for exposure through the CSR interface.
-  parameter int NumLcIdStates = 2;
-  parameter int DecLcIdStateWidth = vbits(NumLcIdStates+1);
+  parameter int unsigned NumLcIdStates = 2;
+  parameter int unsigned DecLcIdStateWidth = vbits(NumLcIdStates+1);
   // Redundant version used in the CSRs.
-  parameter int DecLcIdStateNumRep = 32/DecLcIdStateWidth;
-  parameter int ExtDecLcIdStateWidth = DecLcIdStateNumRep*DecLcIdStateWidth;
+  parameter int unsigned DecLcIdStateNumRep = 32/DecLcIdStateWidth;
+  parameter int unsigned ExtDecLcIdStateWidth = DecLcIdStateNumRep*DecLcIdStateWidth;
 
   /////////////////////////////////////////////
   // Life cycle manufacturing state encoding //
@@ -413,7 +413,7 @@ package lc_ctrl_state_pkg;
   // Hashed RAW unlock and all-zero tokens //
   ///////////////////////////////////////////
 
-  parameter int LcTokenWidth = 128;
+  parameter int unsigned LcTokenWidth = 128;
   typedef logic [LcTokenWidth-1:0] lc_token_t;
 
   parameter lc_token_t AllZeroToken = {

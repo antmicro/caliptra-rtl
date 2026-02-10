@@ -53,6 +53,9 @@ logic [31:0] pad_data;
 logic write_pad;
 logic write_last;
 
+logic unused_signals;
+assign unused_signals = ^{pad_data, write_pad};
+
 //dest write block
 kv_fsm #(
     .DATA_WIDTH(DATA_WIDTH),

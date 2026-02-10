@@ -22,11 +22,7 @@ import soc_ifc_pkg::*;
 #(
     parameter AW = 64,
     parameter DW = 32,         // Data Width
-              BC = DW/8,       // Byte Count
-              BW = $clog2(BC), // Byte count Width
-    parameter UW = 32,         // User Width
-    parameter IW = 1,          // ID Width
-              ID_NUM = 1 << IW // Don't override
+    parameter UW = 32          // User Width
 )(
     input logic clk,
     input logic cptra_pwrgood,
@@ -152,8 +148,7 @@ import soc_ifc_pkg::*;
     axi_mgr_rd #(
         .AW(AW),
         .DW(DW),
-        .UW(UW),
-        .IW(IW)
+        .UW(UW)
     ) i_axi_mgr_rd (
         .clk(clk),
         .rst_n(rst_n),
@@ -179,8 +174,7 @@ import soc_ifc_pkg::*;
     axi_mgr_wr #(
         .AW(AW),
         .DW(DW),
-        .UW(UW),
-        .IW(IW)
+        .UW(UW)
     ) i_axi_mgr_wr (
         .clk  (clk  ),
         .rst_n(rst_n),

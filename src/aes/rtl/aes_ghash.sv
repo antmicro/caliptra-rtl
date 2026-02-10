@@ -124,7 +124,7 @@ module aes_ghash
 );
 
   // Parameters
-  localparam int GFMultStagesPerCycle = GCMDegree / GFMultCycles;
+  localparam int unsigned GFMultStagesPerCycle = GCMDegree / GFMultCycles;
 
   // Signals
   logic [GCMDegree-1:0] s_d;

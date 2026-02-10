@@ -448,7 +448,7 @@ module ecc_dsa_ctrl
             msg_reduced_reg <= '0;
         else begin
             if (msg_reg >= GROUP_ORDER)
-                msg_reduced_reg <= msg_reg - GROUP_ORDER;
+                msg_reduced_reg <= $bits(msg_reduced_reg)'(msg_reg - GROUP_ORDER);
             else
                 msg_reduced_reg <= msg_reg;
         end

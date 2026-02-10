@@ -31,12 +31,12 @@ module axi_sub import axi_pkg::*; #(
     parameter AW = 32,         // Address Width
     parameter DW = 32,         // Data Width
               BC = DW/8,       // Byte Count
-              BW = $clog2(BC), // Byte count Width
     parameter UW = 32,         // User Width
     parameter IW = 1,          // ID Width
+    `ifdef CALIPTRA_AXI_SUB_EX_EN
               ID_NUM = 1 << IW, // Don't override
+    `endif
 
-    parameter EX_EN = 0,   // Enable exclusive access tracking w/ AxLOCK
     parameter C_LAT = 0    // Component latency in clock cycles from (dv&&!hld) -> rdata
                            // Must be const per component
                            // For registers, typically 0
@@ -173,9 +173,7 @@ module axi_sub import axi_pkg::*; #(
         .AW(AW),
         .DW(DW),
         .UW(UW),
-        .IW(IW),
-
-        .C_LAT(C_LAT)
+        .IW(IW)
     ) i_axi_sub_arb (
         .clk    (clk    ),
         .rst_n  (rst_n  ),

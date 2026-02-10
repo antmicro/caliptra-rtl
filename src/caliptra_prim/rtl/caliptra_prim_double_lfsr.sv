@@ -36,6 +36,11 @@ module caliptra_prim_double_lfsr #(
   output logic                  err_o
 );
 
+  // LfsrIdxDw is used to define size of StatePerm, but SpyGlass doesn't see it
+  // as use. Assign it to signal to avoid lint violation about unused parameter.
+  // EnableAlertTriggerSVA is used only in assertion, which is also ignored by lint.
+  logic unused_params;
+  assign unused_params = ^{EnableAlertTriggerSVA, LfsrIdxDw};
 
   logic [1:0][LfsrDw-1:0] lfsr_state;
   // We employ redundant LFSRs to guard against FI attacks.

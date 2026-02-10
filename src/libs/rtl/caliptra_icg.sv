@@ -24,7 +24,7 @@
         //Latch disable for both clk and soc_ifc clk
         always_latch begin
             if(!clk) begin
-                en_lat = en;
+                en_lat <= en;
             end
         end
          

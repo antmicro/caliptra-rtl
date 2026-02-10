@@ -8,8 +8,7 @@
 `include "caliptra_prim_module_name_macros.svh"
 
 module caliptra_prim_generic_clock_inv #(
-  parameter bit HasScanMode = 1'b1,
-  parameter bit NoFpgaBufG  = 1'b0 // only used in FPGA case
+  parameter bit HasScanMode = 1'b1
 ) (
   input        clk_i,
   input        scanmode_i,
@@ -17,9 +16,7 @@ module caliptra_prim_generic_clock_inv #(
 );
 
   if (HasScanMode) begin : gen_scan
-    `CALIPTRA_PRIM_MODULE_NAME(clock_mux2) #(
-      .NoFpgaBufG(NoFpgaBufG)
-    ) i_dft_tck_mux (
+    `CALIPTRA_PRIM_MODULE_NAME(clock_mux2) i_dft_tck_mux (
       .clk0_i ( ~clk_i     ),
       .clk1_i ( clk_i      ), // bypass the inverted clock for testing
       .sel_i  ( scanmode_i ),

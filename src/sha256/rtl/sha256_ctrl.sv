@@ -58,7 +58,7 @@ module sha256_ctrl #(
     logic  [AHB_ADDR_WIDTH-1 : 0] sha256_address;
     logic  [31 : 0] sha256_write_data;
     logic  [31 : 0] sha256_read_data;
-    logic           sha256_err;
+    logic           unused_sha256_err;
 
     sha256 #(
         .ADDR_WIDTH(AHB_ADDR_WIDTH),
@@ -72,7 +72,7 @@ module sha256_ctrl #(
         .address(sha256_address),
         .write_data(sha256_write_data),
         .read_data(sha256_read_data),
-        .err(sha256_err),
+        .err(unused_sha256_err),
         .error_intr(error_intr),
         .notif_intr(notif_intr),
         .debugUnlock_or_scan_mode_switch(debugUnlock_or_scan_mode_switch)

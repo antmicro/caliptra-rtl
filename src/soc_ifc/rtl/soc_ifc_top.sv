@@ -30,7 +30,6 @@ module soc_ifc_top
     ,parameter AHB_DATA_WIDTH = 32
     ,parameter AXIM_ADDR_WIDTH = 48
     ,parameter AXIM_DATA_WIDTH = 32
-    ,parameter AXIM_ID_WIDTH   = 5
     ,parameter AXIM_USER_WIDTH = 32
     )
     (
@@ -336,7 +335,6 @@ axi_sub #(
     .DW   (AXI_DATA_WIDTH),
     .UW   (AXI_USER_WIDTH),
     .IW   (AXI_ID_WIDTH  ),
-    .EX_EN(0             ),
     .C_LAT(0             )
 ) i_axi_sub_sif_soc_ifc (
     .clk  (soc_ifc_clk_cg     ),
@@ -372,7 +370,7 @@ always_comb soc_req.soc_req = 1'b1;
 ahb_slv_sif #(
     .AHB_ADDR_WIDTH(AHB_ADDR_WIDTH),
     .AHB_DATA_WIDTH(AHB_DATA_WIDTH),
-    .CLIENT_DATA_WIDTH(32)
+    .CLIENT_DATA_WIDTH(SOC_IFC_DATA_W)
 )
 i_ahb_slv_sif_soc_ifc (
     //AMBA AHB Lite INF
@@ -405,7 +403,7 @@ i_ahb_slv_sif_soc_ifc (
 always_comb uc_req.user = '1;
 always_comb uc_req.id = '1;
 always_comb uc_req.soc_req = 1'b0;
-always_comb uc_req.wstrb = {AHB_DATA_WIDTH/8{1'b1}};
+always_comb uc_req.wstrb = {SOC_IFC_DATA_W/8{1'b1}};
 
 //mailbox_arb
 //This module contains the arbitration logic between SoC and Caliptra uC requests
@@ -1162,8 +1160,7 @@ i_mbox (
 axi_dma_top #(
     .AW(AXIM_ADDR_WIDTH),         // Addr Width
     .DW(AXIM_DATA_WIDTH),         // Data Width
-    .UW(AXIM_USER_WIDTH),         // User Width
-    .IW(AXIM_ID_WIDTH)            // ID Width
+    .UW(AXIM_USER_WIDTH)          // User Width
 ) i_axi_dma (
     .clk          (rdc_clk_cg         ),
     .cptra_pwrgood(cptra_pwrgood      ),

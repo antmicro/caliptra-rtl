@@ -50,7 +50,7 @@ logic [DATA_OFFSET_W:0] num_dwords;
 logic write_pad;
 logic [31:0] pad_data;
 
-assign num_dwords = DATA_WIDTH/32;
+assign num_dwords = (DATA_OFFSET_W+1)'(DATA_WIDTH/32);
 
 //read fsm
 kv_fsm #(

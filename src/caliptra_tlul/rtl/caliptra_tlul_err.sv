@@ -14,8 +14,6 @@ module caliptra_tlul_err import caliptra_tlul_pkg::*; (
   output logic err_o
 );
 
-  localparam int IW  = $bits(tl_i.a_source);
-  localparam int SZW = $bits(tl_i.a_size);
   localparam int DW  = $bits(tl_i.a_data);
   localparam int MW  = $bits(tl_i.a_mask);
   localparam int SubAW = $clog2(DW/8);
@@ -99,5 +97,17 @@ module caliptra_tlul_err import caliptra_tlul_pkg::*; (
 
   // Only 32 bit data width for current caliptra_tlul_err
   `CALIPTRA_ASSERT_INIT(dataWidthOnly32_A, DW == 32)
+
+  // Add an unloaded flop to make use of clock / reset
+  // This is done to specifically address lint complaints of unused clocks/resets
+  // Since the flop is unloaded it will be removed during synthesis
+  logic unused_reg;
+  always_ff @(posedge clk_i or negedge rst_ni) begin
+    if (!rst_ni) begin
+      unused_reg <= '0;
+    end else begin
+      unused_reg <= op_full;
+    end
+  end
 
 endmodule

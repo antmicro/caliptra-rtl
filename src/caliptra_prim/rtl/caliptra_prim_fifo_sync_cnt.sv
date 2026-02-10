@@ -66,8 +66,8 @@ module caliptra_prim_fifo_sync_cnt #(
   // - when only one of the two 'wrap' pointers is wrapped: the maximum depth minus the difference
   //   of the real pointers.
   assign depth_o = full_o                         ? DepthW'(Depth) :
-                   wptr_wrap_msb == rptr_wrap_msb ? DepthW'(wptr_o) - DepthW'(rptr_o) :
-                   DepthW'(Depth) - DepthW'(rptr_o) + DepthW'(wptr_o);
+                   wptr_wrap_msb == rptr_wrap_msb ? DepthW'(wptr_o - rptr_o) :
+                   DepthW'(Depth - rptr_o + wptr_o);
 
   if (Secure) begin : gen_secure_ptrs
     logic wptr_err;

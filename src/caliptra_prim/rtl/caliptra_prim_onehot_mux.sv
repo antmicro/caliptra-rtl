@@ -38,12 +38,17 @@ module caliptra_prim_onehot_mux #(
     assign out_o[b] = |out_mux_bits;
   end
 
-  logic unused_clk;
-  logic unused_rst_n;
-
-  // clock and reset only needed for assertion
-  assign unused_clk   = clk_i;
-  assign unused_rst_n = rst_ni;
+  // Add an unloaded flop to make use of clock/reset
+  // This is done to specifically address lint complaints of unused clocks/resets
+  // Since the flop is unloaded it will be removed during synthesis
+  logic unused_reg;
+  always_ff @(posedge clk_i or negedge rst_ni) begin
+    if (!rst_ni) begin
+      unused_reg <= '0;
+    end else begin
+      unused_reg <= ^sel_i;
+    end
+  end
 
   `CALIPTRA_ASSERT(SelIsOnehot_A, $onehot0(sel_i))
 endmodule

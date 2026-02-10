@@ -7,22 +7,22 @@
 package lc_ctrl_reg_pkg;
 
   // Param list
-  parameter int SiliconCreatorIdWidth = 16;
-  parameter int ProductIdWidth = 16;
-  parameter int RevisionIdWidth = 8;
-  parameter int NumTokenWords = 4;
-  parameter int CsrLcStateWidth = 30;
-  parameter int CsrLcCountWidth = 5;
-  parameter int CsrLcIdStateWidth = 32;
-  parameter int CsrOtpTestCtrlWidth = 32;
-  parameter int CsrOtpTestStatusWidth = 32;
-  parameter int NumDeviceIdWords = 8;
-  parameter int NumManufStateWords = 8;
-  parameter int NumRmaAckSigs = 2;
-  parameter int NumAlerts = 3;
+  parameter int unsigned SiliconCreatorIdWidth = 16;
+  parameter int unsigned ProductIdWidth = 16;
+  parameter int unsigned RevisionIdWidth = 8;
+  parameter int unsigned NumTokenWords = 4;
+  parameter int unsigned CsrLcStateWidth = 30;
+  parameter int unsigned CsrLcCountWidth = 5;
+  parameter int unsigned CsrLcIdStateWidth = 32;
+  parameter int unsigned CsrOtpTestCtrlWidth = 32;
+  parameter int unsigned CsrOtpTestStatusWidth = 32;
+  parameter int unsigned NumDeviceIdWords = 8;
+  parameter int unsigned NumManufStateWords = 8;
+  parameter int unsigned NumRmaAckSigs = 2;
+  parameter int unsigned NumAlerts = 3;
 
   // Address widths within the block
-  parameter int BlockAw = 8;
+  parameter int unsigned BlockAw = 8;
 
   ////////////////////////////
   // Typedefs for registers //

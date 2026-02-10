@@ -71,7 +71,6 @@ module ahb_lite_address_decoder #(
 );
 
     localparam AHB_XFER_IDLE   = 2'b00;
-    localparam AHB_XFER_BUSY   = 2'b01;
     localparam AHB_XFER_NONSEQ = 2'b10;
     localparam AHB_XFER_SEQ    = 2'b11;
 

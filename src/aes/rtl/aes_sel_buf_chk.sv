@@ -25,11 +25,17 @@ module aes_sel_buf_chk #(
 
   import aes_pkg::*;
 
-  // Tie off unused inputs.
-  logic unused_clk;
-  logic unused_rst;
-  assign unused_clk = clk_i;
-  assign unused_rst = rst_ni;
+  // Add an unloaded flop to make use of clock/reset
+  // This is done to specifically address lint complaints of unused clocks/resets
+  // Since the flop is unloaded it will be removed during synthesis
+  logic unused_reg;
+  always_ff @(posedge clk_i or negedge rst_ni) begin
+    if (!rst_ni) begin
+      unused_reg <= '0;
+    end else begin
+      unused_reg <= ^sel_i;
+    end
+  end
 
   ////////////
   // Buffer //

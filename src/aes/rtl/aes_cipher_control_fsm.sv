@@ -81,7 +81,8 @@ module aes_cipher_control_fsm import aes_pkg::*;
 
   // cfg_valid_i is used for SVAs only.
   logic unused_cfg_valid;
-  assign unused_cfg_valid = cfg_valid_i;
+  // crypt_q_i is used, included only to silence UnloadedInPort-ML violation
+  assign unused_cfg_valid = ^{cfg_valid_i, crypt_q_i};
 
   // Tie off unused inputs.
   if (!SecMasking) begin : gen_unused_prng_reseed

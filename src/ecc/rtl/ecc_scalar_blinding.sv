@@ -117,7 +117,7 @@ module ecc_scalar_blinding #(
     logic [P_ARR_WIDTH-1 : 0]            product_idx_reg;
     logic [B_ARR_WIDTH-1 : 0]            operand_idx_reg;
 
-    logic [P_ARR_WIDTH-B_ARR_WIDTH   : 0]   carry_garbage_bits0;
+    logic [P_ARR_WIDTH-B_ARR_WIDTH-1 : 0]   carry_garbage_bits0;
     logic                                   carry_garbage_bit1;
     //----------------------------------------------------------------
     // reg update

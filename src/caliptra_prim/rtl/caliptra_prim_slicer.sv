@@ -8,10 +8,10 @@
 `include "caliptra_prim_assert.sv"
 
 module caliptra_prim_slicer #(
-  parameter int InW = 64,
-  parameter int OutW = 8,
+  parameter int unsigned InW = 64,
+  parameter int unsigned OutW = 8,
 
-  parameter int IndexW = 4
+  parameter int unsigned IndexW = 4
 ) (
   input        [IndexW-1:0] sel_i,
   input        [InW-1:0]    data_i,

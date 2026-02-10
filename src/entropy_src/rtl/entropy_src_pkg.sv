@@ -9,10 +9,10 @@ package entropy_src_pkg;
   // Entropy Interface
   //-------------------------
 
-  parameter int  RNG_BUS_WIDTH   = 4;
-  parameter int  CSRNG_BUS_WIDTH = 384;
-  parameter int  FIPS_BUS_WIDTH  = 1;
-  parameter int  FIPS_CSRNG_BUS_WIDTH = FIPS_BUS_WIDTH + CSRNG_BUS_WIDTH;
+  parameter int unsigned RNG_BUS_WIDTH   = 4;
+  parameter int unsigned CSRNG_BUS_WIDTH = 384;
+  parameter int unsigned FIPS_BUS_WIDTH  = 1;
+  parameter int unsigned FIPS_CSRNG_BUS_WIDTH = FIPS_BUS_WIDTH + CSRNG_BUS_WIDTH;
 
   // Internal entropy_src parameters.
   parameter int  WINDOW_CNTR_WIDTH = 18;

@@ -93,7 +93,7 @@ module  axi_addr #(
                 2'b11: increment = 8;
                 endcase
         else
-                increment = (1<<i_size);
+                increment = (ONE<<i_size);
         // }}}
 
         // wrap_mask
@@ -148,7 +148,7 @@ module  axi_addr #(
 
         // unaligned_addr
         always @(*)
-                unaligned_addr = i_last_addr[IN_AW-1:0] + increment[IN_AW-1:0];
+                unaligned_addr = IN_AW'(i_last_addr[IN_AW-1:0] + increment[IN_AW-1:0]);
 
         // aligned_addr
         // {{{

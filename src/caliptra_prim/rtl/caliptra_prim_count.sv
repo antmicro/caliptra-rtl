@@ -134,7 +134,7 @@ module caliptra_prim_count
     );
 
     // fpv_force is only used during FPV.
-    assign cnt_q[k] = fpv_force[k] + cnt_unforced_q;
+    assign cnt_q[k] = Width'(fpv_force[k] + cnt_unforced_q);
   end
 
   // The sum of both counters must always equal the counter maximum.
@@ -304,6 +304,10 @@ module caliptra_prim_count
   logic unused_assert_connected;
 
   `CALIPTRA_ASSERT_INIT_NET(AssertConnected_A, unused_assert_connected === 1'b1 || !EnableAlertTriggerSVA)
+`else
+  // To avoid lint violation
+  logic unused_params;
+  assign unused_params = ^{PossibleActions, EnableAlertTriggerSVA};
 `endif
 
 endmodule // caliptra_prim_count

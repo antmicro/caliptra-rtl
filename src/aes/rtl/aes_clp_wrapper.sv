@@ -95,6 +95,10 @@ keymgr_pkg::hw_key_req_t keymgr_key;
 
 assign busy_o = caliptra_prim_mubi_pkg::mubi4_test_false_loose(aes_idle);
 
+// Unused
+assign error_intr = '0;
+assign notif_intr = '0;
+
 //AHB interface
 ahb_slv_sif #(
     .AHB_ADDR_WIDTH(AHB_ADDR_WIDTH),
@@ -304,10 +308,10 @@ logic [(keymgr_pkg::KeyWidth/32)-1:0][3:0][7:0] kv_key_reg;
 genvar g_dword;
 genvar g_byte;
 generate
-  for (g_dword = 0; g_dword < keymgr_pkg::KeyWidth/32; g_dword++) begin
+  for (g_dword = 0; g_dword < keymgr_pkg::KeyWidth/32; g_dword++) begin : gen_kv_dword
     logic [$bits(kv_key_write_offset)-1:0] local_g_dword;
     assign local_g_dword = 3'(g_dword);
-    for (g_byte = 0; g_byte < 4; g_byte++) begin
+    for (g_byte = 0; g_byte < 4; g_byte++) begin : gen_kv_byte
       always_ff @(posedge clk or negedge reset_n) begin
         if (~reset_n) begin
           kv_key_reg[g_dword][g_byte] <= '0;

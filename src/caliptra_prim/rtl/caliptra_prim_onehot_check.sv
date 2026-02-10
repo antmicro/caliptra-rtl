@@ -153,4 +153,17 @@ module caliptra_prim_onehot_check #(
   `CALIPTRA_ASSERT_INIT_NET(AssertConnected_A, unused_assert_connected === 1'b1 || !EnableAlertTriggerSVA)
 `endif
 
+  // Add an unloaded flop to make use of clock/reset
+  // This is done to specifically address lint complaints of unused clocks/resets
+  // Since the flop is unloaded it will be removed during synthesis
+  // This also makes use of EnableAlertTriggerSVA parameter
+  logic unused_param;
+  always_ff @(posedge clk_i or negedge rst_ni) begin
+    if (!rst_ni) begin
+      unused_param <= '0;
+    end else begin
+      unused_param <= EnableAlertTriggerSVA;
+    end
+  end
+
 endmodule : caliptra_prim_onehot_check
