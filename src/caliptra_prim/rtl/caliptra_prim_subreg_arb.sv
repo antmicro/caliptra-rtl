@@ -29,30 +29,16 @@ module caliptra_prim_subreg_arb
 );
   import caliptra_prim_mubi_pkg::*;
 
+  // Depending on SwAccess, one or more of these signals may be unused
+  logic unused_signals;
+  assign unused_signals = ^{we, wd, q};
+
   if (SwAccess inside {SwAccessRW, SwAccessWO}) begin : gen_w
     assign wr_en   = we | de;
     assign wr_data = (we == 1'b1) ? wd : d; // SW higher priority
-    // Unused q - Prevent lint errors.
-    logic [DW-1:0] unused_q;
-    //VCS coverage off
-    // pragma coverage off
-    assign unused_q = q;
-    //VCS coverage on
-    // pragma coverage on
   end else if (SwAccess == SwAccessRO) begin : gen_ro
     assign wr_en   = de;
     assign wr_data = d;
-    // Unused we, wd, q - Prevent lint errors.
-    logic          unused_we;
-    logic [DW-1:0] unused_wd;
-    logic [DW-1:0] unused_q;
-    //VCS coverage off
-    // pragma coverage off
-    assign unused_we = we;
-    assign unused_wd = wd;
-    assign unused_q  = q;
-    //VCS coverage on
-    // pragma coverage on
   end else if (SwAccess == SwAccessW1S) begin : gen_w1s
     // If SwAccess is W1S, then assume hw tries to clear.
     // So, give a chance HW to clear when SW tries to set.
@@ -161,27 +147,9 @@ module caliptra_prim_subreg_arb
     end else begin : gen_non_mubi
       assign wr_data = (de ? d : q) & (we ? '0 : '1);
     end
-    // Unused wd - Prevent lint errors.
-    logic [DW-1:0] unused_wd;
-    //VCS coverage off
-    // pragma coverage off
-    assign unused_wd = wd;
-    //VCS coverage on
-    // pragma coverage on
   end else begin : gen_hw
     assign wr_en   = de;
     assign wr_data = d;
-    // Unused we, wd, q - Prevent lint errors.
-    logic          unused_we;
-    logic [DW-1:0] unused_wd;
-    logic [DW-1:0] unused_q;
-    //VCS coverage off
-    // pragma coverage off
-    assign unused_we = we;
-    assign unused_wd = wd;
-    assign unused_q  = q;
-    //VCS coverage on
-    // pragma coverage on
   end
 
 endmodule

@@ -98,7 +98,6 @@ module ecc_hmac_drbg_interface#(
 
     localparam [1 : 0] KEYGEN_CMD       = 2'b00;
     localparam [1 : 0] SIGN_CMD         = 2'b01;
-    localparam [1 : 0] DH_SHARED_CMD    = 2'b10;
 
     /*State register*/
     reg [3 : 0]  state_reg;

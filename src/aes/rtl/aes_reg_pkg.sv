@@ -7,13 +7,13 @@
 package aes_reg_pkg;
 
   // Param list
-  parameter int NumRegsKey = 8;
-  parameter int NumRegsIv = 4;
-  parameter int NumRegsData = 4;
-  parameter int NumAlerts = 2;
+  parameter int unsigned NumRegsKey = 8;
+  parameter int unsigned NumRegsIv = 4;
+  parameter int unsigned NumRegsData = 4;
+  parameter int unsigned NumAlerts = 2;
 
   // Address widths within the block
-  parameter int BlockAw = 8;
+  parameter int unsigned BlockAw = 8;
 
   ////////////////////////////
   // Typedefs for registers //

@@ -43,8 +43,7 @@ module ecc_pm_ctrl
     import ecc_pm_uop_pkg::*;
     #(
     parameter REG_SIZE      = 384,
-    parameter RND_SIZE      = 192,
-    parameter INSTR_SIZE    = 24
+    parameter RND_SIZE      = 192
     )
     (
     // Clock and reset.

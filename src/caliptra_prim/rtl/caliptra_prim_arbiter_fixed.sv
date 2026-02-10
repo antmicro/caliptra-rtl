@@ -167,4 +167,16 @@ if (EnDataPort) begin: gen_data_port_assertion
   `CALIPTRA_ASSERT(DataFlow_A, ready_i && valid_o |-> data_o == data_i[idx_o])
 end
 
+  // Add an unloaded flop to make use of clock/reset
+  // This is done to specifically address lint complaints of unused clocks/resets
+  // Since the flop is unloaded it will be removed during synthesis
+  logic unused_reg;
+  always_ff @(posedge clk_i or negedge rst_ni) begin
+    if (!rst_ni) begin
+      unused_reg <= '0;
+    end else begin
+      unused_reg <= ready_i;
+    end
+  end
+
 endmodule : caliptra_prim_arbiter_fixed

@@ -48,9 +48,17 @@ module caliptra_prim_fifo_sync #(
     assign wready_o = rready_i;
     assign full_o = rready_i;
 
-    // this avoids lint warnings
-    logic unused_clr;
-    assign unused_clr = clr_i;
+    // Add an unloaded flop to make use of clock/reset
+    // This is done to specifically address lint complaints of unused clocks/resets
+    // Since the flop is unloaded it will be removed during synthesis
+    logic unused_reg;
+    always_ff @(posedge clk_i or negedge rst_ni) begin
+      if (!rst_ni) begin
+        unused_reg <= '0;
+      end else begin
+        unused_reg <= clr_i;
+      end
+    end
 
     // No error
     assign err_o = 1'b 0;

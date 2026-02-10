@@ -33,7 +33,9 @@ module axi_sub_rd import axi_pkg::*; #(
               BW = $clog2(BC), // Byte count Width
     parameter UW = 32,         // User Width
     parameter IW = 1,          // ID Width
+    `ifdef CALIPTRA_AXI_SUB_EX_EN
               ID_NUM = 1 << IW, // Don't override
+    `endif
 
     parameter C_LAT = 0    // Component latency in clock cycles from (dv&&!hld) -> rdata
                            // Must be const per component
@@ -102,7 +104,6 @@ module axi_sub_rd import axi_pkg::*; #(
     // Signals                                 //
     // --------------------------------------- //
 
-    genvar cp; // Context pipeline
     genvar dp; // Data pipeline
     `ifdef CALIPTRA_AXI_SUB_EX_EN
     genvar ex; // Exclusive contexts
@@ -239,6 +240,7 @@ module axi_sub_rd import axi_pkg::*; #(
     // Shift Register to track requests made to component
     generate
     if (C_LAT > 0) begin: TXN_SR
+        genvar cp; // Context pipeline
         // Context is maintained alongside request while waiting for
         // component response to arrive
         for (cp = 1; cp <= C_LAT; cp++) begin: CTX_PIPELINE
@@ -410,9 +412,9 @@ module axi_sub_rd import axi_pkg::*; #(
     `CALIPTRA_ASSERT      (ERR_AXI_EX_BYTE_CNT, (s_axi_if.arvalid && s_axi_if.arlock) |-> ((1<<s_axi_if.arsize)*(s_axi_if.arlen+1) inside {1,2,4,8,16,32,64,128}), clk, !rst_n)
     `CALIPTRA_ASSERT      (ERR_AXI_EX_MAX_LEN,  (s_axi_if.arvalid && s_axi_if.arlock) |-> (s_axi_if.arlen < 16), clk, !rst_n)
 
-    genvar sva_ii;
     generate
         if (C_LAT > 0) begin
+            genvar sva_ii;
             for (sva_ii = 0; sva_ii < C_LAT-1; sva_ii++) begin
                 // Last stage should be first to fill and first to go empty
                 `CALIPTRA_ASSERT_NEVER(ERR_RD_SKD_BUF_FILL,  $fell(dp_rready[sva_ii+1]) && !dp_rready[sva_ii], clk, !rst_n)

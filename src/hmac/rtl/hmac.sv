@@ -74,14 +74,15 @@ module hmac
   reg ready_reg;
   reg tag_valid_reg;
 
-  localparam BLOCK_SIZE       = 1024;
-  localparam KEY_SIZE         = 512;
-  localparam TAG_SIZE         = KEY_SIZE;
-  localparam LFSR_SEED_SIZE   = 384;
-  localparam BLOCK_NUM_DWORDS = BLOCK_SIZE / DATA_WIDTH;
-  localparam KEY_NUM_DWORDS   = KEY_SIZE / DATA_WIDTH;
-  localparam TAG_NUM_DWORDS   = TAG_SIZE / DATA_WIDTH;
-  localparam SEED_NUM_DWORDS  = ((LFSR_SEED_SIZE - 1) / DATA_WIDTH) + 1; 
+  localparam BLOCK_SIZE            = 1024;
+  localparam KEY_SIZE              = 512;
+  localparam TAG_SIZE              = KEY_SIZE;
+  localparam TAG_SIZE_NUM_DWORDS_W = $clog2(TAG_SIZE/32);
+  localparam LFSR_SEED_SIZE        = 384;
+  localparam BLOCK_NUM_DWORDS      = BLOCK_SIZE / DATA_WIDTH;
+  localparam KEY_NUM_DWORDS        = KEY_SIZE / DATA_WIDTH;
+  localparam TAG_NUM_DWORDS        = TAG_SIZE / DATA_WIDTH;
+  localparam SEED_NUM_DWORDS       = ((LFSR_SEED_SIZE - 1) / DATA_WIDTH) + 1; 
 
   reg [KEY_NUM_DWORDS - 1   : 0][DATA_WIDTH - 1 : 0]    key_reg;
   reg [BLOCK_NUM_DWORDS - 1 : 0][DATA_WIDTH - 1 : 0]    block_reg;
@@ -135,7 +136,6 @@ module hmac
 
   logic error_flag;
   logic error_flag_reg;
-  logic error_flag_edge;
   //----------------------------------------------------------------
   // Concurrent connectivity for ports etc.
   //----------------------------------------------------------------
@@ -413,7 +413,6 @@ begin : error_detection
     end
 end // error_detection
 
-always_comb error_flag_edge = error_flag & (!error_flag_reg);
 always_comb key_mode_error_edge = key_mode_error & (!key_mode_error_reg);
 always_comb key_zero_error_edge = key_zero_error & (!key_zero_error_reg);
 
@@ -485,8 +484,8 @@ hmac_block_kv_read
 );
 
 //write 512 or 384 result based on mode bit
-logic [$clog2(TAG_SIZE/32):0] num_dwords;
-always_comb num_dwords = mode_reg ? 'd16 : 'd12;
+logic [TAG_SIZE_NUM_DWORDS_W:0] num_dwords;
+always_comb num_dwords = mode_reg ? (TAG_SIZE_NUM_DWORDS_W+1)'('d16) : (TAG_SIZE_NUM_DWORDS_W+1)'('d12);
 
 //Write to keyvault
 kv_write_client #(

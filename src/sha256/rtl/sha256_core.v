@@ -332,14 +332,14 @@ module sha256_core(
 
       if (digest_update)
         begin
-          H0_new = H0_reg + a_reg;
-          H1_new = H1_reg + b_reg;
-          H2_new = H2_reg + c_reg;
-          H3_new = H3_reg + d_reg;
-          H4_new = H4_reg + e_reg;
-          H5_new = H5_reg + f_reg;
-          H6_new = H6_reg + g_reg;
-          H7_new = H7_reg + h_reg;
+          H0_new = 32'(H0_reg + a_reg);
+          H1_new = 32'(H1_reg + b_reg);
+          H2_new = 32'(H2_reg + c_reg);
+          H3_new = 32'(H3_reg + d_reg);
+          H4_new = 32'(H4_reg + e_reg);
+          H5_new = 32'(H5_reg + f_reg);
+          H6_new = 32'(H6_reg + g_reg);
+          H7_new = 32'(H7_reg + h_reg);
           H_we = 1;
         end
     end // digest_logic
@@ -361,7 +361,7 @@ module sha256_core(
 
       ch = (e_reg & f_reg) ^ ((~e_reg) & g_reg);
 
-      t1 = h_reg + sum1 + ch + w_data + k_data;
+      t1 = 32'(h_reg + sum1 + ch + w_data + k_data);
     end // t1_logic
 
 
@@ -381,7 +381,7 @@ module sha256_core(
 
       maj = (a_reg & b_reg) ^ (a_reg & c_reg) ^ (b_reg & c_reg);
 
-      t2 = sum0 + maj;
+      t2 = 32'(sum0 + maj);
     end // t2_logic
 
 
@@ -446,11 +446,11 @@ module sha256_core(
 
       if (state_update)
         begin
-          a_new  = t1 + t2;
+          a_new  = 32'(t1 + t2);
           b_new  = a_reg;
           c_new  = b_reg;
           d_new  = c_reg;
-          e_new  = d_reg + t1;
+          e_new  = 32'(d_reg + t1);
           f_new  = e_reg;
           g_new  = f_reg;
           h_new  = g_reg;

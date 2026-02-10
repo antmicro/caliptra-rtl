@@ -406,14 +406,14 @@ module sha512_masked_core
 
       if (digest_update)
         begin
-          H0_new = H0_reg + (a_reg.masked ^ a_reg.random);
-          H1_new = H1_reg + (b_reg.masked ^ b_reg.random);
-          H2_new = H2_reg + (c_reg.masked ^ c_reg.random);
-          H3_new = H3_reg + (d_reg.masked ^ d_reg.random);
-          H4_new = H4_reg + (e_reg.masked ^ e_reg.random);
-          H5_new = H5_reg + (f_reg.masked ^ f_reg.random);
-          H6_new = H6_reg + (g_reg.masked ^ g_reg.random);
-          H7_new = H7_reg + (h_reg.masked ^ h_reg.random);
+          H0_new = 64'(H0_reg + (a_reg.masked ^ a_reg.random));
+          H1_new = 64'(H1_reg + (b_reg.masked ^ b_reg.random));
+          H2_new = 64'(H2_reg + (c_reg.masked ^ c_reg.random));
+          H3_new = 64'(H3_reg + (d_reg.masked ^ d_reg.random));
+          H4_new = 64'(H4_reg + (e_reg.masked ^ e_reg.random));
+          H5_new = 64'(H5_reg + (f_reg.masked ^ f_reg.random));
+          H6_new = 64'(H6_reg + (g_reg.masked ^ g_reg.random));
+          H7_new = 64'(H7_reg + (h_reg.masked ^ h_reg.random));
           H_we = 1;
         end
     end // digest_logic

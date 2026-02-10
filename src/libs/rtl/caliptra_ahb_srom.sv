@@ -53,10 +53,15 @@ module caliptra_ahb_srom
 // Signals
 logic                       sram_error, sram_error_data_ph, sram_error_data_ph_f;
 
+
+logic unused_signal;
+// hready_i is used, included only to silence UnloadedInPort-ML violation
+assign unused_signal = ^{hsize_i, hready_i};
+
 /////////////////////////////////
 // Assignments/Shim logic
 assign cs = hready_i & hsel_i & htrans_i inside {2'b10, 2'b11};
-assign addr = haddr_i >> $clog2(AHB_DATA_WIDTH/8);
+assign addr = CLIENT_ADDR_WIDTH'(haddr_i >> $clog2(AHB_DATA_WIDTH/8));
 
 assign sram_error = cs & hwrite_i; // Error if trying to write to ROM
 

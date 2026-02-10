@@ -29,7 +29,7 @@ module caliptra_top
     import csrng_pkg::*;
 `endif
 #(
-	parameter CSS_IDCODE_VALUE = 32'h0000_0000
+  parameter CSS_IDCODE_VALUE = 32'h0000_0000
 ) (
     input logic                        clk,
 
@@ -140,7 +140,6 @@ module caliptra_top
     `include "common_defines.sv"
 
     localparam NUM_INTR = `RV_PIC_TOTAL_INT; // 31
-    localparam TOTAL_OBF_KEY_BITS = `CLP_OBF_KEY_DWORDS * 32;
 
     //caliptra reset driven by boot fsm in mailbox
     logic                       cptra_noncore_rst_b;
@@ -279,7 +278,7 @@ module caliptra_top
     logic [`CLP_CSR_HMAC_KEY_DWORDS-1:0][31:0] cptra_csr_hmac_key_dbg;
     logic                                      cptra_in_debug_scan_mode;
 
-    logic [31:0] imem_haddr;
+    logic [`CALIPTRA_IMEM_BYTE_ADDR_W-1:0] imem_haddr;
     logic imem_hsel;
     logic imem_hwrite;
     logic imem_hready;
@@ -298,6 +297,12 @@ module caliptra_top
     always_comb crypto_error = (hmac_busy & ecc_busy) |
                                (ecc_busy & doe_busy)  |
                                (hmac_busy & doe_busy);
+
+    logic unused_signals;
+    assign unused_signals = ^{aes_busy, debug_brkpt_status, ic_hmastlock,
+                              mldsa_busy, mpc_debug_halt_ack, mpc_debug_run_ack,
+                              o_cpu_halt_ack, o_cpu_run_ack, o_debug_mode_status,
+                              ic_hprot, ic_hburst};
 
 always_comb begin
     mbox_sram_cs = mbox_sram_req.cs;
@@ -443,7 +448,7 @@ always_comb begin
 end
 
 el2_veer_wrapper #(
-	.CSS_IDCODE_VALUE(CSS_IDCODE_VALUE)
+  .CSS_IDCODE_VALUE(CSS_IDCODE_VALUE)
 ) rvtop (
 `ifdef CALIPTRA_FORCE_CPU_RESET
     .rst_l                  ( 1'b0 ),
@@ -803,7 +808,7 @@ ahb_lite_2to1_mux #(
     .hrdata_i           (imem_hrdata),
     .hreadyout_i        (imem_hreadyout),
     // Outputs
-    .haddr_o            (imem_haddr[`CALIPTRA_IMEM_BYTE_ADDR_W-1:0]),
+    .haddr_o            (imem_haddr),
     .hwdata_o           ( ),
     .hsel_o             (imem_hsel),
     .hwrite_o           (imem_hwrite),
@@ -821,7 +826,7 @@ caliptra_ahb_srom #(
     //AMBA AHB Lite INF
     .hclk       (clk_cg),
     .hreset_n   (cptra_uc_rst_b),
-    .haddr_i    (imem_haddr[`CALIPTRA_IMEM_BYTE_ADDR_W-1:0]),
+    .haddr_i    (imem_haddr),
     .hwdata_i   (`CALIPTRA_IMEM_DATA_WIDTH'(0)             ),
     .hsel_i     (imem_hsel),
     .hwrite_i   (imem_hwrite),
@@ -928,7 +933,6 @@ doe_ctrl #(
     .clear_obf_secrets(clear_obf_secrets), //Output
     .busy_o(doe_busy),
     .kv_write (kv_write[KV_NUM_WRITE-1]),
-    .kv_wr_resp (kv_wr_resp[KV_NUM_WRITE-1]),
     .debugUnlock_or_scan_mode_switch(debug_lock_or_scan_mode_switch)
     
 );
@@ -1243,7 +1247,6 @@ soc_ifc_top #(
     .AXI_USER_WIDTH(`CALIPTRA_AXI_USER_WIDTH),
     .AXIM_ADDR_WIDTH(`CALIPTRA_AXI_DMA_ADDR_WIDTH),
     .AXIM_DATA_WIDTH(CPTRA_AXI_DMA_DATA_WIDTH),
-    .AXIM_ID_WIDTH  (CPTRA_AXI_DMA_ID_WIDTH),
     .AXIM_USER_WIDTH(CPTRA_AXI_DMA_USER_WIDTH)
     )
 soc_ifc_top1 

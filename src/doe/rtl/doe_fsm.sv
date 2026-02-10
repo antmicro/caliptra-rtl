@@ -216,7 +216,7 @@ always_comb dest_addr_nxt = doe_cmd_reg.dest_sel;
 //drive outputs to kv
 always_comb kv_write.write_en = dest_write_en;
 always_comb kv_write.write_offset = dest_write_offset;
-always_comb kv_write.write_dest_valid = 'd3; //FIXME tie off dest valid, or let FW program? 
+always_comb kv_write.write_dest_valid = KV_NUM_READ'('d3); //FIXME tie off dest valid, or let FW program? 
 always_comb kv_write.write_entry = dest_addr;
 //swizzle big endian result to little endian storage
 always_comb kv_write.write_data = dest_write_en ? dest_data[(DEST_NUM_DWORDS-1) - dest_write_offset[DEST_OFFSET_W-1:0]] : '0;

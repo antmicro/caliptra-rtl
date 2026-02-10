@@ -109,6 +109,11 @@ module ecc_top
         .rdata(uc_req_rdata)
     );
 
+    //Tie-off unused uc_req.addr bits
+    if (AHB_ADDR_WIDTH < ECC_ADDR_W) begin
+      assign uc_req.addr[ECC_ADDR_W-1:AHB_ADDR_WIDTH] = '0;
+    end
+
     //Functional Registers
     //This module contains the functional registers maintained by the Caliptra ECC
     //These registers are memory mapped per the Caliptra Specification

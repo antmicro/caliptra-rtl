@@ -69,7 +69,8 @@ module aes_prng_masking import aes_pkg::*;
 
   if (SecAllowForcingMasks == 0) begin : gen_unused_force_masks
     logic unused_force_masks;
-    assign unused_force_masks = force_masks_i;
+    // prng_err is used, included only to silence UnloadedInPort-ML violation
+    assign unused_force_masks = ^{force_masks_i, prng_err};
   end
 
   // Create a lint error to reduce the risk of accidentally enabling this feature.

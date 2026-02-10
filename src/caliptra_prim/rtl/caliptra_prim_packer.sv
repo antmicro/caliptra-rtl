@@ -64,12 +64,12 @@ module caliptra_prim_packer #(
     // counting mask_i ones
     inmask_ones = '0;
     for (int i = 0 ; i < InW ; i++) begin
-      inmask_ones = inmask_ones + OnesCntW'(mask_i[i]);
+      inmask_ones = OnesCntW'(inmask_ones + mask_i[i]);
     end
   end
 
   logic [PtrW-1:0] pos_with_input;
-  assign pos_with_input = pos_q + PtrW'(inmask_ones);
+  assign pos_with_input = PtrW'(pos_q + inmask_ones);
 
   if (EnProtection == 1'b 0) begin : g_pos_nodup
     logic [PtrW-1:0] pos_d;
@@ -79,9 +79,9 @@ module caliptra_prim_packer #(
 
       unique case ({ack_in, ack_out})
         2'b00: pos_d = pos_q;
-        2'b01: pos_d = (int'(pos_q) <= OutW) ? '0 : pos_q - PtrW'(OutW);
+        2'b01: pos_d = (pos_q <= OutW) ? '0 : pos_q - PtrW'(OutW);
         2'b10: pos_d = pos_with_input;
-        2'b11: pos_d = (int'(pos_with_input) <= OutW) ? '0 : pos_with_input - PtrW'(OutW);
+        2'b11: pos_d = (pos_with_input <= OutW) ? '0 : pos_with_input - PtrW'(OutW);
         default: pos_d = pos_q;
       endcase
     end
@@ -280,7 +280,7 @@ module caliptra_prim_packer #(
 
 
   // Output signals ===========================================================
-  assign valid_next = (int'(pos_q) >= OutW) ? 1'b 1 : flush_valid;
+  assign valid_next = (pos_q >= OutW) ? 1'b 1 : flush_valid;
 
   // storage space is InW + OutW. So technically, ready_o can be asserted even
   // if `pos_q` is greater than OutW. But in order to do that, the logic should
@@ -288,7 +288,7 @@ module caliptra_prim_packer #(
   // with `valid_i`. It creates a path from `valid_i` --> `ready_o`.
   // It may create a timing loop in some modules that use `ready_o` to
   // `valid_i` (which is not a good practice though)
-  assign ready_next = int'(pos_q) <= OutW;
+  assign ready_next = pos_q <= OutW;
 
   // Output request
   assign valid_o = valid_next;

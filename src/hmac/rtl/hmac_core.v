@@ -100,6 +100,9 @@ module hmac_core
 
   wire [383 : 0]  entropy;
 
+  wire unused_signals;
+  assign unused_signals = ^{H1_digest_valid, H2_digest_valid};
+
   //----------------------------------------------------------------
   // Concurrent connectivity for ports etc.
   //----------------------------------------------------------------

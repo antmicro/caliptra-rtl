@@ -33,8 +33,10 @@ module axi_sub_wr import axi_pkg::*; #(
               BC = DW/8,       // Byte Count
               BW = $clog2(BC), // Byte count Width
     parameter UW = 32,         // User Width
-    parameter IW = 1,          // ID Width
-              ID_NUM = 1 << IW  // Don't override
+    parameter IW = 1           // ID Width
+    `ifdef CALIPTRA_AXI_SUB_EX_EN
+              ,ID_NUM = 1 << IW  // Don't override
+    `endif
 
 ) (
     input clk,
@@ -93,7 +95,9 @@ module axi_sub_wr import axi_pkg::*; #(
     // Signals                                 //
     // --------------------------------------- //
 
+    `ifdef CALIPTRA_AXI_SUB_EX_EN
     genvar ex; // Exclusive contexts
+    `endif
 
     logic axi_out_of_rst;
     logic axi_awvalid_q;

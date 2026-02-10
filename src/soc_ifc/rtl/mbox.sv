@@ -33,7 +33,6 @@ module mbox
     ,parameter MBOX_ECC_DATA_W = 7
     ,localparam MBOX_SIZE_BYTES = MBOX_SIZE_KB * 1024
     ,localparam MBOX_SIZE_DWORDS = MBOX_SIZE_BYTES/4
-    ,localparam MBOX_DATA_AND_ECC_W = MBOX_DATA_W + MBOX_ECC_DATA_W
     ,localparam MBOX_DEPTH = (MBOX_SIZE_KB * 1024 * 8) / MBOX_DATA_W
     ,localparam MBOX_ADDR_W = $clog2(MBOX_DEPTH)
     ,localparam MBOX_DEPTH_LOG2 = $clog2(MBOX_DEPTH)
@@ -185,7 +184,6 @@ logic wrptr_inc_valid;
 mbox_protocol_error_t mbox_protocol_error_nxt;
 
 logic tap_mode;
-logic tap_mbox_data_avail;
 
 //csr
 logic [MBOX_DATA_W-1:0] csr_rdata;
@@ -289,7 +287,7 @@ always_comb arc_MBOX_EXECUTE_TAP_MBOX_ERROR  = 1'b0;
 always_comb latch_dlen_in_dws = arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_UC | arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_SOC | arc_MBOX_EXECUTE_UC_MBOX_EXECUTE_SOC |
                                 arc_MBOX_RDY_FOR_DATA_MBOX_EXECUTE_TAP | arc_MBOX_EXECUTE_TAP_MBOX_EXECUTE_UC | arc_MBOX_EXECUTE_UC_MBOX_EXECUTE_TAP;
 always_comb mbox_dlen_in_dws = (hwif_out.mbox_dlen.length.value >= MBOX_SIZE_BYTES) ? MBOX_SIZE_DWORDS[MBOX_DEPTH_LOG2:0] :
-                               (hwif_out.mbox_dlen.length.value[MBOX_DEPTH_LOG2+2:2]) + (hwif_out.mbox_dlen.length.value[0] | hwif_out.mbox_dlen.length.value[1]);
+                               (MBOX_DEPTH_LOG2+1)'((hwif_out.mbox_dlen.length.value[MBOX_DEPTH_LOG2+2:2]) + (hwif_out.mbox_dlen.length.value[0] | hwif_out.mbox_dlen.length.value[1]));
 //latched dlen is the smaller of the programmed dlen or the current wrptr
 //this avoids a case where a sender writes less than programmed and the receiver can read beyond that
 //if the mailbox is full (flag set when writing last entry), always take the programmed dlen
@@ -315,7 +313,6 @@ always_comb begin : mbox_fsm_combo
     inc_wrptr = 0;
     uc_mbox_data_avail = 0;
     soc_mbox_data_avail = 0;
-    tap_mbox_data_avail = 0;
     mbox_protocol_error_nxt = '{default: 0};
     mbox_fsm_ns = mbox_fsm_ps;
 
@@ -451,7 +448,6 @@ always_comb begin : mbox_fsm_combo
             end
         end
         MBOX_EXECUTE_TAP: begin
-            tap_mbox_data_avail = 1;
             inc_rdptr = (dmi_inc_rdptr);
             inc_wrptr = (dmi_inc_wrptr);
             if (arc_MBOX_EXECUTE_TAP_MBOX_IDLE) begin

@@ -51,6 +51,7 @@ module pv_gen_hash
 );
 
 localparam PAD_LEN_DWORD = BLOCK_NO - 4;
+localparam pad_length = (PV_NUM_PCR * PV_NUM_DWORDS * PV_DATA_W) + PV_SIZE_OF_NONCE;
 
 typedef enum logic [3:0] {
     GEN_HASH_IDLE    = 4'b0000,
@@ -80,8 +81,6 @@ logic arc_GEN_HASH_PAD_0S_GEN_HASH_PAD_LEN;
 logic arc_GEN_HASH_PAD_LEN_GEN_HASH_WT_LAST;
 logic arc_GEN_HASH_WT_LAST_GEN_HASH_DONE;
 
-logic [3:0][31:0] pad_length;
-
 logic [BLOCK_OFFSET_W:0] block_offset_i,block_offset_nxt;
 logic block_full;
 logic last_dword_wr;
@@ -99,7 +98,6 @@ assign gen_hash_init_reg = arc_GEN_HASH_BLOCK_0_GEN_HASH_BLOCK_N;
 assign gen_hash_next_reg = arc_GEN_HASH_BLOCK_N_GEN_HASH_BLOCK_N | 
                           (block_full & gen_hash_fsm_ps inside {GEN_HASH_NONCE, GEN_HASH_PAD_LD1, GEN_HASH_PAD_0S, GEN_HASH_PAD_LEN} & core_ready);
 assign gen_hash_last_reg = gen_hash_fsm_ps == GEN_HASH_WT_LAST;
-assign pad_length = (PV_NUM_PCR * PV_NUM_DWORDS * PV_DATA_W) + PV_SIZE_OF_NONCE;
 
 assign block_offset = block_offset_i[BLOCK_OFFSET_W-1:0];
 
@@ -170,15 +168,15 @@ assign block_offset = block_offset_i[BLOCK_OFFSET_W-1:0];
       end
       GEN_HASH_PAD_LD1: begin
         if (arc_GEN_HASH_PAD_LD1_GEN_HASH_PAD_0S) gen_hash_fsm_ns = GEN_HASH_PAD_0S;
-        block_wr_data = 'h8000_0000;
+        block_wr_data = DATA_W'('h8000_0000);
       end
       GEN_HASH_PAD_0S: begin
         if (arc_GEN_HASH_PAD_0S_GEN_HASH_PAD_LEN) gen_hash_fsm_ns = GEN_HASH_PAD_LEN;
-        block_wr_data = 'h0000_0000;
+        block_wr_data = DATA_W'('h8000_0000);
       end
       GEN_HASH_PAD_LEN: begin
         if (arc_GEN_HASH_PAD_LEN_GEN_HASH_WT_LAST) gen_hash_fsm_ns = GEN_HASH_WT_LAST;
-        block_wr_data = pad_length[3-block_offset_i[1:0]];
+        block_wr_data = block_offset_i[1:0] == 2'b00 ? DATA_W'(pad_length) : '0;
       end
       GEN_HASH_WT_LAST: begin
         if (arc_GEN_HASH_WT_LAST_GEN_HASH_DONE) gen_hash_fsm_ns = GEN_HASH_DONE;

@@ -157,6 +157,8 @@ module caliptra_prim_diff_decode #(
           end
         end
         default : begin
+          // Repeated to avoid lint violation
+          state_d  = state_q;
         end
       endcase
     end

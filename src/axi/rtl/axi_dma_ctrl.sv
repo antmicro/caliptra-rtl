@@ -134,9 +134,11 @@ import soc_ifc_pkg::*;
     logic               fifo_full, fifo_full_r;
     logic               fifo_empty, fifo_empty_r;
 
-    // Internal signals
+    // Internal signals, used only for debugging
     axi_dma_reg__ctrl__rd_route__rd_route_e_e rd_route;
     axi_dma_reg__ctrl__wr_route__wr_route_e_e wr_route;
+    logic unused_signals;
+    assign unused_signals = ^{rd_route, wr_route};
 
     logic cmd_inv_rd_route;
     logic cmd_inv_wr_route;
@@ -148,7 +150,6 @@ import soc_ifc_pkg::*;
     logic cmd_inv_rd_fixed;
     logic cmd_inv_wr_fixed;
     logic cmd_inv_mbox_lock;
-    logic cmd_inv_sha_lock;
     logic cmd_parse_error;
 
     logic rd_req_hshake, rd_req_hshake_bypass;
@@ -289,7 +290,7 @@ import soc_ifc_pkg::*;
     always_comb hwif_in.ctrl.go.hwclr    = (ctrl_fsm_ps == DMA_DONE) || ((ctrl_fsm_ps == DMA_ERROR) && hwif_out.ctrl.flush.value);
     always_comb hwif_in.ctrl.flush.hwclr = (ctrl_fsm_ps == DMA_IDLE);
 
-    always_comb hwif_in.cap.fifo_max_depth.next        = FIFO_BC/BC;
+    always_comb hwif_in.cap.fifo_max_depth.next        = 12'(FIFO_BC/BC);
     always_comb hwif_in.status0.busy.next              = (ctrl_fsm_ps != DMA_IDLE);
     always_comb hwif_in.status0.error.next             = (ctrl_fsm_ps == DMA_ERROR);
     always_comb hwif_in.status0.fifo_depth.next        = 12'(fifo_depth);
@@ -398,7 +399,6 @@ import soc_ifc_pkg::*;
         cmd_inv_rd_fixed    = hwif_out.ctrl.rd_fixed.value && hwif_out.ctrl.rd_route.value == axi_dma_reg__ctrl__rd_route__rd_route_e__DISABLE;
         cmd_inv_wr_fixed    = hwif_out.ctrl.wr_fixed.value && hwif_out.ctrl.wr_route.value == axi_dma_reg__ctrl__wr_route__wr_route_e__DISABLE;
         cmd_inv_mbox_lock   = !mbox_lock && ((hwif_out.ctrl.rd_route.value == axi_dma_reg__ctrl__rd_route__rd_route_e__MBOX) || (hwif_out.ctrl.wr_route.value == axi_dma_reg__ctrl__wr_route__wr_route_e__MBOX));
-        cmd_inv_sha_lock    = !sha_lock && (1'b0/*addr decode? NOTE: Direct-access to sha accelerator not implemented. Disable this check.*/);
         cmd_parse_error     = cmd_inv_rd_route    ||
                               cmd_inv_wr_route    ||
                               cmd_inv_route_combo ||
@@ -408,8 +408,7 @@ import soc_ifc_pkg::*;
                               cmd_inv_block_size  ||
                               cmd_inv_rd_fixed    ||
                               cmd_inv_wr_fixed    ||
-                              cmd_inv_mbox_lock   ||
-                              cmd_inv_sha_lock;
+                              cmd_inv_mbox_lock;
     end
     generate
         // An address is invalid if:
@@ -610,12 +609,12 @@ import soc_ifc_pkg::*;
     always_comb begin
         r_req_if.valid    = (ctrl_fsm_ps == DMA_WAIT_DATA) && !rd_req_hshake_bypass && (rd_bytes_requested < hwif_out.byte_count.count.value) && ((AXI_LEN_BC_WIDTH-BW)'(rd_credits) >= rd_req_byte_count[AXI_LEN_BC_WIDTH-1:BW]) && !rd_req_stall;
         r_req_if.addr     = src_addr + (hwif_out.ctrl.rd_fixed.value ? 0 : rd_bytes_requested);
-        r_req_if.byte_len = rd_req_byte_count - AXI_LEN_BC_WIDTH'(BC);
+        r_req_if.byte_len = rd_req_byte_count - BC;
         r_req_if.fixed    = hwif_out.ctrl.rd_fixed.value;
         r_req_if.lock     = 1'b0;
         w_req_if.valid    = (ctrl_fsm_ps == DMA_WAIT_DATA) && !wr_req_hshake_bypass && (wr_bytes_requested < hwif_out.byte_count.count.value) && ((AXI_LEN_BC_WIDTH-BW)'(wr_credits) >= wr_req_byte_count[AXI_LEN_BC_WIDTH-1:BW]);
         w_req_if.addr     = dst_addr + (hwif_out.ctrl.wr_fixed.value ? 0 : wr_bytes_requested);
-        w_req_if.byte_len = wr_req_byte_count - AXI_LEN_BC_WIDTH'(BC);
+        w_req_if.byte_len = wr_req_byte_count - BC;
         w_req_if.fixed    = hwif_out.ctrl.wr_fixed.value;
         w_req_if.lock     = 1'b0;
     end
@@ -637,6 +636,7 @@ import soc_ifc_pkg::*;
         mb_data.id      = '1;
         mb_data.write   = hwif_out.ctrl.rd_route.value == axi_dma_reg__ctrl__rd_route__rd_route_e__MBOX;
         mb_data.soc_req = 1'b0;
+        mb_data.user    = '0;
     end
 
     always_comb begin
@@ -646,18 +646,29 @@ import soc_ifc_pkg::*;
         wr_req_hshake_bypass = hwif_out.ctrl.wr_route.value == axi_dma_reg__ctrl__wr_route__wr_route_e__DISABLE;
     end
 
+    // SpyGlass has problems deducing signal widths if reduction operator appears
+    // in the same statement as shift. To avoid violation, assign the results of
+    // shifts to separate variables.
+    logic [31:0] rd_tmp0;
+    logic [31:0] rd_tmp1;
+    logic [31:0] wr_tmp0;
+    logic [31:0] wr_tmp1;
+    assign rd_tmp0 = 32'(hwif_out.byte_count.count.value - (rd_bytes_requested + rd_req_byte_count)) >> AXI_LEN_BC_WIDTH;
+    assign rd_tmp1 = 32'(hwif_out.byte_count.count.value - (rd_bytes_requested + BC)) >> AXI_LEN_BC_WIDTH;
+    assign wr_tmp0 = 32'(hwif_out.byte_count.count.value - (wr_bytes_requested + wr_req_byte_count)) >> AXI_LEN_BC_WIDTH;
+    assign wr_tmp1 = 32'(hwif_out.byte_count.count.value - (wr_bytes_requested + BC)) >> AXI_LEN_BC_WIDTH;
     always_ff @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             rd_bytes_requested  <= '0;
             rd_bytes_rem_thresh <= 1'b0;
         end
         else if (rd_req_hshake) begin
-            rd_bytes_requested  <= rd_bytes_requested + rd_req_byte_count;
-            rd_bytes_rem_thresh <= ~|((hwif_out.byte_count.count.value - (rd_bytes_requested + rd_req_byte_count)) >> AXI_LEN_BC_WIDTH);
+            rd_bytes_requested  <= 32'(rd_bytes_requested + rd_req_byte_count);
+            rd_bytes_rem_thresh <= ~|rd_tmp0;
         end
         else if (mb_dv && !mb_data.write && !mb_hold) begin
             rd_bytes_requested  <= rd_bytes_requested + BC;
-            rd_bytes_rem_thresh <= ~|((hwif_out.byte_count.count.value - (rd_bytes_requested + BC)) >> AXI_LEN_BC_WIDTH);
+            rd_bytes_rem_thresh <= ~|rd_tmp1;
         end
         else if (ctrl_fsm_ps == DMA_IDLE) begin
             rd_bytes_requested  <= '0;
@@ -670,12 +681,12 @@ import soc_ifc_pkg::*;
             wr_bytes_rem_thresh <= 1'b0;
         end
         else if (wr_req_hshake) begin
-            wr_bytes_requested  <= wr_bytes_requested + wr_req_byte_count;
-            wr_bytes_rem_thresh <= ~|((hwif_out.byte_count.count.value - (wr_bytes_requested + wr_req_byte_count)) >> AXI_LEN_BC_WIDTH);
+            wr_bytes_requested  <= 32'(wr_bytes_requested + wr_req_byte_count);
+            wr_bytes_rem_thresh <= ~|wr_tmp0;
         end
         else if (mb_dv && mb_data.write && !mb_hold) begin
             wr_bytes_requested  <= wr_bytes_requested + BC;
-            wr_bytes_rem_thresh <= ~|((hwif_out.byte_count.count.value - (wr_bytes_requested + BC)) >> AXI_LEN_BC_WIDTH);
+            wr_bytes_rem_thresh <= ~|wr_tmp1;
         end
         else if (ctrl_fsm_ps == DMA_IDLE) begin
             wr_bytes_requested  <= '0;
@@ -696,7 +707,7 @@ import soc_ifc_pkg::*;
             rd_credits <= rd_credits + 1 - FIFO_BW'(rd_req_byte_count[AXI_LEN_BC_WIDTH-1:BW]);
         end
         else if (rd_req_hshake) begin
-            rd_credits <= rd_credits - FIFO_BW'(rd_req_byte_count[AXI_LEN_BC_WIDTH-1:BW]);
+            rd_credits <= FIFO_BW'(rd_credits - rd_req_byte_count[AXI_LEN_BC_WIDTH-1:BW]);
         end
         else if (fifo_r_valid && fifo_r_ready) begin
             rd_credits <= rd_credits + 1;
@@ -716,7 +727,7 @@ import soc_ifc_pkg::*;
             wr_credits <= wr_credits + 1 - FIFO_BW'(wr_req_byte_count[AXI_LEN_BC_WIDTH-1:BW]);
         end
         else if (wr_req_hshake) begin
-            wr_credits <= wr_credits - FIFO_BW'(wr_req_byte_count[AXI_LEN_BC_WIDTH-1:BW]);
+            wr_credits <= FIFO_BW'(wr_credits - wr_req_byte_count[AXI_LEN_BC_WIDTH-1:BW]);
         end
         else if (fifo_w_valid && fifo_w_ready) begin
             wr_credits <= wr_credits + 1;

@@ -55,7 +55,6 @@ module doe_ctrl
     output logic hreadyout_o,
     output logic [AHB_DATA_WIDTH-1:0] hrdata_o,
     output kv_write_t kv_write,
-    input  kv_wr_resp_t kv_wr_resp,
 
     output logic clear_obf_secrets,
 
@@ -73,8 +72,8 @@ module doe_ctrl
     logic doe_cs;
     logic doe_we;
     logic [AHB_ADDR_WIDTH-1:0] doe_address;
-    logic [AHB_DATA_WIDTH-1:0] doe_write_data;
-    logic [AHB_DATA_WIDTH-1:0] doe_read_data;
+    logic [31:0] doe_write_data;
+    logic [31:0] doe_read_data;
 
     doe_cbc #(
         .ADDR_WIDTH(AHB_ADDR_WIDTH),
@@ -89,8 +88,8 @@ module doe_ctrl
         .cs(doe_cs),
         .we(doe_we),
         .address(doe_address),
-        .write_data(doe_write_data[31:0]),
-        .read_data(doe_read_data[31:0]),
+        .write_data(doe_write_data),
+        .read_data(doe_read_data),
         .error_intr(error_intr),
         .notif_intr(notif_intr),
         .busy_o(busy_o),
@@ -128,10 +127,10 @@ module doe_ctrl
         .hld(1'b0), //no holds from doe
         .err(1'b0), //no errors from doe
         .write(doe_we),
-        .wdata(doe_write_data[31:0]),
+        .wdata(doe_write_data),
         .addr(doe_address),
 
-        .rdata(doe_read_data[31:0])
+        .rdata(doe_read_data)
     );
 
 endmodule

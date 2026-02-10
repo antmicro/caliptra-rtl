@@ -73,7 +73,7 @@ module aes_ctr_fsm import aes_pkg::*;
 
       CTR_INCR: begin
         // Increment slice index.
-        ctr_slice_idx_d = ctr_slice_idx_q + SliceIdxWidth'(1);
+        ctr_slice_idx_d = ctr_slice_idx_q + 1;
         ctr_carry_d     = ctr_slice_idx_q >= ctr_slice_idx_max ? 1'b0 : ctr_value[SliceSizeCtr];
         ctr_we_o        = 1'b1;
 

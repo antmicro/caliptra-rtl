@@ -52,7 +52,8 @@ module caliptra_prim_sync_reqack #(
 
   // req_chk_i is used for gating assertions only.
   logic unused_req_chk;
-  assign unused_req_chk = req_chk_i;
+  // dst_ack_i is used, included only to silence UnloadedInPort-ML violation
+  assign unused_req_chk = ^{req_chk_i, dst_ack_i};
 
   if (EnRzHs) begin : gen_rz_hs_protocol
     //////////////////
@@ -97,6 +98,8 @@ module caliptra_prim_sync_reqack #(
         //VCS coverage off
         // pragma coverage off
         default: begin
+          // Repeated to avoid lint violation
+          src_fsm_d = src_fsm_q;
         end
         //VCS coverage on
         // pragma coverage on
@@ -150,6 +153,8 @@ module caliptra_prim_sync_reqack #(
         //VCS coverage off
         // pragma coverage off
         default: begin
+          // Repeated to avoid lint violation
+          dst_fsm_d = dst_fsm_q;
         end
         //VCS coverage on
         // pragma coverage on
@@ -253,6 +258,8 @@ module caliptra_prim_sync_reqack #(
         // pragma coverage off
 
         default: begin
+          // Repeated to avoid lint violation
+          src_fsm_ns = src_fsm_cs;
         end
 
         //VCS coverage on
@@ -298,6 +305,8 @@ module caliptra_prim_sync_reqack #(
         // pragma coverage off
 
         default: begin
+          // Repeated to avoid lint violation
+          dst_fsm_ns = dst_fsm_cs;
         end
 
         //VCS coverage on

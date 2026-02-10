@@ -70,7 +70,7 @@ module sha512_ctrl
     logic  [AHB_ADDR_WIDTH - 1 : 0] sha512_address;
     logic  [31 : 0] sha512_write_data;
     logic  [31 : 0] sha512_read_data;
-    logic           sha512_err;
+    logic           unused_sha512_err;
 
     sha512 #(
         .ADDR_WIDTH(AHB_ADDR_WIDTH),
@@ -85,7 +85,7 @@ module sha512_ctrl
         .address(sha512_address),
         .write_data(sha512_write_data),
         .read_data(sha512_read_data),
-        .err(sha512_err),
+        .err(unused_sha512_err),
         .pv_read(pv_read),
         .pv_write(pv_write),
         .pv_rd_resp(pv_rd_resp),

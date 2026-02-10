@@ -60,7 +60,8 @@ module aes_key_expand import aes_pkg::*;
 
   // cfg_valid_i is used for gating assertions only.
   logic                     unused_cfg_valid;
-  assign unused_cfg_valid = cfg_valid_i;
+  // rnd is used, included only to silence UnloadedInPort-ML violation
+  assign unused_cfg_valid = ^{cfg_valid_i, rnd};
 
   // Get a shorter reference.
   assign rnd = round_i;

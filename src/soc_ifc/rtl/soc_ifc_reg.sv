@@ -6126,7 +6126,7 @@ module soc_ifc_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.error_internal_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -6156,7 +6156,7 @@ module soc_ifc_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.error_inv_dev_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -6186,7 +6186,7 @@ module soc_ifc_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.error_cmd_fail_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -6216,7 +6216,7 @@ module soc_ifc_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.error_bad_fuse_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -6246,7 +6246,7 @@ module soc_ifc_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.error_iccm_blocked_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -6276,7 +6276,7 @@ module soc_ifc_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.error_mbox_ecc_unc_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -6306,7 +6306,7 @@ module soc_ifc_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.error_wdt_timer1_timeout_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -6336,7 +6336,7 @@ module soc_ifc_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.error_wdt_timer2_timeout_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -6366,7 +6366,7 @@ module soc_ifc_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.notif_cmd_avail_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -6396,7 +6396,7 @@ module soc_ifc_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.notif_mbox_ecc_cor_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -6426,7 +6426,7 @@ module soc_ifc_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.notif_debug_locked_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -6456,7 +6456,7 @@ module soc_ifc_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.notif_scan_mode_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -6486,7 +6486,7 @@ module soc_ifc_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.notif_soc_req_lock_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;
@@ -6516,7 +6516,7 @@ module soc_ifc_reg (
             load_next_c = '1;
         end
         if(field_storage.intr_block_rf.notif_gen_in_toggle_intr_count_incr_r.pulse.value) begin // increment
-            if(((33)'(next_c) + 32'h1) > 32'hffffffff) begin // up-counter saturated
+            if(next_c > 32'hfffffffe) begin // up-counter saturated
                 next_c = 32'hffffffff;
             end else begin
                 next_c = next_c + 32'h1;

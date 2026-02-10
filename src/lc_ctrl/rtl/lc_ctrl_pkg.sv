@@ -14,8 +14,8 @@ package lc_ctrl_pkg;
   // Netlist Constants (Hashed Tokens) //
   ///////////////////////////////////////
 
-  parameter int NumTokens = 8;
-  parameter int TokenIdxWidth = vbits(NumTokens);
+  parameter int unsigned NumTokens = 8;
+  parameter int unsigned TokenIdxWidth = vbits(NumTokens);
   typedef enum logic [TokenIdxWidth-1:0] {
     // This is the index for the hashed all-zero constant.
     // All unconditional transitions use this token.
@@ -31,14 +31,14 @@ package lc_ctrl_pkg;
     InvalidTokenIdx       = 3'h7
   } token_idx_e;
 
-  parameter int TokenMuxBits = 2**TokenIdxWidth*LcTokenWidth;
+  parameter int unsigned TokenMuxBits = 2**TokenIdxWidth*LcTokenWidth;
   typedef logic [TokenMuxBits-1:0] lc_token_mux_t;
 
   ////////////////////////////////
   // Typedefs for LC Interfaces //
   ////////////////////////////////
 
-  parameter int TxWidth = 4;
+  parameter int unsigned TxWidth = 4;
 
   // Note that changing this encoding has implications on isolation cell
   // values in RTL. Do not change this unless absolutely needed.
@@ -54,11 +54,11 @@ package lc_ctrl_pkg;
 
   parameter lc_tx_t LC_TX_DEFAULT = lc_tx_t'(Off);
 
-  parameter int RmaSeedWidth = 32;
+  parameter int unsigned RmaSeedWidth = 32;
   typedef logic [RmaSeedWidth-1:0] lc_flash_rma_seed_t;
   parameter lc_flash_rma_seed_t LC_FLASH_RMA_SEED_DEFAULT = '0;
 
-  parameter int LcKeymgrDivWidth = 128;
+  parameter int unsigned LcKeymgrDivWidth = 128;
   typedef logic [LcKeymgrDivWidth-1:0] lc_keymgr_div_t;
 
   typedef struct packed {
@@ -269,7 +269,7 @@ package lc_ctrl_pkg;
   // Minimum Hamming weight: 3
   // Maximum Hamming weight: 11
   //
-  localparam int FsmStateWidth = 16;
+  localparam int unsigned FsmStateWidth = 16;
   typedef enum logic [FsmStateWidth-1:0] {
     ResetSt       = 16'b1111011010111100,
     IdleSt        = 16'b0000011110101101,

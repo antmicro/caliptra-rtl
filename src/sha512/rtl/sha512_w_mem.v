@@ -202,7 +202,7 @@ module sha512_w_mem(
            {w_14[60 : 0], w_14[63 : 61]} ^ // ROTR61
            {6'b000000,    w_14[63 : 6]};   // SHR6
 
-      w_new = w_0 + d0 + w_9 + d1;
+      w_new = 64'(w_0 + d0 + w_9 + d1);
 
       if (init_cmd)
         begin
