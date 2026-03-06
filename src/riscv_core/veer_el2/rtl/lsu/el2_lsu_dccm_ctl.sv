@@ -159,9 +159,6 @@ import el2_pkg::*;
    /*pragma coverage on*/
 );
 
-
-   localparam DCCM_WIDTH_BITS = $clog2(pt.DCCM_BYTE_WIDTH);
-
    logic                           lsu_dccm_rden_d, lsu_dccm_wren_d;
    logic                           ld_single_ecc_error_lo_r, ld_single_ecc_error_hi_r;
    logic                           ld_single_ecc_error_lo_r_ns, ld_single_ecc_error_hi_r_ns;
@@ -180,6 +177,8 @@ import el2_pkg::*;
    logic [7:0]                     store_byteen_ext_m, store_byteen_ext_r;
 
    if (pt.LOAD_TO_USE_PLUS1 == 1) begin: L2U_Plus1_1
+      localparam DCCM_WIDTH_BITS = $clog2(pt.DCCM_BYTE_WIDTH);
+
       logic [63:0]  lsu_rdata_r, lsu_rdata_corr_r;
       logic [63:0]  dccm_rdata_r, dccm_rdata_corr_r;
       logic [63:0]  stbuf_fwddata_r;
@@ -231,6 +230,12 @@ import el2_pkg::*;
       logic [63:32] lsu_ld_data_m_nc, lsu_ld_data_corr_m_nc;
       logic [31:0]  lsu_ld_data_corr_m;
 
+      assign lsu_ld_data_r        = '0;
+      assign dccm_rdata_lo_r      = '0;
+      assign dccm_rdata_hi_r      = '0;
+      assign dccm_data_ecc_lo_r   = '0;
+      assign dccm_data_ecc_hi_r   = '0;
+
       assign dccm_dma_rvalid      = lsu_pkt_m.valid & lsu_pkt_m.load & lsu_pkt_m.dma;
       assign dccm_dma_ecc_error   = lsu_double_ecc_error_m;
       assign dccm_dma_rtag[2:0]   = dma_mem_tag_m[2:0];
@@ -252,6 +257,10 @@ import el2_pkg::*;
       end
 
       rvdffe #(32) lsu_ld_data_corr_rff(.*, .din(lsu_ld_data_corr_m[31:0]), .dout(lsu_ld_data_corr_r[31:0]), .en((lsu_pkt_m.valid & lsu_pkt_m.load & (addr_in_pic_m | addr_in_dccm_m)) | clk_override));
+
+      // Used only with LOAD_TO_USE_PLUS1
+      logic unused_signals;
+      assign unused_signals = ^{lsu_c1_r_clk, ldst_dual_r, sec_data_hi_r, sec_data_lo_r};
    end
 
    assign kill_ecc_corr_lo_r = (((lsu_addr_d[pt.DCCM_BITS-1:2] == lsu_addr_r[pt.DCCM_BITS-1:2]) | (end_addr_d[pt.DCCM_BITS-1:2] == lsu_addr_r[pt.DCCM_BITS-1:2])) & lsu_pkt_d.valid & lsu_pkt_d.store & lsu_pkt_d.dma & addr_in_dccm_d) |
@@ -347,7 +356,7 @@ import el2_pkg::*;
    end else begin: L2U1_Plus1_0
 
       logic [31:0] store_data_hi_m, store_data_lo_m;
-      logic [63:0] store_data_mask;
+      logic [31:0] store_data_mask;
       assign {store_data_hi_m[31:0] , store_data_lo_m[31:0]} = {32'b0,store_data_m[31:0]} << 8*lsu_addr_m[1:0];
 
       for (genvar i=0; i<4; i++) begin

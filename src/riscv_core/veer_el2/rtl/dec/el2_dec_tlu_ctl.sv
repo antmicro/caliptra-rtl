@@ -365,7 +365,7 @@ import el2_pkg::*;
    logic lsu_i0_rfnpc_r;
    logic dec_tlu_br0_error_r, dec_tlu_br0_start_error_r, dec_tlu_br0_v_r;
    logic lsu_i0_exc_r, lsu_i0_exc_r_raw, lsu_exc_ma_r, lsu_exc_acc_r, lsu_exc_st_r,
-         lsu_exc_valid_r, lsu_exc_valid_r_raw, lsu_exc_valid_r_d1, lsu_i0_exc_r_d1, block_interrupts;
+         lsu_exc_valid_r, lsu_exc_valid_r_raw, unused_lsu_exc_valid_r_d1, lsu_i0_exc_r_d1, block_interrupts;
    logic i0_trigger_eval_r;
 
    logic request_debug_mode_r, request_debug_mode_r_d1, request_debug_mode_done, request_debug_mode_done_f;
@@ -499,6 +499,10 @@ import el2_pkg::*;
 
    `include "el2_dec_csr_equ_m.svh"
 
+   // To avoid lint violation
+   logic unused_signals;
+   assign unused_signals = ^{dec_csr_rdaddr_r};
+
 `endif
 
    el2_dec_timer_ctl  #(.pt(pt)) int_timers(.*);
@@ -590,22 +594,6 @@ localparam MSECCFG_MML   = 0;
 `endif
 
    // ----------------------------------------------------------------------
-   // MISA (RO)
-   //  [31:30] XLEN - implementation width, 2'b01 - 32 bits
-   //  [20]    U    - user mode support (if enabled in config)
-   //  [12]    M    - integer mul/div
-   //  [8]     I    - RV32I
-   //  [2]     C    - Compressed extension
-   localparam MISA          = 12'h301;
-
-   // MVENDORID, MARCHID, MIMPID, MHARTID
-   localparam MVENDORID     = 12'hf11;
-   localparam MARCHID       = 12'hf12;
-   localparam MIMPID        = 12'hf13;
-   localparam MHARTID       = 12'hf14;
-
-
-   // ----------------------------------------------------------------------
    // MSTATUS (RW)
    // [17]    MPRV : Modify PRiVilege (if enabled in config)
    // [12:11] MPP  : Prior priv level, either 2'b11 (machine) or 2'b00 (user)
@@ -619,17 +607,6 @@ localparam MSECCFG_MML   = 0;
    // [1] - Reserved, not implemented, reads zero
    // [0]  MODE : 0 = Direct, 1 = Asyncs are vectored to BASE + (4 * CAUSE)
    localparam MTVEC         = 12'h305;
-
-   // ----------------------------------------------------------------------
-   // MIP (RW)
-   //
-   // [30] MCEIP  : (RO) M-Mode Correctable Error interrupt pending
-   // [29] MITIP0 : (RO) M-Mode Internal Timer0 interrupt pending
-   // [28] MITIP1 : (RO) M-Mode Internal Timer1 interrupt pending
-   // [11] MEIP   : (RO) M-Mode external interrupt pending
-   // [7]  MTIP   : (RO) M-Mode timer interrupt pending
-   // [3]  MSIP   : (RO) M-Mode software interrupt pending
-   localparam MIP           = 12'h344;
 
    // ----------------------------------------------------------------------
    // MIE (RW)
@@ -646,7 +623,9 @@ localparam MSECCFG_MML   = 0;
    // [31:0] : Lower Cycle count
 
    localparam MCYCLEL       = 12'hb00;
+`ifdef RV_USER_MODE
    localparam logic [11:0] CYCLEL  = 12'hc00;
+`endif
 
    // ----------------------------------------------------------------------
    // MCYCLEH (RW)
@@ -654,7 +633,9 @@ localparam MSECCFG_MML   = 0;
    // Chained with mcyclel. Note: mcyclel overflow due to a mcycleh write gets ignored.
 
    localparam MCYCLEH       = 12'hb80;
+`ifdef RV_USER_MODE
    localparam logic [11:0] CYCLEH  = 12'hc80;
+`endif
 
    // ----------------------------------------------------------------------
    // MINSTRETL (RW)
@@ -666,7 +647,9 @@ localparam MSECCFG_MML   = 0;
    // one instruction will be the value read by the following instruction (i.e., the increment of instret
    // caused by the first instruction retiring happens before the write of the new value)."
    localparam MINSTRETL     = 12'hb02;
+`ifdef RV_USER_MODE
    localparam logic [11:0] INSTRETL  = 12'hc02;
+`endif
 
    // ----------------------------------------------------------------------
    // MINSTRETH (RW)
@@ -674,7 +657,9 @@ localparam MSECCFG_MML   = 0;
    // Chained with minstretl. Note: minstretl overflow due to a minstreth write gets ignored.
 
    localparam MINSTRETH     = 12'hb82;
+`ifdef RV_USER_MODE
    localparam logic [11:0] INSTRETH  = 12'hc82;
+`endif
 
    // ----------------------------------------------------------------------
    // MSCRATCH (RW)
@@ -747,12 +732,6 @@ localparam MSECCFG_MML   = 0;
    // [31:0] : Dbus Error Address Unlock register
    //
    localparam MDEAU         = 12'hbc0;
-
-   // ----------------------------------------------------------------------
-   // MDSEAC (R)
-   // [31:0] : Dbus Store Error Address Capture register
-   //
-   localparam MDSEAC        = 12'hfc0;
 
    // ----------------------------------------------------------------------
    // MPMC (R0W1)
@@ -1551,7 +1530,7 @@ end
 
    // Compute interrupt path:
    // If vectored async is set in mtvec, flush path for interrupts is MTVEC + (4 * CAUSE);
-   assign vectored_path[31:1]  = {mtvec[30:1], 1'b0} + {25'b0, exc_cause_r[4:0], 1'b0};
+   assign vectored_path[31:1]  = 31'({mtvec[30:1], 1'b0} + {25'b0, exc_cause_r[4:0], 1'b0});
    assign interrupt_path[31:1] = take_nmi ? nmi_vec[31:1] : ((mtvec[0] == 1'b1) ? vectored_path[31:1] : {mtvec[30:1], 1'b0});
 
    assign sel_npc_r  = lsu_i0_rfnpc_r | fence_i_r | iccm_repair_state_rfnpc | (i_cpu_run_req_d1 & ~interrupt_valid_r) | (rfpc_i0_r & ~dec_tlu_i0_valid_r);
@@ -1743,7 +1722,7 @@ end
 
    assign wr_mcycleh_r = dec_csr_wen_r_mod & (dec_csr_wraddr_r[11:0] == MCYCLEH);
 
-   assign mcycleh_inc[31:0] = mcycleh[31:0] + {31'b0, mcyclel_cout_f};
+   assign mcycleh_inc[31:0] = 32'(mcycleh[31:0] + {31'b0, mcyclel_cout_f});
    assign mcycleh_ns[31:0]  = wr_mcycleh_r ? dec_csr_wrdata_r[31:0] : mcycleh_inc[31:0];
 
    rvdffe #(32)  mcycleh_ff (.*, .clk(free_l2clk), .en(wr_mcycleh_r | mcyclel_cout_f), .din(mcycleh_ns[31:0]), .dout(mcycleh[31:0]));
@@ -1784,7 +1763,7 @@ end
 
    assign wr_minstreth_r = dec_csr_wen_r_mod & (dec_csr_wraddr_r[11:0] == MINSTRETH);
 
-   assign minstreth_inc[31:0] = minstreth[31:0] + {31'b0, minstretl_cout_f};
+   assign minstreth_inc[31:0] = 32'(minstreth[31:0] + {31'b0, minstretl_cout_f});
    assign minstreth_ns[31:0]  = wr_minstreth_r ? dec_csr_wrdata_r[31:0] : minstreth_inc[31:0];
    rvdffe #(32)  minstreth_ff (.*, .en((minstret_enable_f & minstretl_cout_f) | wr_minstreth_r), .din(minstreth_ns[31:0]), .dout(minstreth[31:0]));
 
@@ -1889,7 +1868,7 @@ end
 
 
    assign mtval_ns[31:0] = (({32{mtval_capture_pc_r}} & {pc_r[31:1], 1'b0}) |
-                            ({32{mtval_capture_pc_plus2_r}} & {pc_r[31:1] + 31'b1, 1'b0}) |
+                            ({32{mtval_capture_pc_plus2_r}} & {31'(pc_r[31:1] + 31'b1), 1'b0}) |
                             ({32{mtval_capture_inst_r}} & dec_illegal_inst[31:0]) |
                             ({32{mtval_capture_lsu_r}} & lsu_error_pkt_addr_r[31:0]) |
                             ({32{wr_mtval_r & ~interrupt_valid_r}} & dec_csr_wrdata_r[31:0]) |
@@ -1908,7 +1887,6 @@ end
 `ifdef RV_USER_MODE
 
    localparam MSECCFG  = 12'h747;
-   localparam MSECCFGH = 12'h757;
 
    // Detect if any PMP region is locked regardless of being enabled. This is
    // necessary for mseccfg.RLB bit write behavior
@@ -2090,7 +2068,7 @@ end
    assign csr_sat[31:27] = (dec_csr_wrdata_r[31:27] > 5'd26) ? 5'd26 : dec_csr_wrdata_r[31:27];
 
    assign wr_micect_r = dec_csr_wen_r_mod & (dec_csr_wraddr_r[11:0] == MICECT);
-   assign micect_inc[26:0] = micect[26:0] + {26'b0, ic_perr_r};
+   assign micect_inc[26:0] = 27'(micect[26:0] + {26'b0, ic_perr_r});
    assign micect_ns =  wr_micect_r ? {csr_sat[31:27], dec_csr_wrdata_r[26:0]} : {micect[31:27], micect_inc[26:0]};
 
    rvdffe #(32)  micect_ff (.*, .en(wr_micect_r | ic_perr_r), .din(micect_ns[31:0]), .dout(micect[31:0]));
@@ -2103,7 +2081,7 @@ end
    // [26:0]  : ICCM parity error count
 
    assign wr_miccmect_r     = dec_csr_wen_r_mod & (dec_csr_wraddr_r[11:0] == MICCMECT);
-   assign miccmect_inc[26:0] = miccmect[26:0] + {26'b0, iccm_sbecc_r | iccm_dma_sb_error};
+   assign miccmect_inc[26:0] = 27'(miccmect[26:0] + {26'b0, iccm_sbecc_r | iccm_dma_sb_error});
    assign miccmect_ns        = wr_miccmect_r ? {csr_sat[31:27], dec_csr_wrdata_r[26:0]} : {miccmect[31:27], miccmect_inc[26:0]};
 
    rvdffe #(32)  miccmect_ff (.*, .clk(free_l2clk), .en(wr_miccmect_r | iccm_sbecc_r | iccm_dma_sb_error), .din(miccmect_ns[31:0]), .dout(miccmect[31:0]));
@@ -2116,7 +2094,7 @@ end
    // [26:0]  : DCCM parity error count
 
    assign wr_mdccmect_r     = dec_csr_wen_r_mod & (dec_csr_wraddr_r[11:0] == MDCCMECT);
-   assign mdccmect_inc[26:0] = mdccmect[26:0] + {26'b0, lsu_single_ecc_error_r_d1};
+   assign mdccmect_inc[26:0] = 27'(mdccmect[26:0] + {26'b0, lsu_single_ecc_error_r_d1});
    assign mdccmect_ns        = wr_mdccmect_r ? {csr_sat[31:27], dec_csr_wrdata_r[26:0]} : {mdccmect[31:27], mdccmect_inc[26:0]};
 
    rvdffe #(32)  mdccmect_ff (.*, .clk(free_l2clk), .en(wr_mdccmect_r | lsu_single_ecc_error_r_d1), .din(mdccmect_ns[31:0]), .dout(mdccmect[31:0]));
@@ -2527,7 +2505,6 @@ else
    //----------------------------------------------------------------------
    // Performance Monitor Counters section starts
    //----------------------------------------------------------------------
-   localparam MHPME_NOEVENT             = 10'd0;
    localparam MHPME_CLK_ACTIVE          = 10'd1; // OOP - out of pipe
    localparam MHPME_ICACHE_HIT          = 10'd2; // OOP
    localparam MHPME_ICACHE_MISS         = 10'd3; // OOP
@@ -2674,7 +2651,7 @@ else
                                    minstret_enable, minstretl_cout_ns, fw_halted_ns,
                                    meicidpl_ns[3:0], icache_rd_valid, icache_wr_valid, mhpmc_inc_r[3:0], perfcnt_halted,
                                    mstatus_ns[3:0]}),
-                             .dout({mdseac_locked_f, lsu_single_ecc_error_r_d1, lsu_exc_valid_r_d1, lsu_i0_exc_r_d1,
+                             .dout({mdseac_locked_f, lsu_single_ecc_error_r_d1, unused_lsu_exc_valid_r_d1, lsu_i0_exc_r_d1,
                                     take_ext_int_start_d1, take_ext_int_start_d2, take_ext_int_start_d3, ext_int_freeze_d1,
                                     mip[5:0], mcyclel_cout_f, minstret_enable_f, minstretl_cout_f,
                                     fw_halted, meicidpl[3:0], icache_rd_valid_f, icache_wr_valid_f,
@@ -2688,7 +2665,7 @@ else
                                    minstret_enable, minstretl_cout_ns, fw_halted_ns,
                                    meicidpl_ns[3:0], icache_rd_valid, icache_wr_valid, mhpmc_inc_r[3:0], perfcnt_halted,
                                    mstatus_ns[1:0]}),
-                             .dout({mdseac_locked_f, lsu_single_ecc_error_r_d1, lsu_exc_valid_r_d1, lsu_i0_exc_r_d1,
+                             .dout({mdseac_locked_f, lsu_single_ecc_error_r_d1, unused_lsu_exc_valid_r_d1, lsu_i0_exc_r_d1,
                                     take_ext_int_start_d1, take_ext_int_start_d2, take_ext_int_start_d3, ext_int_freeze_d1,
                                     mip[5:0], mcyclel_cout_f, minstret_enable_f, minstretl_cout_f,
                                     fw_halted, meicidpl[3:0], icache_rd_valid_f, icache_wr_valid_f,
@@ -2706,7 +2683,7 @@ else
                                    minstret_enable, minstretl_cout_ns, fw_halted_ns,
                                    meicidpl_ns[3:0], icache_rd_valid, icache_wr_valid, mhpmc_inc_r[3:0], perfcnt_halted,
                                    mstatus_ns[3:0]}),
-                             .dout({mdseac_locked_f, lsu_single_ecc_error_r_d1, lsu_exc_valid_r_d1, lsu_i0_exc_r_d1,
+                             .dout({mdseac_locked_f, lsu_single_ecc_error_r_d1, unused_lsu_exc_valid_r_d1, lsu_i0_exc_r_d1,
                                     mip[5:0], mcyclel_cout_f, minstret_enable_f, minstretl_cout_f,
                                     fw_halted, meicidpl[3:0], icache_rd_valid_f, icache_wr_valid_f,
                                     mhpmc_inc_r_d1[3:0], perfcnt_halted_d1,
@@ -2718,7 +2695,7 @@ else
                                    minstret_enable, minstretl_cout_ns, fw_halted_ns,
                                    meicidpl_ns[3:0], icache_rd_valid, icache_wr_valid, mhpmc_inc_r[3:0], perfcnt_halted,
                                    mstatus_ns[1:0]}),
-                             .dout({mdseac_locked_f, lsu_single_ecc_error_r_d1, lsu_exc_valid_r_d1, lsu_i0_exc_r_d1,
+                             .dout({mdseac_locked_f, lsu_single_ecc_error_r_d1, unused_lsu_exc_valid_r_d1, lsu_i0_exc_r_d1,
                                     mip[5:0], mcyclel_cout_f, minstret_enable_f, minstretl_cout_f,
                                     fw_halted, meicidpl[3:0], icache_rd_valid_f, icache_wr_valid_f,
                                     mhpmc_inc_r_d1[3:0], perfcnt_halted_d1,
@@ -3079,7 +3056,7 @@ import el2_pkg::*;
    assign mitcnt0_inc_ok = mitctl0[MITCTL_ENABLE] & (~dec_pause_state | mitctl0[MITCTL_ENABLE_PAUSED]) & (~dec_tlu_pmu_fw_halted | mitctl0[MITCTL_ENABLE_HALTED]) & ~internal_dbg_halt_timers;
 
    assign {mitcnt0_inc_cout, mitcnt0_inc[7:0]} = mitcnt0[7:0] + {7'b0, 1'b1};
-   assign mitcnt0_inc[31:8] = mitcnt0[31:8] + {23'b0, mitcnt0_inc_cout};
+   assign mitcnt0_inc[31:8] = 24'(mitcnt0[31:8] + {23'b0, mitcnt0_inc_cout});
 
    assign mitcnt0_ns[31:0]  = wr_mitcnt0_r ? dec_csr_wrdata_r[31:0] : mit0_match_ns ? 'b0 : mitcnt0_inc[31:0];
 
@@ -3102,7 +3079,7 @@ import el2_pkg::*;
 
    // only inc MITCNT1 if not cascaded with 0, or if 0 overflows
    assign {mitcnt1_inc_cout, mitcnt1_inc[7:0]} = mitcnt1[7:0] + {7'b0, 1'b1};
-   assign mitcnt1_inc[31:8] = mitcnt1[31:8] + {23'b0, mitcnt1_inc_cout};
+   assign mitcnt1_inc[31:8] = 24'(mitcnt1[31:8] + {23'b0, mitcnt1_inc_cout});
 
    assign mitcnt1_ns[31:0]  = wr_mitcnt1_r ? dec_csr_wrdata_r[31:0] : mit1_match_ns ? 'b0 : mitcnt1_inc[31:0];
 

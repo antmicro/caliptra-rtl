@@ -266,7 +266,6 @@ import el2_pkg::*;
    logic              sb_abmem_cmd_arvalid, sb_abmem_cmd_awvalid, sb_abmem_cmd_wvalid;
    logic              sb_abmem_read_pend;
    logic              sb_cmd_awvalid, sb_cmd_wvalid, sb_cmd_arvalid;
-   logic              sb_read_pend;
    logic [31:0]       sb_axi_addr;
    logic [63:0]       sb_axi_wrdata;
    logic [2:0]        sb_axi_size;
@@ -609,7 +608,7 @@ import el2_pkg::*;
 
    assign dbg_cmd_addr_incr[3:0]  = (command_reg[31:24] == 8'h2) ? (4'h1 << sb_abmem_cmd_size[1:0]) : 4'h1;
    assign dbg_cmd_curr_addr[31:0] = (command_reg[31:24] == 8'h2) ? data1_reg[31:0]  : {16'b0, command_reg[15:0]};
-   assign dbg_cmd_next_addr[31:0] = dbg_cmd_curr_addr[31:0] + {28'h0,dbg_cmd_addr_incr[3:0]};
+   assign dbg_cmd_next_addr[31:0] = 32'(dbg_cmd_curr_addr[31:0] + {28'h0,dbg_cmd_addr_incr[3:0]});
 
    // Ask DMA to stop taking bus trxns since debug request is done
    assign dbg_dma_bubble = ((dbg_state == CORE_CMD_START) & ~(|abstractcs_reg[10:8])) | (dbg_state == CORE_CMD_WAIT);
@@ -717,7 +716,6 @@ import el2_pkg::*;
    assign sb_cmd_awvalid     = ((sb_state == CMD_WR) | (sb_state == CMD_WR_ADDR));
    assign sb_cmd_wvalid      = ((sb_state == CMD_WR) | (sb_state == CMD_WR_DATA));
    assign sb_cmd_arvalid     = (sb_state == CMD_RD);
-   assign sb_read_pend       = (sb_state == RSP_RD);
 
    assign sb_axi_size[2:0]    = (sb_abmem_cmd_awvalid | sb_abmem_cmd_wvalid | sb_abmem_cmd_arvalid | sb_abmem_read_pend) ? sb_abmem_cmd_size[2:0] : sb_cmd_size[2:0];
    assign sb_axi_addr[31:0]   = (sb_abmem_cmd_awvalid | sb_abmem_cmd_wvalid | sb_abmem_cmd_arvalid | sb_abmem_read_pend) ? sb_abmem_cmd_addr[31:0] : sb_cmd_addr[31:0];

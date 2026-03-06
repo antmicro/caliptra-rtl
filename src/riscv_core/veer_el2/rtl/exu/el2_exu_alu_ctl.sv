@@ -331,7 +331,6 @@ import el2_pkg::*;
                                          ( {32{ap_ctz}} & bitmanip_a_reverse_ff[31:0]);
 
    logic        [31:0]    bitmanip_lzd_os;
-   integer                i;
    logic                  found;
 
    always_comb
@@ -343,7 +342,7 @@ import el2_pkg::*;
         for (int i=0; i<32; i++) begin
           if (bitmanip_lzd_os[31] == 1'b0 && found == 0) begin
               bitmanip_dw_lzd_enc[5:0]=  bitmanip_dw_lzd_enc[5:0] + 6'b00_0001;
-              bitmanip_lzd_os[31:0]   =  bitmanip_lzd_os[31:0] << 1;
+              bitmanip_lzd_os[31:0]   =  {bitmanip_lzd_os[30:0], 1'b0};
            end
            else
               found=1'b1;
@@ -371,7 +370,7 @@ import el2_pkg::*;
 
        for (bitmanip_cpop_i=0; bitmanip_cpop_i<32; bitmanip_cpop_i++)
          begin
-            bitmanip_cpop[5:0]          =  bitmanip_cpop[5:0] + {5'b0,a_in[bitmanip_cpop_i]};
+            bitmanip_cpop[5:0]          =  6'(bitmanip_cpop[5:0] + {5'b0,a_in[bitmanip_cpop_i]});
          end      // FOR    bitmanip_cpop_i
      end          // ALWAYS_COMB
 

@@ -25,7 +25,6 @@ import el2_pkg::*;
 #(
 `include "el2_param.vh"
  )(
-   input logic                                        clk,                                 // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.
    input logic                                        active_clk,                          // Clock only while core active.  Through two clock headers. For flops without second clock header built in.
    input logic                                        rst_l,                               // reset, active low
    input logic                                        clk_override,                        // Override non-functional clock gating
@@ -96,7 +95,7 @@ import el2_pkg::*;
 
 
    assign addr_incr[1:0]                    = (iccm_wr_size[1:0] == 2'b11) ?  2'b10: 2'b01;
-   assign addr_bank_inc[pt.ICCM_BITS-1 : 1] = iccm_rw_addr[pt.ICCM_BITS-1 : 1] + addr_incr[1:0];
+   assign addr_bank_inc[pt.ICCM_BITS-1 : 1] = (pt.ICCM_BITS-1)'(iccm_rw_addr[pt.ICCM_BITS-1 : 1] + addr_incr[1:0]);
 
    for (genvar i=0; i<pt.ICCM_NUM_BANKS/2; i++) begin: mem_bank_data
       assign iccm_bank_wr_data_vec[(2*i)]   = iccm_wr_data[38:0];

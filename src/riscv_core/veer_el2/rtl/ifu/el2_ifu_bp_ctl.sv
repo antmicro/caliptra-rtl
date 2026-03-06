@@ -99,7 +99,6 @@ import el2_pkg::*;
 
    localparam LRU_SIZE=pt.BTB_ARRAY_DEPTH;
    localparam NUM_BHT_LOOP = (pt.BHT_ARRAY_DEPTH > 16 ) ? 16 : pt.BHT_ARRAY_DEPTH;
-   localparam NUM_BHT_LOOP_INNER_HI =  (pt.BHT_ARRAY_DEPTH > 16 ) ?pt.BHT_ADDR_LO+3 : pt.BHT_ADDR_HI;
    localparam NUM_BHT_LOOP_OUTER_LO =  (pt.BHT_ARRAY_DEPTH > 16 ) ?pt.BHT_ADDR_LO+4 : pt.BHT_ADDR_LO;
    localparam BHT_NO_ADDR_MATCH  = ( pt.BHT_ARRAY_DEPTH <= 16 );
 
@@ -249,7 +248,7 @@ import el2_pkg::*;
 
 logic exu_flush_final_d1;
 
- if(!pt.BTB_FULLYA) begin : genblock1
+ if(pt.BTB_FULLYA == 0) begin : genblock1
    assign fetch_mp_collision_f = ( (exu_mp_btag[pt.BTB_BTAG_SIZE-1:0] == fetch_rd_tag_f[pt.BTB_BTAG_SIZE-1:0]) &
                                     exu_mp_valid & ifc_fetch_req_f &
                                     (exu_mp_addr[pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] == btb_rd_addr_f[pt.BTB_ADDR_HI:pt.BTB_ADDR_LO])
@@ -358,7 +357,7 @@ logic exu_flush_final_d1;
                                     .din(btb_lru_b0_ns[(LRU_SIZE)-1:0]),
                                    .dout(btb_lru_b0_f[(LRU_SIZE)-1:0]));
 
- end // if (!pt.BTB_FULLYA)
+ end // if (pt.BTB_FULLYA == 0)
    // Detect end of cache line and mask as needed
    logic eoc_near;
    logic eoc_mask;
@@ -586,9 +585,9 @@ assign use_fa_plus = (~bht_dir_f[0] & ~fetch_start_f[0] & ~btb_rd_pc4_f);
 
    assign btb_wr_tag[pt.BTB_BTAG_SIZE-1:0] = exu_mp_btag[pt.BTB_BTAG_SIZE-1:0];
 
-   if(!pt.BTB_FULLYA) begin
+   if(pt.BTB_FULLYA == 0) begin
 
-      if(pt.BTB_BTAG_FOLD) begin : btbfold
+      if(pt.BTB_BTAG_FOLD) begin : btbfold_en
          el2_btb_tag_hash_fold #(.pt(pt)) rdtagf  (.hash(fetch_rd_tag_f[pt.BTB_BTAG_SIZE-1:0]),
                                                     .pc({ifc_fetch_addr_f[pt.BTB_ADDR_HI+pt.BTB_BTAG_SIZE+pt.BTB_BTAG_SIZE:pt.BTB_ADDR_HI+1]}));
          el2_btb_tag_hash_fold #(.pt(pt)) rdtagp1f(.hash(fetch_rd_tag_p1_f[pt.BTB_BTAG_SIZE-1:0]),
@@ -612,7 +611,7 @@ assign use_fa_plus = (~bht_dir_f[0] & ~fetch_start_f[0] & ~btb_rd_pc4_f);
       assign vwayhit_f[1:0] = ( ({2{fetch_start_f[0]}} & {wayhit_f[1:0]}) |
                                 ({2{fetch_start_f[1]}} & {wayhit_p1_f[0], wayhit_f[1]})) & {eoc_mask, 1'b1};
 
-   end // if (!pt.BTB_FULLYA)
+   end // if (pt.BTB_FULLYA == 0)
 
    assign btb_wr_data[BTB_DWIDTH-1:0] = {btb_wr_tag[pt.BTB_BTAG_SIZE-1:0], exu_mp_tgt[pt.BTB_TOFFSET_SIZE-1:0], exu_mp_pc4, exu_mp_boffset,
                                                 exu_mp_call | exu_mp_ja, exu_mp_ret | exu_mp_ja, btb_valid} ;
@@ -651,7 +650,7 @@ assign use_fa_plus = (~bht_dir_f[0] & ~fetch_start_f[0] & ~btb_rd_pc4_f);
    // BTB
    // Entry -> tag[pt.BTB_BTAG_SIZE-1:0], toffset[11:0], pc4, boffset, call, ret, valid
 
-   if(!pt.BTB_FULLYA) begin
+   if(pt.BTB_FULLYA == 0) begin
 
       for (j=0 ; j<LRU_SIZE ; j++) begin : BTB_FLOPS
          // Way 0
@@ -675,30 +674,30 @@ assign use_fa_plus = (~bht_dir_f[0] & ~fetch_start_f[0] & ~btb_rd_pc4_f);
         btb_bank0_rd_data_way0_p1_f[BTB_DWIDTH-1:0] = '0 ;
         btb_bank0_rd_data_way1_p1_f[BTB_DWIDTH-1:0] = '0 ;
 
-        for (int j=0; j< LRU_SIZE; j++) begin
-          if (btb_rd_addr_f[pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] == (pt.BTB_ADDR_HI-pt.BTB_ADDR_LO+1)'(j)) begin
+        for (int l=0; l< LRU_SIZE; l++) begin
+          if (btb_rd_addr_f[pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] == (pt.BTB_ADDR_HI-pt.BTB_ADDR_LO+1)'(l)) begin
 
-           btb_bank0_rd_data_way0_f[BTB_DWIDTH-1:0] =  btb_bank0_rd_data_way0_out[j];
-           btb_bank0_rd_data_way1_f[BTB_DWIDTH-1:0] =  btb_bank0_rd_data_way1_out[j];
+           btb_bank0_rd_data_way0_f[BTB_DWIDTH-1:0] =  btb_bank0_rd_data_way0_out[l];
+           btb_bank0_rd_data_way1_f[BTB_DWIDTH-1:0] =  btb_bank0_rd_data_way1_out[l];
 
           end
         end
-        for (int j=0; j< LRU_SIZE; j++) begin
-          if (btb_rd_addr_p1_f[pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] == (pt.BTB_ADDR_HI-pt.BTB_ADDR_LO+1)'(j)) begin
+        for (int l=0; l< LRU_SIZE; l++) begin
+          if (btb_rd_addr_p1_f[pt.BTB_ADDR_HI:pt.BTB_ADDR_LO] == (pt.BTB_ADDR_HI-pt.BTB_ADDR_LO+1)'(l)) begin
 
-           btb_bank0_rd_data_way0_p1_f[BTB_DWIDTH-1:0] =  btb_bank0_rd_data_way0_out[j];
-           btb_bank0_rd_data_way1_p1_f[BTB_DWIDTH-1:0] =  btb_bank0_rd_data_way1_out[j];
+           btb_bank0_rd_data_way0_p1_f[BTB_DWIDTH-1:0] =  btb_bank0_rd_data_way0_out[l];
+           btb_bank0_rd_data_way1_p1_f[BTB_DWIDTH-1:0] =  btb_bank0_rd_data_way1_out[l];
 
           end
         end
     end
-end // if (!pt.BTB_FULLYA)
+end // if (pt.BTB_FULLYA == 0)
 
 
 
 
 
-      if(pt.BTB_FULLYA) begin : fa
+      if(pt.BTB_FULLYA != 0) begin : fa
 
          logic found1, hit0, hit1;
          logic btb_used_reset, write_used;
@@ -822,7 +821,10 @@ end // if (!pt.BTB_FULLYA)
                     .dout(btb_used[pt.BTB_SIZE-1:0]));
 
 end // block: fa
-
+else begin
+   assign ifu_bp_fa_index_f[1] = '0;
+   assign ifu_bp_fa_index_f[0] = '0;
+end
 
    //-----------------------------------------------------------------------------
    // BHT
@@ -830,40 +832,33 @@ end // block: fa
    //
    //-----------------------------------------------------------------------------
 
-//   logic [1:0] [(pt.BHT_ARRAY_DEPTH/NUM_BHT_LOOP)-1:0][NUM_BHT_LOOP-1:0][1:0]      bht_bank_wr_data ;
    logic [1:0] [pt.BHT_ARRAY_DEPTH-1:0] [1:0]                bht_bank_rd_data_out ;
-   logic [1:0] [(pt.BHT_ARRAY_DEPTH/NUM_BHT_LOOP)-1:0]                 bht_bank_clken ;
-   logic [1:0] [(pt.BHT_ARRAY_DEPTH/NUM_BHT_LOOP)-1:0]                 bht_bank_clk   ;
-//   logic [1:0] [(pt.BHT_ARRAY_DEPTH/NUM_BHT_LOOP)-1:0][NUM_BHT_LOOP-1:0]           bht_bank_sel   ;
 
    for ( i=0; i<2; i++) begin : BANKS
      wire[pt.BHT_ARRAY_DEPTH-1:0] wr0, wr1;
      assign wr0 = pt.BHT_ARRAY_DEPTH'(bht_wr_en0[i] << bht_wr_addr0);
      assign wr1 = pt.BHT_ARRAY_DEPTH'(bht_wr_en2[i] << bht_wr_addr2);
      for (genvar k=0 ; k < (pt.BHT_ARRAY_DEPTH)/NUM_BHT_LOOP ; k++) begin : BHT_CLK_GROUP
-     assign bht_bank_clken[i][k]  = (bht_wr_en0[i] & ((bht_wr_addr0[pt.BHT_ADDR_HI: NUM_BHT_LOOP_OUTER_LO]==k) |  BHT_NO_ADDR_MATCH)) |
-                                    (bht_wr_en2[i] & ((bht_wr_addr2[pt.BHT_ADDR_HI: NUM_BHT_LOOP_OUTER_LO]==k) |  BHT_NO_ADDR_MATCH));
+     logic bht_bank_clken ;
+     logic bht_bank_clk   ;
+     assign bht_bank_clken  = (bht_wr_en0[i] & ((bht_wr_addr0[pt.BHT_ADDR_HI: NUM_BHT_LOOP_OUTER_LO]==k) |  BHT_NO_ADDR_MATCH)) |
+                              (bht_wr_en2[i] & ((bht_wr_addr2[pt.BHT_ADDR_HI: NUM_BHT_LOOP_OUTER_LO]==k) |  BHT_NO_ADDR_MATCH));
 `ifndef RV_FPGA_OPTIMIZE
-     rvclkhdr bht_bank_grp_cgc ( .en(bht_bank_clken[i][k]), .l1clk(bht_bank_clk[i][k]), .* ); // ifndef RV_FPGA_OPTIMIZE
+     rvclkhdr bht_bank_grp_cgc ( .en(bht_bank_clken), .l1clk(bht_bank_clk), .* ); // ifndef RV_FPGA_OPTIMIZE
 `else
-     assign bht_bank_clk[i][k] = clk;
+     assign bht_bank_clk = clk;
 `endif
 
      for (j=0 ; j<NUM_BHT_LOOP ; j++) begin : BHT_FLOPS
      wire[1:0] wdata;
      wire  bank_sel = wr1[NUM_BHT_LOOP*k+j] | wr0[NUM_BHT_LOOP*k+j];
 
-//       assign   bht_bank_sel[i][k][j]    = (bht_wr_en0[i] & (bht_wr_addr0[NUM_BHT_LOOP_INNER_HI :pt.BHT_ADDR_LO] == j) & ((bht_wr_addr0[pt.BHT_ADDR_HI: NUM_BHT_LOOP_OUTER_LO]==k) | BHT_NO_ADDR_MATCH)) |
-//                                           (bht_wr_en2[i] & (bht_wr_addr2[NUM_BHT_LOOP_INNER_HI :pt.BHT_ADDR_LO] == j) & ((bht_wr_addr2[pt.BHT_ADDR_HI: NUM_BHT_LOOP_OUTER_LO]==k) | BHT_NO_ADDR_MATCH)) ;
-
-//       assign bht_bank_wr_data[i][k][j]  = (bht_wr_en2[i] & (bht_wr_addr2[NUM_BHT_LOOP_INNER_HI:pt.BHT_ADDR_LO] == j) & ((bht_wr_addr2[pt.BHT_ADDR_HI: NUM_BHT_LOOP_OUTER_LO]==k) | BHT_NO_ADDR_MATCH)) ? bht_wr_data2[1:0] :
-//                                                                                                                      bht_wr_data0[1:0]   ;
        assign wdata  = wr1[NUM_BHT_LOOP*k+j] ? bht_wr_data2[1:0] :bht_wr_data0;
 
 
 
           rvdffs_fpga #(2) bht_bank (.*,
-                    .clk        (bht_bank_clk[i][k]),
+                    .clk        (bht_bank_clk),
                     .en         (bank_sel),
                     .rawclk     (clk),
                     .clken      (bank_sel),
@@ -878,25 +873,24 @@ end // block: fa
      bht_bank0_rd_data_f[1:0] = '0 ;
      bht_bank1_rd_data_f[1:0] = '0 ;
      bht_bank0_rd_data_p1_f[1:0] = '0 ;
-     for (int j=0; j< pt.BHT_ARRAY_DEPTH; j++) begin
-       if (bht_rd_addr_f[pt.BHT_ADDR_HI:pt.BHT_ADDR_LO] == (pt.BHT_ADDR_HI-pt.BHT_ADDR_LO+1)'(j)) begin
-         bht_bank0_rd_data_f[1:0] = bht_bank_rd_data_out[0][j];
-         bht_bank1_rd_data_f[1:0] = bht_bank_rd_data_out[1][j];
+     for (int l=0; l< pt.BHT_ARRAY_DEPTH; l++) begin
+       if (bht_rd_addr_f[pt.BHT_ADDR_HI:pt.BHT_ADDR_LO] == (pt.BHT_ADDR_HI-pt.BHT_ADDR_LO+1)'(l)) begin
+         bht_bank0_rd_data_f[1:0] = bht_bank_rd_data_out[0][l];
+         bht_bank1_rd_data_f[1:0] = bht_bank_rd_data_out[1][l];
        end
-       if (bht_rd_addr_p1_f[pt.BHT_ADDR_HI:pt.BHT_ADDR_LO] == (pt.BHT_ADDR_HI-pt.BHT_ADDR_LO+1)'(j)) begin
-         bht_bank0_rd_data_p1_f[1:0] = bht_bank_rd_data_out[0][j];
+       if (bht_rd_addr_p1_f[pt.BHT_ADDR_HI:pt.BHT_ADDR_LO] == (pt.BHT_ADDR_HI-pt.BHT_ADDR_LO+1)'(l)) begin
+         bht_bank0_rd_data_p1_f[1:0] = bht_bank_rd_data_out[0][l];
        end
       end
     end // block: BHT_rd_mux
 
 
-function [1:0] countones;
+function automatic logic [1:0] countones;
       input [1:0] valid;
 
       begin
-
-countones[1:0] = {1'b0, valid[1]} +
-                 {1'b0, valid[0]};
+        countones[1:0] = {1'b0, valid[1]} +
+                         {1'b0, valid[0]};
       end
    endfunction
 endmodule // el2_ifu_bp_ctl

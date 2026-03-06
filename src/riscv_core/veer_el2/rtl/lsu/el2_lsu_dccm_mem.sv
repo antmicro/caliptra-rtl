@@ -32,7 +32,6 @@ module el2_lsu_dccm_mem
 #(
 `include "el2_param.vh"
  )(
-   input logic         clk,                                             // Clock only while core active.  Through one clock header.  For flops with    second clock header built in.  Connected to ACTIVE_L2CLK.
    input logic         active_clk,                                      // Clock only while core active.  Through two clock headers. For flops without second clock header built in.
    input logic         rst_l,                                           // reset, active low
    input logic         clk_override,                                    // Override non-functional clock gating
@@ -59,7 +58,6 @@ module el2_lsu_dccm_mem
 
    localparam logic [5:0]  DCCM_WIDTH_BITS = $clog2(pt.DCCM_BYTE_WIDTH);
    localparam logic [7:0]  DCCM_INDEX_BITS = 8'(pt.DCCM_BITS - pt.DCCM_BANK_BITS - pt.DCCM_WIDTH_BITS);
-   localparam logic [31:0] DCCM_INDEX_DEPTH = ((pt.DCCM_SIZE)*1024)/((pt.DCCM_BYTE_WIDTH)*(pt.DCCM_NUM_BANKS));  // Depth of memory bank
 
    logic [pt.DCCM_NUM_BANKS-1:0]                                        wren_bank;
    logic [pt.DCCM_NUM_BANKS-1:0]                                        rden_bank;

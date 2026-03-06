@@ -496,7 +496,6 @@ import el2_pkg::*;
    logic                         lsu_axi_awready_int;
    logic                         lsu_axi_wready_int;
    logic                         lsu_axi_bvalid_int;
-   logic                         lsu_axi_bready_int;
    logic [1:0]                   lsu_axi_bresp_int;
    logic [pt.LSU_BUS_TAG-1:0]    lsu_axi_bid_int;
    logic                         lsu_axi_arready_int;
@@ -522,7 +521,6 @@ import el2_pkg::*;
    logic                         ifu_axi_awready_int;
    logic                         ifu_axi_wready_int;
    logic                         ifu_axi_bvalid_int;
-   logic                         ifu_axi_bready_int;
    logic [1:0]                   ifu_axi_bresp_int;
    logic [pt.IFU_BUS_TAG-1:0]    ifu_axi_bid_int;
    logic                         ifu_axi_arready_int;
@@ -548,7 +546,6 @@ import el2_pkg::*;
    logic                         sb_axi_awready_int;
    logic                         sb_axi_wready_int;
    logic                         sb_axi_bvalid_int;
-   logic                         sb_axi_bready_int;
    logic [1:0]                   sb_axi_bresp_int;
    logic [pt.SB_BUS_TAG-1:0]     sb_axi_bid_int;
    logic                         sb_axi_arready_int;
@@ -1102,8 +1099,6 @@ import el2_pkg::*;
       .PMP_CHANNELS(3),
       .pt(pt)
   ) pmp (
-      .clk  (active_l2clk),
-      .rst_l(core_rst_l),
       .*
   );
 
@@ -1353,13 +1348,39 @@ import el2_pkg::*;
          .*
       );
 
+   end else begin : Gen_No_AXI_To_AHB
+      assign dma_hrdata = '0;
+      assign dma_hreadyout = '0;
+      assign dma_hresp = '0;
+      assign haddr = '0;
+      assign hburst = '0;
+      assign hprot = '0;
+      assign hsize = '0;
+      assign htrans = '0;
+      assign hmastlock = '0;
+      assign hwrite = '0;
+      assign lsu_haddr = '0;
+      assign lsu_hburst = '0;
+      assign lsu_hprot = '0;
+      assign lsu_hsize = '0;
+      assign lsu_htrans = '0;
+      assign lsu_hwdata = '0;
+      assign lsu_hmastlock = '0;
+      assign lsu_hwrite = '0;
+      assign sb_haddr = '0;
+      assign sb_hburst = '0;
+      assign sb_hprot = '0;
+      assign sb_hsize = '0;
+      assign sb_htrans = '0;
+      assign sb_hwdata = '0;
+      assign sb_hmastlock = '0;
+      assign sb_hwrite = '0;
    end
 
    // Drive the final AXI inputs
    assign lsu_axi_awready_int                 = pt.BUILD_AHB_LITE ? lsu_axi_awready_ahb : lsu_axi_awready;
    assign lsu_axi_wready_int                  = pt.BUILD_AHB_LITE ? lsu_axi_wready_ahb : lsu_axi_wready;
    assign lsu_axi_bvalid_int                  = pt.BUILD_AHB_LITE ? lsu_axi_bvalid_ahb : lsu_axi_bvalid;
-   assign lsu_axi_bready_int                  = pt.BUILD_AHB_LITE ? lsu_axi_bready_ahb : lsu_axi_bready;
    assign lsu_axi_bresp_int[1:0]              = pt.BUILD_AHB_LITE ? lsu_axi_bresp_ahb[1:0] : lsu_axi_bresp[1:0];
    assign lsu_axi_bid_int[pt.LSU_BUS_TAG-1:0] = pt.BUILD_AHB_LITE ? lsu_axi_bid_ahb[pt.LSU_BUS_TAG-1:0] : lsu_axi_bid[pt.LSU_BUS_TAG-1:0];
    assign lsu_axi_arready_int                 = pt.BUILD_AHB_LITE ? lsu_axi_arready_ahb : lsu_axi_arready;
@@ -1372,7 +1393,6 @@ import el2_pkg::*;
    assign ifu_axi_awready_int                 = pt.BUILD_AHB_LITE ? ifu_axi_awready_ahb : ifu_axi_awready;
    assign ifu_axi_wready_int                  = pt.BUILD_AHB_LITE ? ifu_axi_wready_ahb : ifu_axi_wready;
    assign ifu_axi_bvalid_int                  = pt.BUILD_AHB_LITE ? ifu_axi_bvalid_ahb : ifu_axi_bvalid;
-   assign ifu_axi_bready_int                  = pt.BUILD_AHB_LITE ? ifu_axi_bready_ahb : ifu_axi_bready;
    assign ifu_axi_bresp_int[1:0]              = pt.BUILD_AHB_LITE ? ifu_axi_bresp_ahb[1:0] : ifu_axi_bresp[1:0];
    assign ifu_axi_bid_int[pt.IFU_BUS_TAG-1:0] = pt.BUILD_AHB_LITE ? ifu_axi_bid_ahb[pt.IFU_BUS_TAG-1:0] : ifu_axi_bid[pt.IFU_BUS_TAG-1:0];
    assign ifu_axi_arready_int                 = pt.BUILD_AHB_LITE ? ifu_axi_arready_ahb : ifu_axi_arready;
@@ -1385,7 +1405,6 @@ import el2_pkg::*;
    assign sb_axi_awready_int                  = pt.BUILD_AHB_LITE ? sb_axi_awready_ahb : sb_axi_awready;
    assign sb_axi_wready_int                   = pt.BUILD_AHB_LITE ? sb_axi_wready_ahb : sb_axi_wready;
    assign sb_axi_bvalid_int                   = pt.BUILD_AHB_LITE ? sb_axi_bvalid_ahb : sb_axi_bvalid;
-   assign sb_axi_bready_int                   = pt.BUILD_AHB_LITE ? sb_axi_bready_ahb : sb_axi_bready;
    assign sb_axi_bresp_int[1:0]               = pt.BUILD_AHB_LITE ? sb_axi_bresp_ahb[1:0] : sb_axi_bresp[1:0];
    assign sb_axi_bid_int[pt.SB_BUS_TAG-1:0]   = pt.BUILD_AHB_LITE ? sb_axi_bid_ahb[pt.SB_BUS_TAG-1:0] : sb_axi_bid[pt.SB_BUS_TAG-1:0];
    assign sb_axi_arready_int                  = pt.BUILD_AHB_LITE ? sb_axi_arready_ahb : sb_axi_arready;
@@ -1416,6 +1435,20 @@ import el2_pkg::*;
    assign dma_axi_arburst_int[1:0]             = pt.BUILD_AHB_LITE ? dma_axi_arburst_ahb[1:0] : dma_axi_arburst[1:0];
    assign dma_axi_rready_int                   = pt.BUILD_AHB_LITE ? dma_axi_rready_ahb : dma_axi_rready;
 
+   // Mark unused signals for lint
+   /*pragma coverage off*/
+   logic unused_signals;
+   assign unused_signals = ^{
+`ifdef RV_USER_MODE
+      priv_mode,
+`endif
+      dec_tlu_bus_clk_override, // used only in Gen_AXI_To_AHB case
+      dec_tlu_ifu_clk_override,
+      ifu_axi_awready_int, ifu_axi_bid_int, ifu_axi_bresp_int, ifu_axi_bvalid_int, ifu_axi_rlast_int, ifu_axi_wready_int,
+      sb_axi_bid_int, sb_axi_rid_int, sb_axi_rlast_int,
+      dma_axi_arburst_int, dma_axi_arlen_int, dma_axi_arprot_int, dma_axi_awburst_int, dma_axi_awlen_int, dma_axi_awprot_int, dma_axi_wlast_int
+   };
+   /*pragma coverage on*/
 
 if  (pt.BUILD_AHB_LITE == 1) begin
 `ifdef RV_ASSERT_ON

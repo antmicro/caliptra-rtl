@@ -55,10 +55,10 @@ module rvdffs #( parameter WIDTH=1, SHORT=0 )
      output logic [WIDTH-1:0] dout
      );
 
-if (SHORT == 1) begin : genblock
+if (SHORT == 1) begin : gen_short
    assign dout = din;
 end
-else begin : genblock
+else begin : gen_ff
    rvdff #(WIDTH) dffs (.din((en) ? din[WIDTH-1:0] : dout[WIDTH-1:0]), .*);
 end
 
@@ -76,10 +76,10 @@ module rvdffsc #( parameter WIDTH=1, SHORT=0 )
      );
 
    logic [WIDTH-1:0]          din_new;
-if (SHORT == 1) begin : genblock
+if (SHORT == 1) begin : gen_short
    assign dout = din;
 end
-else begin : genblock
+else begin : gen_ff
    assign din_new = {WIDTH{~clear}} & (en ? din[WIDTH-1:0] : dout[WIDTH-1:0]);
    rvdff #(WIDTH) dffsc (.din(din_new[WIDTH-1:0]), .*);
 end
@@ -97,14 +97,17 @@ module rvdff_fpga #( parameter WIDTH=1, SHORT=0 )
      output logic [WIDTH-1:0] dout
      );
 
-if (SHORT == 1) begin : genblock
+if (SHORT == 1) begin : gen_short
    assign dout = din;
 end
-else begin : genblock
+else begin : gen_ff
    `ifdef RV_FPGA_OPTIMIZE
     rvdffs #(WIDTH) dffs (.clk(rawclk), .en(clken), .*);
 `else
     rvdff #(WIDTH)  dff (.*);
+    // Create unloaded flop (removed during synthesis) to avoid lint violation
+    logic [WIDTH-1:0] unused_dout;
+    rvdffs #(WIDTH) dffs_unused (.clk(rawclk), .en(clken), .dout(unused_dout), .*);
 `endif
 end
 endmodule
@@ -122,14 +125,17 @@ module rvdffs_fpga #( parameter WIDTH=1, SHORT=0 )
      output logic [WIDTH-1:0] dout
      );
 
-if (SHORT == 1) begin : genblock
+if (SHORT == 1) begin : gen_short
    assign dout = din;
 end
-else begin : genblock
+else begin : gen_ff
 `ifdef RV_FPGA_OPTIMIZE
    rvdffs #(WIDTH)   dffs (.clk(rawclk), .en(clken & en), .*);
 `else
    rvdffs #(WIDTH)   dffs (.*);
+    // Create unloaded flop (removed during synthesis) to avoid lint violation
+    logic [WIDTH-1:0] unused_dout;
+    rvdffs #(WIDTH) dffs_unused (.clk(rawclk), .en(clken), .dout(unused_dout), .*);
 `endif
 end
 
@@ -150,14 +156,17 @@ module rvdffsc_fpga #( parameter WIDTH=1, SHORT=0 )
      );
 
    logic [WIDTH-1:0]          din_new;
-if (SHORT == 1) begin : genblock
+if (SHORT == 1) begin : gen_short
    assign dout = din;
 end
-else begin : genblock
+else begin : gen_ff
 `ifdef RV_FPGA_OPTIMIZE
    rvdffs  #(WIDTH)   dffs  (.clk(rawclk), .din(din[WIDTH-1:0] & {WIDTH{~clear}}),.en((en | clear) & clken), .*);
 `else
    rvdffsc #(WIDTH)   dffsc (.*);
+    // Create unloaded flop (removed during synthesis) to avoid lint violation
+    logic [WIDTH-1:0] unused_dout;
+    rvdffs #(WIDTH) dffs_unused (.clk(rawclk), .en(clken), .dout(unused_dout), .*);
 `endif
 end
 endmodule
@@ -178,12 +187,12 @@ module rvdffe #( parameter WIDTH=1, SHORT=0, OVERRIDE=0 )
 
    logic                      l1clk;
 
-if (SHORT == 1) begin : genblock
+if (SHORT == 1) begin : gen_short
    if (1) begin : genblock
       assign dout = din;
    end
 end
-else begin : genblock
+else begin : gen_ff
 
 `ifndef RV_PHYSICAL
    if (WIDTH >= 8 || OVERRIDE==1) begin: genblock
@@ -778,9 +787,9 @@ module `TEC_RV_ICG
 
    assign      enable = EN | SE;
 
-   always @(CK, enable) begin
+   always_latch begin
       if(!CK)
-        en_ff = enable;
+        en_ff <= enable;
    end
    assign Q = CK & en_ff;
 

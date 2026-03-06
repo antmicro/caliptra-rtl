@@ -92,8 +92,6 @@ import el2_pkg::*;
 
 );
 
-   localparam ID   = 1;
-   localparam PRTY = 1;
    typedef enum logic [3:0] {
         IDLE            = 4'b0000,
         CMD_RD          = 4'b0001,
@@ -149,7 +147,7 @@ import el2_pkg::*;
    logic [63:0]                buf_data_in;
    logic                       buf_write_in;
    logic                       buf_aligned_in;
-   logic [2:0]                 buf_size_in;
+   logic [1:0]                 buf_size_in;
 
    logic                       buf_state_en;
    logic                       buf_wr_en;
@@ -178,7 +176,6 @@ import el2_pkg::*;
    logic                       slvbuf_error_in;
    logic                       slvbuf_wr_en;
    logic                       bypass_en;
-   logic                       rd_bypass_idle;
 
    logic                       last_addr_en;
    logic [31:0]                last_bus_addr;
@@ -223,14 +220,14 @@ import el2_pkg::*;
    // Function to get the next byte pointer
    function automatic logic [2:0] get_nxtbyte_ptr (logic [2:0] current_byte_ptr, logic [7:0] byteen, logic get_next);
       logic [2:0] start_ptr;
-      logic       found;
-      found = '0;
+      logic       is_found;
+      is_found = '0;
       get_nxtbyte_ptr[2:0] = 3'd0; 
       start_ptr[2:0] = get_next ? (current_byte_ptr[2:0] + 3'b1) : current_byte_ptr[2:0];
       for (int j=0; j<8; j++) begin
-         if (~found) begin
+         if (~is_found) begin
+            is_found |= (byteen[j] & (3'(j) >= start_ptr[2:0])) ;
             get_nxtbyte_ptr[2:0] = 3'(j);
-            found |= (byteen[j] & (3'(j) >= start_ptr[2:0])) ;
          end
       end
    endfunction // get_nextbyte_ptr
@@ -288,7 +285,6 @@ import el2_pkg::*;
       ahb_htrans[1:0]  = 2'b0;
       slvbuf_wr_en     = 1'b0;
       bypass_en        = 1'b0;
-      rd_bypass_idle   = 1'b0;
 
       case (buf_state)
          IDLE: begin
@@ -301,7 +297,6 @@ import el2_pkg::*;
                   buf_cmd_byte_ptr_en   = buf_state_en;
                   buf_cmd_byte_ptr[2:0] = buf_write_in ? get_nxtbyte_ptr(3'b0,buf_byteen_in[7:0],1'b0) : master_addr[2:0];
                   bypass_en       = buf_state_en;
-                  rd_bypass_idle  = bypass_en & (buf_nxtstate == CMD_RD);
                   ahb_htrans[1:0] = {2{bypass_en}} & 2'b10;
           end
          CMD_RD: begin

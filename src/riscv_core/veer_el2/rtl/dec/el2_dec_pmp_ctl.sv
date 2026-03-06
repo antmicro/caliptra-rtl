@@ -29,9 +29,7 @@ module el2_dec_pmp_ctl
 `include "el2_param.vh"
  )
   (
-   input logic clk,
    input logic free_l2clk,
-   input logic csr_wr_clk,
    input logic rst_l,
    input logic        dec_csr_wen_r_mod,  // csr write enable at wb
    input logic [11:0] dec_csr_wraddr_r,   // write address for csr
@@ -43,10 +41,6 @@ module el2_dec_pmp_ctl
    input logic csr_pmpaddr16,
    input logic csr_pmpaddr32,
    input logic csr_pmpaddr48,
-
-   input logic dec_pause_state, // Paused
-   input logic dec_tlu_pmu_fw_halted, // pmu/fw halted
-   input logic internal_dbg_halt_timers, // debug halted
 
 `ifdef RV_SMEPMP
    input el2_mseccfg_pkt_t mseccfg,

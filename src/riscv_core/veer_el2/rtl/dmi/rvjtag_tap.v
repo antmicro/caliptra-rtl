@@ -57,11 +57,9 @@ logic[3:0] state, nstate;
 logic [4:0] ir;
 wire jtag_reset;
 wire shift_dr;
-wire pause_dr;
 wire update_dr;
 wire capture_dr;
 wire shift_ir;
-wire pause_ir ;
 wire update_ir ;
 wire capture_ir;
 wire[2:0] dr_en;
@@ -70,22 +68,22 @@ wire [5:0] abits;
 assign abits = AWIDTH[5:0];
 
 
-localparam TEST_LOGIC_RESET_STATE = 0;
-localparam RUN_TEST_IDLE_STATE    = 1;
-localparam SELECT_DR_SCAN_STATE   = 2;
-localparam CAPTURE_DR_STATE       = 3;
-localparam SHIFT_DR_STATE         = 4;
-localparam EXIT1_DR_STATE         = 5;
-localparam PAUSE_DR_STATE         = 6;
-localparam EXIT2_DR_STATE         = 7;
-localparam UPDATE_DR_STATE        = 8;
-localparam SELECT_IR_SCAN_STATE   = 9;
-localparam CAPTURE_IR_STATE       = 10;
-localparam SHIFT_IR_STATE         = 11;
-localparam EXIT1_IR_STATE         = 12;
-localparam PAUSE_IR_STATE         = 13;
-localparam EXIT2_IR_STATE         = 14;
-localparam UPDATE_IR_STATE        = 15;
+localparam TEST_LOGIC_RESET_STATE = 4'd0;
+localparam RUN_TEST_IDLE_STATE    = 4'd1;
+localparam SELECT_DR_SCAN_STATE   = 4'd2;
+localparam CAPTURE_DR_STATE       = 4'd3;
+localparam SHIFT_DR_STATE         = 4'd4;
+localparam EXIT1_DR_STATE         = 4'd5;
+localparam PAUSE_DR_STATE         = 4'd6;
+localparam EXIT2_DR_STATE         = 4'd7;
+localparam UPDATE_DR_STATE        = 4'd8;
+localparam SELECT_IR_SCAN_STATE   = 4'd9;
+localparam CAPTURE_IR_STATE       = 4'd10;
+localparam SHIFT_IR_STATE         = 4'd11;
+localparam EXIT1_IR_STATE         = 4'd12;
+localparam PAUSE_IR_STATE         = 4'd13;
+localparam EXIT2_IR_STATE         = 4'd14;
+localparam UPDATE_IR_STATE        = 4'd15;
 
 always_comb  begin
     nstate = state;
@@ -117,11 +115,9 @@ end
 
 assign jtag_reset = state == TEST_LOGIC_RESET_STATE;
 assign shift_dr   = state == SHIFT_DR_STATE;
-assign pause_dr   = state == PAUSE_DR_STATE;
 assign update_dr  = state == UPDATE_DR_STATE;
 assign capture_dr = state == CAPTURE_DR_STATE;
 assign shift_ir   = state == SHIFT_IR_STATE;
-assign pause_ir   = state == PAUSE_IR_STATE;
 assign update_ir  = state == UPDATE_IR_STATE;
 assign capture_ir = state == CAPTURE_IR_STATE;
 
