@@ -17,9 +17,9 @@
 module kv_read_client 
     import kv_defines_pkg::*;
     #(
-    parameter DATA_WIDTH = 512
-   ,parameter HMAC = 0
-   ,parameter PAD = 0
+    parameter unsigned DATA_WIDTH = 512
+   ,parameter unsigned HMAC = 0
+   ,parameter unsigned PAD = 0
 
    ,localparam DATA_OFFSET_W = $clog2(DATA_WIDTH/32)
 )

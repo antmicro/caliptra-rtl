@@ -51,6 +51,7 @@ module sha512_acc_top
   localparam BYTE_NO = 1024 / 8;
   localparam BLOCK_OFFSET_W = $clog2(BLOCK_NO);
   localparam BYTE_OFFSET_W = $clog2(1024/8);
+  localparam PAD_LENGTH_W = 128;
 
   logic lock_set;
   logic datain_write;
@@ -104,7 +105,7 @@ module sha512_acc_top
   logic [0:BLOCK_NO-1][DATA_WIDTH-1:0] block_reg,block_reg_nxt;
   logic [0:BYTE_NO-1][7:0] block_reg_nxt_pad;
   logic [1023:0] pad_mask;
-  logic [127:0] pad_length;
+  logic [PAD_LENGTH_W-1:0] pad_length;
 
   //output comes in big endian
   logic [0:15][31:0] digest_reg;
@@ -281,7 +282,7 @@ always_comb core_digest_valid_q = core_digest_valid & ~(init_reg | next_reg);
     //set the valid bytes to '1 to keep the valid data and zero out the rest
     pad_mask = pad_mask << (1024-(num_bytes_data*8));
     //we append the length in bits to the least significant 128 bits
-    pad_length = {{($bits(pad_length)-32){1'b0}}, hwif_out.DLEN.LENGTH.value} << 3;
+    pad_length = {{(PAD_LENGTH_W-32){1'b0}}, hwif_out.DLEN.LENGTH.value} << 3;
 
     //First case - Padding and length fit - just pad and add the length in this block
     //This might be an empty padded block with just length if dlen is divisible by 1024

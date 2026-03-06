@@ -394,7 +394,7 @@ logic nmi_int;
 logic soft_int;
 logic timer_int;
 
-assign reset_vector = `RV_RESET_VEC;
+assign reset_vector = 32'(`RV_RESET_VEC);
 assign soft_int     = 1'b0;
 
 assign kv_error_intr = 1'b0; // TODO
@@ -593,9 +593,9 @@ el2_veer_wrapper #(
 
 );
     // Duplicate ICCM/DCCM accesses, using only hsel to differentiate
-    always_comb responder_inst[`CALIPTRA_SLAVE_SEL_IDMA].hrdata    = responder_inst[`CALIPTRA_SLAVE_SEL_DDMA].hrdata;
-    always_comb responder_inst[`CALIPTRA_SLAVE_SEL_IDMA].hresp     = responder_inst[`CALIPTRA_SLAVE_SEL_DDMA].hresp;
-    always_comb responder_inst[`CALIPTRA_SLAVE_SEL_IDMA].hreadyout = responder_inst[`CALIPTRA_SLAVE_SEL_DDMA].hreadyout;
+    assign responder_inst[`CALIPTRA_SLAVE_SEL_IDMA].hrdata    = responder_inst[`CALIPTRA_SLAVE_SEL_DDMA].hrdata;
+    assign responder_inst[`CALIPTRA_SLAVE_SEL_IDMA].hresp     = responder_inst[`CALIPTRA_SLAVE_SEL_DDMA].hresp;
+    assign responder_inst[`CALIPTRA_SLAVE_SEL_IDMA].hreadyout = responder_inst[`CALIPTRA_SLAVE_SEL_DDMA].hreadyout;
 
     // SB and LSU AHB master mux
     ahb_lite_2to1_mux #(

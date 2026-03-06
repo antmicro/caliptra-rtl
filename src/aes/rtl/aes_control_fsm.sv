@@ -1132,9 +1132,11 @@ module aes_control_fsm
     assign block_ctr_expr = block_ctr_q == '0;
     assign block_ctr_set  = ctrl_we_q | (block_ctr_decr & (block_ctr_expr | cipher_prng_reseed_i));
 
-    assign block_ctr_set_val  = prng_reseed_rate_i == PER_1  ? '0                   :
-                                prng_reseed_rate_i == PER_64 ? BlockCtrWidth'(63)   :
-                                prng_reseed_rate_i == PER_8K ? BlockCtrWidth'(8191) : '0;
+    assign block_ctr_set_val  = unsigned'(
+      prng_reseed_rate_i == PER_1  ? '0                   :
+      prng_reseed_rate_i == PER_64 ? BlockCtrWidth'(63)   :
+      prng_reseed_rate_i == PER_8K ? BlockCtrWidth'(8191) : '0
+    );
 
     assign block_ctr_decr_val = block_ctr_q - 1;
 
