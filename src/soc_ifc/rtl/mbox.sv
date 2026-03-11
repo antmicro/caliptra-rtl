@@ -603,12 +603,12 @@ rvecc_encode mbox_ecc_encode (
     .din    (sram_wdata    ),
     .ecc_out(sram_wdata_ecc)
 );
-// synthesis translate_off
+// synopsys translate_off
 `ifdef CLP_ASSERT_ON 
 initial assert(MBOX_DATA_W == 32) else
     $error("%m::rvecc_encode supports 32-bit data width; must change SRAM ECC implementation to support MBOX_DATA_W = %d", MBOX_DATA_W);
 `endif
-// synthesis translate_on
+// synopsys translate_on
 rvecc_decode ecc_decode (
     .en              (sram_rd_ecc_en       ),
     .sed_ded         ( 1'b0                ),    // 1 : means only detection
