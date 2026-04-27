@@ -289,6 +289,7 @@ vcs-build: $(TBFILES) $(INCLUDES_DIR)/defines.h $(TB_DPI_SRCS)
 	  +define+CLP_ASSERT_ON $(TB_DEFS) -noinherit_timescale=1ns/1ps \
 	  -f $(TBDIR)/../config/caliptra_top_tb.vf
 	vcs $(VCS_ELAB_OPTS) -full64 -kdb -lca -debug_access+all -j8 +vcs+lic+wait -partcomp -fastpartcomp=j8 $(COVERAGE_ARGS) \
+	  -cm_hier $(CALIPTRA_ROOT)/src/integration/coverage/config/caliptra_top_tb_cm_hier.cfg \
 	  -assert enable_hier caliptra_top_tb -o simv.caliptra_top_tb +dpi -cflags "$(TB_DPI_INCS)" $(TB_DPI_SRCS)
 
 ############ TEST Simulation ###############################
