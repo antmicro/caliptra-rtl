@@ -52,16 +52,27 @@ volatile uint32_t intr_count = 0;
     enum printf_verbosity verbosity_g = LOW;
 #endif
 
+#ifdef MY_RANDOM_SEED
+    unsigned time = (unsigned) MY_RANDOM_SEED;
+#else
+    unsigned time = 0;
+#endif
+
 volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 
 void main() {
     uint32_t status;
     uint32_t error_field;
-    uint8_t test_slot = 2;
+    uint8_t test_slot;
 
     VPRINTF(LOW, "============================================================\n");
     VPRINTF(LOW, " KV lock_use Mid-Read Fault Capture Test\n");
     VPRINTF(LOW, "============================================================\n");
+
+    /* Intializes random number generator */
+    srand(time);
+
+    test_slot = rand() % 24;
 
     // ------------------------------------------------------------------
     // Step 1: Inject a valid HMAC512 key into KV slot via TB
