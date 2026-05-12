@@ -72,6 +72,7 @@ COMP_LIB_NAMES := aes \
 		  sha512 \
 		  soc_ifc \
 		  clk_gate \
+		  ifc_reg \
 		  wdt
 COMP_LIBS := $(foreach name, $(COMP_LIB_NAMES), $(CALIPTRA_ROOT)/src/integration/test_suites/libs/$(name))
 AUX_HEADER_FILES ?=
