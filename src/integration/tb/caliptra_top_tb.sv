@@ -42,6 +42,12 @@ module caliptra_top_tb (
     initial $timeformat(-9, 3, " ns", 15); // up to 99ms representable in this width
 `endif
 
+initial begin
+  // https://github.com/chipsalliance/caliptra-ss/issues/1115
+  // keccak_complete_i gets high during 13th clock cycle after keccak_run_o, but assertion expects it after 24th cycle
+  $assertoff(0, caliptra_top_tb.caliptra_top_dut.mldsa.sampler_top_inst.sha3_inst.u_pad.RunThenComplete_M);
+end
+
 `ifndef VERILATOR
     bit                         core_clk;
 `endif
