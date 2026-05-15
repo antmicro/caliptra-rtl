@@ -84,8 +84,18 @@ module caliptra_top_tb_services
 
     output logic [0:`CLP_OBF_UDS_DWORDS-1][31:0] cptra_uds_tb,
     output logic [0:`CLP_OBF_FE_DWORDS-1] [31:0] cptra_fe_tb,
-    output logic [0:`CLP_OBF_KEY_DWORDS-1][31:0] cptra_obf_key_tb
+    output logic [0:`CLP_OBF_KEY_DWORDS-1][31:0] cptra_obf_key_tb,
 
+    // AXI SoC access
+    output logic [31:0] axi_addr,
+    output logic [31:0] axi_wdata,
+    output logic        axi_write,
+    output logic        axi_read,
+    output logic        axi_put_status,
+    output logic        axi_put_rdata,
+
+    //Control singlas
+    output logic        debug_intent
 );
 
    //=========================================================================-
@@ -303,6 +313,22 @@ module caliptra_top_tb_services
     //         8'h2 : 8'h5  - Do nothing
     //         8'h6 : 8'h7E - WriteData is an ASCII character - dump to console.log
     //         8'h7F        - Do nothing
+    //      16'h017F        - Setup SoC Access address from CPTRA_GENERIC_OUTPUT_WIRES[1]
+    //      16'h027F        - Setup SoC Access wdata from CPTRA_GENERIC_OUTPUT_WIRES[1]
+    //      16'h037F        - Send SoC (0)read/(1)write access based on the CPTRA_GENERIC_OUTPUT_WIRES[1][0]
+    //      16'h047F        - Get SoC Access status, 0-In progress, 1-Done
+    //      16'h057F        - Put SoC Access read response onto generic_input_wires
+    //      16'h107F        - Force re-enable strap write
+    //      16'h117F        - Release strap write
+    //      16'h127F        - Enable debug intent
+    //      16'h137F        - Disable debug intent
+    //      16'h147F        - Switch to Manufacturing mode
+    //      16'h157F        - Switch to Production mode
+    //      16'h167F        - Force ss_debug intent
+    //      16'h177F        - Release ss_debug intent
+    //      16'h187F        - Switch to debug unlocked
+    //      16'h197F        - Switch to debug locked
+    //      16'h1A7F        - Force re-enable fuse write
     //         8'h80: 8'h87 - Inject ECC_SEED to kv_key register
     //         8'h88        - Toggle recovery interface emulation in AXI complex
     //         8'h89        - Use same msg in SHA512 digest for ECC/MLDSA PCR signing (used where both cryptos are running in parallel)
@@ -380,6 +406,61 @@ module caliptra_top_tb_services
 
     integer j;
     string slaveLog_fileName[`CALIPTRA_AHB_SLAVES_NUM];
+
+    //  AXI SoC Access
+    always @(negedge clk) begin
+        axi_write <= 1'b0;
+        axi_read <= 1'b0;
+        axi_put_status <= 1'b0;
+        axi_put_rdata <= 1'b0;
+        if ((WriteData[15:0] == 16'h017F) && mailbox_write) begin
+            axi_addr <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1];
+        end else if ((WriteData[15:0] == 16'h027F) && mailbox_write) begin
+            axi_wdata <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1];
+        end else if ((WriteData[15:0] == 16'h037F) && mailbox_write) begin
+            axi_write <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][0];
+            axi_read <= !`CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][0];
+        end else if ((WriteData[15:0] == 16'h047F) && mailbox_write) begin
+            axi_put_status <= 1'b1;
+        end else if ((WriteData[15:0] == 16'h057F) && mailbox_write) begin
+            axi_put_rdata <= 1'b1;
+        end
+    end
+
+    //  Fuse re-enable access
+    always @(negedge clk) begin
+        if ((WriteData[15:0] == 16'h107F) && mailbox_write) begin
+            force `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_FUSE_WR_DONE.done.value = 1'h0;
+            force `CPTRA_TOP_PATH.soc_ifc_top1.strap_we = 1'h1;
+            repeat (10) @(negedge clk);
+            release `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_FUSE_WR_DONE.done.value;
+        end else if ((WriteData[15:0] == 16'h117F) && mailbox_write) begin
+            release `CPTRA_TOP_PATH.soc_ifc_top1.strap_we;
+        end else if ((WriteData[15:0] == 16'h1A7F) && mailbox_write) begin
+            force `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_FUSE_WR_DONE.done.value = 1'h0;
+            repeat (10) @(negedge clk);
+            release `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_FUSE_WR_DONE.done.value;
+        end
+    end
+
+    always @(negedge clk or negedge cptra_rst_b) begin
+        if      (!cptra_rst_b) debug_intent <= 1'b0;
+        else if ((WriteData[15:0] == 16'h127F) && mailbox_write) begin
+            debug_intent <= 1'b1;
+            $display("Enabling debug_intent\n");
+        end else if ((WriteData[15:0] == 16'h137F) && mailbox_write) begin
+            debug_intent <= 1'b0;
+            $display("Disabling debug_intent\n");
+        end
+    end
+
+    always @(negedge clk) begin
+        if ((WriteData[15:0] == 16'h167F) && mailbox_write) begin
+            force `CPTRA_TOP_PATH.soc_ifc_top1.soc_ifc_reg_hwif_in.SS_DEBUG_INTENT.debug_intent.next = 1'h1;
+        end else if ((WriteData[15:0] == 16'h177F) && mailbox_write) begin
+            release `CPTRA_TOP_PATH.soc_ifc_top1.soc_ifc_reg_hwif_in.SS_DEBUG_INTENT.debug_intent.next;
+        end
+    end
 
     logic [7:0] isr_active = 8'h0;
     always @(negedge clk) begin
@@ -788,6 +869,31 @@ module caliptra_top_tb_services
         else if(assert_ss_tran && (cycleCnt == cycleCnt_ff + 'd100)) begin
             security_state.debug_locked <= 1'b0;
             assert_ss_tran <= 'b0;
+        end
+    end
+    always @(negedge clk) begin
+        //Switch to Manufacturing mode mode
+        if ((WriteData[15:0] == 16'h147F) && mailbox_write) begin
+            security_state.device_lifecycle <= DEVICE_MANUFACTURING;
+            $display("Setting lifecycle to DEVICE_MANUFACTURING\n");
+        end
+        //Switch to Production mode mode
+        else if ((WriteData[15:0] == 16'h157F) && mailbox_write) begin
+            security_state.device_lifecycle <= DEVICE_PRODUCTION;
+            $display("Setting lifecycle to DEVICE_PRODUCTION\n");
+        end
+    end
+
+    always @(negedge clk) begin
+        //Switch to debug unlocked
+        if ((WriteData[15:0] == 16'h187F) && mailbox_write) begin
+            security_state.debug_locked <= 1'b0;
+            $display("Setting debug_locked to 0");
+        end
+        //Switch to debug locked
+        else if ((WriteData[15:0] == 16'h197F) && mailbox_write) begin
+            security_state.debug_locked <= 1'b1;
+            $display("Setting debug_locked to 1");
         end
     end
 

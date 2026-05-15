@@ -128,6 +128,17 @@ end
     logic assert_rst_flag_from_service;
     logic deassert_rst_flag_from_service;
 
+    //AXI
+    logic [31:0] address;
+    logic [31:0] wdata;
+    logic        write;
+    logic        read;
+    logic        put_status;
+    logic        put_rdata;
+
+    //Control singlas
+    logic debug_intent;
+
     el2_mem_if el2_mem_export ();
     mldsa_mem_if mldsa_memory_export();
 
@@ -175,10 +186,17 @@ caliptra_top_tb_soc_bfm soc_bfm_inst (
     .assert_hard_rst_flag(assert_hard_rst_flag),
     .deassert_hard_rst_flag(deassert_hard_rst_flag),
     .assert_rst_flag_from_service(assert_rst_flag_from_service),
-    .deassert_rst_flag_from_service(deassert_rst_flag_from_service)
+    .deassert_rst_flag_from_service(deassert_rst_flag_from_service),
 
+    //AXI SoC
+    .axi_addr(address),
+    .axi_wdata(wdata),
+    .axi_write(write),
+    .axi_read(read),
+    .axi_put_status(put_status),
+    .axi_put_rdata(put_rdata)
 );
-    
+
 // JTAG DPI
 jtagdpi #(
     .Name           ("jtag0"),
@@ -275,7 +293,7 @@ caliptra_top caliptra_top_dut (
     .strap_ss_strap_generic_1                               (32'h0),
     .strap_ss_strap_generic_2                               (32'h0),
     .strap_ss_strap_generic_3                               (32'h0),
-    .ss_debug_intent                                        ( 1'b0),
+    .ss_debug_intent                                        (debug_intent),
 
     // Subsystem mode debug outputs
     .ss_dbg_manuf_enable    (/*TODO*/),
@@ -360,11 +378,21 @@ caliptra_top_tb_services #(
 
     .assert_rst_flag(assert_rst_flag_from_service),
     .deassert_rst_flag(deassert_rst_flag_from_service),
-    
+
     .cptra_uds_tb(cptra_uds_rand),
     .cptra_fe_tb(cptra_fe_rand),
-    .cptra_obf_key_tb(cptra_obf_key_tb)
+    .cptra_obf_key_tb(cptra_obf_key_tb),
 
+    //AXI SoC
+    .axi_addr(address),
+    .axi_wdata(wdata),
+    .axi_write(write),
+    .axi_read(read),
+    .axi_put_status(put_status),
+    .axi_put_rdata(put_rdata),
+
+    //Control singlas
+    .debug_intent(debug_intent)
 );
 
 caliptra_top_tb_axi_complex tb_axi_complex_i (

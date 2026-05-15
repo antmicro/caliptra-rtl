@@ -59,7 +59,15 @@ import caliptra_top_tb_pkg::*; #(
     input logic assert_hard_rst_flag,
     input logic deassert_hard_rst_flag,
     input logic assert_rst_flag_from_service,
-    input logic deassert_rst_flag_from_service
+    input logic deassert_rst_flag_from_service,
+
+    //AXI SoC
+    input logic [31:0] axi_addr,
+    input logic [31:0] axi_wdata,
+    input logic        axi_write,
+    input logic        axi_read,
+    input logic        axi_put_status,
+    input logic        axi_put_rdata
 
 );
     localparam FW_NUM_DWORDS         = 256;
@@ -506,6 +514,49 @@ import caliptra_top_tb_pkg::*; #(
                     m_axi_bfm_if.rst_mgr();
                 end: RESET_FLOW
             join_any
+        end
+    end
+
+    logic done, read;
+    logic [31:0] axi_rdata;
+    axi_resp_e axi_wresp, axi_rresp, axi_resp;
+    logic [`CALIPTRA_AXI_USER_WIDTH  -1:0] axi_buser;
+    always @(posedge core_clk or negedge cptra_pwrgood) begin
+        if (~cptra_pwrgood) begin
+            done <= 1'b0;
+            read <= 1'b0;
+            axi_wresp <= axi_pkg::axi_resp_e'(0);
+            axi_rresp <= axi_pkg::axi_resp_e'(0);
+            axi_buser <= '0;
+            axi_rdata <= '0;
+        end else if (axi_write) begin
+            done <= 1'b0;
+            read <= 1'b0;
+            m_axi_bfm_if.axi_write_single(
+                .addr(axi_addr),
+                .data(axi_wdata),
+                .resp(axi_wresp),
+                .resp_user(axi_buser)
+            );
+        end else if (axi_read) begin
+            done <= 1'b0;
+            read <= 1'b1;
+            m_axi_bfm_if.axi_read_single(
+                .addr(axi_addr),
+                .data(axi_rdata),
+                .resp(axi_rresp),
+                .resp_user(axi_buser)
+            );
+        end else begin
+            done <= 1'b1;
+        end
+    end
+    assign axi_resp = read ? axi_rresp : axi_wresp;
+    always @(posedge core_clk) begin
+        if (axi_put_status) begin
+            generic_input_wires <= {axi_buser, {29{1'b0}}, axi_resp, done};
+        end else if (axi_put_rdata) begin
+            generic_input_wires <= {32'b0, axi_rdata};
         end
     end
 
