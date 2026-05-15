@@ -17,8 +17,8 @@
 
 #include <stdint.h>
 
-// IFC Register Count: ?
-#define MAX_REGISTER_ENTRIES 290
+// IFC Register Count: 247/260
+#define MAX_REGISTER_ENTRIES 260
 
 // Enum for register sticky behavior
 typedef enum {
@@ -36,7 +36,6 @@ typedef enum {
 // Register info struct
 typedef struct {
     uint32_t address;   /* Register address */
-    const char *name;   /* Register name */
     register_sticky_t is_sticky;        /* Flag to indicate if register is sticky */
     uint8_t has_init_value:1; /* Single bit */
 } ifc_register_info_t;
@@ -131,7 +130,7 @@ typedef enum {
 #define MAX_REGISTERS_PER_GROUP 29
 
 /* Declare the register groups array (defined in ifc_register_defs.c) */
-extern const ifc_register_info_t register_groups[][MAX_REGISTERS_PER_GROUP];
+extern const ifc_register_info_t *register_groups[];
 
 /* Function to get a string representation of a register group */
 const char* get_group_name(ifc_register_group_t group);

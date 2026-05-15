@@ -49,7 +49,6 @@ void main(void) {
     rst_count++;
     VPRINTF(LOW, "----------------\nrst count = %d\n----------------\n", rst_count);
 
-
     VPRINTF(LOW, "==================\nIFC Registers Test\n==================\n\n");
 
     ifc_register_group_t ifc_reg_groups[] = {
