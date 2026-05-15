@@ -830,8 +830,8 @@ void init_reg_exp_dict(ifc_reg_exp_dict_t *dict) {
     if ((reg_info->is_sticky == REG_SELF_LOCK_NON_ZERO && ifc_reg_read(address) == 0) ||
         (reg_info->is_sticky == REG_SELF_LOCK_NON_ZERO_STICKY && ifc_reg_read(address) == 0) ||
         (reg_info->is_sticky != REG_CONFIG_DONE_STICKY && reg_info->is_sticky != REG_CONFIG_DONE &&
-         reg_info->is_sticky != REG_SELF_LOCK_NON_ZERO_STICKY && reg_info->is_sticky != REG_EXT_LOCK &&
-         reg_info->is_sticky != REG_SELF_LOCK_NON_ZERO) ||
+         reg_info->is_sticky != REG_SELF_LOCK_NON_ZERO_STICKY && reg_info->is_sticky != REG_EXT_LOCK_STICKY &&
+         reg_info->is_sticky != REG_SELF_LOCK_NON_ZERO && reg_info->is_sticky != REG_EXT_LOCK) ||
         ext_allowed) {
         update_exp_data = true;
     }
