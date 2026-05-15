@@ -67,14 +67,14 @@ void main() {
         // ------------------------------------------------------------------
         // Step 1: Inject a valid HMAC512 key into KV slot via TB
         //
-        // TB commands 0xa9-0xaf inject hmac512_key_tb into the slot matched by
-        //   (cmd & 0x07) == slot_id, with:
+        // TB commands 0x807F injects hmac512_key_tb into the slot matched by
+        //   ((cmd & 0x1f) >> 8) == slot_id, with:
         //   dest_valid = 5'b1  (bit 0 = HMAC_KEY read client allowed)
         //   last_dword = 15    (16 dwords)
-        // Slot is encoded in the lower 3 bits: 0xa8 + slot = cmd byte.
+        // Slot is encoded in the 5 bits, shifted left by 8: 0x807F + (slot << 8) = cmd byte.
         // ------------------------------------------------------------------
         VPRINTF(LOW, "[SETUP] Injecting HMAC512 key into KV slot %d via TB...\n", test_slot);
-        printf("%c", (uint8_t)(0xa8 + (test_slot & 0x7)));
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, (uint32_t)(0x807F | (test_slot << 8)));
 
         // ------------------------------------------------------------------
         // Step 2: Pre-read KEY_CTRL and prepare lock_use value
