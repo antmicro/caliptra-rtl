@@ -111,7 +111,7 @@ OFILES += printf.o
 OFILES += $(foreach comp_lib_name, $(COMP_LIB_NAMES), $(comp_lib_name).o)
 
 # Verilator trace format
-VERILATOR_TRACE=vcd
+VERILATOR_TRACE ?= vcd
 
 ifdef debug
  DEBUG_PLUS = +dumpon
@@ -121,7 +121,7 @@ ifdef debug
  ifeq ($(VERILATOR_TRACE), vcd)
   VERILATOR_DEBUG = --trace --trace-structs
  else ifeq ($(VERILATOR_TRACE), fst)
-  VERILATOR_DEBUG = --trace-fst --trace-structs --trace-threads 2
+  VERILATOR_DEBUG = --trace-fst --trace-structs
  else
   $(error Unsupported Verilator trace format '$(VERILATOR_TRACE)')
  endif
