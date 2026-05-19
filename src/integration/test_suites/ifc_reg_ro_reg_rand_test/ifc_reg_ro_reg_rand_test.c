@@ -40,10 +40,6 @@ volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 #define TB_CMD_TEST_PASS 0xFF
 #define TB_CMD_TEST_FAIL 0x01
 
-#ifndef MY_RANDOM_SEED
-#define MY_RANDOM_SEED 17
-#endif // MY_RANDOM_SEED
-
 void main(void) {
 
     rst_count++;
@@ -79,7 +75,6 @@ void main(void) {
     const int num_groups =  sizeof(ro_reg_groups) / sizeof(ro_reg_groups[0]);
 
     if (rst_count == 1) {
-        srand((uint32_t) MY_RANDOM_SEED);
         ifc_init();
         exclude_register(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0);
 
