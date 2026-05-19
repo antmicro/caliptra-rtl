@@ -26,6 +26,7 @@ volatile char* stdout = (char *)STDOUT;
 volatile uint32_t  intr_count = 0;
 volatile int error_count __attribute__((section(".dccm.persistent"))) = 0;
 volatile int rst_count __attribute__((section(".dccm.persistent"))) = 0;
+volatile int test_mode __attribute__((section(".dccm.persistent"))) = 0;
 
 #ifdef CPT_VERBOSITY
     enum printf_verbosity verbosity_g = CPT_VERBOSITY;
@@ -43,6 +44,25 @@ volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 #ifndef MY_RANDOM_SEED
 #define MY_RANDOM_SEED 17
 #endif // MY_RANDOM_SEED
+
+void set_env(void) {
+    lsu_write_32(STDOUT, 0x107F);
+    lsu_write_32(STDOUT, 0x167F);
+    if (test_mode & 1) {
+        // Manufacturing mode
+        lsu_write_32(STDOUT, 0x147F);
+    } else {
+        // Production mode
+        lsu_write_32(STDOUT, 0x157F);
+    }
+    if (test_mode & 2) {
+        // Enable debug intent
+        lsu_write_32(STDOUT, 0x127F);
+    } else {
+        // Disable debug intent
+        lsu_write_32(STDOUT, 0x137F);
+    }
+}
 
 void main(void) {
 
@@ -67,8 +87,10 @@ void main(void) {
 
     if (rst_count == 1) {
         srand((uint32_t) MY_RANDOM_SEED);
+        test_mode = rand () & 3;
         ifc_init();
         exclude_register(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0);
+        set_env();
 
         // Loop through all RW register groups
         for (int i = 0; i < num_groups; i++) {
@@ -87,6 +109,7 @@ void main(void) {
         while(1);
 
     } else if (rst_count == 2) {
+        set_env();
 
         // Read all registers, expect register values to be retained for sticky registers
         for (int i = 0; i < num_groups; i++) {
@@ -109,6 +132,7 @@ void main(void) {
         while(1);
 
     } else if (rst_count == 3) {
+        set_env();
 
         // Read all registers, expect register values to be reset
         for (int i = 0; i < num_groups; i++) {
