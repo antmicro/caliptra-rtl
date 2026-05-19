@@ -125,23 +125,10 @@ void main(void) {
     rst_count++;
     VPRINTF(LOW, "----------------\nrst count = %d\n----------------\n", rst_count);
 
-    VPRINTF(LOW, "==================\nIFC SoC RW, Caliptra RO Registers Test\n==================\n\n");
+    VPRINTF(LOW, "==================\nIFC SoC RW, Caliptra RO Registers Test: IDEVID\n==================\n\n");
 
     ifc_register_group_t ro_reg_groups[] = {
-        REG_GROUP_STRAPS_RO,
-        //REG_GROUP_CONTROL_RO, TODO: check if this test can use it
-        REG_GROUP_TRNG_RO,
-        REG_GROUP_OWNER_PK_HASH_RO,
-        //REG_GROUP_UDS_RO, TODO: Move to different test, can be accessed only by HW
-        //REG_GROUP_FIELD_ENTROPY_RO, TODO: Move to different test, can be accessed only by HW
-        REG_GROUP_VENDOR_PK_HASH_RO,
-        REG_GROUP_ECC_REVOCATION_RO,
-        REG_GROUP_SVN_RO,
-        REG_GROUP_ANTI_ROLLBACK_RO,
-        REG_GROUP_IDEVID_RO,
-        REG_GROUP_MANUF_DBG_UNLOCK_RO,
-        REG_GROUP_SOC_STEPPING_RO,
-        REG_GROUP_KEY_TYPE_RO
+        REG_GROUP_IDEVID_RO
     };
 
     const int num_groups =  sizeof(ro_reg_groups) / sizeof(ro_reg_groups[0]);

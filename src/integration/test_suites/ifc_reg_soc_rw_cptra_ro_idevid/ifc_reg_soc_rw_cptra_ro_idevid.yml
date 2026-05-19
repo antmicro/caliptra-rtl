@@ -14,4 +14,4 @@
 #
 ---
 seed: ${PLAYBOOK_RANDOM_SEED}
-testname: ifc_reg_soc_rw_cptra_ro
+testname: ifc_reg_soc_rw_cptra_ro_idevid
