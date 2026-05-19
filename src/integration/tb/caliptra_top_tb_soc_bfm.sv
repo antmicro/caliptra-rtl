@@ -226,7 +226,7 @@ import caliptra_top_tb_pkg::*; #(
                     end
 
                     $display ("SoC: Writing SOC Stepping ID to fuse bank\n");
-                    m_axi_bfm_if.axi_write_single(.addr(`CLP_SOC_IFC_REG_FUSE_SOC_STEPPING_ID), .data($urandom()), .resp(wresp), .resp_user(buser));
+                    m_axi_bfm_if.axi_write_single(.addr(`CLP_SOC_IFC_REG_FUSE_SOC_STEPPING_ID), .data(32'h00000001), .resp(wresp), .resp_user(buser));
 
                     $display ("SoC: Writing fuse done register\n");
                     m_axi_bfm_if.axi_write_single(.addr(`CLP_SOC_IFC_REG_CPTRA_FUSE_WR_DONE), .data(32'h00000001), .resp(wresp), .resp_user(buser));

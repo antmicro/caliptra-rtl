@@ -60,12 +60,18 @@ void ifc_reg_write(uint32_t reg_addr, uint32_t value) {
 // Array of register with non-zero initial values
 const ifc_reg_def_value_t reg_init_values[] = {
     {CLP_SOC_IFC_REG_CPTRA_HW_REV_ID, 0x00000402},
+    {CLP_SOC_IFC_REG_CPTRA_HW_CONFIG, 0x00000011},
+    {CLP_SOC_IFC_REG_SS_CALIPTRA_BASE_ADDR_L, 0xBA5EBA11},  // Set in caliptra_top_tb.sv
+    {CLP_SOC_IFC_REG_CPTRA_SECURITY_STATE,    0x00000007},  // Base TB configuration is locked production
+    {CLP_SOC_IFC_REG_CPTRA_BOOTFSM_GO,        0x00000001},  // Register read post start, RO from CPTRA, RW from SoC
+    {CLP_SOC_IFC_REG_CPTRA_FUSE_WR_DONE,      0x00000001},  // Register read post start, RO from CPTRA, RW from SoC
+    {CLP_SOC_IFC_REG_FUSE_SOC_STEPPING_ID,    0x00000001},
     {CLP_SOC_IFC_REG_CPTRA_MBOX_VALID_AXI_USER_0, 0xFFFFFFFF},
     {CLP_SOC_IFC_REG_CPTRA_MBOX_VALID_AXI_USER_1, 0xFFFFFFFF},
     {CLP_SOC_IFC_REG_CPTRA_MBOX_VALID_AXI_USER_2, 0xFFFFFFFF},
     {CLP_SOC_IFC_REG_CPTRA_MBOX_VALID_AXI_USER_3, 0xFFFFFFFF},
     {CLP_SOC_IFC_REG_CPTRA_MBOX_VALID_AXI_USER_4, 0xFFFFFFFF},
-    {CLP_SOC_IFC_REG_CPTRA_TRNG_VALID_AXI_USER, 0xFFFFFFFF},
+    {CLP_SOC_IFC_REG_CPTRA_TRNG_VALID_AXI_USER,   0xFFFFFFFF},
     {CLP_SOC_IFC_REG_CPTRA_WDT_TIMER1_TIMEOUT_PERIOD_0, 0xFFFFFFFF},
     {CLP_SOC_IFC_REG_CPTRA_WDT_TIMER1_TIMEOUT_PERIOD_1, 0xFFFFFFFF},
     {CLP_SOC_IFC_REG_CPTRA_WDT_TIMER2_TIMEOUT_PERIOD_0, 0xFFFFFFFF},
@@ -87,11 +93,11 @@ const ifc_register_info_t REG_GROUP_CAPABILITIES_ARRAY [] = {
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_CAPABILITIES_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_CPTRA_HW_CONFIG,  REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_HW_CONFIG, REG_NOT_STICKY, true },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_STRAPS_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_SS_CALIPTRA_BASE_ADDR_L, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_SS_CALIPTRA_BASE_ADDR_L, REG_EXT_LOCK_STICKY, true },
     { CLP_SOC_IFC_REG_SS_CALIPTRA_BASE_ADDR_H, REG_EXT_LOCK_STICKY, false },
     { CLP_SOC_IFC_REG_SS_MCI_BASE_ADDR_L, REG_EXT_LOCK_STICKY, false },
     { CLP_SOC_IFC_REG_SS_MCI_BASE_ADDR_H, REG_EXT_LOCK_STICKY, false },
@@ -103,12 +109,15 @@ const ifc_register_info_t REG_GROUP_STRAPS_RO_ARRAY [] = {
     { CLP_SOC_IFC_REG_SS_UDS_SEED_BASE_ADDR_H, REG_EXT_LOCK_STICKY, false },
     { CLP_SOC_IFC_REG_SS_PROD_DEBUG_UNLOCK_AUTH_PK_HASH_REG_BANK_OFFSET, REG_EXT_LOCK_STICKY, false },
     { CLP_SOC_IFC_REG_SS_NUM_OF_PROD_DEBUG_UNLOCK_AUTH_PK_HASHES, REG_EXT_LOCK_STICKY, false },
-    { CLP_SOC_IFC_REG_SS_DEBUG_INTENT, REG_EXT_LOCK_STICKY, false },
     { CLP_SOC_IFC_REG_SS_CALIPTRA_DMA_AXI_USER, REG_EXT_LOCK_STICKY, false },
     { CLP_SOC_IFC_REG_SS_STRAP_GENERIC_0, REG_EXT_LOCK, false },
     { CLP_SOC_IFC_REG_SS_STRAP_GENERIC_1, REG_EXT_LOCK, false },
     { CLP_SOC_IFC_REG_SS_STRAP_GENERIC_2, REG_EXT_LOCK, false },
     { CLP_SOC_IFC_REG_SS_STRAP_GENERIC_3, REG_EXT_LOCK, false },
+    { 0, REG_NOT_STICKY, false }  // End marker
+};
+const ifc_register_info_t REG_GROUP_STRAPS_RO_RO_ARRAY [] = {
+    { CLP_SOC_IFC_REG_SS_DEBUG_INTENT, REG_EXT_LOCK_STICKY, false },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_STATUS_ARRAY [] = {
@@ -124,7 +133,7 @@ const ifc_register_info_t REG_GROUP_STATUS_RO_ARRAY [] = {
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_SECURITY_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_CPTRA_SECURITY_STATE, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_SECURITY_STATE, REG_NOT_STICKY, true },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_ERROR_RW1C_ARRAY [] = {
@@ -185,7 +194,7 @@ const ifc_register_info_t REG_GROUP_CONTROL_ARRAY [] = {
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_CONTROL_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_CPTRA_BOOTFSM_GO, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_BOOTFSM_GO, REG_NOT_STICKY, true },
     { CLP_SOC_IFC_REG_CPTRA_CLK_GATING_EN, REG_NOT_STICKY, false },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
@@ -270,148 +279,150 @@ const ifc_register_info_t REG_GROUP_FUSE_RW1S_ARRAY [] = {
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_FUSE_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_CPTRA_FUSE_WR_DONE, REG_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_FUSE_WR_DONE, REG_EXT_LOCK_STICKY, true },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_OWNER_PK_HASH_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_1, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_2, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_3, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_4, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_5, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_6, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_7, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_8, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_9, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_10, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_11, REG_EXT_LOCK, false },
+    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_1, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_2, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_3, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_4, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_5, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_6, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_7, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_8, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_9, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_10, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_11, REG_EXT_LOCK_STICKY, false },
     { CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_LOCK, REG_SELF_LOCK_NON_ZERO_STICKY, false },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_UDS_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_0, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_1, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_2, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_3, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_4, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_5, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_6, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_7, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_8, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_9, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_10, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_11, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_12, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_13, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_14, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_15, REG_EXT_LOCK, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_0, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_1, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_2, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_3, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_4, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_5, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_6, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_7, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_8, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_9, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_10, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_11, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_12, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_13, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_14, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_UDS_SEED_15, REG_EXT_LOCK_STICKY, false },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_FIELD_ENTROPY_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_0, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_1, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_2, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_3, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_4, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_5, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_6, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_7, REG_EXT_LOCK, false },
+    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_0, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_1, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_2, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_3, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_4, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_5, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_6, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_FIELD_ENTROPY_7, REG_EXT_LOCK_STICKY, false },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_VENDOR_PK_HASH_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_0, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_1, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_2, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_3, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_4, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_5, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_6, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_7, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_8, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_9, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_10, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_11, REG_EXT_LOCK, false },
+    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_0, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_1, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_2, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_3, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_4, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_5, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_6, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_7, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_8, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_9, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_10, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_VENDOR_PK_HASH_11, REG_EXT_LOCK_STICKY, false },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_ECC_REVOCATION_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_FUSE_ECC_REVOCATION, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_LMS_REVOCATION, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MLDSA_REVOCATION, REG_EXT_LOCK, false },
+    { CLP_SOC_IFC_REG_FUSE_ECC_REVOCATION, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_LMS_REVOCATION, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MLDSA_REVOCATION, REG_EXT_LOCK_STICKY, false },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_SVN_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_FUSE_FMC_KEY_MANIFEST_SVN, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_RUNTIME_SVN_0, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_RUNTIME_SVN_1, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_RUNTIME_SVN_2, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_RUNTIME_SVN_3, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_SOC_MANIFEST_SVN_0, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_SOC_MANIFEST_SVN_1, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_SOC_MANIFEST_SVN_2, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_SOC_MANIFEST_SVN_3, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_SOC_MANIFEST_MAX_SVN, REG_EXT_LOCK, false },
+    { CLP_SOC_IFC_REG_FUSE_FMC_KEY_MANIFEST_SVN, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_RUNTIME_SVN_0, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_RUNTIME_SVN_1, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_RUNTIME_SVN_2, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_RUNTIME_SVN_3, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_SOC_MANIFEST_SVN_0, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_SOC_MANIFEST_SVN_1, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_SOC_MANIFEST_SVN_2, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_SOC_MANIFEST_SVN_3, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_SOC_MANIFEST_MAX_SVN, REG_EXT_LOCK_STICKY, false },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_ANTI_ROLLBACK_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_FUSE_ANTI_ROLLBACK_DISABLE,  REG_EXT_LOCK, false },
+    { CLP_SOC_IFC_REG_FUSE_ANTI_ROLLBACK_DISABLE,  REG_EXT_LOCK_STICKY, false },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_IDEVID_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_0, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_1, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_2, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_3, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_4, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_5, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_6, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_7, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_8, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_9, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_10, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_11, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_12, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_13, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_14, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_15, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_16, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_17, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_18, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_19, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_20, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_21, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_22, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_23, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_MANUF_HSM_ID_0, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_MANUF_HSM_ID_1, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_MANUF_HSM_ID_2, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_IDEVID_MANUF_HSM_ID_3, REG_EXT_LOCK, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_0, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_1, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_2, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_3, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_4, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_5, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_6, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_7, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_8, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_9, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_10, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_11, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_12, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_13, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_14, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_15, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_16, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_17, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_18, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_19, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_20, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_21, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_22, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_CERT_ATTR_23, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_MANUF_HSM_ID_0, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_MANUF_HSM_ID_1, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_MANUF_HSM_ID_2, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_IDEVID_MANUF_HSM_ID_3, REG_EXT_LOCK_STICKY, false },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_MANUF_DBG_UNLOCK_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_0, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_1, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_2, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_3, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_4, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_5, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_6, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_7, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_8, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_9, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_10, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_11, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_12, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_13, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_14, REG_EXT_LOCK, false },
-    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_15, REG_EXT_LOCK, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_0, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_1, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_2, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_3, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_4, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_5, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_6, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_7, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_8, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_9, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_10, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_11, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_12, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_13, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_14, REG_EXT_LOCK_STICKY, false },
+    { CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_15, REG_EXT_LOCK_STICKY, false },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_SOC_STEPPING_RO_ARRAY [] = {
-    { CLP_SOC_IFC_REG_FUSE_SOC_STEPPING_ID, REG_EXT_LOCK, false },
+    { CLP_SOC_IFC_REG_FUSE_SOC_STEPPING_ID, REG_EXT_LOCK_STICKY, true },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_KEY_TYPE_RO_ARRAY [] = {
+    { CLP_SOC_IFC_REG_FUSE_PQC_KEY_TYPE, REG_EXT_LOCK_STICKY, false },
+    { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_INTERRUPT_EN_ARRAY [] = {
     { CLP_SOC_IFC_REG_INTR_BLOCK_RF_GLOBAL_INTR_EN_R, REG_NOT_STICKY, false },
@@ -466,6 +477,8 @@ const ifc_register_info_t *register_groups[] = {
     &REG_GROUP_CAPABILITIES_RO_ARRAY,
     // REG_GROUP_STRAPS_RO
     &REG_GROUP_STRAPS_RO_ARRAY,
+    // REG_GROUP_STRAPS_RO_RO
+    &REG_GROUP_STRAPS_RO_RO_ARRAY,
     // REG_GROUP_STATUS
     &REG_GROUP_STATUS_ARRAY,
     // REG_GROUP_STATUS_RO
@@ -689,6 +702,7 @@ void init_reg_exp_dict(ifc_reg_exp_dict_t *dict) {
     VPRINTF(LOW, "Initializing expected data dict\n");
     dict->count = 0;
 
+    size_t init_array_size = sizeof(reg_init_values) / sizeof(reg_init_values[0]);
     // Add new entry if space available
     for (ifc_register_group_t group = 0; group < REG_GROUP_COUNT; group++) {
         int count = get_register_count(group);
@@ -710,6 +724,14 @@ void init_reg_exp_dict(ifc_reg_exp_dict_t *dict) {
                 VPRINTF(MEDIUM, "Init reg 0x%08x\n", reg->address);
                 dict->entries[dict->count].address = reg->address;
                 dict->entries[dict->count].expected_data = 0;
+                if (reg->has_init_value) {
+                    for (size_t i = 0; i < init_array_size; i++) {
+                        if (reg_init_values[i].address == reg->address) {
+                            dict->entries[dict->count].expected_data = reg_init_values[i].default_value;
+                            break;
+                        }
+                    }
+                }
                 dict->count++;
             }
         }
@@ -721,12 +743,14 @@ void init_reg_exp_dict(ifc_reg_exp_dict_t *dict) {
  *
  * @param dict Pointer to dictionary
  * @param address Register address (key)
- * @param name Register name
  * @param value Expected data value
  * @param mask Mask to apply to the value
+ * @param reg_write Write to W1C register
+ * @param group_index_arg Register group index or -1, when >0 it improves speed
+ * @param soc_access Access from SoC side, not Caliptra, some register become RW when accessed from SoC
  * @return 0 on success, -1 if dictionary is full
  */
- int set_reg_exp_data(ifc_reg_exp_dict_t *dict, uint32_t address, uint32_t value, uint32_t mask, bool reg_write, ifc_register_group_t group_index_arg) {
+ int set_reg_exp_data(ifc_reg_exp_dict_t *dict, uint32_t address, uint32_t value, uint32_t mask, bool reg_write, ifc_register_group_t group_index_arg, bool soc_access) {
 
     VPRINTF(MEDIUM, "UPDATE REG [0x%0x] with Value = 0x%0x, Mask = 0x%0x\n", address, value, mask);
 
@@ -805,8 +829,19 @@ void init_reg_exp_dict(ifc_reg_exp_dict_t *dict) {
     }
 
     if (group_index == REG_GROUP_DBG_MANUF_SERVICE) {
-        if (reg_index == 1) {
-            const ifc_register_info_t *debug_intent_reg = get_register_info(REG_GROUP_STRAPS_RO, 12);
+        const ifc_register_info_t *debug_intent_reg = get_register_info(REG_GROUP_STRAPS_RO, 12);
+        bool debug_intent = ifc_reg_read(debug_intent_reg->address) & SOC_IFC_REG_SS_DEBUG_INTENT_DEBUG_INTENT_MASK;
+        if (reg_index == 0) {
+            const ifc_register_info_t *sec_state_reg = get_register_info(REG_GROUP_SECURITY_RO, 0);
+            if (debug_intent) {
+                if ((ifc_reg_read(sec_state_reg->address) & SOC_IFC_REG_CPTRA_SECURITY_STATE_DEVICE_LIFECYCLE_MASK) == 1) {
+                    mask |= 0x1;
+                } else if ((ifc_reg_read(sec_state_reg->address) & SOC_IFC_REG_CPTRA_SECURITY_STATE_DEVICE_LIFECYCLE_MASK) == 3) {
+                    mask |= 0x2;
+                }
+            }
+            ext_allowed = true;
+        } else if (reg_index == 1) {
             const ifc_register_info_t *sec_state_reg = get_register_info(REG_GROUP_SECURITY_RO, 0);
             const ifc_register_info_t *debug_rsp_reg = get_register_info(REG_GROUP_DBG_MANUF_SERVICE, 1);
             value |= (
@@ -815,7 +850,7 @@ void init_reg_exp_dict(ifc_reg_exp_dict_t *dict) {
                     SOC_IFC_REG_SS_DBG_MANUF_SERVICE_REG_RSP_PROD_DBG_UNLOCK_SUCCESS_MASK
                 )
             );
-            if (ifc_reg_read(debug_intent_reg->address) & SOC_IFC_REG_SS_DEBUG_INTENT_DEBUG_INTENT_MASK) {
+            if (debug_intent) {
                 if ((ifc_reg_read(sec_state_reg->address) & SOC_IFC_REG_CPTRA_SECURITY_STATE_DEVICE_LIFECYCLE_MASK) == 1) {
                     mask |= 0x7;
                 } else if ((ifc_reg_read(sec_state_reg->address) & SOC_IFC_REG_CPTRA_SECURITY_STATE_DEVICE_LIFECYCLE_MASK) == 3) {
@@ -823,7 +858,36 @@ void init_reg_exp_dict(ifc_reg_exp_dict_t *dict) {
                 }
             }
             ext_allowed = true;
+        } else if (debug_intent && (reg_index == 2 || reg_index == 3)) {
+            ext_allowed = true;
         }
+    }
+
+    // Registers that are RW by SoC and RO by Caliptra(uC)
+    if (soc_access && (
+        group_index == REG_GROUP_STRAPS_RO            ||
+        group_index == REG_GROUP_UDS_RO               ||
+        group_index == REG_GROUP_FIELD_ENTROPY_RO     ||
+        group_index == REG_GROUP_VENDOR_PK_HASH_RO    ||
+        group_index == REG_GROUP_ECC_REVOCATION_RO    ||
+        group_index == REG_GROUP_SVN_RO               ||
+        group_index == REG_GROUP_ANTI_ROLLBACK_RO     ||
+        group_index == REG_GROUP_IDEVID_RO            ||
+        group_index == REG_GROUP_MANUF_DBG_UNLOCK_RO  ||
+        group_index == REG_GROUP_SOC_STEPPING_RO      ||
+        group_index == REG_GROUP_KEY_TYPE_RO          ||
+        group_index == REG_GROUP_FUSE_RO
+    )) {
+        const ifc_register_info_t *fuse_locked = get_register_info(REG_GROUP_FUSE_RO, 0);
+        ext_allowed = !(ifc_reg_read(fuse_locked->address) & 0x1);
+    }
+    if (soc_access && group_index == REG_GROUP_OWNER_PK_HASH_RO) {
+        const ifc_register_info_t *fuse_locked = get_register_info(REG_GROUP_OWNER_PK_HASH_RO, 12);
+        ext_allowed = !(ifc_reg_read(fuse_locked->address) & 0x1);
+    }
+    if (soc_access && group_index == REG_GROUP_TRNG_RO) {
+        const ifc_register_info_t *fuse_locked = get_register_info(REG_GROUP_TRNG_RW1S, 0);
+        ext_allowed = !(ifc_reg_read(fuse_locked->address) & 0x1);
     }
 
     // Standard update condition
@@ -856,9 +920,9 @@ void init_reg_exp_dict(ifc_reg_exp_dict_t *dict) {
                     dict->entries[i].expected_data = 0x0;
                     // Update expected data for corresponding interrupt status register
                     VPRINTF(MEDIUM, "Recursively Updating exp_data for %s[%d] [ 0x%0x ] = 0x%0x (read_intr_sts)\n", get_group_name(group_index), reg_index, intr_sts_reg->address, read_intr_sts);
-                    set_reg_exp_data(dict, intr_sts_reg->address, read_intr_sts, intr_sts_mask, false, 0);
+                    set_reg_exp_data(dict, intr_sts_reg->address, read_intr_sts, intr_sts_mask, false, 0, soc_access);
                     // Update global interrupt status register
-                    set_reg_exp_data(dict, intr_glb_sts_reg->address, (1U << (glb_sts_mask - 1)), glb_sts_mask, false, 0);
+                    set_reg_exp_data(dict, intr_glb_sts_reg->address, (1U << (glb_sts_mask - 1)), glb_sts_mask, false, 0, soc_access);
                 }
             }
             // If sticky bit is set, retain previous expected value (do nothing)
@@ -881,9 +945,9 @@ void init_reg_exp_dict(ifc_reg_exp_dict_t *dict) {
             VPRINTF(MEDIUM, "Pulse Interrupt reg, value = 0x0\n");
             dict->entries[dict->count].expected_data = 0x0;
             // Update expected data for corresponding interrupt status register
-            set_reg_exp_data(dict, intr_sts_reg->address, read_intr_sts, intr_sts_mask, false, 0);
+            set_reg_exp_data(dict, intr_sts_reg->address, read_intr_sts, intr_sts_mask, false, 0, soc_access);
             // Update global interrupt status register
-            set_reg_exp_data(dict, intr_glb_sts_reg->address, (1U << (glb_sts_mask - 1)), glb_sts_mask, false, 0);
+            set_reg_exp_data(dict, intr_glb_sts_reg->address, (1U << (glb_sts_mask - 1)), glb_sts_mask, false, 0, soc_access);
         }
         dict->count++;
         return 0;
@@ -1017,6 +1081,7 @@ void write_random_to_register_group_and_track(ifc_register_group_t group, ifc_re
         group == REG_GROUP_STATUS_RO ||
         group == REG_GROUP_SECURITY_RO ||
         group == REG_GROUP_WATCHDOG_RO ||
+        group == REG_GROUP_CONTROL_RO ||
         group == REG_GROUP_GENERIC_WIRES_RO ||
         group == REG_GROUP_TRNG_RO ||
         group == REG_GROUP_FUSE_RO ||
@@ -1042,14 +1107,14 @@ void write_random_to_register_group_and_track(ifc_register_group_t group, ifc_re
             // Check if this register should be excluded using our efficient method
             if (!is_register_excluded(reg->address)) {
                 // Generate a unique value for each register
-                uint32_t rand_value = rand();
+                uint32_t rand_value = xorshift32();
 
                 /* Get mask for this register */
                 uint32_t mask = get_register_mask(reg->address);
 
                 // Store in dictionary
                 if (!ro_reg) {
-                    if (set_reg_exp_data(dict, reg->address, rand_value, mask, true, group) != 0) {
+                    if (set_reg_exp_data(dict, reg->address, rand_value, mask, true, group, false) != 0) {
                         VPRINTF(MEDIUM, "  WARNING: Could not store expected data for %s[%d]\n", get_group_name(group), i);
                     }
                 }
@@ -1078,7 +1143,7 @@ void write_to_register_group_and_track(ifc_register_group_t group, uint32_t writ
                 uint32_t mask = get_register_mask(reg->address);
 
                 // Store in dictionary
-                if (set_reg_exp_data(dict, reg->address, write_data, mask, true, group) != 0) {
+                if (set_reg_exp_data(dict, reg->address, write_data, mask, true, group, false) != 0) {
                     VPRINTF(MEDIUM, "  WARNING: Could not store expected data for %s[%d]\n", get_group_name(group), i);
                 }
 
@@ -1119,8 +1184,8 @@ int read_register_group_and_verify(ifc_register_group_t group, ifc_reg_exp_dict_
         group == REG_GROUP_STATUS_RO ||
         group == REG_GROUP_SECURITY_RO ||
         group == REG_GROUP_WATCHDOG_RO ||
+        group == REG_GROUP_CONTROL_RO ||
         group == REG_GROUP_GENERIC_WIRES_RO ||
-        group == REG_GROUP_TRNG_RO ||
         group == REG_GROUP_FUSE_RO ||
         group == REG_GROUP_OWNER_PK_HASH_RO ||
         group == REG_GROUP_UDS_RO ||
@@ -1251,7 +1316,7 @@ int read_register_group_and_verify(ifc_register_group_t group, ifc_reg_exp_dict_
                         }
                     }
                 } else if (reset_type == WARM_RESET) {
-                    if (reg->is_sticky == REG_STICKY || reg->is_sticky == REG_CONFIG_DONE_STICKY || reg->is_sticky == REG_SELF_LOCK_NON_ZERO_STICKY) {
+                    if (reg->is_sticky == REG_STICKY || reg->is_sticky == REG_CONFIG_DONE_STICKY || reg->is_sticky == REG_SELF_LOCK_NON_ZERO_STICKY || reg->is_sticky == REG_EXT_LOCK_STICKY) {
                         if (get_reg_exp_data(&g_expected_data_dict, reg->address, &exp_data) == 0) {
                             VPRINTF(MEDIUM, "Expected data for %s[%d] = 0x%0x\n", get_group_name(group), i, exp_data);
                             // Compare and report
@@ -1484,7 +1549,7 @@ void read_register_group_and_track(ifc_register_group_t group, ifc_reg_exp_dict_
                 uint32_t mask = get_register_mask(reg->address);
 
                 // Store in dictionary
-                if (set_reg_exp_data(dict, reg->address, read_data, mask, false, group) != 0) {
+                if (set_reg_exp_data(dict, reg->address, read_data, mask, false, group, false) != 0) {
                     VPRINTF(LOW, "  WARNING: Could not store read data for %s[%d]\n", get_group_name(group), i);
                 }
             } else {
@@ -1534,11 +1599,28 @@ void init_mask_dict(void) {
             SOC_IFC_REG_CPTRA_FLOW_STATUS_MAILBOX_FLOW_DONE_MASK);
     add_mask_entry(CLP_SOC_IFC_REG_CPTRA_TRNG_STATUS,
             SOC_IFC_REG_CPTRA_TRNG_STATUS_DATA_REQ_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_SS_DBG_MANUF_SERVICE_REG_REQ, 0);
     add_mask_entry(CLP_SOC_IFC_REG_SS_DBG_MANUF_SERVICE_REG_RSP,
             SOC_IFC_REG_SS_DBG_MANUF_SERVICE_REG_RSP_UDS_PROGRAM_SUCCESS_MASK |
             SOC_IFC_REG_SS_DBG_MANUF_SERVICE_REG_RSP_UDS_PROGRAM_FAIL_MASK |
             SOC_IFC_REG_SS_DBG_MANUF_SERVICE_REG_RSP_UDS_PROGRAM_IN_PROGRESS_MASK |
             SOC_IFC_REG_SS_DBG_MANUF_SERVICE_REG_RSP_TAP_MAILBOX_AVAILABLE_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_LOCK,
+            SOC_IFC_REG_CPTRA_OWNER_PK_HASH_LOCK_LOCK_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_FUSE_ECC_REVOCATION,
+            SOC_IFC_REG_FUSE_ECC_REVOCATION_ECC_REVOCATION_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_FUSE_MLDSA_REVOCATION,
+            SOC_IFC_REG_FUSE_MLDSA_REVOCATION_MLDSA_REVOCATION_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_FUSE_SOC_MANIFEST_MAX_SVN,
+            SOC_IFC_REG_FUSE_SOC_MANIFEST_MAX_SVN_SVN_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_FUSE_ANTI_ROLLBACK_DISABLE,
+            SOC_IFC_REG_FUSE_ANTI_ROLLBACK_DISABLE_DIS_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_FUSE_SOC_STEPPING_ID,
+            SOC_IFC_REG_FUSE_SOC_STEPPING_ID_SOC_STEPPING_ID_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_FUSE_PQC_KEY_TYPE,
+            SOC_IFC_REG_FUSE_PQC_KEY_TYPE_KEY_TYPE_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_CPTRA_FUSE_WR_DONE,
+            SOC_IFC_REG_CPTRA_FUSE_WR_DONE_DONE_MASK);
 }
 
 /**
