@@ -41,12 +41,16 @@ volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 #define TB_CMD_TEST_FAIL 0x01
 
 void ifc_reg_soc_write(uint32_t reg_addr, uint32_t value) {
+    // Set AXI address
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, reg_addr);
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x017F);
+    // Set AXI write data
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, value);
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x027F);
+    // Issue AXI command
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, 1); // Write
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x037F);
+    // Check if AXI has finished
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x047F);
     while (!(lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0) & 1)) {
         lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x047F);
@@ -142,7 +146,6 @@ void main(void) {
 
     const int num_groups =  sizeof(ro_reg_groups) / sizeof(ro_reg_groups[0]);
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x1A7F);
-    //REG_GROUP_FUSE_RO   // Operation on this register can relock fuses
 
     if (rst_count == 1) {
         ifc_init();
