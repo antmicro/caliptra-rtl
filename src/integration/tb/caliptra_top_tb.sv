@@ -239,7 +239,9 @@ jtagdpi #(
    //=========================================================================-
    // DUT instance
    //=========================================================================-
-caliptra_top caliptra_top_dut (
+caliptra_top #(
+    .CSS_IDCODE_VALUE(32'h0000_0001)
+) caliptra_top_dut (
     .cptra_pwrgood              (cptra_pwrgood),
     .cptra_rst_b                (cptra_rst_b),
     .clk                        (core_clk),
