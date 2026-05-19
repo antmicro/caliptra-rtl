@@ -43,7 +43,7 @@ volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 
 void set_env(void) {
     lsu_write_32(STDOUT, 0x107F);
-    lsu_write_32(STDOUT, 0x167F);
+    lsu_write_32(STDOUT, 0x1B7F);
     if (test_mode & 1) {
         // Manufacturing mode
         lsu_write_32(STDOUT, 0x147F);
@@ -53,9 +53,11 @@ void set_env(void) {
     }
     if (test_mode & 2) {
         // Enable debug intent
+        lsu_write_32(STDOUT, 0x167F);
         lsu_write_32(STDOUT, 0x127F);
     } else {
         // Disable debug intent
+        lsu_write_32(STDOUT, 0x177F);
         lsu_write_32(STDOUT, 0x137F);
     }
 }
@@ -76,7 +78,11 @@ void main(void) {
         REG_GROUP_CONTROL,
         REG_GROUP_MBOX,
         REG_GROUP_MBOX_RW1S,
-        REG_GROUP_DBG_MANUF_SERVICE
+        REG_GROUP_DBG_MANUF_SERVICE,
+        REG_GROUP_TRNG,
+        REG_GROUP_TRNG_RW1S,
+        REG_GROUP_FUSE,
+        REG_GROUP_FUSE_RW1S
     };
 
     const int num_groups =  sizeof(ifc_reg_groups) / sizeof(ifc_reg_groups[0]);

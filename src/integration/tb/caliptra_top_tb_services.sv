@@ -329,6 +329,8 @@ module caliptra_top_tb_services
     //      16'h187F        - Switch to debug unlocked
     //      16'h197F        - Switch to debug locked
     //      16'h1A7F        - Force re-enable fuse write
+    //      16'h1B7F        - Force unlock caliptra security state
+    //      16'h1C7F        - Release unlock caliptra security state
     //         8'h80: 8'h87 - Inject ECC_SEED to kv_key register
     //         8'h88        - Toggle recovery interface emulation in AXI complex
     //         8'h89        - Use same msg in SHA512 digest for ECC/MLDSA PCR signing (used where both cryptos are running in parallel)
@@ -459,6 +461,11 @@ module caliptra_top_tb_services
             force `CPTRA_TOP_PATH.soc_ifc_top1.soc_ifc_reg_hwif_in.SS_DEBUG_INTENT.debug_intent.next = 1'h1;
         end else if ((WriteData[15:0] == 16'h177F) && mailbox_write) begin
             release `CPTRA_TOP_PATH.soc_ifc_top1.soc_ifc_reg_hwif_in.SS_DEBUG_INTENT.debug_intent.next;
+        end
+        if ((WriteData[15:0] == 16'h1B7F) && mailbox_write) begin
+            force `CPTRA_TOP_PATH.unlock_caliptra_security_state = 1'h1;
+        end else if ((WriteData[15:0] == 16'h1C7F) && mailbox_write) begin
+            release `CPTRA_TOP_PATH.unlock_caliptra_security_state;
         end
     end
 

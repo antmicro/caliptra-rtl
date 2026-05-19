@@ -74,7 +74,7 @@ uint32_t xorshift32(void)
 
 // Array of register with non-zero initial values
 const ifc_reg_def_value_t reg_init_values[] = {
-    {CLP_SOC_IFC_REG_CPTRA_HW_REV_ID, 0x00000402},
+    {CLP_SOC_IFC_REG_CPTRA_HW_REV_ID, 0x00010402},
     {CLP_SOC_IFC_REG_CPTRA_HW_CONFIG, 0x00000011},
     {CLP_SOC_IFC_REG_SS_CALIPTRA_BASE_ADDR_L, 0xBA5EBA11},  // Set in caliptra_top_tb.sv
     {CLP_SOC_IFC_REG_CPTRA_SECURITY_STATE,    0x00000007},  // Base TB configuration is locked production
@@ -87,6 +87,7 @@ const ifc_reg_def_value_t reg_init_values[] = {
     {CLP_SOC_IFC_REG_CPTRA_MBOX_VALID_AXI_USER_3, 0xFFFFFFFF},
     {CLP_SOC_IFC_REG_CPTRA_MBOX_VALID_AXI_USER_4, 0xFFFFFFFF},
     {CLP_SOC_IFC_REG_CPTRA_TRNG_VALID_AXI_USER,   0xFFFFFFFF},
+    {CLP_SOC_IFC_REG_CPTRA_FUSE_VALID_AXI_USER,   0xFFFFFFFF},
     {CLP_SOC_IFC_REG_CPTRA_WDT_TIMER1_TIMEOUT_PERIOD_0, 0xFFFFFFFF},
     {CLP_SOC_IFC_REG_CPTRA_WDT_TIMER1_TIMEOUT_PERIOD_1, 0xFFFFFFFF},
     {CLP_SOC_IFC_REG_CPTRA_WDT_TIMER2_TIMEOUT_PERIOD_0, 0xFFFFFFFF},
@@ -260,7 +261,6 @@ const ifc_register_info_t REG_GROUP_FW_PULSE_RW1S_ARRAY [] = {
 };
 const ifc_register_info_t REG_GROUP_TRNG_ARRAY [] = {
     { CLP_SOC_IFC_REG_CPTRA_TRNG_VALID_AXI_USER, REG_EXT_LOCK, true },
-    { CLP_SOC_IFC_REG_CPTRA_TRNG_CTRL, REG_NOT_STICKY, false },
     { CLP_SOC_IFC_REG_CPTRA_TRNG_STATUS, REG_NOT_STICKY, false },
     { CLP_SOC_IFC_REG_CPTRA_ITRNG_ENTROPY_CONFIG_0, REG_NOT_STICKY, false },
     { CLP_SOC_IFC_REG_CPTRA_ITRNG_ENTROPY_CONFIG_1, REG_NOT_STICKY, false },
@@ -268,6 +268,10 @@ const ifc_register_info_t REG_GROUP_TRNG_ARRAY [] = {
 };
 const ifc_register_info_t REG_GROUP_TRNG_RW1S_ARRAY [] = {
     { CLP_SOC_IFC_REG_CPTRA_TRNG_AXI_USER_LOCK, REG_SELF_LOCK_NON_ZERO, false },
+    { 0, REG_NOT_STICKY, false }  // End marker
+};
+const ifc_register_info_t REG_GROUP_TRNG_PULSE_RW1S_ARRAY [] = {
+    { CLP_SOC_IFC_REG_CPTRA_TRNG_CTRL, REG_NOT_STICKY, false },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_TRNG_RO_ARRAY [] = {
@@ -286,7 +290,7 @@ const ifc_register_info_t REG_GROUP_TRNG_RO_ARRAY [] = {
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_FUSE_ARRAY [] = {
-    { CLP_SOC_IFC_REG_CPTRA_FUSE_VALID_AXI_USER, REG_EXT_LOCK, true },
+    { CLP_SOC_IFC_REG_CPTRA_FUSE_VALID_AXI_USER, REG_EXT_LOCK_STICKY, true },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_FUSE_RW1S_ARRAY [] = {
@@ -534,6 +538,8 @@ const ifc_register_info_t *register_groups[] = {
     &REG_GROUP_TRNG_ARRAY,
     // REG_GROUP_TRNG_RW1S
     &REG_GROUP_TRNG_RW1S_ARRAY,
+    // REG_GROUP_TRNG_PULSE_RW1S
+    &REG_GROUP_TRNG_PULSE_RW1S_ARRAY,
     // REG_GROUP_TRNG_RO
     &REG_GROUP_TRNG_RO_ARRAY,
     // REG_GROUP_FUSE
@@ -844,7 +850,7 @@ void init_reg_exp_dict(ifc_reg_exp_dict_t *dict) {
     }
 
     if (group_index == REG_GROUP_DBG_MANUF_SERVICE) {
-        const ifc_register_info_t *debug_intent_reg = get_register_info(REG_GROUP_STRAPS_RO, 12);
+        const ifc_register_info_t *debug_intent_reg = get_register_info(REG_GROUP_STRAPS_RO_RO, 0);
         bool debug_intent = ifc_reg_read(debug_intent_reg->address) & SOC_IFC_REG_SS_DEBUG_INTENT_DEBUG_INTENT_MASK;
         if (reg_index == 0) {
             const ifc_register_info_t *sec_state_reg = get_register_info(REG_GROUP_SECURITY_RO, 0);
@@ -998,7 +1004,7 @@ int get_reg_exp_data(ifc_reg_exp_dict_t *dict, uint32_t address, uint32_t *value
 uint32_t get_known_register_value(uint32_t reg_addr) {
     switch (reg_addr) {
         case CLP_SOC_IFC_REG_CPTRA_HW_REV_ID:
-            return 0x00000402;  // Caliptra Version 2.0.4
+            return 0x00010402;  // Caliptra Version 2.0.4, stepping ID = 1
 
         default:
             return 0x00000000;
@@ -1614,12 +1620,17 @@ void init_mask_dict(void) {
             SOC_IFC_REG_CPTRA_FLOW_STATUS_MAILBOX_FLOW_DONE_MASK);
     add_mask_entry(CLP_SOC_IFC_REG_CPTRA_TRNG_STATUS,
             SOC_IFC_REG_CPTRA_TRNG_STATUS_DATA_REQ_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_CPTRA_TRNG_AXI_USER_LOCK,
+            SOC_IFC_REG_CPTRA_TRNG_AXI_USER_LOCK_LOCK_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_CPTRA_FUSE_AXI_USER_LOCK,
+            SOC_IFC_REG_CPTRA_FUSE_AXI_USER_LOCK_LOCK_MASK);
     add_mask_entry(CLP_SOC_IFC_REG_SS_DBG_MANUF_SERVICE_REG_REQ, 0);
     add_mask_entry(CLP_SOC_IFC_REG_SS_DBG_MANUF_SERVICE_REG_RSP,
             SOC_IFC_REG_SS_DBG_MANUF_SERVICE_REG_RSP_UDS_PROGRAM_SUCCESS_MASK |
             SOC_IFC_REG_SS_DBG_MANUF_SERVICE_REG_RSP_UDS_PROGRAM_FAIL_MASK |
             SOC_IFC_REG_SS_DBG_MANUF_SERVICE_REG_RSP_UDS_PROGRAM_IN_PROGRESS_MASK |
             SOC_IFC_REG_SS_DBG_MANUF_SERVICE_REG_RSP_TAP_MAILBOX_AVAILABLE_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_CPTRA_TRNG_CTRL, SOC_IFC_REG_CPTRA_TRNG_CTRL_CLEAR_MASK);
     add_mask_entry(CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_LOCK,
             SOC_IFC_REG_CPTRA_OWNER_PK_HASH_LOCK_LOCK_MASK);
     add_mask_entry(CLP_SOC_IFC_REG_FUSE_ECC_REVOCATION,

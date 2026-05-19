@@ -48,6 +48,7 @@ void main(void) {
     VPRINTF(LOW, "==================\nIFC RO Registers Test\n==================\n\n");
 
     ifc_register_group_t ro_reg_groups[] = {
+        REG_GROUP_KNOWN_VALUES,
         REG_GROUP_CAPABILITIES_RO,
         REG_GROUP_STRAPS_RO,
         REG_GROUP_STRAPS_RO_RO,
