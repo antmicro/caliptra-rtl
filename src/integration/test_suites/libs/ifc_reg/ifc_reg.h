@@ -27,6 +27,8 @@ extern ifc_reg_exp_dict_t g_expected_data_dict;
 uint32_t ifc_reg_read(uint32_t reg_addr);
 void ifc_reg_write(uint32_t reg_addr, uint32_t value);
 
+uint32_t xorshift32(void);
+
 const ifc_register_info_t* find_register_by_address(uint32_t address, ifc_register_group_t *group_index, int *reg_index, ifc_register_group_t start_index);
 int get_total_register_count(void);
 void init_reg_exp_dict(ifc_reg_exp_dict_t *dict);
