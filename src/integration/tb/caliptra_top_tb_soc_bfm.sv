@@ -67,7 +67,14 @@ import caliptra_top_tb_pkg::*; #(
     input logic        axi_write,
     input logic        axi_read,
     input logic        axi_put_status,
-    input logic        axi_put_rdata
+    input logic        axi_put_rdata,
+
+    //UDS access
+    input logic       get_uds_value,
+    input logic [2:0] uds_idx,
+    //FE access
+    input logic       get_fe_value,
+    input logic [1:0] fe_idx
 
 );
     localparam FW_NUM_DWORDS         = 256;
@@ -557,6 +564,21 @@ import caliptra_top_tb_pkg::*; #(
             generic_input_wires <= {axi_buser, {29{1'b0}}, axi_resp, done};
         end else if (axi_put_rdata) begin
             generic_input_wires <= {32'b0, axi_rdata};
+        end
+    end
+
+    always @(posedge core_clk) begin
+        if (get_uds_value) begin
+            generic_input_wires <= {
+                `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.fuse_uds_seed[(4'(uds_idx) << 1)].seed.value,
+                `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.fuse_uds_seed[(4'(uds_idx) << 1) + 4'h1].seed.value
+            };
+        end
+        if (get_fe_value) begin
+            generic_input_wires <= {
+                `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.fuse_field_entropy[(3'(fe_idx) << 1)].seed.value,
+                `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.fuse_field_entropy[(3'(fe_idx) << 1) + 3'h1].seed.value
+            };
         end
     end
 

@@ -136,6 +136,14 @@ end
     logic        put_status;
     logic        put_rdata;
 
+    // UDS access
+    logic       get_uds_value;
+    logic [2:0] uds_idx;
+
+    // FE access
+    logic       get_fe_value;
+    logic [1:0] fe_idx;
+
     //Control singlas
     logic debug_intent;
 
@@ -194,7 +202,15 @@ caliptra_top_tb_soc_bfm soc_bfm_inst (
     .axi_write(write),
     .axi_read(read),
     .axi_put_status(put_status),
-    .axi_put_rdata(put_rdata)
+    .axi_put_rdata(put_rdata),
+
+    // UDS access
+    .get_uds_value(get_uds_value),
+    .uds_idx(uds_idx),
+
+    // FE access
+    .get_fe_value(get_fe_value),
+    .fe_idx(fe_idx)
 );
 
 // JTAG DPI
@@ -390,6 +406,14 @@ caliptra_top_tb_services #(
     .axi_read(read),
     .axi_put_status(put_status),
     .axi_put_rdata(put_rdata),
+
+    // UDS access
+    .get_uds_value(get_uds_value),
+    .uds_idx(uds_idx),
+
+    // FE access
+    .get_fe_value(get_fe_value),
+    .fe_idx(fe_idx),
 
     //Control singlas
     .debug_intent(debug_intent)

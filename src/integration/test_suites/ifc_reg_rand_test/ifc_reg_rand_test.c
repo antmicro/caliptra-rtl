@@ -63,7 +63,7 @@ void set_env(void) {
 }
 
 void main(void) {
-
+    bool was_zero = ifc_reg_read(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0) == 0;
     rst_count++;
     VPRINTF(LOW, "----------------\nrst count = %d\n----------------\n", rst_count);
 
@@ -82,7 +82,8 @@ void main(void) {
         REG_GROUP_TRNG,
         REG_GROUP_TRNG_RW1S,
         REG_GROUP_FUSE,
-        REG_GROUP_FUSE_RW1S
+        REG_GROUP_FUSE_RW1S,
+        REG_GROUP_ERROR
     };
 
     const int num_groups =  sizeof(ifc_reg_groups) / sizeof(ifc_reg_groups[0]);
@@ -90,6 +91,7 @@ void main(void) {
     if (rst_count == 1) {
         test_mode = xorshift32() & 3;
         ifc_init();
+        // Handle manually as random value can trigger unexpected behavior
         exclude_register(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0);
         set_env();
 
@@ -101,6 +103,11 @@ void main(void) {
 
             // Read registers and verify data matches
             error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, COLD_RESET);
+        }
+
+        ifc_reg_write(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0xFFFFFF7F);
+        if (ifc_reg_read(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0) != 0xFFFFFF7F) {
+            error_count += 1;
         }
 
         // Issue warm reset
@@ -126,6 +133,14 @@ void main(void) {
             error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, WARM_RESET);
         }
 
+        if (!was_zero) {
+            error_count += 1;
+        }
+        ifc_reg_write(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0xFFFFFF7F);
+        if (ifc_reg_read(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0) != 0xFFFFFF7F) {
+            error_count += 1;
+        }
+
         // Issue cold reset
         SEND_STDOUT_CTRL(TB_CMD_COLD_RESET);
 
@@ -141,6 +156,9 @@ void main(void) {
 
             // Read registers and verify data matches
             error_count += read_register_group_and_verify(group, &g_expected_data_dict, true, COLD_RESET);
+        }
+        if (!was_zero) {
+            error_count += 1;
         }
     }
 

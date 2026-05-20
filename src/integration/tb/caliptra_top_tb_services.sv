@@ -94,6 +94,14 @@ module caliptra_top_tb_services
     output logic        axi_put_status,
     output logic        axi_put_rdata,
 
+    // UDS access
+    output logic        get_uds_value,
+    output logic [2:0]  uds_idx,
+
+    // FE access
+    output logic        get_fe_value,
+    output logic [1:0]  fe_idx,
+
     //Control singlas
     output logic        debug_intent
 );
@@ -331,6 +339,18 @@ module caliptra_top_tb_services
     //      16'h1A7F        - Force re-enable fuse write
     //      16'h1B7F        - Force unlock caliptra security state
     //      16'h1C7F        - Release unlock caliptra security state
+    //      16'h207F        - Get UDS[0] and UDS[1] value from HW
+    //      16'h217F        - Get UDS[2] and UDS[3] value from HW
+    //      16'h227F        - Get UDS[4] and UDS[5] value from HW
+    //      16'h237F        - Get UDS[6] and UDS[7] value from HW
+    //      16'h247F        - Get UDS[8] and UDS[9] value from HW
+    //      16'h257F        - Get UDS[10] and UDS[11] value from HW
+    //      16'h267F        - Get UDS[12] and UDS[13] value from HW
+    //      16'h277F        - Get UDS[14] and UDS[15] value from HW
+    //      16'h307F        - Get FE[0] and FE[1] value from HW
+    //      16'h317F        - Get FE[2] and FE[3] value from HW
+    //      16'h327F        - Get FE[4] and FE[5] value from HW
+    //      16'h337F        - Get FE[6] and FE[7] value from HW
     //      16'h807F        - Inject a random key into Nth kv slot (where slot is encoded as (N & 0x1F) << 8)
     //         8'h80: 8'h87 - Inject ECC_SEED to kv_key register
     //         8'h88        - Toggle recovery interface emulation in AXI complex
@@ -467,6 +487,32 @@ module caliptra_top_tb_services
             force `CPTRA_TOP_PATH.unlock_caliptra_security_state = 1'h1;
         end else if ((WriteData[15:0] == 16'h1C7F) && mailbox_write) begin
             release `CPTRA_TOP_PATH.unlock_caliptra_security_state;
+        end
+    end
+
+    always @(negedge clk or negedge cptra_rst_b) begin
+        if      (!cptra_rst_b) begin
+            get_uds_value <= 1'b0;
+            uds_idx <= 3'h0;
+        end
+        else if ((WriteData[15:0] inside {16'h207F, 16'h217F, 16'h227F, 16'h237F, 16'h247F, 16'h257F, 16'h267F, 16'h277F}) && mailbox_write) begin
+            get_uds_value <= 1'b1;
+            uds_idx <= WriteData[10:8];
+        end else begin
+            get_uds_value <= 1'b0;
+        end
+    end
+
+    always @(negedge clk or negedge cptra_rst_b) begin
+        if      (!cptra_rst_b) begin
+            get_fe_value <= 1'b0;
+            fe_idx <= 2'h0;
+        end
+        else if ((WriteData[15:0] inside {16'h307F, 16'h317F, 16'h327F, 16'h337F}) && mailbox_write) begin
+            get_fe_value <= 1'b1;
+            fe_idx <= WriteData[9:8];
+        end else begin
+            get_fe_value <= 1'b0;
         end
     end
 

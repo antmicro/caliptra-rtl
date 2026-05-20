@@ -1238,6 +1238,20 @@ int read_register_group_and_verify(ifc_register_group_t group, ifc_reg_exp_dict_
 
             // Read the register value
             read_data = ifc_reg_read(reg->address);
+            if (group == REG_GROUP_UDS_RO) {
+                const ifc_register_info_t *cmd_reg = get_register_info(REG_GROUP_GENERIC_WIRES, 0);
+                const ifc_register_info_t *rsp_reg0 = get_register_info(REG_GROUP_GENERIC_WIRES_RO, 0);
+                const ifc_register_info_t *rsp_reg1 = get_register_info(REG_GROUP_GENERIC_WIRES_RO, 1);
+                ifc_reg_write(cmd_reg->address, 0x207F | ((i << 7) & 0xF00));
+                read_data = i & 1 ? ifc_reg_read(rsp_reg0->address): ifc_reg_read(rsp_reg1->address);
+            }
+            if (group == REG_GROUP_FIELD_ENTROPY_RO) {
+                const ifc_register_info_t *cmd_reg = get_register_info(REG_GROUP_GENERIC_WIRES, 0);
+                const ifc_register_info_t *rsp_reg0 = get_register_info(REG_GROUP_GENERIC_WIRES_RO, 0);
+                const ifc_register_info_t *rsp_reg1 = get_register_info(REG_GROUP_GENERIC_WIRES_RO, 1);
+                ifc_reg_write(cmd_reg->address, 0x307F | ((i << 7) & 0xF00));
+                read_data = i & 1 ? ifc_reg_read(rsp_reg0->address): ifc_reg_read(rsp_reg1->address);
+            }
 
             // Get expected data from dictionary
             if (reset) {
