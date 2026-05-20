@@ -531,7 +531,7 @@ void main() {
         // Flip the bit using XOR
         msg[msg_dword_index] ^= mask;
 
-        printf("flip bit [%x] to msg dword %x!\n", msg_bit_offset, msg_dword_index);
+        printf("flip bit [%d] to msg dword 0x%x!\n", msg_bit_offset, msg_dword_index);
     }
     else if(select_input_random == 1) {
         printf("\n Manipulating the public key\n");
@@ -546,7 +546,7 @@ void main() {
         // Flip the bit using XOR
         pubkey[pubkey_dword_index] ^= mask;
 
-        printf("flip bit [%x] to public key dword %x!\n", pubkey_bit_offset, pubkey_dword_index);
+        printf("flip bit [%d] to public key dword 0x%x!\n", pubkey_bit_offset, pubkey_dword_index);
     }
     else if(select_input_random == 2) {
         printf("\n Manipulating the signature\n");
@@ -561,22 +561,23 @@ void main() {
         // Flip the bit using XOR
         sign[sign_dword_index] ^= mask;
 
-        printf("flip bit [%x] to signature dword %x!\n", sign_bit_offset, sign_dword_index);
+        printf("flip bit [%d] to signature dword 0x%x!\n", sign_bit_offset, sign_dword_index);
     }
     else if(select_input_random == 3) {
         printf("\n Manipulating the h section of signature\n");
 
         // Select a random coefficient to make invalid
-        uint32_t h_random_index = rand() % 21; // omega+k+1(additional byte)=75+8+1=84 bytes = 21 Dwords
+        uint32_t h_random_index = rand() % (83*8); // omega+k=75+8=83 bytes
+        h_random_index += 8; // skip final padding byte
         uint32_t h_dword_index = h_random_index / 32;
         uint32_t h_bit_offset = h_random_index % 32;
 
-        mask = 1 << h_bit_offset;
+        mask = 1 << (31 - h_bit_offset);    // padding byte is MSB, so count from top
 
         // Flip the bit using XOR
-        sign[h_dword_index] ^= mask;
+        sign[MLDSA87_SIGN_SIZE-h_dword_index-1] ^= mask;
 
-        printf("flip bit [%x] to signature dword %x!\n", h_bit_offset, h_dword_index);
+        printf("flip bit [%d] to signature dword 0x%x!\n", h_bit_offset, h_dword_index);
     }
 
     /* VERIFY OPERATION*/
