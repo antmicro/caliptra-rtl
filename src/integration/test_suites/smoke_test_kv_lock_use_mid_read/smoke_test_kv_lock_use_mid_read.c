@@ -54,13 +54,11 @@ volatile uint32_t intr_count = 0;
 
 volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 
-void main() {
+volatile uint32_t rst_count __attribute__((section(".dccm.persistent"))) = 0;
+
+void do_main_test() {
     uint32_t status;
     uint32_t error_field;
-
-    VPRINTF(LOW, "============================================================\n");
-    VPRINTF(LOW, " KV lock_use Mid-Read Fault Capture Test\n");
-    VPRINTF(LOW, "============================================================\n");
 
     for (uint8_t test_slot = 0; test_slot < 24; ++test_slot) {
 
@@ -171,12 +169,44 @@ void main() {
         }
         VPRINTF(LOW, "[PASS] lock_use is sticky -- cannot be cleared by SW\n");
     }
+}
 
-    // ------------------------------------------------------------------
-    // Done
-    // ------------------------------------------------------------------
-    VPRINTF(LOW, "\n============================================================\n");
-    VPRINTF(LOW, " ALL CHECKS PASSED\n");
+void main() {
     VPRINTF(LOW, "============================================================\n");
-    SEND_STDOUT_CTRL(0xff);
+    VPRINTF(LOW, " KV lock_use Mid-Read Fault Capture Test\n");
+    VPRINTF(LOW, "============================================================\n");
+
+    if (rst_count == 0) {
+        do_main_test();
+
+        VPRINTF(LOW, "[TEST] Resetting the device...\n");
+        rst_count++;
+        SEND_STDOUT_CTRL(0xf6); //Issue warm reset
+    } else if (rst_count == 1) {
+        // ------------------------------------------------------------------
+        // Step 7: Verify that lock_use was cleared on the warm reset
+        // ------------------------------------------------------------------
+
+        for (uint8_t test_slot = 0; test_slot < 24; ++test_slot) {
+            uintptr_t key_ctrl_addr = CLP_KV_REG_KEY_CTRL_0 + (test_slot * 4);
+            uint32_t key_ctrl_readback = lsu_read_32(key_ctrl_addr);
+
+            if (key_ctrl_readback & KV_REG_KEY_CTRL_0_LOCK_USE_MASK) {
+                VPRINTF(ERROR, "[FAIL] lock_use %d was not cleared by reset!\n", test_slot);
+                SEND_STDOUT_CTRL(0x01);
+                while(1);
+            }
+            VPRINTF(LOW, "[PASS] lock_use %d is cleared by device reset\n", test_slot);
+        }
+        // ------------------------------------------------------------------
+        // Done
+        // ------------------------------------------------------------------
+        VPRINTF(LOW, "\n============================================================\n");
+        VPRINTF(LOW, " ALL CHECKS PASSED\n");
+        VPRINTF(LOW, "============================================================\n");
+        SEND_STDOUT_CTRL(0xff);
+    } else {
+        VPRINTF(LOW, "[FAIL] Unexpected number of resets %d\n", rst_count);
+        SEND_STDOUT_CTRL(0x1);
+    }
 }
