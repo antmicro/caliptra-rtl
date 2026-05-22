@@ -57,6 +57,7 @@ void nmi_handler (void) {
     }
     else {
         VPRINTF(ERROR, "Unexpected entry into NMI handler function!\n");
+        SEND_STDOUT_CTRL(0x1);
     }
 
 }
@@ -100,13 +101,9 @@ void main() {
     else if (rst_count == 3) {
         //Release forced timer periods from tb so test can set them
         SEND_STDOUT_CTRL(0xf1);
-        // configure_wdt_cascade(0x200, 0x00, 0xffffffff, 0xffffffff);
-        // set_t2_period(0x00000200, 0x00000000);
-        configure_wdt_independent(BOTH_TIMERS_EN, 0x200, 0x00000000, 0x200, 0x00000000);
-        //Enable WDT timer2
-        // *wdt_timer2_en = SOC_IFC_REG_CPTRA_WDT_TIMER2_EN_TIMER2_EN_MASK;
     
         VPRINTF(LOW, "Independent mode - both timers enabled - warm rst\n");
+        configure_wdt_independent(BOTH_TIMERS_EN, 0x200, 0x00000000, 0x200, 0x00000000);
         
         VPRINTF(LOW, "Stall until timer1 times out\n");
         service_t1_intr();
@@ -122,14 +119,10 @@ void main() {
     else if (rst_count == 4) {
         //Release forced timer periods from tb so test can set them
         SEND_STDOUT_CTRL(0xf1);
-        // configure_wdt_cascade(0x200, 0x00, 0xffffffff, 0xffffffff);
-        configure_wdt_independent(BOTH_TIMERS_EN, 0x200, 0x00000000, 0x200, 0x00000000);
-    
+
         VPRINTF(LOW, "Independent mode - both timers enabled - cold rst\n");
-        //Enable WDT timer1
-        // *wdt_timer2_en = SOC_IFC_REG_CPTRA_WDT_TIMER2_EN_TIMER2_EN_MASK;
-        // set_t2_period(0x00000200, 0x00000000);
-        
+        configure_wdt_independent(BOTH_TIMERS_EN, 0x200, 0x00000000, 0x200, 0x00000000);
+
         VPRINTF(LOW, "Stall until timer1 times out\n");
         service_t1_intr();
         *wdt_timer1_en = 0;
@@ -143,27 +136,17 @@ void main() {
     else if (rst_count == 5) {
         //Release forced timer periods from tb so test can set them
         SEND_STDOUT_CTRL(0xf1);
-        configure_wdt_cascade(0x200, 0x00, 0xffffffff, 0xffffffff);
         VPRINTF(LOW, "Cascaded mode with timer2 timeout - NMI - cold rst\n");
-        *wdt_timer1_en = 0x0;
-        *wdt_timer2_en = 0x0;
-//        *wdt_timer1_ctrl = 0x1; //restart counter so timer1 can start counting
-        
-        set_t2_period(0x00000200, 0x00000000);
-
-        *wdt_timer1_en = 0x1;
-        *wdt_timer1_ctrl = 0x1; //restart counter so timer1 can start counting
+        configure_wdt_cascade(0x200, 0x00, 0x200, 0x00);
         
         VPRINTF(LOW, "Stall until timer1 times out\n");
         VPRINTF(LOW, "Stall until timer2 times out\n");
-        // while (!(lsu_read_32(SOC_IFC_REG_CPTRA_WDT_STATUS) & SOC_IFC_REG_CPTRA_WDT_STATUS_T2_TIMEOUT_MASK));
-        // service_t2_intr();
+
         while(!(lsu_read_32(CLP_SOC_IFC_REG_CPTRA_HW_ERROR_FATAL) & SOC_IFC_REG_CPTRA_HW_ERROR_FATAL_NMI_PIN_MASK));
 
-        //Not executed since handler issues reset
-        //Issue warm reset after NMI as per spec
-        // VPRINTF(LOW, "Issuing reset in response to NMI (t2 timeout)\n");
-        // SEND_STDOUT_CTRL(0xf5);
+        // NMI handler should have reset the platform by now
+        VPRINTF(ERROR, "NMI handler returned!\n");
+        SEND_STDOUT_CTRL(0x1);
     }
     else if (rst_count == 6) {
         //Release forced timer periods from tb so test can set them
@@ -188,9 +171,8 @@ void main() {
     else if (rst_count == 7) {
         //Release forced timer periods from tb so test can set them
         SEND_STDOUT_CTRL(0xf1);
+
         VPRINTF(LOW, "Independent mode - timer2 enabled, timer1 disabled - cold rst\n");
-        // *wdt_timer2_en = SOC_IFC_REG_CPTRA_WDT_TIMER2_EN_TIMER2_EN_MASK;
-        // set_t2_period(0x00000200, 0x00000000);
         configure_wdt_independent(T1_DIS_T2_EN, 0x200, 0x00000000, 0x200, 0x00000000);
         
         VPRINTF(LOW, "Stall until timer2 times out\n");
@@ -217,7 +199,7 @@ void main() {
         SEND_STDOUT_CTRL(0xf6);
     }
     else if (rst_count == 11) {
-        //Issue warm reset during WDT operation
+        //Issue cold reset during WDT operation
         //WDT cascade mode
         configure_wdt_independent(BOTH_TIMERS_EN, 0x200, 0x00000000, 0x34, 0x00000000);
         SEND_STDOUT_CTRL(0xf5);
@@ -229,7 +211,7 @@ void main() {
         SEND_STDOUT_CTRL(0xf6);
     }
     else if (rst_count == 13) {
-        //Issue warm reset during WDT operation
+        //Issue cold reset during WDT operation
         //WDT cascade mode
         configure_wdt_independent(T1_DIS_T2_EN, 0x200, 0x00000000, 0x200, 0x00000000);
         SEND_STDOUT_CTRL(0xf5);
