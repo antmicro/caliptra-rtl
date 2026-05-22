@@ -74,7 +74,10 @@ import caliptra_top_tb_pkg::*; #(
     input logic [2:0] uds_idx,
     //FE access
     input logic       get_fe_value,
-    input logic [1:0] fe_idx
+    input logic [1:0] fe_idx,
+    // KV check cleared
+    input logic        check_kv_clear,
+    input logic [4:0]  kv_idx
 
 );
     localparam FW_NUM_DWORDS         = 256;
@@ -567,6 +570,15 @@ import caliptra_top_tb_pkg::*; #(
         end
     end
 
+    logic[15:0] kv_slot_is_clear [24];
+    generate
+        for(genvar i0=0; i0<24; i0++) begin
+            for(genvar i1=0; i1<16; i1++) begin
+                assign kv_slot_is_clear[i0][i1] = |`CPTRA_TOP_PATH.key_vault1.kv_reg1.field_storage.KEY_ENTRY[i0][i1].data.value;
+            end
+        end
+    endgenerate
+
     always @(posedge core_clk) begin
         if (get_uds_value) begin
             generic_input_wires <= {
@@ -579,6 +591,9 @@ import caliptra_top_tb_pkg::*; #(
                 `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.fuse_field_entropy[(3'(fe_idx) << 1)].seed.value,
                 `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.fuse_field_entropy[(3'(fe_idx) << 1) + 3'h1].seed.value
             };
+        end
+        if (check_kv_clear) begin
+            generic_input_wires <= { {48{1'b0}}, kv_slot_is_clear[kv_idx]};
         end
     end
 

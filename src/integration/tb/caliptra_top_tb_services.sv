@@ -102,7 +102,11 @@ module caliptra_top_tb_services
     output logic        get_fe_value,
     output logic [1:0]  fe_idx,
 
-    //Control singlas
+    // KV check cleared
+    output logic        check_kv_clear,
+    output logic [4:0]  kv_idx,
+
+    //Control signals
     output logic        debug_intent
 );
 
@@ -351,7 +355,8 @@ module caliptra_top_tb_services
     //      16'h317F        - Get FE[2] and FE[3] value from HW
     //      16'h327F        - Get FE[4] and FE[5] value from HW
     //      16'h337F        - Get FE[6] and FE[7] value from HW
-    //      16'h807F        - Inject a random key into Nth kv slot (where slot is encoded as (N & 0x1F) << 8)
+    //      16'h807F:'h9F7F - Inject a valid hmac_key dest and hmac512_key into Nth kv slot (where slot is encoded as (N & 0x1F) << 8)
+    //      16'hA07F:'hBF7F - Check if Nth kv slot (where slot is encoded as (N & 0x1F) << 8) is all zero
     //         8'h80: 8'h87 - Inject ECC_SEED to kv_key register
     //         8'h88        - Toggle recovery interface emulation in AXI complex
     //         8'h89        - Use same msg in SHA512 digest for ECC/MLDSA PCR signing (used where both cryptos are running in parallel)
@@ -660,13 +665,32 @@ module caliptra_top_tb_services
     always_comb ecc_privkey_random = {ecc_test_vector.privkey, 128'h_00000000000000000000000000000000};
     always_comb mldsa_seed_random = change_endian({256'h0, mldsa_test_vector.seed});
 
-    genvar dword_i, slot_id;
-    generate 
-        for (slot_id=0; slot_id < 24; slot_id++) begin : inject_slot_loop
-            for (dword_i=0; dword_i < 16; dword_i++) begin : inject_dword_loop
+    generate
+        // Check if n-th KV slot is zeroed
+        for (genvar slot_id=0; slot_id < 24; slot_id++) begin : kv_check_zero_slot_loop
+            for (genvar dword_i=0; dword_i < 16; dword_i++) begin : kv_check_zero_dword_loop
+                always @(negedge clk or negedge cptra_rst_b) begin
+                    if (!cptra_rst_b) begin
+                        kv_idx <= '0;
+                        check_kv_clear <= '0;
+                    end
+                    else if(((WriteData[15:0] & 16'hE07F) == 16'hA07F) && mailbox_write) begin
+                        kv_idx <= (WriteData[15:0] & 16'h1F00) >> 8;
+                        check_kv_clear <= '1;
+                    end else begin
+                        check_kv_clear <= '0;
+                    end
+                end
+            end
+        end
+    endgenerate
+
+    generate
+        for (genvar slot_id=0; slot_id < 24; slot_id++) begin : inject_slot_loop
+            for (genvar dword_i=0; dword_i < 16; dword_i++) begin : inject_dword_loop
                 always @(negedge clk) begin
                     //inject valid hmac_key dest and hmac512_key value to key reg (but extend the mask to permit all 24 kv slots)
-                    if(((WriteData[15:0] & 16'h807F) == 16'h807F) && mailbox_write) begin
+                    if(((WriteData[15:0] & 16'hE07F) == 16'h807F) && mailbox_write) begin
                         inject_mldsa_seed <= 1'b1;
                         if ((((WriteData[15:0] & 16'h1F00) >> 8) == slot_id)) begin
                             force `CPTRA_TOP_PATH.key_vault1.kv_reg_hwif_in.KEY_CTRL[slot_id].dest_valid.we = 1'b1;

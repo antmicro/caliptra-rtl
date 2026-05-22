@@ -144,6 +144,10 @@ end
     logic       get_fe_value;
     logic [1:0] fe_idx;
 
+    // KV check cleared
+    logic        check_kv_clear;
+    logic [4:0]  kv_idx;
+
     //Control singlas
     logic debug_intent;
 
@@ -210,7 +214,11 @@ caliptra_top_tb_soc_bfm soc_bfm_inst (
 
     // FE access
     .get_fe_value(get_fe_value),
-    .fe_idx(fe_idx)
+    .fe_idx(fe_idx),
+
+    // KV check cleared
+    .check_kv_clear(check_kv_clear),
+    .kv_idx(kv_idx)
 );
 
 // JTAG DPI
@@ -415,7 +423,11 @@ caliptra_top_tb_services #(
     .get_fe_value(get_fe_value),
     .fe_idx(fe_idx),
 
-    //Control singlas
+    // KV check cleared
+    .check_kv_clear(check_kv_clear),
+    .kv_idx(kv_idx),
+
+    //Control signals
     .debug_intent(debug_intent)
 );
 
