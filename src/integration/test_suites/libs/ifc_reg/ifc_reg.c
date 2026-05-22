@@ -57,21 +57,6 @@ void ifc_reg_write(uint32_t reg_addr, uint32_t value) {
     lsu_write_32(reg_addr, value);
 }
 
-#ifdef MY_RANDOM_SEED
-    uint32_t state = (unsigned) MY_RANDOM_SEED;
-#else
-    uint32_t state = 0xabcd;
-#endif
-
-
-uint32_t xorshift32(void)
-{
-    state ^= state << 13;
-    state ^= state >> 17;
-    state ^= state << 5;
-    return state;
-}
-
 // Array of register with non-zero initial values
 const ifc_reg_def_value_t reg_init_values[] = {
     {CLP_SOC_IFC_REG_CPTRA_HW_REV_ID, 0x00010402},
