@@ -76,7 +76,8 @@ const ifc_reg_def_value_t reg_init_values[] = {
     {CLP_SOC_IFC_REG_CPTRA_WDT_TIMER1_TIMEOUT_PERIOD_0, 0xFFFFFFFF},
     {CLP_SOC_IFC_REG_CPTRA_WDT_TIMER1_TIMEOUT_PERIOD_1, 0xFFFFFFFF},
     {CLP_SOC_IFC_REG_CPTRA_WDT_TIMER2_TIMEOUT_PERIOD_0, 0xFFFFFFFF},
-    {CLP_SOC_IFC_REG_CPTRA_WDT_TIMER2_TIMEOUT_PERIOD_1, 0xFFFFFFFF}
+    {CLP_SOC_IFC_REG_CPTRA_WDT_TIMER2_TIMEOUT_PERIOD_1, 0xFFFFFFFF},
+    {CLP_SOC_IFC_REG_INTERNAL_FW_UPDATE_RESET_WAIT_CYCLES, 0x00000005}
 };
 
 /* Group structs*/
@@ -237,7 +238,7 @@ const ifc_register_info_t REG_GROUP_GENERIC_WIRES_RO_ARRAY [] = {
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_FW_ARRAY [] = {
-    { CLP_SOC_IFC_REG_INTERNAL_FW_UPDATE_RESET_WAIT_CYCLES, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_INTERNAL_FW_UPDATE_RESET_WAIT_CYCLES, REG_NOT_STICKY, true },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
 const ifc_register_info_t REG_GROUP_FW_PULSE_RW1S_ARRAY [] = {
@@ -469,6 +470,26 @@ const ifc_register_info_t REG_GROUP_INTERRUPT_NOTIF_COUNTERS_ARRAY [] = {
     { CLP_SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_GEN_IN_TOGGLE_INTR_COUNT_R, REG_NOT_STICKY, false },
     { 0, REG_NOT_STICKY, false }  // End marker
 };
+const ifc_register_info_t REG_GROUP_INTERRUPT_ERROR_COUNTERS_INCR_RO_ARRAY [] = {
+    { CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_COUNT_INCR_R, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INV_DEV_INTR_COUNT_INCR_R, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_CMD_FAIL_INTR_COUNT_INCR_R, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_BAD_FUSE_INTR_COUNT_INCR_R, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_ICCM_BLOCKED_INTR_COUNT_INCR_R, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_MBOX_ECC_UNC_INTR_COUNT_INCR_R, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_WDT_TIMER1_TIMEOUT_INTR_COUNT_INCR_R, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_WDT_TIMER2_TIMEOUT_INTR_COUNT_INCR_R, REG_NOT_STICKY, false },
+    { 0, REG_NOT_STICKY, false }  // End marker
+};
+const ifc_register_info_t REG_GROUP_INTERRUPT_NOTIF_COUNTERS_INCR_RO_ARRAY [] = {
+    { CLP_SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_CMD_AVAIL_INTR_COUNT_INCR_R, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_MBOX_ECC_COR_INTR_COUNT_INCR_R, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_DEBUG_LOCKED_INTR_COUNT_INCR_R, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_SCAN_MODE_INTR_COUNT_INCR_R, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_SOC_REQ_LOCK_INTR_COUNT_INCR_R, REG_NOT_STICKY, false },
+    { CLP_SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_GEN_IN_TOGGLE_INTR_COUNT_INCR_R, REG_NOT_STICKY, false },
+    { 0, REG_NOT_STICKY, false }  // End marker
+};
 
 
 /* Array of register infos by group */
@@ -566,7 +587,11 @@ const ifc_register_info_t *register_groups[] = {
     // REG_GROUP_INTERRUPT_ERROR_COUNTERS
     REG_GROUP_INTERRUPT_ERROR_COUNTERS_ARRAY,
     // REG_GROUP_INTERRUPT_NOTIF_COUNTERS
-    REG_GROUP_INTERRUPT_NOTIF_COUNTERS_ARRAY
+    REG_GROUP_INTERRUPT_NOTIF_COUNTERS_ARRAY,
+    // REG_GROUP_INTERRUPT_ERROR_COUNTERS_INCR_RO
+    REG_GROUP_INTERRUPT_ERROR_COUNTERS_INCR_RO_ARRAY,
+    // REG_GROUP_INTERRUPT_NOTIF_COUNTERS_INCR_RO
+    REG_GROUP_INTERRUPT_NOTIF_COUNTERS_INCR_RO_ARRAY
 };
 
 /* Function to get a string representation of a register group */
@@ -620,6 +645,8 @@ const char* get_group_name(ifc_register_group_t group) {
         case REG_GROUP_INTERRUPT_TRIGGER_PULSE_RW1S: return "Intrpt Trigger Pulse W1S";
         case REG_GROUP_INTERRUPT_ERROR_COUNTERS: return "Err Intrpt Counters";
         case REG_GROUP_INTERRUPT_NOTIF_COUNTERS: return "Notif Intrpt Counters";
+        case REG_GROUP_INTERRUPT_ERROR_COUNTERS_INCR_RO: return "Err Intrpt Counters Increment - RO";
+        case REG_GROUP_INTERRUPT_NOTIF_COUNTERS_INCR_RO: return "Notif Intrpt Counters Increment - RO";
         default: return "Unknown";
     }
 }
@@ -1102,7 +1129,9 @@ void write_random_to_register_group_and_track(ifc_register_group_t group, ifc_re
         group == REG_GROUP_MANUF_DBG_UNLOCK_RO ||
         group == REG_GROUP_SOC_STEPPING_RO ||
         group == REG_GROUP_KEY_TYPE_RO ||
-        group == REG_GROUP_INTERRUPT_GLOBAL_STATUS_RO) {
+        group == REG_GROUP_INTERRUPT_GLOBAL_STATUS_RO ||
+        group == REG_GROUP_INTERRUPT_ERROR_COUNTERS_INCR_RO ||
+        group == REG_GROUP_INTERRUPT_NOTIF_COUNTERS_INCR_RO) {
             ro_reg = true;
         }
 
@@ -1169,7 +1198,7 @@ void write_to_register_group_and_track(ifc_register_group_t group, uint32_t writ
  * @param dict Dictionary containing expected register values
  * @return Number of registers that failed verification
  */
-int read_register_group_and_verify(ifc_register_group_t group, ifc_reg_exp_dict_t *dict, bool reset, reset_type_t reset_type) {
+int read_register_group_and_verify(ifc_register_group_t group, ifc_reg_exp_dict_t *dict, bool reset, reset_type_t reset_type, bool use_hw) {
     uint32_t read_data;
     int count = get_register_count(group);
     int mismatch_count = 0;
@@ -1204,7 +1233,9 @@ int read_register_group_and_verify(ifc_register_group_t group, ifc_reg_exp_dict_
         group == REG_GROUP_MANUF_DBG_UNLOCK_RO ||
         group == REG_GROUP_SOC_STEPPING_RO ||
         group == REG_GROUP_KEY_TYPE_RO ||
-        group == REG_GROUP_INTERRUPT_GLOBAL_STATUS_RO) {
+        group == REG_GROUP_INTERRUPT_GLOBAL_STATUS_RO ||
+        group == REG_GROUP_INTERRUPT_ERROR_COUNTERS_INCR_RO ||
+        group == REG_GROUP_INTERRUPT_NOTIF_COUNTERS_INCR_RO) {
             ro_reg = true;
         }
 
@@ -1223,14 +1254,14 @@ int read_register_group_and_verify(ifc_register_group_t group, ifc_reg_exp_dict_
 
             // Read the register value
             read_data = ifc_reg_read(reg->address);
-            if (group == REG_GROUP_UDS_RO) {
+            if (group == REG_GROUP_UDS_RO && use_hw) {
                 const ifc_register_info_t *cmd_reg = get_register_info(REG_GROUP_GENERIC_WIRES, 0);
                 const ifc_register_info_t *rsp_reg0 = get_register_info(REG_GROUP_GENERIC_WIRES_RO, 0);
                 const ifc_register_info_t *rsp_reg1 = get_register_info(REG_GROUP_GENERIC_WIRES_RO, 1);
                 ifc_reg_write(cmd_reg->address, 0x207F | ((i << 7) & 0xF00));
                 read_data = i & 1 ? ifc_reg_read(rsp_reg0->address): ifc_reg_read(rsp_reg1->address);
             }
-            if (group == REG_GROUP_FIELD_ENTROPY_RO) {
+            if (group == REG_GROUP_FIELD_ENTROPY_RO && use_hw) {
                 const ifc_register_info_t *cmd_reg = get_register_info(REG_GROUP_GENERIC_WIRES, 0);
                 const ifc_register_info_t *rsp_reg0 = get_register_info(REG_GROUP_GENERIC_WIRES_RO, 0);
                 const ifc_register_info_t *rsp_reg1 = get_register_info(REG_GROUP_GENERIC_WIRES_RO, 1);
@@ -1617,6 +1648,16 @@ void init_mask_dict(void) {
             SOC_IFC_REG_CPTRA_FLOW_STATUS_READY_FOR_MB_PROCESSING_MASK |
             SOC_IFC_REG_CPTRA_FLOW_STATUS_READY_FOR_RUNTIME_MASK |
             SOC_IFC_REG_CPTRA_FLOW_STATUS_MAILBOX_FLOW_DONE_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_INTERNAL_FW_UPDATE_RESET_WAIT_CYCLES,
+            SOC_IFC_REG_INTERNAL_FW_UPDATE_RESET_WAIT_CYCLES_WAIT_CYCLES_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_INTERNAL_HW_ERROR_FATAL_MASK,
+            SOC_IFC_REG_INTERNAL_HW_ERROR_FATAL_MASK_MASK_ICCM_ECC_UNC_MASK |
+            SOC_IFC_REG_INTERNAL_HW_ERROR_FATAL_MASK_MASK_DCCM_ECC_UNC_MASK |
+            SOC_IFC_REG_INTERNAL_HW_ERROR_FATAL_MASK_MASK_NMI_PIN_MASK);
+    add_mask_entry(CLP_SOC_IFC_REG_INTERNAL_HW_ERROR_NON_FATAL_MASK,
+            SOC_IFC_REG_INTERNAL_HW_ERROR_NON_FATAL_MASK_MASK_MBOX_PROT_NO_LOCK_MASK |
+            SOC_IFC_REG_INTERNAL_HW_ERROR_NON_FATAL_MASK_MASK_MBOX_PROT_OOO_MASK |
+            SOC_IFC_REG_INTERNAL_HW_ERROR_NON_FATAL_MASK_MASK_MBOX_ECC_UNC_MASK);
     add_mask_entry(CLP_SOC_IFC_REG_CPTRA_TRNG_STATUS,
             SOC_IFC_REG_CPTRA_TRNG_STATUS_DATA_REQ_MASK);
     add_mask_entry(CLP_SOC_IFC_REG_CPTRA_TRNG_AXI_USER_LOCK,

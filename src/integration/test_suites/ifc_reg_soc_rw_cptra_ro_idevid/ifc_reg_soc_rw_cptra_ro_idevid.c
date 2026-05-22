@@ -145,12 +145,12 @@ void main(void) {
             soc_write_random_to_register_group_and_track(group, &g_expected_data_dict);
 
             // Read registers and verify data matches
-            error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, COLD_RESET);
+            error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, COLD_RESET, false);
         }
 
         soc_write_to_register_group_and_track(REG_GROUP_FUSE_RO, 0x1, &g_expected_data_dict);
 
-        read_register_group_and_verify(REG_GROUP_FUSE_RO, &g_expected_data_dict, false, COLD_RESET);
+        read_register_group_and_verify(REG_GROUP_FUSE_RO, &g_expected_data_dict, false, COLD_RESET, false);
 
         for (int i = 0; i < num_groups; i++) {
             ifc_register_group_t group = ro_reg_groups[i];
@@ -159,13 +159,13 @@ void main(void) {
             write_random_to_register_group_and_track(group, &g_expected_data_dict);
 
             // Read registers and verify data matches
-            error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, COLD_RESET);
+            error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, COLD_RESET, false);
         }
 
         // Write 0 to CPTRA_FUSE_WR_DONE register, make sure it remains 1
         soc_write_to_register_group_and_track(REG_GROUP_FUSE_RO, 0x1, &g_expected_data_dict);
 
-        read_register_group_and_verify(REG_GROUP_FUSE_RO, &g_expected_data_dict, false, COLD_RESET);
+        read_register_group_and_verify(REG_GROUP_FUSE_RO, &g_expected_data_dict, false, COLD_RESET, false);
 
         // Issue warm reset
         SEND_STDOUT_CTRL(TB_CMD_WARM_RESET);
@@ -179,13 +179,13 @@ void main(void) {
             ifc_register_group_t group = ro_reg_groups[i];
 
             // Read registers and verify data matches
-            error_count += read_register_group_and_verify(group, &g_expected_data_dict, true, WARM_RESET);
+            error_count += read_register_group_and_verify(group, &g_expected_data_dict, true, WARM_RESET, false);
 
             // Write random values to all registers in this group
             soc_write_random_to_register_group_and_track(group, &g_expected_data_dict);
 
             // Read registers and verify data matches
-            error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, WARM_RESET);
+            error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, WARM_RESET, false);
         }
 
         // Issue cold reset
@@ -202,12 +202,12 @@ void main(void) {
             soc_write_random_to_register_group_and_track(group, &g_expected_data_dict);
 
             // Read registers and verify data matches
-            error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, COLD_RESET);
+            error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, COLD_RESET, false);
         }
 
         // Write 0 to CPTRA_FUSE_WR_DONE register, make sure it's not locked
         soc_write_to_register_group_and_track(REG_GROUP_FUSE_RO, 0x0, &g_expected_data_dict);
-        read_register_group_and_verify(REG_GROUP_FUSE_RO, &g_expected_data_dict, false, COLD_RESET);
+        read_register_group_and_verify(REG_GROUP_FUSE_RO, &g_expected_data_dict, false, COLD_RESET, false);
 
         // Loop through all RW register groups -- all registers should be unlocked
         for (int i = 0; i < num_groups; i++) {
@@ -217,7 +217,7 @@ void main(void) {
             soc_write_random_to_register_group_and_track(group, &g_expected_data_dict);
 
             // Read registers and verify data matches
-            error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, COLD_RESET);
+            error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, COLD_RESET, false);
         }
     }
 

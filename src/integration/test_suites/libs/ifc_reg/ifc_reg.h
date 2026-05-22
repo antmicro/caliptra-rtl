@@ -42,7 +42,7 @@ const char* get_group_name(ifc_register_group_t group);
 int add_mask_entry(uint32_t address, uint32_t mask);
 void write_random_to_register_group_and_track(ifc_register_group_t group, ifc_reg_exp_dict_t *dict);
 void write_to_register_group_and_track(ifc_register_group_t group, uint32_t write_data, ifc_reg_exp_dict_t *dict);
-int read_register_group_and_verify(ifc_register_group_t group, ifc_reg_exp_dict_t *dict, bool reset, reset_type_t reset_type) ;
+int read_register_group_and_verify(ifc_register_group_t group, ifc_reg_exp_dict_t *dict, bool reset, reset_type_t reset_type, bool use_hw);
 void read_register_group_and_track(ifc_register_group_t group, ifc_reg_exp_dict_t *dict);
 static void address_to_bitmap_position(uint32_t reg_addr, uint32_t *word_index, uint32_t *bit_position);
 int exclude_register(uint32_t reg_addr);

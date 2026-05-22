@@ -60,17 +60,9 @@ void main(void) {
         REG_GROUP_TRNG_RO,
         REG_GROUP_FUSE_RO,
         REG_GROUP_OWNER_PK_HASH_RO,
-        REG_GROUP_UDS_RO,
-        REG_GROUP_FIELD_ENTROPY_RO,
-        REG_GROUP_VENDOR_PK_HASH_RO,
-        REG_GROUP_ECC_REVOCATION_RO,
-        REG_GROUP_SVN_RO,
-        REG_GROUP_ANTI_ROLLBACK_RO,
-        REG_GROUP_IDEVID_RO,
-        REG_GROUP_MANUF_DBG_UNLOCK_RO,
-        REG_GROUP_SOC_STEPPING_RO,
-        REG_GROUP_KEY_TYPE_RO,
-        REG_GROUP_INTERRUPT_GLOBAL_STATUS_RO
+        REG_GROUP_INTERRUPT_GLOBAL_STATUS_RO,
+        REG_GROUP_INTERRUPT_ERROR_COUNTERS_INCR_RO,
+        REG_GROUP_INTERRUPT_NOTIF_COUNTERS_INCR_RO
     };
 
     const int num_groups =  sizeof(ro_reg_groups) / sizeof(ro_reg_groups[0]);
@@ -84,7 +76,7 @@ void main(void) {
             ifc_register_group_t group = ro_reg_groups[i];
 
             // Read registers and verify data matches
-            error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, COLD_RESET);
+            error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, COLD_RESET, false);
         }
 
         // Loop through all RO register groups
@@ -93,7 +85,7 @@ void main(void) {
             // Write random values to all registers in this group
             write_random_to_register_group_and_track(group, &g_expected_data_dict);
             // Read registers and verify data matches
-            error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, COLD_RESET);
+            error_count += read_register_group_and_verify(group, &g_expected_data_dict, false, COLD_RESET, false);
         }
 
         // Issue warm reset
@@ -108,7 +100,7 @@ void main(void) {
             ifc_register_group_t group = ro_reg_groups[i];
 
             // Read registers and verify data matches
-            error_count += read_register_group_and_verify(group, &g_expected_data_dict, true, WARM_RESET);
+            error_count += read_register_group_and_verify(group, &g_expected_data_dict, true, WARM_RESET, false);
         }
 
         // Issue cold reset
@@ -123,7 +115,7 @@ void main(void) {
             ifc_register_group_t group = ro_reg_groups[i];
 
             // Read registers and verify data matches
-            error_count += read_register_group_and_verify(group, &g_expected_data_dict, true, COLD_RESET);
+            error_count += read_register_group_and_verify(group, &g_expected_data_dict, true, COLD_RESET, false);
         }
     }
 

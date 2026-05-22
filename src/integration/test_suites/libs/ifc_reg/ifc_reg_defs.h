@@ -17,8 +17,8 @@
 
 #include <stdint.h>
 
-// IFC Register Count: 247/260
-#define MAX_REGISTER_ENTRIES 260
+// IFC Register Count: 261/270
+#define MAX_REGISTER_ENTRIES 270
 
 // Enum for register sticky behavior
 typedef enum {
@@ -125,6 +125,8 @@ typedef enum {
     REG_GROUP_INTERRUPT_TRIGGER_PULSE_RW1S,
     REG_GROUP_INTERRUPT_ERROR_COUNTERS,
     REG_GROUP_INTERRUPT_NOTIF_COUNTERS,
+    REG_GROUP_INTERRUPT_ERROR_COUNTERS_INCR_RO,
+    REG_GROUP_INTERRUPT_NOTIF_COUNTERS_INCR_RO,
     REG_GROUP_COUNT
 } ifc_register_group_t;
 
