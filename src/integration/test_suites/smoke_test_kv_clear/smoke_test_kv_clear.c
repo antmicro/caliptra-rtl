@@ -29,6 +29,8 @@ volatile uint32_t intr_count = 0;
 
 volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 
+volatile uint32_t rst_count __attribute__((section(".dccm.persistent"))) = 0;
+
 void inject_rand_key(uint8_t test_slot) {
     VPRINTF(LOW, "[SETUP] Injecting HMAC512 key into KV slot %d via TB...\n", test_slot);
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, (uint32_t)(0x807F | (test_slot << 8)));
@@ -69,10 +71,6 @@ void run_lock_clear_fail_sequence(uint8_t test_slot, int lock_wr, int lock_use) 
     uint32_t key_ctrl_addr = CLP_KV_REG_KEY_CTRL_0 + (test_slot * 4);
     uint32_t key_ctrl_val = lsu_read_32(key_ctrl_addr);
     VPRINTF(LOW, "[SETUP] KEY_CTRL[%d] = 0x%08x\n", test_slot, key_ctrl_val);
-
-    // If any of the lock values was set previously, let's clear them, so we don't have lingering locks of opposite type
-    key_ctrl_val = (key_ctrl_val & ~KV_REG_KEY_CTRL_0_LOCK_WR_MASK);
-    key_ctrl_val = (key_ctrl_val & ~KV_REG_KEY_CTRL_0_LOCK_USE_MASK);
 
     uint32_t lock_val = key_ctrl_val | (lock_wr ? KV_REG_KEY_CTRL_0_LOCK_WR_MASK : 0 ) | (lock_use ? KV_REG_KEY_CTRL_0_LOCK_USE_MASK : 0);
     lsu_write_32(key_ctrl_addr, lock_val);
@@ -137,32 +135,45 @@ void main() {
     VPRINTF(LOW, " KV Clear Keyvault Test\n");
     VPRINTF(LOW, "============================================================\n");
 
-    for (uint8_t test_slot = 0; test_slot < 24; ++test_slot) {
-        VPRINTF(LOW, "[TEST] KV slot %d\n", test_slot);
+    if (rst_count == 0) {
+        for (uint8_t test_slot = 0; test_slot < 24; ++test_slot) {
+            VPRINTF(LOW, "[TEST] KV slot %d\n", test_slot);
 
+            // ------------------------------------------------------------------
+            // PART 1 of test (write, then clear, without any lock)
+            // ------------------------------------------------------------------
+            run_lock_clear_sequence(test_slot);
+            // ------------------------------------------------------------------
+            // PART 2 of test (lock_wr)
+            // ------------------------------------------------------------------
+            run_lock_clear_fail_sequence(test_slot, 1, 0);
+            // ------------------------------------------------------------------
+            // PART 3 of test (both locks)
+            // ------------------------------------------------------------------
+            run_lock_clear_fail_sequence(test_slot, 1, 1);
+
+        }
+        // Locks are sticky, we need to do a reset to test other scenarios
+        VPRINTF(LOW, "[TEST] Resetting the device...\n");
+        rst_count++;
+        SEND_STDOUT_CTRL(0xf6); //Issue warm reset
+    } else if (rst_count == 1) {
+        for (uint8_t test_slot = 0; test_slot < 24; ++test_slot) {
+            VPRINTF(LOW, "[TEST] KV slot %d\n", test_slot);
+            // ------------------------------------------------------------------
+            // PART 4 of test (lock_use)
+            // ------------------------------------------------------------------
+            run_lock_clear_fail_sequence(test_slot, 0, 1);
+        }
         // ------------------------------------------------------------------
-        // PART 1 of test (write, then clear, without any lock)
+        // Done
         // ------------------------------------------------------------------
-        run_lock_clear_sequence(test_slot);
-        // ------------------------------------------------------------------
-        // PART 2 of test (lock_wr)
-        // ------------------------------------------------------------------
-        run_lock_clear_fail_sequence(test_slot, 1, 0);
-        // ------------------------------------------------------------------
-        // PART 3 of test (lock_use)
-        // ------------------------------------------------------------------
-        run_lock_clear_fail_sequence(test_slot, 0, 1);
-        // ------------------------------------------------------------------
-        // PART 4 of test (both locks)
-        // ------------------------------------------------------------------
-        run_lock_clear_fail_sequence(test_slot, 1, 1);
+        VPRINTF(LOW, "\n============================================================\n");
+        VPRINTF(LOW, " ALL CHECKS PASSED\n");
+        VPRINTF(LOW, "============================================================\n");
+        SEND_STDOUT_CTRL(0xff);
+    } else {
+        VPRINTF(LOW, "[FAIL] Unexpected number of resets %d\n", rst_count);
+        SEND_STDOUT_CTRL(0x1);
     }
-
-    // ------------------------------------------------------------------
-    // Done
-    // ------------------------------------------------------------------
-    VPRINTF(LOW, "\n============================================================\n");
-    VPRINTF(LOW, " ALL CHECKS PASSED\n");
-    VPRINTF(LOW, "============================================================\n");
-    SEND_STDOUT_CTRL(0xff);
 }
