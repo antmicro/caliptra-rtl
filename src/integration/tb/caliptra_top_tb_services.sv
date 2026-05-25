@@ -94,6 +94,11 @@ module caliptra_top_tb_services
     output logic        axi_put_status,
     output logic        axi_put_rdata,
 
+    output logic [31:0] obf_key_value,
+    output logic  [2:0] obf_key_idx,
+    output logic        set_obf_key,
+    output logic        get_obf_key,
+
     // UDS access
     output logic        get_uds_value,
     output logic [2:0]  uds_idx,
@@ -358,6 +363,22 @@ module caliptra_top_tb_services
     //      16'h317F        - Get FE[2] and FE[3] value from HW
     //      16'h327F        - Get FE[4] and FE[5] value from HW
     //      16'h337F        - Get FE[6] and FE[7] value from HW
+    //      16'h407F        - Set OBF_KEY[0] value from generic wire 1
+    //      16'h417F        - Set OBF_KEY[1] value from generic wire 1
+    //      16'h427F        - Set OBF_KEY[2] value from generic wire 1
+    //      16'h437F        - Set OBF_KEY[3] value from generic wire 1
+    //      16'h447F        - Set OBF_KEY[4] value from generic wire 1
+    //      16'h457F        - Set OBF_KEY[5] value from generic wire 1
+    //      16'h467F        - Set OBF_KEY[6] value from generic wire 1
+    //      16'h477F        - Set OBF_KEY[7] value from generic wire 1
+    //      16'h487F        - Get OBF_KEY[0] value from HW
+    //      16'h497F        - Get OBF_KEY[1] value from HW
+    //      16'h4A7F        - Get OBF_KEY[2] value from HW
+    //      16'h4B7F        - Get OBF_KEY[3] value from HW
+    //      16'h4C7F        - Get OBF_KEY[4] value from HW
+    //      16'h4D7F        - Get OBF_KEY[5] value from HW
+    //      16'h4E7F        - Get OBF_KEY[6] value from HW
+    //      16'h4F7F        - Set OBF_KEY[7] value from HW
     //      16'h807F:'h9F7F - Inject a valid hmac_key dest and hmac512_key into Nth kv slot (where slot is encoded as (N & 0x1F) << 8)
     //      16'hA07F:'hBF7F - Check if Nth kv slot (where slot is encoded as (N & 0x1F) << 8) is all zero
     //         8'h80: 8'h87 - Inject ECC_SEED to kv_key register
@@ -521,6 +542,26 @@ module caliptra_top_tb_services
             fe_idx <= WriteData[9:8];
         end else begin
             get_fe_value <= 1'b0;
+        end
+    end
+
+    always @(negedge clk or negedge cptra_rst_b) begin
+        if      (!cptra_rst_b) begin
+            set_obf_key <= 1'b0;
+            get_obf_key <= 1'b0;
+        end
+        else if ((WriteData[15:0] & 16'hF8FF) == 16'h407F  && mailbox_write) begin
+            set_obf_key   <= 1'b1;
+            obf_key_value <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1];
+            obf_key_idx   <= WriteData[10:8];
+        end
+        else if ((WriteData[15:0] & 16'hF8FF) == 16'h487F  && mailbox_write) begin
+            get_obf_key   <= 1'b1;
+            obf_key_value <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1];
+            obf_key_idx   <= WriteData[10:8];
+        end else begin
+            set_obf_key <= 1'b0;
+            get_obf_key <= 1'b0;
         end
     end
 

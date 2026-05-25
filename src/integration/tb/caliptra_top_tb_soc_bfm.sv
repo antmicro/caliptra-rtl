@@ -69,6 +69,11 @@ import caliptra_top_tb_pkg::*; #(
     input logic        axi_put_status,
     input logic        axi_put_rdata,
 
+    input logic [31:0] obf_key_value,
+    input logic  [2:0] obf_key_idx,
+    input logic        set_obf_key,
+    input logic        get_obf_key,
+
     //UDS access
     input logic       get_uds_value,
     input logic [2:0] uds_idx,
@@ -524,6 +529,14 @@ import caliptra_top_tb_pkg::*; #(
                     m_axi_bfm_if.rst_mgr();
                 end: RESET_FLOW
             join_any
+        end
+    end
+
+    always @(posedge core_clk) begin
+        if (set_obf_key) begin
+            cptra_obf_key[obf_key_idx] <= obf_key_value;
+        end else if (get_obf_key) begin
+            generic_input_wires <= {32'h0, `CPTRA_TOP_PATH.cptra_obf_key_reg[obf_key_idx]};
         end
     end
 

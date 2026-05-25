@@ -63,7 +63,7 @@ end
     logic                       recovery_data_avail;
 
     logic [`CLP_OBF_KEY_DWORDS-1:0][31:0]          cptra_obf_key;
-    
+
     logic [`CLP_CSR_HMAC_KEY_DWORDS-1:0][31:0]     cptra_csr_hmac_key;
 
     logic [0:`CLP_OBF_UDS_DWORDS-1][31:0]          cptra_uds_rand;
@@ -138,6 +138,12 @@ end
     logic        put_status;
     logic        put_rdata;
 
+    logic [31:0] obf_key_value;
+    logic  [2:0] obf_key_idx;
+    logic        set_obf_key;
+    logic        get_obf_key;
+
+
     // UDS access
     logic       get_uds_value;
     logic [2:0] uds_idx;
@@ -162,7 +168,7 @@ end
       core_clk = #5ns ~core_clk;
     end // clk_gen
 `endif
-    
+
 
 caliptra_top_tb_soc_bfm soc_bfm_inst (
     .core_clk        (core_clk        ),
@@ -192,7 +198,7 @@ caliptra_top_tb_soc_bfm soc_bfm_inst (
 
     .cptra_error_fatal(cptra_error_fatal),
     .cptra_error_non_fatal(cptra_error_non_fatal),
-    
+
     //Interrupt flags
     .int_flag(int_flag),
     .cycleCnt_smpl_en(cycleCnt_smpl_en),
@@ -209,6 +215,11 @@ caliptra_top_tb_soc_bfm soc_bfm_inst (
     .axi_read(read),
     .axi_put_status(put_status),
     .axi_put_rdata(put_rdata),
+
+    .obf_key_value(obf_key_value),
+    .obf_key_idx(obf_key_idx),
+    .set_obf_key(set_obf_key),
+    .get_obf_key(get_obf_key),
 
     // UDS access
     .get_uds_value(get_uds_value),
@@ -262,7 +273,7 @@ caliptra_top #(
     .jtag_trst_n(jtag_trst_n),
     .jtag_tdo(jtag_tdo),
     .jtag_tdoEn(jtag_tdoEn),
-    
+
     //SoC AXI Interface
     .s_axi_w_if(m_axi_bfm_if.w_sub),
     .s_axi_r_if(m_axi_bfm_if.r_sub),
@@ -273,7 +284,7 @@ caliptra_top #(
 
     .el2_mem_export(el2_mem_export.veer_sram_src),
     .mldsa_memory_export(mldsa_memory_export.req),
-    
+
     .ready_for_fuses(ready_for_fuses),
     .ready_for_mb_processing(ready_for_mb_processing),
     .ready_for_runtime(),
@@ -283,7 +294,7 @@ caliptra_top #(
     .mbox_sram_addr(mbox_sram_addr),
     .mbox_sram_wdata(mbox_sram_wdata),
     .mbox_sram_rdata(mbox_sram_rdata),
-        
+
     .imem_cs(imem_cs),
     .imem_addr(imem_addr),
     .imem_rdata(imem_rdata),
@@ -419,6 +430,11 @@ caliptra_top_tb_services #(
     .axi_read(read),
     .axi_put_status(put_status),
     .axi_put_rdata(put_rdata),
+
+    .obf_key_value(obf_key_value),
+    .obf_key_idx(obf_key_idx),
+    .set_obf_key(set_obf_key),
+    .get_obf_key(get_obf_key),
 
     // UDS access
     .get_uds_value(get_uds_value),
