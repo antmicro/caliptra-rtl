@@ -39,6 +39,14 @@ volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 /* --------------- Function Definitions --------------- */
 void main() {
 
+    // Production mode
+    lsu_write_32(stdout, 0x157F);
+    // Enable debug intent
+    lsu_write_32(stdout, 0x167F);
+    lsu_write_32(stdout, 0x127F);
+    // Enter debug unlocked
+    lsu_write_32(stdout, 0x187F);
+
     printf("----------------------------------\n");
     printf(" ROM to TAP Mailbox flow test\n");
     printf("----------------------------------\n");

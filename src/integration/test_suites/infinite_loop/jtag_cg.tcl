@@ -32,6 +32,7 @@ set val [riscv dmi_read $dmstatus_addr]
 puts "dmstatus: $val"
 if {($val & 0x00000c00) == 0} {
     echo "The hart is halted!"
+    write_memory $STDOUT 32 0x1 phys
     shutdown error
 }
 puts ""
@@ -48,6 +49,7 @@ puts "Retrieve mailbox lock..."
 set golden {0x0}
 set actual [read_memory $mbox_lock_mem_addr 32 1 phys]
 if {[compare $actual $golden] != 0} {
+    write_memory $STDOUT 32 0x1 phys
     shutdown error
 }
 puts ""
@@ -65,6 +67,7 @@ puts "Read mailbox status..."
 set golden {0x500}
 set actual [read_memory $mbox_status_mem_addr 32 1 phys]
 if {[compare $actual $golden] != 0} {
+    write_memory $STDOUT 32 0x1 phys
     shutdown error
 }
 puts ""
@@ -82,6 +85,7 @@ set val [riscv dmi_read $dmstatus_addr]
 puts "dmstatus: $val"
 if {($val & 0x00000c00) == 0} {
     echo "The hart is halted!"
+    write_memory $STDOUT 32 0x1 phys
     shutdown error
 }
 puts ""
@@ -90,6 +94,7 @@ puts "Read mailbox status and dlen..."
 set golden $dlen_bytes
 set actual [riscv dmi_read $mbox_dlen_dmi_addr]
 if {[compare $actual $golden] != 0} {
+    write_memory $STDOUT 32 0x1 phys
     shutdown error
 }
 puts ""
@@ -99,9 +104,13 @@ for {set i 0} {$i < $dlen_words} {incr i} {
     set golden $data($i)
     set actual [riscv dmi_read $mbox_dout_dmi_addr]
     if {[compare $actual $golden] != 0} {
+        write_memory $STDOUT 32 0x1 phys
         shutdown error
     }
 }
 
 # Success
+puts "Flagging test successful completion in TB..."
+write_memory $STDOUT 32 0xff phys
+
 shutdown

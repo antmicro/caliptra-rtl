@@ -1908,6 +1908,11 @@ endgenerate //IV_NO
                 dump_memory_contents(MEMTYPE_LMEM, MBOX_DIR_START_ADDR, MBOX_DIR_END_ADDR);
                 dump_memory_contents(MEMTYPE_DCCM, `RV_DCCM_SADR, `RV_DCCM_EADR);
                 dump_memory_contents(MEMTYPE_ICCM, `RV_ICCM_SADR, `RV_ICCM_EADR);
+
+                // Wait before finishing to allow terminating the tests from JTAG
+                // Allow it to execute shutdown without errors
+                wait(mailbox_write == '0);
+                #100us;
                 $finish;
             end
         end

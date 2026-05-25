@@ -148,4 +148,7 @@ for {set i 0} {$i < $num_ro_regs_mem} {incr i} {
 }
 
 # Success
+puts "Flagging test successful completion in TB..."
+write_memory $STDOUT 32 0xff phys
+
 shutdown
