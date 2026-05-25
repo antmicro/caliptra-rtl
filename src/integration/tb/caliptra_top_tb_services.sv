@@ -107,7 +107,10 @@ module caliptra_top_tb_services
     output logic [4:0]  kv_idx,
 
     //Control signals
-    output logic        debug_intent
+    output logic        debug_intent,
+
+    // JTAG TCP connection status
+    input logic         jtag_connected
 );
 
    //=========================================================================-
@@ -1911,8 +1914,7 @@ endgenerate //IV_NO
 
                 // Wait before finishing to allow terminating the tests from JTAG
                 // Allow it to execute shutdown without errors
-                wait(mailbox_write == '0);
-                #100us;
+                wait(jtag_connected == '0);
                 $finish;
             end
         end

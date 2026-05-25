@@ -18,6 +18,7 @@
 //#define JTAGDPI_DEBUG
 
 struct jtagdpi_signals {
+  uint8_t connected;
   uint8_t tck;
   uint8_t tms;
   uint8_t tdi;
@@ -116,6 +117,7 @@ static void update_jtag_signals(struct jtagdpi_ctx *ctx) {
   if (act_quit) {
     printf("JTAG DPI: Remote disconnected.\n");
     tcp_server_client_close(ctx->sock);
+    ctx->curr.connected = 0;
   }
 }
 
@@ -126,6 +128,7 @@ void *jtagdpi_create(const char *display_name, int listen_port) {
 
   // Create socket
   ctx->sock = tcp_server_create(display_name, listen_port);
+  ctx->curr.connected = 1;
 #ifdef JTAGDPI_DEBUG
   ctx->init = 1;
 #endif
@@ -151,6 +154,7 @@ void jtagdpi_close(void *ctx_void) {
   }
   tcp_server_close(ctx->sock);
   free(ctx);
+  ctx->curr.connected = 0;
 }
 
 #ifdef JTAGDPI_DEBUG
@@ -182,8 +186,8 @@ static void jtagdpi_dbg(struct jtagdpi_ctx *ctx) {
 }
 #endif
 
-void jtagdpi_tick(void *ctx_void, svBit *tck, svBit *tms, svBit *tdi,
-                  svBit *trst_n, svBit *srst_n, const svBit tdo) {
+void jtagdpi_tick(void *ctx_void, svBit *connected, svBit *tck, svBit *tms,
+                  svBit *tdi, svBit *trst_n, svBit *srst_n, const svBit tdo) {
   struct jtagdpi_ctx *ctx = (struct jtagdpi_ctx *)ctx_void;
 
   // Get TDO
@@ -201,6 +205,7 @@ void jtagdpi_tick(void *ctx_void, svBit *tck, svBit *tms, svBit *tdi,
   }
 #endif
 
+  *connected = ctx->curr.connected;
   *tdi = ctx->curr.tdi;
   *tms = ctx->curr.tms;
   *tck = ctx->curr.tck;
