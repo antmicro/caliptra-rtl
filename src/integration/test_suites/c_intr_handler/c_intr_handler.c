@@ -101,26 +101,26 @@ void main(void) {
             if ((intr_count % 0x15) >= 0x14) { //14-15
                 *hmac_error_trig = 1 << (intr_count % 0x2);
                 hmac_error_intr_count++;
-            } else if ((intr_count % 0x15) >= 0x12) {
+            } else if ((intr_count % 0x15) >= 0x13) {
                 *sha512_notif_trig = SHA512_REG_INTR_BLOCK_RF_NOTIF_INTR_TRIG_R_NOTIF_CMD_DONE_TRIG_MASK;
                 sha512_intr_count++;
-            } else if ((intr_count % 0x15) >= 0x11) {
+            } else if ((intr_count % 0x15) >= 0x12) {
                 *sha256_notif_trig = SHA256_REG_INTR_BLOCK_RF_NOTIF_INTR_TRIG_R_NOTIF_CMD_DONE_TRIG_MASK;
                 sha256_intr_count++;
-            } else if ((intr_count % 0x15) >= 0x10) {
+            } else if ((intr_count % 0x15) >= 0x11) {
                 *sha512_acc_notif_trig = SHA512_ACC_CSR_INTR_BLOCK_RF_NOTIF_INTR_TRIG_R_NOTIF_CMD_DONE_TRIG_MASK;
                 sha512_acc_intr_count++;
-            } else if ((intr_count % 0x15) >= 0x0F) {
+            } else if ((intr_count % 0x15) >= 0x10) {
                 *hmac_notif_trig = HMAC_REG_INTR_BLOCK_RF_NOTIF_INTR_TRIG_R_NOTIF_CMD_DONE_TRIG_MASK;
                 hmac_notif_intr_count++;
-            } else if ((intr_count % 0x15) >= 0x0E) {
+            } else if ((intr_count % 0x15) >= 0x0F) {
                 *ecc_notif_trig = ECC_REG_INTR_BLOCK_RF_NOTIF_INTR_TRIG_R_NOTIF_CMD_DONE_TRIG_MASK;
                 ecc_intr_count++;
-            } else if ((intr_count % 0x15) >= 0x0D) {
+            } else if ((intr_count % 0x15) >= 0x0E) {
                 *doe_notif_trig = DOE_REG_INTR_BLOCK_RF_NOTIF_INTR_TRIG_R_NOTIF_CMD_DONE_TRIG_MASK;
                 doe_intr_count++;
-            } else if ((intr_count % 0x15) >= 0x08) { //8-C
-                *soc_ifc_notif_trig = 1 << (intr_count % 0x5);
+            } else if ((intr_count % 0x15) >= 0x08) { //8-D
+                *soc_ifc_notif_trig = 1 << (intr_count % 0x6);
                 soc_ifc_notif_intr_count++;
             } else { //0-7
                 *soc_ifc_error_trig = 1 << (intr_count % 0x8);

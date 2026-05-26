@@ -33,6 +33,10 @@ import caliptra_top_tb_pkg::*; #(
     input int                          cycleCnt,
 
     output logic [`CLP_OBF_KEY_DWORDS-1:0][31:0]          cptra_obf_key,
+    output logic [`CLP_OBF_UDS_DWORDS-1:0][31:0]          cptra_uds_strap,
+    output logic                                          cptra_uds_strap_vld,
+    output logic [`CLP_OBF_FE_DWORDS-1:0] [31:0]          cptra_fe_strap,
+    output logic                                          cptra_fe_strap_vld,
     output logic [`CLP_CSR_HMAC_KEY_DWORDS-1:0][31:0]     cptra_csr_hmac_key,
 
     input  logic [0:`CLP_OBF_UDS_DWORDS-1][31:0]          cptra_uds_rand,
@@ -161,6 +165,8 @@ import caliptra_top_tb_pkg::*; #(
         BootFSM_BrkPoint = 1'b1; //Set to 1 even before anything starts
         cptra_rst_b = 1'b0;
         assert_rst_flag_from_fatal = 1'b0;
+        cptra_uds_strap_vld = 1'b0;
+        cptra_fe_strap_vld = 1'b0;
         m_axi_bfm_if.rst_mgr();
 
 `ifndef VERILATOR
@@ -178,6 +184,14 @@ import caliptra_top_tb_pkg::*; #(
 
             cptra_uds_tb = cptra_uds_rand;
             cptra_fe_tb = cptra_fe_rand;
+            for (int dword = 0; dword < $bits(cptra_uds_strap)/32; dword++) begin
+                cptra_uds_strap[dword] = cptra_uds_tb[dword];
+            end
+            cptra_uds_strap_vld = 1'b1;
+            for (int dword = 0; dword < $bits(cptra_fe_strap)/32; dword++) begin
+                cptra_fe_strap[dword] = cptra_fe_tb[dword];
+            end
+            cptra_fe_strap_vld = 1'b1;
         end
         else begin
             if ($test$plusargs("SECOND_DOE_KAT")) begin
@@ -199,6 +213,14 @@ import caliptra_top_tb_pkg::*; #(
             for (int dword = 0; dword < $bits(cptra_obf_key)/32; dword++) begin
                 cptra_obf_key[dword] = cptra_obfkey_tb[dword];
             end
+            for (int dword = 0; dword < $bits(cptra_uds_strap)/32; dword++) begin
+                cptra_uds_strap[dword] = cptra_uds_tb[dword];
+            end
+            cptra_uds_strap_vld = 1'b1;
+            for (int dword = 0; dword < $bits(cptra_fe_strap)/32; dword++) begin
+                cptra_fe_strap[dword] = cptra_fe_tb[dword];
+            end
+            cptra_fe_strap_vld = 1'b1;
         end
 
         for (int dword = 0; dword < `CLP_CSR_HMAC_KEY_DWORDS; dword++) begin

@@ -69,6 +69,10 @@ end
     logic [0:`CLP_OBF_UDS_DWORDS-1][31:0]          cptra_uds_rand;
     logic [0:`CLP_OBF_FE_DWORDS-1][31:0]           cptra_fe_rand;
     logic [0:`CLP_OBF_KEY_DWORDS-1][31:0]          cptra_obf_key_tb;
+    logic [`CLP_OBF_UDS_DWORDS-1:0][31:0]          cptra_uds_strap;
+    logic                                          cptra_uds_strap_vld;
+    logic [`CLP_OBF_FE_DWORDS-1:0] [31:0]          cptra_fe_strap;
+    logic                                          cptra_fe_strap_vld;
 
     // JTAG TCP connection status
     logic                       jtag_connected;
@@ -180,6 +184,10 @@ caliptra_top_tb_soc_bfm soc_bfm_inst (
     .cycleCnt        (cycleCnt        ),
 
     .cptra_obf_key      (cptra_obf_key   ),
+    .cptra_uds_strap    (cptra_uds_strap    ),
+    .cptra_uds_strap_vld(cptra_uds_strap_vld),
+    .cptra_fe_strap     (cptra_fe_strap     ),
+    .cptra_fe_strap_vld (cptra_fe_strap_vld ),
     .cptra_csr_hmac_key (cptra_csr_hmac_key),
 
     .cptra_uds_rand  (cptra_uds_rand  ),
@@ -261,10 +269,10 @@ caliptra_top #(
     .clk                        (core_clk),
 
     .cptra_obf_key              (cptra_obf_key),
-    .cptra_obf_uds_seed_vld     ('0), //TODO
-    .cptra_obf_uds_seed         ('0), //TODO
-    .cptra_obf_field_entropy_vld('0), //TODO
-    .cptra_obf_field_entropy    ('0), //TODO
+    .cptra_obf_uds_seed_vld     (cptra_uds_strap_vld),
+    .cptra_obf_uds_seed         (cptra_uds_strap),
+    .cptra_obf_field_entropy_vld(cptra_fe_strap_vld),
+    .cptra_obf_field_entropy    (cptra_fe_strap),
     .cptra_csr_hmac_key         (cptra_csr_hmac_key),
 
     .jtag_tck(jtag_tck),
