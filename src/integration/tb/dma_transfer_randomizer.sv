@@ -62,8 +62,16 @@ class dma_transfer_randomizer #(parameter MAX_SIZE_TO_CHECK = 16384);
           [257:2048] :/ 200,
           [2049:4096] :/ 20,
           [4097:16384] :/ 5,
-          [16385:65536] :/ 2
+          [16385:65536] :/ 2,
+          [65537:262143] :/ 1,
+          262144 :/ 500
       };
+
+      // Avoid huge simulation time of loading 1MB throught access to a single register
+      dma_xfer_type inside {AHB2AXI, AXI2AHB} -> xfer_size <= 65536;
+      // Allow transfer size that fits mailbox
+      dma_xfer_type inside {MBOX2AXI, AXI2MBOX} -> xfer_size <= soc_ifc_pkg::CPTRA_MBOX_SIZE_DWORDS;
+
       (xfer_size <= max_checked_xfer_size) || (xfer_size > MAX_SIZE_TO_CHECK);
       solve dma_xfer_type before xfer_size;
   }
@@ -121,6 +129,7 @@ class dma_transfer_randomizer #(parameter MAX_SIZE_TO_CHECK = 16384);
        src_is_fifo ->  src_offset inside {[0:AXI_FIFO_SIZE_BYTES-1]};
       !src_is_fifo ->  src_offset inside {[0:AXI_SRAM_SIZE_BYTES-1]};
       !src_is_fifo -> (src_offset + xfer_size*4) <= AXI_SRAM_SIZE_BYTES;
+      dma_xfer_type == MBOX2AXI -> (src_offset + xfer_size*4) <= soc_ifc_pkg::CPTRA_MBOX_SIZE_BYTES;
       src_offset[1:0] == 2'b0;
   };
 
@@ -129,6 +138,7 @@ class dma_transfer_randomizer #(parameter MAX_SIZE_TO_CHECK = 16384);
        dst_is_fifo ->  dst_offset inside {[0:AXI_FIFO_SIZE_BYTES-1]};
       !dst_is_fifo ->  dst_offset inside {[0:AXI_SRAM_SIZE_BYTES-1]};
       !dst_is_fifo -> (dst_offset + xfer_size*4) <= AXI_SRAM_SIZE_BYTES;
+      dma_xfer_type == AXI2MBOX -> (dst_offset + xfer_size*4) <= soc_ifc_pkg::CPTRA_MBOX_SIZE_BYTES;
       dst_offset[1:0] == 2'b0;
       solve block_size before dst_offset;
   };
