@@ -193,6 +193,8 @@ module caliptra_top_tb_services
     logic                       cold_rst; 
     logic                       warm_rst; 
     logic                       timed_warm_rst;
+    logic                       timed_kv_clear;
+    logic                       timed_kv_clear_done;
     logic                       prandom_warm_rst; 
     logic                       cold_rst_done;
 
@@ -385,6 +387,7 @@ module caliptra_top_tb_services
     //      16'h517F        - Disable injection of mock mailbox access request from SoC when TAP locks mailbox
     //      16'h807F:'h9F7F - Inject a valid hmac_key dest and hmac512_key into Nth kv slot (where slot is encoded as (N & 0x1F) << 8)
     //      16'hA07F:'hBF7F - Check if Nth kv slot (where slot is encoded as (N & 0x1F) << 8) is all zero
+    //      16'hC07F        - Force clear of all KV slots, when DOE FSM starts to write
     //         8'h80: 8'h87 - Inject ECC_SEED to kv_key register
     //         8'h88        - Toggle recovery interface emulation in AXI complex
     //         8'h89        - Use same msg in SHA512 digest for ECC/MLDSA PCR signing (used where both cryptos are running in parallel)
@@ -747,6 +750,40 @@ module caliptra_top_tb_services
                     end else begin
                         check_kv_clear <= '0;
                     end
+                end
+            end
+        end
+    endgenerate
+
+    always @(negedge clk) begin
+        if (!cptra_rst_b) begin
+            timed_kv_clear <= '0;
+        end else if (WriteData[15:0] == 16'hC07F) begin
+            timed_kv_clear <= '1;
+        end else begin
+            timed_kv_clear <= '0;
+        end
+    end
+
+    generate
+        for (genvar slot_id=0; slot_id < 24; slot_id++) begin : kv_timed_clear_loop
+            always @(negedge clk or negedge cptra_rst_b) begin
+                if (!cptra_rst_b) begin
+                    timed_kv_clear_done <= '0;
+                end else if (timed_kv_clear) begin
+                    if((`CPTRA_TOP_PATH.doe.doe_inst.doe_fsm1.kv_doe_fsm_ns == 3'b100) & ~timed_kv_clear_done) begin
+                        // Need to kill off assertion that checks whether output matches plaintext (it won't since it got cleared)
+                        $assertkill(0, caliptra_top_tb.sva.FE_data_check.genblk1[0].DOE_FE_data_check);
+                        $assertkill(0, caliptra_top_tb.sva.FE_data_check.genblk1[1].DOE_FE_data_check);
+                        $assertkill(0, caliptra_top_tb.sva.FE_data_check.genblk1[2].DOE_FE_data_check);
+                        $assertkill(0, caliptra_top_tb.sva.FE_data_check.genblk1[3].DOE_FE_data_check);
+                        force `CPTRA_TOP_PATH.key_vault1.kv_reg_hwif_out.KEY_CTRL[slot_id].clear.value = '1;
+                        timed_kv_clear_done <= 'b1;
+                    end else if(timed_kv_clear_done) begin
+                        release `CPTRA_TOP_PATH.key_vault1.kv_reg_hwif_out.KEY_CTRL[slot_id].clear.value;
+                    end
+                end else begin
+                    timed_kv_clear <= '0;
                 end
             end
         end
