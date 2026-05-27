@@ -88,6 +88,7 @@ module caliptra_top_tb_services
 
     // AXI SoC access
     output logic [31:0] axi_addr,
+    output logic [31:0] axi_user,
     output logic [31:0] axi_wdata,
     output logic        axi_write,
     output logic        axi_read,
@@ -335,6 +336,7 @@ module caliptra_top_tb_services
     //      16'h037F        - Send SoC (0)read/(1)write access based on the CPTRA_GENERIC_OUTPUT_WIRES[1][0]
     //      16'h047F        - Get SoC Access status, 0-In progress, 1-Done
     //      16'h057F        - Put SoC Access read response onto generic_input_wires
+    //      16'h067F        - Setup SoC Access user from CPTRA_GENERIC_OUTPUT_WIRES[1]
     //      16'h107F        - Force re-enable strap write
     //      16'h117F        - Release strap write
     //      16'h127F        - Enable debug intent
@@ -456,6 +458,11 @@ module caliptra_top_tb_services
     integer j;
     string slaveLog_fileName[`CALIPTRA_AHB_SLAVES_NUM];
 
+    initial begin
+        // Xs on axi_user cause assertion errors in AXI VIP
+        axi_user = '0;
+    end
+
     //  AXI SoC Access
     always @(negedge clk) begin
         axi_write <= 1'b0;
@@ -473,6 +480,8 @@ module caliptra_top_tb_services
             axi_put_status <= 1'b1;
         end else if ((WriteData[15:0] == 16'h057F) && mailbox_write) begin
             axi_put_rdata <= 1'b1;
+        end else if ((WriteData[15:0] == 16'h067F) && mailbox_write) begin
+            axi_user <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1];
         end
     end
 

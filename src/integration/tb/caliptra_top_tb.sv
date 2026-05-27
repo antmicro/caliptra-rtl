@@ -134,6 +134,7 @@ end
 
     //AXI
     logic [31:0] address;
+    logic [31:0] user;
     logic [31:0] wdata;
     logic        write;
     logic        read;
@@ -219,6 +220,7 @@ caliptra_top_tb_soc_bfm soc_bfm_inst (
     .axi_wdata(wdata),
     .axi_write(write),
     .axi_read(read),
+    .axi_user(user),
     .axi_put_status(put_status),
     .axi_put_rdata(put_rdata),
 
@@ -432,6 +434,7 @@ caliptra_top_tb_services #(
     .axi_addr(address),
     .axi_wdata(wdata),
     .axi_write(write),
+    .axi_user(user),
     .axi_read(read),
     .axi_put_status(put_status),
     .axi_put_rdata(put_rdata),

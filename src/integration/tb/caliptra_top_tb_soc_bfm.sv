@@ -67,6 +67,7 @@ import caliptra_top_tb_pkg::*; #(
 
     //AXI SoC
     input logic [31:0] axi_addr,
+    input logic [31:0] axi_user,
     input logic [31:0] axi_wdata,
     input logic        axi_write,
     input logic        axi_read,
@@ -579,6 +580,7 @@ import caliptra_top_tb_pkg::*; #(
             read <= 1'b0;
             m_axi_bfm_if.axi_write_single(
                 .addr(axi_addr),
+                .user(axi_user),
                 .data(axi_wdata),
                 .resp(axi_wresp),
                 .resp_user(axi_buser)
@@ -588,6 +590,7 @@ import caliptra_top_tb_pkg::*; #(
             read <= 1'b1;
             m_axi_bfm_if.axi_read_single(
                 .addr(axi_addr),
+                .user(axi_user),
                 .data(axi_rdata),
                 .resp(axi_rresp),
                 .resp_user(axi_buser)
