@@ -5,6 +5,10 @@
 // Date: Thu May 21 07:25:27 2026
 // ExclMode: default
 //==================================================
+CHECKSUM: "1710229973 3228577941"
+INSTANCE: caliptra_top_tb.caliptra_top_dut.key_vault1.kv_ahb_slv1
+ANNOTATION: "Only single transfers are possible"
+Toggle htrans_i [0] "logic htrans_i[1:0]"
 CHECKSUM: "1695625887 2042792234"
 MODULE: caliptra_top
 ANNOTATION: "Tied off signal"
