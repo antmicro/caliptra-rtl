@@ -17,16 +17,9 @@ init
 set script_dir [file dirname [info script]]
 source [file join $script_dir common.tcl]
 
-# Manually read dmstatus and check if the core is actually held in external
-# reset. In the expected state bits anyunavail allrunning anyrunning allhalted 
-# and anyhalted should be cleared.
-set val [riscv dmi_read $dmstatus_addr]
-puts "dmstatus: $val"
+halt_core
 
-if { ($val & 0x00000F00) != 0 } {
-    echo "The core is not held in reset!"
-    shutdown error
-}
+riscv set_mem_access sysbus progbuf abstract
 
 echo "Accessing ECC..."
 set golden { 0x63707365 0x38342d33 0x3030312e 0x0 }
@@ -65,7 +58,4 @@ if {[compare $actual $golden] != 0} {
 }
 
 # Success
-puts "Flagging test successful completion in TB..."
-write_memory $STDOUT 32 0xff phys
-
 shutdown

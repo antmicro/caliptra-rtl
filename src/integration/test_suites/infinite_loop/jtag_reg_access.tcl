@@ -137,18 +137,15 @@ for {set i 0} {$i < $num_ro_regs_mem} {incr i} {
     write_memory [set $ro_regs_mem($i)] 32 $golden5a phys
     set actual [riscv dmi_read [set $ro_regs($i)]]
     if {[compare $actual $golden5a] != 0} {
-        #shutdown error
+        shutdown error
     }
     #write goldena5
     write_memory [set $ro_regs_mem($i)] 32 $goldena5 phys
     set actual [riscv dmi_read [set $ro_regs($i)]]
     if {[compare $actual $goldena5] != 0} {
-        #shutdown error
+        shutdown error
     }
 }
 
 # Success
-puts "Flagging test successful completion in TB..."
-write_memory $STDOUT 32 0xff phys
-
 shutdown

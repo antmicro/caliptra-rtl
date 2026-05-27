@@ -112,10 +112,7 @@ module caliptra_top_tb_services
     output logic [4:0]  kv_idx,
 
     //Control signals
-    output logic        debug_intent,
-
-    // JTAG TCP connection status
-    input logic         jtag_connected
+    output logic        debug_intent
 );
 
    //=========================================================================-
@@ -1742,6 +1739,7 @@ endgenerate //IV_NO
             timed_warm_rst <= 'b1;
         end
         else if((WriteData[7:0] == 8'hee) && mailbox_write) begin
+
             `ifndef VERILATOR
                 std::randomize(wait_time_to_rst) with {wait_time_to_rst dist {[5:24] :/ 3, [25:99] :/ 5, [100:255] :/ 8, [256:511] :/ 5, [512:1023] :/ 1};};
             `else
@@ -1952,10 +1950,6 @@ endgenerate //IV_NO
                 dump_memory_contents(MEMTYPE_LMEM, MBOX_DIR_START_ADDR, MBOX_DIR_END_ADDR);
                 dump_memory_contents(MEMTYPE_DCCM, `RV_DCCM_SADR, `RV_DCCM_EADR);
                 dump_memory_contents(MEMTYPE_ICCM, `RV_ICCM_SADR, `RV_ICCM_EADR);
-
-                // Wait before finishing to allow terminating the tests from JTAG
-                // Allow it to execute shutdown without errors
-                wait(jtag_connected == '0);
                 $finish;
             end
         end

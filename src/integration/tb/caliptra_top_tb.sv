@@ -74,8 +74,6 @@ end
     logic [`CLP_OBF_FE_DWORDS-1:0] [31:0]          cptra_fe_strap;
     logic                                          cptra_fe_strap_vld;
 
-    // JTAG TCP connection status
-    logic                       jtag_connected;
     //jtag interface
     logic                       jtag_tck;    // JTAG clk
     logic                       jtag_tms;    // JTAG TMS
@@ -249,7 +247,6 @@ jtagdpi #(
 ) jtagdpi (
     .clk_i          (core_clk),
     .rst_ni         (cptra_rst_b),
-    .connected_o    (jtag_connected),
     .jtag_tck       (jtag_tck),
     .jtag_tms       (jtag_tms),
     .jtag_tdi       (jtag_tdi),
@@ -457,10 +454,7 @@ caliptra_top_tb_services #(
     .kv_idx(kv_idx),
 
     //Control signals
-    .debug_intent(debug_intent),
-
-    // JTAG TCP connection status
-    .jtag_connected(jtag_connected)
+    .debug_intent(debug_intent)
 );
 
 caliptra_top_tb_axi_complex tb_axi_complex_i (

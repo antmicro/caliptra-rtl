@@ -130,7 +130,7 @@ static int start(struct tcp_server_ctx *ctx) {
   }
 
   // stop tcp socket from buffering (buffering prevents timely responses to
-  // OpenOCD which severly limits debugging performance)
+  // OpenOCD which severely limits debugging performance)
   int tcp_nodelay = 1;
   rv = setsockopt(sfd, IPPROTO_TCP, TCP_NODELAY, &tcp_nodelay, sizeof(int));
   if (rv != 0) {

@@ -40,7 +40,6 @@ void jtagdpi_close(void *ctx_void);
  * from/to the JTAG signals.
  *
  * @param ctx_void  a struct jtagdpi_ctx context object
- * @param connected JTAG TCP connection status
  * @param tck       JTAG test clock signal
  * @param tms       JTAG test mode select signal
  * @param tdi       JTAG test data input signal
@@ -48,8 +47,8 @@ void jtagdpi_close(void *ctx_void);
  * @param srst_n    JTAG system reset signal (active low)
  * @param tdo       JTAG test data out
  */
- void jtagdpi_tick(void *ctx_void, svBit *connected, svBit *tck, svBit *tms,
-                   svBit *tdi, svBit *trst_n, svBit *srst_n, const svBit tdo);
+ void jtagdpi_tick(void *ctx_void, svBit *tck, svBit *tms, svBit *tdi,
+		   svBit *trst_n, svBit *srst_n, const svBit tdo);
 
 #ifdef __cplusplus
 }  // extern "C"

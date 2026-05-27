@@ -9,8 +9,6 @@ module jtagdpi #(
   input  logic clk_i,
   input  logic rst_ni,
 
-  output logic connected_o,
-
   output logic jtag_tck,
   output logic jtag_tms,
   output logic jtag_tdi,
@@ -18,12 +16,11 @@ module jtagdpi #(
   output logic jtag_trst_n,
   output logic jtag_srst_n
 );
-
   import "DPI-C"
   function chandle jtagdpi_create(input string name, input int listen_port);
 
   import "DPI-C"
-  function void jtagdpi_tick(input chandle ctx, output bit connected, output bit tck,
+  function void jtagdpi_tick(input chandle ctx, output bit tck,
                              output bit tms, output bit tdi, output bit trst_n,
                              output bit srst_n, input bit tdo);
 
@@ -41,8 +38,8 @@ module jtagdpi #(
     ctx = null;
   end
 
-  always_ff @(posedge clk_i, negedge rst_ni) begin
-    jtagdpi_tick(ctx, connected_o, jtag_tck, jtag_tms, jtag_tdi, jtag_trst_n,
+  always_ff @(posedge clk_i) begin
+    jtagdpi_tick(ctx, jtag_tck, jtag_tms, jtag_tdi, jtag_trst_n,
                  jtag_srst_n, jtag_tdo);
   end
 

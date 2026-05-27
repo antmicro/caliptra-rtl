@@ -46,6 +46,7 @@ set mbox_execute_mem_addr 0x30020018
 set mbox_status_mem_addr 0x3002001C
 set mbox_unlock_mem_addr 0x30020020
 
+set dmcontrol_addr 0x10
 set dmstatus_addr 0x11
 
 #dmi register addresses
@@ -106,4 +107,18 @@ set dmi_reg_ss_dbg_unlock_level0 0x72;
 set dmi_reg_ss_dbg_unlock_level1 0x73;
 set dmi_reg_ss_strap_caliptra_dma_axi_user 0x74;
 
+proc halt_core {} {
+    global dmcontrol_addr
+    global dmstatus_addr
 
+    puts "Halting the core..."
+    riscv dmi_write $dmcontrol_addr 0x80000001
+    puts "Read Debug Module Status Register..."
+    set val [riscv dmi_read $dmstatus_addr]
+    puts "dmstatus: $val"
+    while {($val & 0x00000300) == 0} {
+        puts "The hart is not halted yet!"
+        set val [riscv dmi_read $dmstatus_addr]
+    }
+    puts "The hart is halted!"
+}
