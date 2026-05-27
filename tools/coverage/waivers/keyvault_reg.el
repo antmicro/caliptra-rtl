@@ -1454,148 +1454,150 @@ Toggle hwif_in.KEY_ENTRY[0][1].data.swwel "logic hwif_in.KEY_ENTRY[0][1].data.sw
 ANNOTATION: "Propagate: VC_COV_UNR (excluded at caliptra_top_tb.caliptra_top_dut.key_vault1 instance)"
 Toggle hwif_in.KEY_ENTRY[0][0].data.swwel "logic hwif_in.KEY_ENTRY[0][0].data.swwel"
 ANNOTATION: "vcs_gen_start:i0=0:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 18 "3080074857" "(field_storage.KEY_CTRL[0].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 18 "3080074857" "(field_storage.KEY_CTRL[0].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=4:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 86 "4106915170" "(field_storage.KEY_CTRL[4].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 86 "4106915170" "(field_storage.KEY_CTRL[4].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=5:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 103 "2870914544" "(field_storage.KEY_CTRL[5].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 103 "2870914544" "(field_storage.KEY_CTRL[5].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=6:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 120 "1186399066" "(field_storage.KEY_CTRL[6].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 120 "1186399066" "(field_storage.KEY_CTRL[6].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=7:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 137 "425927624" "(field_storage.KEY_CTRL[7].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 137 "425927624" "(field_storage.KEY_CTRL[7].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=8:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 154 "2644574634" "(field_storage.KEY_CTRL[8].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 154 "2644574634" "(field_storage.KEY_CTRL[8].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=9:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 171 "3262456120" "(field_storage.KEY_CTRL[9].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 171 "3262456120" "(field_storage.KEY_CTRL[9].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=10:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 188 "1686468129" "(field_storage.KEY_CTRL[10].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 188 "1686468129" "(field_storage.KEY_CTRL[10].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=11:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 205 "84891518" "(field_storage.KEY_CTRL[11].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 205 "84891518" "(field_storage.KEY_CTRL[11].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=12:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 222 "3974128812" "(field_storage.KEY_CTRL[12].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 222 "3974128812" "(field_storage.KEY_CTRL[12].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=13:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 239 "2372552179" "(field_storage.KEY_CTRL[13].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 239 "2372552179" "(field_storage.KEY_CTRL[13].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=14:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 256 "3648034854" "(field_storage.KEY_CTRL[14].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 256 "3648034854" "(field_storage.KEY_CTRL[14].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=15:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 273 "3103439225" "(field_storage.KEY_CTRL[15].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 273 "3103439225" "(field_storage.KEY_CTRL[15].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=16:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 290 "1360366251" "(field_storage.KEY_CTRL[16].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 290 "1360366251" "(field_storage.KEY_CTRL[16].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=17:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 307 "815770612" "(field_storage.KEY_CTRL[17].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 307 "815770612" "(field_storage.KEY_CTRL[17].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=18:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 324 "3246920524" "(field_storage.KEY_CTRL[18].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 324 "3246920524" "(field_storage.KEY_CTRL[18].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=19:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 341 "2684498451" "(field_storage.KEY_CTRL[19].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 341 "2684498451" "(field_storage.KEY_CTRL[19].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=20:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 358 "88127942" "(field_storage.KEY_CTRL[20].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 358 "88127942" "(field_storage.KEY_CTRL[20].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=21:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 375 "1690998937" "(field_storage.KEY_CTRL[21].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 375 "1690998937" "(field_storage.KEY_CTRL[21].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=22:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 392 "2368056139" "(field_storage.KEY_CTRL[22].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 392 "2368056139" "(field_storage.KEY_CTRL[22].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=23:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 409 "3970927124" "(field_storage.KEY_CTRL[23].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 409 "3970927124" "(field_storage.KEY_CTRL[23].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=3:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 69 "1514117315" "(field_storage.KEY_CTRL[3].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 69 "1514117315" "(field_storage.KEY_CTRL[3].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=2:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 52 "99334225" "(field_storage.KEY_CTRL[2].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 52 "99334225" "(field_storage.KEY_CTRL[2].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=1:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 35 "3896645371" "(field_storage.KEY_CTRL[1].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1"
+Condition 35 "3896645371" "(field_storage.KEY_CTRL[1].lock_use.value & ((~decoded_wr_biten[1]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=17:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 303 "3190533170" "(field_storage.KEY_CTRL[17].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 303 "3190533170" "(field_storage.KEY_CTRL[17].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=0:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 14 "3059401164" "(field_storage.KEY_CTRL[0].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 14 "3059401164" "(field_storage.KEY_CTRL[0].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=1:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 31 "3678373364" "(field_storage.KEY_CTRL[1].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 31 "3678373364" "(field_storage.KEY_CTRL[1].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=2:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 48 "2919679987" "(field_storage.KEY_CTRL[2].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 48 "2919679987" "(field_storage.KEY_CTRL[2].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=3:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 65 "3278078923" "(field_storage.KEY_CTRL[3].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 65 "3278078923" "(field_storage.KEY_CTRL[3].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=4:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 82 "4087845860" "(field_storage.KEY_CTRL[4].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 82 "4087845860" "(field_storage.KEY_CTRL[4].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=5:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 99 "2663569372" "(field_storage.KEY_CTRL[5].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 99 "2663569372" "(field_storage.KEY_CTRL[5].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=6:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 116 "3959133659" "(field_storage.KEY_CTRL[6].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 116 "3959133659" "(field_storage.KEY_CTRL[6].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=7:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 133 "2258555363" "(field_storage.KEY_CTRL[7].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 133 "2258555363" "(field_storage.KEY_CTRL[7].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=8:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 150 "2163714027" "(field_storage.KEY_CTRL[8].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 150 "2163714027" "(field_storage.KEY_CTRL[8].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=9:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 167 "3985826771" "(field_storage.KEY_CTRL[9].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 167 "3985826771" "(field_storage.KEY_CTRL[9].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=10:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 184 "828095427" "(field_storage.KEY_CTRL[10].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 184 "828095427" "(field_storage.KEY_CTRL[10].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=11:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 201 "716438053" "(field_storage.KEY_CTRL[11].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 201 "716438053" "(field_storage.KEY_CTRL[11].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=12:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 218 "1492885594" "(field_storage.KEY_CTRL[12].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 218 "1492885594" "(field_storage.KEY_CTRL[12].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=13:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 235 "1125376444" "(field_storage.KEY_CTRL[13].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 235 "1125376444" "(field_storage.KEY_CTRL[13].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=14:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 252 "3429103181" "(field_storage.KEY_CTRL[14].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 252 "3429103181" "(field_storage.KEY_CTRL[14].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=15:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 269 "3616257963" "(field_storage.KEY_CTRL[15].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 269 "3616257963" "(field_storage.KEY_CTRL[15].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=16:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 286 "2781081044" "(field_storage.KEY_CTRL[16].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 286 "2781081044" "(field_storage.KEY_CTRL[16].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=23:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 405 "366419420" "(field_storage.KEY_CTRL[23].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 405 "366419420" "(field_storage.KEY_CTRL[23].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=22:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 388 "239033402" "(field_storage.KEY_CTRL[22].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 388 "239033402" "(field_storage.KEY_CTRL[22].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=21:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 371 "2088175173" "(field_storage.KEY_CTRL[21].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 371 "2088175173" "(field_storage.KEY_CTRL[21].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=20:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 354 "1738491811" "(field_storage.KEY_CTRL[20].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 354 "1738491811" "(field_storage.KEY_CTRL[20].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=19:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 337 "3126221184" "(field_storage.KEY_CTRL[19].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 337 "3126221184" "(field_storage.KEY_CTRL[19].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=18:vcs_gen_end:Cannot be satisfied, once swwel is set, after the lock is set (the parent if clause will make this code unreachable)"
-Condition 320 "2713589862" "(field_storage.KEY_CTRL[18].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 320 "2713589862" "(field_storage.KEY_CTRL[18].lock_wr.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=23:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 413 "869139073" "(field_storage.KEY_CTRL[23].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 413 "869139073" "(field_storage.KEY_CTRL[23].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=0:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 22 "3637297692" "(field_storage.KEY_CTRL[0].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 22 "3637297692" "(field_storage.KEY_CTRL[0].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=1:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 39 "257101133" "(field_storage.KEY_CTRL[1].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 39 "257101133" "(field_storage.KEY_CTRL[1].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=2:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 56 "1249874143" "(field_storage.KEY_CTRL[2].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 56 "1249874143" "(field_storage.KEY_CTRL[2].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=3:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 73 "2648727438" "(field_storage.KEY_CTRL[3].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 73 "2648727438" "(field_storage.KEY_CTRL[3].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=4:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 90 "1367676521" "(field_storage.KEY_CTRL[4].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 90 "1367676521" "(field_storage.KEY_CTRL[4].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=5:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 107 "2249906488" "(field_storage.KEY_CTRL[5].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 107 "2249906488" "(field_storage.KEY_CTRL[5].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=6:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 124 "3275113642" "(field_storage.KEY_CTRL[6].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 124 "3275113642" "(field_storage.KEY_CTRL[6].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=7:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 141 "346655739" "(field_storage.KEY_CTRL[7].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 141 "346655739" "(field_storage.KEY_CTRL[7].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=8:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 158 "3889730647" "(field_storage.KEY_CTRL[8].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 158 "3889730647" "(field_storage.KEY_CTRL[8].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=9:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 175 "809982726" "(field_storage.KEY_CTRL[9].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 175 "809982726" "(field_storage.KEY_CTRL[9].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=10:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 192 "1945615053" "(field_storage.KEY_CTRL[10].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 192 "1945615053" "(field_storage.KEY_CTRL[10].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=11:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 209 "3789753365" "(field_storage.KEY_CTRL[11].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 209 "3789753365" "(field_storage.KEY_CTRL[11].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=12:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 226 "2303175951" "(field_storage.KEY_CTRL[12].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 226 "2303175951" "(field_storage.KEY_CTRL[12].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=13:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 243 "458431447" "(field_storage.KEY_CTRL[13].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 243 "458431447" "(field_storage.KEY_CTRL[13].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=14:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 260 "1007754701" "(field_storage.KEY_CTRL[14].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 260 "1007754701" "(field_storage.KEY_CTRL[14].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=15:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 277 "2919607061" "(field_storage.KEY_CTRL[15].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 277 "2919607061" "(field_storage.KEY_CTRL[15].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=16:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 294 "3332442639" "(field_storage.KEY_CTRL[16].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 294 "3332442639" "(field_storage.KEY_CTRL[16].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=17:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 311 "1421196503" "(field_storage.KEY_CTRL[17].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 311 "1421196503" "(field_storage.KEY_CTRL[17].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=18:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 328 "950141982" "(field_storage.KEY_CTRL[18].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 328 "950141982" "(field_storage.KEY_CTRL[18].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=19:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 345 "2864100038" "(field_storage.KEY_CTRL[19].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 345 "2864100038" "(field_storage.KEY_CTRL[19].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=20:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 362 "1533715355" "(field_storage.KEY_CTRL[20].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 362 "1533715355" "(field_storage.KEY_CTRL[20].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=21:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 379 "3380483395" "(field_storage.KEY_CTRL[21].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 379 "3380483395" "(field_storage.KEY_CTRL[21].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "vcs_gen_start:i0=22:vcs_gen_end:This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 396 "2715464793" "(field_storage.KEY_CTRL[22].clear.value & ((~decoded_wr_biten[2]))) 1 -1"
+Condition 396 "2715464793" "(field_storage.KEY_CTRL[22].clear.value & ((~decoded_wr_biten[2]))) 1 -1" (2 "10")
 ANNOTATION: "This scenario cannot be reproduced from the uC, since it would require sending writes immediately in the next clock cycle, one after the other."
-Condition 5 "422948" "(field_storage.CLEAR_SECRETS.wr_debug_values.value & ((~decoded_wr_biten[0]))) 1 -1"
+Condition 5 "422948" "(field_storage.CLEAR_SECRETS.wr_debug_values.value & ((~decoded_wr_biten[0]))) 1 -1" (2 "10")
+ANNOTATION: "BUSY htrans status is impossible to propagate through \"ahb_lite_2to1_mux\", so this scenario won't happen"
+Condition 809 "459235620" "(decoded_req & decoded_req_is_wr) 1 -1" (1 "01")
