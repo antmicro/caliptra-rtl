@@ -66,6 +66,29 @@ void main(void) {
                 error_count += 1;
             }
         }
+
+        // Modify OBF strap and check that it did not changed
+        for (int i = 0; i < 8; ++i) {
+            uint32_t new_obf_key = xorshift32();
+            lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, new_obf_key);
+            lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x407F|(i<<8));
+            lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x487F | (i<<8));
+            if (lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0) != obf_key[i]) {
+                error_count += 1;
+            }
+            obf_key[i] = new_obf_key;
+        }
+
+        // Issue cold reset
+        SEND_STDOUT_CTRL(TB_CMD_COLD_RESET);
+        while(1);
+    } else if (rst_count == 3) {
+        for (int i = 0; i < 8; ++i) {
+            lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x487F | (i<<8));
+            if (lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0) != obf_key[i]) {
+                error_count += 1;
+            }
+        }
     }
     VPRINTF(LOW, "\nIFC HW Only Reg Test Completed\n");
 
