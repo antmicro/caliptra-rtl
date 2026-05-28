@@ -385,6 +385,10 @@ module caliptra_top_tb_services
     //      16'h4F7F        - Set OBF_KEY[7] value from HW
     //      16'h507F        - Enable injection of mock mailbox access request from SoC when TAP locks mailbox
     //      16'h517F        - Disable injection of mock mailbox access request from SoC when TAP locks mailbox
+    //      16'h527F        - Inject FIFO AXI read errors
+    //      16'h537F        - Inject FIFO AXI write errors
+    //      16'h547F        - Stop injecting FIFO AXI read errors
+    //      16'h557F        - Stop injecting FIFO AXI write errors
     //      16'h807F:'h9F7F - Inject a valid hmac_key dest and hmac512_key into Nth kv slot (where slot is encoded as (N & 0x1F) << 8)
     //      16'hA07F:'hBF7F - Check if Nth kv slot (where slot is encoded as (N & 0x1F) << 8) is all zero
     //      16'hC07F        - Force clear of all KV slots, when DOE FSM starts to write
@@ -694,6 +698,8 @@ module caliptra_top_tb_services
             axi_complex_ctrl.fifo_clear            <= 1'b0;
             axi_complex_ctrl.rand_delays           <= 1'b0;
             axi_complex_ctrl.en_recovery_emulation <= 1'b0;
+            axi_complex_ctrl.fifo_rd_error         <= 1'b0;
+            axi_complex_ctrl.fifo_wr_error         <= 1'b0;
         end
         else if((WriteData[7:0] == 8'h88) && mailbox_write) begin
             axi_complex_ctrl.en_recovery_emulation <= ~axi_complex_ctrl.en_recovery_emulation; // Toggle option
@@ -715,6 +721,18 @@ module caliptra_top_tb_services
         end
         else if((WriteData[7:0] == 8'h8f) && mailbox_write) begin
             axi_complex_ctrl.rand_delays    <= ~axi_complex_ctrl.rand_delays; // Toggle option
+        end
+        else if((WriteData[15:0] == 16'h527F) && mailbox_write) begin
+            axi_complex_ctrl.fifo_rd_error  <= 1'b1;
+        end
+        else if((WriteData[15:0] == 16'h537F) && mailbox_write) begin
+            axi_complex_ctrl.fifo_wr_error  <= 1'b1;
+        end
+        else if((WriteData[15:0] == 16'h547F) && mailbox_write) begin
+            axi_complex_ctrl.fifo_rd_error  <= 1'b0;
+        end
+        else if((WriteData[15:0] == 16'h557F) && mailbox_write) begin
+            axi_complex_ctrl.fifo_wr_error  <= 1'b0;
         end
         else begin
             axi_complex_ctrl.fifo_clear     <= 1'b0;
