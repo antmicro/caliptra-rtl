@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "ifc_reg.h"
+#include "soc_access.h"
 #include "caliptra_defines.h"
 #include "caliptra_isr.h"
 #include "printf.h"
@@ -34,29 +35,11 @@ volatile int rst_count __attribute__((section(".dccm.persistent"))) = 0;
 #endif
 
 volatile caliptra_intr_received_s cptra_intr_rcv = {0};
-
+#include "riscv_hw_if.h"
 #define TB_CMD_WARM_RESET 0xF6
 #define TB_CMD_COLD_RESET 0xF5
 #define TB_CMD_TEST_PASS 0xFF
 #define TB_CMD_TEST_FAIL 0x01
-
-void ifc_reg_soc_write(uint32_t reg_addr, uint32_t value) {
-    // Set AXI address
-    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, reg_addr);
-    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x017F);
-    // Set AXI write data
-    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, value);
-    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x027F);
-    // Issue AXI command
-    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, 1); // Write
-    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x037F);
-    // Check if AXI has finished
-    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x047F);
-    while (!(lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0) & 1)) {
-        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x047F);
-    }
-    VPRINTF(MEDIUM, "%x\n", lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0));
-}
 
 void soc_write_random_to_register_group_and_track(ifc_register_group_t group, ifc_reg_exp_dict_t *dict) {
     int count = get_register_count(group);
@@ -84,7 +67,7 @@ void soc_write_random_to_register_group_and_track(ifc_register_group_t group, if
                 }
 
                 VPRINTF(MEDIUM, "  Writing 0x%08x to %s[%d] (0x%08x)\n", rand_value, get_group_name(group), i, reg->address);
-                ifc_reg_soc_write(reg->address, rand_value);
+                soc_write_32(reg->address, rand_value);
             } else {
                 VPRINTF(MEDIUM, "  Skipping excluded register %s[%d] (0x%08x)\n", get_group_name(group), i, reg->address);
             }
@@ -112,7 +95,7 @@ void soc_write_to_register_group_and_track(ifc_register_group_t group, uint32_t 
                 }
 
                 VPRINTF(MEDIUM, "  Writing 0x%08x to %s[%d] (0x%08x)\n", write_data, get_group_name(group), i, reg->address);
-                ifc_reg_soc_write(reg->address, write_data);
+                soc_write_32(reg->address, write_data);
             } else {
                 VPRINTF(MEDIUM, "  Skipping excluded register %s[%d] (0x%08x)\n", get_group_name(group), i, reg->address);
             }
