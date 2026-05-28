@@ -36,9 +36,9 @@ void main () {
     axi_resp_t axi_resp;
 
     // Message
-    VPRINTF(LOW, "----------------------------------------\n");
-    VPRINTF(LOW, " Caliptra Mailbox Error Smoke Test!!\n"    );
-    VPRINTF(LOW, "----------------------------------------\n");
+    VPRINTF(LOW, "----------------------------------------------\n");
+    VPRINTF(LOW, " Caliptra Mailbox Error/Notif Smoke Test!!\n"    );
+    VPRINTF(LOW, "----------------------------------------------\n");
 
     // Poll for mbox lock from SoC
     do {
@@ -58,6 +58,21 @@ void main () {
 
     if (cptra_intr_rcv.soc_ifc_error & SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_INTERNAL_STS_MASK == 0) {
         VPRINTF(ERROR, "ERROR: Mailbox did not report error on protocol violation!\n");
+        SEND_STDOUT_CTRL(0x1);
+        while(1);
+    }
+
+    // Force unlock
+    lsu_write_32(CLP_MBOX_CSR_MBOX_UNLOCK, MBOX_CSR_MBOX_UNLOCK_UNLOCK_MASK);
+
+    // Poll for mbox lock
+    while((lsu_read_32(CLP_MBOX_CSR_MBOX_LOCK) & MBOX_CSR_MBOX_LOCK_LOCK_MASK) == 1);
+
+    // Poll for mbox lock from SoC to trigger a notification interrupt
+    soc_read_user_32(CLP_MBOX_CSR_MBOX_LOCK, MBOX_VALID_USER);
+
+    if (cptra_intr_rcv.soc_ifc_notif & SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_SOC_REQ_LOCK_STS_MASK == 0) {
+        VPRINTF(ERROR, "ERROR: Mailbox did not notify about SoC trying to lock!\n");
         SEND_STDOUT_CTRL(0x1);
         while(1);
     }
