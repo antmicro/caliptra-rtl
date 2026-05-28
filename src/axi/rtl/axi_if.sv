@@ -261,6 +261,7 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
             arlock  `EQ__ '0;
             arvalid `EQ__ '0;
             data = new[len+1];
+            resp_user = new[len+1];
             resp = new[len+1];
             for (int beat=0; beat <= len; beat++) begin
                 get_read_beat(beat_data, beat_user, beat_resp);
