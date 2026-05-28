@@ -21,3 +21,14 @@ Condition 1 "4003023624" "(hsel_i_0 & hready_i_0 & (htrans_i_0 inside {2'b10, 2'
 ANNOTATION: "Force bus idle connected to reset. If under reset sequence, no transaction expected and the case htrans !=2'b00 and force_bus_idle=1 cannot occur"
 Condition 2 "2123387574" "(hsel_i_1 & hready_i_1 & (htrans_i_1 inside {2'b10, 2'b11}) & ((~force_bus_idle))) 1 -1" (4 "1110")
 
+CHECKSUM: "2749920447 2942315046"
+INSTANCE: caliptra_top_tb.caliptra_top_dut.u_sb_lsu_ahb_mux
+ANNOTATION: "When force bus idle is active, the system is under reset and no access are expected"
+Condition 31 "898209295" "(initiator0_data_ph_nq & ((~force_bus_idle))) 1 -1" (2 "10")
+ANNOTATION: "When force bus idle is active, the system is under reset and no access are expected"
+Condition 34 "1383859962" "(initiator1_pend_addr_ph_nq & ((~force_bus_idle))) 1 -1" (2 "10")
+ANNOTATION: "When force bus idle is active, the system is under reset and no access are expected"
+Condition 33 "4044223374" "(initiator0_pend_addr_ph_nq & ((~force_bus_idle))) 1 -1" (2 "10")
+ANNOTATION: "When force bus idle is active, the system is under reset and no access are expected"
+Condition 32 "2189277537" "(initiator1_data_ph_nq & ((~force_bus_idle))) 1 -1" (2 "10")
+
