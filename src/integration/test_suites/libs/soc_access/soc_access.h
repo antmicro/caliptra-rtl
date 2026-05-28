@@ -17,6 +17,15 @@
 
 #include "stdint.h"
 
+typedef struct {
+    uint32_t  rdata;
+    uint8_t   resp;
+} axi_resp_t;
+
+axi_resp_t soc_access_32(uint32_t reg_addr, uint32_t value, uint32_t user, uint8_t is_write);
+uint8_t soc_write_user_32(uint32_t reg_addr, uint32_t value, uint32_t user);
 uint8_t soc_write_32(uint32_t reg_addr, uint32_t value);
+axi_resp_t soc_read_user_32(uint32_t reg_addr, uint32_t user);
+axi_resp_t soc_read_32(uint32_t reg_addr);
 
 #endif /* SOC_ACCESS_LIB */
