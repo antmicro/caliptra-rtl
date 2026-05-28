@@ -32,6 +32,14 @@ volatile uint32_t  intr_count = 0;
     enum printf_verbosity verbosity_g = LOW;
 #endif
 
+#ifdef MY_RANDOM_SEED
+    unsigned time = (unsigned) MY_RANDOM_SEED;
+#else
+    unsigned time = 0;
+#endif
+
+const int iteration_count = 2;
+
 volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 
 
@@ -49,182 +57,199 @@ volatile caliptra_intr_received_s cptra_intr_rcv = {0};
     TAG = 637edc6e01dce7e6742a99451aae82df23da3e92439e590e43e761b33e910fb8ac2878ebd5803f6f0b61dbce5e251ff8789a4722c1be65aea45fd464e89f8f5b
 */
 
+void randomize_kv_ids(uint8_t *key_id, uint8_t *block_id, uint8_t *tag_id){
+    *key_id = (rand() % 0x7) + 1; // Limit to allow injection
 
+    do {
+        *block_id = rand() % 0x17;
+    } while(*block_id == *key_id);
+
+    do {
+        *tag_id = rand() % 0x17; 
+    } while((*tag_id == *key_id) || 
+            (*tag_id == *block_id));
+
+    printf("Randomized keyvault ids, key: 0x%x, block: 0x%x, tag: 0x%x\n", *key_id, *block_id, *tag_id);
+}
 
 void main() {
     printf("----------------------------------\n");
     printf(" KV Smoke Test With hmac384 flow !!\n");
     printf("----------------------------------\n");
 
+    srand(time);
     //Call interrupt init
     init_interrupts();
 
-    uint32_t block[32] =   {0x48692054,
-                            0x68657265,
-                            0x80000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000000,
-                            0x00000440};
+    for(int i = 0; i < iteration_count; i++) {
+        printf("\nIteration %0d of %0d\n\n", i + 1, iteration_count);
+        uint32_t block[32] =   {0x48692054,
+                                0x68657265,
+                                0x80000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000000,
+                                0x00000440};
 
-    //this is a random lfsr_seed
-    uint32_t hmac384_lfsr_seed_data[12] =  {0xC8F518D4,
-                                    0xF3AA1BD4,
-                                    0x6ED56C1C,
-                                    0x3C9E16FB,
-                                    0x800AF504,
-                                    0xC8F518D4,
-                                    0xF3AA1BD4,
-                                    0x6ED56C1C,
-                                    0x3C9E16FB,
-                                    0x800AF504,
-                                    0xC8F518D4,
-                                    0xF3AA1BD4}; 
+        //this is a random lfsr_seed
+        uint32_t hmac384_lfsr_seed_data[12] =  {0xC8F518D4,
+                                        0xF3AA1BD4,
+                                        0x6ED56C1C,
+                                        0x3C9E16FB,
+                                        0x800AF504,
+                                        0xC8F518D4,
+                                        0xF3AA1BD4,
+                                        0x6ED56C1C,
+                                        0x3C9E16FB,
+                                        0x800AF504,
+                                        0xC8F518D4,
+                                        0xF3AA1BD4}; 
 
-    uint32_t hmac384_expected_tag[12] =   {0xb6a8d563,
-                                    0x6f5c6a72,
-                                    0x24f9977d,
-                                    0xcf7ee6c7,
-                                    0xfb6d0c48,
-                                    0xcbdee973,
-                                    0x7a959796,
-                                    0x489bddbc,
-                                    0x4c5df61d,
-                                    0x5b3297b4,
-                                    0xfb68dab9,
-                                    0xf1b582c2}; 
+        uint32_t hmac384_expected_tag[12] =   {0xb6a8d563,
+                                        0x6f5c6a72,
+                                        0x24f9977d,
+                                        0xcf7ee6c7,
+                                        0xfb6d0c48,
+                                        0xcbdee973,
+                                        0x7a959796,
+                                        0x489bddbc,
+                                        0x4c5df61d,
+                                        0x5b3297b4,
+                                        0xfb68dab9,
+                                        0xf1b582c2}; 
 
-    uint8_t hmackey_kv_id       = 0x2;
-    uint8_t hmacblock_kv_id     = 0x1;
-    uint8_t store_to_kv         = 0x1;
-    uint8_t tag_kv_id           = 0x0;
+        uint8_t hmackey_kv_id;
+        uint8_t hmacblock_kv_id;
+        uint8_t tag_kv_id;
 
-    hmac_io hmac384_key;
-    hmac_io hmac384_block;
-    hmac_io hmac384_lfsr_seed;
-    hmac_io hmac384_tag;
+        hmac_io hmac384_key;
+        hmac_io hmac384_block;
+        hmac_io hmac384_lfsr_seed;
+        hmac_io hmac384_tag;
 
-    hmac384_key.kv_intf = TRUE;
-    hmac384_key.kv_id = hmackey_kv_id;
+        randomize_kv_ids(&hmackey_kv_id, &hmacblock_kv_id, &tag_kv_id);
 
-    hmac384_block.kv_intf = TRUE;
-    hmac384_block.kv_id = hmacblock_kv_id;
-    hmac384_block.data_size = 32;
-    for (int i = 0; i < hmac384_block.data_size; i++)
-        hmac384_block.data[i] = block[i];
+        hmac384_key.kv_intf = TRUE;
+        hmac384_key.kv_id = hmackey_kv_id;
 
-    hmac384_lfsr_seed.kv_intf = FALSE;
-    hmac384_lfsr_seed.data_size = 12;
-    for (int i = 0; i < hmac384_lfsr_seed.data_size; i++)
-        hmac384_lfsr_seed.data[i] = hmac384_lfsr_seed_data[i];
+        hmac384_block.kv_intf = TRUE;
+        hmac384_block.kv_id = hmacblock_kv_id;
+        hmac384_block.data_size = 32;
+        for (int i = 0; i < hmac384_block.data_size; i++)
+            hmac384_block.data[i] = block[i];
 
-    hmac384_tag.kv_intf = TRUE;
-    hmac384_tag.kv_id = tag_kv_id;
-    hmac384_tag.data_size = 12;
-    for (int i = 0; i < hmac384_tag.data_size; i++)
-        hmac384_tag.data[i] = hmac384_expected_tag[i];
+        hmac384_lfsr_seed.data_size = 12;
+        for (int i = 0; i < hmac384_lfsr_seed.data_size; i++)
+            hmac384_lfsr_seed.data[i] = hmac384_lfsr_seed_data[i];
 
-
-    //inject hmac384_key to kv key reg (in RTL)
-    uint8_t key384_inject_cmd = 0xa0 + (hmac384_key.kv_id & 0x7);
-    printf("%c", key384_inject_cmd);
-
-    hmac384_flow(hmac384_key, hmac384_block, hmac384_lfsr_seed, hmac384_tag, TRUE);
-    hmac_zeroize();
+        hmac384_tag.kv_intf = TRUE;
+        hmac384_tag.kv_id = tag_kv_id;
+        hmac384_tag.data_size = 12;
+        for (int i = 0; i < hmac384_tag.data_size; i++)
+            hmac384_tag.data[i] = hmac384_expected_tag[i];
 
 
-    printf("----------------------------------\n");
-    printf(" KV Smoke Test With hmac512 flow !!\n");
-    printf("----------------------------------\n");
+        //inject hmac384_key to kv key reg (in RTL)
+        uint8_t key384_inject_cmd = 0xa0 + (hmac384_key.kv_id & 0x7);
+        printf("%c", key384_inject_cmd);
 
-    //this is a random lfsr_seed
-    uint32_t hmac512_lfsr_seed_data[12] =  {0xC8F518D4,
-                                    0xF3AA1BD4,
-                                    0x6ED56C1C,
-                                    0x3C9E16FB,
-                                    0x800AF504,
-                                    0xC8F518D4,
-                                    0xF3AA1BD4,
-                                    0x6ED56C1C,
-                                    0x3C9E16FB,
-                                    0x800AF504,
-                                    0xC8F518D4,
-                                    0xF3AA1BD4}; 
-
-    uint32_t hmac512_expected_tag[16] =   {0x637edc6e,
-                                    0x01dce7e6,
-                                    0x742a9945,
-                                    0x1aae82df,
-                                    0x23da3e92,
-                                    0x439e590e,
-                                    0x43e761b3,
-                                    0x3e910fb8,
-                                    0xac2878eb,
-                                    0xd5803f6f,
-                                    0x0b61dbce,
-                                    0x5e251ff8,
-                                    0x789a4722,
-                                    0xc1be65ae,
-                                    0xa45fd464,
-                                    0xe89f8f5b}; 
-
-    hmac_io hmac512_key;
-    hmac_io hmac512_block;
-    hmac_io hmac512_lfsr_seed;
-    hmac_io hmac512_tag;
-
-    hmac512_key.kv_intf = TRUE;
-    hmac512_key.kv_id = 4;
-
-    hmac512_block.kv_intf = FALSE;
-    hmac512_block.kv_id = hmacblock_kv_id;
-    hmac512_block.data_size = 32;
-    for (int i = 0; i < hmac512_block.data_size; i++)
-        hmac512_block.data[i] = block[i];
-
-    hmac512_lfsr_seed.kv_intf = FALSE;
-    hmac512_lfsr_seed.data_size = 12;
-    for (int i = 0; i < hmac512_lfsr_seed.data_size; i++)
-        hmac512_lfsr_seed.data[i] = hmac512_lfsr_seed_data[i];
-
-    hmac512_tag.kv_intf = TRUE;
-    hmac512_tag.kv_id = tag_kv_id;
-    hmac512_tag.data_size = 16;
-    for (int i = 0; i < hmac512_tag.data_size; i++)
-        hmac512_tag.data[i] = hmac512_expected_tag[i];
+        hmac384_flow(hmac384_key, hmac384_block, hmac384_lfsr_seed, hmac384_tag, TRUE);
+        hmac_zeroize();
 
 
-    //inject hmac512_key to kv key reg (in RTL)
-    uint8_t key512_inject_cmd = 0xa8 + (hmac512_key.kv_id & 0x7);
-    printf("%c", key512_inject_cmd);
+        printf("----------------------------------\n");
+        printf(" KV Smoke Test With hmac512 flow !!\n");
+        printf("----------------------------------\n");
 
-    hmac512_flow(hmac512_key, hmac512_block, hmac512_lfsr_seed, hmac512_tag, TRUE);
-    hmac_zeroize();
+        //this is a random lfsr_seed
+        uint32_t hmac512_lfsr_seed_data[12] =  {0xC8F518D4,
+                                        0xF3AA1BD4,
+                                        0x6ED56C1C,
+                                        0x3C9E16FB,
+                                        0x800AF504,
+                                        0xC8F518D4,
+                                        0xF3AA1BD4,
+                                        0x6ED56C1C,
+                                        0x3C9E16FB,
+                                        0x800AF504,
+                                        0xC8F518D4,
+                                        0xF3AA1BD4}; 
+
+        uint32_t hmac512_expected_tag[16] =   {0x637edc6e,
+                                        0x01dce7e6,
+                                        0x742a9945,
+                                        0x1aae82df,
+                                        0x23da3e92,
+                                        0x439e590e,
+                                        0x43e761b3,
+                                        0x3e910fb8,
+                                        0xac2878eb,
+                                        0xd5803f6f,
+                                        0x0b61dbce,
+                                        0x5e251ff8,
+                                        0x789a4722,
+                                        0xc1be65ae,
+                                        0xa45fd464,
+                                        0xe89f8f5b}; 
+
+        hmac_io hmac512_key;
+        hmac_io hmac512_block;
+        hmac_io hmac512_lfsr_seed;
+        hmac_io hmac512_tag;
+
+        randomize_kv_ids(&hmackey_kv_id, &hmacblock_kv_id, &tag_kv_id);
+
+        hmac512_key.kv_intf = TRUE;
+        hmac512_key.kv_id = hmackey_kv_id;
+
+        hmac512_block.kv_intf = FALSE;
+        hmac512_block.data_size = 32;
+        for (int i = 0; i < hmac512_block.data_size; i++)
+            hmac512_block.data[i] = block[i];
+
+        hmac512_lfsr_seed.data_size = 12;
+        for (int i = 0; i < hmac512_lfsr_seed.data_size; i++)
+            hmac512_lfsr_seed.data[i] = hmac512_lfsr_seed_data[i];
+
+        hmac512_tag.kv_intf = TRUE;
+        hmac512_tag.kv_id = tag_kv_id;
+        hmac512_tag.data_size = 16;
+        for (int i = 0; i < hmac512_tag.data_size; i++)
+            hmac512_tag.data[i] = hmac512_expected_tag[i];
+
+
+        //inject hmac512_key to kv key reg (in RTL)
+        uint8_t key512_inject_cmd = 0xa8 + (hmac512_key.kv_id & 0x7);
+        printf("%c", key512_inject_cmd);
+
+        hmac512_flow(hmac512_key, hmac512_block, hmac512_lfsr_seed, hmac512_tag, TRUE);
+        hmac_zeroize();
+    }
 
     printf("%c",0xff); //End the test
     
