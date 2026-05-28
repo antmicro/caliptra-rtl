@@ -12,12 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef RAND_STDINT_LIB
-#define RAND_STDINT_LIB
+#ifndef XORSHIFT_LIB
+#define XORSHIFT_LIB
 
-#include <stdbool.h>
 #include "stdint.h"
-#include <stddef.h>
 
 #ifndef MY_RANDOM_SEED
     #define MY_RANDOM_SEED 0xabcd
@@ -26,4 +24,4 @@
 void xorshift32_init(uint32_t seed);
 uint32_t xorshift32(void);
 
-#endif /* RAND_STDINT_LIB */
+#endif /* XORSHIFT_LIB */
