@@ -65,10 +65,13 @@ import caliptra_top_tb_pkg::*; #(
     input logic assert_rst_flag_from_service,
     input logic deassert_rst_flag_from_service,
 
+    input logic route_fatal_to_nmi,
+
     //AXI SoC
     input logic [31:0] axi_addr,
     input logic [31:0] axi_user,
     input logic [31:0] axi_wdata,
+    input logic [ 3:0] axi_wstrb,
     input logic        axi_write,
     input logic        axi_read,
     input logic        axi_put_status,
@@ -142,7 +145,7 @@ import caliptra_top_tb_pkg::*; #(
         end
     end
     // Pulse fires about 640ns after the original error interrupt occurs
-    always_comb cptra_error_fatal_dly_p     = cptra_error_fatal_counter     == 16'h0040;
+    always_comb cptra_error_fatal_dly_p     = (cptra_error_fatal_counter     == 16'h0040) && !route_fatal_to_nmi;
     always_comb cptra_error_non_fatal_dly_p = cptra_error_non_fatal_counter == 16'h0040;
 
     always@(negedge core_clk) begin
@@ -576,12 +579,21 @@ import caliptra_top_tb_pkg::*; #(
             axi_buser <= '0;
             axi_rdata <= '0;
         end else if (axi_write) begin
+            automatic logic [ 3:0] burst_strb[] = new[1]('{axi_wstrb});
+            automatic logic [31:0] burst_user[] = new[1]('{axi_user});
+            automatic logic [31:0] burst_data[] = new[1]('{axi_wdata});
             done <= 1'b0;
             read <= 1'b0;
-            m_axi_bfm_if.axi_write_single(
+            m_axi_bfm_if.axi_write(
                 .addr(axi_addr),
                 .user(axi_user),
-                .data(axi_wdata),
+                .id  ('0),
+                .lock(1'b0),
+                .data(burst_data),
+                .use_strb(1'b1),
+                .strb(burst_strb),
+                .use_write_user(1'b1),
+                .write_user(burst_user),
                 .resp(axi_wresp),
                 .resp_user(axi_buser)
             );

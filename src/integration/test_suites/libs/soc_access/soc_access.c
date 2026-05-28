@@ -18,12 +18,12 @@
 
 #define AXI_WRITE 1
 #define AXI_READ 0
+#define AXI_DEFAULT_MASK 0xF
 #define AXI_DEFAULT_USER 0
 
 
-axi_resp_t soc_access_32(uint32_t reg_addr, uint32_t value, uint32_t user, uint8_t is_write) {
+axi_resp_t soc_access_32(uint32_t reg_addr, uint32_t value, uint32_t mask, uint32_t user, uint8_t is_write) {
     axi_resp_t axi_resp;
-
     // Set AXI address
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, reg_addr);
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x017F);
@@ -39,7 +39,7 @@ axi_resp_t soc_access_32(uint32_t reg_addr, uint32_t value, uint32_t user, uint8
     }
 
     // Issue AXI command
-    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, is_write);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, is_write | ((mask & 0xF) << 8));
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x037F);
 
     while (1) {
@@ -61,10 +61,18 @@ axi_resp_t soc_access_32(uint32_t reg_addr, uint32_t value, uint32_t user, uint8
     }
 }
 
+uint8_t soc_masked_write_32(uint32_t reg_addr, uint32_t value, uint32_t mask) {
+    axi_resp_t axi_resp;
+
+    axi_resp = soc_access_32(reg_addr, value, mask, AXI_DEFAULT_USER, AXI_WRITE);
+
+    return axi_resp.resp;
+}
+
 uint8_t soc_write_user_32(uint32_t reg_addr, uint32_t value, uint32_t user) {
     axi_resp_t axi_resp;
 
-    axi_resp = soc_access_32(reg_addr, value, user, AXI_WRITE);
+    axi_resp = soc_access_32(reg_addr, value, AXI_DEFAULT_MASK, user, AXI_WRITE);
 
     return axi_resp.resp;
 }
@@ -76,7 +84,7 @@ uint8_t soc_write_32(uint32_t reg_addr, uint32_t value) {
 axi_resp_t soc_read_user_32(uint32_t reg_addr, uint32_t user) {
     axi_resp_t axi_resp;
 
-    axi_resp = soc_access_32(reg_addr, 0, user, AXI_READ);
+    axi_resp = soc_access_32(reg_addr, 0, AXI_DEFAULT_MASK, user, AXI_READ);
 
     return axi_resp;
 }

@@ -231,7 +231,7 @@ void mldsa_signing_flow(uint32_t privkey[MLDSA87_PRIVKEY_SIZE], uint32_t msg[MLD
     write_mldsa_reg((uint32_t*) CLP_MLDSA_REG_MLDSA_PRIVKEY_IN_BASE_ADDR, privkey, MLDSA87_PRIVKEY_SIZE);
 
     reg_ptr = (uint32_t*) CLP_MLDSA_REG_MLDSA_PRIVKEY_IN_BASE_ADDR;
-    while (reg_ptr < CLP_MLDSA_REG_MLDSA_PRIVKEY_IN_END_ADDR) {
+    while (reg_ptr < (uint32_t*)(CLP_MLDSA_REG_MLDSA_PRIVKEY_IN_END_ADDR)) {
         actual_data = *reg_ptr;
         if (actual_data) {
             printf("MLDSA_PRIVKEY_IN at address: 0x%0x doesn't return 0 on read!\n", reg_ptr);

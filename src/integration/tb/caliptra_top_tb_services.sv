@@ -81,6 +81,7 @@ module caliptra_top_tb_services
     output logic assert_rst_flag,
     output logic deassert_hard_rst_flag,
     output logic deassert_rst_flag,
+    output logic route_fatal_to_nmi,
 
     output logic [0:`CLP_OBF_UDS_DWORDS-1][31:0] cptra_uds_tb,
     output logic [0:`CLP_OBF_FE_DWORDS-1] [31:0] cptra_fe_tb,
@@ -90,6 +91,7 @@ module caliptra_top_tb_services
     output logic [31:0] axi_addr,
     output logic [31:0] axi_user,
     output logic [31:0] axi_wdata,
+    output logic [ 3:0] axi_wstrb,
     output logic        axi_write,
     output logic        axi_read,
     output logic        axi_put_status,
@@ -347,6 +349,8 @@ module caliptra_top_tb_services
     //      16'h047F        - Get SoC Access status, 0-In progress, 1-Done
     //      16'h057F        - Put SoC Access read response onto generic_input_wires
     //      16'h067F        - Setup SoC Access user from CPTRA_GENERIC_OUTPUT_WIRES[1]
+    //      16'h0E7F        - Set route_fatal_to_nmi
+    //      16'h0F7F        - Clear route_fatal_to_nmi
     //      16'h107F        - Force re-enable strap write
     //      16'h117F        - Release strap write
     //      16'h127F        - Enable debug intent
@@ -495,6 +499,7 @@ module caliptra_top_tb_services
         end else if ((WriteData[15:0] == 16'h037F) && mailbox_write) begin
             axi_write <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][0];
             axi_read <= !`CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][0];
+            axi_wstrb <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][11:8];
         end else if ((WriteData[15:0] == 16'h047F) && mailbox_write) begin
             axi_put_status <= 1'b1;
         end else if ((WriteData[15:0] == 16'h057F) && mailbox_write) begin
@@ -520,14 +525,28 @@ module caliptra_top_tb_services
         end
     end
 
-    always @(negedge clk or negedge cptra_rst_b) begin
-        if      (!cptra_rst_b) debug_intent <= 1'b0;
-        else if ((WriteData[15:0] == 16'h127F) && mailbox_write) begin
+    initial begin
+        debug_intent = 1'b0;
+        route_fatal_to_nmi = 1'b0;
+    end
+    always @(negedge clk) begin
+        if ((WriteData[15:0] == 16'h0E7F) && mailbox_write) begin
+            route_fatal_to_nmi <= 1'b1;
+            force `CPTRA_TOP_PATH.nmi_int = `CPTRA_TOP_PATH.cptra_error_fatal;
+            $display("Route fatal error to nmi pin");
+        end else if ((WriteData[15:0] == 16'h0F7F) && mailbox_write) begin
+            route_fatal_to_nmi <= 1'b0;
+            release `CPTRA_TOP_PATH.nmi_int;
+            $display("Return NMI to normal use");
+        end
+    end
+    always @(negedge clk) begin
+        if ((WriteData[15:0] == 16'h127F) && mailbox_write) begin
             debug_intent <= 1'b1;
-            $display("Enabling debug_intent\n");
+            $display("Enabling debug_intent");
         end else if ((WriteData[15:0] == 16'h137F) && mailbox_write) begin
             debug_intent <= 1'b0;
-            $display("Disabling debug_intent\n");
+            $display("Disabling debug_intent");
         end
     end
 
@@ -711,7 +730,7 @@ module caliptra_top_tb_services
 
     initial ras_test_ctrl.error_injection_seen = 1'b0;
     always @(negedge clk) begin
-        if (mailbox_write && WriteData[7:0] == 8'hfd) begin
+        if (mailbox_write && WriteData[7:0] inside {8'he5, 8'he6, 8'hfd, 8'hfe}) begin
             ras_test_ctrl.error_injection_seen <= 1'b1;
         end
     end

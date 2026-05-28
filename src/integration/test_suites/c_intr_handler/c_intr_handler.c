@@ -36,6 +36,16 @@ volatile uint32_t  intr_count;
 //TODO: Fix this since ISR is not currently populating these variables.
 volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 
+uint32_t count_intr(volatile uint32_t **int_ctr_arr, uint32_t count) {
+    uint32_t sum = 0;
+    for (int i = 0; i < count; ++i) {
+        __asm__ volatile ("fence.i");
+        sum += *(int_ctr_arr[i]);
+        __asm__ volatile ("fence.i");
+    }
+    return sum;
+}
+
 void main(void) {
         int argc=0;
         char *argv[1];
@@ -172,8 +182,10 @@ void main(void) {
         // HMAC Error
         VPRINTF(MEDIUM, "HMAC fw Err count: %x\n", hmac_error_intr_count);
         VPRINTF(MEDIUM, "HMAC hw Err count: %x\n", *hmac_notif_ctr);
-        hmac_error_intr_count_hw =  *hmac_error_key_mode_ctr +
-                                    *hmac_error_key_zero_ctr;
+        volatile uint32_t * hmac_error_intr_count_hw_arr [] = {
+            hmac_error_key_mode_ctr, hmac_error_key_zero_ctr
+        };
+        hmac_error_intr_count_hw =  count_intr(hmac_error_intr_count_hw_arr, 2);
         if (hmac_error_intr_count != hmac_error_intr_count_hw) {
             VPRINTF(ERROR, "HMAC Err count mismatch!\n");
             SEND_STDOUT_CTRL(0x1); // Kill sim with ERROR
@@ -196,14 +208,13 @@ void main(void) {
 
         // SOC_IFC Error
         VPRINTF(MEDIUM, "SOC_IFC Err fw count: %x\n", soc_ifc_error_intr_count);
-        soc_ifc_error_intr_count_hw =  *soc_ifc_error_internal_ctr +
-                                       *soc_ifc_error_inv_dev_ctr  +
-                                       *soc_ifc_error_cmd_fail_ctr +
-                                       *soc_ifc_error_bad_fuse_ctr +
-                                       *soc_ifc_error_iccm_blocked_ctr +
-                                       *soc_ifc_error_mbox_ecc_unc_ctr +
-                                       *soc_ifc_error_wdt_timer1_timeout_ctr +
-                                       *soc_ifc_error_wdt_timer2_timeout_ctr;
+        volatile uint32_t * soc_ifc_error_intr_count_hw_arr [] = {
+            soc_ifc_error_internal_ctr, soc_ifc_error_inv_dev_ctr,
+            soc_ifc_error_cmd_fail_ctr, soc_ifc_error_bad_fuse_ctr,
+            soc_ifc_error_iccm_blocked_ctr, soc_ifc_error_mbox_ecc_unc_ctr,
+            soc_ifc_error_wdt_timer1_timeout_ctr, soc_ifc_error_wdt_timer2_timeout_ctr
+        };
+        soc_ifc_error_intr_count_hw = count_intr(soc_ifc_error_intr_count_hw_arr, 8);
         VPRINTF(MEDIUM, "SOC_IFC Err hw count: %x\n", soc_ifc_error_intr_count_hw);
         if (soc_ifc_error_intr_count != soc_ifc_error_intr_count_hw) {
             VPRINTF(ERROR, "SOC_IFC Error count mismatch!\n");
@@ -212,12 +223,12 @@ void main(void) {
 
         // SOC_IFC Notif
         VPRINTF(MEDIUM, "SOC_IFC Notif fw count: %x\n", soc_ifc_notif_intr_count);
-        soc_ifc_notif_intr_count_hw =  *soc_ifc_notif_cmd_avail_ctr +
-                                       *soc_ifc_notif_mbox_ecc_cor_ctr +
-                                       *soc_ifc_notif_debug_locked_ctr +
-                                       *soc_ifc_notif_scan_mode_ctr +
-                                       *soc_ifc_notif_soc_req_lock_ctr +
-                                       *soc_ifc_notif_gen_in_toggle_ctr;
+        volatile uint32_t * soc_ifc_notif_intr_count_hw_arr [] = {
+            soc_ifc_notif_cmd_avail_ctr, soc_ifc_notif_mbox_ecc_cor_ctr,
+            soc_ifc_notif_debug_locked_ctr, soc_ifc_notif_scan_mode_ctr,
+            soc_ifc_notif_soc_req_lock_ctr, soc_ifc_notif_gen_in_toggle_ctr
+        };
+        soc_ifc_notif_intr_count_hw = count_intr(soc_ifc_notif_intr_count_hw_arr, 6);
         VPRINTF(MEDIUM, "SOC_IFC Notif hw count: %x\n", soc_ifc_notif_intr_count_hw);
         if (soc_ifc_notif_intr_count != soc_ifc_notif_intr_count_hw) {
             VPRINTF(ERROR, "SOC_IFC Notif count mismatch!\n");
@@ -232,11 +243,11 @@ void main(void) {
         }
 
         // Now test timer interrupts
-        mtime = (lsu_read_32(CLP_SOC_IFC_REG_INTERNAL_RV_MTIME_H) << 32) | lsu_read_32(CLP_SOC_IFC_REG_INTERNAL_RV_MTIME_L);
+        mtime = ((uint64_t)(lsu_read_32(CLP_SOC_IFC_REG_INTERNAL_RV_MTIME_H)) << 32) | lsu_read_32(CLP_SOC_IFC_REG_INTERNAL_RV_MTIME_L);
         // Did we just rollover? Maybe the value read from MTIME_H was stale after reading MTIME_L.
         // Reread.
         if ((mtime & 0xFFFFFFFF) < 0x40) {
-            mtime = (lsu_read_32(CLP_SOC_IFC_REG_INTERNAL_RV_MTIME_H) << 32) | lsu_read_32(CLP_SOC_IFC_REG_INTERNAL_RV_MTIME_L);
+            mtime = ((uint64_t)(lsu_read_32(CLP_SOC_IFC_REG_INTERNAL_RV_MTIME_H)) << 32) | lsu_read_32(CLP_SOC_IFC_REG_INTERNAL_RV_MTIME_L);
         }
 
         // Setup a wait time of 1000 clock cycles = 10us

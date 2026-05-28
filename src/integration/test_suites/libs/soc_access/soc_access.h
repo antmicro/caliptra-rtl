@@ -22,7 +22,8 @@ typedef struct {
     uint8_t   resp;
 } axi_resp_t;
 
-axi_resp_t soc_access_32(uint32_t reg_addr, uint32_t value, uint32_t user, uint8_t is_write);
+axi_resp_t soc_access_32(uint32_t reg_addr, uint32_t value, uint32_t mask, uint32_t user, uint8_t is_write);
+uint8_t soc_masked_write_32(uint32_t reg_addr, uint32_t value, uint32_t mask);
 uint8_t soc_write_user_32(uint32_t reg_addr, uint32_t value, uint32_t user);
 uint8_t soc_write_32(uint32_t reg_addr, uint32_t value);
 axi_resp_t soc_read_user_32(uint32_t reg_addr, uint32_t user);

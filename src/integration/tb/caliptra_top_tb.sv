@@ -131,11 +131,13 @@ end
     logic deassert_hard_rst_flag;
     logic assert_rst_flag_from_service;
     logic deassert_rst_flag_from_service;
+    logic route_fatal_to_nmi;
 
     //AXI
     logic [31:0] address;
     logic [31:0] user;
     logic [31:0] wdata;
+    logic [ 3:0] wstrb;
     logic        write;
     logic        read;
     logic        put_status;
@@ -215,9 +217,12 @@ caliptra_top_tb_soc_bfm soc_bfm_inst (
     .assert_rst_flag_from_service(assert_rst_flag_from_service),
     .deassert_rst_flag_from_service(deassert_rst_flag_from_service),
 
+    .route_fatal_to_nmi(route_fatal_to_nmi),
+
     //AXI SoC
     .axi_addr(address),
     .axi_wdata(wdata),
+    .axi_wstrb(wstrb),
     .axi_write(write),
     .axi_read(read),
     .axi_user(user),
@@ -426,6 +431,8 @@ caliptra_top_tb_services #(
     .assert_rst_flag(assert_rst_flag_from_service),
     .deassert_rst_flag(deassert_rst_flag_from_service),
 
+    .route_fatal_to_nmi(route_fatal_to_nmi),
+
     .cptra_uds_tb(cptra_uds_rand),
     .cptra_fe_tb(cptra_fe_rand),
     .cptra_obf_key_tb(cptra_obf_key_tb),
@@ -433,6 +440,7 @@ caliptra_top_tb_services #(
     //AXI SoC
     .axi_addr(address),
     .axi_wdata(wdata),
+    .axi_wstrb(wstrb),
     .axi_write(write),
     .axi_user(user),
     .axi_read(read),

@@ -69,7 +69,7 @@ void main(void) {
 
         // Modify OBF strap and check that it did not changed
         for (int i = 0; i < 8; ++i) {
-            uint32_t new_obf_key = xorshift32();
+            uint32_t new_obf_key = xorshift32() ^ obf_key[i];
             lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, new_obf_key);
             lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x407F|(i<<8));
             lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x487F | (i<<8));
