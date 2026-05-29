@@ -222,6 +222,11 @@ module caliptra_top_tb_services
     // Inject mock mailbox access request from SoC when TAP locks mailbox
     logic                       inject_mbox_soc_req_on_tap_lock;
 
+    // Force override for Mailbox pointers reset values
+    logic [31:0]                mbox_ptr_reset_value;
+    logic                       force_mbox_ptr_reset_value;
+    logic                       release_mbox_ptr_reset_value;
+
     logic                       set_wdt_timer1_period;
     logic                       set_wdt_timer2_period;
     logic                       reset_wdt_timer_period;
@@ -355,6 +360,8 @@ module caliptra_top_tb_services
     //      16'h1A7F        - Force re-enable fuse write
     //      16'h1B7F        - Force unlock caliptra security state
     //      16'h1C7F        - Release unlock caliptra security state
+    //      16'h1D7F        - Force override mailbox pointer reset value to CPTRA_GENERIC_OUTPUT_WIRES[1]
+    //      16'h1E7F        - Release override mailbox pointer reset value
     //      16'h207F        - Get UDS[0] and UDS[1] value from HW
     //      16'h217F        - Get UDS[2] and UDS[3] value from HW
     //      16'h227F        - Get UDS[4] and UDS[5] value from HW
@@ -534,6 +541,31 @@ module caliptra_top_tb_services
             force `CPTRA_TOP_PATH.unlock_caliptra_security_state = 1'h1;
         end else if ((WriteData[15:0] == 16'h1C7F) && mailbox_write) begin
             release `CPTRA_TOP_PATH.unlock_caliptra_security_state;
+        end
+    end
+
+    // Prevent from setting ptr reset value to mailboxes max capacity
+    `CALIPTRA_ASSERT_NEVER(
+        no_mbox_ptr_rst_value_override_full_capacity,
+        (WriteData[15:0] == 16'h1D7F) && mailbox_write &&
+        (`CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1] == 32'hFFFFFFFF),
+        !clk, cptra_rst_b
+    )
+    always @(negedge clk or negedge cptra_rst_b) begin
+        if (!cptra_rst_b) begin
+            mbox_ptr_reset_value <= 0;
+            force_mbox_ptr_reset_value <= 0;
+            release_mbox_ptr_reset_value <= 0;
+        end
+        if ((WriteData[15:0] == 16'h1D7F) && mailbox_write) begin
+            $display("Force MBOX pointers reset value to %x\n", `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1]);
+            mbox_ptr_reset_value <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1];
+            force_mbox_ptr_reset_value <= 1;
+            release_mbox_ptr_reset_value <= 0;
+        end else if ((WriteData[15:0] == 16'h1E7F) && mailbox_write) begin
+            $display("Release MBOX pointers reset value\n");
+            force_mbox_ptr_reset_value <= 0;
+            release_mbox_ptr_reset_value <= 1;
         end
     end
 
@@ -1960,6 +1992,33 @@ endgenerate //IV_NO
         //Use 'hF1 code to reset these values in the test
     end
 
+    // Force Mailbox pointers reset value override
+    always_comb begin
+        if (force_mbox_ptr_reset_value) begin
+            // Force only on pointer resets, keep regular behavior on normal accesses
+            if (`CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.rst_mbox_wrptr) begin
+                force `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.mbox_wrptr_nxt = mbox_ptr_reset_value;
+            end else begin
+                release `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.mbox_wrptr_nxt;
+            end
+
+            // Force only on pointer resets, keep regular behavior on normal accesses
+            // Reads perform preload on 0
+            if (`CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.rst_mbox_rdptr) begin
+                force `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.mbox_rdptr_nxt = mbox_ptr_reset_value + 'd1;
+                if (!`CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.dir_req_dv_q) begin
+                    force `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.sram_rdaddr = mbox_ptr_reset_value;
+                end
+            end else begin
+                release `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.mbox_rdptr_nxt;
+                release `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.sram_rdaddr;
+            end
+        end else if (release_mbox_ptr_reset_value) begin
+            release `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.mbox_wrptr_nxt;
+            release `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.mbox_rdptr_nxt;
+            release `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.sram_rdaddr;
+        end
+    end
 
     `ifndef VERILATOR
         initial begin
