@@ -54,15 +54,27 @@ enum tb_fifo_mode {
 };
 
 enum err_inj_type {
-//    cmd_inv_rd_route    ,
-//    cmd_inv_wr_route    ,
-    cmd_inv_route_combo ,
-    cmd_inv_src_addr    ,
-    cmd_inv_dst_addr    ,
-    cmd_inv_byte_count  ,
-    cmd_inv_block_size  ,
-    cmd_inv_rd_fixed    ,
-    cmd_inv_wr_fixed    ,
+//    cmd_inv_rd_route      ,
+//    cmd_inv_wr_route      ,
+    cmd_inv_route_combo1  ,
+    cmd_inv_route_combo2  ,
+    cmd_inv_route_combo3  ,
+    cmd_inv_route_combo4  ,
+    cmd_inv_route_combo5  ,
+    cmd_inv_route_combo6  ,
+    cmd_inv_route_combo7  ,
+    cmd_inv_route_combo8  ,
+    cmd_inv_route_combo9  ,
+    cmd_inv_route_combo10 ,
+    cmd_inv_src_addr1     ,
+    cmd_inv_src_addr2     ,
+    cmd_inv_dst_addr1     ,
+    cmd_inv_dst_addr2     ,
+    cmd_inv_byte_count    ,
+    cmd_inv_block_size1   ,
+    cmd_inv_block_size2   ,
+    cmd_inv_rd_fixed      ,
+    cmd_inv_wr_fixed      ,
     cmd_inv_mbox_lock
 //    cmd_inv_sha_lock
 };
@@ -81,14 +93,96 @@ uint8_t soc_ifc_axi_dma_inject_inv_error(enum err_inj_type err_type) {
     uint32_t byte_count;
     uint16_t block_size;
 
-    src_addr   = AXI_SRAM_BASE_ADDR + ((err_type == cmd_inv_src_addr) ? 0x3 : 0x0);
-    dst_addr   = (err_type == cmd_inv_mbox_lock) ? 0x4000 : (AXI_SRAM_BASE_ADDR + 0x4000 + ((err_type == cmd_inv_dst_addr) ? 0x3 : 0x0));
-    rd_route   = (err_type == cmd_inv_rd_fixed) ? axi_dma_rd_route_DISABLE : (err_type == cmd_inv_route_combo) ? axi_dma_rd_route_AHB_FIFO : (err_type == cmd_inv_mbox_lock) ? axi_dma_rd_route_MBOX    : axi_dma_rd_route_AXI_WR;
-    wr_route   = (err_type == cmd_inv_wr_fixed) ? axi_dma_wr_route_DISABLE : (err_type == cmd_inv_route_combo) ? axi_dma_wr_route_AHB_FIFO : (err_type == cmd_inv_mbox_lock) ? axi_dma_wr_route_DISABLE : axi_dma_wr_route_AXI_RD;
-    rd_fixed   = err_type == cmd_inv_rd_fixed;
-    wr_fixed   = err_type == cmd_inv_wr_fixed;
-    byte_count = (err_type == cmd_inv_byte_count) ? 0x43 : 0x40;
-    block_size = (err_type == cmd_inv_block_size) ? 0x13 : 0x00;
+    // Default values, common for most of the errors
+    src_addr   = AXI_SRAM_BASE_ADDR;
+    dst_addr   = AXI_SRAM_BASE_ADDR + 0x4000;
+    rd_route   = axi_dma_rd_route_AXI_WR;
+    wr_route   = axi_dma_wr_route_AXI_RD;
+    rd_fixed   = 0;
+    wr_fixed   = 0;
+    byte_count = 0x40;
+    block_size = 0x00;
+
+    switch (err_type) {
+    case cmd_inv_route_combo1:
+        rd_route = axi_dma_rd_route_AHB_FIFO;
+        wr_route = axi_dma_wr_route_AHB_FIFO;
+        break;
+    case cmd_inv_route_combo2:
+        rd_route = axi_dma_rd_route_MBOX;
+        wr_route = axi_dma_wr_route_MBOX;
+        break;
+    case cmd_inv_route_combo3:
+        rd_route = axi_dma_rd_route_MBOX;
+        wr_route = axi_dma_wr_route_AHB_FIFO;
+        break;
+    case cmd_inv_route_combo4:
+        rd_route = axi_dma_rd_route_AHB_FIFO;
+        wr_route = axi_dma_wr_route_MBOX;
+        break;
+    case cmd_inv_route_combo5:
+        rd_route = axi_dma_rd_route_MBOX;
+        wr_route = axi_dma_wr_route_AXI_RD;
+        break;
+    case cmd_inv_route_combo6:
+        rd_route = axi_dma_rd_route_AXI_WR;
+        wr_route = axi_dma_wr_route_MBOX;
+        break;
+    case cmd_inv_route_combo7:
+        rd_route = axi_dma_rd_route_AHB_FIFO;
+        wr_route = axi_dma_wr_route_AXI_RD;
+        break;
+    case cmd_inv_route_combo8:
+        rd_route = axi_dma_rd_route_AXI_WR;
+        wr_route = axi_dma_wr_route_AHB_FIFO;
+        break;
+    case cmd_inv_route_combo9:
+        rd_route = axi_dma_rd_route_DISABLE;
+        wr_route = axi_dma_wr_route_AXI_RD;
+        break;
+    case cmd_inv_route_combo10:
+        rd_route = axi_dma_rd_route_AXI_WR;
+        wr_route = axi_dma_wr_route_DISABLE;
+        break;
+    case cmd_inv_src_addr1:
+        src_addr = AXI_SRAM_BASE_ADDR + 3;
+        break;
+    case cmd_inv_src_addr2:
+        src_addr = 0xffffffff00000000ul;
+        break;
+    case cmd_inv_dst_addr1:
+        dst_addr = AXI_SRAM_BASE_ADDR + 0x4000 + 3;
+        break;
+    case cmd_inv_dst_addr2:
+        dst_addr = 0xffffffff00000000ul + 0x4000;
+        break;
+    case cmd_inv_byte_count:
+        byte_count = 0x43;
+        break;
+    case cmd_inv_block_size1:
+        // Not word-aligned
+        block_size = 0x1;
+        break;
+    case cmd_inv_block_size2:
+        // Not power of 2
+        block_size = 0x70;
+        break;
+    case cmd_inv_rd_fixed:
+        rd_fixed = 1;
+        rd_route = axi_dma_rd_route_DISABLE;
+        wr_route = axi_dma_wr_route_AHB_FIFO;   // DISABLE/AXI is invalid combo
+        break;
+    case cmd_inv_wr_fixed:
+        wr_fixed = 1;
+        rd_route = axi_dma_rd_route_AHB_FIFO;   // AXI/DISABLE is invalid combo
+        wr_route = axi_dma_wr_route_DISABLE;
+        break;
+    case cmd_inv_mbox_lock:
+        dst_addr = 0x4000;
+        rd_route   = axi_dma_rd_route_MBOX;
+        wr_route   = axi_dma_wr_route_DISABLE;
+        break;
+    }
 
     VPRINTF(HIGH, "param: src_addr   0x%x 0x%x\n", (uint32_t) (src_addr >> 32) , (uint32_t) (src_addr & 0xffffffff));
     VPRINTF(HIGH, "param: dst_addr   0x%x 0x%x\n", (uint32_t) (dst_addr >> 32) , (uint32_t) (dst_addr & 0xffffffff));
@@ -248,14 +342,26 @@ void main(void) {
         }
 
         // Test each malformed command check
-        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_route_combo)) { fail = 1; }
-        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_src_addr   )) { fail = 1; }
-        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_dst_addr   )) { fail = 1; }
-        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_byte_count )) { fail = 1; }
-        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_block_size )) { fail = 1; }
-        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_rd_fixed   )) { fail = 1; }
-        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_wr_fixed   )) { fail = 1; }
-        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_mbox_lock  )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_route_combo1 )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_route_combo2 )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_route_combo3 )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_route_combo4 )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_route_combo5 )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_route_combo6 )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_route_combo7 )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_route_combo8 )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_route_combo9 )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_route_combo10)) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_src_addr1    )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_src_addr2    )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_dst_addr1    )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_dst_addr2    )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_byte_count   )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_block_size1  )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_block_size2  )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_rd_fixed     )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_wr_fixed     )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_mbox_lock    )) { fail = 1; }
 
         SEND_STDOUT_CTRL(RAND_DELAY_TOGGLE);
 
