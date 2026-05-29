@@ -193,8 +193,36 @@ int run_smoke_test() {
   return error;
 }
 
+int run_smoke_test_fips(int flag) {
+  int error = 0;    // TODO: read_and_compare()?
+  uint32_t valid = CSRNG_REG_GENBITS_VLD_GENBITS_VLD_MASK;
+  if (flag) valid |= CSRNG_REG_GENBITS_VLD_GENBITS_FIPS_MASK;
+
+  printf("\nTRNG Smoke Test - FIPS mode %s FIPS flag\n", flag ? "with" : "without");
+
+  for (int i=0; i<8; i++) {
+    printf("Reseed CSRNG and Generate Command - 512b\n");
+    // Reseed using entropy_src only
+    lsu_write_32(CLP_CSRNG_REG_CMD_REQ, 0x0902);
+    poll_reg(CLP_CSRNG_REG_SW_CMD_STS, CSRNG_REG_SW_CMD_STS_CMD_RDY_MASK | CSRNG_REG_SW_CMD_STS_CMD_ACK_MASK);
+
+    lsu_write_32(CLP_CSRNG_REG_CMD_REQ, 0x4903);
+
+    // 4 times 4 words, 32-bit each
+    for (int k=0; k<4; k++) {
+      poll_reg(CLP_CSRNG_REG_GENBITS_VLD, valid);
+      lsu_read_32(CLP_CSRNG_REG_GENBITS);
+      lsu_read_32(CLP_CSRNG_REG_GENBITS);
+      lsu_read_32(CLP_CSRNG_REG_GENBITS);
+      lsu_read_32(CLP_CSRNG_REG_GENBITS);
+    }
+  }
+
+  return error;
+}
+
 void main() {
-  int error;
+  int error = 0;
 
   printf("---------------------------\n");
   printf(" TRNG Smoke Test \n");
@@ -205,6 +233,25 @@ void main() {
   error += run_entropy_source_seed_test();
   if (error > 0) printf("Error: %d\n", error);
   error += run_smoke_test();
+  if (error > 0) printf("Error: %d\n", error);
+
+  // Restart ENTROPY_SRC in FIPS mode
+  lsu_write_32(CLP_ENTROPY_SRC_REG_MODULE_ENABLE, 0x9);
+  // Reduce window size to make FIPS test faster, don't do this outside of tests
+  lsu_write_32(CLP_ENTROPY_SRC_REG_HEALTH_TEST_WINDOWS, 0x600020);
+  // Enable FIPS mode with FIPS flag
+  lsu_write_32(CLP_ENTROPY_SRC_REG_CONF, 0x2649966);
+  lsu_write_32(CLP_ENTROPY_SRC_REG_MODULE_ENABLE, 0x6);
+
+  error += run_smoke_test_fips(1);
+  if (error > 0) printf("Error: %d\n", error);
+
+  // Enable FIPS mode w/o FIPS flag
+  lsu_write_32(CLP_ENTROPY_SRC_REG_MODULE_ENABLE, 0x9);
+  lsu_write_32(CLP_ENTROPY_SRC_REG_CONF, 0x2649996);
+  lsu_write_32(CLP_ENTROPY_SRC_REG_MODULE_ENABLE, 0x6);
+
+  error += run_smoke_test_fips(0);
   if (error > 0) printf("Error: %d\n", error);
 
   // End the sim in failure
