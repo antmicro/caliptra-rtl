@@ -217,6 +217,9 @@ module caliptra_top_tb_services
     //  [1] - Double bit, Mailbox Error Injection
     logic [1:0]                 inject_mbox_sram_error = 2'b0;
 
+    // Inject mock mailbox access request from SoC when TAP locks mailbox
+    logic                       inject_mbox_soc_req_on_tap_lock;
+
     logic                       set_wdt_timer1_period;
     logic                       set_wdt_timer2_period;
     logic                       reset_wdt_timer_period;
@@ -378,6 +381,8 @@ module caliptra_top_tb_services
     //      16'h4D7F        - Get OBF_KEY[5] value from HW
     //      16'h4E7F        - Get OBF_KEY[6] value from HW
     //      16'h4F7F        - Set OBF_KEY[7] value from HW
+    //      16'h507F        - Enable injection of mock mailbox access request from SoC when TAP locks mailbox
+    //      16'h517F        - Disable injection of mock mailbox access request from SoC when TAP locks mailbox
     //      16'h807F:'h9F7F - Inject a valid hmac_key dest and hmac512_key into Nth kv slot (where slot is encoded as (N & 0x1F) << 8)
     //      16'hA07F:'hBF7F - Check if Nth kv slot (where slot is encoded as (N & 0x1F) << 8) is all zero
     //         8'h80: 8'h87 - Inject ECC_SEED to kv_key register
@@ -568,6 +573,18 @@ module caliptra_top_tb_services
         end else begin
             set_obf_key <= 1'b0;
             get_obf_key <= 1'b0;
+        end
+    end
+
+    always @(negedge clk or negedge cptra_rst_b) begin
+        if (!cptra_rst_b) begin
+            inject_mbox_soc_req_on_tap_lock <= 1'b0;
+        end
+        else if ((WriteData[15:0] == 16'h507F) && mailbox_write) begin
+            inject_mbox_soc_req_on_tap_lock <= 1'b1;
+        end
+        else if ((WriteData[15:0] == 16'h517F) && mailbox_write) begin
+            inject_mbox_soc_req_on_tap_lock <= 1'b0;
         end
     end
 
@@ -1919,6 +1936,16 @@ endgenerate //IV_NO
             end
         end
     `endif
+
+    always @(posedge clk) begin
+        if (inject_mbox_soc_req_on_tap_lock) begin
+            if (`CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.arc_MBOX_IDLE_MBOX_RDY_FOR_CMD & `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.hwif_in.mbox_lock.lock.hwset) begin
+                force `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.req_data_soc_req = 1'b1;
+                @(negedge `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.arc_MBOX_IDLE_MBOX_RDY_FOR_CMD);
+                release `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.req_data_soc_req;
+            end
+        end
+    end
 
     initial cycleCnt = 0;
     initial cycleCntKillReq = 0;

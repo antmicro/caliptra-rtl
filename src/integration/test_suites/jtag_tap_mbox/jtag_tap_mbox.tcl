@@ -210,7 +210,21 @@ for {set i 0} {$i < $dlen_words} {incr i} {
     }
 }
 
+puts "Clear execute..."
+riscv dmi_write $mbox_execute_dmi_addr 0x0
+
 puts "JTAG Mailbox flow 2 completed successfully."
+
+puts "Acquire mailbox lock..."
+set lock [riscv dmi_read $mbox_lock_dmi_addr]
+# Check if in execute tap state
+while {($lock & 0x00000001) != 0x00000000} {
+    after 100; # Wait 100ms between polls to avoid busy looping.
+    set lock [riscv dmi_read $mbox_lock_dmi_addr]
+}
+puts ""
+
+puts "SoC mailbox access req while TAP locks it completed successfully"
 
 puts "Flagging test successful completion in TB..."
 
