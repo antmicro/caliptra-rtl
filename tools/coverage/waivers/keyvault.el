@@ -27,6 +27,8 @@ ANNOTATION: "Tied off signal"
 Toggle kv_write[1].write_offset "logic kv_write[1].write_offset[3:0]"
 CHECKSUM: "1817964199 2933527918"
 INSTANCE: caliptra_top_tb.caliptra_top_dut.key_vault1
+ANNOTATION: "Only single transfers are possible"
+Toggle htrans_i [0] "logic htrans_i[1:0]"
 ANNOTATION: "Tied off signal"
 Toggle kv_write[1].write_offset "logic kv_write[1].write_offset[3:0]"
 ANNOTATION: "Tied off signal"
