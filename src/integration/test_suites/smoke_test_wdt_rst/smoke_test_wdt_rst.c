@@ -52,6 +52,8 @@ void nmi_handler       (void);
 
 void nmi_handler (void) {
     VPRINTF(LOW, "**** Entering NMI Handler ****\n");
+    lsu_write_32(CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R,
+                 SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER2_TIMEOUT_STS_MASK);
     if (lsu_read_32(CLP_SOC_IFC_REG_CPTRA_HW_ERROR_FATAL) & SOC_IFC_REG_CPTRA_HW_ERROR_FATAL_NMI_PIN_MASK) {
         SEND_STDOUT_CTRL(0xf5);
     }
@@ -215,6 +217,44 @@ void main() {
         //WDT cascade mode
         configure_wdt_independent(T1_DIS_T2_EN, 0x200, 0x00000000, 0x200, 0x00000000);
         SEND_STDOUT_CTRL(0xf5);
+    }
+    else if (rst_count == 14) {
+        VPRINTF(LOW, "Timer 2 forced service doesn't clear timer\n");
+        *soc_intr_en = 0;
+        // Clear timer2
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_WDT_TIMER2_EN, SOC_IFC_REG_CPTRA_WDT_TIMER2_EN_TIMER2_EN_MASK);
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_WDT_TIMER1_EN, SOC_IFC_REG_CPTRA_WDT_TIMER1_EN_TIMER1_EN_MASK);
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_WDT_TIMER1_TIMEOUT_PERIOD_0, 0);
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_WDT_TIMER1_TIMEOUT_PERIOD_1, 0);
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_WDT_TIMER2_TIMEOUT_PERIOD_0, 0x1800);
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_WDT_TIMER2_TIMEOUT_PERIOD_1, 0);
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_WDT_TIMER1_CTRL, SOC_IFC_REG_CPTRA_WDT_TIMER1_CTRL_TIMER1_RESTART_MASK);
+        // Set timer2 interrupt
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_WDT_TIMER2_CTRL, SOC_IFC_REG_CPTRA_WDT_TIMER2_CTRL_TIMER2_RESTART_MASK);
+        VPRINTF(LOW, "t2s\n");
+        for (uint8_t ii = 0; ii < 200; ii++) {
+            __asm__ volatile ("nop"); // Sleep loop as "nop"
+        }
+        // Servicing existing intr shouldn't clear counter
+        lsu_write_32(CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R,
+                     SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER2_TIMEOUT_STS_MASK);
+        // Servicing timer1 intr shouldn't clear timer2 counter when in independent mode
+        lsu_write_32(CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R,
+                     SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER1_TIMEOUT_STS_MASK);
+        VPRINTF(LOW, "t2r\n");
+        for (uint8_t ii = 0; ii < 200; ii++) {
+            __asm__ volatile ("nop"); // Sleep loop as "nop"
+        }
+
+        if (
+            (lsu_read_32(CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R) &
+             SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER2_TIMEOUT_STS_MASK) == 0
+        ) {
+            SEND_STDOUT_CTRL(0x1);
+            while(1);
+        }
+        SEND_STDOUT_CTRL(0xf5);
+        while(1);
     }
     else {
         VPRINTF(LOW, "End of test\n");
