@@ -21,17 +21,20 @@
 
 volatile uint32_t* stdout           = (uint32_t *)STDOUT;
 volatile uint32_t  intr_count       = 0;
+volatile int rst_count __attribute__((section(".dccm.persistent"))) = 0;
 #ifdef CPT_VERBOSITY
     enum printf_verbosity             verbosity_g = CPT_VERBOSITY;
 #else
     enum printf_verbosity             verbosity_g = LOW;
 #endif
 
-#define MBOX_DLEN_VAL             0x00000020
+#define MBOX_DLEN_VAL     0x00000020
+#define TB_CMD_COLD_RESET 0xF5
 
 volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 
 void main () {
+    rst_count++;
 
     mbox_op_s op;
     uint32_t ii;
@@ -62,6 +65,12 @@ void main () {
     VPRINTF(LOW, "FW: Wait\n");
     while((lsu_read_32(CLP_MBOX_CSR_MBOX_EXECUTE) & MBOX_CSR_MBOX_EXECUTE_EXECUTE_MASK) != MBOX_CSR_MBOX_EXECUTE_EXECUTE_MASK);
 
+    if (rst_count == 2) {
+        // Put mailbox in TAP mode, mailbox will be stuck in EXECUTE_UC
+        // until it's unlocked or TAP mode is disabled
+        lsu_write_32(CLP_MBOX_CSR_TAP_MODE, MBOX_CSR_TAP_MODE_ENABLED_MASK);
+    }
+
     //read mbox command
     op = soc_ifc_read_mbox_cmd();
 
@@ -88,6 +97,11 @@ void main () {
     VPRINTF(LOW, "FW: Set data ready status\n");
     lsu_write_32(CLP_MBOX_CSR_MBOX_STATUS,DATA_READY);
 
+    if (rst_count == 2) {
+        // Disable TAP mode to unstuck the mailbox
+        lsu_write_32(CLP_MBOX_CSR_TAP_MODE, 0);
+    }
+
     //check FSM state, should be in EXECUTE_SOC
     state = (lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_MASK) >> MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_LOW;
     if (state != MBOX_EXECUTE_SOC) {
@@ -98,9 +112,19 @@ void main () {
         VPRINTF(LOW, "FW: Mailbox in expected state, MBOX_EXECUTE_SOC, ending test with success\n");
     }
 
+    if (rst_count == 2) {
+        // Put mailbox in TAP mode, it shouldn't influence its operation in this state
+        lsu_write_32(CLP_MBOX_CSR_TAP_MODE, MBOX_CSR_TAP_MODE_ENABLED_MASK);
+    }
+
     //Wait for SoC to reset execute reg
     VPRINTF(LOW, "FW: Wait for SoC to reset execute register\n");
     while((lsu_read_32(CLP_MBOX_CSR_MBOX_EXECUTE) & MBOX_CSR_MBOX_EXECUTE_EXECUTE_MASK) == 1);
+
+    if (rst_count == 2) {
+        // Disable TAP mode to not interfere later in the test
+        lsu_write_32(CLP_MBOX_CSR_TAP_MODE, 0);
+    }
 
     //Force unlock
     lsu_write_32(CLP_MBOX_CSR_MBOX_UNLOCK, MBOX_CSR_MBOX_UNLOCK_UNLOCK_MASK);
@@ -124,8 +148,18 @@ void main () {
     //set execute
     lsu_write_32(CLP_MBOX_CSR_MBOX_EXECUTE, MBOX_CSR_MBOX_EXECUTE_EXECUTE_MASK);
 
+    if (rst_count == 2) {
+        // Put mailbox in TAP mode to hit corner condition
+        lsu_write_32(CLP_MBOX_CSR_TAP_MODE, MBOX_CSR_TAP_MODE_ENABLED_MASK);
+    }
+
     //Poll status until data ready is set
     while((lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_STATUS_MASK) != DATA_READY);
+
+    if (rst_count == 2) {
+        // Disable TAP mode to not interfere later in the test
+        lsu_write_32(CLP_MBOX_CSR_TAP_MODE, 0);
+    }
 
     //check data 
     VPRINTF(LOW, "FW: Checking %d bytes from mailbox as if return data\n", MBOX_DLEN_VAL);
@@ -137,5 +171,13 @@ void main () {
             SEND_STDOUT_CTRL( 0x1);
             while(1);
         };
+    }
+
+    if (rst_count < 2) {
+        // Issue cold reset
+        SEND_STDOUT_CTRL(TB_CMD_COLD_RESET);
+
+        // Halt the MCU
+        while(1);
     }
 }
