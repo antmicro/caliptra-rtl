@@ -123,7 +123,7 @@ void main() {
       while(1);
     }
 
-    //check data 
+    //check data
     VPRINTF(LOW, "FW: Checking %d bytes from tap\n", MBOX_DLEN_VAL);
     for (ii = 0; ii < MBOX_DLEN_VAL/4; ii++) {
         VPRINTF(HIGH, "  datain: 0x%x\n", exp_mbox_data[ii]);
@@ -134,10 +134,6 @@ void main() {
             while(1);
         };
     }
-
-    printf("----------------------------------\n");
-    printf(" JTAG mailbox flow success!\n");
-    printf("----------------------------------\n");
 
     //clear tap mode
     lsu_write_32(CLP_MBOX_CSR_TAP_MODE,0);
@@ -162,7 +158,7 @@ void main() {
       while(1);
     }
 
-    //check data 
+    //check data
     VPRINTF(LOW, "FW: Checking %d bytes from tap\n", MBOX_DLEN_VAL);
     for (ii = 0; ii < MBOX_DLEN_VAL/4; ii++) {
         VPRINTF(HIGH, "  datain: 0x%x\n", mbox_data[ii]);
@@ -210,7 +206,7 @@ void main() {
       while(1);
     }
 
-    //check data 
+    //check data
     VPRINTF(LOW, "FW: Checking %d bytes from tap\n", MBOX_DLEN_VAL);
     for (ii = 0; ii < MBOX_DLEN_VAL/4; ii++) {
         VPRINTF(HIGH, "  datain: 0x%x\n", exp_mbox_data[ii]);
@@ -239,6 +235,55 @@ void main() {
 
     soc_ifc_set_mbox_status_field(status);
 
-    while(1);//let jtag end the test
+    // Poll status until fsm is IDLE
+    do {
+      state = (lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_MASK) >> MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_LOW;
+    } while (state != MBOX_IDLE);
 
+    printf("---------------------------------------\n");
+    printf(" ROM to TAP Mailbox force unlock test\n");
+    printf("---------------------------------------\n");
+
+    //poll for mbox lock
+    while((lsu_read_32(CLP_MBOX_CSR_MBOX_LOCK) & MBOX_CSR_MBOX_LOCK_LOCK_MASK) == 1);
+
+    //put mailbox in tap mode
+    lsu_write_32(CLP_MBOX_CSR_TAP_MODE,MBOX_CSR_TAP_MODE_ENABLED_MASK);
+
+    //write command
+    lsu_write_32(CLP_MBOX_CSR_MBOX_CMD,0xaface0ff);
+
+    //write dlen
+    lsu_write_32(CLP_MBOX_CSR_MBOX_DLEN,MBOX_DLEN_VAL);
+
+    //write datain
+    VPRINTF(LOW, "FW: Writing %d bytes to mailbox\n", MBOX_DLEN_VAL);
+    for (ii = 0; ii < MBOX_DLEN_VAL/4; ii++) {
+        VPRINTF(HIGH, "  datain: 0x%x\n", mbox_data[ii]);
+        lsu_write_32(CLP_MBOX_CSR_MBOX_DATAIN,mbox_data[ii]);
+    }
+
+    //set execute
+    lsu_write_32(CLP_MBOX_CSR_MBOX_EXECUTE, MBOX_CSR_MBOX_EXECUTE_EXECUTE_MASK);
+
+    //Poll status until fsm is in EXECUTE TAP
+    do  {
+        state = (lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_MASK) >> MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_LOW;
+    } while (state != MBOX_EXECUTE_TAP);
+
+    // Force unlock
+    lsu_write_32(CLP_MBOX_CSR_MBOX_UNLOCK, MBOX_CSR_MBOX_UNLOCK_UNLOCK_MASK);
+
+    // Expect execute reg to be cleared
+    if ((lsu_read_32(CLP_MBOX_CSR_MBOX_EXECUTE) &  MBOX_CSR_MBOX_EXECUTE_EXECUTE_MASK) != 0) {
+        VPRINTF(ERROR, "ERROR: mbox_execute not cleared after forced unlock \n");
+        SEND_STDOUT_CTRL(0x1);
+        while(1);
+    }
+
+    printf("----------------------------------\n");
+    printf(" JTAG mailbox flow success!\n");
+    printf("----------------------------------\n");
+
+    SEND_STDOUT_CTRL(0xFF);
 }

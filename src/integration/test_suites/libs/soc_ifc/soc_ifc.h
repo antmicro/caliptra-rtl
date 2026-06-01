@@ -38,8 +38,9 @@ enum mbox_fsm_e {
     MBOX_RDY_FOR_CMD  = 0x1,
     MBOX_RDY_FOR_DATA = 0x2,
     MBOX_RDY_FOR_DLEN = 0x3,
-    MBOX_EXECUTE_UC   = 0x6,
     MBOX_EXECUTE_SOC  = 0x4,
+    MBOX_EXECUTE_TAP  = 0x5,
+    MBOX_EXECUTE_UC   = 0x6,
     MBOX_ERROR        = 0x7
 };
 

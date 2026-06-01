@@ -215,19 +215,52 @@ riscv dmi_write $mbox_execute_dmi_addr 0x0
 
 puts "JTAG Mailbox flow 2 completed successfully."
 
-puts "Acquire mailbox lock..."
-set lock [riscv dmi_read $mbox_lock_dmi_addr]
-# Check if in execute tap state
-while {($lock & 0x00000001) != 0x00000000} {
-    after 100; # Wait 100ms between polls to avoid busy looping.
-    set lock [riscv dmi_read $mbox_lock_dmi_addr]
+puts "ROM to TAP Mailbox error w/ force unlock test"
+
+puts "Poll mailbox status..."
+set status [riscv dmi_read $mbox_status_dmi_addr]
+#check if in execute tap state
+while {($status & 0x000001C0) != 0x00000140} {
+    after 100    ;# Wait 1000ms between polls to avoid busy looping.
+    set status [riscv dmi_read $mbox_status_dmi_addr]
 }
 puts ""
 
-puts "SoC mailbox access req while TAP locks it completed successfully"
+puts "Read mailbox cmd..."
+set golden 0xaface0ff
+set actual [riscv dmi_read $mbox_cmd_dmi_addr]
+if {[compare $actual $golden] != 0} {
+    shutdown error
+}
+puts ""
 
-puts "Flagging test successful completion in TB..."
+puts "Read mailbox dlen..."
+set golden $dlen_bytes
+set actual [riscv dmi_read $mbox_dlen_dmi_addr]
+if {[compare $actual $golden] != 0} {
+    shutdown error
+}
+puts ""
 
-write_memory $STDOUT 32 0xff phys
+puts "Read mailbox data..."
+for {set i 0} {$i < $dlen_words} {incr i} {
+    set golden $exp_data($i)
+    set actual [riscv dmi_read $mbox_dout_dmi_addr]
+    if {[compare $actual $golden] != 0} {
+        shutdown error
+    }
+}
 
-shutdown
+puts "Intentionally not setting state done"
+puts "Wait for force unlock..."
+
+while {($status & 0x0000000F) != 0x00000000} {
+    set status [riscv dmi_read $mbox_status_dmi_addr]
+}
+
+while (0x1) {
+    after 1000
+}
+
+# Wait for SW to finish the test
+
