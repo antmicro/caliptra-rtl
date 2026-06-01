@@ -17,8 +17,10 @@
 #include "caliptra_isr.h"
 #include "riscv_hw_if.h"
 #include "riscv-csr.h"
+#include <stdlib.h>
 #include "printf.h"
 #include "ecc.h"
+#include "keyvault.h"
 
 volatile uint32_t* stdout           = (uint32_t *)STDOUT;
 volatile uint32_t  intr_count = 0;
@@ -27,6 +29,13 @@ volatile uint32_t  intr_count = 0;
 #else
     enum printf_verbosity verbosity_g = LOW;
 #endif
+
+#ifdef MY_RANDOM_SEED
+    unsigned time = (unsigned) MY_RANDOM_SEED;
+#else
+    unsigned time = 0;
+#endif
+
 
 volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 
@@ -42,11 +51,28 @@ volatile caliptra_intr_received_s cptra_intr_rcv = {0};
     IV       = 3401CEFAE20A737649073AC1A351E32926DB9ED0DB6B1CFFAB0493DAAFB93DDDD83EDEA28A803D0D003B2633B9D0F1BF
 */
 
+void randomize_kv_ids(uint8_t *seed_key_id, uint8_t *privkey_id, uint8_t *sharedkey_id){
+    *seed_key_id = (rand() % 0x7) + 1; // Limit to allow injection
+
+    do {
+        *privkey_id = rand() % KV_ENTRY_COUNT;
+    } while(*privkey_id == *seed_key_id);
+
+    do {
+        *sharedkey_id = rand() % KV_ENTRY_COUNT;
+    } while((*sharedkey_id == *seed_key_id) || 
+            (*sharedkey_id == *privkey_id));
+
+    printf("Randomized keyvault ids, seed: 0x%x, privkey: 0x%x, sharedkey: 0x%x\n", *seed_key_id, *privkey_id, *sharedkey_id);
+}
+
 void main(){
 
     printf("----------------------------------\n");
     printf(" KV Smoke Test With ECC flow !!\n");
     printf("----------------------------------\n");
+
+    srand(time);
 
     uint32_t ecc_msg[] =           {0xC8F518D4,
                                     0xF3AA1BD4,
@@ -160,9 +186,10 @@ void main(){
     //Call interrupt init
     init_interrupts();
 
-    uint8_t seed_kv_id = 0x1;
-    uint8_t privkey_kv_id = 0x2;
-    uint8_t sharedkey_kv_id = 0x7;
+    uint8_t seed_kv_id;
+    uint8_t privkey_kv_id;
+    uint8_t sharedkey_kv_id;
+    randomize_kv_ids(&seed_kv_id, &privkey_kv_id, &sharedkey_kv_id);
 
     ecc_io seed;
     ecc_io nonce;
