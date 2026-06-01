@@ -15,6 +15,7 @@
 
 #include "caliptra_defines.h"
 #include "caliptra_isr.h"
+#include "riscv_hw_if.h"
 #include "riscv-csr.h"
 #include <string.h>
 #include <stdint.h>
@@ -42,6 +43,7 @@ void main() {
     printf("---------------------------\n");
 
     rst_count++;
+    printf(" iter: %d\n", rst_count);
 
     //Call interrupt init
     //init_interrupts();
@@ -156,5 +158,34 @@ void main() {
         //-------------------------------------------------
         printf("Cold rst\n");
         SEND_STDOUT_CTRL(0xf5);
+    }
+    else if(rst_count == 8) {
+        // Send command to check for set/unset dwords in keyvault
+        const int kv_slot = 0;
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, (uint32_t)(0xA07F | (kv_slot << 8)));
+
+        if (lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0) != 0) {
+            VPRINTF(ERROR, "[FAIL] Keyvault is not clear on Init!: %x\n", lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0));
+            SEND_STDOUT_CTRL(0x01);
+            while(1);
+        }
+
+        // Debug value select 0, set "wr_debug_values" to 1.
+        // If we were in debug or scan mode, we'd have flushed the Keyvault (to the debug values - this case AAAs)
+        *clear_secrets = 0x00000001;
+        // Since we are not in debug mode, it won't do anything, we are not expecting data in KV
+
+        asm volatile ("nop");
+        asm volatile ("nop");
+        asm volatile ("nop");
+        asm volatile ("nop");
+
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, (uint32_t)(0xA07F | (kv_slot << 8)));
+        if (lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0) != 0) {
+            VPRINTF(ERROR, "[FAIL] Keyvault is not clear on CLEAR_SECRETS write!: %x\n", lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0));
+            SEND_STDOUT_CTRL(0x01);
+            while(1);
+        }
+
     }
 }
