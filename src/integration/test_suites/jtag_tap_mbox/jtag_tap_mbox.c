@@ -233,14 +233,6 @@ void main() {
 
     soc_ifc_set_mbox_status_field(status);
 
-    printf("-------------------------------------------\n");
-    printf(" SoC mailbox access req while TAP locks it\n" );
-    printf("-------------------------------------------\n");
-
-    // Enable injection of SoC mailbox access request
-    VPRINTF(LOW, "FW: Enable injection\n");
-    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x507F);
-
     while(1);//let jtag end the test
 
 }
