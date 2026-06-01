@@ -21,6 +21,7 @@
 #include "riscv_hw_if.h"
 
 /* --------------- symbols/typedefs --------------- */
+#define KV_ENTRY_COUNT 24
 //need generic read/write control defines
 #define KV_RD_CTRL_READ_EN_LOW (SHA512_REG_SHA512_VAULT_RD_CTRL_READ_EN_LOW)
 #define KV_RD_CTRL_READ_EN_MASK (SHA512_REG_SHA512_VAULT_RD_CTRL_READ_EN_MASK)

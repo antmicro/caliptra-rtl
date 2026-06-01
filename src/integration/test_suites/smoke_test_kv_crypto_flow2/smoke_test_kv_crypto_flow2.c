@@ -25,6 +25,7 @@
 #include "doe.h"
 #include "mldsa.h"
 #include "xorshift.h"
+#include "keyvault.h"
 #include <stdlib.h>
 
 volatile uint32_t* stdout           = (uint32_t *)STDOUT;
@@ -540,25 +541,25 @@ void kv_mldsa(uint8_t seed_id){
 
 void random_generator(uint8_t uds_id, uint8_t fe_id, uint8_t *cdi_idevid_id, uint8_t *ecc_seed_id, uint8_t *mldsa_seed_id, uint8_t *privkey_id, uint8_t *cdi_ldevid_id){
     do {
-        *cdi_idevid_id = (rand() % 0x16) + 1; 
+        *cdi_idevid_id = rand() % KV_ENTRY_COUNT; 
     } while((*cdi_idevid_id == uds_id) |
             (*cdi_idevid_id == fe_id));
     
     do {
-        *cdi_ldevid_id = (rand() % 0x16) + 1;
+        *cdi_ldevid_id = rand() % KV_ENTRY_COUNT;
     } while((*cdi_ldevid_id == uds_id) |
             (*cdi_ldevid_id == fe_id) |
             (*cdi_ldevid_id == *cdi_idevid_id));
 
     do {
-        *ecc_seed_id = (rand() % 0x16) + 1;
+        *ecc_seed_id = rand() % KV_ENTRY_COUNT;
     } while((*ecc_seed_id == uds_id) |
             (*ecc_seed_id == fe_id) |
             (*ecc_seed_id == *cdi_idevid_id) | 
             (*ecc_seed_id == *cdi_ldevid_id));
 
     do {
-        *mldsa_seed_id = (rand() % 0x16) + 1;
+        *mldsa_seed_id = rand() % KV_ENTRY_COUNT;
     } while((*mldsa_seed_id == uds_id) |
             (*mldsa_seed_id == fe_id) |
             (*mldsa_seed_id == *cdi_idevid_id) | 
@@ -566,7 +567,7 @@ void random_generator(uint8_t uds_id, uint8_t fe_id, uint8_t *cdi_idevid_id, uin
             (*mldsa_seed_id == *ecc_seed_id));
 
     do {
-        *privkey_id = (rand() % 0x16) + 1;
+        *privkey_id = rand() % KV_ENTRY_COUNT;
     } while((*privkey_id == uds_id) |
             (*privkey_id == fe_id) |
             (*privkey_id == *cdi_idevid_id) | 
@@ -595,7 +596,7 @@ void main(){
     init_interrupts();
 
     doe_uds_dest_id = 0;
-    doe_fe_dest_id = (rand() % 0x16) + 1;   // FE kv id
+    doe_fe_dest_id = (rand() % (KV_ENTRY_COUNT - 1)) + 1;   // FE kv id
 
     random_generator(doe_uds_dest_id, doe_fe_dest_id, &cdi_idevid_id, &idevid_ecc_seed_id, &idevid_mldsa_seed_id, &idevid_ecc_privkey_id, &cdi_ldevid_id);
 

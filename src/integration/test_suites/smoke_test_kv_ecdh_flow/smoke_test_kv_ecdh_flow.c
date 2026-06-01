@@ -21,6 +21,7 @@
 #include "ecc.h"
 #include "aes.h"
 #include "hmac.h"
+#include "keyvault.h"
 
 volatile uint32_t* stdout           = (uint32_t *)STDOUT;
 volatile uint32_t  intr_count = 0;
@@ -190,9 +191,9 @@ void main(){
     srand(time);
 
     uint8_t seed_kv_id = rand() % 0x8; 
-    uint8_t privkey_kv_id = rand() % 0x17;
-    uint8_t sharedkey_kv_id = rand() % 0x17;
-    uint8_t hmac_tag_kv_id = rand() % 0x17;
+    uint8_t privkey_kv_id = rand() % KV_ENTRY_COUNT;
+    uint8_t sharedkey_kv_id = rand() % KV_ENTRY_COUNT;
+    uint8_t hmac_tag_kv_id = rand() % KV_ENTRY_COUNT;
 
     /* RUN ECDH to generate a shared key */
     kv_ecc_flow(seed_kv_id, privkey_kv_id, sharedkey_kv_id);

@@ -43,6 +43,7 @@
 #include "riscv_hw_if.h"
 #include "riscv-csr.h"
 #include "printf.h"
+#include "keyvault.h"
 
 volatile uint32_t* stdout           = (uint32_t *)STDOUT;
 volatile uint32_t intr_count = 0;
@@ -60,7 +61,7 @@ void do_main_test() {
     uint32_t status;
     uint32_t error_field;
 
-    for (uint8_t test_slot = 0; test_slot < 24; ++test_slot) {
+    for (uint8_t test_slot = 0; test_slot < KV_ENTRY_COUNT; ++test_slot) {
 
         // ------------------------------------------------------------------
         // Step 1: Inject a valid HMAC512 key into KV slot via TB
@@ -187,7 +188,7 @@ void main() {
         // Step 7: Verify that lock_use was cleared on the warm reset
         // ------------------------------------------------------------------
 
-        for (uint8_t test_slot = 0; test_slot < 24; ++test_slot) {
+        for (uint8_t test_slot = 0; test_slot < KV_ENTRY_COUNT; ++test_slot) {
             uintptr_t key_ctrl_addr = CLP_KV_REG_KEY_CTRL_0 + (test_slot * 4);
             uint32_t key_ctrl_readback = lsu_read_32(key_ctrl_addr);
 

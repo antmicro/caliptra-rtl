@@ -23,6 +23,7 @@
 #include "printf.h"
 #include "hmac.h"
 #include "aes.h"
+#include "keyvault.h"
 
 volatile uint32_t* stdout           = (uint32_t *)STDOUT;
 volatile uint32_t  intr_count = 0;
@@ -132,7 +133,7 @@ void main() {
                                     0xf1b582c2}; 
 
     uint8_t hmackey_kv_id       = 0x2;
-    uint8_t tag_kv_id           = rand() % 24; //generated key goes in a random slot
+    uint8_t tag_kv_id           = rand() % KV_ENTRY_COUNT; //generated key goes in a random slot
 
     hmac_io hmac384_key;
     hmac_io hmac384_block;

@@ -22,6 +22,7 @@
 #include <stdlib.h>
 #include "printf.h"
 #include "hmac.h"
+#include "keyvault.h"
 
 volatile uint32_t* stdout           = (uint32_t *)STDOUT;
 volatile uint32_t  intr_count = 0;
@@ -61,11 +62,11 @@ void randomize_kv_ids(uint8_t *key_id, uint8_t *block_id, uint8_t *tag_id){
     *key_id = (rand() % 0x7) + 1; // Limit to allow injection
 
     do {
-        *block_id = rand() % 0x17;
+        *block_id = rand() % KV_ENTRY_COUNT;
     } while(*block_id == *key_id);
 
     do {
-        *tag_id = rand() % 0x17; 
+        *tag_id = rand() % KV_ENTRY_COUNT; 
     } while((*tag_id == *key_id) || 
             (*tag_id == *block_id));
 

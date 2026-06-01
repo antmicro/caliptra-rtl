@@ -18,6 +18,7 @@
 #include "riscv_hw_if.h"
 #include "riscv-csr.h"
 #include "printf.h"
+#include "keyvault.h"
 
 volatile uint32_t* stdout           = (uint32_t *)STDOUT;
 volatile uint32_t intr_count = 0;
@@ -136,7 +137,7 @@ void main() {
     VPRINTF(LOW, "============================================================\n");
 
     if (rst_count == 0) {
-        for (uint8_t test_slot = 0; test_slot < 24; ++test_slot) {
+        for (uint8_t test_slot = 0; test_slot < KV_ENTRY_COUNT; ++test_slot) {
             VPRINTF(LOW, "[TEST] KV slot %d\n", test_slot);
 
             // ------------------------------------------------------------------
@@ -158,7 +159,7 @@ void main() {
         rst_count++;
         SEND_STDOUT_CTRL(0xf6); //Issue warm reset
     } else if (rst_count == 1) {
-        for (uint8_t test_slot = 0; test_slot < 24; ++test_slot) {
+        for (uint8_t test_slot = 0; test_slot < KV_ENTRY_COUNT; ++test_slot) {
             VPRINTF(LOW, "[TEST] KV slot %d\n", test_slot);
             // ------------------------------------------------------------------
             // PART 4 of test (lock_use)
