@@ -46,6 +46,10 @@ initial begin
   // https://github.com/chipsalliance/caliptra-ss/issues/1115
   // keccak_complete_i gets high during 13th clock cycle after keccak_run_o, but assertion expects it after 24th cycle
   $assertoff(0, caliptra_top_tb.caliptra_top_dut.mldsa.sampler_top_inst.sha3_inst.u_pad.RunThenComplete_M);
+  // src/soc_ifc/rtl/soc_ifc_top.sv:1459-1460
+  // NMI is purely software and can be provided by the test if needed, having
+  // this assertion active prevent valid paths from being tested
+  $assertoff(0, caliptra_top_tb.caliptra_top_dut.soc_ifc_top1.ERR_SOC_IFC_AHB_ERR);
 end
 
 `ifndef VERILATOR
