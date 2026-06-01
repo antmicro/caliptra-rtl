@@ -235,6 +235,8 @@ void ecc_sharedkey_flow(ecc_io iv, ecc_io privkey, ecc_io pubkey_x, ecc_io pubke
                                                     ECC_REG_ECC_KV_WR_PKEY_CTRL_HMAC_BLOCK_DEST_VALID_MASK |
                                                     ECC_REG_ECC_KV_WR_PKEY_CTRL_HMAC_KEY_DEST_VALID_MASK |
                                                     ECC_REG_ECC_KV_WR_PKEY_CTRL_AES_KEY_DEST_VALID_MASK |
+                                                    ECC_REG_ECC_KV_WR_PKEY_CTRL_MLDSA_SEED_DEST_VALID_MASK |
+                                                    ECC_REG_ECC_KV_WR_PKEY_CTRL_ECC_SEED_DEST_VALID_MASK |
                                                     ((sharedkey.kv_id << ECC_REG_ECC_KV_WR_PKEY_CTRL_WRITE_ENTRY_LOW) & ECC_REG_ECC_KV_WR_PKEY_CTRL_WRITE_ENTRY_MASK)));
     }
 
@@ -256,6 +258,8 @@ void ecc_sharedkey_flow(ecc_io iv, ecc_io privkey, ecc_io pubkey_x, ecc_io pubke
                                                     ECC_REG_ECC_KV_WR_PKEY_CTRL_HMAC_BLOCK_DEST_VALID_MASK |
                                                     ECC_REG_ECC_KV_WR_PKEY_CTRL_HMAC_KEY_DEST_VALID_MASK |
                                                     ECC_REG_ECC_KV_WR_PKEY_CTRL_AES_KEY_DEST_VALID_MASK |
+                                                    ECC_REG_ECC_KV_WR_PKEY_CTRL_MLDSA_SEED_DEST_VALID_MASK |
+                                                    ECC_REG_ECC_KV_WR_PKEY_CTRL_ECC_SEED_DEST_VALID_MASK |
                                                     ((0 << ECC_REG_ECC_KV_WR_PKEY_CTRL_WRITE_ENTRY_LOW) & ECC_REG_ECC_KV_WR_PKEY_CTRL_WRITE_ENTRY_MASK)));
     }
 
