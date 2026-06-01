@@ -19,6 +19,9 @@
 #include <stdint.h>
 #include "printf.h"
 #include "clk_gate.h"
+#include "soc_access.h"
+#include "xorshift.h"
+#include "sha512.h"
 
 volatile uint32_t* stdout           = (uint32_t *)STDOUT;
 volatile uint32_t  intr_count       = 0;
@@ -35,7 +38,6 @@ volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 void main() {
     
     volatile uint32_t * soc_ifc_flow_status = (uint32_t *) CLP_SOC_IFC_REG_CPTRA_FLOW_STATUS;
-    volatile uint32_t * soc_ifc_clk_gating_en = (uint32_t *) CLP_SOC_IFC_REG_CPTRA_CLK_GATING_EN;
     uint32_t mitb0 = 0x00000020;
     uint32_t mitb0_1 = 0x00000500;
     uint32_t mie_timer0_en = 0x20000000;
@@ -53,7 +55,7 @@ void main() {
     //----------------------------------------------------
     //Wake up using internal timer0
     //----------------------------------------------------
-        SEND_STDOUT_CTRL(0xf2); 
+        soc_write_32(CLP_SOC_IFC_REG_CPTRA_CLK_GATING_EN, SOC_IFC_REG_CPTRA_CLK_GATING_EN_CLK_GATING_EN_MASK);
         //Set internal timer0 counter to 0
         printf("Wake up core using internal timer0\n");
         __asm__ volatile ("csrwi    %0, %1" \
@@ -155,5 +157,55 @@ void main() {
         SEND_STDOUT_CTRL(0xe9); //Force dmi_reg_en input to clk_gate after a delay
         halt_core();
 
+    //-----------------------------------------------------
+    //Check no clock gating
+    //-----------------------------------------------------
+        soc_write_32(CLP_SOC_IFC_REG_CPTRA_CLK_GATING_EN, 0);
+        // Setup SHA accelerator which uses gate clock
+        while((lsu_read_32(CLP_SHA512_REG_SHA512_STATUS) & SHA512_REG_SHA512_STATUS_READY_MASK) == 0);
+        volatile uint32_t *reg_ptr = (uint32_t*) CLP_SHA512_REG_SHA512_BLOCK_0;
+
+        while (reg_ptr <= (uint32_t*) CLP_SHA512_REG_SHA512_BLOCK_31) {
+            *reg_ptr++ = xorshift32();
+        }
+
+        __asm__ volatile ("csrwi    %0, %1" \
+                      : /* output: none */        \
+                      : "i" (0x7d2), "i" (0x00)  /* input : immediate  */ \
+                      : /* clobbers: none */);
+        mitb0 = 0x00000100;
+        //Set internal timer0 upper bound
+        __asm__ volatile ("csrw    %0, %1" \
+                      : /* output: none */        \
+                      : "i" (0x7d3), "r" (mitb0)   /* input : immediate  */ \
+                      : /* clobbers: none */);
+        //Set machine intr enable reg (mie) - enable internal timer0 intr
+        __asm__ volatile ("csrw    %0, %1" \
+                      : /* output: none */        \
+                      : "i" (0x304), "r" (mie_timer0_en)  /* input : immediate  */ \
+                      : /* clobbers: none */);
+        //Set mstatus reg - enable mie
+        __asm__ volatile ("csrwi    %0, %1" \
+                      : /* output: none */        \
+                      : "i" (0x300), "i" (0x08)  /* input : immediate  */ \
+                      : /* clobbers: none */);
+        // Start SHA512 function
+        lsu_write_32(CLP_SHA512_REG_SHA512_CTRL, SHA512_REG_SHA512_CTRL_INIT_MASK |
+                        (SHA512_512_MODE << SHA512_REG_SHA512_CTRL_MODE_LOW) & SHA512_REG_SHA512_CTRL_MODE_MASK);
+        //Set internal timer0 control (halt_en = 1, enable = 1)
+        __asm__ volatile ("csrwi    %0, %1" \
+                      : /* output: none */        \
+                      : "i" (0x7d4), "i" (0x03)  /* input : immediate  */ \
+                      : /* clobbers: none */);
+        //Halt the core
+        __asm__ volatile ("csrwi    %0, %1;" \
+                          "fence.i"
+                      : /* output: none */        \
+                      : "i" (0x7c6), "i" (0x03)  /* input : immediate  */ \
+                      : /* clobbers: none */);
+
+        if ((lsu_read_32(CLP_SHA512_REG_SHA512_STATUS) & SHA512_REG_SHA512_STATUS_VALID_MASK) == 0) {
+            SEND_STDOUT_CTRL(0x01);
+        }
 }
 
