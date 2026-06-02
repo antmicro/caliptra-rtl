@@ -105,8 +105,14 @@ void main() {
     //set execute
     lsu_write_32(CLP_MBOX_CSR_MBOX_EXECUTE, MBOX_CSR_MBOX_EXECUTE_EXECUTE_MASK);
 
+    // Put mailbox in TAP mode, it shouldn't influence its operation in this state
+    lsu_write_32(CLP_MBOX_CSR_TAP_MODE, MBOX_CSR_TAP_MODE_ENABLED_MASK);
+
     //Poll status until data ready is set
     while((lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_STATUS_MASK) != DATA_READY);
+
+    // Disable TAP mode to not interfere later in the test
+    lsu_write_32(CLP_MBOX_CSR_TAP_MODE, 0);
 
     //check cmd
     VPRINTF(LOW, "FW: Checking cmd from tap\n");
