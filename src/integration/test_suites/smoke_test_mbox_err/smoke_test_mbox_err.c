@@ -40,6 +40,9 @@ void main () {
     VPRINTF(LOW, " Caliptra Mailbox Error/Notif Smoke Test!!\n"    );
     VPRINTF(LOW, "----------------------------------------------\n");
 
+    // Register interrupts
+    init_interrupts();
+
     // Poll for mbox lock from SoC
     do {
         axi_resp = soc_read_user_32(CLP_MBOX_CSR_MBOX_LOCK, MBOX_VALID_USER);
@@ -56,7 +59,7 @@ void main () {
     // Try to write to DATAIN from SoC which is not allowed after execute from SoC
     soc_write_user_32(CLP_MBOX_CSR_MBOX_DATAIN, 0x0FACE0FF, MBOX_VALID_USER);
 
-    if (cptra_intr_rcv.soc_ifc_error & SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_INTERNAL_STS_MASK == 0) {
+    if ((cptra_intr_rcv.soc_ifc_error & SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_CMD_FAIL_STS_MASK) == 0) {
         VPRINTF(ERROR, "ERROR: Mailbox did not report error on protocol violation!\n");
         SEND_STDOUT_CTRL(0x1);
         while(1);
@@ -71,7 +74,7 @@ void main () {
     // Poll for mbox lock from SoC to trigger a notification interrupt
     soc_read_user_32(CLP_MBOX_CSR_MBOX_LOCK, MBOX_VALID_USER);
 
-    if (cptra_intr_rcv.soc_ifc_notif & SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_SOC_REQ_LOCK_STS_MASK == 0) {
+    if ((cptra_intr_rcv.soc_ifc_notif & SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_SOC_REQ_LOCK_STS_MASK) == 0) {
         VPRINTF(ERROR, "ERROR: Mailbox did not notify about SoC trying to lock!\n");
         SEND_STDOUT_CTRL(0x1);
         while(1);
