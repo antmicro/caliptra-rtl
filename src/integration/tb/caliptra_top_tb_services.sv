@@ -38,6 +38,7 @@ module caliptra_top_tb_services
     import soc_ifc_pkg::*;
     import kv_defines_pkg::*;
     import caliptra_top_tb_pkg::*;
+    import axi_pkg::*;
 #(
     parameter UVM_TB = 0
 ) (
@@ -89,9 +90,12 @@ module caliptra_top_tb_services
 
     // AXI SoC access
     output logic [31:0] axi_addr,
-    output logic [31:0] axi_user,
-    output logic [31:0] axi_wdata,
-    output logic [ 3:0] axi_wstrb,
+    output logic [31:0] axi_axuser,
+    ref    logic [31:0] axi_wuser[$],
+    ref    logic [31:0] axi_wdata[$],
+    output logic [ 7:0] axi_len,
+    ref    logic [ 3:0] axi_wstrb[$],
+    output logic [ 1:0] axi_burst,
     output logic        axi_write,
     output logic        axi_read,
     output logic        axi_put_status,
@@ -346,11 +350,15 @@ module caliptra_top_tb_services
     //         8'h6 : 8'h7E - WriteData is an ASCII character - dump to console.log
     //         8'h7F        - Do nothing
     //      16'h017F        - Setup SoC Access address from CPTRA_GENERIC_OUTPUT_WIRES[1]
-    //      16'h027F        - Setup SoC Access wdata from CPTRA_GENERIC_OUTPUT_WIRES[1]
-    //      16'h037F        - Send SoC (0)read/(1)write access based on the CPTRA_GENERIC_OUTPUT_WIRES[1][0]
+    //      16'h027F        - Push SoC Access wdata from CPTRA_GENERIC_OUTPUT_WIRES[1] into a wdata queue
+    //      16'h037F        - Send SoC (0)read/(1)write access based on the CPTRA_GENERIC_OUTPUT_WIRES[1][0], with [1][15:8] encoding AXLEN
     //      16'h047F        - Get SoC Access status, 0-In progress, 1-Done
-    //      16'h057F        - Put SoC Access read response onto generic_input_wires
-    //      16'h067F        - Setup SoC Access user from CPTRA_GENERIC_OUTPUT_WIRES[1]
+    //      16'h057F        - Pop SoC Access read response onto generic_input_wires
+    //      16'h067F        - Push SoC Access wuser from CPTRA_GENERIC_OUTPUT_WIRES[1] into a wuser queue
+    //      16'h077F        - Setup SoC Access aXuser from CPTRA_GENERIC_OUTPUT_WIRES[1]
+    //      16'h087F        - Setup SoC Access burst from CPTRA_GENERIC_OUTPUT_WIRES[1]: (0)fixed, (1,default)incr, (2)wrap
+    //      16'h097F        - Push SoC Access wstrb from CPTRA_GENERIC_OUTPUT_WIRES[1] into a wstrb queue
+    //      16'h0A7F        - Clear SoC Access wdata, wuser and wstrb queues
     //      16'h0E7F        - Set route_fatal_to_nmi
     //      16'h0F7F        - Clear route_fatal_to_nmi
     //      16'h107F        - Force re-enable strap write
@@ -486,8 +494,7 @@ module caliptra_top_tb_services
     string slaveLog_fileName[`CALIPTRA_AHB_SLAVES_NUM];
 
     initial begin
-        // Xs on axi_user cause assertion errors in AXI VIP
-        axi_user = '0;
+        axi_burst = AXI_BURST_INCR;
     end
 
     //  AXI SoC Access
@@ -499,17 +506,27 @@ module caliptra_top_tb_services
         if ((WriteData[15:0] == 16'h017F) && mailbox_write) begin
             axi_addr <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1];
         end else if ((WriteData[15:0] == 16'h027F) && mailbox_write) begin
-            axi_wdata <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1];
+            axi_wdata.push_back(`CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1]);
         end else if ((WriteData[15:0] == 16'h037F) && mailbox_write) begin
             axi_write <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][0];
             axi_read <= !`CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][0];
-            axi_wstrb <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][11:8];
+            axi_len <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][15:8];
         end else if ((WriteData[15:0] == 16'h047F) && mailbox_write) begin
             axi_put_status <= 1'b1;
         end else if ((WriteData[15:0] == 16'h057F) && mailbox_write) begin
             axi_put_rdata <= 1'b1;
         end else if ((WriteData[15:0] == 16'h067F) && mailbox_write) begin
-            axi_user <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1];
+            axi_wuser.push_back(`CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1]);
+        end else if ((WriteData[15:0] == 16'h077F) && mailbox_write) begin
+            axi_axuser <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1];
+        end else if ((WriteData[15:0] == 16'h087F) && mailbox_write) begin
+            axi_burst <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1];
+        end else if ((WriteData[15:0] == 16'h097F) && mailbox_write) begin
+            axi_wstrb.push_back(`CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1]);
+        end else if ((WriteData[15:0] == 16'h0A7F) && mailbox_write) begin
+            axi_wdata = {};
+            axi_wuser = {};
+            axi_wstrb = {};
         end
     end
 

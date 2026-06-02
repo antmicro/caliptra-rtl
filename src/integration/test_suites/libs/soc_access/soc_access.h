@@ -15,14 +15,30 @@
 #ifndef SOC_ACCESS_LIB
 #define SOC_ACCESS_LIB
 
+#include <stdbool.h>
 #include "stdint.h"
+
+typedef enum {
+    AXI_BURST_FIXED = 0,
+    AXI_BURST_INCR = 1,
+    AXI_BURST_WRAP = 2
+} axi_burst_t;
 
 typedef struct {
     uint32_t  rdata;
     uint8_t   resp;
 } axi_resp_t;
 
-axi_resp_t soc_access_32(uint32_t reg_addr, uint32_t value, uint32_t mask, uint32_t user, uint8_t is_write);
+typedef struct {
+    uint32_t addr, axuser;
+    axi_burst_t burst;
+    uint32_t *wdata, *wuser, *rdata;
+    uint8_t *wstrb;
+    uint8_t len;
+    bool write;
+} axi_req_t;
+
+axi_resp_t soc_access_32(axi_req_t req);
 uint8_t soc_masked_write_32(uint32_t reg_addr, uint32_t value, uint32_t mask);
 uint8_t soc_write_user_32(uint32_t reg_addr, uint32_t value, uint32_t user);
 uint8_t soc_write_32(uint32_t reg_addr, uint32_t value);

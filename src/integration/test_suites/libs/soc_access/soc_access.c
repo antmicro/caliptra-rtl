@@ -12,6 +12,7 @@
 // // See the License for the specific language governing permissions and
 // // limitations under the License.
 
+#include <stddef.h>
 #include "soc_access.h"
 #include "caliptra_defines.h"
 #include "riscv_hw_if.h"
@@ -22,24 +23,39 @@
 #define AXI_DEFAULT_USER 0
 
 
-axi_resp_t soc_access_32(uint32_t reg_addr, uint32_t value, uint32_t mask, uint32_t user, uint8_t is_write) {
+axi_resp_t soc_access_32(axi_req_t req) {
     axi_resp_t axi_resp;
     // Set AXI address
-    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, reg_addr);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.addr);
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x017F);
 
-    // Set AXI user ID
-    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, user);
-    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x067F);
+    // Set AXI burst
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.burst);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x087F);
 
-    if (is_write) {
-        // Set AXI write data
-        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, value);
-        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x027F);
+    // Set AXI aXuser
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.axuser);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x077F);
+
+    if (req.write) {
+        // Clear SoC access queues
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x0A7F);
+
+        for (int i = 0; i < req.len; i++) {
+            // Push AXI wdata
+            lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.wdata ? req.wdata[i] : 0);
+            lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x027F);
+            // Push AXI wuser
+            lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.wuser ? req.wuser[i] : AXI_DEFAULT_USER);
+            lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x067F);
+            // Push AXI wstrb
+            lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.wstrb ? (req.wstrb[i] & 0xF) : 0xF);
+            lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x097F);
+        }
     }
 
-    // Issue AXI command
-    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, is_write | ((mask & 0xF) << 8));
+    uint32_t execute = (req.write ? AXI_WRITE : AXI_READ) | ((req.len - 1) << 8);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, execute);
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x037F);
 
     while (1) {
@@ -52,9 +68,13 @@ axi_resp_t soc_access_32(uint32_t reg_addr, uint32_t value, uint32_t mask, uint3
         if(axi_resp.resp & 1) {
             axi_resp.resp = (axi_resp.resp >> 1) & 0b11;
 
-            if (!is_write) {
-                lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x057F);
-                axi_resp.rdata = lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0);
+            if (!req.write) {
+                for (int i = 0; i < req.len; i++) {
+                    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x057F);
+                    uint32_t rdata = lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0);
+                    if (i == 0) axi_resp.rdata = rdata;
+                    if (req.rdata) req.rdata[i] = rdata;
+                }
             }
             return axi_resp;
         }
@@ -64,7 +84,16 @@ axi_resp_t soc_access_32(uint32_t reg_addr, uint32_t value, uint32_t mask, uint3
 uint8_t soc_masked_write_32(uint32_t reg_addr, uint32_t value, uint32_t mask) {
     axi_resp_t axi_resp;
 
-    axi_resp = soc_access_32(reg_addr, value, mask, AXI_DEFAULT_USER, AXI_WRITE);
+    axi_resp = soc_access_32((axi_req_t){
+        .addr = reg_addr,
+        .axuser = AXI_DEFAULT_USER,
+        .burst = AXI_BURST_INCR,
+        .len = 1,
+        .write = true,
+        .wuser = (uint32_t[]){AXI_DEFAULT_USER},
+        .wdata = (uint32_t[]){value},
+        .wstrb = (uint8_t[]){mask}
+    });
 
     return axi_resp.resp;
 }
@@ -72,7 +101,16 @@ uint8_t soc_masked_write_32(uint32_t reg_addr, uint32_t value, uint32_t mask) {
 uint8_t soc_write_user_32(uint32_t reg_addr, uint32_t value, uint32_t user) {
     axi_resp_t axi_resp;
 
-    axi_resp = soc_access_32(reg_addr, value, AXI_DEFAULT_MASK, user, AXI_WRITE);
+    axi_resp = soc_access_32((axi_req_t){
+        .addr = reg_addr,
+        .axuser = user,
+        .burst = AXI_BURST_INCR,
+        .len = 1,
+        .write = true,
+        .wuser = (uint32_t[]){user},
+        .wdata = (uint32_t[]){value},
+        .wstrb = (uint8_t[]){AXI_DEFAULT_MASK}
+    });
 
     return axi_resp.resp;
 }
@@ -84,7 +122,12 @@ uint8_t soc_write_32(uint32_t reg_addr, uint32_t value) {
 axi_resp_t soc_read_user_32(uint32_t reg_addr, uint32_t user) {
     axi_resp_t axi_resp;
 
-    axi_resp = soc_access_32(reg_addr, 0, AXI_DEFAULT_MASK, user, AXI_READ);
+    axi_resp = soc_access_32((axi_req_t){
+        .addr = reg_addr,
+        .axuser = user,
+        .burst = AXI_BURST_INCR,
+        .len = 1
+    });
 
     return axi_resp;
 }

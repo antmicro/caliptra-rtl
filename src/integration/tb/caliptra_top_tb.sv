@@ -139,9 +139,12 @@ end
 
     //AXI
     logic [31:0] address;
-    logic [31:0] user;
-    logic [31:0] wdata;
-    logic [ 3:0] wstrb;
+    logic [31:0] axuser;
+    logic [31:0] wuser[$];
+    logic [31:0] wdata[$];
+    logic [ 7:0] len;
+    logic [ 3:0] wstrb[$];
+    logic [ 1:0] burst;
     logic        write;
     logic        read;
     logic        put_status;
@@ -225,11 +228,14 @@ caliptra_top_tb_soc_bfm soc_bfm_inst (
 
     //AXI SoC
     .axi_addr(address),
+    .axi_axuser(axuser),
     .axi_wdata(wdata),
+    .axi_len(len),
     .axi_wstrb(wstrb),
+    .axi_burst(burst),
     .axi_write(write),
     .axi_read(read),
-    .axi_user(user),
+    .axi_wuser(wuser),
     .axi_put_status(put_status),
     .axi_put_rdata(put_rdata),
 
@@ -443,10 +449,13 @@ caliptra_top_tb_services #(
 
     //AXI SoC
     .axi_addr(address),
+    .axi_axuser(axuser),
     .axi_wdata(wdata),
+    .axi_len(len),
     .axi_wstrb(wstrb),
+    .axi_burst(burst),
     .axi_write(write),
-    .axi_user(user),
+    .axi_wuser(wuser),
     .axi_read(read),
     .axi_put_status(put_status),
     .axi_put_rdata(put_rdata),

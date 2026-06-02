@@ -69,9 +69,12 @@ import caliptra_top_tb_pkg::*; #(
 
     //AXI SoC
     input logic [31:0] axi_addr,
-    input logic [31:0] axi_user,
-    input logic [31:0] axi_wdata,
-    input logic [ 3:0] axi_wstrb,
+    input logic [31:0] axi_axuser,
+    ref   logic [31:0] axi_wuser[$],
+    ref   logic [31:0] axi_wdata[$],
+    input logic [ 7:0] axi_len,
+    ref   logic [ 3:0] axi_wstrb[$],
+    input logic [ 1:0] axi_burst,
     input logic        axi_write,
     input logic        axi_read,
     input logic        axi_put_status,
@@ -571,57 +574,61 @@ import caliptra_top_tb_pkg::*; #(
     end
 
     logic done, read;
-    logic [31:0] axi_rdata;
-    axi_resp_e axi_wresp, axi_rresp, axi_resp;
-    logic [`CALIPTRA_AXI_USER_WIDTH  -1:0] axi_buser;
+    logic [31:0] axi_rdata[$];
+    axi_resp_e axi_bresp, axi_rresp[$];
+    logic [`CALIPTRA_AXI_USER_WIDTH  -1:0] axi_buser, axi_ruser[$];
     always @(posedge core_clk or negedge cptra_pwrgood) begin
         if (~cptra_pwrgood) begin
             done <= 1'b0;
             read <= 1'b0;
-            axi_wresp <= axi_pkg::axi_resp_e'(0);
-            axi_rresp <= axi_pkg::axi_resp_e'(0);
+            axi_bresp <= axi_pkg::axi_resp_e'(0);
             axi_buser <= '0;
-            axi_rdata <= '0;
         end else if (axi_write) begin
-            automatic logic [ 3:0] burst_strb[] = new[1]('{axi_wstrb});
-            automatic logic [31:0] burst_user[] = new[1]('{axi_user});
-            automatic logic [31:0] burst_data[] = new[1]('{axi_wdata});
             done <= 1'b0;
             read <= 1'b0;
             m_axi_bfm_if.axi_write(
                 .addr(axi_addr),
-                .user(axi_user),
+                .burst(axi_pkg::axi_burst_e'(axi_burst)),
+                .len(axi_len),
+                .user(axi_axuser),
                 .id  ($urandom()),
                 .lock(1'b0),
-                .data(burst_data),
+                .data(axi_wdata),
                 .use_strb(1'b1),
-                .strb(burst_strb),
+                .strb(axi_wstrb),
                 .use_write_user(1'b1),
-                .write_user(burst_user),
-                .resp(axi_wresp),
+                .write_user(axi_wuser),
+                .resp(axi_bresp),
                 .resp_user(axi_buser)
             );
         end else if (axi_read) begin
             done <= 1'b0;
             read <= 1'b1;
-            m_axi_bfm_if.axi_read_single(
+            m_axi_bfm_if.axi_read(
                 .addr(axi_addr),
+                .burst(axi_pkg::axi_burst_e'(axi_burst)),
+                .len(axi_len),
                 .id($urandom()),
-                .user(axi_user),
+                .user(axi_axuser),
                 .data(axi_rdata),
                 .resp(axi_rresp),
-                .resp_user(axi_buser)
+                .resp_user(axi_ruser)
             );
         end else begin
             done <= 1'b1;
         end
     end
-    assign axi_resp = read ? axi_rresp : axi_wresp;
+
     always @(posedge core_clk) begin
         if (axi_put_status) begin
-            generic_input_wires <= {axi_buser, {29{1'b0}}, axi_resp, done};
+            if (done & read)
+                generic_input_wires <= {axi_ruser.pop_front(), {29{1'b0}}, axi_rresp.pop_front(), done};
+            else if (done)
+                generic_input_wires <= {axi_buser, 29'b0, axi_bresp, done};
+            else
+                generic_input_wires <= '0;
         end else if (axi_put_rdata) begin
-            generic_input_wires <= {32'b0, axi_rdata};
+            generic_input_wires <= {32'b0, axi_rdata.pop_front()};
         end
     end
 
