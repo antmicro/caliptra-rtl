@@ -21,18 +21,18 @@ riscv set_mem_access sysbus progbuf abstract
 
 echo "Accessing AES IV register"
 set AES_IV_ADDR 0x10011044
+set CORE_DCCM 0x50002000
 set data_sample [list 0xDEADBEEF 0x12345678 0xCAFEDECA 0x31415928]
 
 # Do repeated accessses to generate traffic
-proc repeat_access_and_check {} {
-    global AES_IV_ADDR
+proc repeat_access_and_check {addr} {
     global data_sample
     for {set counter 0} { $counter < 4 } {incr counter} {
         echo "Loop counter : ${counter}"
         for {set sample_index 0} { $sample_index < 4} { incr sample_index} {
             set golden $data_sample
-            write_memory $AES_IV_ADDR 32 $golden phys
-            set actual [read_memory $AES_IV_ADDR 32 4 phys ]
+            write_memory $addr 32 $golden phys
+            set actual [read_memory $addr 32 4 phys ]
             if {[compare $actual $golden] != 0} {
                 shutdown error
             }
@@ -40,7 +40,7 @@ proc repeat_access_and_check {} {
     }
 }
 
-repeat_access_and_check
+repeat_access_and_check $AES_IV_ADDR
 
 # Trigger a FW reset update
 set SOC_IFC_FW_UPDATE_RST_ADDR 0x30030624
@@ -54,8 +54,7 @@ if {[compare $actual $golden] != 0} {
     shutdown error
 }
 
-# Restart traffic
-repeat_access_and_check
+repeat_access_and_check $CORE_DCCM
 
 # Success
 shutdown
