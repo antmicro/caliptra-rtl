@@ -25,6 +25,7 @@
 volatile uint32_t* stdout           = (uint32_t *)STDOUT;
 volatile uint32_t  intr_count = 0;
 volatile uint32_t  rst_count __attribute__((section(".dccm.persistent"))) = 0;
+volatile rv_exception_struct_s exc_flag __attribute__((section(".dccm.persistent")));
 
 #ifdef CPT_VERBOSITY
     enum printf_verbosity verbosity_g = CPT_VERBOSITY;
@@ -221,6 +222,7 @@ void main() {
     else if (rst_count == 14) {
         VPRINTF(LOW, "Timer 2 forced service doesn't clear timer\n");
         *soc_intr_en = 0;
+        init_interrupts();
         // Clear timer2
         lsu_write_32(CLP_SOC_IFC_REG_CPTRA_WDT_TIMER2_EN, SOC_IFC_REG_CPTRA_WDT_TIMER2_EN_TIMER2_EN_MASK);
         lsu_write_32(CLP_SOC_IFC_REG_CPTRA_WDT_TIMER1_EN, SOC_IFC_REG_CPTRA_WDT_TIMER1_EN_TIMER1_EN_MASK);
@@ -229,23 +231,77 @@ void main() {
         lsu_write_32(CLP_SOC_IFC_REG_CPTRA_WDT_TIMER2_TIMEOUT_PERIOD_0, 0x1800);
         lsu_write_32(CLP_SOC_IFC_REG_CPTRA_WDT_TIMER2_TIMEOUT_PERIOD_1, 0);
         lsu_write_32(CLP_SOC_IFC_REG_CPTRA_WDT_TIMER1_CTRL, SOC_IFC_REG_CPTRA_WDT_TIMER1_CTRL_TIMER1_RESTART_MASK);
+        uint32_t mitb0 = 0x00001000;
+        uint32_t mie_timer0_en = 0x20000000;
+        //Set internal timer0 counter value to 0
+        __asm__ volatile ("csrwi    %0, %1" \
+                      : /* output: none */        \
+                      : "i" (0x7d2), "i" (0x00)  /* input : immediate  */ \
+                      : /* clobbers: none */);
+        //Set internal timer0 upper bound
+        __asm__ volatile ("csrw    %0, %1" \
+                      : /* output: none */        \
+                      : "i" (0x7d3), "r" (mitb0)   /* input : immediate  */ \
+                      : /* clobbers: none */);
+        //Set machine intr enable reg (mie) - enable internal timer0 intr
+        __asm__ volatile ("csrw    %0, %1" \
+                      : /* output: none */        \
+                      : "i" (0x304), "r" (mie_timer0_en)  /* input : immediate  */ \
+                      : /* clobbers: none */);
+        //Set mstatus reg - enable mie
+        __asm__ volatile ("csrwi    %0, %1" \
+                      : /* output: none */        \
+                      : "i" (0x300), "i" (0x08)  /* input : immediate  */ \
+                      : /* clobbers: none */);
         // Set timer2 interrupt
         lsu_write_32(CLP_SOC_IFC_REG_CPTRA_WDT_TIMER2_CTRL, SOC_IFC_REG_CPTRA_WDT_TIMER2_CTRL_TIMER2_RESTART_MASK);
         VPRINTF(LOW, "t2s\n");
-        for (uint8_t ii = 0; ii < 200; ii++) {
-            __asm__ volatile ("nop"); // Sleep loop as "nop"
-        }
+        //Set internal timer0 counter value to 0
+        __asm__ volatile ("csrwi    %0, %1" \
+                      : /* output: none */        \
+                      : "i" (0x7d2), "i" (0x00)  /* input : immediate  */ \
+                      : /* clobbers: none */);
+        //Set internal timer0 control (halt_en = 1, enable = 1)
+        __asm__ volatile ("csrwi    %0, %1" \
+                      : /* output: none */        \
+                      : "i" (0x7d4), "i" (0x03)  /* input : immediate  */ \
+                      : /* clobbers: none */);
+        //Halt the core
+        __asm__ volatile ("csrwi    %0, %1;" \
+                          "fence.i"
+                      : /* output: none */        \
+                      : "i" (0x7c6), "i" (0x03)  /* input : immediate  */ \
+                      : /* clobbers: none */);
         // Servicing existing intr shouldn't clear counter
         lsu_write_32(CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R,
                      SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER2_TIMEOUT_STS_MASK);
         // Servicing timer1 intr shouldn't clear timer2 counter when in independent mode
         lsu_write_32(CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R,
                      SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER1_TIMEOUT_STS_MASK);
-        VPRINTF(LOW, "t2r\n");
-        for (uint8_t ii = 0; ii < 200; ii++) {
-            __asm__ volatile ("nop"); // Sleep loop as "nop"
+        if (
+            (lsu_read_32(CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R) &
+             SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER2_TIMEOUT_STS_MASK) == 1
+        ) {
+            SEND_STDOUT_CTRL(0x1);
+            while(1);
         }
-
+        VPRINTF(LOW, "t2r\n");
+        //Set internal timer0 upper bound
+        __asm__ volatile ("csrw    %0, %1" \
+                      : /* output: none */        \
+                      : "i" (0x7d3), "r" (mitb0)   /* input : immediate  */ \
+                      : /* clobbers: none */);
+        //Set internal timer0 control (halt_en = 1, enable = 1)
+        __asm__ volatile ("csrwi    %0, %1" \
+                      : /* output: none */        \
+                      : "i" (0x7d4), "i" (0x03)  /* input : immediate  */ \
+                      : /* clobbers: none */);
+        //Halt the core
+        __asm__ volatile ("csrwi    %0, %1;" \
+                          "fence.i"
+                      : /* output: none */        \
+                      : "i" (0x7c6), "i" (0x03)  /* input : immediate  */ \
+                      : /* clobbers: none */);
         if (
             (lsu_read_32(CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R) &
              SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER2_TIMEOUT_STS_MASK) == 0

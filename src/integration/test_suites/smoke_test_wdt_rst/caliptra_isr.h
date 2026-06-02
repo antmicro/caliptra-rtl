@@ -26,13 +26,11 @@
 #ifndef CALIPTRA_ISR_H
     #define CALIPTRA_ISR_H
 
-#define EN_ISR_PRINTS 1
-
 #include "caliptra_defines.h"
+#include "caliptra_reg.h"
 #include <stdint.h>
 #include "printf.h"
-
-//extern volatile uint32_t hmac_intr_status;
+#include "riscv_hw_if.h"
 
 /* --------------- symbols/typedefs --------------- */
 typedef struct {
@@ -58,46 +56,136 @@ typedef struct {
     uint32_t axi_dma_notif;
 } caliptra_intr_received_s;
 extern volatile caliptra_intr_received_s cptra_intr_rcv;
+#define RV_EXCEPTION_STRUCT 1
+typedef struct {
+    uint8_t  exception_hit;
+    uint32_t mcause;
+    uint32_t mscause;
+} rv_exception_struct_s;
 
 //////////////////////////////////////////////////////////////////////////////
 // Function Declarations
 //
+
 // Performs all the CSR setup to configure and enable vectored external interrupts
 void init_interrupts(void);
 
 // These inline functions are used to insert event-specific functionality into the
 // otherwise generic ISR that gets laid down by the parameterized macro "nonstd_veer_isr"
-inline void service_doe_error_intr() {printf("ERROR");}
-inline void service_doe_notif_intr() {printf("ERROR");}
-inline void service_ecc_error_intr   () {printf("ERROR");}
-inline void service_ecc_notif_intr   () {printf("ERROR");}
-inline void service_hmac_error_intr  () {printf("ERROR");}
-inline void service_hmac_notif_intr  () {printf("ERROR");}
+inline void service_doe_error_intr() {return;}
+inline void service_doe_notif_intr() {return;}
 
-inline void service_kv_error_intr    () {printf("ERROR");}
-inline void service_kv_notif_intr    () {printf("ERROR");}
-inline void service_sha512_error_intr() {printf("ERROR");}
-inline void service_sha512_notif_intr() {printf("ERROR");}
-inline void service_sha256_error_intr() {printf("ERROR");}
-inline void service_sha256_notif_intr() {printf("ERROR");}
-inline void service_soc_ifc_error_intr  () {
-    // uint32_t * reg = (uint32_t *) (CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R);
-    // uint32_t sts = *reg;
-    // //Write 1 to clear pending interrupt
-    // if (sts & SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER1_TIMEOUT_STS_MASK) {
-    //     *reg = SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER1_TIMEOUT_STS_MASK;
-    // }
-    // //Write 1 to clear pending interrupt
-    // if (sts & SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER2_TIMEOUT_STS_MASK) {
-    //     *reg = SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER2_TIMEOUT_STS_MASK;
-    // }
+inline void service_ecc_error_intr() {return;}
+inline void service_ecc_notif_intr() {return;}
+
+inline void service_hmac_error_intr() {return;}
+inline void service_hmac_notif_intr() {return;}
+
+inline void service_kv_error_intr() {return;}
+inline void service_kv_notif_intr() {return;}
+inline void service_sha512_error_intr() {return;}
+inline void service_sha512_notif_intr() {return;}
+
+inline void service_sha256_error_intr() {return;}
+inline void service_sha256_notif_intr() {return;}
+
+
+inline void service_soc_ifc_error_intr() {
+    uint32_t * reg = (uint32_t *) (CLP_SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R);
+    uint32_t sts = *reg;
+    /* Write 1 to Clear the pending interrupt */
+    if (sts & SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_INTERNAL_STS_MASK) {
+        *reg = SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_INTERNAL_STS_MASK;
+        cptra_intr_rcv.soc_ifc_error |= SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_INTERNAL_STS_MASK;
+    }
+    if (sts & SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_INV_DEV_STS_MASK) {
+        *reg = SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_INV_DEV_STS_MASK;
+        cptra_intr_rcv.soc_ifc_error |= SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_INV_DEV_STS_MASK;
+    }
+    if (sts & SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_CMD_FAIL_STS_MASK) {
+        *reg = SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_CMD_FAIL_STS_MASK;
+        cptra_intr_rcv.soc_ifc_error |= SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_CMD_FAIL_STS_MASK;
+    }
+    if (sts & SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_BAD_FUSE_STS_MASK) {
+        *reg = SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_BAD_FUSE_STS_MASK;
+        cptra_intr_rcv.soc_ifc_error |= SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_BAD_FUSE_STS_MASK;
+    }
+    if (sts & SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_ICCM_BLOCKED_STS_MASK) {
+        *reg = SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_ICCM_BLOCKED_STS_MASK;
+        cptra_intr_rcv.soc_ifc_error |= SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_ICCM_BLOCKED_STS_MASK;
+    }
+    if (sts & SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_MBOX_ECC_UNC_STS_MASK) {
+        *reg = SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_MBOX_ECC_UNC_STS_MASK;
+        cptra_intr_rcv.soc_ifc_error |= SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_MBOX_ECC_UNC_STS_MASK;
+    }
+    if (sts & SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER1_TIMEOUT_STS_MASK) {
+        *reg = SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER1_TIMEOUT_STS_MASK;
+        cptra_intr_rcv.soc_ifc_error |= SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER1_TIMEOUT_STS_MASK;
+    }
+    if (sts & SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER2_TIMEOUT_STS_MASK) {
+        *reg = SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER2_TIMEOUT_STS_MASK;
+        cptra_intr_rcv.soc_ifc_error |= SOC_IFC_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_WDT_TIMER2_TIMEOUT_STS_MASK;
+    }
+    if (sts == 0) {
+        VPRINTF(ERROR,"bad soc_ifc_error_intr sts:%x\n", sts);
+        SEND_STDOUT_CTRL(0x1);
+        while(1);
+    }
 }
-inline void service_soc_ifc_notif_intr  () {printf("ERROR");}
-inline void service_sha512_acc_error_intr() {printf("ERROR");}
-inline void service_sha512_acc_notif_intr() {printf("ERROR");}
-inline void service_mldsa_error_intr() {printf("ERROR");}
-inline void service_mldsa_notif_intr() {printf("ERROR");}
 
+inline void service_soc_ifc_notif_intr () {
+    uint32_t * reg = (uint32_t *) (CLP_SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R);
+    uint32_t sts = *reg;
+    /* Write 1 to Clear the pending interrupt */
+    if (sts & SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_CMD_AVAIL_STS_MASK) {
+        *reg = SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_CMD_AVAIL_STS_MASK;
+        cptra_intr_rcv.soc_ifc_notif |= SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_CMD_AVAIL_STS_MASK;
+    }
+    if (sts & SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_MBOX_ECC_COR_STS_MASK) {
+        *reg = SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_MBOX_ECC_COR_STS_MASK;
+        cptra_intr_rcv.soc_ifc_notif |= SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_MBOX_ECC_COR_STS_MASK;
+    }
+    if (sts & SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_DEBUG_LOCKED_STS_MASK) {
+        *reg = SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_DEBUG_LOCKED_STS_MASK;
+        cptra_intr_rcv.soc_ifc_notif |= SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_DEBUG_LOCKED_STS_MASK;
+    }
+    if (sts & SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_SCAN_MODE_STS_MASK) {
+        *reg = SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_SCAN_MODE_STS_MASK;
+        cptra_intr_rcv.soc_ifc_notif |= SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_SCAN_MODE_STS_MASK;
+    }
+    if (sts & SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_SOC_REQ_LOCK_STS_MASK) {
+        *reg = SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_SOC_REQ_LOCK_STS_MASK;
+        cptra_intr_rcv.soc_ifc_notif |= SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_SOC_REQ_LOCK_STS_MASK;
+    }
+    if (sts & SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_GEN_IN_TOGGLE_STS_MASK) {
+        *reg = SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_GEN_IN_TOGGLE_STS_MASK;
+        cptra_intr_rcv.soc_ifc_notif |= SOC_IFC_REG_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_GEN_IN_TOGGLE_STS_MASK;
+    }
+    if (sts == 0) {
+        VPRINTF(ERROR,"bad soc_ifc_notif_intr sts:%x\n", sts);
+        SEND_STDOUT_CTRL(0x1);
+        while(1);
+    }
+}
+
+inline void service_sha512_acc_error_intr() {return;}
+inline void service_sha512_acc_notif_intr() {
+    uint32_t * reg = (uint32_t *) (CLP_SHA512_ACC_CSR_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R);
+    uint32_t sts = *reg;
+    /* Write 1 to Clear the pending interrupt */
+    if (sts & SHA512_ACC_CSR_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_CMD_DONE_STS_MASK) {
+        *reg = SHA512_ACC_CSR_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_CMD_DONE_STS_MASK;
+        cptra_intr_rcv.sha512_acc_notif |= SHA512_ACC_CSR_INTR_BLOCK_RF_NOTIF_INTERNAL_INTR_R_NOTIF_CMD_DONE_STS_MASK;
+    }
+    if (sts == 0) {
+        VPRINTF(ERROR,"bad sha512_acc_notif_intr sts:%x\n", sts);
+        SEND_STDOUT_CTRL(0x1);
+        while(1);
+    }
+}
+
+inline void service_mldsa_error_intr() {return;}
+inline void service_mldsa_notif_intr() {return;}
 inline void service_axi_dma_error_intr() {return;}
 inline void service_axi_dma_notif_intr() {return;}
 

@@ -60,7 +60,7 @@ void ifc_reg_write(uint32_t reg_addr, uint32_t value) {
 // Array of register with non-zero initial values
 const ifc_reg_def_value_t reg_init_values[] = {
     {CLP_SOC_IFC_REG_CPTRA_HW_REV_ID, 0x00010402},
-    {CLP_SOC_IFC_REG_CPTRA_HW_CONFIG, 0x00000011},
+    {CLP_SOC_IFC_REG_CPTRA_HW_CONFIG, 0x00000031},
     {CLP_SOC_IFC_REG_SS_CALIPTRA_BASE_ADDR_L, 0xBA5EBA11},  // Set in caliptra_top_tb.sv
     {CLP_SOC_IFC_REG_CPTRA_SECURITY_STATE,    0x00000007},  // Base TB configuration is locked production
     {CLP_SOC_IFC_REG_CPTRA_BOOTFSM_GO,        0x00000001},  // Register read post start, RO from CPTRA, RW from SoC
