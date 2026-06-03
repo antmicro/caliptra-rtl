@@ -267,10 +267,10 @@ import caliptra_top_tb_pkg::*; #(
                     end
 
                     $display ("SoC: Writing SOC Stepping ID to fuse bank\n");
-                    m_axi_bfm_if.axi_write_single(.addr(`CLP_SOC_IFC_REG_FUSE_SOC_STEPPING_ID), .data(32'h00000001), .resp(wresp), .resp_user(buser));
+                    m_axi_bfm_if.axi_write(.addr(`CLP_SOC_IFC_REG_FUSE_SOC_STEPPING_ID), .data('{32'h00000001}), .size(1), .use_strb(1), .strb('{4'b0011}), .resp(wresp), .resp_user(buser), .write_user('{'0}));
 
                     $display ("SoC: Writing fuse done register\n");
-                    m_axi_bfm_if.axi_write_single(.addr(`CLP_SOC_IFC_REG_CPTRA_FUSE_WR_DONE), .data(32'h00000001), .resp(wresp), .resp_user(buser));
+                    m_axi_bfm_if.axi_write(.addr(`CLP_SOC_IFC_REG_CPTRA_FUSE_WR_DONE), .data('{32'h00000001}), .size(0), .use_strb(1), .strb('{4'b0001}), .resp(wresp), .resp_user(buser), .write_user('{'0}));
 
                     assert (!cptra_error_non_fatal) else begin
                         $error("cptra_error_non_fatal observed during boot up");
@@ -285,12 +285,16 @@ import caliptra_top_tb_pkg::*; #(
                         $write ("SoC: Polling Flow Status...");
                         poll_count = 0;
                         do begin
-                            m_axi_bfm_if.axi_read_single(.addr(`CLP_SOC_IFC_REG_CPTRA_FLOW_STATUS), .data(rdata), .resp(rresp), .resp_user(buser));
+                            // Make a narrow and unaligned access
+                            int size = $urandom_range(0, 1);
+                            int bytes = 2**size;
+                            m_axi_bfm_if.axi_read_single(.addr(`CLP_SOC_IFC_REG_CPTRA_FLOW_STATUS + `SOC_IFC_REG_CPTRA_FLOW_STATUS_READY_FOR_FUSES_LOW / 8 / bytes * bytes), .size(size), .data(rdata), .resp(rresp), .resp_user(buser));
                             poll_count++;
                         end while(rdata[`SOC_IFC_REG_CPTRA_FLOW_STATUS_READY_FOR_FUSES_LOW] == 1);
                         $display("\n  >>> SoC: Ready for Fuses deasserted after polling %d times\n", poll_count);
                         $display ("SoC: Writing BootGo register\n");
                         m_axi_bfm_if.axi_write_single(.addr(`CLP_SOC_IFC_REG_CPTRA_BOOTFSM_GO), .data(32'h00000001), .resp(wresp), .resp_user(buser));
+
                     end
 
                     $display ("CLP: ROM Flow in progress...\n");

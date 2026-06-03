@@ -272,6 +272,7 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
         endtask
 
         task axi_read_single(input  logic [AW-1:0] addr,
+                            input  logic [2:0]    size  = $clog2(DW/8),
                             input  logic [UW-1:0] user  = UW'(0),
                             input  logic [IW-1:0] id    = IW'(0),
                             input  logic          lock  = 1'b0,
@@ -281,7 +282,8 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
             automatic axi_resp_e     burst_resp[];
             automatic logic [UW-1:0] burst_ruser[];
             automatic logic [DW-1:0] burst_data[];
-            axi_read(.addr     (addr       ),
+            axi_read(.addr    (addr       ),
+                    .size     (size       ),
                     .user     (user       ),
                     .id       (id         ),
                     .lock     (lock       ),
