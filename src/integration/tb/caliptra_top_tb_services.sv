@@ -198,6 +198,7 @@ module caliptra_top_tb_services
     logic                       timed_kv_clear;
     logic                       timed_kv_clear_done;
     logic                       hmac_tag_mismatch_kill;
+    logic                       ecc_privkey_mismatch_kill;
     logic                       prandom_warm_rst; 
     logic                       cold_rst_done;
 
@@ -402,6 +403,7 @@ module caliptra_top_tb_services
     //      16'h547F        - Stop injecting FIFO AXI read errors
     //      16'h557F        - Stop injecting FIFO AXI write errors
     //      16'h567F        - Kill kv_hmac_tag_w_flow assertions (e.g. when write into KV doesn't succeed deliberately)
+    //      16'h577F        - Kill kv_ecc_privkey_w_flow assertions (e.g. when write into KV doesn't succeed deliberately)
     //      16'h807F:'h9F7F - Inject a valid hmac_key dest and hmac512_key into Nth kv slot (where slot is encoded as (N & 0x1F) << 8)
     //      16'hA07F:'hBF7F - Check if Nth kv slot (where slot is encoded as (N & 0x1F) << 8) is all zero
     //      16'hC07F        - Force clear of all KV slots, when DOE FSM starts to write
@@ -888,6 +890,39 @@ module caliptra_top_tb_services
                     $assertkill(0, caliptra_top_tb.sva.genblk2[9].genblk3.kv_hmac_tag_w_flow);
                     $assertkill(0, caliptra_top_tb.sva.genblk2[10].genblk3.kv_hmac_tag_w_flow);
                     $assertkill(0, caliptra_top_tb.sva.genblk2[11].genblk3.kv_hmac_tag_w_flow);
+                end
+            end
+        end
+    endgenerate
+
+    always @(negedge clk) begin
+        if (!cptra_rst_b) begin
+            ecc_privkey_mismatch_kill <= '0;
+        end else if (WriteData[15:0] == 16'h577F) begin
+            ecc_privkey_mismatch_kill <= '1;
+        end else begin
+            ecc_privkey_mismatch_kill <= '0;
+        end
+    end
+
+    generate
+        for (genvar slot_id=0; slot_id < 24; slot_id++) begin : ecc_privkey_mismatch_kill_loop
+            always @(negedge clk) begin
+                if (ecc_privkey_mismatch_kill) begin
+                    // Need to kill off assertion that checks whether output tag in HMAC matches tag written to KV
+                    // this assert is not necessary, e.g. in tests where KV is deliberately not set to be writable (locked)
+                    $assertkill(0, caliptra_top_tb.sva.genblk2[0].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, caliptra_top_tb.sva.genblk2[1].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, caliptra_top_tb.sva.genblk2[2].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, caliptra_top_tb.sva.genblk2[3].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, caliptra_top_tb.sva.genblk2[4].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, caliptra_top_tb.sva.genblk2[5].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, caliptra_top_tb.sva.genblk2[6].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, caliptra_top_tb.sva.genblk2[7].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, caliptra_top_tb.sva.genblk2[8].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, caliptra_top_tb.sva.genblk2[9].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, caliptra_top_tb.sva.genblk2[10].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, caliptra_top_tb.sva.genblk2[11].genblk4.kv_ecc_privkey_w_flow);
                 end
             end
         end

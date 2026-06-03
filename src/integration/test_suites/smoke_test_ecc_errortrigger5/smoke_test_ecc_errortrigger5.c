@@ -293,6 +293,83 @@ void main() {
         }
 
         ecc_zeroize();
+        //Issue warm reset
+        rst_count++;
+        printf("%c",0xf6);
+    } else if(rst_count == 3) {
+        // Adapted from "smoke_test_ecc_keygen"
+        VPRINTF(LOW, " ***** ECC KV write error !!\n");
+
+        // Kill kv_ecc_privkey_w_flow assertion, since KV slot will not match ECC output (since we will lock the KV slot)
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x577F);
+
+        ecc_io seed;
+        ecc_io nonce;
+        ecc_io iv;
+        ecc_io privkey;
+        ecc_io pubkey_x;
+        ecc_io pubkey_y;
+        ecc_io msg;
+        ecc_io sign_r;
+        ecc_io sign_s;
+        ecc_io privkey_dh;
+        ecc_io pubkey_x_dh;
+        ecc_io pubkey_y_dh;
+        ecc_io sharedkey_dh;
+
+        seed.kv_intf = FALSE;
+        for (int i = 0; i < 12; i++)
+            seed.data[i] = ecc_seed[i];
+
+        nonce.kv_intf = FALSE;
+        for (int i = 0; i < 12; i++)
+            nonce.data[i] = ecc_nonce[i];
+        
+        iv.kv_intf = FALSE;
+        for (int i = 0; i < 12; i++)
+            iv.data[i] = ecc_iv[i];
+        
+        msg.kv_intf = FALSE;
+        for (int i = 0; i < 12; i++)
+            msg.data[i] = ecc_msg[i];
+
+        privkey.kv_intf = TRUE;
+        // Slot not randomized, we only want to exercise the error path
+        const int privkey_slot = 0;
+        privkey.kv_id = privkey_slot;
+
+        // Lock target register
+        uint32_t key_ctrl_addr = CLP_KV_REG_KEY_CTRL_0 + (privkey_slot * 4);
+        uint32_t key_ctrl_val = lsu_read_32(key_ctrl_addr);
+        VPRINTF(LOW, "[SETUP] KEY_CTRL[%d] = 0x%08x\n", privkey_slot, key_ctrl_val);
+        lsu_write_32(key_ctrl_addr, key_ctrl_val | KV_REG_KEY_CTRL_0_LOCK_WR_MASK);
+
+        pubkey_x.kv_intf = FALSE;
+        for (int i = 0; i < 12; i++)
+            pubkey_x.data[i] = ecc_pubkey_x[i];
+        
+        pubkey_y.kv_intf = FALSE;
+        for (int i = 0; i < 12; i++)
+            pubkey_y.data[i] = ecc_pubkey_y[i];
+        
+        sign_r.kv_intf = FALSE;
+        for (int i = 0; i < 12; i++)
+            sign_r.data[i] = ecc_sign_r[i];
+        
+        sign_s.kv_intf = FALSE;
+        for (int i = 0; i < 12; i++)
+            sign_s.data[i] = ecc_sign_s[i];
+
+        ecc_keygen_flow(seed, nonce, iv, privkey, pubkey_x, pubkey_y);
+        cptra_intr_rcv.ecc_notif = 0;
+
+        // KV_WRITE_FAIL is encoded as 0x2, shifted left by 2 bits
+        if((lsu_read_32(CLP_ECC_REG_ECC_KV_WR_PKEY_STATUS) & ECC_REG_ECC_KV_WR_PKEY_STATUS_ERROR_MASK) != 0x8) {
+            VPRINTF(LOW, "[FAIL] No error seen in STATUS_ERROR field, even though privkey write slot was locked! Got 0x%x\n",
+                        lsu_read_32(CLP_ECC_REG_ECC_KV_WR_PKEY_STATUS));
+        }
+
+        ecc_zeroize();
     }
 
     printf("%c",0xff); //End the test
