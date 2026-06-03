@@ -51,6 +51,7 @@ if {($val & 0x00000c00) == 0} {
 }
 puts ""
 
+# Test 1
 puts "Acquire mailbox lock..."
 set lock [riscv dmi_read $mbox_lock_dmi_addr]
 # Check if in execute tap state
@@ -62,6 +63,7 @@ puts ""
 
 puts "SoC mailbox access req while TAP locks it completed successfully"
 
+# Test 2
 puts "Acquire mailbox lock..."
 set lock [riscv dmi_read $mbox_lock_dmi_addr]
 #check if in execute tap state
@@ -119,6 +121,48 @@ for {set i 0} {$i < $dlen_words} {incr i} {
 puts "Clear execute..."
 riscv dmi_write $mbox_execute_dmi_addr 0x0
 
-puts "Flagging test successful completion in TB..."
+# Test 3
+puts "Poll mailbox status..."
+set status [riscv dmi_read $mbox_status_dmi_addr]
+#check if in execute tap state
+while {($status & 0x000001C0) != 0x00000140} {
+    after 100; # Wait 100ms between polls to avoid busy looping.
+    set status [riscv dmi_read $mbox_status_dmi_addr]
+}
+puts ""
 
-shutdown
+puts "Poll mailbox TAP mode..."
+set tap_mode [read_memory $mbox_tap_mode_mem_addr 32 1 phys]
+set tap_mode [expr {[lindex $tap_mode 0] & 0x1}]
+set cmp_tap_mode {0x0}
+# Wait for uC to disable TAP mode
+while {[compare $tap_mode $cmp_tap_mode] != 0} {
+    puts "CMP FAILED"
+    after 100; # Wait 100ms between polls to avoid busy looping.
+    set tap_mode [read_memory $mbox_tap_mode_mem_addr 32 1 phys]
+    set tap_mode [expr {[lindex $tap_mode 0] & 0x1}]
+}
+puts ""
+
+puts "Write resp to mailbox..."
+riscv dmi_write $mbox_cmd_dmi_addr 0x4e110df7
+riscv dmi_write $mbox_dlen_dmi_addr $dlen_bytes
+for {set i 0} {$i < $dlen_words} {incr i} {
+    riscv dmi_write $mbox_din_dmi_addr $data($i)
+}
+puts ""
+
+puts "Set status to data ready"
+riscv dmi_write $mbox_status_dmi_addr 0x1
+
+puts "Poll mailbox TAP mode..."
+set tap_mode [read_memory $mbox_tap_mode_mem_addr 32 1 phys]
+set tap_mode [expr {[lindex $tap_mode 0] & 0x1}]
+set cmp_tap_mode {0x1}
+# Wait for uC to enable TAP mode
+while {[compare $tap_mode $cmp_tap_mode] != 0} {
+    after 100; # Wait 100ms between polls to avoid busy looping.
+    set tap_mode [read_memory $mbox_tap_mode_mem_addr 32 1 phys]
+    set tap_mode [expr {[lindex $tap_mode 0] & 0x1}]
+}
+puts ""

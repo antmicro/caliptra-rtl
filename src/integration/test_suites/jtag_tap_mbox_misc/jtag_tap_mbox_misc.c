@@ -34,6 +34,7 @@ volatile uint32_t  rst_count __attribute__((section(".dccm.persistent"))) = 0;
 
 volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 
+#define TB_CMD_TEST_PASS          0xFF
 #define MBOX_DLEN_VAL             0x00000020
 
 /* --------------- Function Definitions --------------- */
@@ -46,10 +47,6 @@ void main() {
     lsu_write_32(stdout, 0x127F);
     // Enter debug unlocked
     lsu_write_32(stdout, 0x187F);
-
-    printf("----------------------------------\n");
-    printf(" ROM to TAP Mailbox flow test\n");
-    printf("----------------------------------\n");
 
     // Initialize interrupts (if any)
     init_interrupts();
@@ -153,7 +150,85 @@ void main() {
 
     soc_ifc_set_mbox_status_field(status);
 
-    // Let jtag end the test
-    while(1);
+    VPRINTF(LOW, "FW: Test 3 - TAP disable in EXECUTE_TAP\n");
 
+    // Poll status until fsm is in IDLE state
+    VPRINTF(LOW, "FW: Wait for mailbox to enter IDLE state\n");
+    do {
+      state = (lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_MASK) >> MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_LOW;
+    } while (state != MBOX_IDLE);
+
+    VPRINTF(LOW, "FW: Locking mailbox\n");
+    //poll for mbox lock
+    while((lsu_read_32(CLP_MBOX_CSR_MBOX_LOCK) & MBOX_CSR_MBOX_LOCK_LOCK_MASK) == 1);
+
+    VPRINTF(LOW, "FW: Writing request to mailbox\n");
+    // Write command
+    lsu_write_32(CLP_MBOX_CSR_MBOX_CMD,0xaface0ff);
+
+    // Write dlen
+    lsu_write_32(CLP_MBOX_CSR_MBOX_DLEN,MBOX_DLEN_VAL);
+
+    // Write datain
+    VPRINTF(LOW, "FW: Writing %d bytes to mailbox\n", MBOX_DLEN_VAL);
+    for (ii = 0; ii < MBOX_DLEN_VAL/4; ii++) {
+        VPRINTF(HIGH, "  datain: 0x%x\n", mbox_data[ii]);
+        lsu_write_32(CLP_MBOX_CSR_MBOX_DATAIN,mbox_data[ii]);
+    }
+
+    // Set execute
+    VPRINTF(LOW, "FW: Setting mailbox to execute\n");
+    lsu_write_32(CLP_MBOX_CSR_MBOX_EXECUTE, MBOX_CSR_MBOX_EXECUTE_EXECUTE_MASK);
+
+    VPRINTF(LOW, "FW: Waiting for mailbox to enter EXECUTE_TAP state\n");
+    // Poll status until fsm is in EXECUTE TAP state
+    do  {
+        state = (lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_MASK) >> MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_LOW;
+    } while (state != MBOX_EXECUTE_TAP);
+
+    // Disable TAP_MODE to hit missing cond
+    VPRINTF(LOW, "FW: Disabling TAP mode\n");
+    lsu_write_32(CLP_MBOX_CSR_TAP_MODE, 0);
+
+    // Poll status until TAP notifies it is ready for data
+    VPRINTF(LOW, "FW: Waiting for mailbox to be ready for data \n");
+    do  {
+        status = (lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_STATUS_MASK) >> MBOX_CSR_MBOX_STATUS_STATUS_LOW;
+    } while (status == CMD_BUSY);
+
+    // Enable TAP_MODE to finish the test gracefully
+    VPRINTF(LOW, "FW: Enabling TAP mode\n");
+    lsu_write_32(CLP_MBOX_CSR_TAP_MODE, MBOX_CSR_TAP_MODE_ENABLED_MASK);
+
+    // Poll status until data ready is set
+    VPRINTF(LOW, "FW: Waiting for mailbox to be ready for data \n");
+    do  {
+        status = (lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_STATUS_MASK) >> MBOX_CSR_MBOX_STATUS_STATUS_LOW;
+    } while (status != DATA_READY);
+
+    // Check cmd
+    VPRINTF(LOW, "FW: Checking CMD from TAP\n");
+    read_data = lsu_read_32(CLP_MBOX_CSR_MBOX_CMD);
+    if (read_data != exp_mbox_cmd) {
+      VPRINTF(ERROR, "ERROR: mailbox cmd mismatch actual (0x%x) expected (0x%x)\n", read_data, exp_mbox_cmd);
+      SEND_STDOUT_CTRL( 0x1);
+      while(1);
+    }
+
+    // Check data
+    VPRINTF(LOW, "FW: Checking %d bytes from TAP\n", MBOX_DLEN_VAL);
+    for (ii = 0; ii < MBOX_DLEN_VAL/4; ii++) {
+        VPRINTF(HIGH, "  datain: 0x%x\n", exp_mbox_data[ii]);
+        read_data = soc_ifc_mbox_read_dataout_single();
+        if (read_data != exp_mbox_data[ii]) {
+            VPRINTF(ERROR, "ERROR: mailbox data mismatch actual (0x%x) expected (0x%x)\n", read_data, exp_mbox_data[ii]);
+            SEND_STDOUT_CTRL( 0x1);
+            while(1);
+        };
+    }
+
+    // Clear execute
+    lsu_write_32(CLP_MBOX_CSR_MBOX_EXECUTE, 0);
+
+    SEND_STDOUT_CTRL(TB_CMD_TEST_PASS);
 }
