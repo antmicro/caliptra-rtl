@@ -572,6 +572,7 @@ void std_rv_mtvec_exception(void) {
         SEND_STDOUT_CTRL(0x1); // KILL THE SIMULATION with "ERROR"
     } else {
         uint_xlen_t tmp_reg;
+        uint32_t inst;
 
         // mscause
         __asm__ volatile ("csrr    %0, %1"
@@ -600,7 +601,12 @@ void std_rv_mtvec_exception(void) {
                 // Increment mepc before returning, because repeating the previously
                 // failing command will cause an infinite loop back to this ISR.
                 tmp_reg = csr_read_mepc();
-                csr_write_mepc(tmp_reg + 4); // FIXME this has no guarantee of working. E.g. Compressed instructions are 2, not 4, bytes...
+                inst = lsu_read_32(tmp_reg);
+                if ((inst & 0x3) != 3) {
+                    csr_write_mepc(tmp_reg + 2);
+                } else if ((inst & 0x3) == 3 && (inst & 0x1C) != 0x1C) {
+                    csr_write_mepc(tmp_reg + 4);
+                }
 
                 // Bail immediately instead of killing the sim.
                 // Caliptra RESET is expected due to FATAL Error, but if it's

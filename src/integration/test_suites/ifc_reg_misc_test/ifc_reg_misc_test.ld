@@ -61,9 +61,12 @@ SECTIONS {
   iccm_code2_start = ALIGN(iccm_code1_end,4);
   .data_iccm2 0x40000000 : AT(iccm_code2_start) {*(.data_iccm2) ; . = ALIGN(4); } =0x0000, /* iccm_code2_start, after .data, as LMA */
   iccm_code2_end = iccm_code2_start + SIZEOF(.data_iccm2);
+  iccm_code3_start = ALIGN(iccm_code2_end,4);
+  .data_iccm3 0x40000000 : AT(iccm_code3_start) {*(.data_iccm3) ; . = ALIGN(4); } =0x0000, /* iccm_code3_start, after .data, as LMA */
+  iccm_code3_end = iccm_code3_start + SIZEOF(.data_iccm3);
 
-  /* Stack is at the end of DCCM after .data_iccm2 */
-  . = ALIGN(iccm_code2_end,16);
+  /* Stack is at the end of DCCM after .data_iccm3 */
+  . = ALIGN(iccm_code3_end,16);
   STACK = ALIGN(16) + 0x4000;
   ASSERT( (STACK < 0x50040000), "ERROR: Stack overflows the DCCM -- note: lower half of DCCM is allocated in the validation image for remote firmware images")
 }

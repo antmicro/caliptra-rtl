@@ -79,6 +79,10 @@ puts ""
 puts "Read mailbox data..."
 for {set i 0} {$i < $dlen_words} {incr i} {
     set golden $exp_data($i)
+    # Check that write is ignored
+    if { $i == [expr $dlen_words-1]} {
+        riscv dmi_write $mbox_dout_dmi_addr 0xdeadbeef
+    }
     set actual [riscv dmi_read $mbox_dout_dmi_addr]
     if {[compare $actual $golden] != 0} {
         shutdown error
@@ -109,6 +113,10 @@ puts "Write req to mailbox..."
 riscv dmi_write $mbox_cmd_dmi_addr 0xaface0ff
 riscv dmi_write $mbox_dlen_dmi_addr $dlen_bytes
 for {set i 0} {$i < $dlen_words} {incr i} {
+    # Check that write is ignored
+    if { $i == [expr $dlen_words-1] && [compare [riscv dmi_read $mbox_din_dmi_addr] 0] != 0} {
+        shutdown error
+    }
     riscv dmi_write $mbox_din_dmi_addr $exp_data($i)
 }
 puts ""

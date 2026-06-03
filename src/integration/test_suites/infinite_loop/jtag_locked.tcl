@@ -18,8 +18,6 @@ init
 set script_dir [file dirname [info script]]
 source [file join $script_dir common.tcl]
 
-#dmi_reg_bootfsm_go  only 1 bit
-#dmi_reg_ss_debug_intent  only 1 bit
 #dmi_reg_ss_dbg_manuf_service_reg_req  special access
 #dmi_reg_ss_dbg_manuf_service_reg_rsp  read only
 
@@ -38,14 +36,16 @@ array set rw_regs {
     5 dmi_reg_ss_recovery_ifc_base_addr_l
     6 dmi_reg_ss_recovery_ifc_base_addr_h
     7 dmi_reg_ss_otp_fc_base_addr_l
-    7 dmi_reg_ss_otp_fc_base_addr_h
-    8 dmi_reg_ss_strap_generic_0
-    9 dmi_reg_ss_strap_generic_1
-    10 dmi_reg_ss_strap_generic_2
-    11 dmi_reg_ss_strap_generic_3
-    12 dmi_reg_ss_dbg_unlock_level0
-    13 dmi_reg_ss_dbg_unlock_level1
-    14 dmi_reg_ss_strap_caliptra_dma_axi_user
+    8 dmi_reg_ss_otp_fc_base_addr_h
+    9 dmi_reg_ss_strap_generic_0
+    10 dmi_reg_ss_strap_generic_1
+    11 dmi_reg_ss_strap_generic_2
+    12 dmi_reg_ss_strap_generic_3
+    13 dmi_reg_ss_dbg_unlock_level0
+    14 dmi_reg_ss_dbg_unlock_level1
+    15 dmi_reg_ss_strap_caliptra_dma_axi_user
+    16 dmi_reg_ss_debug_intent
+    17 dmi_reg_bootfsm_go
 }
 
 array set ro_regs {

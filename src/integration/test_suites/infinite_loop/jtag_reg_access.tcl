@@ -18,8 +18,6 @@ init
 set script_dir [file dirname [info script]]
 source [file join $script_dir common.tcl]
 
-#dmi_reg_bootfsm_go  only 1 bit
-#dmi_reg_ss_debug_intent  only 1 bit
 #dmi_reg_ss_dbg_manuf_service_reg_req  special access
 #dmi_reg_ss_dbg_manuf_service_reg_rsp  read only
 
@@ -38,14 +36,16 @@ array set rw_regs {
     5 dmi_reg_ss_recovery_ifc_base_addr_l
     6 dmi_reg_ss_recovery_ifc_base_addr_h
     7 dmi_reg_ss_otp_fc_base_addr_l
-    7 dmi_reg_ss_otp_fc_base_addr_h
-    8 dmi_reg_ss_strap_generic_0
-    9 dmi_reg_ss_strap_generic_1
-    10 dmi_reg_ss_strap_generic_2
-    11 dmi_reg_ss_strap_generic_3
-    12 dmi_reg_ss_dbg_unlock_level0
-    13 dmi_reg_ss_dbg_unlock_level1
-    14 dmi_reg_ss_strap_caliptra_dma_axi_user
+    8 dmi_reg_ss_otp_fc_base_addr_h
+    9 dmi_reg_ss_strap_generic_0
+    10 dmi_reg_ss_strap_generic_1
+    11 dmi_reg_ss_strap_generic_2
+    12 dmi_reg_ss_strap_generic_3
+    13 dmi_reg_ss_dbg_unlock_level0
+    14 dmi_reg_ss_dbg_unlock_level1
+    15 dmi_reg_ss_strap_caliptra_dma_axi_user
+    16 dmi_reg_ss_debug_intent
+    17 dmi_reg_bootfsm_go
 }
 
 array set ro_regs {
@@ -87,28 +87,38 @@ for {set i 0} {$i < $num_rw_regs} {incr i} {
     #write golden5a
     riscv dmi_write [set $rw_regs($i)] $golden5a
     set actual [riscv dmi_read [set $rw_regs($i)]]
-    if {[compare $actual $golden5a] != 0} {
+    # Single bit register
+    if { ($i >= 16) && [compare $actual 0] != 0} {
+        shutdown error
+    } elseif { ($i < 16) && [compare $actual $golden5a] != 0} {
         shutdown error
     }
     #write goldena5
     riscv dmi_write [set $rw_regs($i)] $goldena5
     set actual [riscv dmi_read [set $rw_regs($i)]]
-    if {[compare $actual $goldena5] != 0} {
+    if { ($i >= 16) && [compare $actual 1] != 0} {
+        shutdown error
+    } elseif { ($i < 16) && [compare $actual $goldena5] != 0} {
         shutdown error
     }
     #write variable
+    set golden [expr int($i$i$i)]
     riscv dmi_write [set $rw_regs($i)] $i$i$i
     set actual [riscv dmi_read [set $rw_regs($i)]]
-    if {[compare $actual $i$i$i] != 0} {
+    if { ($i >= 16) && [compare $actual [expr $golden&1]] != 0} {
+        shutdown error
+    } elseif { ($i < 16) && [compare $actual $i$i$i] != 0} {
         shutdown error
     }
 }
 
 puts "Reading the writable registers again..."
 for {set i 0} {$i < $num_rw_regs} {incr i} {
-    set golden $i$i$i
+    set golden [expr int($i$i$i)]
     set actual [riscv dmi_read [set $rw_regs($i)]]
-    if {[compare $actual $golden] != 0} {
+    if { ($i >= 16) && [compare $actual [expr $golden&1]] != 0} {
+        shutdown error
+    } elseif { ($i < 16) && [compare $actual $golden] != 0} {
         shutdown error
     }
 }

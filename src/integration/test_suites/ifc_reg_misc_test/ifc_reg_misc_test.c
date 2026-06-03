@@ -27,6 +27,8 @@ volatile char* stdout = (char *)STDOUT;
 volatile uint32_t  intr_count = 0;
 volatile int rst_count __attribute__((section(".dccm.persistent"))) = 0;
 volatile int error_count __attribute__((section(".dccm.persistent"))) = 0;
+volatile int dccm_err_trigger __attribute__((section(".dccm.persistent"))) = 0;
+volatile int dccm_safe __attribute__((section(".dccm.persistent"))) = 0;
 volatile rv_exception_struct_s exc_flag __attribute__((section(".dccm.persistent")));
 
 #ifdef CPT_VERBOSITY
@@ -289,7 +291,11 @@ void nmi_handler (void) {
                 (SOC_IFC_REG_INTERNAL_HW_ERROR_FATAL_MASK_MASK_NMI_PIN_MASK |
                  SOC_IFC_REG_INTERNAL_HW_ERROR_FATAL_MASK_MASK_ICCM_ECC_UNC_MASK)) {
             VPRINTF(MEDIUM, "FATAL_ERROR bit is masked, no rst exp from TB: rst core manually!\n");
-            SEND_STDOUT_CTRL(0xf6);
+            if (rst_count == 6) {
+                SEND_STDOUT_CTRL(0xf5);
+            } else {
+                SEND_STDOUT_CTRL(0xf6);
+            }
         // Otherwise, wait for core reset
         } else {
             // Test Crypto err
@@ -301,13 +307,70 @@ void nmi_handler (void) {
     }
 }
 
+extern uintptr_t iccm_code1_start, iccm_code1_end;
+void iccm_ecc_double_err (void) __attribute__ ((aligned(4),section (".data_iccm1")));
+void iccm_ecc_double_err (void) {
+    // Based on the simulation traces, Veer fetch 10 instructions before FW_UPDATE_RESET triggers reset
+    uint32_t *reg_addr;
+    uint32_t mask;                                                                                                                  // Offset
+    __asm__ volatile("lui %0, %1": "=r" (reg_addr): "i" (CLP_SOC_IFC_REG_INTERNAL_FW_UPDATE_RESET>>12) : );                         //  0
+    __asm__ volatile("addi %0, %1, %2": "=r" (reg_addr): "r" (reg_addr), "i" (CLP_SOC_IFC_REG_INTERNAL_FW_UPDATE_RESET&0xfff) : );  //  4
+    __asm__ volatile("li %0, %1": "=r" (mask): "i" (SOC_IFC_REG_INTERNAL_FW_UPDATE_RESET_CORE_RST_MASK*1) : );                      //  8
+    __asm__ volatile("sw %0, 0(%1)": : "r" (mask), "r" (reg_addr): );                                                               //  A
+    __asm__ volatile("addi zero, zero, %0" : : "i" (1) : );                                                                         //  C
+    __asm__ volatile("addi zero, zero, %0" : : "i" (2) : );                                                                         // 10
+    __asm__ volatile("addi zero, zero, %0" : : "i" (3) : );                                                                         // 14
+    __asm__ volatile("addi zero, zero, %0" : : "i" (4) : );                                                                         // 18
+    __asm__ volatile("addi zero, zero, %0" : : "i" (5) : );                                                                         // 1C
+    __asm__ volatile("addi zero, zero, %0" : : "i" (6) : );                                                                         // 20
+    __asm__ volatile("addi zero, zero, %0" : : "i" (7) : );                                                                         // 24
+    __asm__ volatile("addi zero, zero, %0" : : "i" (8) : );                                                                         // 28
+    __asm__ volatile("addi zero, zero, %0" : : "i" (9) : );                                                                         // 2C
+    __asm__ volatile("addi zero, zero, %0" : : "i" (10) : );                                                                        // 30
+    return;
+}
+
+extern uintptr_t iccm_code2_start, iccm_code2_end;
+void dccm_ecc_double_err (void) __attribute__ ((aligned(4),section (".data_iccm2")));
+void dccm_ecc_double_err (void) {
+    // Based on the simulation traces, Veer can execute 3 DCCM loads before FW_UPDATE_RESET triggers reset
+    uint32_t *reg_addr;
+    uint32_t mask;
+    __asm__ volatile("lui %0, %1": "=r" (reg_addr): "i" (CLP_SOC_IFC_REG_INTERNAL_FW_UPDATE_RESET>>12) : );
+    __asm__ volatile("addi %0, %1, %2": "=r" (reg_addr): "r" (reg_addr), "i" (CLP_SOC_IFC_REG_INTERNAL_FW_UPDATE_RESET&0xfff) : );
+    __asm__ volatile("li %0, %1": "=r" (mask): "i" (SOC_IFC_REG_INTERNAL_FW_UPDATE_RESET_CORE_RST_MASK*1) : );
+    __asm__ volatile("sw %0, 0(%1)": : "r" (mask), "r" (reg_addr): );
+    __asm__ volatile("lw zero, 0(%0)" : : "r" (dccm_safe) : );
+    __asm__ volatile("lw zero, 0(%0)" : : "r" (dccm_safe) : );
+    __asm__ volatile("lw zero, 0(%0)" : : "r" (dccm_err_trigger) : );
+    return;
+}
+
+extern uintptr_t iccm_code3_start, iccm_code3_end;
+void high_bits_counter_update_while_incrementing (void) __attribute__ ((aligned(4),section (".data_iccm3")));
+void high_bits_counter_update_while_incrementing (void) {
+    // Based on the simulation traces, Veer can execute 4 DCCM loads before FW_UPDATE_RESET triggers reset
+    uint32_t *reg_addr_h, *reg_addr_l;
+    uint32_t high_counter, low_counter;
+    #define STARTING_POINT (0xfffffffc)
+    __asm__ volatile("lui %0, %1": "=r" (reg_addr_l): "i" (CLP_SOC_IFC_REG_INTERNAL_RV_MTIME_L>>12) : );
+    __asm__ volatile("addi %0, %1, %2": "=r" (reg_addr_l): "r" (reg_addr_l), "i" (CLP_SOC_IFC_REG_INTERNAL_RV_MTIME_L&0xfff) : );
+    __asm__ volatile("lui %0, %1": "=r" (reg_addr_h): "i" (CLP_SOC_IFC_REG_INTERNAL_RV_MTIME_H>>12) : );
+    __asm__ volatile("addi %0, %1, %2": "=r" (reg_addr_h): "r" (reg_addr_h), "i" (CLP_SOC_IFC_REG_INTERNAL_RV_MTIME_H&0xfff) : );
+    __asm__ volatile("addi %0, %1, %2": "=r" (low_counter): "r" (low_counter), "i" (STARTING_POINT) : );
+    __asm__ volatile("li %0, %1": "=r" (high_counter): "i" (7) : );
+    __asm__ volatile("sw %0, 0(%1)": : "r" (low_counter), "r" (reg_addr_l): );
+    __asm__ volatile("sw %0, 0(%1)": : "r" (high_counter), "r" (reg_addr_h): );
+    return;
+}
+
 void main(void) {
 
     rst_count++;
     VPRINTF(LOW, "----------------\nrst count = %d\n----------------\n", rst_count);
     VPRINTF(LOW, "==================\nIFC Register Misc Test\n==================\n\n");
 
-    // Setup defualt trap handling
+    // Setup default trap handling
     init_interrupts();
     // Setup the NMI Handler
     lsu_write_32((uintptr_t) (CLP_SOC_IFC_REG_INTERNAL_NMI_VECTOR), (uint32_t) (nmi_handler));
@@ -453,6 +516,80 @@ void main(void) {
         // This code should not be reached
         error_count += 1;
         while(1);
+  } else if (rst_count == 6) {
+        // Copy routine to ICCM
+        uint32_t * code_word = (uint32_t *) &iccm_code1_start;
+        uint32_t * iccm_dest = (uint32_t *) RV_ICCM_SADR;
+        while (code_word < (uint32_t *) &iccm_code1_end) {
+            *iccm_dest++ = *code_word++;
+        }
+        lsu_write_32(CLP_SOC_IFC_REG_INTERNAL_HW_ERROR_FATAL_MASK,
+                    SOC_IFC_REG_INTERNAL_HW_ERROR_FATAL_MASK_MASK_ICCM_ECC_UNC_MASK);
+        lsu_write_32(STDOUT, 0xE1);
+        // Inject ECC double error into the last fetch ICCM address
+        // ECC double Error breaks this loop
+        while(1) {
+            lsu_write_32(RV_ICCM_SADR + 0x30, 0x000100001);
+            __asm__ volatile ("fence.i");
+            lsu_read_32(RV_ICCM_SADR + 0x30);
+            __asm__ volatile ("fence.i");
+            lsu_write_32(RV_ICCM_SADR + 0x30, 0xFFFFFFFF);
+            __asm__ volatile ("fence.i");
+            lsu_read_32(RV_ICCM_SADR + 0x30);
+            __asm__ volatile ("fence.i");
+        }
+    } else if (rst_count == 7) {
+        void (* iccm_fn) (void) = (void*) RV_ICCM_SADR;
+        iccm_fn();
+        // This code should be unreachable
+        error_count += 1;
+    } else if (rst_count == 8) {
+       // FW_UPDATE_RESET should've masked double error, so status registers should not be set
+        if (lsu_read_32(CLP_SOC_IFC_REG_CPTRA_HW_ERROR_FATAL) & SOC_IFC_REG_CPTRA_HW_ERROR_FATAL_ICCM_ECC_UNC_MASK) {
+            VPRINTF(LOW, "Unexpected value in the CPTRA_HW_ERROR_FATAL register: %x\n",
+                    lsu_read_32(CLP_SOC_IFC_REG_CPTRA_HW_ERROR_FATAL));
+            error_count += 1;
+        }
+        // Copy routine to ICCM
+        uint32_t * code_word = (uint32_t *) &iccm_code2_start;
+        uint32_t * iccm_dest = (uint32_t *) RV_ICCM_SADR;
+        while (code_word < (uint32_t *) &iccm_code2_end) {
+            *iccm_dest++ = *code_word++;
+        }
+        // Inject ECC double error into DCCM address
+        lsu_write_32(STDOUT, 0xE0);
+        lsu_write_32(STDOUT, 0xE4);
+        __asm__ volatile ("fence.i");
+        lsu_write_32(CLP_SOC_IFC_REG_INTERNAL_HW_ERROR_FATAL_MASK,
+                SOC_IFC_REG_INTERNAL_HW_ERROR_FATAL_MASK_MASK_DCCM_ECC_UNC_MASK);
+        while(!(lsu_read_32(CLP_SOC_IFC_REG_CPTRA_HW_ERROR_FATAL) & SOC_IFC_REG_CPTRA_HW_ERROR_FATAL_DCCM_ECC_UNC_MASK)) {
+            lsu_write_32(STDOUT, 0xE3);
+            lsu_write_32((uintptr_t)(&dccm_err_trigger), xorshift32());
+            lsu_write_32(STDOUT, 0xE4);
+            __asm__ volatile ("fence.i");
+            lsu_read_32((uintptr_t)(&dccm_err_trigger));
+            __asm__ volatile ("fence.i");
+        }
+        SEND_STDOUT_CTRL(0xf5);
+    } else if (rst_count == 9) {
+        void (* iccm_fn) (void) = (void*) RV_ICCM_SADR;
+        iccm_fn();
+        // This code should be unreachable
+        error_count += 1;
+    } else if (rst_count == 10) {
+        if (lsu_read_32(CLP_SOC_IFC_REG_CPTRA_HW_ERROR_FATAL) & SOC_IFC_REG_CPTRA_HW_ERROR_FATAL_DCCM_ECC_UNC_MASK) {
+            VPRINTF(LOW, "Unexpected value in the CPTRA_HW_ERROR_FATAL register: %x\n",
+                    lsu_read_32(CLP_SOC_IFC_REG_CPTRA_HW_ERROR_FATAL));
+            error_count += 1;
+        }
+        // Copy routine to ICCM
+        uint32_t * code_word = (uint32_t *) &iccm_code3_start;
+        uint32_t * iccm_dest = (uint32_t *) RV_ICCM_SADR;
+        while (code_word < (uint32_t *) &iccm_code3_end) {
+            *iccm_dest++ = *code_word++;
+        }
+        void (* iccm_fn) (void) = (void*) RV_ICCM_SADR;
+        iccm_fn();
     }
 
     VPRINTF(LOW, "\nIFC Register Misc Test Completed\n");
