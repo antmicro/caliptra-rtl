@@ -591,7 +591,7 @@ import caliptra_top_tb_pkg::*; #(
             m_axi_bfm_if.axi_write(
                 .addr(axi_addr),
                 .user(axi_user),
-                .id  ('0),
+                .id  ($urandom()),
                 .lock(1'b0),
                 .data(burst_data),
                 .use_strb(1'b1),
@@ -606,6 +606,7 @@ import caliptra_top_tb_pkg::*; #(
             read <= 1'b1;
             m_axi_bfm_if.axi_read_single(
                 .addr(axi_addr),
+                .id($urandom()),
                 .user(axi_user),
                 .data(axi_rdata),
                 .resp(axi_rresp),
