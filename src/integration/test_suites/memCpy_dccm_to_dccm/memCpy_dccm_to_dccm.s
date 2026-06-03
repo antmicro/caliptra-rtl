@@ -55,7 +55,7 @@ loop:
    addi x3, x3, 4
    bnez x5, loop
 
-// Write 0xff to STDOUT for TB to terminate test.
+// Write 0xff to STDOUT for TB to termiate test.
 _finish:
     li x3, STDOUT
     addi x5, x0, 0xff
@@ -75,9 +75,6 @@ verbosity_g: .word 2
 intr_count: .word 0
 .global cptra_intr_rcv
 cptra_intr_rcv: .word 0
-
-// .text lives in ROM
-.section .text
 hw_data:
 .ascii "----------------------------------\n"
 .ascii "Hello World from VeeR EL2  !!\n"
