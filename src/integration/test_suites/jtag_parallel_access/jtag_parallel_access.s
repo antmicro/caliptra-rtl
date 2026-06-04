@@ -48,6 +48,12 @@ _start:
     li      x8,  0xCC00CC00
     li      s1,  0xFEEDABED // Writing 0 to this register initiates CPU halt
 
+    // Create a time offset with nop to align the reset from the jtag with one of the write accesses of the inner loop
+    li      t4,6
+timeoffset:
+    nop
+    addi    t4,t4, -1
+    bne     t4, zero, timeoffset
     // Simple infinite loop program with inner and outer loop
     li      t3,  0
 outer:
@@ -59,14 +65,14 @@ inner:
     addi    t4, t4, -1
     li      s2, 0x30040000 // MBOX SRAM
     li      s4, 0x10011054 // AES DATA_IN0 address
-    lw      s3, 0(s2)
-    lw      s3, 256(s2)
-    lw      s3, 512(s2)
-    lw      s3, 1024(s2)
     sw      x1, 0(s4)
     sw      x2, 4(s4)
     sw      x3, 8(s4)
     sw      x4, 12(s4)
+    lw      s3, 0(s2)
+    lw      s3, 256(s2)
+    lw      s3, 512(s2)
+    lw      s3, 1024(s2)
     bne     t4, zero, inner
     j       outer
 
