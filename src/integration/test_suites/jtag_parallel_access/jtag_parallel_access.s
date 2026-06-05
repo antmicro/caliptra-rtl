@@ -64,7 +64,7 @@ inner:
     beq     s1, zero, halt_cpu
     addi    t4, t4, -1
     li      s2, 0x30040000 // MBOX SRAM
-    li      s4, 0x10011054 // AES DATA_IN0 address
+    li      s4, 0x10030058 // MLDSA SEED address
     sw      x1, 0(s4)
     sw      x2, 4(s4)
     sw      x3, 8(s4)
