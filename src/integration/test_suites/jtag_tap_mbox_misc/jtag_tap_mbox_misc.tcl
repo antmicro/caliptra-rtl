@@ -124,6 +124,18 @@ riscv dmi_write $mbox_execute_dmi_addr 0x0
 # Test 3
 puts "Poll mailbox status..."
 set status [riscv dmi_read $mbox_status_dmi_addr]
+#check if in ready for data state
+while {($status & 0x000001C0) != 0x00000080} {
+    after 100; # Wait 100ms between polls to avoid busy looping.
+    set status [riscv dmi_read $mbox_status_dmi_addr]
+}
+puts ""
+
+puts "Writing to mbox without TAP lock"
+riscv dmi_write $mbox_din_dmi_addr 0x0
+
+puts "Poll mailbox status..."
+set status [riscv dmi_read $mbox_status_dmi_addr]
 #check if in execute tap state
 while {($status & 0x000001C0) != 0x00000140} {
     after 100; # Wait 100ms between polls to avoid busy looping.
