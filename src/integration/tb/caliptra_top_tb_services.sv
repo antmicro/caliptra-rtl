@@ -230,6 +230,9 @@ module caliptra_top_tb_services
     // Inject mock mailbox access request from SoC when TAP locks mailbox
     logic                       inject_mbox_soc_req_on_tap_lock;
 
+    // Inject mock mailbox lock request from TAP when FW locks mailbox
+    logic                       inject_mbox_tap_lock_read_on_fw_lock;
+
     // Force override for Mailbox pointers reset values
     logic [31:0]                mbox_ptr_reset_value;
     logic                       force_mbox_ptr_reset_value;
@@ -412,6 +415,8 @@ module caliptra_top_tb_services
     //      16'h557F        - Stop injecting FIFO AXI write errors
     //      16'h567F        - Kill kv_hmac_tag_w_flow assertions (e.g. when write into KV doesn't succeed deliberately)
     //      16'h577F        - Kill kv_ecc_privkey_w_flow assertions (e.g. when write into KV doesn't succeed deliberately)
+    //      16'h587F        - Enable injection of mock mailbox lock request from TAP when FW locks mailbox
+    //      16'h597F        - Disable injection of mock mailbox lock request from TAP when FW locks mailbox
     //      16'h807F:'h9F7F - Inject a valid hmac_key dest and hmac512_key into Nth kv slot (where slot is encoded as (N & 0x1F) << 8)
     //      16'hA07F:'hBF7F - Check if Nth kv slot (where slot is encoded as (N & 0x1F) << 8) is all zero
     //      16'hC07F        - Force clear of all KV slots, when DOE FSM starts to write
@@ -664,6 +669,18 @@ module caliptra_top_tb_services
         end
         else if ((WriteData[15:0] == 16'h517F) && mailbox_write) begin
             inject_mbox_soc_req_on_tap_lock <= 1'b0;
+        end
+    end
+
+    always @(negedge clk or negedge cptra_rst_b) begin
+        if (!cptra_rst_b) begin
+            inject_mbox_tap_lock_read_on_fw_lock <= 1'b0;
+        end
+        else if ((WriteData[15:0] == 16'h587F) && mailbox_write) begin
+            inject_mbox_tap_lock_read_on_fw_lock <= 1'b1;
+        end
+        else if ((WriteData[15:0] == 16'h597F) && mailbox_write) begin
+            inject_mbox_tap_lock_read_on_fw_lock <= 1'b0;
         end
     end
 
@@ -2163,6 +2180,18 @@ endgenerate //IV_NO
                 force `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.req_data_soc_req = 1'b1;
                 @(negedge `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.arc_MBOX_IDLE_MBOX_RDY_FOR_CMD);
                 release `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.req_data_soc_req;
+            end
+        end
+    end
+
+    always @(posedge clk) begin
+        if (inject_mbox_tap_lock_read_on_fw_lock) begin
+            if (~`CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.hwif_out.mbox_lock.lock.value & `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.hwif_out.mbox_lock.lock.swmod) begin
+                force `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.dmi_reg_ren = 1'b1;  // Read enable
+                force `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.dmi_reg_addr = 7'h75;  // Lock register address
+                @(posedge `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.clk);
+                release `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.dmi_reg_ren;
+                release `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.dmi_reg_addr;
             end
         end
     end
