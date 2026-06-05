@@ -58,6 +58,9 @@ axi_resp_t soc_access_32(axi_req_t req) {
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, execute);
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x037F);
 
+    if (req.ignore_resp)
+        return (axi_resp_t){ .resp = 0, .rdata = 0 };
+
     while (1) {
         axi_resp_t axi_resp;
 
@@ -78,6 +81,16 @@ axi_resp_t soc_access_32(axi_req_t req) {
             }
             return axi_resp;
         }
+    }
+}
+
+// intended to be used only after soc_access_32 with .ignore_resp = true
+uint8_t soc_access_await_done() {
+    while(1) {
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x047F);
+        uint8_t resp = lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0);
+        if (resp & 1)
+            return (resp >> 1) & 0b11; 
     }
 }
 

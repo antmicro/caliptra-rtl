@@ -35,10 +35,11 @@ typedef struct {
     uint32_t *wdata, *wuser, *rdata;
     uint8_t *wstrb;
     uint8_t len;
-    bool write;
+    bool write, ignore_resp;
 } axi_req_t;
 
 axi_resp_t soc_access_32(axi_req_t req);
+uint8_t soc_access_await_done();
 uint8_t soc_masked_write_32(uint32_t reg_addr, uint32_t value, uint32_t mask);
 uint8_t soc_write_user_32(uint32_t reg_addr, uint32_t value, uint32_t user);
 uint8_t soc_write_32(uint32_t reg_addr, uint32_t value);
