@@ -103,6 +103,7 @@ void main() {
     // Force unlock
     lsu_write_32(CLP_MBOX_CSR_MBOX_UNLOCK, MBOX_CSR_MBOX_UNLOCK_UNLOCK_MASK);
 
+
     VPRINTF(LOW, "FW: Test 2 - Send to mailbox from JTAG with TAP enabled\n");
 
     // Poll status until fsm is in EXECUTE UC
@@ -149,6 +150,7 @@ void main() {
     status = DATA_READY;
 
     soc_ifc_set_mbox_status_field(status);
+
 
     VPRINTF(LOW, "FW: Test 3 - TAP disable in EXECUTE_TAP\n");
 
@@ -229,6 +231,24 @@ void main() {
 
     // Clear execute
     lsu_write_32(CLP_MBOX_CSR_MBOX_EXECUTE, 0);
+
+
+    VPRINTF(LOW, "FW: Test 4 - TAP mbox lock read during FW lock\n");
+
+    // Enable injection of TAP mailbox lock request
+    VPRINTF(LOW, "FW: Enable injection of TAP mailbox lock request\n");
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x587F);
+
+    VPRINTF(LOW, "FW: Locking mailbox\n");
+    // Poll for mbox lock
+    while((lsu_read_32(CLP_MBOX_CSR_MBOX_LOCK) & MBOX_CSR_MBOX_LOCK_LOCK_MASK) == 1);
+
+    // Disable injection of TAP mailbox lock request
+    VPRINTF(LOW, "FW: Disable injection of TAP mailbox lock request\n");
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x597F);
+
+    // Force unlock
+    lsu_write_32(CLP_MBOX_CSR_MBOX_UNLOCK, MBOX_CSR_MBOX_UNLOCK_UNLOCK_MASK);
 
     SEND_STDOUT_CTRL(TB_CMD_TEST_PASS);
 }

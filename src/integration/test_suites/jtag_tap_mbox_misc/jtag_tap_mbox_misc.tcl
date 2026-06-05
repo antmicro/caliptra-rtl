@@ -132,7 +132,7 @@ while {($status & 0x000001C0) != 0x00000080} {
 puts ""
 
 puts "Writing to mbox without TAP lock"
-riscv dmi_write $mbox_din_dmi_addr 0x0
+riscv dmi_write $mbox_cmd_dmi_addr 0x0
 
 puts "Poll mailbox status..."
 set status [riscv dmi_read $mbox_status_dmi_addr]
@@ -178,3 +178,32 @@ while {[compare $tap_mode $cmp_tap_mode] != 0} {
     set tap_mode [expr {[lindex $tap_mode 0] & 0x1}]
 }
 puts ""
+
+# Test 4
+puts "Wait for mailbox to enter IDLE state..."
+set status [riscv dmi_read $mbox_status_dmi_addr]
+# Wait until mbox enters IDLE state
+while {($status & 0x000001C0) != 0x00000000} {
+    after 100; # Wait 100ms between polls to avoid busy looping.
+    set status [riscv dmi_read $mbox_status_dmi_addr]
+}
+puts ""
+
+puts "Wait for mailbox to leave IDLE state (FW locks)..."
+set status [riscv dmi_read $mbox_status_dmi_addr]
+# Wait until mbox enters IDLE state
+while {($status & 0x000001C0) == 0x00000000} {
+    after 100; # Wait 100ms between polls to avoid busy looping.
+    set status [riscv dmi_read $mbox_status_dmi_addr]
+}
+puts ""
+
+puts "Wait for mailbox to enter IDLE state (FW forces unlock)..."
+set status [riscv dmi_read $mbox_status_dmi_addr]
+# Wait until mbox enters IDLE state
+while {($status & 0x000001C0) != 0x00000000} {
+    after 100; # Wait 100ms between polls to avoid busy looping.
+    set status [riscv dmi_read $mbox_status_dmi_addr]
+}
+puts ""
+
