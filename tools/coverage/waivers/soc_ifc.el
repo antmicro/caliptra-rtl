@@ -41,3 +41,12 @@ ANNOTATION: "Not writable from SW"
 Toggle hwif_in.internal_obf_key[1].key.swwe "logic hwif_in.internal_obf_key[1].key.swwe"
 ANNOTATION: "Not writable from SW"
 Toggle hwif_in.internal_obf_key[0].key.swwe "logic hwif_in.internal_obf_key[0].key.swwe"
+INSTANCE: caliptra_top_tb.caliptra_top_dut.soc_ifc_top1.i_soc_ifc_arb
+ANNOTATION: "This would require the uC overfilling the SHA block buffer before the SHA core is done digesting the previous block (32 dword stores in ~80 clock cycles). This is impossible with the current uC pipeline speed."
+Condition 10 "3654898442" "(uc_sha_gnt & sha_req_hold) 1 -1" (3 "11")
+ANNOTATION: "This would require the uC overfilling the SHA block buffer before the SHA core is done digesting the previous block (32 dword stores in ~80 clock cycles). This is impossible with the current uC pipeline speed."
+Condition 61 "2537726785" "(((~uc_sha_gnt)) | sha_req_hold) 1 -1" (2 "01")
+ANNOTATION: "This would require the uC overfilling the SHA block buffer before the SHA core is done digesting the previous block (32 dword stores in ~80 clock cycles). This is impossible with the current uC pipeline speed."
+Condition 5 "1860052302" "(soc_sha_gnt & sha_req_hold) 1 -1" (1 "01")
+ANNOTATION: "This would require the uC overfilling the SHA block buffer before the SHA core is done digesting the previous block (32 dword stores in ~80 clock cycles). This is impossible with the current uC pipeline speed."
+Condition 7 "1966587179" "((uc_mbox_gnt & mbox_req_hold) | (uc_reg_gnt & soc_ifc_reg_req_hold) | (uc_sha_gnt & sha_req_hold) | (uc_dma_gnt & dma_reg_req_hold)) 1 -1" (3 "0010")
