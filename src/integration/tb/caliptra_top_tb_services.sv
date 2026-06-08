@@ -362,6 +362,7 @@ module caliptra_top_tb_services
     //      16'h087F        - Setup SoC Access burst from CPTRA_GENERIC_OUTPUT_WIRES[1]: (0)fixed, (1,default)incr, (2)wrap
     //      16'h097F        - Push SoC Access wstrb from CPTRA_GENERIC_OUTPUT_WIRES[1] into a wstrb queue
     //      16'h0A7F        - Clear SoC Access wdata, wuser and wstrb queues
+    //      16'h0D7F        - Force DMI enable (OpenOCD requires JTAG to be active to correctly examine device)
     //      16'h0E7F        - Set route_fatal_to_nmi
     //      16'h0F7F        - Clear route_fatal_to_nmi
     //      16'h107F        - Force re-enable strap write
@@ -548,6 +549,13 @@ module caliptra_top_tb_services
             force `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_FUSE_WR_DONE.done.value = 1'h0;
             repeat (10) @(negedge clk);
             release `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_FUSE_WR_DONE.done.value;
+        end
+    end
+
+    always @(negedge clk) begin
+        if ((WriteData[15:0] == 16'h0D7F) && mailbox_write) begin
+            force `CPTRA_TOP_PATH.rvtop.dmi_core_enable = 1'h1;
+            $display("Force enable JTAG/DMI to be active");
         end
     end
 
