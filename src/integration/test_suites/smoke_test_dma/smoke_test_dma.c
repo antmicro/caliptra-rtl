@@ -624,10 +624,13 @@ void main(void) {
         SEND_STDOUT_CTRL(FIFO_AUTO_WRITE_OFF);
         SEND_STDOUT_CTRL(FIFO_CLEAR);
     } else if (rst_count == 2) {
+        // All tests in this group are covering various error conditions
+        // and corner cases. The results aren't compared against expected
+        // values.
+
         // ===========================================================================
         // Read data from mailbox, drop the lock during the transaction
         // ===========================================================================
-        VPRINTF(LOW, "Enable FIFO to auto-write\n");
         SEND_STDOUT_CTRL(FIFO_AUTO_WRITE_ON);
 
         VPRINTF(LOW, "Dropping lock while reading mbox\n");
@@ -652,8 +655,74 @@ void main(void) {
         }
 
         // ===========================================================================
+        // Read data from mailbox, start SHA operation during the transaction
+        // ===========================================================================
+
+        VPRINTF(LOW, "Starting SHA accel while DMA reads from mbox\n");
+        cptra_intr_rcv.soc_ifc_error = 0;
+        soc_ifc_axi_dma_read_mbox_payload_no_wait(AXI_FIFO_BASE_ADDR, 0, 1, 0x400, 0);
+
+        for (uint8_t i = 0; i < 10; i++) {
+            __asm__ volatile ("nop"); // Sleep loop as "nop"
+        }
+
+        lsu_write_32(CLP_SHA512_ACC_CSR_START_ADDRESS, AXI_FIFO_BASE_ADDR);
+        lsu_write_32(CLP_SHA512_ACC_CSR_DLEN, 0x20);
+        lsu_write_32(CLP_SHA512_ACC_CSR_MODE, SHA_MBOX_512);
+        lsu_write_32(CLP_SHA512_ACC_CSR_EXECUTE, SHA512_ACC_CSR_EXECUTE_EXECUTE_MASK);
+
+        reg = lsu_read_32(CLP_SHA512_ACC_CSR_STATUS);
+        while (!(reg & SHA512_ACC_CSR_STATUS_VALID_MASK)) {
+            reg = lsu_read_32(CLP_SHA512_ACC_CSR_STATUS);
+        }
+        VPRINTF(LOW, "SHA finished\n");
+
+        // Don't use soc_ifc_axi_dma_wait_idle(), status0 may show an error, depending on the interrupt timing
+        reg = lsu_read_32(CLP_AXI_DMA_REG_STATUS0);
+        while ((reg & AXI_DMA_REG_STATUS0_BUSY_MASK) && !(reg & AXI_DMA_REG_STATUS0_ERROR_MASK)) {
+            reg = lsu_read_32(CLP_AXI_DMA_REG_STATUS0);
+        }
+        lsu_write_32(CLP_MBOX_CSR_MBOX_UNLOCK, MBOX_CSR_MBOX_UNLOCK_UNLOCK_MASK);
+
+        if ((cptra_intr_rcv.soc_ifc_error & AXI_DMA_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_MBOX_LOCK_STS_MASK) != 0) {
+            VPRINTF(ERROR, "Transaction caused an error!\n");
+            fail = 1;
+        }
+
+        // ===========================================================================
+        // Write data to mailbox, drop the lock during the transaction
+        // ===========================================================================
+        SEND_STDOUT_CTRL(FIFO_AUTO_WRITE_OFF);
+        SEND_STDOUT_CTRL(FIFO_AUTO_READ_ON);
+
+        VPRINTF(LOW, "Dropping lock while writing to mbox\n");
+        cptra_intr_rcv.soc_ifc_error = 0;
+        soc_ifc_axi_dma_send_mbox_payload_no_wait(0, AXI_FIFO_BASE_ADDR, 1, 0x200, 0);
+
+        for (uint8_t i = 0; i < 10; i++) {
+            __asm__ volatile ("nop"); // Sleep loop as "nop"
+        }
+
+        lsu_write_32(CLP_MBOX_CSR_MBOX_UNLOCK, MBOX_CSR_MBOX_UNLOCK_UNLOCK_MASK);
+
+        // Don't use soc_ifc_axi_dma_wait_idle(), status0 may show an error, depending on the interrupt timing
+        reg = lsu_read_32(CLP_AXI_DMA_REG_STATUS0);
+        while ((reg & AXI_DMA_REG_STATUS0_BUSY_MASK) && !(reg & AXI_DMA_REG_STATUS0_ERROR_MASK)) {
+            reg = lsu_read_32(CLP_AXI_DMA_REG_STATUS0);
+        }
+
+        if ((cptra_intr_rcv.soc_ifc_error & AXI_DMA_REG_INTR_BLOCK_RF_ERROR_INTERNAL_INTR_R_ERROR_MBOX_LOCK_STS_MASK) == 0) {
+            VPRINTF(ERROR, "Transaction didn't cause an error!\n");
+            fail = 1;
+        }
+
+
+        // ===========================================================================
         // Cause AXI read error
         // ===========================================================================
+        SEND_STDOUT_CTRL(FIFO_AUTO_WRITE_ON);
+        SEND_STDOUT_CTRL(FIFO_AUTO_READ_OFF);
+
         VPRINTF(LOW, "Causing AXI read error\n");
         cptra_intr_rcv.soc_ifc_error = 0;
         *stdout = FIFO_RD_ERR_INJ_ON;
@@ -672,7 +741,6 @@ void main(void) {
         }
 
         // Clear auto-write
-        VPRINTF(LOW, "Disable FIFO auto-write, enable auto-read\n");
         SEND_STDOUT_CTRL(FIFO_AUTO_WRITE_OFF);
         SEND_STDOUT_CTRL(FIFO_AUTO_READ_ON);
         *stdout = FIFO_RD_ERR_INJ_OFF;
@@ -697,7 +765,6 @@ void main(void) {
             fail = 1;
         }
 
-        VPRINTF(LOW, "Disable FIFO auto-read\n");
         SEND_STDOUT_CTRL(FIFO_AUTO_READ_OFF);
         *stdout = FIFO_WR_ERR_INJ_OFF;
 
