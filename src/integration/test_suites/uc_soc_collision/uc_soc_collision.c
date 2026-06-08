@@ -69,6 +69,7 @@ void main(void) {
         .burst = AXI_BURST_FIXED,
         .len = 128,
         .write = true,
+        .read = false,
         .ignore_resp = true
     });
 
@@ -88,6 +89,7 @@ void main(void) {
         .burst = AXI_BURST_FIXED,
         .len = 128,
         .write = false,
+        .read = true,
         .ignore_resp = true
     });
 

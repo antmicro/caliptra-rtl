@@ -18,7 +18,7 @@
 #include "riscv_hw_if.h"
 
 #define AXI_WRITE 1
-#define AXI_READ 0
+#define AXI_READ 2
 #define AXI_DEFAULT_MASK 0xF
 #define AXI_DEFAULT_USER 0
 
@@ -54,7 +54,7 @@ axi_resp_t soc_access_32(axi_req_t req) {
         }
     }
 
-    uint32_t execute = (req.write ? AXI_WRITE : AXI_READ) | ((req.len - 1) << 8);
+    uint32_t execute = (req.write ? AXI_WRITE : 0) | (req.read ? AXI_READ : 0) | ((req.len - 1) << 8);
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, execute);
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x037F);
 
@@ -71,7 +71,7 @@ axi_resp_t soc_access_32(axi_req_t req) {
         if(axi_resp.resp & 1) {
             axi_resp.resp = (axi_resp.resp >> 1) & 0b11;
 
-            if (!req.write) {
+            if (req.read) {
                 for (int i = 0; i < req.len; i++) {
                     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x057F);
                     uint32_t rdata = lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0);
@@ -103,6 +103,7 @@ uint8_t soc_masked_write_32(uint32_t reg_addr, uint32_t value, uint32_t mask) {
         .burst = AXI_BURST_INCR,
         .len = 1,
         .write = true,
+        .read = false,
         .wuser = (uint32_t[]){AXI_DEFAULT_USER},
         .wdata = (uint32_t[]){value},
         .wstrb = (uint8_t[]){mask}
@@ -120,6 +121,7 @@ uint8_t soc_write_user_32(uint32_t reg_addr, uint32_t value, uint32_t user) {
         .burst = AXI_BURST_INCR,
         .len = 1,
         .write = true,
+        .read = false,
         .wuser = (uint32_t[]){user},
         .wdata = (uint32_t[]){value},
         .wstrb = (uint8_t[]){AXI_DEFAULT_MASK}
@@ -139,7 +141,9 @@ axi_resp_t soc_read_user_32(uint32_t reg_addr, uint32_t user) {
         .addr = reg_addr,
         .axuser = user,
         .burst = AXI_BURST_INCR,
-        .len = 1
+        .len = 1,
+        .write = false,
+        .read = true
     });
 
     return axi_resp;

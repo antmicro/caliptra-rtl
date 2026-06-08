@@ -520,7 +520,7 @@ module caliptra_top_tb_services
             axi_wdata.push_back(`CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1]);
         end else if ((WriteData[15:0] == 16'h037F) && mailbox_write) begin
             axi_write <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][0];
-            axi_read <= !`CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][0];
+            axi_read <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][1];
             axi_len <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][15:8];
         end else if ((WriteData[15:0] == 16'h047F) && mailbox_write) begin
             axi_put_status <= 1'b1;

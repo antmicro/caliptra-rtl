@@ -676,37 +676,43 @@ import caliptra_top_tb_pkg::*; #(
             read <= 1'b0;
             axi_bresp <= axi_pkg::axi_resp_e'(0);
             axi_buser <= '0;
-        end else if (axi_write) begin
+        end else if (axi_write || axi_read) begin
             done <= 1'b0;
             read <= 1'b0;
-            m_axi_bfm_if.axi_write(
-                .addr(axi_addr),
-                .burst(axi_pkg::axi_burst_e'(axi_burst)),
-                .len(axi_len),
-                .user(axi_axuser),
-                .id  ($urandom()),
-                .lock(1'b0),
-                .data(axi_wdata),
-                .use_strb(1'b1),
-                .strb(axi_wstrb),
-                .use_write_user(1'b1),
-                .write_user(axi_wuser),
-                .resp(axi_bresp),
-                .resp_user(axi_buser)
-            );
-        end else if (axi_read) begin
-            done <= 1'b0;
-            read <= 1'b1;
-            m_axi_bfm_if.axi_read(
-                .addr(axi_addr),
-                .burst(axi_pkg::axi_burst_e'(axi_burst)),
-                .len(axi_len),
-                .id($urandom()),
-                .user(axi_axuser),
-                .data(axi_rdata),
-                .resp(axi_rresp),
-                .resp_user(axi_ruser)
-            );
+            fork
+                if (axi_write) begin
+                    done <= 1'b0;
+                    m_axi_bfm_if.axi_write(
+                        .addr(axi_addr),
+                        .burst(axi_pkg::axi_burst_e'(axi_burst)),
+                        .len(axi_len),
+                        .user(axi_axuser),
+                        .id  ($urandom()),
+                        .lock(1'b0),
+                        .data(axi_wdata),
+                        .use_strb(1'b1),
+                        .strb(axi_wstrb),
+                        .use_write_user(1'b1),
+                        .write_user(axi_wuser),
+                        .resp(axi_bresp),
+                        .resp_user(axi_buser)
+                    );
+                end
+                if (axi_read) begin
+                    done <= 1'b0;
+                    read <= 1'b1;
+                    m_axi_bfm_if.axi_read(
+                        .addr(axi_addr),
+                        .burst(axi_pkg::axi_burst_e'(axi_burst)),
+                        .len(axi_len),
+                        .id($urandom()),
+                        .user(axi_axuser),
+                        .data(axi_rdata),
+                        .resp(axi_rresp),
+                        .resp_user(axi_ruser)
+                    );
+                end
+            join
         end else begin
             done <= 1'b1;
         end

@@ -35,7 +35,7 @@ typedef struct {
     uint32_t *wdata, *wuser, *rdata;
     uint8_t *wstrb;
     uint8_t len;
-    bool write, ignore_resp;
+    bool write, read, ignore_resp;
 } axi_req_t;
 
 axi_resp_t soc_access_32(axi_req_t req);
