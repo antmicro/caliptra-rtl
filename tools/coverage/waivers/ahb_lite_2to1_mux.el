@@ -31,11 +31,3 @@ ANNOTATION: "When force bus idle is active, the system is under reset and no acc
 Condition 33 "4044223374" "(initiator0_pend_addr_ph_nq & ((~force_bus_idle))) 1 -1" (2 "10")
 ANNOTATION: "When force bus idle is active, the system is under reset and no access are expected"
 Condition 32 "2189277537" "(initiator1_data_ph_nq & ((~force_bus_idle))) 1 -1" (2 "10")
-
-CHECKSUM: "140893732 2942315046"
-INSTANCE: caliptra_top_tb.caliptra_top_dut.u_sb_lsu_ahb_mux
-ANNOTATION: "With AHB_NO_OPT, the transfers are not pipelined thus a transfer is never granted while hreadyout is low"
-Condition 26 "434714709" "(hreadyout_i & initiator1_gnt) 1 -1" (1 "01")
-ANNOTATION: "With AHB_NO_OPT, the transfers are not pipelined thus a transfer is never granted while hreadyout is low"
-Condition 22 "1043366743" "(hreadyout_i & initiator0_gnt) 1 -1" (1 "01")
-
