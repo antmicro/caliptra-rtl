@@ -47,6 +47,8 @@ set mbox_status_mem_addr 0x3002001C
 set mbox_unlock_mem_addr 0x30020020
 set mbox_tap_mode_mem_addr 0x30020024
 
+set soc_ifc_dbg_manuf_service_mem_addr 0x300305c4
+
 set mbox_dlen_dmi_addr 0x50
 set mbox_dout_dmi_addr 0x51
 set mbox_status_dmi_addr 0x52

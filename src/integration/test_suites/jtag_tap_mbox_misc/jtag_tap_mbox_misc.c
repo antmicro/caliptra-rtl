@@ -250,5 +250,17 @@ void main() {
     // Force unlock
     lsu_write_32(CLP_MBOX_CSR_MBOX_UNLOCK, MBOX_CSR_MBOX_UNLOCK_UNLOCK_MASK);
 
-    SEND_STDOUT_CTRL(TB_CMD_TEST_PASS);
+
+    VPRINTF(LOW, "FW: Test 5 - Access mbox from TAP with mbox TAP set to unavailable\n");
+
+    // Poll status until TAP locks it
+    VPRINTF(LOW, "FW: Wait for TAP to lock\n");
+    while((lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_TAP_HAS_LOCK_MASK) == 0);
+
+    // Make tap mailbox unavailable
+    VPRINTF(LOW, "FW: Make mbox TAP unavailable\n");
+    lsu_write_32(CLP_SOC_IFC_REG_SS_DBG_MANUF_SERVICE_REG_RSP, 0);
+
+    // Let JTAG finish the test
+    while(1);
 }

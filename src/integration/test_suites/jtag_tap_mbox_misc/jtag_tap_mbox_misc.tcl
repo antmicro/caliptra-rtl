@@ -207,3 +207,44 @@ while {($status & 0x000001C0) != 0x00000000} {
 }
 puts ""
 
+# Test 5 <- This test must be last since FW disables JTAG to execute it and
+#           there is no way to synchronize between JTAG and FW again
+#           This test expects mailbox to be initially in IDLE state
+
+# Try to write from TAP
+puts "Write to mbox"
+riscv dmi_write $mbox_cmd_dmi_addr 0x0
+riscv dmi_write $mbox_dlen_dmi_addr 0x0
+riscv dmi_write $mbox_status_dmi_addr 0x0
+riscv dmi_write $mbox_execute_dmi_addr 0x0
+puts ""
+
+puts "Acquire mailbox lock..."
+set lock [riscv dmi_read $mbox_lock_dmi_addr]
+while {($lock & 0x00000001) != 0x00000000} {
+    after 100; # Wait 100ms between polls to avoid busy looping.
+    set lock [riscv dmi_read $mbox_lock_dmi_addr]
+}
+puts ""
+
+# Wait for uC to make mbox TAP unavailable
+puts "Poll mbox avail..."
+set mbox_avail [read_memory $soc_ifc_dbg_manuf_service_mem_addr 32 1 phys]
+set mbox_avail [expr {[lindex $mbox_avail 0] & 0x1}]
+set cmp_mbox_avail {0x0}
+while {[compare $mbox_avail $cmp_mbox_avail] != 0} {
+    after 100; # Wait 100ms between polls to avoid busy looping.
+    set mbox_avail [read_memory $soc_ifc_dbg_manuf_service_mem_addr 32 1 phys]
+    set mbox_avail [expr {[lindex $mbox_avail 0] & 0x1}]
+}
+puts ""
+
+# Try to write from TAP
+puts "Write to mbox"
+riscv dmi_write $mbox_cmd_dmi_addr 0x0
+riscv dmi_write $mbox_dlen_dmi_addr 0x0
+riscv dmi_write $mbox_status_dmi_addr 0x0
+riscv dmi_write $mbox_execute_dmi_addr 0x0
+puts ""
+
+shutdown
