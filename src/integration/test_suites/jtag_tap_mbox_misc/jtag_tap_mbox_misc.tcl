@@ -132,7 +132,7 @@ while {($status & 0x000001C0) != 0x00000080} {
 puts ""
 
 puts "Writing to mbox without TAP lock"
-riscv dmi_write $mbox_cmd_dmi_addr 0x0
+riscv dmi_write $mbox_din_dmi_addr 0x0
 
 puts "Poll mailbox status..."
 set status [riscv dmi_read $mbox_status_dmi_addr]
