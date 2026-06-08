@@ -289,15 +289,105 @@ import caliptra_top_tb_pkg::*; #(
                         poll_count = 0;
                         do begin
                             // Make a narrow and unaligned access
-                            int size = $urandom_range(0, 1);
-                            int bytes = 2**size;
+                            automatic int size = $urandom_range(0, 1);
+                            automatic int bytes = 2**size;
                             m_axi_bfm_if.axi_read_single(.addr(`CLP_SOC_IFC_REG_CPTRA_FLOW_STATUS + `SOC_IFC_REG_CPTRA_FLOW_STATUS_READY_FOR_FUSES_LOW / 8 / bytes * bytes), .size(size), .data(rdata), .resp(rresp), .resp_user(buser));
                             poll_count++;
                         end while(rdata[`SOC_IFC_REG_CPTRA_FLOW_STATUS_READY_FOR_FUSES_LOW] == 1);
                         $display("\n  >>> SoC: Ready for Fuses deasserted after polling %d times\n", poll_count);
+
                         $display ("SoC: Writing BootGo register\n");
                         m_axi_bfm_if.axi_write_single(.addr(`CLP_SOC_IFC_REG_CPTRA_BOOTFSM_GO), .data(32'h00000001), .resp(wresp), .resp_user(buser));
+                    end
 
+                    if($test$plusargs("STALL_SOC_CSR")) begin
+                        // Dynamic arrays, to work around a Verilator bug
+                        logic [`CALIPTRA_AXI_DATA_WIDTH-1:0] pk_hash[];
+                        logic [`CALIPTRA_AXI_DATA_WIDTH-1:0] pk_hash_read_1[];
+                        logic [`CALIPTRA_AXI_DATA_WIDTH-1:0] pk_hash_read_2[];
+                        static logic [`CALIPTRA_AXI_DATA_WIDTH/8-1:0] pk_hash_strobe[1] = '{default: '1};
+                        logic [`CALIPTRA_AXI_USER_WIDTH-1:0] pk_hash_user[4][];
+                        axi_resp_e resp[4][];
+
+                        pk_hash = new[1];
+                        pk_hash_read_1 = new[1];
+                        pk_hash_read_2 = new[1];
+
+                        foreach (pk_hash_user[i])
+                            pk_hash_user[i] = new[1];
+
+                        foreach (resp[i])
+                            resp[i] = new[1];
+
+                        $display("Stressing SoC CSR: SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0");
+                        if (!std::randomize(pk_hash)) $fatal(1, "%t: [%m] Failed to randomize data", $time);
+                        fork
+                            m_axi_bfm_if.axi_write(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
+                                .data(pk_hash),
+                                .id($urandom()),
+                                .len(0),
+                                .resp(resp[0][0]),
+                                .strb(pk_hash_strobe),
+                                .write_user(pk_hash_user[0]),
+                                .resp_user(buser),
+                                // Simulate a stall on the master's side (BREADY held low)
+                                .stall($urandom_range(5, 15)));
+                            begin
+                                @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.awvalid);
+                                @(posedge m_axi_bfm_if.clk iff !m_axi_bfm_if.awvalid);
+                                m_axi_bfm_if.axi_write(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
+                                    .data(pk_hash),
+                                    .id($urandom()),
+                                    .len(0),
+                                    .resp(resp[1][0]),
+                                    .strb(pk_hash_strobe),
+                                    .write_user(pk_hash_user[1]),
+                                    .resp_user(buser),
+                                    // Simulate a stall on the master's side (BREADY held low)
+                                    .stall($urandom_range(5, 15)));
+                            end
+                        join
+                        fork
+                            m_axi_bfm_if.axi_read(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
+                                .data(pk_hash_read_1),
+                                .id($urandom()),
+                                .len(0),
+                                .resp(resp[2]),
+                                .resp_user(pk_hash_user[3]),
+                                // Simulate a stall on the master's side (RREADY held low)
+                                .stall($urandom_range(5, 15)));
+                            begin
+                                @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.arvalid);
+                                @(posedge m_axi_bfm_if.clk iff !m_axi_bfm_if.arvalid);
+                                m_axi_bfm_if.axi_read(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
+                                    .data(pk_hash_read_2),
+                                    .id($urandom()),
+                                    .len(0),
+                                    .resp(resp[3]),
+                                    .resp_user(pk_hash_user[3]),
+                                    // Simulate a stall on the master's side (RREADY held low)
+                                    .stall($urandom_range(5, 15)));
+                            end
+                        join
+
+                        foreach(resp[i, j]) begin
+                            if(resp[i][j] != AXI_RESP_OKAY) begin
+                                $error("Unexpected response: %s, response index: %0d, bead id: %0d", resp[i][j].name, i, j);
+                                $finish;
+                            end
+                        end
+
+                        if(pk_hash_read_1 != pk_hash) begin
+                            $error("Unexpected read value: %p, expected: %p, read iteration: %d", pk_hash_read_1, pk_hash, 0);
+                            $finish;
+                        end
+                        if(pk_hash_read_2 != pk_hash) begin
+                            $error("Unexpected read value: %p, expected: %p, read iteration: %d", pk_hash_read_2, pk_hash, 1);
+                            $finish;
+                        end
+
+                        $display($sformatf("[%t] AXI Stall test passed!", $time));
+                        $finish;
                     end
 
                     $display ("CLP: ROM Flow in progress...\n");
