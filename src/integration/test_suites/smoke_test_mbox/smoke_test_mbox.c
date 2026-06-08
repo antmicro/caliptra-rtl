@@ -210,6 +210,14 @@ void main () {
             axi_resp = soc_read_user_32(CLP_MBOX_CSR_MBOX_LOCK, MBOX_VALID_USER);
         } while ((axi_resp.rdata & MBOX_CSR_MBOX_LOCK_LOCK_MASK) == 1);
 
+        // Attempt direct write access in MBOX_WAIT_FOR_CMD state when SoC has a lock (should be rejected)
+        lsu_write_32(CLP_MBOX_SRAM_BASE_ADDR + 0x1000, 0xDEADBEEF);
+        if ((read_data = lsu_read_32(CLP_MBOX_SRAM_BASE_ADDR + 0x1000)) != 0) {
+            VPRINTF(ERROR, "ERROR: mailbox read %x after direct write in MBOX_EXECUTE_SOC state. Expected: (0x%x)\n", read_data, 0);
+            SEND_STDOUT_CTRL(TB_CMD_TEST_FAIL);
+            while(1);
+        }
+
         // SoC: Write mailbox command, data and length
         soc_write_user_32(CLP_MBOX_CSR_MBOX_CMD,  0x0,           MBOX_VALID_USER);
         soc_write_user_32(CLP_MBOX_CSR_MBOX_DLEN, MBOX_DLEN_VAL, MBOX_VALID_USER);
