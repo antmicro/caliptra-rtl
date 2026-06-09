@@ -666,7 +666,7 @@ import caliptra_top_tb_pkg::*; #(
         end
     end
 
-    logic done, read;
+    logic done, read, write;
     logic [31:0] axi_rdata[$];
     axi_resp_e axi_bresp, axi_rresp[$];
     logic [`CALIPTRA_AXI_USER_WIDTH  -1:0] axi_buser, axi_ruser[$];
@@ -674,14 +674,16 @@ import caliptra_top_tb_pkg::*; #(
         if (~cptra_pwrgood) begin
             done <= 1'b0;
             read <= 1'b0;
+            write <= 1'b0;
             axi_bresp <= axi_pkg::axi_resp_e'(0);
             axi_buser <= '0;
         end else if (axi_write || axi_read) begin
             done <= 1'b0;
             read <= 1'b0;
+            write <= 1'b0;
             fork
                 if (axi_write) begin
-                    done <= 1'b0;
+                    write <= 1'b1;
                     m_axi_bfm_if.axi_write(
                         .addr(axi_addr),
                         .burst(axi_pkg::axi_burst_e'(axi_burst)),
@@ -699,7 +701,6 @@ import caliptra_top_tb_pkg::*; #(
                     );
                 end
                 if (axi_read) begin
-                    done <= 1'b0;
                     read <= 1'b1;
                     m_axi_bfm_if.axi_read(
                         .addr(axi_addr),
@@ -735,11 +736,16 @@ import caliptra_top_tb_pkg::*; #(
 
     always @(posedge core_clk) begin
         if (axi_put_status) begin
-            if (done & read)
-                generic_input_wires <= {axi_ruser.pop_front(), {29{1'b0}}, axi_rresp.pop_front(), done};
-            else if (done)
-                generic_input_wires <= {axi_buser, 29'b0, axi_bresp, done};
-            else
+            if (done) begin
+                if (read && write) // Need to merge the results
+                    // only keep read response user bit
+                    // OR the status, if one is an error, the whole transaction looks like an error
+                    generic_input_wires <= {axi_ruser.pop_front(), 29'd0, (axi_rresp.pop_front() || axi_bresp), 1'b1};
+                else if (read)
+                    generic_input_wires <= {axi_ruser.pop_front(), 29'd0, axi_rresp.pop_front(), 1'b1};
+                else // write
+                generic_input_wires <= {axi_buser, 29'b0, axi_bresp, 1'b1};
+            end else
                 generic_input_wires <= '0;
         end else if (axi_put_rdata) begin
             generic_input_wires <= {32'b0, axi_rdata.pop_front()};
