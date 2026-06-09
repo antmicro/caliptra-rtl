@@ -408,16 +408,16 @@ module caliptra_top_tb_services
     //      16'h4D7F        - Get OBF_KEY[5] value from HW
     //      16'h4E7F        - Get OBF_KEY[6] value from HW
     //      16'h4F7F        - Set OBF_KEY[7] value from HW
-    //      16'h507F        - Enable injection of mock mailbox access request from SoC when TAP locks mailbox
-    //      16'h517F        - Disable injection of mock mailbox access request from SoC when TAP locks mailbox
+    //      16'h507F        - Enable injection of single mailbox access request from SoC when TAP locks mailbox
+    //      16'h517F        - Disable injection of single mailbox access request from SoC when TAP locks mailbox
     //      16'h527F        - Inject FIFO AXI read errors
     //      16'h537F        - Inject FIFO AXI write errors
     //      16'h547F        - Stop injecting FIFO AXI read errors
     //      16'h557F        - Stop injecting FIFO AXI write errors
     //      16'h567F        - Kill kv_hmac_tag_w_flow assertions (e.g. when write into KV doesn't succeed deliberately)
     //      16'h577F        - Kill kv_ecc_privkey_w_flow assertions (e.g. when write into KV doesn't succeed deliberately)
-    //      16'h587F        - Enable injection of mock mailbox lock request from TAP when FW locks mailbox
-    //      16'h597F        - Disable injection of mock mailbox lock request from TAP when FW locks mailbox
+    //      16'h587F        - Enable injection of single mailbox lock request from TAP when FW locks mailbox
+    //      16'h597F        - Disable injection of single mailbox lock request from TAP when FW locks mailbox
     //      16'h807F:'h9F7F - Inject a valid hmac_key dest and hmac512_key into Nth kv slot (where slot is encoded as (N & 0x1F) << 8)
     //      16'hA07F:'hBF7F - Check if Nth kv slot (where slot is encoded as (N & 0x1F) << 8) is all zero
     //      16'hC07F        - Force clear of all KV slots, when DOE FSM starts to write
