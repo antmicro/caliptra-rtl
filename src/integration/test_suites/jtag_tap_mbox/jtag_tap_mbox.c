@@ -271,6 +271,9 @@ void main() {
         state = (lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_MASK) >> MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_LOW;
     } while (state != MBOX_EXECUTE_TAP);
 
+    // wait for TAP to read all the data
+    while(soc_ifc_mbox_read_rdptr() != MBOX_DLEN_VAL / 4);
+
     // Force unlock
     lsu_write_32(CLP_MBOX_CSR_MBOX_UNLOCK, MBOX_CSR_MBOX_UNLOCK_UNLOCK_MASK);
 
@@ -285,5 +288,6 @@ void main() {
     printf(" JTAG mailbox flow success!\n");
     printf("----------------------------------\n");
 
-    SEND_STDOUT_CTRL(0xFF);
+    printf("Waiting for JTAG to finish...\n");
+    while(1);
 }

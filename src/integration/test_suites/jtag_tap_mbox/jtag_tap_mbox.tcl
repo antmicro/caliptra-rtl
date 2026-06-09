@@ -266,9 +266,5 @@ while {($status & 0x0000000F) != 0x00000000} {
     set status [riscv dmi_read $mbox_status_dmi_addr]
 }
 
-while (0x1) {
-    after 1000
-}
-
-# Wait for SW to finish the test
-
+after 5000
+shutdown
