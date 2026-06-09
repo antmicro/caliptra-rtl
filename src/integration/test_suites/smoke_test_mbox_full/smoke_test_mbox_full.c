@@ -174,5 +174,25 @@ void main () {
       while(1);
     }
 
+    VPRINTF(LOW, "FW: Poll for mailbox lock\n");
+    while((lsu_read_32(CLP_MBOX_CSR_MBOX_LOCK) & MBOX_CSR_MBOX_LOCK_LOCK_MASK) == 1);
+
+    VPRINTF(LOW, "FW: Enable injection of SoC mailbox lock on FW mailbox unlock\n");
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x5A7F);
+
+    VPRINTF(LOW, "FW: Force mailbox unlock\n");
+    lsu_write_32(CLP_MBOX_CSR_MBOX_UNLOCK, MBOX_CSR_MBOX_UNLOCK_UNLOCK_MASK);
+
+    VPRINTF(LOW, "FW: Disable injection of SoC mailbox lock on FW mailbox unlock\n");
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x5B7F);
+
+    VPRINTF(LOW, "FW: Ensure mailbox was locked by SoC\n");
+    mbox_status = lsu_read_32(CLP_MBOX_CSR_MBOX_LOCK) & MBOX_CSR_MBOX_LOCK_LOCK_MASK;
+    if (mbox_status != 1) {
+      VPRINTF(ERROR, "ERROR: Mailbox is not locked by SoC immediately after unlock! Expected 0x1 got 0x%x\n", mbox_status);
+      SEND_STDOUT_CTRL(TB_CMD_FAIL);
+      while(1);
+    }
+
     SEND_STDOUT_CTRL(TB_CMD_PASS);
 }
