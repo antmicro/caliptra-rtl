@@ -19,5 +19,5 @@ plusargs:
 - '+CALIPTRA_DEBUG_UNLOCKED'
 # Test needs jtag
 jtag: 1
-jtag_tcl: jtag_reg_access.tcl
+jtag_tcl: peripheral_access.tcl
 jtag_cfg: $CALIPTRA_ROOT/tools/scripts/openocd/board/caliptra-verilator-rst.cfg

@@ -57,5 +57,13 @@ if {[compare $actual $golden] != 0} {
     shutdown error
 }
 
+echo "Accessing VeeR DCCM"
+set golden { 0xCAFEBABA 0xDEADBEEF 0xD0ED0E00 }
+write_memory 0x50000000 32 $golden phys
+set actual [read_memory 0x50000000 32 3 phys]
+if {[compare $actual $golden] != 0} {
+    shutdown error
+}
+
 # Success
 shutdown
