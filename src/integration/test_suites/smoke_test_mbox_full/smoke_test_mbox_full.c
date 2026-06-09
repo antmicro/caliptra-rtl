@@ -79,11 +79,13 @@ void main () {
     VPRINTF(LOW, "-----------------------------------\n");
 
     // SoC: Poll for mbox lock
+    VPRINTF(LOW, "FW (SoC): Poll for mailbox lock\n");
     do {
         axi_resp = soc_read_user_32(CLP_MBOX_CSR_MBOX_LOCK, MBOX_VALID_USER);
     } while ((axi_resp.rdata & MBOX_CSR_MBOX_LOCK_LOCK_MASK) == 1);
 
     // SoC: Write mailbox command, data and length
+    VPRINTF(LOW, "FW (SoC): Write request to mailbox\n");
     soc_write_user_32(CLP_MBOX_CSR_MBOX_CMD,  0x0,           MBOX_VALID_USER);
     soc_write_user_32(CLP_MBOX_CSR_MBOX_DLEN, MBOX_DLEN_VAL, MBOX_VALID_USER);
     for (uint32_t i = 0; i <= MBOX_DLEN_VAL - MBOX_PTR_RST_OVERRIDE; i++) {
@@ -91,6 +93,7 @@ void main () {
     }
 
     // SoC: Try to write more data than the MBOX capacity
+    VPRINTF(LOW, "FW (SoC): Overflow mailbox data in\n");
     soc_write_user_32(CLP_MBOX_CSR_MBOX_DATAIN, 0x0FACE0FF, MBOX_VALID_USER);
 
     // Mailbox should ignore the write overflow
@@ -106,6 +109,7 @@ void main () {
     }
 
     // UC: Read status register & expect it to be in progress
+    VPRINTF(LOW, "FW: Ensure mailbox is not idle\n");
     mbox_status = lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_STATUS_MASK;
     if (mbox_status != CMD_BUSY) {
       VPRINTF(ERROR, "ERROR: Mailbox status changed before SoC finished writing the command! Expected 0x%x got 0x%x\n", CMD_BUSY, mbox_status);
@@ -114,15 +118,18 @@ void main () {
     }
 
     // SoC Set mailbox execute
+    VPRINTF(LOW, "FW (SoC): Set mailbox execute\n");
     soc_write_user_32(CLP_MBOX_CSR_MBOX_EXECUTE, 1, MBOX_VALID_USER);
 
     // UC: Poll for execute from SoC
+    VPRINTF(LOW, "FW: Poll for mailbox execute\n");
     mbox_status = lsu_read_32(CLP_MBOX_CSR_MBOX_EXECUTE) & MBOX_CSR_MBOX_EXECUTE_EXECUTE_MASK;
     while ((lsu_read_32(CLP_MBOX_CSR_MBOX_EXECUTE) & MBOX_CSR_MBOX_EXECUTE_EXECUTE_MASK) != 1) {
       mbox_status = lsu_read_32(CLP_MBOX_CSR_MBOX_EXECUTE) & MBOX_CSR_MBOX_EXECUTE_EXECUTE_MASK;
     }
 
     // UC: Read DLEN CLP_MBOX_CSR_MBOX_DLEN
+    VPRINTF(LOW, "FW: Read mailbox data length\n");
     mbox_dlen = lsu_read_32(CLP_MBOX_CSR_MBOX_DLEN);
     if (mbox_dlen !=  MBOX_DLEN_VAL) {
       VPRINTF(ERROR, "ERROR: Mailbox DLEN mismatch! Expected 0x%x got 0x%x\n", MBOX_DLEN_VAL, mbox_dlen);
@@ -131,6 +138,7 @@ void main () {
     }
 
     // UC: Read Mailbox
+    VPRINTF(LOW, "FW: Read mailbox data\n");
     for (uint32_t i = 0; i <= MBOX_DLEN_VAL - MBOX_PTR_RST_OVERRIDE; i++) {
       if ((mbox_data_readback = lsu_read_32(CLP_MBOX_CSR_MBOX_DATAOUT)) != mbox_data[i % 16]) {
         VPRINTF(ERROR, "ERROR: Mailbox read mismatch! Expected 0x%x got 0x%x\n", mbox_data[i % 16], mbox_data_readback);
@@ -140,6 +148,7 @@ void main () {
     }
 
     // UC: Read overflow mailbox
+    VPRINTF(LOW, "FW: Overflow mailbox data out\n");
     if ((mbox_data_readback = lsu_read_32(CLP_MBOX_CSR_MBOX_DATAOUT)) != 0) {
       VPRINTF(ERROR, "ERROR: Mailbox read data on overflow mismatch! Expected 0x%x got 0x%x\n", 0, mbox_data_readback);
       SEND_STDOUT_CTRL(TB_CMD_FAIL);
@@ -147,12 +156,15 @@ void main () {
     }
 
     // UC: Set status register
+    VPRINTF(LOW, "FW: Set mailbox status to CMD_COMPLETE\n");
     lsu_write_32(CLP_MBOX_CSR_MBOX_STATUS, (CMD_COMPLETE << MBOX_CSR_MBOX_STATUS_STATUS_LOW) & MBOX_CSR_MBOX_STATUS_STATUS_MASK);
 
     // SoC: Poll on status register
+    VPRINTF(LOW, "FW: Wait for mailbox status to be cleared\n");
     while ((mbox_status = lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_STATUS_MASK) != CMD_COMPLETE);
 
     // SoC: Clear execute
+    VPRINTF(LOW, "FW (SoC): Clear mailbox execute\n");
     soc_write_user_32(CLP_MBOX_CSR_MBOX_EXECUTE, 0, MBOX_VALID_USER);
 
     // Assert no errors are reported after the transaction
