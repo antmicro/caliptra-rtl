@@ -73,6 +73,9 @@ module caliptra_top_tb_services
     output int   cycleCnt,
     output var   axi_complex_ctrl_t axi_complex_ctrl,
 
+    // Custom event injection
+    output logic inject_mbox_soc_lock_on_mbox_unlock,
+
     //Interrupt flags
     output logic int_flag,
     output logic cycleCnt_smpl_en,
@@ -418,6 +421,8 @@ module caliptra_top_tb_services
     //      16'h577F        - Kill kv_ecc_privkey_w_flow assertions (e.g. when write into KV doesn't succeed deliberately)
     //      16'h587F        - Enable injection of single mailbox lock request from TAP when FW locks mailbox
     //      16'h597F        - Disable injection of single mailbox lock request from TAP when FW locks mailbox
+    //      16'h5A7F        - Enable injection of single mailbox lock request from SoC when mailbox is being unlocked
+    //      16'h5B7F        - Disable injection of single mailbox lock request from SoC when mailbox is being unlocked
     //      16'h807F:'h9F7F - Inject a valid hmac_key dest and hmac512_key into Nth kv slot (where slot is encoded as (N & 0x1F) << 8)
     //      16'hA07F:'hBF7F - Check if Nth kv slot (where slot is encoded as (N & 0x1F) << 8) is all zero
     //      16'hC07F        - Force clear of all KV slots, when DOE FSM starts to write
@@ -689,6 +694,18 @@ module caliptra_top_tb_services
         end
         else if ((WriteData[15:0] == 16'h597F) && mailbox_write) begin
             inject_mbox_tap_lock_read_on_fw_lock <= 1'b0;
+        end
+    end
+
+    always @(negedge clk or negedge cptra_rst_b) begin
+        if (!cptra_rst_b) begin
+            inject_mbox_soc_lock_on_mbox_unlock <= 1'b0;
+        end
+        else if ((WriteData[15:0] == 16'h5A7F) && mailbox_write) begin
+            inject_mbox_soc_lock_on_mbox_unlock <= 1'b1;
+        end
+        else if ((WriteData[15:0] == 16'h5B7F) && mailbox_write) begin
+            inject_mbox_soc_lock_on_mbox_unlock <= 1'b0;
         end
     end
 

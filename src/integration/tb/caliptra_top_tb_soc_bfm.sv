@@ -67,6 +67,9 @@ import caliptra_top_tb_pkg::*; #(
 
     input logic route_fatal_to_nmi,
 
+    // Custom event injection
+    input logic inject_mbox_soc_lock_on_mbox_unlock,
+
     //AXI SoC
     input logic [31:0] axi_addr,
     input logic [31:0] axi_axuser,
@@ -706,6 +709,21 @@ import caliptra_top_tb_pkg::*; #(
             );
         end else begin
             done <= 1'b1;
+        end
+    end
+
+    always @(posedge core_clk) begin
+        if (inject_mbox_soc_lock_on_mbox_unlock) begin
+            if (`CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.mbox_csr1.field_combo.mbox_unlock.unlock.load_next &
+                |`CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.mbox_csr1.field_combo.mbox_unlock.unlock.next) begin
+                m_axi_bfm_if.axi_read_single(
+                    .addr(`CLP_MBOX_CSR_MBOX_LOCK),
+                    .user(32'hFFFF_FFFF),
+                    .data(rdata),
+                    .resp(rresp),
+                    .resp_user(buser)
+                );
+            end
         end
     end
 

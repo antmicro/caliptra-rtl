@@ -137,6 +137,9 @@ end
     logic deassert_rst_flag_from_service;
     logic route_fatal_to_nmi;
 
+    // Custom event injection
+    logic inject_mbox_soc_lock_on_mbox_unlock;
+
     //AXI
     logic [31:0] address;
     logic [31:0] axuser;
@@ -225,6 +228,9 @@ caliptra_top_tb_soc_bfm soc_bfm_inst (
     .deassert_rst_flag_from_service(deassert_rst_flag_from_service),
 
     .route_fatal_to_nmi(route_fatal_to_nmi),
+
+    // Custom event injection
+    .inject_mbox_soc_lock_on_mbox_unlock(inject_mbox_soc_lock_on_mbox_unlock),
 
     //AXI SoC
     .axi_addr(address),
@@ -429,6 +435,9 @@ caliptra_top_tb_services #(
     .ras_test_ctrl(ras_test_ctrl),
     .cycleCnt(cycleCnt),
     .axi_complex_ctrl(axi_complex_ctrl),
+
+    // Custom event injection
+    .inject_mbox_soc_lock_on_mbox_unlock(inject_mbox_soc_lock_on_mbox_unlock),
 
     //Interrupt flags
     .int_flag(int_flag),
