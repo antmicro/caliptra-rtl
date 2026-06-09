@@ -383,6 +383,7 @@ module caliptra_top_tb_services
     //      16'h1C7F        - Release unlock caliptra security state
     //      16'h1D7F        - Force override mailbox pointer reset value to CPTRA_GENERIC_OUTPUT_WIRES[1]
     //      16'h1E7F        - Release override mailbox pointer reset value
+    //      16'h1F7F        - Switch to Unprovisioned mode
     //      16'h207F        - Get UDS[0] and UDS[1] value from HW
     //      16'h217F        - Get UDS[2] and UDS[3] value from HW
     //      16'h227F        - Get UDS[4] and UDS[5] value from HW
@@ -1270,6 +1271,11 @@ module caliptra_top_tb_services
         else if ((WriteData[15:0] == 16'h157F) && mailbox_write) begin
             security_state.device_lifecycle <= DEVICE_PRODUCTION;
             $display("Setting lifecycle to DEVICE_PRODUCTION\n");
+        end
+        //Switch to Unprovisioned mode mode
+        else if ((WriteData[15:0] == 16'h1F7F) && mailbox_write) begin
+            security_state.device_lifecycle <= DEVICE_UNPROVISIONED;
+            $display("Setting lifecycle to DEVICE_UNPROVISIONED\n");
         end
     end
 
