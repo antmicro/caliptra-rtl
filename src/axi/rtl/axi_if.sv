@@ -232,7 +232,7 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
                     input  logic [UW-1:0] user  = UW'(0),
                     input  logic [IW-1:0] id    = IW'(0),
                     input  logic          lock  = 1'b0,
-                    input  int            stall = 0,
+                    input  int unsigned   stall = 0,
                     output logic [DW-1:0] data [],
                     output logic [UW-1:0] resp_user [],
                     output axi_resp_e     resp []);
@@ -266,7 +266,7 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
             resp = new[len+1];
             for (int beat=0; beat <= len; beat++) begin
                 if (stall > 0)
-                    $display($sformatf("[%t] Stalling RREADY for %d clock cycles", $time, stall));
+                    $display($sformatf("[%t] Stalling RREADY for %d clock cycles, AXI id 0x%x", $time, stall, id));
                 repeat (stall) begin
                     @(posedge clk);
                 end
@@ -350,7 +350,7 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
                     input  logic [DW/8-1:0] strb [],
                     input  logic            use_write_user = 0,
                     input  logic [UW-1:0]   write_user [],
-                    input  int              stall = 0,
+                    input  int unsigned     stall = 0,
                     output axi_resp_e       resp,
                     output logic [UW-1:0]   resp_user);
             while(!rst_n) @(posedge clk);
@@ -380,7 +380,7 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
                     send_write_beat(beat == len, data[beat], use_write_user ? write_user[beat] : UW'(0), use_strb ? strb[beat] : {DW/8{1'b1}});
                 begin
                     if (stall > 0)
-                        $display($sformatf("[%t] Stalling BREADY for %d clock cycles", $time, stall));
+                        $display($sformatf("[%t] Stalling BREADY for %d clock cycles, AXI id 0x%x", $time, stall, id));
                     repeat (stall) begin
                         @(posedge clk);
                     end

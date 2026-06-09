@@ -314,6 +314,9 @@ import caliptra_top_tb_pkg::*; #(
                         logic [`CALIPTRA_AXI_USER_WIDTH-1:0] pk_hash_user[6][];
                         axi_resp_e resp[6][];
 
+                        int unsigned w_stalls[3];
+                        int unsigned r_stalls[3];
+
                         pk_hash = new[1];
                         pk_hash_prev = new[1];
                         pk_hash_read_1 = new[1];
@@ -332,6 +335,19 @@ import caliptra_top_tb_pkg::*; #(
                         // AXI STALL TEST
                         // ---------------------
                         if (!std::randomize(pk_hash)) $fatal(1, "%t: [%m] Failed to randomize data", $time);
+
+                        // Each subsequent transaction stall cannot be the same as the previous one.
+                        // Otherwise, we risk a race condition, where one transaction tries to pull "READY" to low while other to high.
+                        // This will cause us to miss a response being sent back. This is a limitation of the simple AXI BFM.
+                        // Note, that this scenario creates backpressure on response channels (simulates manager unavailable to receive response data)
+                        w_stalls[0] = $urandom_range(5, 15);
+                        w_stalls[1] = w_stalls[0] + $urandom_range(2, 20);
+                        w_stalls[2] = w_stalls[1] + $urandom_range(2, 20);
+
+                        r_stalls[0] = $urandom_range(5, 15);
+                        r_stalls[1] = r_stalls[0] + $urandom_range(2, 20);
+                        r_stalls[2] = r_stalls[1] + $urandom_range(2, 20);
+
                         fork
                             m_axi_bfm_if.axi_write(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
                                 .data(pk_hash),
@@ -342,12 +358,11 @@ import caliptra_top_tb_pkg::*; #(
                                 .write_user(pk_hash_user[0]),
                                 .resp_user(buser),
                                 // Simulate a stall on the master's side (BREADY held low)
-                                .stall($urandom_range(5, 15)));
+                                .stall(w_stalls[0]));
                             begin
                                 fork
                                     begin
-                                        @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.awvalid);
-                                        @(posedge m_axi_bfm_if.clk iff !m_axi_bfm_if.awvalid);
+                                        @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.awvalid & m_axi_bfm_if.awready);
                                         m_axi_bfm_if.axi_write(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
                                             .data(pk_hash),
                                             .id($urandom()),
@@ -357,14 +372,13 @@ import caliptra_top_tb_pkg::*; #(
                                             .write_user(pk_hash_user[1]),
                                             .resp_user(buser),
                                             // Simulate a stall on the master's side (BREADY held low)
-                                            .stall($urandom_range(10, 20)));
+                                            .stall(w_stalls[1]));
                                     end
                                     begin
                                         // Third write, to exercise AWREADY-induced stall
                                         // Twice the delay, since we are sending transactions in sequence
                                         repeat (2) begin
-                                            @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.awvalid);
-                                            @(posedge m_axi_bfm_if.clk iff !m_axi_bfm_if.awvalid);
+                                            @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.awvalid & m_axi_bfm_if.awready);
                                         end
                                         m_axi_bfm_if.axi_write(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
                                             .data(pk_hash),
@@ -375,7 +389,7 @@ import caliptra_top_tb_pkg::*; #(
                                             .write_user(pk_hash_user[5]),
                                             .resp_user(buser),
                                             // Simulate a stall on the master's side (BREADY held low)
-                                            .stall($urandom_range(5, 15)));
+                                            .stall(w_stalls[2]));
                                     end
                                 join
                             end
@@ -388,12 +402,11 @@ import caliptra_top_tb_pkg::*; #(
                                 .resp(resp[2]),
                                 .resp_user(pk_hash_user[3]),
                                 // Simulate a stall on the master's side (RREADY held low)
-                                .stall($urandom_range(5, 15)));
+                                .stall(r_stalls[0]));
                             begin
                                 fork
                                     begin
-                                        @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.arvalid);
-                                        @(posedge m_axi_bfm_if.clk iff !m_axi_bfm_if.arvalid);
+                                        @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.arvalid & m_axi_bfm_if.arready);
                                         m_axi_bfm_if.axi_read(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
                                             .data(pk_hash_read_2),
                                             .id($urandom()),
@@ -401,14 +414,13 @@ import caliptra_top_tb_pkg::*; #(
                                             .resp(resp[3]),
                                             .resp_user(pk_hash_user[3]),
                                             // Simulate a stall on the master's side (RREADY held low)
-                                            .stall($urandom_range(10, 20)));
+                                            .stall(r_stalls[1]));
                                     end
                                     begin
                                         // Third read, to exercise ARREADY-induced stall
                                         // Twice the delay
                                         repeat (2) begin
-                                            @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.arvalid);
-                                            @(posedge m_axi_bfm_if.clk iff !m_axi_bfm_if.arvalid);
+                                            @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.arvalid & m_axi_bfm_if.arready);
                                         end
                                         m_axi_bfm_if.axi_read(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
                                             .data(pk_hash_read_3),
@@ -417,11 +429,14 @@ import caliptra_top_tb_pkg::*; #(
                                             .resp(resp[4]),
                                             .resp_user(pk_hash_user[4]),
                                             // Simulate a stall on the master's side (RREADY held low)
-                                            .stall($urandom_range(5, 15)));
+                                            .stall(r_stalls[2]));
                                     end
                                 join
                             end
                         join
+
+                        if (m_axi_bfm_if.bvalid == '1) $error("BVALID is high, after finishing all transactions!");
+                        if (m_axi_bfm_if.rvalid == '1) $error("RVALID is high, after finishing all transactions!");
 
                         foreach(resp[i, j]) begin
                             if(resp[i][j] != AXI_RESP_OKAY) begin
