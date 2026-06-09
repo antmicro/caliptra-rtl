@@ -14,9 +14,9 @@
 #
 ---
 seed: 1
-testname: jtag_unlock
+testname: smoke_test_jtag_unlock
 # Test needs jtag
 jtag: 1
 jtag_wait: 200us
-jtag_tcl: jtag_unlock.tcl
+jtag_tcl: smoke_test_jtag_unlock.tcl
 jtag_cfg: $CALIPTRA_ROOT/tools/scripts/openocd/board/caliptra-verilator-rst.cfg
