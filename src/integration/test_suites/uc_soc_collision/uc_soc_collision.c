@@ -63,13 +63,13 @@ void main(void) {
     soc_write_32(CLP_SHA512_ACC_CSR_MODE, SHA_STREAM_512);
     soc_write_32(CLP_SHA512_ACC_CSR_DLEN, 10000); // just has to be huge enough
     
-    // Do a long DATAIN burst to initiate write stall
+    // Do a long DATAIN burst to initiate write stall mixed with read accesses
     soc_access_32((axi_req_t){
         .addr = CLP_SHA512_ACC_CSR_DATAIN,
         .burst = AXI_BURST_FIXED,
         .len = 128,
         .write = true,
-        .read = false,
+        .read = true,
         .ignore_resp = true
     });
 
