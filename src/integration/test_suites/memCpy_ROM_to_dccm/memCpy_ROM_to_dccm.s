@@ -49,21 +49,39 @@ _start:
     la x4, hw_data
 
 loop:
-   lw x5, 0(x4)
-   sw x5, 0(x3)
-   addi x4, x4, 4
-   addi x3, x3, 4
-   bnez x5, loop
+    lw x5, 0(x4)
+    sw x5, 0(x3)
+    addi x4, x4, 4
+    addi x3, x3, 4
+    bnez x5, loop
 
-// Write 0xff to STDOUT for TB to terminate test.
+    // Read the data back and compare
+
+    li x3, RV_DCCM_SADR
+    la x4, hw_data
+
+loop2:
+    lw x5, 0(x4)
+    lw x1, 0(x3)
+    addi x4, x4, 4
+    addi x3, x3, 4
+    bne  x1, x5, fail
+    bnez x5, loop2
+
+// Write 0xff to STDOUT for TB to termiate test.
+success:
+    addi x5, x0, 0xff
+    j _finish
+
+fail:
+    addi x5, x0, 0x01
+
 _finish:
     li x3, STDOUT
-    addi x5, x0, 0xff
     sb x5, 0(x3)
-    beq x0, x0, _finish
-.rept 100
-    nop
-.endr
+
+_halt_loop:
+    beq x0, x0, _halt_loop
 
 .section .dccm
 .global stdout
@@ -82,4 +100,4 @@ hw_data:
 .ascii "----------------------------------\n"
 .ascii "Hello World from VeeR EL2  !!\n"
 .ascii "----------------------------------\n"
-.byte 0
+.word 0
