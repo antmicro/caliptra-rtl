@@ -22,6 +22,7 @@
 #include <stdint.h>
 #include "printf.h"
 #include "soc_ifc.h"
+#include "soc_access.h"
 
 volatile uint32_t* stdout           = (uint32_t *)STDOUT;
 volatile uint32_t  intr_count = 0;
@@ -34,10 +35,20 @@ volatile uint32_t  rst_count __attribute__((section(".dccm.persistent"))) = 0;
 
 volatile caliptra_intr_received_s cptra_intr_rcv = {0};
 
+#define FAIL(...) do { VPRINTF(ERROR, __VA_ARGS__); SEND_STDOUT_CTRL(0x1); for(;;); } while(0);
+
 #define TB_CMD_TEST_PASS          0xFF
 #define MBOX_DLEN_VAL             0x00000020
+#define MBOX_VALID_USER           0xFFFFFFFF
 
 /* --------------- Function Definitions --------------- */
+static void mbox_wait_for_tap_dataout_steal() {
+    for (int i = 0; i < 1000; i++)
+        if (soc_ifc_mbox_read_rdptr() > 1)
+            return;
+    FAIL("ERROR: TAP did not steal the value from MBOX after 1000 iterations\n");
+}
+
 void main() {
 
     // Production mode
@@ -116,22 +127,16 @@ void main() {
     // Check cmd
     VPRINTF(LOW, "FW: Checking cmd from tap\n");
     read_data = lsu_read_32(CLP_MBOX_CSR_MBOX_CMD);
-    if (read_data != mbox_cmd) {
-      VPRINTF(ERROR, "ERROR: mailbox cmd mismatch actual (0x%x) expected (0x%x)\n", read_data, mbox_cmd);
-      SEND_STDOUT_CTRL( 0x1);
-      while(1);
-    }
+    if (read_data != mbox_cmd)
+      FAIL("ERROR: mailbox cmd mismatch actual (0x%x) expected (0x%x)\n", read_data, mbox_cmd);
 
     // Check data 
     VPRINTF(LOW, "FW: Checking %d bytes from tap\n", MBOX_DLEN_VAL);
     for (ii = 0; ii < MBOX_DLEN_VAL/4; ii++) {
         VPRINTF(HIGH, "  datain: 0x%x\n", mbox_data[ii]);
         read_data = soc_ifc_mbox_read_dataout_single();
-        if (read_data != mbox_data[ii]) {
-            VPRINTF(ERROR, "ERROR: mailbox data mismatch actual (0x%x) expected (0x%x)\n", read_data, mbox_data[ii]);
-            SEND_STDOUT_CTRL( 0x1);
-            while(1);
-        };
+        if (read_data != mbox_data[ii])
+            FAIL("ERROR: mailbox data mismatch actual (0x%x) expected (0x%x)\n", read_data, mbox_data[ii]);
     }
 
     // Write command
@@ -211,22 +216,16 @@ void main() {
     // Check cmd
     VPRINTF(LOW, "FW: Checking CMD from TAP\n");
     read_data = lsu_read_32(CLP_MBOX_CSR_MBOX_CMD);
-    if (read_data != exp_mbox_cmd) {
-      VPRINTF(ERROR, "ERROR: mailbox cmd mismatch actual (0x%x) expected (0x%x)\n", read_data, exp_mbox_cmd);
-      SEND_STDOUT_CTRL( 0x1);
-      while(1);
-    }
+    if (read_data != exp_mbox_cmd)
+      FAIL("ERROR: mailbox cmd mismatch actual (0x%x) expected (0x%x)\n", read_data, exp_mbox_cmd);
 
     // Check data
     VPRINTF(LOW, "FW: Checking %d bytes from TAP\n", MBOX_DLEN_VAL);
     for (ii = 0; ii < MBOX_DLEN_VAL/4; ii++) {
         VPRINTF(HIGH, "  datain: 0x%x\n", exp_mbox_data[ii]);
         read_data = soc_ifc_mbox_read_dataout_single();
-        if (read_data != exp_mbox_data[ii]) {
-            VPRINTF(ERROR, "ERROR: mailbox data mismatch actual (0x%x) expected (0x%x)\n", read_data, exp_mbox_data[ii]);
-            SEND_STDOUT_CTRL( 0x1);
-            while(1);
-        };
+        if (read_data != exp_mbox_data[ii])
+            FAIL("ERROR: mailbox data mismatch actual (0x%x) expected (0x%x)\n", read_data, exp_mbox_data[ii]);
     }
 
     // Clear execute
@@ -250,8 +249,91 @@ void main() {
     // Force unlock
     lsu_write_32(CLP_MBOX_CSR_MBOX_UNLOCK, MBOX_CSR_MBOX_UNLOCK_UNLOCK_MASK);
 
+    
+    // This covers the condition of TAP stealing data from an MBOX 
+    // transaction (SoC -> uC -> SoC) by issuing a dataout read 
+    // when mbox is in EXECUTE_UC or EXECUTE_SOC state
+    VPRINTF(LOW, "FW: Test 5 - SoC to uC mbox flow with TAP dataout stealing\n");
 
-    VPRINTF(LOW, "FW: Test 5 - Access mbox from TAP with mbox TAP set to unavailable\n");
+    // ensure disabled TAP mode
+    lsu_write_32(CLP_MBOX_CSR_TAP_MODE, 0);
+
+    // let SoC lock MBOX
+    lsu_write_32(CLP_MBOX_CSR_MBOX_LOCK, MBOX_CSR_MBOX_LOCK_LOCK_MASK);
+    while((soc_read_user_32(CLP_MBOX_CSR_MBOX_LOCK, MBOX_VALID_USER).rdata & MBOX_CSR_MBOX_LOCK_LOCK_MASK) == 1);
+
+    VPRINTF(LOW, "FW: Issuing MBOX request from SoC\n");
+    exp_mbox_cmd = 0x00dad5ad;
+    soc_write_user_32(CLP_MBOX_CSR_MBOX_CMD, exp_mbox_cmd, MBOX_VALID_USER);
+    soc_write_user_32(CLP_MBOX_CSR_MBOX_DLEN, MBOX_DLEN_VAL, MBOX_VALID_USER);
+    for (int i = 0; i < MBOX_DLEN_VAL/4; i++)
+        soc_write_user_32(CLP_MBOX_CSR_MBOX_DATAIN, mbox_data[i], MBOX_VALID_USER);
+    soc_write_user_32(CLP_MBOX_CSR_MBOX_EXECUTE, MBOX_CSR_MBOX_EXECUTE_EXECUTE_MASK, MBOX_VALID_USER);
+
+    mbox_wait_for_tap_dataout_steal();
+
+    // handle the request as uC
+    uint32_t rd_cmd = lsu_read_32(CLP_MBOX_CSR_MBOX_CMD);
+    uint32_t rd_dlen = lsu_read_32(CLP_MBOX_CSR_MBOX_DLEN);
+    if (rd_cmd != exp_mbox_cmd)
+        FAIL("ERROR: mailbox cmd mismatch actual (0x%x) expected (0x%x)\n", rd_cmd, exp_mbox_cmd);
+    if (rd_dlen != MBOX_DLEN_VAL)
+        FAIL("ERROR: mailbox dlen mismatch actual (0x%x) expected (0x%x)\n", rd_dlen, MBOX_DLEN_VAL);
+    for (int i = 0; i < (MBOX_DLEN_VAL-1)/4; i++) {
+        read_data = soc_ifc_mbox_read_dataout_single();
+        if (read_data != mbox_data[i+1])
+            FAIL("ERROR: mailbox data mismatch, expected 0x%x, actual 0x%x\n", mbox_data[i+1], read_data);
+    }
+
+    VPRINTF(LOW, "FW: Sending MBOX response to SoC\n");
+    lsu_write_32(CLP_MBOX_CSR_MBOX_DLEN, MBOX_DLEN_VAL);
+    for (int i = (MBOX_DLEN_VAL-1)/4; i >= 0; i--) // send response in reverse
+        lsu_write_32(CLP_MBOX_CSR_MBOX_DATAIN, mbox_data[i]);
+    soc_ifc_set_mbox_status_field(DATA_READY);
+
+    mbox_wait_for_tap_dataout_steal();
+
+    // Coverage case: MBOX in EXECUTE_SOC state, waiting for SoC to read uC response.
+    // Meanwhile another valid MBOX user, other than the one who started the request
+    // tries to read DATAOUT. Checks if the data was masked correctly.
+    {
+        // Introduce another valid AXI user in the third slot
+        uint32_t new_axi_user = 0x223344ff;
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_MBOX_VALID_AXI_USER_3, new_axi_user);
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_MBOX_AXI_USER_LOCK_3, 1);
+        
+        uint32_t rdptr = soc_ifc_mbox_read_rdptr();
+        uint32_t dataout = soc_read_user_32(CLP_MBOX_CSR_MBOX_DATAOUT, new_axi_user).rdata;
+        if (soc_ifc_mbox_read_rdptr() != rdptr)
+            FAIL("ERROR: DATAOUT access as a valid MBOX user other than the requester increased the rdptr and returned a value: 0x%x\n", dataout);
+    }
+
+    VPRINTF(LOW, "FW: Verifying MBOX response\n");
+    uint32_t rdata[MBOX_DLEN_VAL/4] = {};
+    if(soc_access_32((axi_req_t) {
+        .addr = CLP_MBOX_CSR_MBOX_DATAOUT,
+        .burst = AXI_BURST_FIXED,
+        .axuser = MBOX_VALID_USER,
+        .len = MBOX_DLEN_VAL/4,
+        .rdata = rdata,
+        .read = true
+    }).resp)
+        FAIL("ERROR: mailbox dataout SoC AXI read burst failed\n");
+
+    for (int i = 0; i < (MBOX_DLEN_VAL-1)/4; i++)
+        if (rdata[i] != exp_mbox_data[i+1])
+            FAIL("ERROR: mailbox data mismatch, expected 0x%x, actual 0x%x\n", exp_mbox_data[i+1], rdata[i]);
+    
+    // finalize request, clear EXECUTE register
+    soc_write_user_32(CLP_MBOX_CSR_MBOX_EXECUTE, 0, MBOX_VALID_USER);
+
+    VPRINTF(LOW, "FW: Assure mbox is in the idle state\n");
+    state = (lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_MASK) >> MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_LOW;
+    while (state != MBOX_IDLE) {
+      state = (lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_MASK) >> MBOX_CSR_MBOX_STATUS_MBOX_FSM_PS_LOW;
+    }
+
+    VPRINTF(LOW, "FW: Test 6 - Access mbox from TAP with mbox TAP set to unavailable\n");
 
     // Poll status until TAP locks it
     VPRINTF(LOW, "FW: Wait for TAP to lock\n");

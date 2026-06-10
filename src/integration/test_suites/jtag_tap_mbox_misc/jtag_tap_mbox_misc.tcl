@@ -207,7 +207,35 @@ while {($status & 0x000001C0) != 0x00000000} {
 }
 puts ""
 
-# Test 5 <- This test must be last since FW disables JTAG to execute it and
+puts "Test 5: uC to SoC Mailbox with TAP dataout steal test"
+
+# wait for EXECUTE_UC state
+set status [riscv dmi_read $mbox_status_dmi_addr]
+while {($status & 0x000001C0) != (0x6 << 6)} {
+    after 100
+    set status [riscv dmi_read $mbox_status_dmi_addr]
+}
+
+# steal and verify single value from dataout (SoC -> uC)
+if {[compare [riscv dmi_read $mbox_dout_dmi_addr] 0x0] != 0} {
+    shutdown error
+}
+
+# wait for EXECUTE_SOC state
+set status [riscv dmi_read $mbox_status_dmi_addr]
+while {($status & 0x000001C0) != (0x4 << 6)} {
+    after 100
+    set status [riscv dmi_read $mbox_status_dmi_addr]
+}
+
+# steal and verify single value from dataout (uC -> SoC)
+if {[compare [riscv dmi_read $mbox_dout_dmi_addr] 0x77777777] != 0} {
+    shutdown error
+}
+
+puts "uC to SoC Mailbox with TAP dataout steal completed successfully"
+
+# Test 6 <- This test must be last since FW disables JTAG to execute it and
 #           there is no way to synchronize between JTAG and FW again
 #           This test expects mailbox to be initially in IDLE state
 
