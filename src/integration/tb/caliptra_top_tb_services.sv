@@ -230,11 +230,14 @@ module caliptra_top_tb_services
     //  [1] - Double bit, Mailbox Error Injection
     logic [1:0]                 inject_mbox_sram_error = 2'b0;
 
-    // Inject mock mailbox access request from SoC when TAP locks mailbox
+    // Inject single mailbox access request from SoC when TAP locks mailbox
     logic                       inject_mbox_soc_req_on_tap_lock;
 
-    // Inject mock mailbox lock request from TAP when FW locks mailbox
+    // Inject mailbox lock request from TAP when FW locks mailbox
     logic                       inject_mbox_tap_lock_read_on_fw_lock;
+
+    // Inject mailbox unlock from SoC when FW accesses mailbox SRAM directly
+    logic                       inject_mbox_unlock_on_dir_acc;
 
     // Force override for Mailbox pointers reset values
     logic [31:0]                mbox_ptr_reset_value;
@@ -424,6 +427,8 @@ module caliptra_top_tb_services
     //      16'h597F        - Disable injection of single mailbox lock request from TAP when FW locks mailbox
     //      16'h5A7F        - Enable injection of single mailbox lock request from SoC when mailbox is being unlocked
     //      16'h5B7F        - Disable injection of single mailbox lock request from SoC when mailbox is being unlocked
+    //      16'h5C7F        - Enable injection of mailbox unlock when FW accesses mailbox SRAM directly
+    //      16'h5D7F        - Disable injection of mailbox unlock when FW accesses mailbox SRAM directly
     //      16'h807F:'h9F7F - Inject a valid hmac_key dest and hmac512_key into Nth kv slot (where slot is encoded as (N & 0x1F) << 8)
     //      16'hA07F:'hBF7F - Check if Nth kv slot (where slot is encoded as (N & 0x1F) << 8) is all zero
     //      16'hC07F        - Force clear of all KV slots, when DOE FSM starts to write
@@ -707,6 +712,18 @@ module caliptra_top_tb_services
         end
         else if ((WriteData[15:0] == 16'h5B7F) && mailbox_write) begin
             inject_mbox_soc_lock_on_mbox_unlock <= 1'b0;
+        end
+    end
+
+    always @(negedge clk or negedge cptra_rst_b) begin
+        if (!cptra_rst_b) begin
+            inject_mbox_unlock_on_dir_acc <= 1'b0;
+        end
+        else if ((WriteData[15:0] == 16'h5C7F) && mailbox_write) begin
+            inject_mbox_unlock_on_dir_acc <= 1'b1;
+        end
+        else if ((WriteData[15:0] == 16'h5D7F) && mailbox_write) begin
+            inject_mbox_unlock_on_dir_acc <= 1'b0;
         end
     end
 
@@ -2223,6 +2240,22 @@ endgenerate //IV_NO
                 @(posedge `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.clk);
                 release `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.dmi_reg_ren;
                 release `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.dmi_reg_addr;
+            end
+        end
+    end
+
+    always @(negedge clk) begin
+        if (inject_mbox_unlock_on_dir_acc) begin
+            if ((`CPTRA_TOP_PATH.soc_ifc_top1.haddr_i inside {[MBOX_DIR_START_ADDR:MBOX_DIR_END_ADDR]}) &
+                `CPTRA_TOP_PATH.soc_ifc_top1.hsel_i &
+                `CPTRA_TOP_PATH.soc_ifc_top1.hwrite_i &
+                `CPTRA_TOP_PATH.soc_ifc_top1.hready_i &
+                (`CPTRA_TOP_PATH.soc_ifc_top1.htrans_i == 2'h2) &
+                `CPTRA_TOP_PATH.soc_ifc_top1.hreadyout_o
+            ) begin
+                force `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.hwif_out.mbox_unlock.unlock.value = 1'b1;
+                @(posedge `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.clk);
+                release `CPTRA_TOP_PATH.soc_ifc_top1.i_mbox.hwif_out.mbox_unlock.unlock.value;
             end
         end
     end
