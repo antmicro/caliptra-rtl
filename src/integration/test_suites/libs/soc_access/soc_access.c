@@ -17,8 +17,14 @@
 #include "caliptra_defines.h"
 #include "riscv_hw_if.h"
 
-#define AXI_WRITE 1
-#define AXI_READ 2
+#define AXI_WRITE      0x1
+#define AXI_READ       0x2
+#define AXI_WRITE_ADDR 0x4
+#define AXI_WRITE_DATA 0x8
+#define AXI_WRITE_RESP 0x10
+#define AXI_READ_ADDR  0x20
+#define AXI_READ_RESP  0x40
+#define AXI_USE_ID     0x80
 #define AXI_DEFAULT_MASK 0xF
 #define AXI_DEFAULT_USER 0
 
@@ -54,7 +60,8 @@ axi_resp_t soc_access_32(axi_req_t req) {
         }
     }
 
-    uint32_t execute = (req.write ? AXI_WRITE : 0) | (req.read ? AXI_READ : 0) | ((req.len - 1) << 8);
+    uint32_t execute = (req.write ? AXI_WRITE : 0) | (req.read ? AXI_READ : 0) | (req.use_id ? AXI_USE_ID : 0) |
+            ((req.len - 1) << 8) | (req.id << 16);
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, execute);
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x037F);
 
@@ -151,4 +158,117 @@ axi_resp_t soc_read_user_32(uint32_t reg_addr, uint32_t user) {
 
 axi_resp_t soc_read_32(uint32_t reg_addr) {
     return soc_read_user_32(reg_addr, AXI_DEFAULT_USER);
+}
+
+void soc_write_addr(axi_req_t req) {
+    if (!req.write) return;
+    // Set AXI address
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.addr);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x017F);
+
+    // Set AXI burst
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.burst);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x087F);
+
+    // Set AXI aXuser
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.axuser);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x077F);
+
+    // Send on AW channel
+    uint32_t execute = AXI_WRITE_ADDR | AXI_USE_ID | ((req.len - 1) << 8) | (req.id << 16);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, execute);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x037F);
+}
+
+void soc_write_data(axi_req_t req) {
+    if (!req.write) return;
+    // Clear SoC access queues
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x0A7F);
+
+    for (int i = 0; i < req.len; i++) {
+        // Push AXI wdata
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.wdata ? req.wdata[i] : 0);
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x027F);
+        // Push AXI wuser
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.wuser ? req.wuser[i] : AXI_DEFAULT_USER);
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x067F);
+        // Push AXI wstrb
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.wstrb ? (req.wstrb[i] & 0xF) : 0xF);
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x097F);
+    }
+
+    // Send on W channel
+    uint32_t execute = AXI_WRITE_DATA | ((req.len - 1) << 8);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, execute);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x037F);
+}
+
+axi_resp_t soc_write_resp(axi_req_t req) {
+    if (!req.write)
+        return (axi_resp_t){ .resp = 0, .rdata = 0 };
+    // Receive from B channel
+    uint32_t execute = AXI_WRITE_RESP | AXI_USE_ID | (req.id << 16);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, execute);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x037F);
+    while (1) {
+        axi_resp_t axi_resp;
+
+        // Check if AXI has finished
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x047F);
+        axi_resp.resp = lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0);
+
+        if(axi_resp.resp & 1) {
+            axi_resp.resp = (axi_resp.resp >> 1) & 0b11;
+            return axi_resp;
+        }
+    }
+}
+
+void soc_read_addr(axi_req_t req) {
+    if (!req.read) return;
+    // Set AXI address
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.addr);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x017F);
+
+    // Set AXI burst
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.burst);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x087F);
+
+    // Set AXI aXuser
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, req.axuser);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x077F);
+
+    // Send on AR channel
+    uint32_t execute = AXI_READ_ADDR | AXI_USE_ID | ((req.len - 1) << 8) | (req.id << 16);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, execute);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x037F);
+
+}
+
+axi_resp_t soc_read_resp(axi_req_t req) {
+    if (!req.read)
+        return (axi_resp_t){ .resp = 0, .rdata = 0 };
+    // Receive from R channel
+    uint32_t execute = AXI_READ_RESP | AXI_USE_ID | ((req.len - 1) << 8) |(req.id << 16);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_1, execute);
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x037F);
+
+    while (1) {
+        axi_resp_t axi_resp;
+
+        // Check if AXI has finished
+        lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x047F);
+        axi_resp.resp = lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0);
+
+        if(axi_resp.resp & 1) {
+            axi_resp.resp = (axi_resp.resp >> 1) & 0b11;
+            for (int i = 0; i < req.len; i++) {
+                lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x057F);
+                uint32_t rdata = lsu_read_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_INPUT_WIRES_0);
+                if (i == 0) axi_resp.rdata = rdata;
+                if (req.rdata) req.rdata[i] = rdata;
+            }
+            return axi_resp;
+        }
+    }
 }

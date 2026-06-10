@@ -99,8 +99,15 @@ module caliptra_top_tb_services
     output logic [ 7:0] axi_len,
     ref    logic [ 3:0] axi_wstrb[$],
     output logic [ 1:0] axi_burst,
+    output logic        axi_use_id,
+    output logic [ 7:0] axi_id,
     output logic        axi_write,
+    output logic        axi_write_addr,
+    output logic        axi_write_data,
+    output logic        axi_write_resp,
     output logic        axi_read,
+    output logic        axi_read_addr,
+    output logic        axi_read_resp,
     output logic        axi_put_status,
     output logic        axi_put_rdata,
 
@@ -360,7 +367,21 @@ module caliptra_top_tb_services
     //         8'h7F        - Do nothing
     //      16'h017F        - Setup SoC Access address from CPTRA_GENERIC_OUTPUT_WIRES[1]
     //      16'h027F        - Push SoC Access wdata from CPTRA_GENERIC_OUTPUT_WIRES[1] into a wdata queue
-    //      16'h037F        - Send SoC (0)read/(1)write access based on the CPTRA_GENERIC_OUTPUT_WIRES[1][0], with [1][15:8] encoding AXLEN
+    //      16'h037F        - Send SoC access
+    //          CPTRA_GENERIC_OUTPUT_WIRES[1][0]     - write transaction
+    //          CPTRA_GENERIC_OUTPUT_WIRES[1][1]     - read transaction
+    //          CPTRA_GENERIC_OUTPUT_WIRES[1][2]     - write address only
+    //          CPTRA_GENERIC_OUTPUT_WIRES[1][3]     - write data only
+    //          CPTRA_GENERIC_OUTPUT_WIRES[1][4]     - write response only
+    //          CPTRA_GENERIC_OUTPUT_WIRES[1][5]     - read address only
+    //          CPTRA_GENERIC_OUTPUT_WIRES[1][6]     - read response only
+    //          CPTRA_GENERIC_OUTPUT_WIRES[1][7]     - use operation ID, random otherwise
+    //          CPTRA_GENERIC_OUTPUT_WIRES[1][15:8]  - AXLEN
+    //          CPTRA_GENERIC_OUTPUT_WIRES[1][23:16] - Operation ID
+    //          If partial transfers are used, only one can be executed at any
+    //          given time, and it cannot be combined with full transfer.
+    //          ID must be specified and correct for partial transfers,
+    //          otherwise BFM will lockup
     //      16'h047F        - Get SoC Access status, 0-In progress, 1-Done
     //      16'h057F        - Pop SoC Access read response onto generic_input_wires
     //      16'h067F        - Push SoC Access wuser from CPTRA_GENERIC_OUTPUT_WIRES[1] into a wuser queue
@@ -518,16 +539,29 @@ module caliptra_top_tb_services
     always @(negedge clk) begin
         axi_write <= 1'b0;
         axi_read <= 1'b0;
+        axi_write_addr <= 1'b0;
+        axi_write_data <= 1'b0;
+        axi_write_resp <= 1'b0;
+        axi_read_addr  <= 1'b0;
+        axi_read_resp  <= 1'b0;
         axi_put_status <= 1'b0;
+        axi_use_id     <= 1'b0;
         axi_put_rdata <= 1'b0;
         if ((WriteData[15:0] == 16'h017F) && mailbox_write) begin
             axi_addr <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1];
         end else if ((WriteData[15:0] == 16'h027F) && mailbox_write) begin
             axi_wdata.push_back(`CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1]);
         end else if ((WriteData[15:0] == 16'h037F) && mailbox_write) begin
-            axi_write <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][0];
-            axi_read <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][1];
-            axi_len <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][15:8];
+            axi_write      <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][0];
+            axi_read       <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][1];
+            axi_write_addr <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][2];
+            axi_write_data <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][3];
+            axi_write_resp <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][4];
+            axi_read_addr  <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][5];
+            axi_read_resp  <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][6];
+            axi_use_id     <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][7];
+            axi_len        <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][15:8];
+            axi_id         <= `CPTRA_TOP_PATH.soc_ifc_top1.i_soc_ifc_reg.field_storage.CPTRA_GENERIC_OUTPUT_WIRES[1][23:16];
         end else if ((WriteData[15:0] == 16'h047F) && mailbox_write) begin
             axi_put_status <= 1'b1;
         end else if ((WriteData[15:0] == 16'h057F) && mailbox_write) begin

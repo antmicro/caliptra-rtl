@@ -207,39 +207,14 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
             bready  `EQ__ '0;
         endtask
 
-        // TODO: handle IDs?
-        task automatic get_read_beat(output logic [DW-1:0] data,
-                        output logic [UW-1:0] user,
-                        output axi_resp_e     resp);
-            `TIME_ALGN
-            rready `EQ__ 1;
-            do
-                @(posedge clk);
-            while (!rvalid);
-            data   = rdata;
-            user   = ruser;
-            resp   = axi_resp_e'(rresp);
-            `TIME_ALGN
-            rready `EQ__ 0;
-            wait(!rready);
-        endtask
-
-        // Read: default to single beat of native data width
-        task automatic axi_read(input  logic [AW-1:0] addr,
-                    input  axi_burst_e    burst = AXI_BURST_INCR,
-                    input  logic [2:0]    size  = $clog2(DW/8),
-                    input  logic [7:0]    len   = 0,
-                    input  logic [UW-1:0] user  = UW'(0),
-                    input  logic [IW-1:0] id    = IW'(0),
-                    input  logic          lock  = 1'b0,
-                    input  int unsigned   stall = 0,
-                    output logic [DW-1:0] data [],
-                    output logic [UW-1:0] resp_user [],
-                    output axi_resp_e     resp []);
-            axi_resp_e     beat_resp;
-            logic [UW-1:0] beat_user;
-            logic [DW-1:0] beat_data;
-            while(!rst_n) @(posedge clk);
+        task send_read_address(
+                        input  logic [AW-1:0] addr,
+                        input  axi_burst_e    burst = AXI_BURST_INCR,
+                        input  logic [2:0]    size  = $clog2(DW/8),
+                        input  logic [7:0]    len   = 0,
+                        input  logic [UW-1:0] user  = UW'(0),
+                        input  logic [IW-1:0] id    = IW'(0),
+                        input  logic          lock  = 1'b0);
             do begin
                 `TIME_ALGN
                 araddr  `EQ__ addr;
@@ -261,6 +236,47 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
             arid    `EQ__ '0;
             arlock  `EQ__ '0;
             arvalid `EQ__ '0;
+        endtask
+
+        task get_read_beat(
+                        input  logic [IW-1:0] id    = IW'(0),
+                        output logic [DW-1:0] data,
+                        output logic [UW-1:0] user,
+                        output axi_resp_e     resp);
+            logic [IW-1:0] resp_id;
+            do begin
+                `TIME_ALGN
+                rready `EQ__ 1;
+                do
+                    @(posedge clk);
+                while (!rvalid);
+                data    `EQ__ rdata;
+                user    `EQ__ ruser;
+                resp    `EQ__ axi_resp_e'(rresp);
+                resp_id `EQ__ rid;
+                `TIME_ALGN
+                rready `EQ__ 0;
+                wait(!rready);
+            end while (id != resp_id);
+        endtask
+
+        // Read: default to single beat of native data width
+        task axi_read(input  logic [AW-1:0] addr,
+                    input  axi_burst_e    burst = AXI_BURST_INCR,
+                    input  logic [2:0]    size  = $clog2(DW/8),
+                    input  logic [7:0]    len   = 0,
+                    input  logic [UW-1:0] user  = UW'(0),
+                    input  logic [IW-1:0] id    = IW'(0),
+                    input  logic          lock  = 1'b0,
+                    input  int            stall = 0,
+                    output logic [DW-1:0] data [],
+                    output logic [UW-1:0] resp_user [],
+                    output axi_resp_e     resp []);
+            axi_resp_e     beat_resp;
+            logic [UW-1:0] beat_user;
+            logic [DW-1:0] beat_data;
+            while(!rst_n) @(posedge clk);
+            send_read_address(addr, burst, size, len, user, id, lock);
             data = new[len+1];
             resp_user = new[len+1];
             resp = new[len+1];
@@ -270,14 +286,14 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
                 repeat (stall) begin
                     @(posedge clk);
                 end
-                get_read_beat(beat_data, beat_user, beat_resp);
+                get_read_beat(id, beat_data, beat_user, beat_resp);
                 data[beat]      = beat_data;
                 resp_user[beat] = beat_user;
                 resp[beat]      = beat_resp;
             end
         endtask
 
-        task automatic axi_read_single(input  logic [AW-1:0] addr,
+        task axi_read_single(input  logic [AW-1:0] addr,
                             input  logic [2:0]    size  = $clog2(DW/8),
                             input  logic [UW-1:0] user  = UW'(0),
                             input  logic [IW-1:0] id    = IW'(0),
@@ -299,6 +315,36 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
             data      = burst_data[0];
             resp_user = burst_ruser[0];
             resp      = burst_resp[0];
+        endtask
+
+        task send_write_addr(input  logic [AW-1:0]   addr,
+                    input  axi_burst_e      burst = AXI_BURST_INCR,
+                    input  logic [2:0]      size  = $clog2(DW/8),
+                    input  logic [7:0]      len   = 0,
+                    input  logic [UW-1:0]   user  = UW'(0),
+                    input  logic [IW-1:0]   id    = IW'(0),
+                    input  logic            lock  = 1'b0);
+            do begin
+                `TIME_ALGN
+                awaddr  `EQ__ addr;
+                awburst `EQ__ burst;
+                awsize  `EQ__ size;
+                awlen   `EQ__ len;
+                awuser  `EQ__ user;
+                awid    `EQ__ id;
+                awlock  `EQ__ lock;
+                awvalid `EQ__ 1;
+                @(posedge clk);
+            end while(!awready);
+            `TIME_ALGN
+            awaddr  `EQ__ '0;
+            awburst `EQ__ AXI_BURST_FIXED;
+            awsize  `EQ__ '0;
+            awlen   `EQ__ '0;
+            awuser  `EQ__ '0;
+            awid    `EQ__ '0;
+            awlock  `EQ__ '0;
+            awvalid `EQ__ '0;
         endtask
 
         task send_write_beat(input logic last,
@@ -323,22 +369,26 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
             wait(!wvalid);
         endtask
 
-        // TODO handle ID
-        task automatic get_write_resp(output axi_resp_e     resp,
+        task get_write_resp(input  logic [IW-1:0] id    = IW'(0),
+                            output axi_resp_e     resp,
                             output logic [UW-1:0] user);
-            `TIME_ALGN
-            bready `EQ__ 1;
-            do
-                @(posedge clk);
-            while(!bvalid);
-            resp = axi_resp_e'(bresp);
-            user = buser;
-            `TIME_ALGN
-            bready `EQ__ 0;
-            wait(!bready);
+            logic [IW-1:0] resp_id;
+            do begin
+                `TIME_ALGN
+                bready `EQ__ 1;
+                do
+                    @(posedge clk);
+                while(!bvalid);
+                resp    `EQ__ axi_resp_e'(bresp);
+                user    `EQ__ buser;
+                resp_id `EQ__ bid;
+                `TIME_ALGN
+                bready `EQ__ 0;
+                wait(!bready);
+            end while(resp_id != id);
         endtask
 
-        task automatic axi_write(input  logic [AW-1:0]   addr,
+        task axi_write(input  logic [AW-1:0]   addr,
                     input  axi_burst_e      burst = AXI_BURST_INCR,
                     input  logic [2:0]      size  = $clog2(DW/8),
                     input  logic [7:0]      len   = 0,
@@ -354,27 +404,7 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
                     output axi_resp_e       resp,
                     output logic [UW-1:0]   resp_user);
             while(!rst_n) @(posedge clk);
-            do begin
-                `TIME_ALGN
-                awaddr  `EQ__ addr;
-                awburst `EQ__ burst;
-                awsize  `EQ__ size;
-                awlen   `EQ__ len;
-                awuser  `EQ__ user;
-                awid    `EQ__ id;
-                awlock  `EQ__ lock;
-                awvalid `EQ__ 1;
-                @(posedge clk);
-            end while(!awready);
-            `TIME_ALGN
-            awaddr  `EQ__ '0;
-            awburst `EQ__ AXI_BURST_FIXED;
-            awsize  `EQ__ '0;
-            awlen   `EQ__ '0;
-            awuser  `EQ__ '0;
-            awid    `EQ__ '0;
-            awlock  `EQ__ '0;
-            awvalid `EQ__ '0;
+            send_write_addr(addr, burst, size, len, user, id, lock);
             fork
                 for (int beat=0; beat <= len; beat++)
                     send_write_beat(beat == len, data[beat], use_write_user ? write_user[beat] : UW'(0), use_strb ? strb[beat] : {DW/8{1'b1}});
@@ -384,12 +414,12 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
                     repeat (stall) begin
                         @(posedge clk);
                     end
-                    get_write_resp(resp, resp_user);
+                    get_write_resp(id, resp, resp_user);
                 end
             join
         endtask
 
-        task automatic axi_write_single(input  logic [AW-1:0] addr,
+        task axi_write_single(input  logic [AW-1:0] addr,
                             input  logic [UW-1:0] user  = UW'(0),
                             input  logic [IW-1:0] id    = IW'(0),
                             input  logic          lock  = 1'b0,

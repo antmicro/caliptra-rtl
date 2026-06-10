@@ -78,8 +78,15 @@ import caliptra_top_tb_pkg::*; #(
     input logic [ 7:0] axi_len,
     ref   logic [ 3:0] axi_wstrb[$],
     input logic [ 1:0] axi_burst,
+    input logic        axi_use_id,
+    input logic [ 7:0] axi_id,
     input logic        axi_write,
+    input logic        axi_write_addr,
+    input logic        axi_write_data,
+    input logic        axi_write_resp,
     input logic        axi_read,
+    input logic        axi_read_addr,
+    input logic        axi_read_resp,
     input logic        axi_put_status,
     input logic        axi_put_rdata,
 
@@ -323,8 +330,10 @@ import caliptra_top_tb_pkg::*; #(
                         pk_hash_read_2 = new[1];
                         pk_hash_read_3 = new[1];
 
-                        foreach (pk_hash_user[i])
+                        foreach (pk_hash_user[i]) begin
                             pk_hash_user[i] = new[1];
+                            pk_hash_user[i][0] = '0;
+                        end
 
                         foreach (resp[i])
                             resp[i] = new[1];
@@ -349,87 +358,162 @@ import caliptra_top_tb_pkg::*; #(
                         r_stalls[2] = r_stalls[1] + $urandom_range(2, 20);
 
                         fork
-                            m_axi_bfm_if.axi_write(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
-                                .data(pk_hash),
-                                .id($urandom()),
-                                .len(0),
-                                .resp(resp[0][0]),
-                                .strb(pk_hash_strobe),
-                                .write_user(pk_hash_user[0]),
-                                .resp_user(buser),
-                                // Simulate a stall on the master's side (BREADY held low)
-                                .stall(w_stalls[0]));
                             begin
+                                automatic logic [7:0] id = $urandom();
+                                m_axi_bfm_if.send_write_addr(
+                                    .addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
+                                    .id(id),
+                                    .len(0)
+                                );
+                                for (int i=0; i<w_stalls[0]; i++)
+                                    @(posedge m_axi_bfm_if.clk);
+                                m_axi_bfm_if.send_write_beat(
+                                    .last(1'b1),
+                                    .data(pk_hash[0]),
+                                    .user(pk_hash_user[0][0]),
+                                    .strb(pk_hash_strobe[0])
+                                );
+                                for (int i=0; i<w_stalls[0]; i++)
+                                    @(posedge m_axi_bfm_if.clk);
+                                m_axi_bfm_if.get_write_resp(
+                                    .id(id),
+                                    .resp(resp[0][0]),
+                                    .user(buser)
+                                );
+                            end
+                            begin
+                                automatic logic [7:0] id = $urandom();
                                 fork
                                     begin
                                         @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.awvalid & m_axi_bfm_if.awready);
-                                        m_axi_bfm_if.axi_write(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
-                                            .data(pk_hash),
-                                            .id($urandom()),
-                                            .len(0),
-                                            .resp(resp[1][0]),
-                                            .strb(pk_hash_strobe),
-                                            .write_user(pk_hash_user[1]),
-                                            .resp_user(buser),
-                                            // Simulate a stall on the master's side (BREADY held low)
-                                            .stall(w_stalls[1]));
+                                        m_axi_bfm_if.send_write_addr(
+                                            .addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
+                                            .id(id),
+                                            .len(0)
+                                        );
+                                        end
+                                    begin
+                                        @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.wvalid & m_axi_bfm_if.wready);
+                                        for (int i=0; i<w_stalls[1]; i++)
+                                            @(posedge m_axi_bfm_if.clk);
+                                        m_axi_bfm_if.send_write_beat(
+                                            .last(1'b1),
+                                            .data(pk_hash[0]),
+                                            .user(pk_hash_user[1][0]),
+                                            .strb(pk_hash_strobe[0])
+                                        );
                                     end
                                     begin
-                                        // Third write, to exercise AWREADY-induced stall
-                                        // Twice the delay, since we are sending transactions in sequence
-                                        repeat (2) begin
-                                            @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.awvalid & m_axi_bfm_if.awready);
-                                        end
-                                        m_axi_bfm_if.axi_write(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
-                                            .data(pk_hash),
-                                            .id($urandom()),
-                                            .len(0),
+                                        @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.bvalid & m_axi_bfm_if.bready);
+                                        for (int i=0; i<w_stalls[1]; i++)
+                                            @(posedge m_axi_bfm_if.clk);
+                                        m_axi_bfm_if.get_write_resp(
+                                            .id(id),
+                                            .resp(resp[1][0]),
+                                            .user(buser)
+                                        );
+                                    end
+                                join
+                            end
+                            begin
+                                automatic logic [7:0] id = $urandom();
+                                // Third write, to exercise AWREADY-induced stall
+                                // Twice the delay, since we are sending transactions in sequence
+                                fork
+                                    begin
+                                        repeat (2) @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.awvalid & m_axi_bfm_if.awready);
+                                        m_axi_bfm_if.send_write_addr(
+                                            .addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
+                                            .id(id),
+                                            .len(0)
+                                        );
+                                    end
+                                    begin
+                                        repeat (2) @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.wvalid & m_axi_bfm_if.wready);
+                                        for (int i=0; i<w_stalls[2]; i++)
+                                            @(posedge m_axi_bfm_if.clk);
+                                        m_axi_bfm_if.send_write_beat(
+                                            .last(1'b1),
+                                            .data(pk_hash[0]),
+                                            .user(pk_hash_user[5][0]),
+                                            .strb(pk_hash_strobe[0])
+                                        );
+                                    end
+                                    begin
+                                        repeat (2) @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.bvalid & m_axi_bfm_if.bready);
+                                        for (int i=0; i<w_stalls[2]; i++)
+                                            @(posedge m_axi_bfm_if.clk);
+                                        m_axi_bfm_if.get_write_resp(
+                                            .id(id),
                                             .resp(resp[5][0]),
-                                            .strb(pk_hash_strobe),
-                                            .write_user(pk_hash_user[5]),
-                                            .resp_user(buser),
-                                            // Simulate a stall on the master's side (BREADY held low)
-                                            .stall(w_stalls[2]));
+                                            .user(buser)
+                                        );
                                     end
                                 join
                             end
                         join
                         fork
-                            m_axi_bfm_if.axi_read(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
-                                .data(pk_hash_read_1),
-                                .id($urandom()),
-                                .len(0),
-                                .resp(resp[2]),
-                                .resp_user(pk_hash_user[3]),
-                                // Simulate a stall on the master's side (RREADY held low)
-                                .stall(r_stalls[0]));
                             begin
+                                automatic logic [7:0] id = $urandom();
+                                m_axi_bfm_if.send_read_address(
+                                    .addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
+                                    .id(id),
+                                    .len(0)
+                                );
+                                for (int i=0; i<r_stalls[0]; i++)
+                                    @(posedge m_axi_bfm_if.clk);
+                                m_axi_bfm_if.get_read_beat(
+                                    .id(id),
+                                    .data(pk_hash_read_1[0]),
+                                    .user(pk_hash_user[2][0]),
+                                    .resp(resp[2][0])
+                                );
+                            end
+                            begin
+                                automatic logic [7:0] id = $urandom();
                                 fork
                                     begin
-                                        @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.arvalid & m_axi_bfm_if.arready);
-                                        m_axi_bfm_if.axi_read(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
-                                            .data(pk_hash_read_2),
-                                            .id($urandom()),
-                                            .len(0),
-                                            .resp(resp[3]),
-                                            .resp_user(pk_hash_user[3]),
-                                            // Simulate a stall on the master's side (RREADY held low)
-                                            .stall(r_stalls[1]));
+                                        repeat (1) @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.arvalid & m_axi_bfm_if.arready);
+                                        m_axi_bfm_if.send_read_address(
+                                            .addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
+                                            .id(id),
+                                            .len(0)
+                                        );
                                     end
                                     begin
-                                        // Third read, to exercise ARREADY-induced stall
-                                        // Twice the delay
-                                        repeat (2) begin
-                                            @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.arvalid & m_axi_bfm_if.arready);
-                                        end
-                                        m_axi_bfm_if.axi_read(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
-                                            .data(pk_hash_read_3),
-                                            .id($urandom()),
-                                            .len(0),
-                                            .resp(resp[4]),
-                                            .resp_user(pk_hash_user[4]),
-                                            // Simulate a stall on the master's side (RREADY held low)
-                                            .stall(r_stalls[2]));
+                                        repeat (1) @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.rvalid & m_axi_bfm_if.rready);
+                                        for (int i=0; i<r_stalls[1]; i++)
+                                            @(posedge m_axi_bfm_if.clk);
+                                        m_axi_bfm_if.get_read_beat(
+                                            .id(id),
+                                            .data(pk_hash_read_2[0]),
+                                            .user(pk_hash_user[3][0]),
+                                            .resp(resp[3][0])
+                                        );
+                                    end
+                                join
+                            end
+                            begin
+                                automatic logic [7:0] id = $urandom();
+                                fork
+                                    begin
+                                        repeat (2) @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.arvalid & m_axi_bfm_if.arready);
+                                        m_axi_bfm_if.send_read_address(
+                                            .addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
+                                            .id(id),
+                                            .len(0)
+                                        );
+                                    end
+                                    begin
+                                        repeat (2) @(posedge m_axi_bfm_if.clk iff m_axi_bfm_if.rvalid & m_axi_bfm_if.rready);
+                                        for (int i=0; i<r_stalls[2]; i++)
+                                            @(posedge m_axi_bfm_if.clk);
+                                        m_axi_bfm_if.get_read_beat(
+                                            .id(id),
+                                            .data(pk_hash_read_3[0]),
+                                            .user(pk_hash_user[4][0]),
+                                            .resp(resp[4][0])
+                                        );
                                     end
                                 join
                             end
@@ -776,7 +860,7 @@ import caliptra_top_tb_pkg::*; #(
         end
     end
 
-    logic done, read, write;
+    logic done, read, write, read_addr, read_resp, write_addr, write_data, write_resp;
     logic [31:0] axi_rdata[$];
     axi_resp_e axi_bresp, axi_rresp[$];
     logic [`CALIPTRA_AXI_USER_WIDTH  -1:0] axi_buser, axi_ruser[$];
@@ -784,14 +868,53 @@ import caliptra_top_tb_pkg::*; #(
         if (~cptra_pwrgood) begin
             done <= 1'b0;
             read <= 1'b0;
+            read_addr <= 1'b0;
+            read_resp <= 1'b0;
             write <= 1'b0;
+            write_addr <= 1'b0;
+            write_data <= 1'b0;
+            write_resp <= 1'b0;
             axi_bresp <= axi_pkg::axi_resp_e'(0);
             axi_buser <= '0;
-        end else if (axi_write || axi_read) begin
+        end else if (axi_write || axi_read || axi_write_addr || axi_write_data || axi_write_resp || axi_read_addr || axi_read_resp ) begin
             done <= 1'b0;
             read <= 1'b0;
             write <= 1'b0;
+            read_addr <= 1'b0;
+            read_resp <= 1'b0;
+            write_addr <= 1'b0;
+            write_data <= 1'b0;
+            write_resp <= 1'b0;
             fork
+                if (axi_write_addr) begin
+                    write_addr <= 1'b1;
+                    m_axi_bfm_if.send_write_addr(
+                        .addr(axi_addr),
+                        .burst(axi_pkg::axi_burst_e'(axi_burst)),
+                        .len(axi_len),
+                        .user(axi_axuser),
+                        .id(axi_id),
+                        .lock(1'b0)
+                    );
+                end
+                if (axi_write_data) begin
+                    write_data <= 1'b1;
+                    for (int beat=0; beat <= axi_len; beat++)
+                        m_axi_bfm_if.send_write_beat(
+                            .last(beat == axi_len),
+                            .data(axi_wdata[beat]),
+                            .user(axi_wuser[beat]),
+                            .strb(axi_wstrb[beat])
+                        );
+                end
+                if (axi_write_resp) begin
+                    write_resp <= 1'b1;
+                    m_axi_bfm_if.get_write_resp(
+                        .id(axi_id),
+                        .resp(axi_bresp),
+                        .user(axi_buser)
+                    );
+                end
                 if (axi_write) begin
                     write <= 1'b1;
                     m_axi_bfm_if.axi_write(
@@ -799,7 +922,7 @@ import caliptra_top_tb_pkg::*; #(
                         .burst(axi_pkg::axi_burst_e'(axi_burst)),
                         .len(axi_len),
                         .user(axi_axuser),
-                        .id  ($urandom()),
+                        .id  (axi_use_id ? axi_id : $urandom()),
                         .lock(1'b0),
                         .data(axi_wdata),
                         .use_strb(1'b1),
@@ -810,13 +933,47 @@ import caliptra_top_tb_pkg::*; #(
                         .resp_user(axi_buser)
                     );
                 end
+                if (axi_read_addr) begin
+                    read_addr <= 1'b1;
+                    m_axi_bfm_if.send_read_address(
+                        .addr(axi_addr),
+                        .burst(axi_pkg::axi_burst_e'(axi_burst)),
+                        .len(axi_len),
+                        .user(axi_axuser),
+                        .id(axi_id),
+                        .lock(1'b0)
+                    );
+                end
+                if (axi_read_resp) begin
+                    automatic axi_resp_e   beat_resp, rresp[];
+                    automatic logic [31:0] beat_user, ruser[];
+                    automatic logic [31:0] beat_data, rdata[];
+                    read_resp <= 1'b1;
+                    rdata = new[axi_len+1];
+                    ruser = new[axi_len+1];
+                    rresp = new[axi_len+1];
+                    for (int beat=0; beat <= axi_len; beat++) begin
+                        m_axi_bfm_if.get_read_beat(
+                            .id(axi_id),
+                            .data(beat_data),
+                            .user(beat_user),
+                            .resp(beat_resp)
+                        );
+                        rdata[beat] = beat_data;
+                        ruser[beat] = beat_user;
+                        rresp[beat] = beat_resp;
+                    end
+                    axi_rdata = rdata;
+                    axi_ruser = ruser;
+                    axi_rresp = rresp;
+                end
                 if (axi_read) begin
                     read <= 1'b1;
                     m_axi_bfm_if.axi_read(
                         .addr(axi_addr),
                         .burst(axi_pkg::axi_burst_e'(axi_burst)),
                         .len(axi_len),
-                        .id($urandom()),
+                        .id(axi_use_id ? axi_id : $urandom()),
                         .user(axi_axuser),
                         .data(axi_rdata),
                         .resp(axi_rresp),
@@ -826,6 +983,34 @@ import caliptra_top_tb_pkg::*; #(
             join
         end else begin
             done <= 1'b1;
+        end
+    end
+
+    always @(posedge core_clk) begin
+        if (axi_put_status) begin
+            if (done) begin
+                if (read && write) // Need to merge the results
+                    // only keep read response user bit
+                    // OR the status, if one is an error, the whole transaction looks like an error
+                    generic_input_wires <= {axi_ruser.pop_front(), 29'd0, (axi_rresp.pop_front() || axi_bresp), 1'b1};
+                else if (read)
+                    generic_input_wires <= {axi_ruser.pop_front(), 29'd0, axi_rresp.pop_front(), 1'b1};
+                else if (write)// write
+                    generic_input_wires <= {axi_buser, 29'b0, axi_bresp, 1'b1};
+                else if (write_addr)
+                    generic_input_wires <= {63'h0, 1'b1};
+                else if (write_data)
+                    generic_input_wires <= {63'h0, 1'b1};
+                else if (write_resp)
+                    generic_input_wires <= {axi_buser, 29'b0, axi_bresp, 1'b1};
+                else if (read_addr)
+                    generic_input_wires <= {63'h0, 1'b1};
+                else if (read_resp)
+                    generic_input_wires <= {axi_ruser.pop_front(), 29'd0, axi_rresp.pop_front(), 1'b1};
+            end else
+                generic_input_wires <= '0;
+        end else if (axi_put_rdata) begin
+            generic_input_wires <= {32'b0, axi_rdata.pop_front()};
         end
     end
 
@@ -841,24 +1026,6 @@ import caliptra_top_tb_pkg::*; #(
                     .resp_user(buser)
                 );
             end
-        end
-    end
-
-    always @(posedge core_clk) begin
-        if (axi_put_status) begin
-            if (done) begin
-                if (read && write) // Need to merge the results
-                    // only keep read response user bit
-                    // OR the status, if one is an error, the whole transaction looks like an error
-                    generic_input_wires <= {axi_ruser.pop_front(), 29'd0, (axi_rresp.pop_front() || axi_bresp), 1'b1};
-                else if (read)
-                    generic_input_wires <= {axi_ruser.pop_front(), 29'd0, axi_rresp.pop_front(), 1'b1};
-                else // write
-                generic_input_wires <= {axi_buser, 29'b0, axi_bresp, 1'b1};
-            end else
-                generic_input_wires <= '0;
-        end else if (axi_put_rdata) begin
-            generic_input_wires <= {32'b0, axi_rdata.pop_front()};
         end
     end
 

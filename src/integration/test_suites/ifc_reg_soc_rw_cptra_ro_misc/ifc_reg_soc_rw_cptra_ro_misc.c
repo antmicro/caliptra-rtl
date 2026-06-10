@@ -205,6 +205,93 @@ void main(void) {
         }
     }
 
+    // Test multiple inflight SoC AXI transactions
+    uint32_t w1_data = xorshift32(), w2_data = xorshift32();
+    axi_req_t w1, w2, r1, r2;
+    w1 = (axi_req_t) {
+        .addr = CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_0,
+        .axuser = 0,
+        .burst = AXI_BURST_INCR,
+        .len = 1,
+        .write = true,
+        .read  = false,
+        .use_id = true,
+        .id    = 1,
+        .wuser = (uint32_t[]){0},
+        .wdata = (uint32_t[]){w1_data},
+        .wstrb = (uint8_t[]){0xf}
+    };
+    w2 = (axi_req_t) {
+        .addr = CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_1,
+        .axuser = 0,
+        .burst = AXI_BURST_INCR,
+        .len = 1,
+        .write = true,
+        .read  = false,
+        .use_id = true,
+        .id    = 2,
+        .wuser = (uint32_t[]){0},
+        .wdata = (uint32_t[]){w2_data},
+        .wstrb = (uint8_t[]){0xf}
+    };
+    r1 = (axi_req_t) {
+        .addr = CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_2,
+        .axuser = 0,
+        .burst = AXI_BURST_INCR,
+        .len = 1,
+        .write = false,
+        .read = true,
+        .use_id = true,
+        .id    = 3,
+    };
+    r2 = (axi_req_t) {
+        .addr = CLP_SOC_IFC_REG_FUSE_MANUF_DBG_UNLOCK_TOKEN_3,
+        .axuser = 0,
+        .burst = AXI_BURST_INCR,
+        .len = 1,
+        .write = false,
+        .read = true,
+        .use_id = true,
+        .id    = 4,
+    };
+
+    // Send address and simulate data delay
+    soc_write_addr(w1);
+    soc_write_addr(w2);
+    // Send address and simulate stall
+    soc_read_addr(r1);
+    soc_read_addr(r2);
+
+    soc_write_data(w1);
+    soc_write_data(w2);
+
+    // Get responses
+    axi_resp_t resp;
+    uint32_t value = lsu_read_32(w1.addr);
+    resp = soc_write_resp(w1);
+    if (resp.resp != 0 || value != w1_data) {
+        VPRINTF(LOW, "Write to 0x%x failed, expected: %x, got %x!\n", w1.addr, w1_data, value);
+        error_count++;
+    }
+    value = lsu_read_32(w2.addr);
+    resp = soc_write_resp(w2);
+    if (resp.resp != 0 || value != w2_data) {
+        VPRINTF(LOW, "Write to 0x%x failed, expected: %x, got %x!\n", w2.addr, w2_data, value);
+        error_count++;
+    }
+    value = lsu_read_32(r1.addr);
+    resp = soc_read_resp(r1);
+    if (resp.resp != 0 || value != resp.rdata) {
+        VPRINTF(LOW, "Read from 0x%x failed, expected: %x, got %x!\n", r1.addr, value, resp.rdata);
+        error_count++;
+    }
+    value = lsu_read_32(r2.addr);
+    resp = soc_read_resp(r2);
+    if (resp.resp != 0 || value != resp.rdata) {
+        VPRINTF(LOW, "Read from 0x%x failed, expected: %x, got %x!\n", r2.addr, value, resp.rdata);
+        error_count++;
+    }
+
     VPRINTF(LOW, "\nIFC SoC Read-Write, Caliptra Read-Only Register Access Tests Completed\n");
 
     for (uint8_t ii = 0; ii < 160; ii++) {

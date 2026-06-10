@@ -148,8 +148,15 @@ end
     logic [ 7:0] len;
     logic [ 3:0] wstrb[$];
     logic [ 1:0] burst;
+    logic        use_id;
+    logic        id;
     logic        write;
+    logic        write_addr;
+    logic        write_data;
+    logic        write_resp;
     logic        read;
+    logic        read_addr;
+    logic        read_resp;
     logic        put_status;
     logic        put_rdata;
 
@@ -235,13 +242,20 @@ caliptra_top_tb_soc_bfm soc_bfm_inst (
     //AXI SoC
     .axi_addr(address),
     .axi_axuser(axuser),
+    .axi_wuser(wuser),
     .axi_wdata(wdata),
     .axi_len(len),
     .axi_wstrb(wstrb),
     .axi_burst(burst),
+    .axi_use_id(use_id),
+    .axi_id(id),
     .axi_write(write),
+    .axi_write_addr(write_addr),
+    .axi_write_data(write_data),
+    .axi_write_resp(write_resp),
     .axi_read(read),
-    .axi_wuser(wuser),
+    .axi_read_addr(read_addr),
+    .axi_read_resp(read_resp),
     .axi_put_status(put_status),
     .axi_put_rdata(put_rdata),
 
@@ -459,13 +473,20 @@ caliptra_top_tb_services #(
     //AXI SoC
     .axi_addr(address),
     .axi_axuser(axuser),
+    .axi_wuser(wuser),
     .axi_wdata(wdata),
     .axi_len(len),
     .axi_wstrb(wstrb),
     .axi_burst(burst),
+    .axi_use_id(use_id),
+    .axi_id(id),
     .axi_write(write),
-    .axi_wuser(wuser),
+    .axi_write_addr(write_addr),
+    .axi_write_data(write_data),
+    .axi_write_resp(write_resp),
     .axi_read(read),
+    .axi_read_addr(read_addr),
+    .axi_read_resp(read_resp),
     .axi_put_status(put_status),
     .axi_put_rdata(put_rdata),
 

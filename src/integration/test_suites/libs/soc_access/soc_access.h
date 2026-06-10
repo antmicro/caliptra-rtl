@@ -35,7 +35,8 @@ typedef struct {
     uint32_t *wdata, *wuser, *rdata;
     uint8_t *wstrb;
     uint8_t len;
-    bool write, read, ignore_resp;
+    uint8_t id;
+    bool write, read, ignore_resp, use_id;
 } axi_req_t;
 
 axi_resp_t soc_access_32(axi_req_t req);
@@ -45,5 +46,10 @@ uint8_t soc_write_user_32(uint32_t reg_addr, uint32_t value, uint32_t user);
 uint8_t soc_write_32(uint32_t reg_addr, uint32_t value);
 axi_resp_t soc_read_user_32(uint32_t reg_addr, uint32_t user);
 axi_resp_t soc_read_32(uint32_t reg_addr);
+void       soc_write_addr(axi_req_t req);
+void       soc_write_data(axi_req_t req);
+axi_resp_t soc_write_resp(axi_req_t req);
+void       soc_read_addr(axi_req_t req);
+axi_resp_t soc_read_resp(axi_req_t req);
 
 #endif /* SOC_ACCESS_LIB */
