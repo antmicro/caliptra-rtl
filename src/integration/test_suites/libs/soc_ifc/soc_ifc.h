@@ -126,6 +126,7 @@ void soc_ifc_mbox_dir_write_single(uint32_t wrptr, uint32_t wrdata);
 void soc_ifc_clear_execute_reg();
 uint8_t soc_ifc_chk_execute_uc();
 void soc_ifc_set_mbox_status_field(enum mbox_status_e field);
+uint32_t soc_ifc_mbox_read_rdptr();
 void soc_ifc_set_flow_status_field(uint32_t field);
 void soc_ifc_clr_flow_status_field(uint32_t field);
 void soc_ifc_set_fw_update_reset(uint8_t wait_cycles);
@@ -143,7 +144,7 @@ void soc_ifc_sha_accel_wr_mode(enum sha_accel_mode_e mode);
 void soc_ifc_sha_accel_execute();
 void soc_ifc_sha_accel_poll_status();
 void soc_ifc_sha_accel_clr_lock();
-void soc_ifc_w1clr_sha_lock_field();
+void soc_ifc_w1clr_sha_lock_field(uint32_t field);
 
 // AXI DMA Functions
 void soc_ifc_axi_dma_send_ahb_payload(uint64_t dst_addr, uint8_t fixed, uint32_t * payload, uint32_t byte_count, uint16_t block_size);

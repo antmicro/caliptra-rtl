@@ -67,6 +67,10 @@ void soc_ifc_set_mbox_status_field(enum mbox_status_e field) {
     lsu_write_32(CLP_MBOX_CSR_MBOX_STATUS,reg);
 }
 
+uint32_t soc_ifc_mbox_read_rdptr() {
+    return (lsu_read_32(CLP_MBOX_CSR_MBOX_STATUS) & MBOX_CSR_MBOX_STATUS_MBOX_RDPTR_MASK) >> MBOX_CSR_MBOX_STATUS_MBOX_RDPTR_LOW;
+}
+
 void soc_ifc_set_flow_status_field(uint32_t field) {
     VPRINTF(MEDIUM,"SOC_IFC: Set flow_status field: 0x%x\n", field);
     uint32_t reg;
