@@ -9,3 +9,6 @@ CHECKSUM: "454219371 3200289329"
 MODULE: mbox
 ANNOTATION: "Lock cannot be asserted in idle state if swmod or hwset are asserted due to common signal dependencies"
 Condition 22 "2817988973" "((mbox_fsm_ps == MBOX_IDLE) & ((~hwif_out.mbox_lock.lock.value)) & (hwif_out.mbox_lock.lock.swmod | hwif_in.mbox_lock.lock.hwset)) 1 -1" (2 "101")
+INSTANCE: caliptra_top_tb.caliptra_top_dut.soc_ifc_top1.i_mbox
+ANNOTATION: "DMA will never drive request without uC lock; if already during DMA request, removing uC lock deasserts mbox_lock.lock.value beforehand"
+Condition 127 "2322420362" "(dma_sram_req_dv & hwif_out.mbox_lock.lock.value & uc_has_lock & ((~dma_sram_req_rd_phase))) 1 -1" (3 "1101")
