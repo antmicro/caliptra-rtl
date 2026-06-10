@@ -129,6 +129,7 @@ static void overflow_with_stall_sha_test() {
         // fast enough to trigger a stall, and this enables that
         .len = SHA_DATA_LEN,
         .write = true,
+        .read = false,
         .wdata = SHA_DATA,
     });
 
@@ -142,6 +143,7 @@ static void overflow_with_stall_sha_test() {
         .burst = AXI_BURST_INCR,
         .len = 16,
         .write = false,
+        .read = true,
         .rdata = digest
     });
 
