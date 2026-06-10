@@ -35,3 +35,5 @@ ANNOTATION: "The payload_available edge-detection is disabled, only a single set
 Toggle rd_req_count_for_payload [8] "logic rd_req_count_for_payload[10:0]"
 ANNOTATION: "The payload_available edge-detection is disabled, only a single set of requests can be scheduled. The signal is wide enough to store two sets of requests"
 Toggle rd_req_count_for_payload [9] "logic rd_req_count_for_payload[10:0]"
+ANNOTATION: "The maximum value is 'h7F (one less than the FIFO depth), even if AXI is stalled one transaction is buffered in i_axi_mgr_wr.i_ctx_skd"
+Toggle wr_credits [7] "logic wr_credits[7:0]"
