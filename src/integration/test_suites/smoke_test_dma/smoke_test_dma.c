@@ -70,7 +70,9 @@ enum err_inj_type {
     cmd_inv_src_addr2     ,
     cmd_inv_dst_addr1     ,
     cmd_inv_dst_addr2     ,
-    cmd_inv_byte_count    ,
+    cmd_inv_byte_count1   ,
+    cmd_inv_byte_count2   ,
+    cmd_inv_byte_count3   ,
     cmd_inv_block_size1   ,
     cmd_inv_block_size2   ,
     cmd_inv_rd_fixed      ,
@@ -156,8 +158,19 @@ uint8_t soc_ifc_axi_dma_inject_inv_error(enum err_inj_type err_type) {
     case cmd_inv_dst_addr2:
         dst_addr = 0xffffffff00000000ul + 0x4000;
         break;
-    case cmd_inv_byte_count:
+    case cmd_inv_byte_count1:
+        // Not a power of 2
         byte_count = 0x43;
+        break;
+    case cmd_inv_byte_count2:
+        // Too much for DMA
+        byte_count = 0x1f0000;
+        break;
+    case cmd_inv_byte_count3:
+        // Too much for MBOX, but not for DMA
+        byte_count = 0x80000;
+        rd_route = axi_dma_rd_route_MBOX;
+        wr_route = axi_dma_wr_route_DISABLE;    // MBOX/AXI is invalid combo
         break;
     case cmd_inv_block_size1:
         // Not word-aligned
@@ -356,7 +369,9 @@ void main(void) {
         if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_src_addr2    )) { fail = 1; }
         if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_dst_addr1    )) { fail = 1; }
         if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_dst_addr2    )) { fail = 1; }
-        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_byte_count   )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_byte_count1  )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_byte_count2  )) { fail = 1; }
+        if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_byte_count3  )) { fail = 1; }
         if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_block_size1  )) { fail = 1; }
         if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_block_size2  )) { fail = 1; }
         if (soc_ifc_axi_dma_inject_inv_error(cmd_inv_rd_fixed     )) { fail = 1; }
@@ -771,14 +786,6 @@ void main(void) {
         // ===========================================================================
         // Start a long transaction to cover highest size bits
         // ===========================================================================
-        VPRINTF(LOW, "Moving payload at SRAM via axi-to-axi xfer - size over max\n");
-        soc_ifc_axi_dma_send_axi_to_axi_no_wait(AXI_SRAM_BASE_ADDR, 0, AXI_SRAM_BASE_ADDR+0x1000, 0, 0x1f0000, 0);
-        // Don't use soc_ifc_axi_dma_wait_idle(), status0 may show an error, depending on the interrupt timing
-        reg = lsu_read_32(CLP_AXI_DMA_REG_STATUS0);
-        while ((reg & AXI_DMA_REG_STATUS0_BUSY_MASK) && !(reg & AXI_DMA_REG_STATUS0_ERROR_MASK)) {
-            reg = lsu_read_32(CLP_AXI_DMA_REG_STATUS0);
-        }
-
         VPRINTF(LOW, "Moving payload at SRAM via axi-to-axi xfer - biggest implemented size\n");
         soc_ifc_axi_dma_send_axi_to_axi_no_wait(AXI_SRAM_BASE_ADDR, 0, AXI_SRAM_BASE_ADDR+0x1000, 0, 0x100000, 0);
 
