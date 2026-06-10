@@ -31,3 +31,8 @@ ANNOTATION: "When force bus idle is active, the system is under reset and no acc
 Condition 33 "4044223374" "(initiator0_pend_addr_ph_nq & ((~force_bus_idle))) 1 -1" (2 "10")
 ANNOTATION: "When force bus idle is active, the system is under reset and no access are expected"
 Condition 32 "2189277537" "(initiator1_data_ph_nq & ((~force_bus_idle))) 1 -1" (2 "10")
+
+CHECKSUM: "140893732 2942315046"
+INSTANCE: caliptra_top_tb.caliptra_top_dut.u_sb_lsu_ahb_mux
+ANNOTATION: "hreadyout_i = 0 is only possible if the previous transfer has not finished while a new one is starting. initiator1 is connected to JTAG that cannot generate back to back transfer. If initiator0 is generatring traffic it takes precedence over initiator1 and gnt1 is kept low."
+Condition 26 "434714709" "(hreadyout_i & initiator1_gnt) 1 -1" (1 "01")
