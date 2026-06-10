@@ -63,6 +63,7 @@ void main () {
                              0xCAFEC0DE,
                            };
     axi_resp_t axi_resp;
+    enum mbox_fsm_e state;
     uint32_t mbox_data_readback, mbox_status, mbox_dlen;
 
     // Set mailbox pointer reset value override
@@ -78,6 +79,7 @@ void main () {
     VPRINTF(LOW, " Caliptra Mailbox Full Smoke Test!!\n");
     VPRINTF(LOW, "-----------------------------------\n");
 
+    VPRINTF(LOW, "FW: Test 1 - Overflow mailbox DATAIN and DATAOUT\n");
     // SoC: Poll for mbox lock
     VPRINTF(LOW, "FW (SoC): Poll for mailbox lock\n");
     do {
@@ -174,6 +176,8 @@ void main () {
       while(1);
     }
 
+    VPRINTF(LOW, "FW: Test 2 - Lock mailbox from SoC when FW unlocks\n");
+
     VPRINTF(LOW, "FW: Poll for mailbox lock\n");
     while((lsu_read_32(CLP_MBOX_CSR_MBOX_LOCK) & MBOX_CSR_MBOX_LOCK_LOCK_MASK) == 1);
 
@@ -190,6 +194,31 @@ void main () {
     mbox_status = lsu_read_32(CLP_MBOX_CSR_MBOX_LOCK) & MBOX_CSR_MBOX_LOCK_LOCK_MASK;
     if (mbox_status != 1) {
       VPRINTF(ERROR, "ERROR: Mailbox is not locked by SoC immediately after unlock! Expected 0x1 got 0x%x\n", mbox_status);
+      SEND_STDOUT_CTRL(TB_CMD_FAIL);
+      while(1);
+    }
+
+    VPRINTF(LOW, "FW: Test 3 - Unlock mailbox on direct mailbox SRAM access\n");
+
+    VPRINTF(LOW, "FW: Force mailbox unlock\n");
+    lsu_write_32(CLP_MBOX_CSR_MBOX_UNLOCK, MBOX_CSR_MBOX_UNLOCK_UNLOCK_MASK);
+
+    VPRINTF(LOW, "FW: Poll for mailbox lock\n");
+    while((lsu_read_32(CLP_MBOX_CSR_MBOX_LOCK) & MBOX_CSR_MBOX_LOCK_LOCK_MASK) == 1);
+
+    VPRINTF(LOW, "FW: Enable injection of SoC mailbox unlock on FW mailbox direct access\n");
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x5C7F);
+
+    // Write data into mailbox using direct-mode
+    VPRINTF(LOW, "FW: Access mailbox SRAM directly\n");
+    lsu_write_32(CLP_MBOX_SRAM_BASE_ADDR, mbox_data[0]);
+
+    VPRINTF(LOW, "FW: Disable injection of SoC mailbox unlock on FW mailbox direct access\n");
+    lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x5D7F);
+
+    VPRINTF(LOW, "FW: Wait for mailbox to enter IDLE state\n");
+    if (soc_ifc_poll_mbox_state(100, MBOX_IDLE)) {
+      VPRINTF(ERROR, "ERROR: Mailbox is not unlocked after unlock injection!\n");
       SEND_STDOUT_CTRL(TB_CMD_FAIL);
       while(1);
     }
