@@ -179,7 +179,11 @@ void main () {
     VPRINTF(LOW, "FW: Test 2 - Lock mailbox from SoC when FW unlocks\n");
 
     VPRINTF(LOW, "FW: Poll for mailbox lock\n");
-    while((lsu_read_32(CLP_MBOX_CSR_MBOX_LOCK) & MBOX_CSR_MBOX_LOCK_LOCK_MASK) == 1);
+    if (soc_ifc_mbox_acquire_lock(100)) {
+      VPRINTF(ERROR, "ERROR: Failed to aquire mailbox lock!\n");
+      SEND_STDOUT_CTRL(TB_CMD_FAIL);
+      while(1);
+    }
 
     VPRINTF(LOW, "FW: Enable injection of SoC mailbox lock on FW mailbox unlock\n");
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x5A7F);
@@ -191,9 +195,8 @@ void main () {
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x5B7F);
 
     VPRINTF(LOW, "FW: Ensure mailbox was locked by SoC\n");
-    mbox_status = lsu_read_32(CLP_MBOX_CSR_MBOX_LOCK) & MBOX_CSR_MBOX_LOCK_LOCK_MASK;
-    if (mbox_status != 1) {
-      VPRINTF(ERROR, "ERROR: Mailbox is not locked by SoC immediately after unlock! Expected 0x1 got 0x%x\n", mbox_status);
+    if (!soc_ifc_mbox_acquire_lock(100)) {
+      VPRINTF(ERROR, "ERROR: Mailbox is not locked by SoC immediately after unlock!\n");
       SEND_STDOUT_CTRL(TB_CMD_FAIL);
       while(1);
     }
@@ -204,7 +207,11 @@ void main () {
     lsu_write_32(CLP_MBOX_CSR_MBOX_UNLOCK, MBOX_CSR_MBOX_UNLOCK_UNLOCK_MASK);
 
     VPRINTF(LOW, "FW: Poll for mailbox lock\n");
-    while((lsu_read_32(CLP_MBOX_CSR_MBOX_LOCK) & MBOX_CSR_MBOX_LOCK_LOCK_MASK) == 1);
+    if (soc_ifc_mbox_acquire_lock(100)) {
+      VPRINTF(ERROR, "ERROR: Failed to aquire mailbox lock!\n");
+      SEND_STDOUT_CTRL(TB_CMD_FAIL);
+      while(1);
+    }
 
     VPRINTF(LOW, "FW: Enable injection of SoC mailbox unlock on FW mailbox direct access\n");
     lsu_write_32(CLP_SOC_IFC_REG_CPTRA_GENERIC_OUTPUT_WIRES_0, 0x5C7F);
