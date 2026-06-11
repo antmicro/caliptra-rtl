@@ -249,6 +249,7 @@ VERILATOR_RUN_ARGS ?= ""
 CFLAGS += $(TB_DPI_INCS)
 
 ############# VCS Compile options #############
+VCS_COMP_OPTS += +define+FCOV
 VCS_COMP_OPTS += +lint=IA_CHECKFAIL
 VCS_COMP_OPTS += -assert svaext
 VCS_COMP_OPTS += +define+SIMULATION
