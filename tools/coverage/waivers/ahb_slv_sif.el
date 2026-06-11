@@ -11,3 +11,11 @@ INSTANCE:caliptra_top_tb.caliptra_top_dut.csrng.u_reg.u_ahb_slv_sif
 CHECKSUM: "1710229973"
 ANNOTATION: "Following the example of Caliptra Consortium waivers"
 INSTANCE:caliptra_top_tb.caliptra_top_dut.entropy_src.u_reg.u_ahb_slv_sif
+CHECKSUM: "1710229973 3228577941"
+INSTANCE: caliptra_top_tb.caliptra_top_dut.data_vault1.dv_ahb_slv1
+ANNOTATION: "Only single transfers are expected"
+Toggle htrans_i [0] "logic htrans_i[1:0]"
+CHECKSUM: "1710229973 1942875552"
+INSTANCE: caliptra_top_tb.caliptra_top_dut.soc_ifc_top1.i_ahb_slv_sif_soc_ifc
+ANNOTATION: "Only single transfers are expected"
+Toggle htrans_i [0] "logic htrans_i[1:0]"

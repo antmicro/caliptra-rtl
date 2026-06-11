@@ -17,3 +17,7 @@ ANNOTATION: "It is always AXI_RESP_OKAY, the subordinate doesn't support exclusi
 Toggle txn_xfer_ctx[0].resp [1] "logic txn_xfer_ctx[0].resp[1:0]"
 ANNOTATION: "It is always AXI_RESP_OKAY, the subordinate doesn't support exclusive access"
 Toggle txn_xfer_ctx[0].resp [0] "logic txn_xfer_ctx[0].resp[1:0]"
+CHECKSUM: "1223749167 3190992032"
+INSTANCE: caliptra_top_tb.caliptra_top_dut.soc_ifc_top1.i_axi_sub_sif_soc_ifc.i_axi_sub_rd.DATA_PIPELINE[0].i_dp_skd
+ANNOTATION: "UNR o_data bits propagated to i_data"
+Toggle i_data [1] "net i_data[74:0]"
