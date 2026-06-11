@@ -312,27 +312,25 @@ import caliptra_top_tb_pkg::*; #(
 
                     if($test$plusargs("STALL_SOC_CSR")) begin
                         // Dynamic arrays, to work around a Verilator bug
-                        logic [`CALIPTRA_AXI_DATA_WIDTH-1:0] pk_hash[];
-                        logic [`CALIPTRA_AXI_DATA_WIDTH-1:0] pk_hash_prev[];
-                        logic [`CALIPTRA_AXI_DATA_WIDTH-1:0] pk_hash_read_1[];
-                        logic [`CALIPTRA_AXI_DATA_WIDTH-1:0] pk_hash_read_2[];
-                        logic [`CALIPTRA_AXI_DATA_WIDTH-1:0] pk_hash_read_3[];
-                        static logic [`CALIPTRA_AXI_DATA_WIDTH/8-1:0] pk_hash_strobe[1] = '{default: '1};
-                        logic [`CALIPTRA_AXI_USER_WIDTH-1:0] pk_hash_user[6][];
+                        logic [`CALIPTRA_AXI_DATA_WIDTH-1:0] axi_data[];
+                        logic [`CALIPTRA_AXI_DATA_WIDTH-1:0] axi_read_1[];
+                        logic [`CALIPTRA_AXI_DATA_WIDTH-1:0] axi_read_2[];
+                        logic [`CALIPTRA_AXI_DATA_WIDTH-1:0] axi_read_3[];
+                        static logic [`CALIPTRA_AXI_DATA_WIDTH/8-1:0] axi_strobe[4] = '{default: '1};
+                        logic [`CALIPTRA_AXI_USER_WIDTH-1:0] axi_user[6][];
                         axi_resp_e resp[6][];
 
                         int unsigned w_stalls[3];
                         int unsigned r_stalls[3];
 
-                        pk_hash = new[1];
-                        pk_hash_prev = new[1];
-                        pk_hash_read_1 = new[1];
-                        pk_hash_read_2 = new[1];
-                        pk_hash_read_3 = new[1];
+                        axi_data = new[1];
+                        axi_read_1 = new[1];
+                        axi_read_2 = new[1];
+                        axi_read_3 = new[1];
 
-                        foreach (pk_hash_user[i]) begin
-                            pk_hash_user[i] = new[1];
-                            pk_hash_user[i][0] = '0;
+                        foreach (axi_user[i]) begin
+                            axi_user[i] = new[1];
+                            axi_user[i][0] = '0;
                         end
 
                         foreach (resp[i])
@@ -343,7 +341,7 @@ import caliptra_top_tb_pkg::*; #(
                         // ---------------------
                         // AXI STALL TEST
                         // ---------------------
-                        if (!std::randomize(pk_hash)) $fatal(1, "%t: [%m] Failed to randomize data", $time);
+                        if (!std::randomize(axi_data)) $fatal(1, "%t: [%m] Failed to randomize data", $time);
 
                         // Each subsequent transaction stall cannot be the same as the previous one.
                         // Otherwise, we risk a race condition, where one transaction tries to pull "READY" to low while other to high.
@@ -369,9 +367,9 @@ import caliptra_top_tb_pkg::*; #(
                                     @(posedge m_axi_bfm_if.clk);
                                 m_axi_bfm_if.send_write_beat(
                                     .last(1'b1),
-                                    .data(pk_hash[0]),
-                                    .user(pk_hash_user[0][0]),
-                                    .strb(pk_hash_strobe[0])
+                                    .data(axi_data[0]),
+                                    .user(axi_user[0][0]),
+                                    .strb(axi_strobe[0])
                                 );
                                 for (int i=0; i<w_stalls[0]; i++)
                                     @(posedge m_axi_bfm_if.clk);
@@ -398,9 +396,9 @@ import caliptra_top_tb_pkg::*; #(
                                             @(posedge m_axi_bfm_if.clk);
                                         m_axi_bfm_if.send_write_beat(
                                             .last(1'b1),
-                                            .data(pk_hash[0]),
-                                            .user(pk_hash_user[1][0]),
-                                            .strb(pk_hash_strobe[0])
+                                            .data(axi_data[0]),
+                                            .user(axi_user[1][0]),
+                                            .strb(axi_strobe[0])
                                         );
                                     end
                                     begin
@@ -434,9 +432,9 @@ import caliptra_top_tb_pkg::*; #(
                                             @(posedge m_axi_bfm_if.clk);
                                         m_axi_bfm_if.send_write_beat(
                                             .last(1'b1),
-                                            .data(pk_hash[0]),
-                                            .user(pk_hash_user[5][0]),
-                                            .strb(pk_hash_strobe[0])
+                                            .data(axi_data[0]),
+                                            .user(axi_user[5][0]),
+                                            .strb(axi_strobe[0])
                                         );
                                     end
                                     begin
@@ -464,8 +462,8 @@ import caliptra_top_tb_pkg::*; #(
                                     @(posedge m_axi_bfm_if.clk);
                                 m_axi_bfm_if.get_read_beat(
                                     .id(id),
-                                    .data(pk_hash_read_1[0]),
-                                    .user(pk_hash_user[2][0]),
+                                    .data(axi_read_1[0]),
+                                    .user(axi_user[2][0]),
                                     .resp(resp[2][0])
                                 );
                             end
@@ -486,8 +484,8 @@ import caliptra_top_tb_pkg::*; #(
                                             @(posedge m_axi_bfm_if.clk);
                                         m_axi_bfm_if.get_read_beat(
                                             .id(id),
-                                            .data(pk_hash_read_2[0]),
-                                            .user(pk_hash_user[3][0]),
+                                            .data(axi_read_2[0]),
+                                            .user(axi_user[3][0]),
                                             .resp(resp[3][0])
                                         );
                                     end
@@ -510,8 +508,8 @@ import caliptra_top_tb_pkg::*; #(
                                             @(posedge m_axi_bfm_if.clk);
                                         m_axi_bfm_if.get_read_beat(
                                             .id(id),
-                                            .data(pk_hash_read_3[0]),
-                                            .user(pk_hash_user[4][0]),
+                                            .data(axi_read_3[0]),
+                                            .user(axi_user[4][0]),
                                             .resp(resp[4][0])
                                         );
                                     end
@@ -524,21 +522,21 @@ import caliptra_top_tb_pkg::*; #(
 
                         foreach(resp[i, j]) begin
                             if(resp[i][j] != AXI_RESP_OKAY) begin
-                                $error("Unexpected response: %s, response index: %0d, bead id: %0d", resp[i][j].name, i, j);
+                                $error("Unexpected response: %s, response index: %0d, beat id: %0d", resp[i][j].name, i, j);
                                 $finish;
                             end
                         end
 
-                        if(pk_hash_read_1 != pk_hash) begin
-                            $error("Unexpected read value: %p, expected: %p, read iteration: %d", pk_hash_read_1, pk_hash, 0);
+                        if(axi_read_1 != axi_data) begin
+                            $error("Unexpected read value: %p, expected: %p, read iteration: %d", axi_read_1, axi_data, 0);
                             $finish;
                         end
-                        if(pk_hash_read_2 != pk_hash) begin
-                            $error("Unexpected read value: %p, expected: %p, read iteration: %d", pk_hash_read_2, pk_hash, 1);
+                        if(axi_read_2 != axi_data) begin
+                            $error("Unexpected read value: %p, expected: %p, read iteration: %d", axi_read_2, axi_data, 1);
                             $finish;
                         end
-                        if(pk_hash_read_3 != pk_hash) begin
-                            $error("Unexpected read value: %p, expected: %p, read iteration: %d", pk_hash_read_3, pk_hash, 2);
+                        if(axi_read_3 != axi_data) begin
+                            $error("Unexpected read value: %p, expected: %p, read iteration: %d", axi_read_3, axi_data, 2);
                             $finish;
                         end
 
@@ -548,41 +546,83 @@ import caliptra_top_tb_pkg::*; #(
                         // AXI CONCURRENT W/R TEST
                         // ---------------------
                         // Concurrent write and read, to check that we will always see result of write
-                        if (!std::randomize(pk_hash)) $fatal(1, "%t: [%m] Failed to randomize data", $time);
+                        if (!std::randomize(axi_data)) $fatal(1, "%t: [%m] Failed to randomize data", $time);
                         fork
                             begin : f_concurrent_read
                                 m_axi_bfm_if.axi_read(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
-                                    .data(pk_hash_read_1),
+                                    .data(axi_read_1),
                                     .id($urandom()),
                                     .len(0),
                                     .resp(resp[0]),
-                                    .resp_user(pk_hash_user[0]));
+                                    .resp_user(axi_user[0]));
                             end
                             begin : f_concurrent_write
                                 m_axi_bfm_if.axi_write(.addr(`CLP_SOC_IFC_REG_CPTRA_OWNER_PK_HASH_0),
-                                    .data(pk_hash),
+                                    .data(axi_data),
                                     .id($urandom()),
                                     .len(0),
                                     .resp(resp[1][0]),
-                                    .strb(pk_hash_strobe),
-                                    .write_user(pk_hash_user[1]),
+                                    .strb(axi_strobe),
+                                    .write_user(axi_user[1]),
                                     .resp_user(buser));
                             end
                         join
 
                         foreach(resp[i, j]) begin
                             if(resp[i][j] != AXI_RESP_OKAY) begin
-                                $error("Unexpected response: %s, response index: %0d, bead id: %0d", resp[i][j].name, i, j);
+                                $error("Unexpected response: %s, response index: %0d, beat id: %0d", resp[i][j].name, i, j);
                                 $finish;
                             end
                         end
 
-                        if(pk_hash_read_1 != pk_hash) begin
-                            $error("Unexpected read value: %p, expected: %p, read iteration: %d", pk_hash_read_1, pk_hash, 0);
+                        if(axi_read_1 != axi_data) begin
+                            $error("Unexpected read value: %p, expected: %p, read iteration: %d", axi_read_1, axi_data, 0);
                             $finish;
                         end
 
                         $display($sformatf("[%t] AXI Concurrent R/W test passed!", $time));
+
+                        // ---------------------
+                        // AXI INVALID MID WRITE Smoke TEST
+                        // ---------------------
+                        // Writing across invalid/valid address range, should result in SLVERR on AXI
+                        // We test specifically with FUSE, but the mechanism is generic (in AXI Sub WR module)
+                        axi_data[0] = {{`CALIPTRA_AXI_DATA_WIDTH - 1{1'b0}}, 1'b1};
+                        m_axi_bfm_if.axi_write(.addr(`CLP_SOC_IFC_REG_CPTRA_FUSE_AXI_USER_LOCK),
+                            .data(axi_data),
+                            .id($urandom()),
+                            .len(0),
+                            .resp(resp[0][0]),
+                            .strb(axi_strobe),
+                            .write_user(axi_user[0]),
+                            .resp_user(buser));
+
+                        // Time to propagate
+                        repeat (5) @(posedge m_axi_bfm_if.clk);
+
+                        axi_data = new[4];
+                        axi_user[0] = new[4];
+                        foreach (axi_user[0][i])
+                            axi_user[0][i] = '0;
+
+                        foreach (axi_data[i])
+                            if (!std::randomize(axi_data[i])) $fatal(1, "%t: [%m] Failed to randomize data", $time);
+
+                        m_axi_bfm_if.axi_write(.addr(SOC_IFC_FUSE_END_ADDR - 4),
+                            .data(axi_data),
+                            .id($urandom()),
+                            .user({{`CALIPTRA_AXI_USER_WIDTH - 1{1'b0}}, 1'b1}),
+                            .len(3),
+                            .resp(resp[0][0]),
+                            .strb(axi_strobe),
+                            .write_user(axi_user[0]),
+                            .resp_user(buser));
+
+                        if(resp[0][0] != AXI_RESP_SLVERR) begin
+                            $error("Unexpected response: %s", resp[0][0].name);
+                            $finish;
+                        end
+                        $display($sformatf("[%t] AXI Invalid Mid Write test passed!", $time));
 
                         $finish;
                     end // $test$plusargs("STALL_SOC_CSR")
