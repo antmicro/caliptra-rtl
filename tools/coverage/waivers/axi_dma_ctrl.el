@@ -37,3 +37,5 @@ ANNOTATION: "The payload_available edge-detection is disabled, only a single set
 Toggle rd_req_count_for_payload [9] "logic rd_req_count_for_payload[10:0]"
 ANNOTATION: "The maximum value is 'h7F (one less than the FIFO depth), even if AXI is stalled one transaction is buffered in i_axi_mgr_wr.i_ctx_skd"
 Toggle wr_credits [7] "logic wr_credits[7:0]"
+ANNOTATION: "Counter's high bits"
+Toggle wr_resp_pending [3] "logic wr_resp_pending[3:0]"
