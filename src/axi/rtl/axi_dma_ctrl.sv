@@ -172,8 +172,8 @@ import soc_ifc_pkg::*;
     logic recovery_data_avail_d, recovery_data_avail_p; // Edge detection
     `endif
     logic [3:0] wr_resp_pending; // Counts up to 15 pending Write responses.
-                                 // Once this counter saturates, we stall new requests
-                                 // until further responses arrive.
+                                 // FIXME: Make the counter saturate, stall new requests
+                                 // until further responses arrive
                                  // This is an artificially imposed limit, intended
                                  // to allow a subordinate to have some delay in sending
                                  // write responses without ever throttling this DMA.
@@ -586,6 +586,8 @@ import soc_ifc_pkg::*;
             endcase
         end
     end
+    `CALIPTRA_ASSERT(WR_RESP_PENDING_OVERFLOW, wr_resp_pending == '1 |=> wr_resp_pending != '0, clk, !rst_n)
+    `CALIPTRA_ASSERT(WR_RESP_PENDING_UNDERFLOW, wr_resp_pending == '0 |=> wr_resp_pending != '1, clk, !rst_n)
 
     always_comb block_size_mask = hwif_out.block_size.size.value - 1;
     always_comb begin
