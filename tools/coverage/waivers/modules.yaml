@@ -77,3 +77,17 @@ modules:
       - ram_16384x39
       - sha3
       - sha3pad
+    FCOV-specific module:
+      - axi_dma_top_cov_if
+      - ecc_top_cov_if
+      - hmac_ctrl_cov_if
+      - hmac_drbg_cov_if
+      - keyvault_cov_if
+      - mldsa_top_cov_if
+      - pcrvault_cov_if
+      - sha256_ctrl_cov_if
+      - sha512_ctrl_cov_if
+      - soc_ifc_cov_if
+    Primitives are replaced for silicon synthesis:
+      - caliptra_prim_fifo_sync
+      - caliptra_prim_fifo_sync_cnt
