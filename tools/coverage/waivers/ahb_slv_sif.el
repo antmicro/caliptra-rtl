@@ -19,3 +19,11 @@ CHECKSUM: "1710229973 1942875552"
 INSTANCE: caliptra_top_tb.caliptra_top_dut.soc_ifc_top1.i_ahb_slv_sif_soc_ifc
 ANNOTATION: "Only single transfers are expected"
 Toggle htrans_i [0] "logic htrans_i[1:0]"
+CHECKSUM: "1710229973 2140592442"
+INSTANCE: caliptra_top_tb.caliptra_top_dut.key_vault1.kv_ahb_slv1
+ANNOTATION: "This cond case requires a transaction issued immediately after an invalid transaction which isn't possible for this IP because SystemRDL version used in Caliptra doesn't support error reporting; it's also impossible to issue an invalid transaction on another IP immediately before because CPU transactions would be too slow and DMA doesn't support neither transaction lists nor cross-boundary accesses"
+Condition 3 "1818804957" "(hready_i & hsel_i) 1 -1" (1 "01")
+CHECKSUM: "1710229973 2140592442"
+INSTANCE: caliptra_top_tb.caliptra_top_dut.data_vault1.dv_ahb_slv1
+ANNOTATION: "This cond case requires a transaction issued immediately after an invalid transaction which isn't possible for this IP because SystemRDL version used in Caliptra doesn't support error reporting; it's also impossible to issue an invalid transaction on another IP immediately before because CPU transactions would be too slow and DMA doesn't support neither transaction lists nor cross-boundary accesses"
+Condition 3 "1818804957" "(hready_i & hsel_i) 1 -1" (1 "01")
