@@ -64,7 +64,7 @@ class dma_transfer_randomizer #(parameter MAX_SIZE_TO_CHECK = 16384);
           [4097:16384] :/ 5,
           [16385:65536] :/ 2,
           [65537:262143] :/ 1,
-          262144 :/ 500
+          262144 :/ 20
       };
 
       // Avoid huge simulation time of loading 1MB throught access to a single register
