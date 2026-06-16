@@ -301,7 +301,7 @@ import caliptra_top_tb_pkg::*; #(
                             // Make a narrow and unaligned access
                             automatic int size = $urandom_range(0, 1);
                             automatic int bytes = 2**size;
-                            m_axi_bfm_if.axi_read_single(.addr(`CLP_SOC_IFC_REG_CPTRA_FLOW_STATUS + `SOC_IFC_REG_CPTRA_FLOW_STATUS_READY_FOR_FUSES_LOW / 8 / bytes * bytes), .size(size), .data(rdata), .resp(rresp), .resp_user(buser));
+                            m_axi_bfm_if.axi_read_single_size(.addr(`CLP_SOC_IFC_REG_CPTRA_FLOW_STATUS + `SOC_IFC_REG_CPTRA_FLOW_STATUS_READY_FOR_FUSES_LOW / 8 / bytes * bytes), .size(size), .data(rdata), .resp(rresp), .resp_user(buser));
                             poll_count++;
                         end while(rdata[`SOC_IFC_REG_CPTRA_FLOW_STATUS_READY_FOR_FUSES_LOW] == 1);
                         $display("\n  >>> SoC: Ready for Fuses deasserted after polling %d times\n", poll_count);

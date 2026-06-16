@@ -293,8 +293,31 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
             end
         endtask
 
+        task axi_read_single_size(input  logic [AW-1:0] addr,
+                                  input  logic [2:0]    size  = $clog2(DW/8),
+                                  input  logic [UW-1:0] user  = UW'(0),
+                                  input  logic [IW-1:0] id    = IW'(0),
+                                  input  logic          lock  = 1'b0,
+                                  output logic [DW-1:0] data,
+                                  output logic [UW-1:0] resp_user,
+                                  output axi_resp_e     resp);
+            automatic axi_resp_e     burst_resp[];
+            automatic logic [UW-1:0] burst_ruser[];
+            automatic logic [DW-1:0] burst_data[];
+            axi_read(.addr    (addr       ),
+                    .size     (size       ),
+                    .user     (user       ),
+                    .id       (id         ),
+                    .lock     (lock       ),
+                    .data     (burst_data ),
+                    .resp_user(burst_ruser),
+                    .resp     (burst_resp ));
+            data      = burst_data[0];
+            resp_user = burst_ruser[0];
+            resp      = burst_resp[0];
+        endtask
+
         task axi_read_single(input  logic [AW-1:0] addr,
-                            input  logic [2:0]    size  = $clog2(DW/8),
                             input  logic [UW-1:0] user  = UW'(0),
                             input  logic [IW-1:0] id    = IW'(0),
                             input  logic          lock  = 1'b0,
@@ -305,7 +328,6 @@ interface axi_if #(parameter integer AW = 32, parameter integer DW = 32, paramet
             automatic logic [UW-1:0] burst_ruser[];
             automatic logic [DW-1:0] burst_data[];
             axi_read(.addr    (addr       ),
-                    .size     (size       ),
                     .user     (user       ),
                     .id       (id         ),
                     .lock     (lock       ),
