@@ -957,10 +957,10 @@ module caliptra_top_tb_services
                 end else if (timed_kv_clear) begin
                     if((`CPTRA_TOP_PATH.doe.doe_inst.doe_fsm1.kv_doe_fsm_ns == 3'b100) & ~timed_kv_clear_done) begin
                         // Need to kill off assertion that checks whether output matches plaintext (it won't since it got cleared)
-                        $assertkill(0, caliptra_top_tb.sva.FE_data_check.genblk1[0].DOE_FE_data_check);
-                        $assertkill(0, caliptra_top_tb.sva.FE_data_check.genblk1[1].DOE_FE_data_check);
-                        $assertkill(0, caliptra_top_tb.sva.FE_data_check.genblk1[2].DOE_FE_data_check);
-                        $assertkill(0, caliptra_top_tb.sva.FE_data_check.genblk1[3].DOE_FE_data_check);
+                        $assertkill(0, `CPTRA_TB_TOP_NAME.sva.FE_data_check.genblk1[0].DOE_FE_data_check);
+                        $assertkill(0, `CPTRA_TB_TOP_NAME.sva.FE_data_check.genblk1[1].DOE_FE_data_check);
+                        $assertkill(0, `CPTRA_TB_TOP_NAME.sva.FE_data_check.genblk1[2].DOE_FE_data_check);
+                        $assertkill(0, `CPTRA_TB_TOP_NAME.sva.FE_data_check.genblk1[3].DOE_FE_data_check);
                         force `CPTRA_TOP_PATH.key_vault1.kv_reg_hwif_out.KEY_CTRL[slot_id].clear.value = '1;
                         timed_kv_clear_done <= 'b1;
                     end else if(timed_kv_clear_done) begin
@@ -989,18 +989,18 @@ module caliptra_top_tb_services
                 if (hmac_tag_mismatch_kill) begin
                     // Need to kill off assertion that checks whether output tag in HMAC matches tag written to KV
                     // this assert is not necessary, e.g. in tests where KV is deliberately not set to be writable (locked)
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[0].genblk3.kv_hmac_tag_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[1].genblk3.kv_hmac_tag_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[2].genblk3.kv_hmac_tag_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[3].genblk3.kv_hmac_tag_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[4].genblk3.kv_hmac_tag_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[5].genblk3.kv_hmac_tag_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[6].genblk3.kv_hmac_tag_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[7].genblk3.kv_hmac_tag_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[8].genblk3.kv_hmac_tag_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[9].genblk3.kv_hmac_tag_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[10].genblk3.kv_hmac_tag_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[11].genblk3.kv_hmac_tag_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[0].genblk3.kv_hmac_tag_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[1].genblk3.kv_hmac_tag_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[2].genblk3.kv_hmac_tag_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[3].genblk3.kv_hmac_tag_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[4].genblk3.kv_hmac_tag_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[5].genblk3.kv_hmac_tag_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[6].genblk3.kv_hmac_tag_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[7].genblk3.kv_hmac_tag_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[8].genblk3.kv_hmac_tag_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[9].genblk3.kv_hmac_tag_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[10].genblk3.kv_hmac_tag_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[11].genblk3.kv_hmac_tag_w_flow);
                 end
             end
         end
@@ -1022,18 +1022,18 @@ module caliptra_top_tb_services
                 if (ecc_privkey_mismatch_kill) begin
                     // Need to kill off assertion that checks whether output tag in HMAC matches tag written to KV
                     // this assert is not necessary, e.g. in tests where KV is deliberately not set to be writable (locked)
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[0].genblk4.kv_ecc_privkey_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[1].genblk4.kv_ecc_privkey_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[2].genblk4.kv_ecc_privkey_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[3].genblk4.kv_ecc_privkey_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[4].genblk4.kv_ecc_privkey_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[5].genblk4.kv_ecc_privkey_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[6].genblk4.kv_ecc_privkey_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[7].genblk4.kv_ecc_privkey_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[8].genblk4.kv_ecc_privkey_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[9].genblk4.kv_ecc_privkey_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[10].genblk4.kv_ecc_privkey_w_flow);
-                    $assertkill(0, caliptra_top_tb.sva.genblk2[11].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[0].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[1].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[2].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[3].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[4].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[5].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[6].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[7].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[8].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[9].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[10].genblk4.kv_ecc_privkey_w_flow);
+                    $assertkill(0, `CPTRA_TB_TOP_NAME.sva.genblk2[11].genblk4.kv_ecc_privkey_w_flow);
                 end
             end
         end
