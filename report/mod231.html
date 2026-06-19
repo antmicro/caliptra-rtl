@@ -1,0 +1,3515 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: el2_lsu_dccm_ctl</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_el2_lsu_dccm_ctl'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_el2_lsu_dccm_ctl')">el2_lsu_dccm_ctl</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 93.19</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod231.html#Cond" > 94.29</a></td>
+<td class="s8 cl rt"><a href="mod231.html#Toggle" > 85.88</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod231.html#Branch" > 92.59</a></td>
+<td class="s10 cl rt"><a href="mod231.html#Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/root/_scratch_filepath_/uvmf_caliptra_top/_scratch_filepath_/el2_lsu_dccm_ctl.sv')">/root/_scratch_filepath_/uvmf_caliptra_top/_scratch_filepath_/el2_lsu_dccm_ctl.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod231.html#inst_tag_6582"  onclick="showContent('inst_tag_6582')">hdl_top.caliptra_top_dut.rvtop.veer.lsu.dccm_ctl</a></td>
+<td class="s9 cl rt"> 93.19</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod231.html#Cond" > 94.29</a></td>
+<td class="s8 cl rt"><a href="mod231.html#Toggle" > 85.88</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod231.html#Branch" > 92.59</a></td>
+<td class="s10 cl rt"><a href="mod231.html#Assert" >100.00</a></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_el2_lsu_dccm_ctl'>
+<hr>
+<a name="inst_tag_6582"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy4.html#tag_urg_inst_6582" >hdl_top.caliptra_top_dut.rvtop.veer.lsu.dccm_ctl</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 93.19</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod231.html#Cond" > 94.29</a></td>
+<td class="s8 cl rt"><a href="mod231.html#Toggle" > 85.88</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod231.html#Branch" > 92.59</a></td>
+<td class="s10 cl rt"><a href="mod231.html#Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 95.22</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 94.29</td>
+<td class="s8 cl rt"> 87.71</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 94.12</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 93.12</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 86.24</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod63.html#inst_tag_1014" >lsu</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod75_338.html#inst_tag_2384" id="tag_urg_inst_2384">Gen_dccm_enable.dccm_rden_mff</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod75_338.html#inst_tag_2385" id="tag_urg_inst_2385">Gen_dccm_enable.dccm_rden_rff</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod75_339.html#inst_tag_2386" id="tag_urg_inst_2386">Gen_dccm_enable.ld_double_ecc_error_rff</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod174_119.html#inst_tag_6322" id="tag_urg_inst_6322">Gen_dccm_enable.ld_sec_addr_hi_rff</a></td>
+<td class="s9 cl rt"> 96.90</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 90.70</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod174_119.html#inst_tag_6323" id="tag_urg_inst_6323">Gen_dccm_enable.ld_sec_addr_lo_rff</a></td>
+<td class="s9 cl rt"> 95.35</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 86.05</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod75_339.html#inst_tag_2387" id="tag_urg_inst_2387">Gen_dccm_enable.ld_single_ecc_error_hi_rff</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod75_339.html#inst_tag_2388" id="tag_urg_inst_2388">Gen_dccm_enable.ld_single_ecc_error_lo_rff</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod174_119.html#inst_tag_6321" id="tag_urg_inst_6321">L2U1_Plus1_0.store_data_hi_rff</a></td>
+<td class="s9 cl rt"> 99.54</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 98.63</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod75_338.html#inst_tag_2383" id="tag_urg_inst_2383">L2U1_Plus1_0.store_data_lo_rff</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod174_119.html#inst_tag_6320" id="tag_urg_inst_6320">L2U_Plus1_0.lsu_ld_data_corr_rff</a></td>
+<td class="s9 cl rt"> 99.54</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 98.63</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_el2_lsu_dccm_ctl'>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod231.html" >el2_lsu_dccm_ctl</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">Conditions</td><td>140</td><td>132</td><td>94.29</td></tr>
+<tr class="s9"><td class="lf">Logical</td><td>140</td><td>132</td><td>94.29</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       234
+ EXPRESSION (ldst_dual_m ? L2U_Plus1_0.lsu_rdata_corr_m[63:0] : ({2 {L2U_Plus1_0.lsu_rdata_corr_m[31:0]}}))
+             -----1-----
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[0] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 0) + 7):(8 * 0)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 0) + 7):(8 * 0)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 0) + 7):(8 * 0)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 0) + 7):(8 * 0)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 0) + 7):(8 * 0)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[1] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 1) + 7):(8 * 1)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 1) + 7):(8 * 1)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 1) + 7):(8 * 1)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 1) + 7):(8 * 1)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 1) + 7):(8 * 1)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[2] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 2) + 7):(8 * 2)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 2) + 7):(8 * 2)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 2) + 7):(8 * 2)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 2) + 7):(8 * 2)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 2) + 7):(8 * 2)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[3] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 3) + 7):(8 * 3)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 3) + 7):(8 * 3)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 3) + 7):(8 * 3)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 3) + 7):(8 * 3)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 3) + 7):(8 * 3)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[4] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 4) + 7):(8 * 4)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 4) + 7):(8 * 4)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 4) + 7):(8 * 4)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 4) + 7):(8 * 4)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 4) + 7):(8 * 4)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[5] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 5) + 7):(8 * 5)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 5) + 7):(8 * 5)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 5) + 7):(8 * 5)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 5) + 7):(8 * 5)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 5) + 7):(8 * 5)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[6] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 6) + 7):(8 * 6)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 6) + 7):(8 * 6)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 6) + 7):(8 * 6)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 6) + 7):(8 * 6)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 6) + 7):(8 * 6)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[7] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 7) + 7):(8 * 7)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 7) + 7):(8 * 7)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 7) + 7):(8 * 7)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       244
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 7) + 7):(8 * 7)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_corr_m[((8 * 7) + 7):(8 * 7)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[0] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 0) + 7):(8 * 0)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 0) + 7):(8 * 0)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 0) + 7):(8 * 0)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 0) + 7):(8 * 0)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 0) + 7):(8 * 0)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[1] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 1) + 7):(8 * 1)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 1) + 7):(8 * 1)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 1) + 7):(8 * 1)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 1) + 7):(8 * 1)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 1) + 7):(8 * 1)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[2] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 2) + 7):(8 * 2)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 2) + 7):(8 * 2)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 2) + 7):(8 * 2)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 2) + 7):(8 * 2)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 2) + 7):(8 * 2)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[3] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 3) + 7):(8 * 3)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 3) + 7):(8 * 3)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 3) + 7):(8 * 3)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 3) + 7):(8 * 3)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 3) + 7):(8 * 3)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[4] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 4) + 7):(8 * 4)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 4) + 7):(8 * 4)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 4) + 7):(8 * 4)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 4) + 7):(8 * 4)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 4) + 7):(8 * 4)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[5] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 5) + 7):(8 * 5)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 5) + 7):(8 * 5)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 5) + 7):(8 * 5)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 5) + 7):(8 * 5)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 5) + 7):(8 * 5)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[6] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 6) + 7):(8 * 6)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 6) + 7):(8 * 6)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 6) + 7):(8 * 6)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 6) + 7):(8 * 6)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 6) + 7):(8 * 6)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ EXPRESSION 
+ Number  Term
+      1  L2U_Plus1_0.stbuf_fwdbyteen_m[7] ? L2U_Plus1_0.stbuf_fwddata_m[((8 * 7) + 7):(8 * 7)] : (addr_in_pic_m ? picm_rd_data_m[((8 * 7) + 7):(8 * 7)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 7) + 7):(8 * 7)]))))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       247
+ SUB-EXPRESSION (addr_in_pic_m ? picm_rd_data_m[((8 * 7) + 7):(8 * 7)] : (({8 {addr_in_dccm_m}} &amp; L2U_Plus1_0.dccm_rdata_m[((8 * 7) + 7):(8 * 7)])))
+                 ------1------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       282
+ EXPRESSION 
+ Number  Term
+      1  ld_single_ecc_error_r_ff ? (ld_single_ecc_error_lo_r_ff ? ld_sec_addr_lo_r_ff[32'b00000000000000000000000000010000:0] : ld_sec_addr_hi_r_ff[32'b00000000000000000000000000010000:0]) : (lsu_dccm_wren_d ? lsu_addr_d[32'b00000000000000000000000000010000:0] : stbuf_addr_any[32'b00000000000000000000000000010000:0]))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       282
+ SUB-EXPRESSION 
+ Number  Term
+      1  ld_single_ecc_error_lo_r_ff ? ld_sec_addr_lo_r_ff[32'b00000000000000000000000000010000:0] : ld_sec_addr_hi_r_ff[32'b00000000000000000000000000010000:0])
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       282
+ SUB-EXPRESSION (lsu_dccm_wren_d ? lsu_addr_d[32'b00000000000000000000000000010000:0] : stbuf_addr_any[32'b00000000000000000000000000010000:0])
+                 -------1-------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       284
+ EXPRESSION 
+ Number  Term
+      1  ld_single_ecc_error_r_ff ? (ld_single_ecc_error_hi_r_ff ? ld_sec_addr_hi_r_ff[32'b00000000000000000000000000010000:0] : ld_sec_addr_lo_r_ff[32'b00000000000000000000000000010000:0]) : (lsu_dccm_wren_d ? end_addr_d[32'b00000000000000000000000000010000:0] : stbuf_addr_any[32'b00000000000000000000000000010000:0]))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       284
+ SUB-EXPRESSION 
+ Number  Term
+      1  ld_single_ecc_error_hi_r_ff ? ld_sec_addr_hi_r_ff[32'b00000000000000000000000000010000:0] : ld_sec_addr_lo_r_ff[32'b00000000000000000000000000010000:0])
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       284
+ SUB-EXPRESSION (lsu_dccm_wren_d ? end_addr_d[32'b00000000000000000000000000010000:0] : stbuf_addr_any[32'b00000000000000000000000000010000:0])
+                 -------1-------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       288
+ EXPRESSION 
+ Number  Term
+      1  ld_single_ecc_error_r_ff ? (ld_single_ecc_error_lo_r_ff ? ({sec_data_ecc_lo_r_ff[32'b00000000000000000000000000000110:0], sec_data_lo_r_ff[32'b00000000000000000000000000011111:0]}) : ({sec_data_ecc_hi_r_ff[32'b00000000000000000000000000000110:0], sec_data_hi_r_ff[32'b00000000000000000000000000011111:0]})) : (dma_dccm_wen ? ({dma_dccm_wdata_ecc_lo[32'b00000000000000000000000000000110:0], dma_dccm_wdata_lo[32'b00000000000000000000000000011111:0]}) : ({stbuf_ecc_any[32'b00000000000000000000000000000110:0], stbuf_data_any[32'b00000000000000000000000000011111:0]})))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       288
+ SUB-EXPRESSION 
+ Number  Term
+      1  ld_single_ecc_error_lo_r_ff ? ({sec_data_ecc_lo_r_ff[32'b00000000000000000000000000000110:0], sec_data_lo_r_ff[32'b00000000000000000000000000011111:0]}) : ({sec_data_ecc_hi_r_ff[32'b00000000000000000000000000000110:0], sec_data_hi_r_ff[32'b00000000000000000000000000011111:0]}))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       288
+ SUB-EXPRESSION 
+ Number  Term
+      1  dma_dccm_wen ? ({dma_dccm_wdata_ecc_lo[32'b00000000000000000000000000000110:0], dma_dccm_wdata_lo[32'b00000000000000000000000000011111:0]}) : ({stbuf_ecc_any[32'b00000000000000000000000000000110:0], stbuf_data_any[32'b00000000000000000000000000011111:0]}))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       292
+ EXPRESSION 
+ Number  Term
+      1  ld_single_ecc_error_r_ff ? (ld_single_ecc_error_hi_r_ff ? ({sec_data_ecc_hi_r_ff[32'b00000000000000000000000000000110:0], sec_data_hi_r_ff[32'b00000000000000000000000000011111:0]}) : ({sec_data_ecc_lo_r_ff[32'b00000000000000000000000000000110:0], sec_data_lo_r_ff[32'b00000000000000000000000000011111:0]})) : (dma_dccm_wen ? ({dma_dccm_wdata_ecc_hi[32'b00000000000000000000000000000110:0], dma_dccm_wdata_hi[32'b00000000000000000000000000011111:0]}) : ({stbuf_ecc_any[32'b00000000000000000000000000000110:0], stbuf_data_any[32'b00000000000000000000000000011111:0]})))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       292
+ SUB-EXPRESSION 
+ Number  Term
+      1  ld_single_ecc_error_hi_r_ff ? ({sec_data_ecc_hi_r_ff[32'b00000000000000000000000000000110:0], sec_data_hi_r_ff[32'b00000000000000000000000000011111:0]}) : ({sec_data_ecc_lo_r_ff[32'b00000000000000000000000000000110:0], sec_data_lo_r_ff[32'b00000000000000000000000000011111:0]}))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       292
+ SUB-EXPRESSION 
+ Number  Term
+      1  dma_dccm_wen ? ({dma_dccm_wdata_ecc_hi[32'b00000000000000000000000000000110:0], dma_dccm_wdata_hi[32'b00000000000000000000000000011111:0]}) : ({stbuf_ecc_any[32'b00000000000000000000000000000110:0], stbuf_data_any[32'b00000000000000000000000000011111:0]}))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       351
+ EXPRESSION 
+ Number  Term
+      1  store_byteen_ext_m[(0 + 4)] ? L2U1_Plus1_0.store_data_hi_m[((8 * 0) + 7):(8 * 0)] : (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_hi)) ? stbuf_data_any[((8 * 0) + 7):(8 * 0)] : sec_data_hi_m[((8 * 0) + 7):(8 * 0)]))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       351
+ SUB-EXPRESSION (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_hi)) ? stbuf_data_any[((8 * 0) + 7):(8 * 0)] : sec_data_hi_m[((8 * 0) + 7):(8 * 0)])
+                 ------------------------1-----------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       351
+ EXPRESSION 
+ Number  Term
+      1  store_byteen_ext_m[(1 + 4)] ? L2U1_Plus1_0.store_data_hi_m[((8 * 1) + 7):(8 * 1)] : (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_hi)) ? stbuf_data_any[((8 * 1) + 7):(8 * 1)] : sec_data_hi_m[((8 * 1) + 7):(8 * 1)]))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       351
+ SUB-EXPRESSION (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_hi)) ? stbuf_data_any[((8 * 1) + 7):(8 * 1)] : sec_data_hi_m[((8 * 1) + 7):(8 * 1)])
+                 ------------------------1-----------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       351
+ EXPRESSION 
+ Number  Term
+      1  store_byteen_ext_m[(2 + 4)] ? L2U1_Plus1_0.store_data_hi_m[((8 * 2) + 7):(8 * 2)] : (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_hi)) ? stbuf_data_any[((8 * 2) + 7):(8 * 2)] : sec_data_hi_m[((8 * 2) + 7):(8 * 2)]))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       351
+ SUB-EXPRESSION (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_hi)) ? stbuf_data_any[((8 * 2) + 7):(8 * 2)] : sec_data_hi_m[((8 * 2) + 7):(8 * 2)])
+                 ------------------------1-----------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       351
+ EXPRESSION 
+ Number  Term
+      1  store_byteen_ext_m[(3 + 4)] ? L2U1_Plus1_0.store_data_hi_m[((8 * 3) + 7):(8 * 3)] : (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_hi)) ? stbuf_data_any[((8 * 3) + 7):(8 * 3)] : sec_data_hi_m[((8 * 3) + 7):(8 * 3)]))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       351
+ SUB-EXPRESSION (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_hi)) ? stbuf_data_any[((8 * 3) + 7):(8 * 3)] : sec_data_hi_m[((8 * 3) + 7):(8 * 3)])
+                 ------------------------1-----------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       353
+ EXPRESSION 
+ Number  Term
+      1  store_byteen_ext_m[0] ? L2U1_Plus1_0.store_data_lo_m[((8 * 0) + 7):(8 * 0)] : (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_lo)) ? stbuf_data_any[((8 * 0) + 7):(8 * 0)] : sec_data_lo_m[((8 * 0) + 7):(8 * 0)]))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       353
+ SUB-EXPRESSION (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_lo)) ? stbuf_data_any[((8 * 0) + 7):(8 * 0)] : sec_data_lo_m[((8 * 0) + 7):(8 * 0)])
+                 ------------------------1-----------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       353
+ EXPRESSION 
+ Number  Term
+      1  store_byteen_ext_m[1] ? L2U1_Plus1_0.store_data_lo_m[((8 * 1) + 7):(8 * 1)] : (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_lo)) ? stbuf_data_any[((8 * 1) + 7):(8 * 1)] : sec_data_lo_m[((8 * 1) + 7):(8 * 1)]))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       353
+ SUB-EXPRESSION (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_lo)) ? stbuf_data_any[((8 * 1) + 7):(8 * 1)] : sec_data_lo_m[((8 * 1) + 7):(8 * 1)])
+                 ------------------------1-----------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       353
+ EXPRESSION 
+ Number  Term
+      1  store_byteen_ext_m[2] ? L2U1_Plus1_0.store_data_lo_m[((8 * 2) + 7):(8 * 2)] : (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_lo)) ? stbuf_data_any[((8 * 2) + 7):(8 * 2)] : sec_data_lo_m[((8 * 2) + 7):(8 * 2)]))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       353
+ SUB-EXPRESSION (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_lo)) ? stbuf_data_any[((8 * 2) + 7):(8 * 2)] : sec_data_lo_m[((8 * 2) + 7):(8 * 2)])
+                 ------------------------1-----------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       353
+ EXPRESSION 
+ Number  Term
+      1  store_byteen_ext_m[3] ? L2U1_Plus1_0.store_data_lo_m[((8 * 3) + 7):(8 * 3)] : (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_lo)) ? stbuf_data_any[((8 * 3) + 7):(8 * 3)] : sec_data_lo_m[((8 * 3) + 7):(8 * 3)]))
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       353
+ SUB-EXPRESSION (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_m_lo)) ? stbuf_data_any[((8 * 3) + 7):(8 * 3)] : sec_data_lo_m[((8 * 3) + 7):(8 * 3)])
+                 ------------------------1-----------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       356
+ EXPRESSION 
+ Number  Term
+      1  (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_r_lo) &amp; (~store_byteen_ext_r[0]))) ? stbuf_data_any[((8 * 0) + 7):(8 * 0)] : store_data_lo_r[((8 * 0) + 7):(8 * 0)])
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       356
+ EXPRESSION 
+ Number  Term
+      1  (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_r_lo) &amp; (~store_byteen_ext_r[1]))) ? stbuf_data_any[((8 * 1) + 7):(8 * 1)] : store_data_lo_r[((8 * 1) + 7):(8 * 1)])
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       356
+ EXPRESSION 
+ Number  Term
+      1  (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_r_lo) &amp; (~store_byteen_ext_r[2]))) ? stbuf_data_any[((8 * 2) + 7):(8 * 2)] : store_data_lo_r[((8 * 2) + 7):(8 * 2)])
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       356
+ EXPRESSION 
+ Number  Term
+      1  (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_r_lo) &amp; (~store_byteen_ext_r[3]))) ? stbuf_data_any[((8 * 3) + 7):(8 * 3)] : store_data_lo_r[((8 * 3) + 7):(8 * 3)])
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       357
+ EXPRESSION 
+ Number  Term
+      1  (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_r_hi) &amp; (~store_byteen_ext_r[(0 + 4)]))) ? stbuf_data_any[((8 * 0) + 7):(8 * 0)] : store_data_hi_r[((8 * 0) + 7):(8 * 0)])
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       357
+ EXPRESSION 
+ Number  Term
+      1  (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_r_hi) &amp; (~store_byteen_ext_r[(1 + 4)]))) ? stbuf_data_any[((8 * 1) + 7):(8 * 1)] : store_data_hi_r[((8 * 1) + 7):(8 * 1)])
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       357
+ EXPRESSION 
+ Number  Term
+      1  (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_r_hi) &amp; (~store_byteen_ext_r[(2 + 4)]))) ? stbuf_data_any[((8 * 2) + 7):(8 * 2)] : store_data_hi_r[((8 * 2) + 7):(8 * 2)])
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       357
+ EXPRESSION 
+ Number  Term
+      1  (((lsu_stbuf_commit_any &amp; dccm_wr_bypass_d_r_hi) &amp; (~store_byteen_ext_r[(3 + 4)]))) ? stbuf_data_any[((8 * 3) + 7):(8 * 3)] : store_data_hi_r[((8 * 3) + 7):(8 * 3)])
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       384
+ EXPRESSION (dma_pic_wen ? dma_mem_wdata[31:0] : store_datafn_lo_r[31:0])
+             -----1-----
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod231.html" >el2_lsu_dccm_ctl</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Totals</td>
+<td class="rt">177</td>
+<td class="rt">146</td>
+<td class="rt">82.49 </td>
+</tr><tr class="s8">
+<td>Total Bits</td>
+<td class="rt">4744</td>
+<td class="rt">4074</td>
+<td class="rt">85.88 </td>
+</tr><tr class="s8">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">2372</td>
+<td class="rt">2037</td>
+<td class="rt">85.88 </td>
+</tr><tr class="s8">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">2372</td>
+<td class="rt">2037</td>
+<td class="rt">85.88 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Ports</td>
+<td class="rt">141</td>
+<td class="rt">120</td>
+<td class="rt">85.11 </td>
+</tr><tr class="s8">
+<td>Port Bits</td>
+<td class="rt">3238</td>
+<td class="rt">2786</td>
+<td class="rt">86.04 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">1619</td>
+<td class="rt">1393</td>
+<td class="rt">86.04 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">1619</td>
+<td class="rt">1393</td>
+<td class="rt">86.04 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s7">
+<td>Signals</td>
+<td class="rt">36</td>
+<td class="rt">26</td>
+<td class="rt">72.22 </td>
+</tr><tr class="s8">
+<td>Signal Bits</td>
+<td class="rt">1506</td>
+<td class="rt">1288</td>
+<td class="rt">85.52 </td>
+</tr><tr class="s8">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">753</td>
+<td class="rt">644</td>
+<td class="rt">85.52 </td>
+</tr><tr class="s8">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">753</td>
+<td class="rt">644</td>
+<td class="rt">85.52 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>lsu_c2_m_clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_c2_r_clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_c1_r_clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_store_c1_r_clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_free_c2_clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk_override</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_r.valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_r.store_data_bypass_m</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_r.load_ldst_bypass_d</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_r.store_data_bypass_d</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_r.dma</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_r.unsign</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_r.store</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_r.load</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_r.dword</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_r.word</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_r.half</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_r.by</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_r.stack</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_r.fast_int</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_m.valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_m.store_data_bypass_m</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_m.load_ldst_bypass_d</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_m.store_data_bypass_d</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_m.dma</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_m.unsign</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_m.store</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_m.load</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_m.dword</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_m.word</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_m.half</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_m.by</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_m.stack</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_m.fast_int</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_d.valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_d.store_data_bypass_m</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_d.load_ldst_bypass_d</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_d.store_data_bypass_d</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_d.dma</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_d.unsign</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_d.store</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_d.load</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_d.dword</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_d.word</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_d.half</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_d.by</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_d.stack</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_pkt_d.fast_int</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>addr_in_dccm_d</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>addr_in_pic_d</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>addr_in_pic_m</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>addr_in_dccm_m</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>addr_in_dccm_r</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>addr_in_pic_r</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_raw_fwd_lo_r</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_raw_fwd_hi_r</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_commit_r</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ldst_dual_m</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ldst_dual_r</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_addr_d[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_addr_m[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>lsu_addr_r[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>end_addr_d[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>end_addr_m[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>end_addr_r[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>stbuf_reqvld_any</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>stbuf_addr_any[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>stbuf_data_any[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>stbuf_ecc_any[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>stbuf_fwddata_hi_m[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>stbuf_fwddata_lo_m[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>stbuf_fwdbyteen_hi_m[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>stbuf_fwdbyteen_lo_m[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dccm_rdata_hi_r[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_rdata_lo_r[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_data_ecc_hi_r[6:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_data_ecc_lo_r[6:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lsu_ld_data_r[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lsu_ld_data_corr_r[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lsu_double_ecc_error_r</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>single_ecc_error_hi_r</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>single_ecc_error_lo_r</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>sec_data_hi_r[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>sec_data_lo_r[30:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>sec_data_lo_r[31]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>sec_data_hi_r_ff[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>sec_data_lo_r_ff[30:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>sec_data_lo_r_ff[31]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>sec_data_ecc_hi_r_ff[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>sec_data_ecc_lo_r_ff[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dccm_rdata_hi_m[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_rdata_lo_m[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_data_ecc_hi_m[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_data_ecc_lo_m[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lsu_ld_data_m[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lsu_double_ecc_error_m</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>sec_data_hi_m[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>sec_data_lo_m[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>store_data_m[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_dccm_wen</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_pic_wen</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_mem_tag_m[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_mem_addr[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_mem_addr[16:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_mem_addr[27:17]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_mem_addr[28]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_mem_addr[29]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_mem_addr[30]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_mem_addr[31]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_mem_wdata[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_dccm_wdata_lo[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_dccm_wdata_hi[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_dccm_wdata_ecc_hi[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dma_dccm_wdata_ecc_lo[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>store_data_hi_r[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>store_data_lo_r[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>store_datafn_hi_r[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>store_datafn_lo_r[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>store_data_r[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>ld_single_ecc_error_r</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>ld_single_ecc_error_r_ff</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>picm_mask_data_m[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>picm_mask_data_m[31:4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lsu_stbuf_commit_any</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lsu_dccm_rden_m</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>lsu_dccm_rden_r</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_dma_rvalid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_dma_ecc_error</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_dma_rtag[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_dma_rdata[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_wren</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_rden</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_wr_addr_lo[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_wr_addr_hi[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_rd_addr_lo[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_rd_addr_hi[16:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_wr_data_lo[38:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_wr_data_hi[38:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dccm_rd_data_lo[38:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dccm_rd_data_hi[38:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>picm_wren</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>picm_rden</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>picm_mken</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>picm_rdaddr[14:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>picm_rdaddr[31:15]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>picm_wraddr[14:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>picm_wraddr[31:15]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>picm_wr_data[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>picm_rd_data[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>picm_rd_data[31:4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>scan_mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>lsu_dccm_rden_d</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>lsu_dccm_wren_d</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>ld_single_ecc_error_lo_r</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ld_single_ecc_error_hi_r</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ld_single_ecc_error_lo_r_ns</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ld_single_ecc_error_hi_r_ns</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ld_single_ecc_error_lo_r_ff</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ld_single_ecc_error_hi_r_ff</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>lsu_double_ecc_error_r_ff</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ld_sec_addr_lo_r_ff[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>ld_sec_addr_lo_r_ff[8:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ld_sec_addr_lo_r_ff[9]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>ld_sec_addr_lo_r_ff[11:10]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ld_sec_addr_lo_r_ff[12]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>ld_sec_addr_lo_r_ff[14:13]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ld_sec_addr_lo_r_ff[15]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>ld_sec_addr_lo_r_ff[16]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ld_sec_addr_hi_r_ff[8:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ld_sec_addr_hi_r_ff[9]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>ld_sec_addr_hi_r_ff[11:10]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ld_sec_addr_hi_r_ff[12]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>ld_sec_addr_hi_r_ff[14:13]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>ld_sec_addr_hi_r_ff[15]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>ld_sec_addr_hi_r_ff[16]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>store_data_lo_r_in[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>store_data_hi_r_in[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>picm_rd_data_m[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>picm_rd_data_m[31:4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>picm_rd_data_m[35:32]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>picm_rd_data_m[63:36]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>dccm_wr_bypass_d_m_hi</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>dccm_wr_bypass_d_r_hi</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>dccm_wr_bypass_d_m_lo</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>dccm_wr_bypass_d_r_lo</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>kill_ecc_corr_lo_r</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>kill_ecc_corr_hi_r</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>store_byteen_m[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>store_byteen_r[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>store_byteen_ext_m[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>store_byteen_ext_m[7]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>store_byteen_ext_r[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>store_byteen_ext_r[7]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>L2U_Plus1_0.lsu_rdata_m[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>L2U_Plus1_0.lsu_rdata_corr_m[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>L2U_Plus1_0.dccm_rdata_m[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>L2U_Plus1_0.dccm_rdata_corr_m[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>L2U_Plus1_0.stbuf_fwddata_m[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>L2U_Plus1_0.stbuf_fwdbyteen_m[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>L2U_Plus1_0.lsu_ld_data_m_nc[63:32]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>L2U_Plus1_0.lsu_ld_data_corr_m_nc[63:32]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>L2U_Plus1_0.lsu_ld_data_corr_m[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>L2U1_Plus1_0.store_data_hi_m[23:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>L2U1_Plus1_0.store_data_hi_m[31:24]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>L2U1_Plus1_0.store_data_lo_m[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>L2U1_Plus1_0.store_data_mask[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>L2U1_Plus1_0.store_data_mask[63:32]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod231.html" >el2_lsu_dccm_ctl</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Branches</td>
+<td></td>
+<td class="rt">108</td>
+<td class="rt">100</td>
+<td class="rt">92.59 </td>
+</tr><tr class="s5">
+<td>TERNARY</td>
+<td class="rt">282</td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s7">
+<td>TERNARY</td>
+<td class="rt">284</td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr><tr class="s5">
+<td>TERNARY</td>
+<td class="rt">288</td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s7">
+<td>TERNARY</td>
+<td class="rt">292</td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr><tr class="s5">
+<td>TERNARY</td>
+<td class="rt">384</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">234</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">244</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">247</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">244</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">247</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">244</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">247</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">244</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">247</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">244</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">247</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">244</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">247</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">244</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">247</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">244</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">247</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">351</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">353</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">356</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">357</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">351</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">353</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">356</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">357</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">351</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">353</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">356</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">357</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s6">
+<td>TERNARY</td>
+<td class="rt">351</td>
+<td class="rt">3</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">353</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">356</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>TERNARY</td>
+<td class="rt">357</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<font color = "red">WARNING: The source file _scratch_filepath_/uvmf_caliptra_top/_scratch_filepath_/el2_lsu_dccm_ctl.sv' or '_scratch_filepath_/el2_lsu_dccm_ctl.sv was not found/opened, so annotated branch coverage report could not be generated.</font><pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	282	(ld_single_ecc_error_r_ff) ? 
+-2-:	282	(ld_single_ecc_error_lo_r_ff) ? 
+-3-:	282	(lsu_dccm_wren_d) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	284	(ld_single_ecc_error_r_ff) ? 
+-2-:	284	(ld_single_ecc_error_hi_r_ff) ? 
+-3-:	284	(lsu_dccm_wren_d) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	288	(ld_single_ecc_error_r_ff) ? 
+-2-:	288	(ld_single_ecc_error_lo_r_ff) ? 
+-3-:	288	(dma_dccm_wen) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	292	(ld_single_ecc_error_r_ff) ? 
+-2-:	292	(ld_single_ecc_error_hi_r_ff) ? 
+-3-:	292	(dma_dccm_wen) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	384	(dma_pic_wen) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uRed">
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	234	(ldst_dual_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	244	(L2U_Plus1_0.stbuf_fwdbyteen_m[0]) ? 
+-2-:	244	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	247	(L2U_Plus1_0.stbuf_fwdbyteen_m[0]) ? 
+-2-:	247	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	244	(L2U_Plus1_0.stbuf_fwdbyteen_m[1]) ? 
+-2-:	244	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	247	(L2U_Plus1_0.stbuf_fwdbyteen_m[1]) ? 
+-2-:	247	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	244	(L2U_Plus1_0.stbuf_fwdbyteen_m[2]) ? 
+-2-:	244	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	247	(L2U_Plus1_0.stbuf_fwdbyteen_m[2]) ? 
+-2-:	247	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	244	(L2U_Plus1_0.stbuf_fwdbyteen_m[3]) ? 
+-2-:	244	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	247	(L2U_Plus1_0.stbuf_fwdbyteen_m[3]) ? 
+-2-:	247	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	244	(L2U_Plus1_0.stbuf_fwdbyteen_m[4]) ? 
+-2-:	244	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	247	(L2U_Plus1_0.stbuf_fwdbyteen_m[4]) ? 
+-2-:	247	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	244	(L2U_Plus1_0.stbuf_fwdbyteen_m[5]) ? 
+-2-:	244	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	247	(L2U_Plus1_0.stbuf_fwdbyteen_m[5]) ? 
+-2-:	247	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	244	(L2U_Plus1_0.stbuf_fwdbyteen_m[6]) ? 
+-2-:	244	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	247	(L2U_Plus1_0.stbuf_fwdbyteen_m[6]) ? 
+-2-:	247	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	244	(L2U_Plus1_0.stbuf_fwdbyteen_m[7]) ? 
+-2-:	244	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	247	(L2U_Plus1_0.stbuf_fwdbyteen_m[7]) ? 
+-2-:	247	(addr_in_pic_m) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	351	(store_byteen_ext_m[(0 + 4)]) ? 
+-2-:	351	((lsu_stbuf_commit_any & dccm_wr_bypass_d_m_hi)) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	353	(store_byteen_ext_m[0]) ? 
+-2-:	353	((lsu_stbuf_commit_any & dccm_wr_bypass_d_m_lo)) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	356	(((lsu_stbuf_commit_any & dccm_wr_bypass_d_r_lo) & (~store_byteen_ext_r[0]))) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	357	(((lsu_stbuf_commit_any & dccm_wr_bypass_d_r_hi) & (~store_byteen_ext_r[(0 + 4)]))) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	351	(store_byteen_ext_m[(1 + 4)]) ? 
+-2-:	351	((lsu_stbuf_commit_any & dccm_wr_bypass_d_m_hi)) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	353	(store_byteen_ext_m[1]) ? 
+-2-:	353	((lsu_stbuf_commit_any & dccm_wr_bypass_d_m_lo)) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	356	(((lsu_stbuf_commit_any & dccm_wr_bypass_d_r_lo) & (~store_byteen_ext_r[1]))) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	357	(((lsu_stbuf_commit_any & dccm_wr_bypass_d_r_hi) & (~store_byteen_ext_r[(1 + 4)]))) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	351	(store_byteen_ext_m[(2 + 4)]) ? 
+-2-:	351	((lsu_stbuf_commit_any & dccm_wr_bypass_d_m_hi)) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	353	(store_byteen_ext_m[2]) ? 
+-2-:	353	((lsu_stbuf_commit_any & dccm_wr_bypass_d_m_lo)) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	356	(((lsu_stbuf_commit_any & dccm_wr_bypass_d_r_lo) & (~store_byteen_ext_r[2]))) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	357	(((lsu_stbuf_commit_any & dccm_wr_bypass_d_r_hi) & (~store_byteen_ext_r[(2 + 4)]))) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	351	(store_byteen_ext_m[(3 + 4)]) ? 
+-2-:	351	((lsu_stbuf_commit_any & dccm_wr_bypass_d_m_hi)) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uRed">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	353	(store_byteen_ext_m[3]) ? 
+-2-:	353	((lsu_stbuf_commit_any & dccm_wr_bypass_d_m_lo)) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	356	(((lsu_stbuf_commit_any & dccm_wr_bypass_d_r_lo) & (~store_byteen_ext_r[3]))) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	357	(((lsu_stbuf_commit_any & dccm_wr_bypass_d_r_hi) & (~store_byteen_ext_r[(3 + 4)]))) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Assert"></a>
+Assert Coverage for Module : <a href="mod231.html" >el2_lsu_dccm_ctl</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#220314715" >Assertions</a></td>
+<td class="wht cl rt">1</td>
+<td class="s10 cl rt">1</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">1</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#2019092678" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#512763167" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">1</td>
+<td class="s10 cl rt">1</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">1</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="220314715"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="213738547"></a>
+assert_ld_single_ecc_error_commit</td>
+<td class="s9 cl rt">2147483647</td>
+<td class="s9 cl rt">1078</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_6582">
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+    <li>
+      <a href="#Assert">Assert</a>    </li>
+  </ul>
+  <ul name="tag_el2_lsu_dccm_ctl">
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+    <li>
+      <a href="#Assert">Assert</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

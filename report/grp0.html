@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Group :: ahb_lite_2to1_mux_cov_grp</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Group : ahb_lite_2to1_mux_cov_grp</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Group : <a href="#"  onclick="showContent('ahb_lite_2to1_mux_cov_grp')">ahb_lite_2to1_mux_cov_grp</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td><b>SCORE</b></td><td>INSTANCES</td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>PER INSTANCE</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="s9 cl rt"> 91.67</td>
+<td class="s9 cl rt"> 91.67</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/ahb_lite_bus/rtl/ahb_lite_2to1_mux.sv')">/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/ahb_lite_bus/rtl/ahb_lite_2to1_mux.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>1 Instances:</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td><b>SCORE</b></td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="wht cl wordwrap"><a href="grp0.html#inst_tag_ahb_lite_2to1_mux_cov_grp1"  onclick="showContent('ahb_lite_2to1_mux_cov_grp1')">ahb_lite_2to1_mux_cov_grp1</a></td>
+<td class="s9 cl rt"> 91.67</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+</div>
+<hr>
+<br clear=all>
+<span class=repname>Summary for Group   ahb_lite_2to1_mux_cov_grp
+</span>
+<br clear=all>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s9">
+<td><a href="#var_tbl_ahb_lite_2to1_mux_cov_grp" >Variables</a></td>
+<td class="rt">24</td>
+<td class="rt">2</td>
+<td class="rt">22</td>
+<td class="rt">91.67 </td>
+</tr><tr class="s9">
+<td><a href="#crs_tbl_ahb_lite_2to1_mux_cov_grp" >Crosses</a></td>
+<td class="rt">24</td>
+<td class="rt">2</td>
+<td class="rt">22</td>
+<td class="rt">91.67 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="var_tbl_ahb_lite_2to1_mux_cov_grp">Variables for Group  ahb_lite_2to1_mux_cov_grp
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">VARIABLE</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_addr_cp"  onclick="checkLink(this)" target="detailFrame">init0_addr_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_pend_addr_cp"  onclick="checkLink(this)" target="detailFrame">init0_pend_addr_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_data_cp"  onclick="checkLink(this)" target="detailFrame">init0_data_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_gnt_cp"  onclick="checkLink(this)" target="detailFrame">init0_gnt_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_addr_cp"  onclick="checkLink(this)" target="detailFrame">init1_addr_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_pend_addr_cp"  onclick="checkLink(this)" target="detailFrame">init1_pend_addr_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_data_cp"  onclick="checkLink(this)" target="detailFrame">init1_data_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_gnt_cp"  onclick="checkLink(this)" target="detailFrame">init1_gnt_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_pend_addr_not_ready"  onclick="checkLink(this)" target="detailFrame">init0_pend_addr_not_ready</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_pend_addr_not_ready"  onclick="checkLink(this)" target="detailFrame">init1_pend_addr_not_ready</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_data_not_ready"  onclick="checkLink(this)" target="detailFrame">init0_data_not_ready</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_data_not_ready"  onclick="checkLink(this)" target="detailFrame">init1_data_not_ready</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="crs_tbl_ahb_lite_2to1_mux_cov_grp">Crosses for Group  ahb_lite_2to1_mux_cov_grp
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CROSS</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>PRINT MISSING</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_dataXinit1_gnt"  onclick="checkLink(this)" target="detailFrame">init0_dataXinit1_gnt</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_dataXinit0_gnt"  onclick="checkLink(this)" target="detailFrame">init1_dataXinit0_gnt</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_addrXpend"  onclick="checkLink(this)" target="detailFrame">init0_addrXpend</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_addrXpend"  onclick="checkLink(this)" target="detailFrame">init1_addrXpend</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0Xinit1_addr"  onclick="checkLink(this)" target="detailFrame">init0Xinit1_addr</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0Xinit1_pend_addr"  onclick="checkLink(this)" target="detailFrame">init0Xinit1_pend_addr</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+<div name='ahb_lite_2to1_mux_cov_grp1'>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1"></a>
+<hr>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Group Instance : <a href="groups.html#tag_ahb_lite_2to1_mux_cov_grp1" >ahb_lite_2to1_mux_cov_grp1</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td><b>SCORE</b></td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="s9 cl rt"> 91.67</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+</div>
+<hr>
+<br clear=all>
+<span class=repname>Summary for Group Instance   ahb_lite_2to1_mux_cov_grp1
+</span>
+<br clear=all>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s9">
+<td><a href="#var_tbl_ahb_lite_2to1_mux_cov_grp1" >Variables</a></td>
+<td class="rt">24</td>
+<td class="rt">2</td>
+<td class="rt">22</td>
+<td class="rt">91.67 </td>
+</tr><tr class="s9">
+<td><a href="#crs_tbl_ahb_lite_2to1_mux_cov_grp1" >Crosses</a></td>
+<td class="rt">24</td>
+<td class="rt">2</td>
+<td class="rt">22</td>
+<td class="rt">91.67 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="var_tbl_ahb_lite_2to1_mux_cov_grp1">Variables for Group Instance  ahb_lite_2to1_mux_cov_grp1
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">VARIABLE</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_addr_cp"  onclick="checkLink(this)" target="detailFrame">init0_addr_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_pend_addr_cp"  onclick="checkLink(this)" target="detailFrame">init0_pend_addr_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_data_cp"  onclick="checkLink(this)" target="detailFrame">init0_data_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_gnt_cp"  onclick="checkLink(this)" target="detailFrame">init0_gnt_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_addr_cp"  onclick="checkLink(this)" target="detailFrame">init1_addr_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_pend_addr_cp"  onclick="checkLink(this)" target="detailFrame">init1_pend_addr_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_data_cp"  onclick="checkLink(this)" target="detailFrame">init1_data_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_gnt_cp"  onclick="checkLink(this)" target="detailFrame">init1_gnt_cp</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_pend_addr_not_ready"  onclick="checkLink(this)" target="detailFrame">init0_pend_addr_not_ready</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_pend_addr_not_ready"  onclick="checkLink(this)" target="detailFrame">init1_pend_addr_not_ready</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_data_not_ready"  onclick="checkLink(this)" target="detailFrame">init0_data_not_ready</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_data_not_ready"  onclick="checkLink(this)" target="detailFrame">init1_data_not_ready</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="crs_tbl_ahb_lite_2to1_mux_cov_grp1">Crosses for Group Instance  ahb_lite_2to1_mux_cov_grp1
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">CROSS</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>PRINT MISSING</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_dataXinit1_gnt"  onclick="checkLink(this)" target="detailFrame">init0_dataXinit1_gnt</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_dataXinit0_gnt"  onclick="checkLink(this)" target="detailFrame">init1_dataXinit0_gnt</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_addrXpend"  onclick="checkLink(this)" target="detailFrame">init0_addrXpend</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_addrXpend"  onclick="checkLink(this)" target="detailFrame">init1_addrXpend</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0Xinit1_addr"  onclick="checkLink(this)" target="detailFrame">init0Xinit1_addr</a></td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0Xinit1_pend_addr"  onclick="checkLink(this)" target="detailFrame">init0Xinit1_pend_addr</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='ahb_lite_2to1_mux_cov_grp'>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_addr_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_addr_cp">Summary for Variable init0_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init0_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">1268650962</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_pend_addr_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_pend_addr_cp">Summary for Variable init0_pend_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init0_pend_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">195235</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_data_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_data_cp">Summary for Variable init0_data_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init0_data_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">1271212080</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_gnt_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_gnt_cp">Summary for Variable init0_gnt_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init0_gnt_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">1268650962</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_addr_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_addr_cp">Summary for Variable init1_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init1_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_pend_addr_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_pend_addr_cp">Summary for Variable init1_pend_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init1_pend_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">936718</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_data_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_data_cp">Summary for Variable init1_data_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init1_data_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_gnt_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_gnt_cp">Summary for Variable init1_gnt_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init1_gnt_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_pend_addr_not_ready"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_pend_addr_not_ready">Summary for Variable init0_pend_addr_not_ready</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init0_pend_addr_not_ready</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">161249</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_pend_addr_not_ready"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_pend_addr_not_ready">Summary for Variable init1_pend_addr_not_ready</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init1_pend_addr_not_ready</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[1]]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_data_not_ready"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_data_not_ready">Summary for Variable init0_data_not_ready</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init0_data_not_ready</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">2785647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_data_not_ready"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_data_not_ready">Summary for Variable init1_data_not_ready</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init1_data_not_ready</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[1]]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_dataXinit1_gnt"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_dataXinit1_gnt">Summary for Cross init0_dataXinit1_gnt</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: init0_data_cp init1_gnt_cp<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s10">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for init0_dataXinit1_gnt</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">init0_data_cp</td><td class="alfsrt">init1_gnt_cp</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[1]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[0]</td>
+<td class="rt">1270247342</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[1]</td>
+<td class="rt">964738</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_dataXinit0_gnt"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_dataXinit0_gnt">Summary for Cross init1_dataXinit0_gnt</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: init1_data_cp init0_gnt_cp<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s10">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for init1_dataXinit0_gnt</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">init1_data_cp</td><td class="alfsrt">init0_gnt_cp</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[1]</td>
+<td class="rt">1191241708</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[1]</td>
+<td class="rt">77409254</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_addrXpend"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init0_addrXpend">Summary for Cross init0_addrXpend</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: init0_addr_cp init0_pend_addr_cp<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s7">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for init0_addrXpend</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">init0_addr_cp</td><td class="alfsrt">init0_pend_addr_cp</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[0]]</td>
+<td>[auto[1]]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">init0_addr_cp</td><td class="alfsrt">init0_pend_addr_cp</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[0]</td>
+<td class="rt">1268455727</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[1]</td>
+<td class="rt">195235</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_addrXpend"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init1_addrXpend">Summary for Cross init1_addrXpend</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: init1_addr_cp init1_pend_addr_cp<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s10">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for init1_addrXpend</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">init1_addr_cp</td><td class="alfsrt">init1_pend_addr_cp</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[1]</td>
+<td class="rt">688327</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[1]</td>
+<td class="rt">248391</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init0Xinit1_addr"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init0Xinit1_addr">Summary for Cross init0Xinit1_addr</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: init0_addr_cp init1_addr_cp<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s10">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for init0Xinit1_addr</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">init0_addr_cp</td><td class="alfsrt">init1_addr_cp</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[1]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[0]</td>
+<td class="rt">1267714740</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[1]</td>
+<td class="rt">936222</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp.init0Xinit1_pend_addr"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp.init0Xinit1_pend_addr">Summary for Cross init0Xinit1_pend_addr</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: init0_pend_addr_cp init1_pend_addr_cp<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s7">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for init0Xinit1_pend_addr</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">init0_pend_addr_cp</td><td class="alfsrt">init1_pend_addr_cp</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[1]]</td>
+<td>[auto[1]]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">init0_pend_addr_cp</td><td class="alfsrt">init1_pend_addr_cp</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[1]</td>
+<td class="rt">936718</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[0]</td>
+<td class="rt">195235</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+</div>
+<div name='ahb_lite_2to1_mux_cov_grp1'>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_addr_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_addr_cp">Summary for Variable init0_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init0_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">1268650962</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_pend_addr_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_pend_addr_cp">Summary for Variable init0_pend_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init0_pend_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">195235</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_data_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_data_cp">Summary for Variable init0_data_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init0_data_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">1271212080</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_gnt_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_gnt_cp">Summary for Variable init0_gnt_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init0_gnt_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">1268650962</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_addr_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_addr_cp">Summary for Variable init1_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init1_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_pend_addr_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_pend_addr_cp">Summary for Variable init1_pend_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init1_pend_addr_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">936718</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_data_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_data_cp">Summary for Variable init1_data_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init1_data_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_gnt_cp"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_gnt_cp">Summary for Variable init1_gnt_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init1_gnt_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_pend_addr_not_ready"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_pend_addr_not_ready">Summary for Variable init0_pend_addr_not_ready</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init0_pend_addr_not_ready</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">161249</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_pend_addr_not_ready"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_pend_addr_not_ready">Summary for Variable init1_pend_addr_not_ready</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init1_pend_addr_not_ready</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[1]]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_data_not_ready"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_data_not_ready">Summary for Variable init0_data_not_ready</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init0_data_not_ready</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">2785647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_data_not_ready"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_data_not_ready">Summary for Variable init1_data_not_ready</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for init1_data_not_ready</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[1]]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_dataXinit1_gnt"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_dataXinit1_gnt">Summary for Cross init0_dataXinit1_gnt</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: init0_data_cp init1_gnt_cp<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s10">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for init0_dataXinit1_gnt</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">init0_data_cp</td><td class="alfsrt">init1_gnt_cp</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[1]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[0]</td>
+<td class="rt">1270247342</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[1]</td>
+<td class="rt">964738</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_dataXinit0_gnt"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_dataXinit0_gnt">Summary for Cross init1_dataXinit0_gnt</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: init1_data_cp init0_gnt_cp<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s10">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for init1_dataXinit0_gnt</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">init1_data_cp</td><td class="alfsrt">init0_gnt_cp</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[1]</td>
+<td class="rt">1191241708</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[1]</td>
+<td class="rt">77409254</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_addrXpend"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_addrXpend">Summary for Cross init0_addrXpend</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: init0_addr_cp init0_pend_addr_cp<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s7">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for init0_addrXpend</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">init0_addr_cp</td><td class="alfsrt">init0_pend_addr_cp</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[0]]</td>
+<td>[auto[1]]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">init0_addr_cp</td><td class="alfsrt">init0_pend_addr_cp</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[0]</td>
+<td class="rt">1268455727</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[1]</td>
+<td class="rt">195235</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_addrXpend"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_addrXpend">Summary for Cross init1_addrXpend</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: init1_addr_cp init1_pend_addr_cp<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s10">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for init1_addrXpend</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">init1_addr_cp</td><td class="alfsrt">init1_pend_addr_cp</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[1]</td>
+<td class="rt">688327</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[1]</td>
+<td class="rt">248391</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0Xinit1_addr"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0Xinit1_addr">Summary for Cross init0Xinit1_addr</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: init0_addr_cp init1_addr_cp<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s10">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+<td></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for init0Xinit1_addr</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">init0_addr_cp</td><td class="alfsrt">init1_addr_cp</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[1]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[0]</td>
+<td class="rt">1267714740</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[1]</td>
+<td class="rt">936222</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0Xinit1_pend_addr"></a><span class="repname" id="inst_tag_ahb_lite_2to1_mux_cov_grp1.init0Xinit1_pend_addr">Summary for Cross init0Xinit1_pend_addr</span>
+<br clear=all>
+<br clear=all>
+Samples crossed: init0_pend_addr_cp init1_pend_addr_cp<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>MISSING</td></tr><tr class="s7">
+<td>Automatically Generated Cross Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Cross Bins for init0Xinit1_pend_addr</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">init0_pend_addr_cp</td><td class="alfsrt">init1_pend_addr_cp</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[1]]</td>
+<td>[auto[1]]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">init0_pend_addr_cp</td><td class="alfsrt">init1_pend_addr_cp</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[0]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[0]</td>
+<td>auto[1]</td>
+<td class="rt">936718</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td>auto[0]</td>
+<td class="rt">195235</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="ahb_lite_2to1_mux_cov_grp">
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_addr_cp">Variable : init0_addr_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_pend_addr_cp">Variable : init0_pend_addr_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_data_cp">Variable : init0_data_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_gnt_cp">Variable : init0_gnt_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_addr_cp">Variable : init1_addr_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_pend_addr_cp">Variable : init1_pend_addr_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_data_cp">Variable : init1_data_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_gnt_cp">Variable : init1_gnt_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_pend_addr_not_ready">Variable : init0_pend_addr_not_ready</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_pend_addr_not_ready">Variable : init1_pend_addr_not_ready</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_data_not_ready">Variable : init0_data_not_ready</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_data_not_ready">Variable : init1_data_not_ready</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_dataXinit1_gnt">Cross : init0_dataXinit1_gnt</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_dataXinit0_gnt">Cross : init1_dataXinit0_gnt</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0_addrXpend">Cross : init0_addrXpend</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init1_addrXpend">Cross : init1_addrXpend</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0Xinit1_addr">Cross : init0Xinit1_addr</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp.init0Xinit1_pend_addr">Cross : init0Xinit1_pend_addr</a>    </li>
+  </ul>
+  <ul name="ahb_lite_2to1_mux_cov_grp1">
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_addr_cp">Variable : init0_addr_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_pend_addr_cp">Variable : init0_pend_addr_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_data_cp">Variable : init0_data_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_gnt_cp">Variable : init0_gnt_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_addr_cp">Variable : init1_addr_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_pend_addr_cp">Variable : init1_pend_addr_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_data_cp">Variable : init1_data_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_gnt_cp">Variable : init1_gnt_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_pend_addr_not_ready">Variable : init0_pend_addr_not_ready</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_pend_addr_not_ready">Variable : init1_pend_addr_not_ready</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_data_not_ready">Variable : init0_data_not_ready</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_data_not_ready">Variable : init1_data_not_ready</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_dataXinit1_gnt">Cross : init0_dataXinit1_gnt</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_dataXinit0_gnt">Cross : init1_dataXinit0_gnt</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0_addrXpend">Cross : init0_addrXpend</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init1_addrXpend">Cross : init1_addrXpend</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0Xinit1_addr">Cross : init0Xinit1_addr</a>    </li>
+    <li>
+      <a href="#inst_tag_ahb_lite_2to1_mux_cov_grp1.init0Xinit1_pend_addr">Cross : init0Xinit1_pend_addr</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

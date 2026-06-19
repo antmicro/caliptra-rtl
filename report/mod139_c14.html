@@ -1,0 +1,3576 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Cond split page</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.colResizable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    }  });
+  $("table").colResizable({    liveDrag:true,
+    fixed:false,
+    draggingClass:"dragging"
+  });
+});
+</script>
+</head>
+<body><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Cond split page</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-center">
+Go <a href="mod139.html#c14">back</a>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[0][11] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[0][11].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[0][11] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[1][0] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[1][0].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[1][0] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[1][1] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[1][1].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[1][1] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[1][2] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[1][2].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[1][2] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[1][3] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[1][3].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[1][3] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[1][4] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[1][4].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[1][4] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[1][5] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[1][5].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[1][5] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[1][6] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[1][6].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[1][6] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[1][7] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[1][7].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[1][7] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[1][8] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[1][8].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[1][8] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[1][9] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[1][9].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[1][9] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[1][10] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[1][10].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[1][10] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[1][11] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[1][11].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[1][11] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[2][0] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[2][0].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[2][0] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[2][1] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[2][1].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[2][1] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[2][2] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[2][2].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[2][2] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[2][3] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[2][3].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[2][3] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[2][4] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[2][4].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[2][4] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[2][5] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[2][5].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[2][5] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[2][6] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[2][6].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[2][6] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[2][7] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[2][7].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[2][7] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[2][8] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[2][8].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[2][8] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[2][9] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[2][9].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[2][9] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[2][10] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[2][10].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[2][10] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[2][11] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[2][11].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[2][11] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[3][0] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[3][0].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[3][0] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[3][1] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[3][1].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[3][1] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[3][2] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[3][2].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[3][2] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[3][3] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[3][3].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[3][3] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[3][4] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[3][4].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[3][4] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[3][5] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[3][5].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[3][5] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[3][6] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[3][6].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[3][6] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[3][7] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[3][7].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[3][7] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[3][8] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[3][8].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[3][8] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[3][9] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[3][9].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[3][9] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[3][10] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[3][10].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[3][10] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[3][11] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[3][11].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[3][11] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[4][0] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[4][0].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[4][0] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[4][1] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[4][1].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[4][1] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[4][2] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[4][2].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[4][2] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[4][3] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[4][3].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[4][3] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[4][4] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[4][4].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[4][4] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[4][5] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[4][5].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[4][5] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[4][6] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[4][6].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[4][6] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[4][7] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[4][7].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[4][7] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[4][8] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[4][8].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[4][8] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[4][9] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[4][9].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[4][9] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[4][10] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[4][10].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[4][10] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[4][11] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[4][11].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[4][11] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[5][0] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[5][0].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[5][0] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[5][1] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[5][1].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[5][1] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[5][2] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[5][2].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[5][2] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[5][3] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[5][3].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[5][3] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[5][4] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[5][4].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[5][4] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[5][5] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[5][5].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[5][5] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[5][6] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[5][6].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[5][6] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[5][7] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[5][7].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[5][7] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[5][8] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[5][8].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[5][8] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[5][9] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[5][9].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[5][9] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[5][10] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[5][10].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[5][10] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[5][11] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[5][11].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[5][11] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[6][0] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[6][0].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[6][0] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[6][1] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[6][1].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[6][1] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[6][2] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[6][2].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[6][2] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[6][3] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[6][3].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[6][3] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[6][4] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[6][4].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[6][4] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[6][5] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[6][5].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[6][5] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[6][6] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[6][6].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[6][6] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[6][7] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[6][7].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[6][7] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[6][8] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[6][8].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[6][8] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[6][9] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[6][9].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[6][9] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[6][10] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[6][10].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[6][10] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[6][11] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[6][11].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[6][11] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[7][0] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[7][0].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[7][0] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[7][1] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[7][1].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[7][1] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[7][2] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[7][2].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[7][2] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[7][3] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[7][3].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[7][3] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[7][4] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[7][4].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[7][4] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[7][5] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[7][5].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[7][5] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[7][6] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[7][6].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[7][6] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[7][7] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[7][7].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[7][7] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[7][8] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[7][8].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[7][8] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[7][9] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[7][9].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[7][9] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[7][10] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[7][10].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[7][10] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[7][11] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[7][11].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[7][11] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[8][0] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[8][0].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[8][0] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[8][1] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[8][1].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[8][1] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[8][2] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[8][2].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[8][2] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[8][3] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[8][3].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[8][3] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[8][4] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[8][4].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[8][4] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[8][5] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[8][5].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[8][5] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[8][6] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[8][6].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[8][6] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[8][7] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[8][7].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[8][7] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[8][8] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[8][8].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[8][8] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[8][9] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[8][9].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[8][9] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[8][10] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[8][10].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[8][10] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[8][11] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[8][11].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[8][11] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[9][0] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[9][0].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[9][0] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[9][1] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[9][1].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[9][1] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[9][2] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[9][2].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[9][2] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[9][3] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[9][3].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[9][3] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[9][4] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[9][4].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[9][4] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[9][5] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[9][5].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[9][5] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[9][6] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[9][6].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[9][6] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[9][7] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[9][7].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[9][7] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[9][8] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[9][8].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[9][8] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[9][9] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[9][9].data.value : '0)
+             ---------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[9][9] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[9][10] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[9][10].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[9][10] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ EXPRESSION ((decoded_reg_strb.DATA_VAULT_ENTRY[9][11] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.DATA_VAULT_ENTRY[9][11].data.value : '0)
+             ----------------------------------1---------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       474
+ SUB-EXPRESSION (decoded_reg_strb.DATA_VAULT_ENTRY[9][11] &amp;&amp; ((!decoded_req_is_wr)))
+                 --------------------1-------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ EXPRESSION ((decoded_reg_strb.LockableScratchRegCtrl[0] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchRegCtrl[0].lock_entry.value : '0)
+             -----------------------------------1----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchRegCtrl[0] &amp;&amp; ((!decoded_req_is_wr)))
+                 ---------------------1--------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ EXPRESSION ((decoded_reg_strb.LockableScratchRegCtrl[1] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchRegCtrl[1].lock_entry.value : '0)
+             -----------------------------------1----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchRegCtrl[1] &amp;&amp; ((!decoded_req_is_wr)))
+                 ---------------------1--------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ EXPRESSION ((decoded_reg_strb.LockableScratchRegCtrl[2] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchRegCtrl[2].lock_entry.value : '0)
+             -----------------------------------1----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchRegCtrl[2] &amp;&amp; ((!decoded_req_is_wr)))
+                 ---------------------1--------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ EXPRESSION ((decoded_reg_strb.LockableScratchRegCtrl[3] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchRegCtrl[3].lock_entry.value : '0)
+             -----------------------------------1----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchRegCtrl[3] &amp;&amp; ((!decoded_req_is_wr)))
+                 ---------------------1--------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ EXPRESSION ((decoded_reg_strb.LockableScratchRegCtrl[4] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchRegCtrl[4].lock_entry.value : '0)
+             -----------------------------------1----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchRegCtrl[4] &amp;&amp; ((!decoded_req_is_wr)))
+                 ---------------------1--------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ EXPRESSION ((decoded_reg_strb.LockableScratchRegCtrl[5] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchRegCtrl[5].lock_entry.value : '0)
+             -----------------------------------1----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchRegCtrl[5] &amp;&amp; ((!decoded_req_is_wr)))
+                 ---------------------1--------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ EXPRESSION ((decoded_reg_strb.LockableScratchRegCtrl[6] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchRegCtrl[6].lock_entry.value : '0)
+             -----------------------------------1----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchRegCtrl[6] &amp;&amp; ((!decoded_req_is_wr)))
+                 ---------------------1--------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ EXPRESSION ((decoded_reg_strb.LockableScratchRegCtrl[7] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchRegCtrl[7].lock_entry.value : '0)
+             -----------------------------------1----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchRegCtrl[7] &amp;&amp; ((!decoded_req_is_wr)))
+                 ---------------------1--------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ EXPRESSION ((decoded_reg_strb.LockableScratchRegCtrl[8] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchRegCtrl[8].lock_entry.value : '0)
+             -----------------------------------1----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchRegCtrl[8] &amp;&amp; ((!decoded_req_is_wr)))
+                 ---------------------1--------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ EXPRESSION ((decoded_reg_strb.LockableScratchRegCtrl[9] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchRegCtrl[9].lock_entry.value : '0)
+             -----------------------------------1----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       478
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchRegCtrl[9] &amp;&amp; ((!decoded_req_is_wr)))
+                 ---------------------1--------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ EXPRESSION ((decoded_reg_strb.LockableScratchReg[0] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchReg[0].data.value : '0)
+             ---------------------------------1--------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchReg[0] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ EXPRESSION ((decoded_reg_strb.LockableScratchReg[1] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchReg[1].data.value : '0)
+             ---------------------------------1--------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchReg[1] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ EXPRESSION ((decoded_reg_strb.LockableScratchReg[2] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchReg[2].data.value : '0)
+             ---------------------------------1--------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchReg[2] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ EXPRESSION ((decoded_reg_strb.LockableScratchReg[3] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchReg[3].data.value : '0)
+             ---------------------------------1--------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchReg[3] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ EXPRESSION ((decoded_reg_strb.LockableScratchReg[4] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchReg[4].data.value : '0)
+             ---------------------------------1--------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchReg[4] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ EXPRESSION ((decoded_reg_strb.LockableScratchReg[5] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchReg[5].data.value : '0)
+             ---------------------------------1--------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchReg[5] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ EXPRESSION ((decoded_reg_strb.LockableScratchReg[6] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchReg[6].data.value : '0)
+             ---------------------------------1--------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchReg[6] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ EXPRESSION ((decoded_reg_strb.LockableScratchReg[7] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchReg[7].data.value : '0)
+             ---------------------------------1--------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchReg[7] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ EXPRESSION ((decoded_reg_strb.LockableScratchReg[8] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchReg[8].data.value : '0)
+             ---------------------------------1--------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchReg[8] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ EXPRESSION ((decoded_reg_strb.LockableScratchReg[9] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.LockableScratchReg[9].data.value : '0)
+             ---------------------------------1--------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       482
+ SUB-EXPRESSION (decoded_reg_strb.LockableScratchReg[9] &amp;&amp; ((!decoded_req_is_wr)))
+                 -------------------1------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ EXPRESSION ((decoded_reg_strb.NonStickyGenericScratchReg[0] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.NonStickyGenericScratchReg[0].data.value : '0)
+             -------------------------------------1------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ SUB-EXPRESSION (decoded_reg_strb.NonStickyGenericScratchReg[0] &amp;&amp; ((!decoded_req_is_wr)))
+                 -----------------------1----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ EXPRESSION ((decoded_reg_strb.NonStickyGenericScratchReg[1] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.NonStickyGenericScratchReg[1].data.value : '0)
+             -------------------------------------1------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ SUB-EXPRESSION (decoded_reg_strb.NonStickyGenericScratchReg[1] &amp;&amp; ((!decoded_req_is_wr)))
+                 -----------------------1----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ EXPRESSION ((decoded_reg_strb.NonStickyGenericScratchReg[2] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.NonStickyGenericScratchReg[2].data.value : '0)
+             -------------------------------------1------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ SUB-EXPRESSION (decoded_reg_strb.NonStickyGenericScratchReg[2] &amp;&amp; ((!decoded_req_is_wr)))
+                 -----------------------1----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ EXPRESSION ((decoded_reg_strb.NonStickyGenericScratchReg[3] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.NonStickyGenericScratchReg[3].data.value : '0)
+             -------------------------------------1------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ SUB-EXPRESSION (decoded_reg_strb.NonStickyGenericScratchReg[3] &amp;&amp; ((!decoded_req_is_wr)))
+                 -----------------------1----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ EXPRESSION ((decoded_reg_strb.NonStickyGenericScratchReg[4] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.NonStickyGenericScratchReg[4].data.value : '0)
+             -------------------------------------1------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ SUB-EXPRESSION (decoded_reg_strb.NonStickyGenericScratchReg[4] &amp;&amp; ((!decoded_req_is_wr)))
+                 -----------------------1----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ EXPRESSION ((decoded_reg_strb.NonStickyGenericScratchReg[5] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.NonStickyGenericScratchReg[5].data.value : '0)
+             -------------------------------------1------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ SUB-EXPRESSION (decoded_reg_strb.NonStickyGenericScratchReg[5] &amp;&amp; ((!decoded_req_is_wr)))
+                 -----------------------1----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ EXPRESSION ((decoded_reg_strb.NonStickyGenericScratchReg[6] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.NonStickyGenericScratchReg[6].data.value : '0)
+             -------------------------------------1------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ SUB-EXPRESSION (decoded_reg_strb.NonStickyGenericScratchReg[6] &amp;&amp; ((!decoded_req_is_wr)))
+                 -----------------------1----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ EXPRESSION ((decoded_reg_strb.NonStickyGenericScratchReg[7] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.NonStickyGenericScratchReg[7].data.value : '0)
+             -------------------------------------1------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       485
+ SUB-EXPRESSION (decoded_reg_strb.NonStickyGenericScratchReg[7] &amp;&amp; ((!decoded_req_is_wr)))
+                 -----------------------1----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchRegCtrl[0] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchRegCtrl[0].lock_entry.value : '0)
+             --------------------------------------1-------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchRegCtrl[0] &amp;&amp; ((!decoded_req_is_wr)))
+                 ------------------------1-----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchRegCtrl[1] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchRegCtrl[1].lock_entry.value : '0)
+             --------------------------------------1-------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchRegCtrl[1] &amp;&amp; ((!decoded_req_is_wr)))
+                 ------------------------1-----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchRegCtrl[2] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchRegCtrl[2].lock_entry.value : '0)
+             --------------------------------------1-------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchRegCtrl[2] &amp;&amp; ((!decoded_req_is_wr)))
+                 ------------------------1-----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchRegCtrl[3] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchRegCtrl[3].lock_entry.value : '0)
+             --------------------------------------1-------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchRegCtrl[3] &amp;&amp; ((!decoded_req_is_wr)))
+                 ------------------------1-----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchRegCtrl[4] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchRegCtrl[4].lock_entry.value : '0)
+             --------------------------------------1-------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchRegCtrl[4] &amp;&amp; ((!decoded_req_is_wr)))
+                 ------------------------1-----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchRegCtrl[5] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchRegCtrl[5].lock_entry.value : '0)
+             --------------------------------------1-------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchRegCtrl[5] &amp;&amp; ((!decoded_req_is_wr)))
+                 ------------------------1-----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchRegCtrl[6] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchRegCtrl[6].lock_entry.value : '0)
+             --------------------------------------1-------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchRegCtrl[6] &amp;&amp; ((!decoded_req_is_wr)))
+                 ------------------------1-----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchRegCtrl[7] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchRegCtrl[7].lock_entry.value : '0)
+             --------------------------------------1-------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       488
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchRegCtrl[7] &amp;&amp; ((!decoded_req_is_wr)))
+                 ------------------------1-----------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchReg[0] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchReg[0].data.value : '0)
+             ------------------------------------1-----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchReg[0] &amp;&amp; ((!decoded_req_is_wr)))
+                 ----------------------1---------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchReg[1] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchReg[1].data.value : '0)
+             ------------------------------------1-----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchReg[1] &amp;&amp; ((!decoded_req_is_wr)))
+                 ----------------------1---------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchReg[2] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchReg[2].data.value : '0)
+             ------------------------------------1-----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchReg[2] &amp;&amp; ((!decoded_req_is_wr)))
+                 ----------------------1---------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchReg[3] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchReg[3].data.value : '0)
+             ------------------------------------1-----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchReg[3] &amp;&amp; ((!decoded_req_is_wr)))
+                 ----------------------1---------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchReg[4] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchReg[4].data.value : '0)
+             ------------------------------------1-----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchReg[4] &amp;&amp; ((!decoded_req_is_wr)))
+                 ----------------------1---------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchReg[5] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchReg[5].data.value : '0)
+             ------------------------------------1-----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchReg[5] &amp;&amp; ((!decoded_req_is_wr)))
+                 ----------------------1---------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchReg[6] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchReg[6].data.value : '0)
+             ------------------------------------1-----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchReg[6] &amp;&amp; ((!decoded_req_is_wr)))
+                 ----------------------1---------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ EXPRESSION ((decoded_reg_strb.StickyLockableScratchReg[7] &amp;&amp; ((!decoded_req_is_wr))) ? field_storage.StickyLockableScratchReg[7].data.value : '0)
+             ------------------------------------1-----------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       492
+ SUB-EXPRESSION (decoded_reg_strb.StickyLockableScratchReg[7] &amp;&amp; ((!decoded_req_is_wr)))
+                 ----------------------1---------------------    -----------2----------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

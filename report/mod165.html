@@ -1,0 +1,3879 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: soc_ifc_top</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_soc_ifc_top'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_soc_ifc_top')">soc_ifc_top</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 92.51</td>
+<td class="s9 cl rt"><a href="mod165.html#Line" > 99.49</a></td>
+<td class="s7 cl rt"><a href="mod165.html#Cond" > 76.09</a></td>
+<td class="s9 cl rt"><a href="mod165.html#Toggle" > 92.22</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod165.html#Branch" > 94.74</a></td>
+<td class="s10 cl rt"><a href="mod165.html#Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/root/_scratch_filepath_/uvmf_caliptra_top/_scratch_filepath_/soc_ifc_top.sv')">/root/_scratch_filepath_/uvmf_caliptra_top/_scratch_filepath_/soc_ifc_top.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod165.html#inst_tag_4771"  onclick="showContent('inst_tag_4771')">hdl_top.caliptra_top_dut.soc_ifc_top1</a></td>
+<td class="s9 cl rt"> 92.51</td>
+<td class="s9 cl rt"><a href="mod165.html#Line" > 99.49</a></td>
+<td class="s7 cl rt"><a href="mod165.html#Cond" > 76.09</a></td>
+<td class="s9 cl rt"><a href="mod165.html#Toggle" > 92.22</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod165.html#Branch" > 94.74</a></td>
+<td class="s10 cl rt"><a href="mod165.html#Assert" >100.00</a></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_soc_ifc_top'>
+<hr>
+<a name="inst_tag_4771"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_4771" >hdl_top.caliptra_top_dut.soc_ifc_top1</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 92.51</td>
+<td class="s9 cl rt"><a href="mod165.html#Line" > 99.49</a></td>
+<td class="s7 cl rt"><a href="mod165.html#Cond" > 76.09</a></td>
+<td class="s9 cl rt"><a href="mod165.html#Toggle" > 92.22</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod165.html#Branch" > 94.74</a></td>
+<td class="s10 cl rt"><a href="mod165.html#Assert" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s9 cl rt"> 90.54</td>
+<td class="s9 cl rt"> 95.47</td>
+<td class="s9 cl rt"> 93.62</td>
+<td class="s7 cl rt"> 78.33</td>
+<td class="s8 cl rt"> 82.50</td>
+<td class="s9 cl rt"> 93.31</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 97.12</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s8 cl rt"> 85.62</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod62.html#inst_tag_1013" >caliptra_top_dut</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod265.html#inst_tag_6646" id="tag_urg_inst_6646">i_ahb_slv_sif_soc_ifc</a></td>
+<td class="s8 cl rt"> 84.05</td>
+<td class="s8 cl rt"> 89.29</td>
+<td class="s7 cl rt"> 70.00</td>
+<td class="s9 cl rt"> 97.96</td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"> 78.95</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod48.html#inst_tag_83" id="tag_urg_inst_83">i_apb_slv_sif_soc_ifc</a></td>
+<td class="s9 cl rt"> 99.08</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 96.31</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod201.html#inst_tag_6491" id="tag_urg_inst_6491">i_mbox</a></td>
+<td class="s9 cl rt"> 96.47</td>
+<td class="s9 cl rt"> 99.46</td>
+<td class="s9 cl rt"> 95.51</td>
+<td class="s9 cl rt"> 90.52</td>
+<td class="s9 cl rt"> 94.44</td>
+<td class="s9 cl rt"> 98.89</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod78.html#inst_tag_2994" id="tag_urg_inst_2994">i_sha512_acc_top</a></td>
+<td class="s8 cl rt"> 87.23</td>
+<td class="s9 cl rt"> 90.29</td>
+<td class="s9 cl rt"> 93.04</td>
+<td class="s8 cl rt"> 85.95</td>
+<td class="s6 cl rt"> 66.67</td>
+<td class="s8 cl rt"> 87.45</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod205.html#inst_tag_6530" id="tag_urg_inst_6530">i_soc_ifc_arb</a></td>
+<td class="s9 cl rt"> 98.28</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 93.14</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod232.html#inst_tag_6583" id="tag_urg_inst_6583">i_soc_ifc_boot_fsm</a></td>
+<td class="s9 cl rt"> 94.76</td>
+<td class="s9 cl rt"> 98.96</td>
+<td class="s9 cl rt"> 94.74</td>
+<td class="s9 cl rt"> 98.44</td>
+<td class="s8 cl rt"> 80.00</td>
+<td class="s9 cl rt"> 96.43</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod88.html#inst_tag_3004" id="tag_urg_inst_3004">i_soc_ifc_cov_if</a></td>
+<td class="s4 cl rt"> 46.90</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"> 46.90</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod224_0.html#inst_tag_6549" id="tag_urg_inst_6549">i_soc_ifc_reg</a></td>
+<td class="s9 cl rt"> 92.37</td>
+<td class="s9 cl rt"> 96.05</td>
+<td class="s9 cl rt"> 94.30</td>
+<td class="s7 cl rt"> 77.33</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 94.16</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod100.html#inst_tag_3191" id="tag_urg_inst_3191">i_wdt</a></td>
+<td class="s9 cl rt"> 90.09</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 93.94</td>
+<td class="s6 cl rt"> 66.42</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_soc_ifc_top'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod165.html" >soc_ifc_top</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s9"><td class="lf">TOTAL</td><td></td><td>196</td><td>195</td><td>99.49</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>260</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>261</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>299</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>338</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>339</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>388</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>395</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>397</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>398</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>399</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>404</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>409</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>411</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>415</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>418</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>422</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>426</td><td>26</td><td>26</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>475</td><td>6</td><td>6</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>491</td><td>4</td><td>4</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>501</td><td>4</td><td>4</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>513</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>527</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>535</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>539</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>547</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>551</td><td>4</td><td>4</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>564</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>565</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>568</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>569</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>576</td><td>4</td><td>4</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>588</td><td>12</td><td>12</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>613</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>614</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>615</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>616</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>617</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>618</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>619</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>622</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>627</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>630</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>633</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>640</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>646</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>652</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>660</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>662</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>663</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>664</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>665</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>666</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>667</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>668</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>669</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>670</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>671</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>672</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>673</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>674</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>675</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>677</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>710</td><td>3</td><td>3</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>718</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>732</td><td>7</td><td>7</td><td>100.00</td></tr>
+<tr class="s8"><td class="lf">ALWAYS</td><td>753</td><td>9</td><td>8</td><td>88.89</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>862</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>868</td><td>5</td><td>5</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>878</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>879</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>887</td><td>8</td><td>8</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>920</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>921</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>922</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>923</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>926</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>927</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>928</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>929</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>931</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>936</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>937</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>938</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>941</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>942</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>943</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>945</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>948</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>954</td><td>4</td><td>4</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>961</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>963</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>964</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>966</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>969</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>980</td><td>1</td><td>1</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>983</td><td>5</td><td>5</td><td>100.00</td></tr>
+</table>
+<font color = "red">WARNING: The source file '_scratch_filepath_/uvmf_caliptra_top/_scratch_filepath_/soc_ifc_top.sv' or '_scratch_filepath_/soc_ifc_top.sv' was not found, so annotated line coverage report could not be generated.
+</font><table align=left>
+<tr>
+<th nowrap width=120>Line No.</th><th nowrap width=80>Covered</th><th nowrap width=80>Statements</th><th nowrap width=80></th></tr><tr class="s9">
+<td class="rt">260</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">261</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">299</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">338</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">339</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">388</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">395</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">397</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">398</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">399</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">404</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">409</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">411</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">415</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">418</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">422</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">426</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">427</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">429</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">430</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">431</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">432</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">434</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">435</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">436</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">438</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">439</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">440</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">444</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">445</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">446</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">447</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">448</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">449</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">450</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">451</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">453</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">454</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">455</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">456</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">457</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">460</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">475</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">476</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">477</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">481</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">482</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">483</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="wht">
+<td></td>
+<td></td>
+<td></td>
+<td>     MISSING_ELSE</td>
+</tr><tr class="s9">
+<td class="rt">491</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">492</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">495</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">496</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="wht">
+<td></td>
+<td></td>
+<td></td>
+<td>     MISSING_ELSE</td>
+</tr><tr class="s9">
+<td class="rt">501</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">502</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">504</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">505</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="wht">
+<td></td>
+<td></td>
+<td></td>
+<td>     MISSING_ELSE</td>
+</tr><tr class="s9">
+<td class="rt">513</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">514</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">516</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">517</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">520</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">527</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">528</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">531</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">535</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">539</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">540</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">543</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">547</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">551</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">553</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">555</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">557</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">564</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">565</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">568</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">569</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">576</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">577</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">580</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">581</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="wht">
+<td></td>
+<td></td>
+<td></td>
+<td>     MISSING_ELSE</td>
+</tr><tr class="s9">
+<td class="rt">588</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">589</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">590</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">591</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">594</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">595</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">598</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">599</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">602</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">603</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">607</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">608</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">613</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">614</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">615</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">616</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">617</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">618</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">619</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">622</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">627</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">630</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">633</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">634</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">635</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">640</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">646</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">652</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">653</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">656</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">660</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">662</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">663</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">664</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">665</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">666</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">667</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">668</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">669</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">670</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">671</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">672</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">673</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">674</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">675</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">677</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">710</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">711</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">712</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">718</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">732</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">733</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">736</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">739</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">742</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">743</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">749</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">753</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">754</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">757</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td class="rt">760</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">763</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">764</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">767</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">769</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">772</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">862</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">863</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">868</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">869</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">870</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">873</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">874</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">878</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">879</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">887</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">888</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">889</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">891</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">892</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">893</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">896</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">897</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">920</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">921</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">922</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">923</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">926</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">927</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">928</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">929</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">931</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">936</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">937</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">938</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">941</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">942</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">943</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">945</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">948</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">954</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">955</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">956</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">957</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">961</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">963</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">964</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">966</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">969</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">980</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">983</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">984</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">985</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">988</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s9">
+<td class="rt">989</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod165.html" >soc_ifc_top</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="3" width="82">
+<tr><th></th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s7"><td class="lf">Conditions</td><td>92</td><td>70</td><td>76.09</td></tr>
+<tr class="s7"><td class="lf">Logical</td><td>92</td><td>70</td><td>76.09</td></tr>
+<tr class="wht"><td class="lf">Non-Logical</td><td>0</td><td>0</td><td></td></tr>
+<tr class="wht"><td class="lf">Event</td><td>0</td><td>0</td><td></td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       675
+ EXPRESSION (t2_timeout_p &amp;&amp; timer2_en)
+             ------1-----    ----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       725
+ EXPRESSION (t2_timeout &amp;&amp; ((!timer2_en)))
+             -----1----    -------2------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       736
+ EXPRESSION 
+ Number  Term
+      1  soc_ifc_reg_req_dv &amp;&amp; 
+      2  soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_FATAL.error_code.swmod &amp;&amp; 
+      3  ((|((soc_ifc_reg_req_data.wdata &amp; (~soc_ifc_reg_hwif_out.internal_fw_error_fatal_mask.mask.value)) &amp; (~soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_FATAL.error_code.value)))))
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       757
+ EXPRESSION 
+ Number  Term
+      1  soc_ifc_reg_req_dv &amp;&amp; 
+      2  soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_NON_FATAL.error_code.swmod &amp;&amp; 
+      3  ((|((soc_ifc_reg_req_data.wdata &amp; (~soc_ifc_reg_hwif_out.internal_fw_error_non_fatal_mask.mask.value)) &amp; (~soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_NON_FATAL.error_code.value)))))
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       767
+ EXPRESSION 
+ Number  Term
+      1  ((~unmasked_hw_error_non_fatal_is_set)) &amp;&amp; 
+      2  ((~|((~soc_ifc_reg_hwif_out.internal_fw_error_non_fatal_mask.mask.value) &amp; soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_NON_FATAL.error_code.value))))
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       781
+ EXPRESSION ( ! (soc_ifc_reg_req_dv &amp;&amp; soc_ifc_reg_hwif_out.internal_rv_mtime_l.count_l.swmod) )
+                ---------------------------------------1--------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       781
+ SUB-EXPRESSION (soc_ifc_reg_req_dv &amp;&amp; soc_ifc_reg_hwif_out.internal_rv_mtime_l.count_l.swmod)
+                 ---------1--------    ---------------------------2--------------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       782
+ EXPRESSION (( ! (soc_ifc_reg_req_dv &amp;&amp; soc_ifc_reg_hwif_out.internal_rv_mtime_h.count_h.swmod) ) &amp;&amp; soc_ifc_reg_hwif_out.internal_rv_mtime_l.count_l.overflow)
+             ------------------------------------------1-----------------------------------------    ----------------------------2----------------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       782
+ SUB-EXPRESSION ( ! (soc_ifc_reg_req_dv &amp;&amp; soc_ifc_reg_hwif_out.internal_rv_mtime_h.count_h.swmod) )
+                    ---------------------------------------1--------------------------------------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       782
+ SUB-EXPRESSION (soc_ifc_reg_req_dv &amp;&amp; soc_ifc_reg_hwif_out.internal_rv_mtime_h.count_h.swmod)
+                 ---------1--------    ---------------------------2--------------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       891
+ EXPRESSION 
+ Number  Term
+      1  soc_ifc_reg_req_dv &amp;&amp; 
+      2  soc_ifc_reg_req_data.write &amp;&amp; 
+      3  (soc_ifc_reg_req_data.addr[(soc_ifc_reg_pkg::SOC_IFC_REG_ADDR_WIDTH - 1):0] == 12'(32'h00000814)))
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       892
+ EXPRESSION (soc_ifc_reg_req_data.wdata[6] &amp;&amp; t1_timeout)
+             --------------1--------------    -----2----
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uRed"><td>0</td><td>1</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       893
+ EXPRESSION (soc_ifc_reg_req_data.wdata[7] &amp;&amp; t2_timeout &amp;&amp; timer2_en)
+             --------------1--------------    -----2----    ----3----
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       931
+ EXPRESSION 
+ Number  Term
+      1  (soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.crypto_err.we &amp;&amp; ((|soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.crypto_err.next))) || 
+      2  (soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.iccm_ecc_unc.we &amp;&amp; ((~soc_ifc_reg_hwif_out.internal_hw_error_fatal_mask.mask_iccm_ecc_unc.value)) &amp;&amp; ((|soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.iccm_ecc_unc.next))) || 
+      3  (soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.dccm_ecc_unc.we &amp;&amp; ((~soc_ifc_reg_hwif_out.internal_hw_error_fatal_mask.mask_dccm_ecc_unc.value)) &amp;&amp; ((|soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.dccm_ecc_unc.next))) || 
+      4  (soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.nmi_pin.we &amp;&amp; ((~soc_ifc_reg_hwif_out.internal_hw_error_fatal_mask.mask_nmi_pin.value)) &amp;&amp; ((|soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.nmi_pin.next))))
+</pre>
+<table class="noborder">
+<col span="4" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>-4-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       931
+ SUB-EXPRESSION (soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.crypto_err.we &amp;&amp; ((|soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.crypto_err.next)))
+                 ---------------------------1--------------------------    ------------------------------2------------------------------
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       931
+ SUB-EXPRESSION 
+ Number  Term
+      1  soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.iccm_ecc_unc.we &amp;&amp; 
+      2  ((~soc_ifc_reg_hwif_out.internal_hw_error_fatal_mask.mask_iccm_ecc_unc.value)) &amp;&amp; 
+      3  ((|soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.iccm_ecc_unc.next)))
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       931
+ SUB-EXPRESSION 
+ Number  Term
+      1  soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.dccm_ecc_unc.we &amp;&amp; 
+      2  ((~soc_ifc_reg_hwif_out.internal_hw_error_fatal_mask.mask_dccm_ecc_unc.value)) &amp;&amp; 
+      3  ((|soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.dccm_ecc_unc.next)))
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       931
+ SUB-EXPRESSION 
+ Number  Term
+      1  soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.nmi_pin.we &amp;&amp; 
+      2  ((~soc_ifc_reg_hwif_out.internal_hw_error_fatal_mask.mask_nmi_pin.value)) &amp;&amp; 
+      3  ((|soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.nmi_pin.next)))
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       945
+ EXPRESSION 
+ Number  Term
+      1  (soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_no_lock.we &amp;&amp; ((~soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_prot_no_lock.value)) &amp;&amp; ((|soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_no_lock.next))) || 
+      2  (soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_ooo.we &amp;&amp; ((~soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_prot_ooo.value)) &amp;&amp; ((|soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_ooo.next))) || 
+      3  (soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_ecc_unc.we &amp;&amp; ((~soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_ecc_unc.value)) &amp;&amp; ((|soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_ecc_unc.next))))
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       945
+ SUB-EXPRESSION 
+ Number  Term
+      1  soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_no_lock.we &amp;&amp; 
+      2  ((~soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_prot_no_lock.value)) &amp;&amp; 
+      3  ((|soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_no_lock.next)))
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       945
+ SUB-EXPRESSION 
+ Number  Term
+      1  soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_ooo.we &amp;&amp; 
+      2  ((~soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_prot_ooo.value)) &amp;&amp; 
+      3  ((|soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_ooo.next)))
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       945
+ SUB-EXPRESSION 
+ Number  Term
+      1  soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_ecc_unc.we &amp;&amp; 
+      2  ((~soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_ecc_unc.value)) &amp;&amp; 
+      3  ((|soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_ecc_unc.next)))
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td>1</td><td>0</td><td class="lf">Not Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       948
+ EXPRESSION 
+ Number  Term
+      1  (soc_ifc_reg_hwif_out.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_no_lock.value &amp;&amp; ((~soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_prot_no_lock.value))) || 
+      2  (soc_ifc_reg_hwif_out.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_ooo.value &amp;&amp; ((~soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_prot_ooo.value))) || 
+      3  (soc_ifc_reg_hwif_out.CPTRA_HW_ERROR_NON_FATAL.mbox_ecc_unc.value &amp;&amp; ((~soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_ecc_unc.value))))
+</pre>
+<table class="noborder">
+<col span="3" width="40">
+<tr><th>-1-</th><th>-2-</th><th>-3-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td>0</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       948
+ SUB-EXPRESSION 
+ Number  Term
+      1  soc_ifc_reg_hwif_out.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_no_lock.value &amp;&amp; 
+      2  ((~soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_prot_no_lock.value)))
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       948
+ SUB-EXPRESSION 
+ Number  Term
+      1  soc_ifc_reg_hwif_out.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_ooo.value &amp;&amp; 
+      2  ((~soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_prot_ooo.value)))
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       948
+ SUB-EXPRESSION 
+ Number  Term
+      1  soc_ifc_reg_hwif_out.CPTRA_HW_ERROR_NON_FATAL.mbox_ecc_unc.value &amp;&amp; 
+      2  ((~soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_ecc_unc.value)))
+</pre>
+<table class="noborder">
+<col span="2" width="40">
+<tr><th>-1-</th><th>-2-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td>1</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uGreen"><td>1</td><td>1</td><td class="lf">Covered</td></tr>
+</table>
+<br clear=all>
+<pre class="code"> LINE       988
+ EXPRESSION (cptra_uncore_dmi_reg_en ? cptra_uncore_dmi_reg_rdata_in : cptra_uncore_dmi_reg_rdata)
+             -----------1-----------
+</pre>
+<table class="noborder">
+<col width="40">
+<tr><th>-1-</th><th>Status</th></tr>
+<tr class="uGreen"><td>0</td><td class="lf">Covered</td></tr>
+<tr class="uRed"><td>1</td><td class="lf">Not Covered</td></tr>
+</table>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod165.html" >soc_ifc_top</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Totals</td>
+<td class="rt">324</td>
+<td class="rt">271</td>
+<td class="rt">83.64 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">7562</td>
+<td class="rt">6974</td>
+<td class="rt">92.22 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">3781</td>
+<td class="rt">3487</td>
+<td class="rt">92.22 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">3781</td>
+<td class="rt">3487</td>
+<td class="rt">92.22 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Ports</td>
+<td class="rt">75</td>
+<td class="rt">66</td>
+<td class="rt">88.00 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">3586</td>
+<td class="rt">3428</td>
+<td class="rt">95.59 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">1793</td>
+<td class="rt">1714</td>
+<td class="rt">95.59 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">1793</td>
+<td class="rt">1714</td>
+<td class="rt">95.59 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s8">
+<td>Signals</td>
+<td class="rt">249</td>
+<td class="rt">205</td>
+<td class="rt">82.33 </td>
+</tr><tr class="s8">
+<td>Signal Bits</td>
+<td class="rt">3976</td>
+<td class="rt">3546</td>
+<td class="rt">89.19 </td>
+</tr><tr class="s8">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">1988</td>
+<td class="rt">1773</td>
+<td class="rt">89.19 </td>
+</tr><tr class="s8">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">1988</td>
+<td class="rt">1773</td>
+<td class="rt">89.19 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk_cg</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>soc_ifc_clk_cg</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rdc_clk_cg</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cptra_pwrgood</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cptra_rst_b</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ready_for_fuses</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>ready_for_fw_push</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>ready_for_runtime</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mailbox_data_avail</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mailbox_flow_done</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>security_state.device_lifecycle[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>security_state.debug_locked</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>generic_input_wires[1:0][31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>BootFSM_BrkPoint</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>generic_output_wires[1:0][31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>paddr_i[12:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>paddr_i[15:13]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>paddr_i[17:16]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>psel_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>penable_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>pwrite_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>pwdata_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>pauser_i[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>pready_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>prdata_o[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>pslverr_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>haddr_i[17:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>hwdata_i[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>hsel_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>hwrite_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>hready_i</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>htrans_i[0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>htrans_i[1]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>hsize_i[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>hsize_i[2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>hresp_o</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>hreadyout_o</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>hrdata_o[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>cptra_error_fatal</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>cptra_error_non_fatal</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>trng_req</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>soc_ifc_error_intr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>soc_ifc_notif_intr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>sha_error_intr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>sha_notif_intr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>timer_intr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mbox_sram_req.wdata.data[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mbox_sram_req.wdata.ecc[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mbox_sram_req.addr[14:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mbox_sram_req.we</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mbox_sram_req.cs</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mbox_sram_resp.rdata.data[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>mbox_sram_resp.rdata.ecc[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rv_ecc_sts.cptra_dccm_ecc_double_error</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rv_ecc_sts.cptra_dccm_ecc_single_error</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rv_ecc_sts.cptra_iccm_ecc_double_error</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rv_ecc_sts.cptra_iccm_ecc_single_error</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clear_obf_secrets</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>scan_mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cptra_obf_key[7:0][31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cptra_obf_key_reg[7:0][31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>obf_field_entropy[7:0][31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>obf_uds_seed[11:0][31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>nmi_vector[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>nmi_intr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>iccm_lock</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>iccm_axs_blocked</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cptra_noncore_rst_b</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>cptra_uc_rst_b</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>clk_gating_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rdc_clk_dis</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>fw_update_rst_window</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>crypto_error</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cptra_uncore_dmi_reg_en</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cptra_uncore_dmi_reg_wr_en</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cptra_uncore_dmi_reg_rdata[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>cptra_uncore_dmi_reg_addr[6:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>cptra_uncore_dmi_reg_wdata[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>soc_req_dv</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_req_hold</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_req_error</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_req_rdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_req.soc_req</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_req.write</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_req.user[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_req.wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_req.addr[12:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_req.addr[15:13]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_req.addr[17:16]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>uc_req_dv</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>uc_req_hold</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>uc_req_error</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>uc_req_rdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>uc_req.soc_req</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>uc_req.write</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>uc_req.user[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>uc_req.wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>uc_req.addr[17:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_req_dv</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_dir_req_dv</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_req_hold</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_req_data.soc_req</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_req_data.write</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_req_data.user[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_req_data.wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_req_data.addr[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>mbox_req_data.addr[17:2]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_rdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_dir_rdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_error</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>sha_req_dv</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_req_hold</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_req_data.soc_req</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_req_data.write</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_req_data.user[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_req_data.wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_req_data.addr[9:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_req_data.addr[10]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>sha_req_data.addr[12:11]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_req_data.addr[16:13]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>sha_req_data.addr[17]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_rdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_error</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_req_dv</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_req_hold</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_req_data.soc_req</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_req_data.write</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_req_data.user[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_req_data.wdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_req_data.addr[11:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_req_data.addr[15:12]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_req_data.addr[17:16]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_rdata_pre[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_rdata[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_error</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_read_error</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_write_error</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_rdata_mask</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_sram_req_dv</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_sram_req_addr[14:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_sram_resp.rdata.data[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_sram_resp.rdata.ecc[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sha_sram_hold</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>valid_mbox_users[4:0][31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>uc_mbox_data_avail</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>uc_mbox_data_avail_d</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>uc_cmd_avail_p</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>security_state_debug_locked_d</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>security_state_debug_locked_p</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>scan_mode_f</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>scan_mode_p</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sram_single_ecc_error</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>sram_double_ecc_error</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_req_mbox_lock</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>generic_input_toggle[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_protocol_error.axs_incorrect_order</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_protocol_error.axs_without_lock</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_inv_user_p</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>iccm_unlock</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>fw_upd_rst_executed</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>fuse_wr_done_reg_write_observed</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>unmasked_hw_error_fatal_write</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>unmasked_hw_error_non_fatal_write</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>unmasked_hw_error_non_fatal_is_set</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>pwrgood_toggle_hint</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>Warm_Reset_Capture_Flag</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>BootFSM_BrkPoint_Latched</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>BootFSM_BrkPoint_valid</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>BootFSM_BrkPoint_Flag</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>dmi_inc_rdptr</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>cptra_uncore_dmi_reg_dout_access_f</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>mbox_dmi_reg.MBOX_STATUS[24:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_dmi_reg.MBOX_STATUS[31:25]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>mbox_dmi_reg.MBOX_DOUT[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mbox_dmi_reg.MBOX_DLEN[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>cptra_uncore_dmi_reg_rdata_in[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.intr_block_rf.notif_internal_intr_r.notif_gen_in_toggle_sts.hwset</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.intr_block_rf.notif_internal_intr_r.notif_soc_req_lock_sts.hwset</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.intr_block_rf.notif_internal_intr_r.notif_scan_mode_sts.hwset</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.intr_block_rf.notif_internal_intr_r.notif_debug_locked_sts.hwset</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.intr_block_rf.notif_internal_intr_r.notif_mbox_ecc_cor_sts.hwset</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.intr_block_rf.notif_internal_intr_r.notif_cmd_avail_sts.hwset</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.intr_block_rf.error_internal_intr_r.error_wdt_timer2_timeout_sts.hwset</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.intr_block_rf.error_internal_intr_r.error_wdt_timer1_timeout_sts.hwset</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.intr_block_rf.error_internal_intr_r.error_mbox_ecc_unc_sts.hwset</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.intr_block_rf.error_internal_intr_r.error_iccm_blocked_sts.hwset</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.intr_block_rf.error_internal_intr_r.error_bad_fuse_sts.hwset</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.intr_block_rf.error_internal_intr_r.error_cmd_fail_sts.hwset</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.intr_block_rf.error_internal_intr_r.error_inv_dev_sts.hwset</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.intr_block_rf.error_internal_intr_r.error_internal_sts.hwset</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.internal_rv_mtime_h.count_h.incr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.internal_rv_mtime_l.count_l.incr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.internal_iccm_lock.lock.hwclr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.fuse_soc_stepping_id.soc_stepping_id.swwel</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.fuse_lms_revocation.lms_revocation.swwel</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.fuse_lms_verify.lms_verify.swwel</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.fuse_life_cycle.life_cycle.swwel</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.fuse_anti_rollback_disable.dis.swwel</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.fuse_fmc_key_manifest_svn.svn.swwel</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.fuse_key_manifest_pk_hash_mask.mask.swwel</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_FUSE_PAUSER_LOCK.LOCK.swwel</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_FUSE_VALID_PAUSER.PAUSER.swwel</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_WDT_STATUS.t2_timeout.next</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_WDT_STATUS.t1_timeout.next</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_CONFIG.LMS_acc_en.next</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_CONFIG.UART_en.next</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_CONFIG.I3C_en.next</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_CONFIG.QSPI_en.next</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_CONFIG.iTRNG_en.next</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_REV_ID.SOC_STEPPING_ID.next[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_DBG_MANUF_SERVICE_REG.DATA.we</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_DBG_MANUF_SERVICE_REG.DATA.next[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_BOOTFSM_GO.GO.we</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_BOOTFSM_GO.GO.next</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_FUSE_WR_DONE.done.swwe</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_TRNG_STATUS.DATA_WR_DONE.hwclr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_TRNG_STATUS.DATA_WR_DONE.swwe</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_TRNG_PAUSER_LOCK.LOCK.swwel</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_TRNG_VALID_PAUSER.PAUSER.swwel</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_SECURITY_STATE.scan_mode.next</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_SECURITY_STATE.debug_locked.next</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_SECURITY_STATE.device_lifecycle.next[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_RESET_REASON.WARM_RESET.next</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_RESET_REASON.FW_UPD_RESET.we</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_RESET_REASON.FW_UPD_RESET.next</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_FLOW_STATUS.ready_for_fuses.next</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_FLOW_STATUS.boot_fsm_ps.next[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_FW_ERROR_NON_FATAL.error_code.we</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_FW_ERROR_NON_FATAL.error_code.next[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_FW_ERROR_FATAL.error_code.we</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_FW_ERROR_FATAL.error_code.next[31:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_ecc_unc.we</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_ecc_unc.next</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_ooo.we</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_ooo.next</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_no_lock.we</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_no_lock.next</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.crypto_err.we</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.crypto_err.next</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.nmi_pin.we</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.nmi_pin.next</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.dccm_ecc_unc.we</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.dccm_ecc_unc.next</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.iccm_ecc_unc.we</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.CPTRA_HW_ERROR_FATAL.iccm_ecc_unc.next</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.soc_req</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.cptra_pwrgood</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_in.cptra_rst_b</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.intr_block_rf.notif_internal_intr_r.intr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.intr_block_rf.error_internal_intr_r.intr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.intr_block_rf.notif_global_intr_r.intr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.intr_block_rf.error_global_intr_r.intr</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_rv_mtimecmp_h.compare_h.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_rv_mtimecmp_l.compare_l.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_rv_mtime_h.count_h.swmod</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_rv_mtime_h.count_h.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_rv_mtime_l.count_l.overflow</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_rv_mtime_l.count_l.swmod</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_rv_mtime_l.count_l.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_fw_error_non_fatal_mask.mask.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_fw_error_fatal_mask.mask.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_ecc_unc.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_prot_ooo.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_hw_error_non_fatal_mask.mask_mbox_prot_no_lock.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_hw_error_fatal_mask.mask_nmi_pin.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_hw_error_fatal_mask.mask_dccm_ecc_unc.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_hw_error_fatal_mask.mask_iccm_ecc_unc.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_nmi_vector.vec.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_fw_update_reset_wait_cycles.wait_cycles.value[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_fw_update_reset.core_rst.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.internal_iccm_lock.lock.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.fuse_soc_stepping_id.soc_stepping_id.value[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.fuse_lms_revocation.lms_revocation.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.fuse_lms_verify.lms_verify.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.fuse_life_cycle.life_cycle.value[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.fuse_anti_rollback_disable.dis.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.fuse_fmc_key_manifest_svn.svn.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.fuse_key_manifest_pk_hash_mask.mask.value[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_FUSE_PAUSER_LOCK.LOCK.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_FUSE_VALID_PAUSER.PAUSER.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_WDT_STATUS.t2_timeout.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_WDT_STATUS.t1_timeout.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_WDT_TIMER2_CTRL.timer2_restart.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_WDT_TIMER2_EN.timer2_en.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_WDT_TIMER1_CTRL.timer1_restart.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_WDT_TIMER1_EN.timer1_en.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_CLK_GATING_EN.clk_gating_en.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_DBG_MANUF_SERVICE_REG.DATA.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_BOOTFSM_GO.GO.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_FUSE_WR_DONE.done.swmod</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_FUSE_WR_DONE.done.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_TRNG_STATUS.DATA_REQ.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_TRNG_CTRL.clear.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_TRNG_PAUSER_LOCK.LOCK.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_TRNG_VALID_PAUSER.PAUSER.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_RESET_REASON.WARM_RESET.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_RESET_REASON.FW_UPD_RESET.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_FLOW_STATUS.mailbox_flow_done.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_FLOW_STATUS.ready_for_runtime.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_FLOW_STATUS.ready_for_fw.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_FLOW_STATUS.idevid_csr_ready.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_BOOT_STATUS.status.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_ENC.error_code.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_HW_ERROR_ENC.error_code.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_NON_FATAL.error_code.swmod</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_NON_FATAL.error_code.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_FATAL.error_code.swmod</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_FATAL.error_code.value[31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_HW_ERROR_NON_FATAL.mbox_ecc_unc.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_ooo.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_HW_ERROR_NON_FATAL.mbox_prot_no_lock.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_HW_ERROR_FATAL.crypto_err.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_HW_ERROR_FATAL.nmi_pin.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_HW_ERROR_FATAL.dccm_ecc_unc.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>soc_ifc_reg_hwif_out.CPTRA_HW_ERROR_FATAL.iccm_ecc_unc.value</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>timer1_timeout_period[1:0][31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>timer2_timeout_period[1:0][31:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>timer1_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>timer2_en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>timer1_restart</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>timer2_restart</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>t1_timeout</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>t1_timeout_f</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>t1_timeout_p</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>t2_timeout</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>t2_timeout_f</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>t2_timeout_p</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wdt_error_t1_intr_serviced</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wdt_error_t2_intr_serviced</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>valid_trng_user</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>valid_fuse_user</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>boot_fsm_ps[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>cptra_in_dbg_or_manuf_mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_cpuif_req_stall_wr_nc</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>s_cpuif_req_stall_rd_nc</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>s_cpuif_rd_ack_nc</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>s_cpuif_wr_ack_nc</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod165.html" >soc_ifc_top</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s9">
+<td>Branches</td>
+<td></td>
+<td class="rt">38</td>
+<td class="rt">36</td>
+<td class="rt">94.74 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">475</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">491</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">501</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">513</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">527</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">539</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">576</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">652</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">732</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s8">
+<td>IF</td>
+<td class="rt">753</td>
+<td class="rt">5</td>
+<td class="rt">4</td>
+<td class="rt">80.00 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">868</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">887</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s6">
+<td>IF</td>
+<td class="rt">983</td>
+<td class="rt">3</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+</tr></table><br clear=all>
+<font color = "red">WARNING: The source file _scratch_filepath_/uvmf_caliptra_top/_scratch_filepath_/soc_ifc_top.sv' or '_scratch_filepath_/soc_ifc_top.sv was not found/opened, so annotated branch coverage report could not be generated.</font><pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	475	if ((~cptra_noncore_rst_b))
+-2-:	481	if ((!BootFSM_BrkPoint_Flag))
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	491	if ((~cptra_pwrgood))
+-2-:	495	if (Warm_Reset_Capture_Flag)
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	501	if ((~cptra_noncore_rst_b))
+-2-:	504	if ((!Warm_Reset_Capture_Flag))
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	513	if ((!Warm_Reset_Capture_Flag))
+-2-:	516	if (soc_ifc_reg_hwif_out.CPTRA_RESET_REASON.FW_UPD_RESET.value)
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	527	if ((~cptra_noncore_rst_b))
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	539	if ((~cptra_noncore_rst_b))
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	576	if ((~cptra_noncore_rst_b))
+-2-:	580	if ((!fuse_wr_done_reg_write_observed))
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	652	if ((~cptra_noncore_rst_b))
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	732	if ((~cptra_noncore_rst_b))
+-2-:	736	if (((soc_ifc_reg_req_dv && soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_FATAL.error_code.swmod) && (|((soc_ifc_reg_req_data.wdata & (~soc_ifc_reg_hwif_out.internal_fw_error_fatal_mask.mask.value)) & (~soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_FATAL.error_code.value)))))
+-3-:	742	if (unmasked_hw_error_fatal_write)
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	753	if ((~cptra_noncore_rst_b))
+-2-:	757	if (((soc_ifc_reg_req_dv && soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_NON_FATAL.error_code.swmod) && (|((soc_ifc_reg_req_data.wdata & (~soc_ifc_reg_hwif_out.internal_fw_error_non_fatal_mask.mask.value)) & (~soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_NON_FATAL.error_code.value)))))
+-3-:	763	if (unmasked_hw_error_non_fatal_write)
+-4-:	767	if (((~unmasked_hw_error_non_fatal_is_set) && (~|((~soc_ifc_reg_hwif_out.internal_fw_error_non_fatal_mask.mask.value) & soc_ifc_reg_hwif_out.CPTRA_FW_ERROR_NON_FATAL.error_code.value))))
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	868	if ((!cptra_noncore_rst_b))
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	887	if ((!cptra_noncore_rst_b))
+-2-:	891	if (((soc_ifc_reg_req_dv && soc_ifc_reg_req_data.write) && (soc_ifc_reg_req_data.addr[(soc_ifc_reg_pkg::SOC_IFC_REG_ADDR_WIDTH - 1):0] == 12'(32'h00000814))))
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+	LineNo.	Expression
+-1-:	983	if ((~cptra_pwrgood))
+-2-:	988	(cptra_uncore_dmi_reg_en) ? 
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Assert"></a>
+Assert Coverage for Module : <a href="mod165.html" >soc_ifc_top</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Attempted</th><th nowrap width=80>Percent</th><th nowrap width=80>Succeeded/Matched</th><th nowrap width=80>Percent</th></tr><tr>
+<td class="wht cl"><a href="#191818155" >Assertions</a></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr><tr>
+<td class="wht cl"><a href="#35494304" >Cover properties</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><a href="#1363325083" >Cover sequences</a></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+<td class="wht cl rt">0</td>
+<td class="wht cl"></td>
+</tr><tr>
+<td class="wht cl"><b>Total</b></td>
+<td class="wht cl rt">2</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">2</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<br clear=all>
+<a name="191818155"></a>
+<b>Assertion Details</b><br clear=all>
+<br clear=all>
+<table align=left class="sortable noborder">
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td>Attempts</td><td>Real Successes</td><td>Failures</td><td>Incomplete</td></tr><tr>
+<td class="wht cl"><a name="141830322"></a>
+ERR_AHB_INF_X</td>
+<td class="s9 cl rt">2147483647</td>
+<td class="s9 cl rt">2147483647</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr><tr>
+<td class="wht cl"><a name="1527583540"></a>
+ERR_SOC_IFC_AHB_ERR</td>
+<td class="s9 cl rt">2147483647</td>
+<td class="s9 cl rt">2147483647</td>
+<td class="s9 cl rt">0</td>
+<td class="wht cl rt">0</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_4771">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+    <li>
+      <a href="#Assert">Assert</a>    </li>
+  </ul>
+  <ul name="tag_soc_ifc_top">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Cond">Cond</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+    <li>
+      <a href="#Branch">Branch</a>    </li>
+    <li>
+      <a href="#Assert">Assert</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

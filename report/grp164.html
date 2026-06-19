@@ -1,0 +1,4456 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Group :: soc_ifc_fuse_uds_seed_cg</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Group : soc_ifc_fuse_uds_seed_cg</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Group : <a href="#"  onclick="showContent('soc_ifc_fuse_uds_seed_cg')">soc_ifc_fuse_uds_seed_cg</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td><b>SCORE</b></td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="s8 cl rt"> 87.50</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/soc_ifc/coverage/soc_ifc_cov_if.sv')">/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/soc_ifc/coverage/soc_ifc_cov_if.sv</a><br clear=all>
+<br clear=all>
+</div>
+<hr>
+<br clear=all>
+<span class=repname>Summary for Group   soc_ifc_fuse_uds_seed_cg
+</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s9">
+<td><a href="#var_tbl_soc_ifc_fuse_uds_seed_cg" >Variables</a></td>
+<td class="rt">816</td>
+<td class="rt">12</td>
+<td class="rt">804</td>
+<td class="rt">87.50 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="var_tbl_soc_ifc_fuse_uds_seed_cg">Variables for Group  soc_ifc_fuse_uds_seed_cg
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">VARIABLE</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed0_cp"  onclick="checkLink(this)" target="detailFrame">fuse_uds_seed0_cp</a></td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">64</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed0_cp"  onclick="checkLink(this)" target="detailFrame">bus_fuse_uds_seed0_cp</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed1_cp"  onclick="checkLink(this)" target="detailFrame">fuse_uds_seed1_cp</a></td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">64</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed1_cp"  onclick="checkLink(this)" target="detailFrame">bus_fuse_uds_seed1_cp</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed2_cp"  onclick="checkLink(this)" target="detailFrame">fuse_uds_seed2_cp</a></td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">64</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed2_cp"  onclick="checkLink(this)" target="detailFrame">bus_fuse_uds_seed2_cp</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed3_cp"  onclick="checkLink(this)" target="detailFrame">fuse_uds_seed3_cp</a></td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">64</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed3_cp"  onclick="checkLink(this)" target="detailFrame">bus_fuse_uds_seed3_cp</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed4_cp"  onclick="checkLink(this)" target="detailFrame">fuse_uds_seed4_cp</a></td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">64</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed4_cp"  onclick="checkLink(this)" target="detailFrame">bus_fuse_uds_seed4_cp</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed5_cp"  onclick="checkLink(this)" target="detailFrame">fuse_uds_seed5_cp</a></td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">64</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed5_cp"  onclick="checkLink(this)" target="detailFrame">bus_fuse_uds_seed5_cp</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed6_cp"  onclick="checkLink(this)" target="detailFrame">fuse_uds_seed6_cp</a></td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">64</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed6_cp"  onclick="checkLink(this)" target="detailFrame">bus_fuse_uds_seed6_cp</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed7_cp"  onclick="checkLink(this)" target="detailFrame">fuse_uds_seed7_cp</a></td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">64</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed7_cp"  onclick="checkLink(this)" target="detailFrame">bus_fuse_uds_seed7_cp</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed8_cp"  onclick="checkLink(this)" target="detailFrame">fuse_uds_seed8_cp</a></td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">64</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed8_cp"  onclick="checkLink(this)" target="detailFrame">bus_fuse_uds_seed8_cp</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed9_cp"  onclick="checkLink(this)" target="detailFrame">fuse_uds_seed9_cp</a></td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">64</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed9_cp"  onclick="checkLink(this)" target="detailFrame">bus_fuse_uds_seed9_cp</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed10_cp"  onclick="checkLink(this)" target="detailFrame">fuse_uds_seed10_cp</a></td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">64</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed10_cp"  onclick="checkLink(this)" target="detailFrame">bus_fuse_uds_seed10_cp</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed11_cp"  onclick="checkLink(this)" target="detailFrame">fuse_uds_seed11_cp</a></td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">64</td>
+<td></td>
+</tr><tr class="s7">
+<td><a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed11_cp"  onclick="checkLink(this)" target="detailFrame">bus_fuse_uds_seed11_cp</a></td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed0_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed0_cp">Summary for Variable fuse_uds_seed0_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for fuse_uds_seed0_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0:67108863]</td>
+<td class="rt">362731404</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[67108864:134217727]</td>
+<td class="rt">64444455</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[134217728:201326591]</td>
+<td class="rt">75967722</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[201326592:268435455]</td>
+<td class="rt">62617233</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[268435456:335544319]</td>
+<td class="rt">80092419</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[335544320:402653183]</td>
+<td class="rt">92208317</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[402653184:469762047]</td>
+<td class="rt">79633583</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[469762048:536870911]</td>
+<td class="rt">60947844</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[536870912:603979775]</td>
+<td class="rt">57669846</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[603979776:671088639]</td>
+<td class="rt">66537461</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[671088640:738197503]</td>
+<td class="rt">67628054</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[738197504:805306367]</td>
+<td class="rt">112732332</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[805306368:872415231]</td>
+<td class="rt">92304524</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[872415232:939524095]</td>
+<td class="rt">93213183</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[939524096:1006632959]</td>
+<td class="rt">57289302</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1006632960:1073741823]</td>
+<td class="rt">82340213</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1073741824:1140850687]</td>
+<td class="rt">85493608</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1140850688:1207959551]</td>
+<td class="rt">70455376</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1207959552:1275068415]</td>
+<td class="rt">71477126</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1275068416:1342177279]</td>
+<td class="rt">86182366</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1342177280:1409286143]</td>
+<td class="rt">71660390</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1409286144:1476395007]</td>
+<td class="rt">86356509</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1476395008:1543503871]</td>
+<td class="rt">82040679</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1543503872:1610612735]</td>
+<td class="rt">84277268</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1610612736:1677721599]</td>
+<td class="rt">87299392</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1677721600:1744830463]</td>
+<td class="rt">94673351</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1744830464:1811939327]</td>
+<td class="rt">87621282</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1811939328:1879048191]</td>
+<td class="rt">65094292</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1879048192:1946157055]</td>
+<td class="rt">90045796</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1946157056:2013265919]</td>
+<td class="rt">78243871</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2013265920:2080374783]</td>
+<td class="rt">75358655</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2080374784:2147483647]</td>
+<td class="rt">65601683</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2147483648:2214592511]</td>
+<td class="rt">61887000</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2214592512:2281701375]</td>
+<td class="rt">64320852</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2281701376:2348810239]</td>
+<td class="rt">58415485</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2348810240:2415919103]</td>
+<td class="rt">67455489</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2415919104:2483027967]</td>
+<td class="rt">72881331</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2483027968:2550136831]</td>
+<td class="rt">74758517</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2550136832:2617245695]</td>
+<td class="rt">75215733</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2617245696:2684354559]</td>
+<td class="rt">104753609</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2684354560:2751463423]</td>
+<td class="rt">98544191</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2751463424:2818572287]</td>
+<td class="rt">84227583</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2818572288:2885681151]</td>
+<td class="rt">77443776</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2885681152:2952790015]</td>
+<td class="rt">84542065</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2952790016:3019898879]</td>
+<td class="rt">69721951</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3019898880:3087007743]</td>
+<td class="rt">90346928</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3087007744:3154116607]</td>
+<td class="rt">74952556</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3154116608:3221225471]</td>
+<td class="rt">63676786</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3221225472:3288334335]</td>
+<td class="rt">85813193</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3288334336:3355443199]</td>
+<td class="rt">59682931</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3355443200:3422552063]</td>
+<td class="rt">75299587</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3422552064:3489660927]</td>
+<td class="rt">71170786</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3489660928:3556769791]</td>
+<td class="rt">70427667</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3556769792:3623878655]</td>
+<td class="rt">103256987</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3623878656:3690987519]</td>
+<td class="rt">83237673</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3690987520:3758096383]</td>
+<td class="rt">70871131</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3758096384:3825205247]</td>
+<td class="rt">68791171</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3825205248:3892314111]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3892314112:3959422975]</td>
+<td class="rt">68842224</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3959422976:4026531839]</td>
+<td class="rt">70677980</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4026531840:4093640703]</td>
+<td class="rt">70084244</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4093640704:4160749567]</td>
+<td class="rt">55440866</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4160749568:4227858431]</td>
+<td class="rt">75374753</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4227858432:4294967295]</td>
+<td class="rt">93517628</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed0_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed0_cp">Summary for Variable bus_fuse_uds_seed0_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for bus_fuse_uds_seed0_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td nowrap>wr_rd:4->0[*[1:1000]]->2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>dont_care</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td nowrap>wr_rd:4->0[*[1:1000]]->8</td>
+<td class="rt">208</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->8</td>
+<td class="rt">300</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->2</td>
+<td class="rt">1270</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed1_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed1_cp">Summary for Variable fuse_uds_seed1_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for fuse_uds_seed1_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0:67108863]</td>
+<td class="rt">353418469</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[67108864:134217727]</td>
+<td class="rt">96574390</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[134217728:201326591]</td>
+<td class="rt">115262017</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[201326592:268435455]</td>
+<td class="rt">81618751</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[268435456:335544319]</td>
+<td class="rt">73096973</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[335544320:402653183]</td>
+<td class="rt">85370282</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[402653184:469762047]</td>
+<td class="rt">70913306</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[469762048:536870911]</td>
+<td class="rt">82291383</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[536870912:603979775]</td>
+<td class="rt">65057078</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[603979776:671088639]</td>
+<td class="rt">63297226</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[671088640:738197503]</td>
+<td class="rt">102685904</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[738197504:805306367]</td>
+<td class="rt">66895263</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[805306368:872415231]</td>
+<td class="rt">78877397</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[872415232:939524095]</td>
+<td class="rt">60567255</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[939524096:1006632959]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1006632960:1073741823]</td>
+<td class="rt">104634365</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1073741824:1140850687]</td>
+<td class="rt">72854663</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1140850688:1207959551]</td>
+<td class="rt">60469509</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1207959552:1275068415]</td>
+<td class="rt">66514418</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1275068416:1342177279]</td>
+<td class="rt">85434332</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1342177280:1409286143]</td>
+<td class="rt">75836378</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1409286144:1476395007]</td>
+<td class="rt">71109481</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1476395008:1543503871]</td>
+<td class="rt">73849593</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1543503872:1610612735]</td>
+<td class="rt">75585281</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1610612736:1677721599]</td>
+<td class="rt">67237454</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1677721600:1744830463]</td>
+<td class="rt">94100070</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1744830464:1811939327]</td>
+<td class="rt">66260744</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1811939328:1879048191]</td>
+<td class="rt">74466472</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1879048192:1946157055]</td>
+<td class="rt">90965931</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1946157056:2013265919]</td>
+<td class="rt">64731038</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2013265920:2080374783]</td>
+<td class="rt">117075115</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2080374784:2147483647]</td>
+<td class="rt">65525467</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2147483648:2214592511]</td>
+<td class="rt">70253978</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2214592512:2281701375]</td>
+<td class="rt">66464222</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2281701376:2348810239]</td>
+<td class="rt">78467604</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2348810240:2415919103]</td>
+<td class="rt">62270240</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2415919104:2483027967]</td>
+<td class="rt">59544499</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2483027968:2550136831]</td>
+<td class="rt">66973586</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2550136832:2617245695]</td>
+<td class="rt">78864301</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2617245696:2684354559]</td>
+<td class="rt">65502456</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2684354560:2751463423]</td>
+<td class="rt">94502480</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2751463424:2818572287]</td>
+<td class="rt">78825234</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2818572288:2885681151]</td>
+<td class="rt">80316038</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2885681152:2952790015]</td>
+<td class="rt">61371439</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2952790016:3019898879]</td>
+<td class="rt">84976360</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3019898880:3087007743]</td>
+<td class="rt">81958082</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3087007744:3154116607]</td>
+<td class="rt">67204767</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3154116608:3221225471]</td>
+<td class="rt">75937256</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3221225472:3288334335]</td>
+<td class="rt">82960688</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3288334336:3355443199]</td>
+<td class="rt">94327184</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3355443200:3422552063]</td>
+<td class="rt">61018626</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3422552064:3489660927]</td>
+<td class="rt">87303400</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3489660928:3556769791]</td>
+<td class="rt">69106092</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3556769792:3623878655]</td>
+<td class="rt">56081466</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3623878656:3690987519]</td>
+<td class="rt">82271853</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3690987520:3758096383]</td>
+<td class="rt">65748871</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3758096384:3825205247]</td>
+<td class="rt">61633902</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3825205248:3892314111]</td>
+<td class="rt">76898473</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3892314112:3959422975]</td>
+<td class="rt">81129358</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3959422976:4026531839]</td>
+<td class="rt">67804450</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4026531840:4093640703]</td>
+<td class="rt">84606240</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4093640704:4160749567]</td>
+<td class="rt">80685458</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4160749568:4227858431]</td>
+<td class="rt">82694171</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4227858432:4294967295]</td>
+<td class="rt">68344610</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed1_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed1_cp">Summary for Variable bus_fuse_uds_seed1_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for bus_fuse_uds_seed1_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td nowrap>wr_rd:4->0[*[1:1000]]->2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>dont_care</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td nowrap>wr_rd:4->0[*[1:1000]]->8</td>
+<td class="rt">208</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->8</td>
+<td class="rt">316</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->2</td>
+<td class="rt">1266</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed2_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed2_cp">Summary for Variable fuse_uds_seed2_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for fuse_uds_seed2_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0:67108863]</td>
+<td class="rt">352341048</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[67108864:134217727]</td>
+<td class="rt">81518089</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[134217728:201326591]</td>
+<td class="rt">76399994</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[201326592:268435455]</td>
+<td class="rt">69554038</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[268435456:335544319]</td>
+<td class="rt">76135596</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[335544320:402653183]</td>
+<td class="rt">65521677</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[402653184:469762047]</td>
+<td class="rt">73010911</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[469762048:536870911]</td>
+<td class="rt">88410077</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[536870912:603979775]</td>
+<td class="rt">84669152</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[603979776:671088639]</td>
+<td class="rt">84952195</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[671088640:738197503]</td>
+<td class="rt">87858912</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[738197504:805306367]</td>
+<td class="rt">86492120</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[805306368:872415231]</td>
+<td class="rt">71687057</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[872415232:939524095]</td>
+<td class="rt">59078554</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[939524096:1006632959]</td>
+<td class="rt">71282178</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1006632960:1073741823]</td>
+<td class="rt">93260101</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1073741824:1140850687]</td>
+<td class="rt">74761284</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1140850688:1207959551]</td>
+<td class="rt">68716956</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1207959552:1275068415]</td>
+<td class="rt">76560243</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1275068416:1342177279]</td>
+<td class="rt">85899357</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1342177280:1409286143]</td>
+<td class="rt">87352465</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1409286144:1476395007]</td>
+<td class="rt">62323403</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1476395008:1543503871]</td>
+<td class="rt">74656024</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1543503872:1610612735]</td>
+<td class="rt">54174890</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1610612736:1677721599]</td>
+<td class="rt">78306575</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1677721600:1744830463]</td>
+<td class="rt">86241087</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1744830464:1811939327]</td>
+<td class="rt">73822471</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1811939328:1879048191]</td>
+<td class="rt">83829648</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1879048192:1946157055]</td>
+<td class="rt">76042688</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1946157056:2013265919]</td>
+<td class="rt">68821196</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2013265920:2080374783]</td>
+<td class="rt">74480317</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2080374784:2147483647]</td>
+<td class="rt">58007752</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2147483648:2214592511]</td>
+<td class="rt">87584242</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2214592512:2281701375]</td>
+<td class="rt">103503606</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2281701376:2348810239]</td>
+<td class="rt">76153582</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2348810240:2415919103]</td>
+<td class="rt">95699946</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2415919104:2483027967]</td>
+<td class="rt">86068059</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2483027968:2550136831]</td>
+<td class="rt">84716586</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2550136832:2617245695]</td>
+<td class="rt">81419175</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2617245696:2684354559]</td>
+<td class="rt">71098269</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2684354560:2751463423]</td>
+<td class="rt">74820390</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2751463424:2818572287]</td>
+<td class="rt">79290261</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2818572288:2885681151]</td>
+<td class="rt">81924784</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2885681152:2952790015]</td>
+<td class="rt">87854028</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2952790016:3019898879]</td>
+<td class="rt">64776307</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3019898880:3087007743]</td>
+<td class="rt">75081268</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3087007744:3154116607]</td>
+<td class="rt">71759485</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3154116608:3221225471]</td>
+<td class="rt">78009860</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3221225472:3288334335]</td>
+<td class="rt">93163367</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3288334336:3355443199]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3355443200:3422552063]</td>
+<td class="rt">70558048</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3422552064:3489660927]</td>
+<td class="rt">69251032</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3489660928:3556769791]</td>
+<td class="rt">54674365</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3556769792:3623878655]</td>
+<td class="rt">75761326</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3623878656:3690987519]</td>
+<td class="rt">60473647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3690987520:3758096383]</td>
+<td class="rt">75416864</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3758096384:3825205247]</td>
+<td class="rt">57260634</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3825205248:3892314111]</td>
+<td class="rt">73757355</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3892314112:3959422975]</td>
+<td class="rt">68652655</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3959422976:4026531839]</td>
+<td class="rt">74925567</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4026531840:4093640703]</td>
+<td class="rt">106710223</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4093640704:4160749567]</td>
+<td class="rt">64965012</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4160749568:4227858431]</td>
+<td class="rt">71363693</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4227858432:4294967295]</td>
+<td class="rt">96565925</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed2_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed2_cp">Summary for Variable bus_fuse_uds_seed2_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for bus_fuse_uds_seed2_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td nowrap>wr_rd:4->0[*[1:1000]]->2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>dont_care</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td nowrap>wr_rd:4->0[*[1:1000]]->8</td>
+<td class="rt">208</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->8</td>
+<td class="rt">306</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->2</td>
+<td class="rt">1272</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed3_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed3_cp">Summary for Variable fuse_uds_seed3_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for fuse_uds_seed3_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0:67108863]</td>
+<td class="rt">361191330</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[67108864:134217727]</td>
+<td class="rt">81646107</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[134217728:201326591]</td>
+<td class="rt">82524430</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[201326592:268435455]</td>
+<td class="rt">68579856</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[268435456:335544319]</td>
+<td class="rt">84461798</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[335544320:402653183]</td>
+<td class="rt">89900201</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[402653184:469762047]</td>
+<td class="rt">105995911</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[469762048:536870911]</td>
+<td class="rt">72627808</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[536870912:603979775]</td>
+<td class="rt">72211195</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[603979776:671088639]</td>
+<td class="rt">74047154</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[671088640:738197503]</td>
+<td class="rt">80041147</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[738197504:805306367]</td>
+<td class="rt">68742610</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[805306368:872415231]</td>
+<td class="rt">56465089</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[872415232:939524095]</td>
+<td class="rt">56548866</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[939524096:1006632959]</td>
+<td class="rt">57637023</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1006632960:1073741823]</td>
+<td class="rt">77863045</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1073741824:1140850687]</td>
+<td class="rt">68696689</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1140850688:1207959551]</td>
+<td class="rt">74416544</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1207959552:1275068415]</td>
+<td class="rt">73171061</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1275068416:1342177279]</td>
+<td class="rt">60740701</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1342177280:1409286143]</td>
+<td class="rt">66899567</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1409286144:1476395007]</td>
+<td class="rt">104909461</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1476395008:1543503871]</td>
+<td class="rt">77745604</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1543503872:1610612735]</td>
+<td class="rt">82232352</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1610612736:1677721599]</td>
+<td class="rt">71605750</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1677721600:1744830463]</td>
+<td class="rt">51689533</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1744830464:1811939327]</td>
+<td class="rt">71389776</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1811939328:1879048191]</td>
+<td class="rt">89175294</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1879048192:1946157055]</td>
+<td class="rt">87584037</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1946157056:2013265919]</td>
+<td class="rt">76271739</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2013265920:2080374783]</td>
+<td class="rt">74369915</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2080374784:2147483647]</td>
+<td class="rt">76415013</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2147483648:2214592511]</td>
+<td class="rt">75030653</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2214592512:2281701375]</td>
+<td class="rt">87441723</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2281701376:2348810239]</td>
+<td class="rt">87579001</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2348810240:2415919103]</td>
+<td class="rt">80241817</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2415919104:2483027967]</td>
+<td class="rt">69588364</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2483027968:2550136831]</td>
+<td class="rt">84603111</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2550136832:2617245695]</td>
+<td class="rt">94822292</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2617245696:2684354559]</td>
+<td class="rt">103325823</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2684354560:2751463423]</td>
+<td class="rt">77070856</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2751463424:2818572287]</td>
+<td class="rt">77498016</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2818572288:2885681151]</td>
+<td class="rt">68397651</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2885681152:2952790015]</td>
+<td class="rt">59635547</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2952790016:3019898879]</td>
+<td class="rt">69134708</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3019898880:3087007743]</td>
+<td class="rt">58416952</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3087007744:3154116607]</td>
+<td class="rt">71646872</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3154116608:3221225471]</td>
+<td class="rt">90950377</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3221225472:3288334335]</td>
+<td class="rt">74526984</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3288334336:3355443199]</td>
+<td class="rt">87649892</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3355443200:3422552063]</td>
+<td class="rt">71134591</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3422552064:3489660927]</td>
+<td class="rt">99800821</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3489660928:3556769791]</td>
+<td class="rt">73602535</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3556769792:3623878655]</td>
+<td class="rt">75217010</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3623878656:3690987519]</td>
+<td class="rt">79204225</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3690987520:3758096383]</td>
+<td class="rt">76450615</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3758096384:3825205247]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3825205248:3892314111]</td>
+<td class="rt">95531502</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3892314112:3959422975]</td>
+<td class="rt">90869554</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3959422976:4026531839]</td>
+<td class="rt">66860527</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4026531840:4093640703]</td>
+<td class="rt">71642474</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4093640704:4160749567]</td>
+<td class="rt">70741640</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4160749568:4227858431]</td>
+<td class="rt">71096972</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4227858432:4294967295]</td>
+<td class="rt">61390967</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed3_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed3_cp">Summary for Variable bus_fuse_uds_seed3_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for bus_fuse_uds_seed3_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td nowrap>wr_rd:4->0[*[1:1000]]->2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>dont_care</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td nowrap>wr_rd:4->0[*[1:1000]]->8</td>
+<td class="rt">208</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->8</td>
+<td class="rt">301</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->2</td>
+<td class="rt">1270</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed4_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed4_cp">Summary for Variable fuse_uds_seed4_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for fuse_uds_seed4_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0:67108863]</td>
+<td class="rt">364405861</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[67108864:134217727]</td>
+<td class="rt">73952415</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[134217728:201326591]</td>
+<td class="rt">72128249</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[201326592:268435455]</td>
+<td class="rt">68061394</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[268435456:335544319]</td>
+<td class="rt">77021271</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[335544320:402653183]</td>
+<td class="rt">66037833</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[402653184:469762047]</td>
+<td class="rt">98845162</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[469762048:536870911]</td>
+<td class="rt">65615799</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[536870912:603979775]</td>
+<td class="rt">101814205</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[603979776:671088639]</td>
+<td class="rt">90823155</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[671088640:738197503]</td>
+<td class="rt">85262252</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[738197504:805306367]</td>
+<td class="rt">87245203</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[805306368:872415231]</td>
+<td class="rt">101716996</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[872415232:939524095]</td>
+<td class="rt">80496400</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[939524096:1006632959]</td>
+<td class="rt">67835591</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1006632960:1073741823]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1073741824:1140850687]</td>
+<td class="rt">64657056</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1140850688:1207959551]</td>
+<td class="rt">79158144</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1207959552:1275068415]</td>
+<td class="rt">96339217</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1275068416:1342177279]</td>
+<td class="rt">66893479</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1342177280:1409286143]</td>
+<td class="rt">106533363</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1409286144:1476395007]</td>
+<td class="rt">63048795</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1476395008:1543503871]</td>
+<td class="rt">70491863</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1543503872:1610612735]</td>
+<td class="rt">51096215</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1610612736:1677721599]</td>
+<td class="rt">67449262</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1677721600:1744830463]</td>
+<td class="rt">68513024</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1744830464:1811939327]</td>
+<td class="rt">63174802</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1811939328:1879048191]</td>
+<td class="rt">77916971</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1879048192:1946157055]</td>
+<td class="rt">67902165</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1946157056:2013265919]</td>
+<td class="rt">61296630</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2013265920:2080374783]</td>
+<td class="rt">80073295</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2080374784:2147483647]</td>
+<td class="rt">83305981</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2147483648:2214592511]</td>
+<td class="rt">70627217</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2214592512:2281701375]</td>
+<td class="rt">75854402</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2281701376:2348810239]</td>
+<td class="rt">72819617</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2348810240:2415919103]</td>
+<td class="rt">100558054</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2415919104:2483027967]</td>
+<td class="rt">81666953</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2483027968:2550136831]</td>
+<td class="rt">63323150</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2550136832:2617245695]</td>
+<td class="rt">66903646</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2617245696:2684354559]</td>
+<td class="rt">64072769</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2684354560:2751463423]</td>
+<td class="rt">74242211</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2751463424:2818572287]</td>
+<td class="rt">74814899</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2818572288:2885681151]</td>
+<td class="rt">64855118</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2885681152:2952790015]</td>
+<td class="rt">66150335</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2952790016:3019898879]</td>
+<td class="rt">88172036</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3019898880:3087007743]</td>
+<td class="rt">76277549</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3087007744:3154116607]</td>
+<td class="rt">72032510</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3154116608:3221225471]</td>
+<td class="rt">77670883</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3221225472:3288334335]</td>
+<td class="rt">73568194</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3288334336:3355443199]</td>
+<td class="rt">89764991</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3355443200:3422552063]</td>
+<td class="rt">62291246</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3422552064:3489660927]</td>
+<td class="rt">50127064</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3489660928:3556769791]</td>
+<td class="rt">98893840</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3556769792:3623878655]</td>
+<td class="rt">79300179</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3623878656:3690987519]</td>
+<td class="rt">66943900</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3690987520:3758096383]</td>
+<td class="rt">87470471</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3758096384:3825205247]</td>
+<td class="rt">74928098</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3825205248:3892314111]</td>
+<td class="rt">62885549</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3892314112:3959422975]</td>
+<td class="rt">75854032</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3959422976:4026531839]</td>
+<td class="rt">68455172</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4026531840:4093640703]</td>
+<td class="rt">70712950</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4093640704:4160749567]</td>
+<td class="rt">112781147</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4160749568:4227858431]</td>
+<td class="rt">81489223</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4227858432:4294967295]</td>
+<td class="rt">76033949</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed4_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed4_cp">Summary for Variable bus_fuse_uds_seed4_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for bus_fuse_uds_seed4_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td nowrap>wr_rd:4->0[*[1:1000]]->2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>dont_care</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td nowrap>wr_rd:4->0[*[1:1000]]->8</td>
+<td class="rt">208</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->8</td>
+<td class="rt">313</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->2</td>
+<td class="rt">1268</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed5_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed5_cp">Summary for Variable fuse_uds_seed5_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for fuse_uds_seed5_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0:67108863]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[67108864:134217727]</td>
+<td class="rt">53612362</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[134217728:201326591]</td>
+<td class="rt">70905678</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[201326592:268435455]</td>
+<td class="rt">67226894</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[268435456:335544319]</td>
+<td class="rt">62087870</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[335544320:402653183]</td>
+<td class="rt">86448330</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[402653184:469762047]</td>
+<td class="rt">85172490</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[469762048:536870911]</td>
+<td class="rt">72644326</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[536870912:603979775]</td>
+<td class="rt">59829463</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[603979776:671088639]</td>
+<td class="rt">106182023</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[671088640:738197503]</td>
+<td class="rt">92861250</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[738197504:805306367]</td>
+<td class="rt">82137308</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[805306368:872415231]</td>
+<td class="rt">70747984</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[872415232:939524095]</td>
+<td class="rt">70035337</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[939524096:1006632959]</td>
+<td class="rt">74120639</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1006632960:1073741823]</td>
+<td class="rt">70678148</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1073741824:1140850687]</td>
+<td class="rt">68434626</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1140850688:1207959551]</td>
+<td class="rt">76109072</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1207959552:1275068415]</td>
+<td class="rt">75780184</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1275068416:1342177279]</td>
+<td class="rt">82556424</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1342177280:1409286143]</td>
+<td class="rt">89689047</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1409286144:1476395007]</td>
+<td class="rt">67155240</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1476395008:1543503871]</td>
+<td class="rt">80234786</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1543503872:1610612735]</td>
+<td class="rt">61539492</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1610612736:1677721599]</td>
+<td class="rt">64650263</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1677721600:1744830463]</td>
+<td class="rt">91683048</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1744830464:1811939327]</td>
+<td class="rt">73539163</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1811939328:1879048191]</td>
+<td class="rt">77782260</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1879048192:1946157055]</td>
+<td class="rt">77488985</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1946157056:2013265919]</td>
+<td class="rt">76585522</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2013265920:2080374783]</td>
+<td class="rt">66433846</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2080374784:2147483647]</td>
+<td class="rt">123587397</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2147483648:2214592511]</td>
+<td class="rt">86367050</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2214592512:2281701375]</td>
+<td class="rt">72917953</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2281701376:2348810239]</td>
+<td class="rt">64456430</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2348810240:2415919103]</td>
+<td class="rt">88662469</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2415919104:2483027967]</td>
+<td class="rt">54402255</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2483027968:2550136831]</td>
+<td class="rt">79347484</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2550136832:2617245695]</td>
+<td class="rt">85742878</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2617245696:2684354559]</td>
+<td class="rt">88295339</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2684354560:2751463423]</td>
+<td class="rt">56524213</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2751463424:2818572287]</td>
+<td class="rt">86655359</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2818572288:2885681151]</td>
+<td class="rt">89431026</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2885681152:2952790015]</td>
+<td class="rt">101311231</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2952790016:3019898879]</td>
+<td class="rt">58845596</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3019898880:3087007743]</td>
+<td class="rt">79913396</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3087007744:3154116607]</td>
+<td class="rt">81141396</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3154116608:3221225471]</td>
+<td class="rt">70791632</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3221225472:3288334335]</td>
+<td class="rt">61470734</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3288334336:3355443199]</td>
+<td class="rt">79776208</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3355443200:3422552063]</td>
+<td class="rt">68074648</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3422552064:3489660927]</td>
+<td class="rt">76744254</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3489660928:3556769791]</td>
+<td class="rt">76997436</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3556769792:3623878655]</td>
+<td class="rt">68677826</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3623878656:3690987519]</td>
+<td class="rt">77304503</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3690987520:3758096383]</td>
+<td class="rt">66235865</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3758096384:3825205247]</td>
+<td class="rt">79331112</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3825205248:3892314111]</td>
+<td class="rt">88998542</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3892314112:3959422975]</td>
+<td class="rt">74069029</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3959422976:4026531839]</td>
+<td class="rt">68524654</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4026531840:4093640703]</td>
+<td class="rt">88152662</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4093640704:4160749567]</td>
+<td class="rt">60322240</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4160749568:4227858431]</td>
+<td class="rt">110378041</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4227858432:4294967295]</td>
+<td class="rt">66903799</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed5_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed5_cp">Summary for Variable bus_fuse_uds_seed5_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for bus_fuse_uds_seed5_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td nowrap>wr_rd:4->0[*[1:1000]]->2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>dont_care</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td nowrap>wr_rd:4->0[*[1:1000]]->8</td>
+<td class="rt">208</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->8</td>
+<td class="rt">299</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->2</td>
+<td class="rt">1268</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed6_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed6_cp">Summary for Variable fuse_uds_seed6_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for fuse_uds_seed6_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0:67108863]</td>
+<td class="rt">347582621</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[67108864:134217727]</td>
+<td class="rt">93905276</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[134217728:201326591]</td>
+<td class="rt">103188490</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[201326592:268435455]</td>
+<td class="rt">90585286</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[268435456:335544319]</td>
+<td class="rt">62849749</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[335544320:402653183]</td>
+<td class="rt">57791679</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[402653184:469762047]</td>
+<td class="rt">73843389</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[469762048:536870911]</td>
+<td class="rt">82308405</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[536870912:603979775]</td>
+<td class="rt">75325106</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[603979776:671088639]</td>
+<td class="rt">59253149</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[671088640:738197503]</td>
+<td class="rt">74093758</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[738197504:805306367]</td>
+<td class="rt">81054839</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[805306368:872415231]</td>
+<td class="rt">70703399</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[872415232:939524095]</td>
+<td class="rt">73903661</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[939524096:1006632959]</td>
+<td class="rt">119047309</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1006632960:1073741823]</td>
+<td class="rt">72236535</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1073741824:1140850687]</td>
+<td class="rt">78274758</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1140850688:1207959551]</td>
+<td class="rt">81291599</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1207959552:1275068415]</td>
+<td class="rt">82169008</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1275068416:1342177279]</td>
+<td class="rt">77087478</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1342177280:1409286143]</td>
+<td class="rt">77309600</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1409286144:1476395007]</td>
+<td class="rt">80324371</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1476395008:1543503871]</td>
+<td class="rt">73342017</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1543503872:1610612735]</td>
+<td class="rt">81385971</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1610612736:1677721599]</td>
+<td class="rt">77194231</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1677721600:1744830463]</td>
+<td class="rt">62678027</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1744830464:1811939327]</td>
+<td class="rt">82299269</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1811939328:1879048191]</td>
+<td class="rt">76641634</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1879048192:1946157055]</td>
+<td class="rt">62915701</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1946157056:2013265919]</td>
+<td class="rt">65165814</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2013265920:2080374783]</td>
+<td class="rt">81217143</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2080374784:2147483647]</td>
+<td class="rt">94913641</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2147483648:2214592511]</td>
+<td class="rt">95858352</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2214592512:2281701375]</td>
+<td class="rt">60089886</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2281701376:2348810239]</td>
+<td class="rt">76449626</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2348810240:2415919103]</td>
+<td class="rt">79589513</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2415919104:2483027967]</td>
+<td class="rt">111352966</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2483027968:2550136831]</td>
+<td class="rt">67228166</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2550136832:2617245695]</td>
+<td class="rt">75177945</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2617245696:2684354559]</td>
+<td class="rt">68490617</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2684354560:2751463423]</td>
+<td class="rt">93247125</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2751463424:2818572287]</td>
+<td class="rt">59662964</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2818572288:2885681151]</td>
+<td class="rt">92780516</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2885681152:2952790015]</td>
+<td class="rt">85730227</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2952790016:3019898879]</td>
+<td class="rt">65322049</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3019898880:3087007743]</td>
+<td class="rt">63743463</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3087007744:3154116607]</td>
+<td class="rt">73091548</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3154116608:3221225471]</td>
+<td class="rt">75493314</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3221225472:3288334335]</td>
+<td class="rt">72945335</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3288334336:3355443199]</td>
+<td class="rt">72683394</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3355443200:3422552063]</td>
+<td class="rt">69492655</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3422552064:3489660927]</td>
+<td class="rt">87549238</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3489660928:3556769791]</td>
+<td class="rt">79667711</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3556769792:3623878655]</td>
+<td class="rt">75203089</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3623878656:3690987519]</td>
+<td class="rt">60531360</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3690987520:3758096383]</td>
+<td class="rt">57251493</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3758096384:3825205247]</td>
+<td class="rt">72329327</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3825205248:3892314111]</td>
+<td class="rt">64634134</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3892314112:3959422975]</td>
+<td class="rt">95505343</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3959422976:4026531839]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4026531840:4093640703]</td>
+<td class="rt">90255073</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4093640704:4160749567]</td>
+<td class="rt">71788839</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4160749568:4227858431]</td>
+<td class="rt">67898309</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4227858432:4294967295]</td>
+<td class="rt">68117845</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed6_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed6_cp">Summary for Variable bus_fuse_uds_seed6_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for bus_fuse_uds_seed6_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td nowrap>wr_rd:4->0[*[1:1000]]->2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>dont_care</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td nowrap>wr_rd:4->0[*[1:1000]]->8</td>
+<td class="rt">208</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->8</td>
+<td class="rt">312</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->2</td>
+<td class="rt">1268</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed7_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed7_cp">Summary for Variable fuse_uds_seed7_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for fuse_uds_seed7_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0:67108863]</td>
+<td class="rt">356415249</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[67108864:134217727]</td>
+<td class="rt">67621578</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[134217728:201326591]</td>
+<td class="rt">70450213</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[201326592:268435455]</td>
+<td class="rt">87790914</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[268435456:335544319]</td>
+<td class="rt">86758329</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[335544320:402653183]</td>
+<td class="rt">62462756</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[402653184:469762047]</td>
+<td class="rt">78698861</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[469762048:536870911]</td>
+<td class="rt">68507383</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[536870912:603979775]</td>
+<td class="rt">84956151</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[603979776:671088639]</td>
+<td class="rt">90680515</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[671088640:738197503]</td>
+<td class="rt">84270082</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[738197504:805306367]</td>
+<td class="rt">63575686</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[805306368:872415231]</td>
+<td class="rt">87746459</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[872415232:939524095]</td>
+<td class="rt">60938188</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[939524096:1006632959]</td>
+<td class="rt">88816727</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1006632960:1073741823]</td>
+<td class="rt">55677163</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1073741824:1140850687]</td>
+<td class="rt">82707529</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1140850688:1207959551]</td>
+<td class="rt">64835795</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1207959552:1275068415]</td>
+<td class="rt">75407361</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1275068416:1342177279]</td>
+<td class="rt">68758783</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1342177280:1409286143]</td>
+<td class="rt">71754389</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1409286144:1476395007]</td>
+<td class="rt">85606868</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1476395008:1543503871]</td>
+<td class="rt">86847070</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1543503872:1610612735]</td>
+<td class="rt">85082924</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1610612736:1677721599]</td>
+<td class="rt">90770706</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1677721600:1744830463]</td>
+<td class="rt">68088406</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1744830464:1811939327]</td>
+<td class="rt">62529356</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1811939328:1879048191]</td>
+<td class="rt">75019654</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1879048192:1946157055]</td>
+<td class="rt">86187477</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1946157056:2013265919]</td>
+<td class="rt">91780695</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2013265920:2080374783]</td>
+<td class="rt">66427583</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2080374784:2147483647]</td>
+<td class="rt">65216002</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2147483648:2214592511]</td>
+<td class="rt">58743693</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2214592512:2281701375]</td>
+<td class="rt">50169499</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2281701376:2348810239]</td>
+<td class="rt">70382061</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2348810240:2415919103]</td>
+<td class="rt">62740416</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2415919104:2483027967]</td>
+<td class="rt">85013246</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2483027968:2550136831]</td>
+<td class="rt">55856932</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2550136832:2617245695]</td>
+<td class="rt">99679968</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2617245696:2684354559]</td>
+<td class="rt">75424716</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2684354560:2751463423]</td>
+<td class="rt">54612332</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2751463424:2818572287]</td>
+<td class="rt">70038259</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2818572288:2885681151]</td>
+<td class="rt">81236089</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2885681152:2952790015]</td>
+<td class="rt">106337961</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2952790016:3019898879]</td>
+<td class="rt">66885897</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3019898880:3087007743]</td>
+<td class="rt">87067915</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3087007744:3154116607]</td>
+<td class="rt">75220504</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3154116608:3221225471]</td>
+<td class="rt">103191339</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3221225472:3288334335]</td>
+<td class="rt">72459546</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3288334336:3355443199]</td>
+<td class="rt">72962101</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3355443200:3422552063]</td>
+<td class="rt">64865906</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3422552064:3489660927]</td>
+<td class="rt">82937586</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3489660928:3556769791]</td>
+<td class="rt">67189520</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3556769792:3623878655]</td>
+<td class="rt">85352415</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3623878656:3690987519]</td>
+<td class="rt">99193383</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3690987520:3758096383]</td>
+<td class="rt">103885434</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3758096384:3825205247]</td>
+<td class="rt">72289226</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3825205248:3892314111]</td>
+<td class="rt">91062899</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3892314112:3959422975]</td>
+<td class="rt">72408431</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3959422976:4026531839]</td>
+<td class="rt">69898475</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4026531840:4093640703]</td>
+<td class="rt">80568751</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4093640704:4160749567]</td>
+<td class="rt">75337212</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4160749568:4227858431]</td>
+<td class="rt">64664874</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4227858432:4294967295]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed7_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed7_cp">Summary for Variable bus_fuse_uds_seed7_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for bus_fuse_uds_seed7_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td nowrap>wr_rd:4->0[*[1:1000]]->2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>dont_care</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td nowrap>wr_rd:4->0[*[1:1000]]->8</td>
+<td class="rt">208</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->8</td>
+<td class="rt">300</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->2</td>
+<td class="rt">1267</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed8_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed8_cp">Summary for Variable fuse_uds_seed8_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for fuse_uds_seed8_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0:67108863]</td>
+<td class="rt">357058540</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[67108864:134217727]</td>
+<td class="rt">66813729</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[134217728:201326591]</td>
+<td class="rt">66299295</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[201326592:268435455]</td>
+<td class="rt">75566050</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[268435456:335544319]</td>
+<td class="rt">89993178</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[335544320:402653183]</td>
+<td class="rt">65909183</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[402653184:469762047]</td>
+<td class="rt">88499848</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[469762048:536870911]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[536870912:603979775]</td>
+<td class="rt">85958511</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[603979776:671088639]</td>
+<td class="rt">61453239</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[671088640:738197503]</td>
+<td class="rt">102804119</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[738197504:805306367]</td>
+<td class="rt">64603936</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[805306368:872415231]</td>
+<td class="rt">80558120</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[872415232:939524095]</td>
+<td class="rt">77860761</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[939524096:1006632959]</td>
+<td class="rt">88545725</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1006632960:1073741823]</td>
+<td class="rt">67962373</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1073741824:1140850687]</td>
+<td class="rt">86980627</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1140850688:1207959551]</td>
+<td class="rt">92531770</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1207959552:1275068415]</td>
+<td class="rt">79577772</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1275068416:1342177279]</td>
+<td class="rt">98649958</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1342177280:1409286143]</td>
+<td class="rt">101276869</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1409286144:1476395007]</td>
+<td class="rt">64660306</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1476395008:1543503871]</td>
+<td class="rt">70786308</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1543503872:1610612735]</td>
+<td class="rt">66475864</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1610612736:1677721599]</td>
+<td class="rt">102336529</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1677721600:1744830463]</td>
+<td class="rt">74737025</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1744830464:1811939327]</td>
+<td class="rt">91330999</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1811939328:1879048191]</td>
+<td class="rt">84726498</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1879048192:1946157055]</td>
+<td class="rt">65128636</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1946157056:2013265919]</td>
+<td class="rt">82292487</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2013265920:2080374783]</td>
+<td class="rt">75536262</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2080374784:2147483647]</td>
+<td class="rt">77415835</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2147483648:2214592511]</td>
+<td class="rt">69692189</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2214592512:2281701375]</td>
+<td class="rt">79114733</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2281701376:2348810239]</td>
+<td class="rt">82762681</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2348810240:2415919103]</td>
+<td class="rt">83381344</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2415919104:2483027967]</td>
+<td class="rt">103607732</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2483027968:2550136831]</td>
+<td class="rt">68116271</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2550136832:2617245695]</td>
+<td class="rt">58925802</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2617245696:2684354559]</td>
+<td class="rt">102996552</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2684354560:2751463423]</td>
+<td class="rt">61439082</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2751463424:2818572287]</td>
+<td class="rt">61526365</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2818572288:2885681151]</td>
+<td class="rt">81016832</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2885681152:2952790015]</td>
+<td class="rt">72299078</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2952790016:3019898879]</td>
+<td class="rt">72350427</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3019898880:3087007743]</td>
+<td class="rt">85828516</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3087007744:3154116607]</td>
+<td class="rt">76278715</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3154116608:3221225471]</td>
+<td class="rt">61166045</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3221225472:3288334335]</td>
+<td class="rt">71357172</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3288334336:3355443199]</td>
+<td class="rt">96468842</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3355443200:3422552063]</td>
+<td class="rt">66892745</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3422552064:3489660927]</td>
+<td class="rt">68034593</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3489660928:3556769791]</td>
+<td class="rt">57460840</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3556769792:3623878655]</td>
+<td class="rt">70080190</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3623878656:3690987519]</td>
+<td class="rt">67785337</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3690987520:3758096383]</td>
+<td class="rt">83058216</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3758096384:3825205247]</td>
+<td class="rt">63222162</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3825205248:3892314111]</td>
+<td class="rt">80950079</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3892314112:3959422975]</td>
+<td class="rt">70113188</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3959422976:4026531839]</td>
+<td class="rt">61344037</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4026531840:4093640703]</td>
+<td class="rt">90055930</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4093640704:4160749567]</td>
+<td class="rt">77762428</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4160749568:4227858431]</td>
+<td class="rt">72496351</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4227858432:4294967295]</td>
+<td class="rt">59154753</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed8_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed8_cp">Summary for Variable bus_fuse_uds_seed8_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for bus_fuse_uds_seed8_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td nowrap>wr_rd:4->0[*[1:1000]]->2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>dont_care</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td nowrap>wr_rd:4->0[*[1:1000]]->8</td>
+<td class="rt">208</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->8</td>
+<td class="rt">315</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->2</td>
+<td class="rt">1270</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed9_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed9_cp">Summary for Variable fuse_uds_seed9_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for fuse_uds_seed9_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0:67108863]</td>
+<td class="rt">363041860</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[67108864:134217727]</td>
+<td class="rt">83720406</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[134217728:201326591]</td>
+<td class="rt">70527019</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[201326592:268435455]</td>
+<td class="rt">102347383</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[268435456:335544319]</td>
+<td class="rt">79161574</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[335544320:402653183]</td>
+<td class="rt">80535270</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[402653184:469762047]</td>
+<td class="rt">99120114</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[469762048:536870911]</td>
+<td class="rt">55567148</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[536870912:603979775]</td>
+<td class="rt">79067078</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[603979776:671088639]</td>
+<td class="rt">79124668</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[671088640:738197503]</td>
+<td class="rt">62807062</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[738197504:805306367]</td>
+<td class="rt">80814586</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[805306368:872415231]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[872415232:939524095]</td>
+<td class="rt">82689723</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[939524096:1006632959]</td>
+<td class="rt">53604264</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1006632960:1073741823]</td>
+<td class="rt">66199229</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1073741824:1140850687]</td>
+<td class="rt">102789663</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1140850688:1207959551]</td>
+<td class="rt">80573148</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1207959552:1275068415]</td>
+<td class="rt">72602385</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1275068416:1342177279]</td>
+<td class="rt">78224491</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1342177280:1409286143]</td>
+<td class="rt">67852466</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1409286144:1476395007]</td>
+<td class="rt">64487187</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1476395008:1543503871]</td>
+<td class="rt">79702484</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1543503872:1610612735]</td>
+<td class="rt">80639738</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1610612736:1677721599]</td>
+<td class="rt">96318493</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1677721600:1744830463]</td>
+<td class="rt">69685847</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1744830464:1811939327]</td>
+<td class="rt">114135131</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1811939328:1879048191]</td>
+<td class="rt">66759460</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1879048192:1946157055]</td>
+<td class="rt">88357390</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1946157056:2013265919]</td>
+<td class="rt">66642197</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2013265920:2080374783]</td>
+<td class="rt">90213363</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2080374784:2147483647]</td>
+<td class="rt">78240706</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2147483648:2214592511]</td>
+<td class="rt">98132175</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2214592512:2281701375]</td>
+<td class="rt">82575984</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2281701376:2348810239]</td>
+<td class="rt">71734135</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2348810240:2415919103]</td>
+<td class="rt">67351469</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2415919104:2483027967]</td>
+<td class="rt">76236501</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2483027968:2550136831]</td>
+<td class="rt">75671341</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2550136832:2617245695]</td>
+<td class="rt">67356690</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2617245696:2684354559]</td>
+<td class="rt">75259315</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2684354560:2751463423]</td>
+<td class="rt">69761436</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2751463424:2818572287]</td>
+<td class="rt">69875238</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2818572288:2885681151]</td>
+<td class="rt">79883573</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2885681152:2952790015]</td>
+<td class="rt">59821562</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2952790016:3019898879]</td>
+<td class="rt">77521062</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3019898880:3087007743]</td>
+<td class="rt">66684442</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3087007744:3154116607]</td>
+<td class="rt">82685403</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3154116608:3221225471]</td>
+<td class="rt">56866766</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3221225472:3288334335]</td>
+<td class="rt">72256161</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3288334336:3355443199]</td>
+<td class="rt">81407431</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3355443200:3422552063]</td>
+<td class="rt">74520617</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3422552064:3489660927]</td>
+<td class="rt">81604988</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3489660928:3556769791]</td>
+<td class="rt">70746969</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3556769792:3623878655]</td>
+<td class="rt">83787321</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3623878656:3690987519]</td>
+<td class="rt">67411593</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3690987520:3758096383]</td>
+<td class="rt">86520726</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3758096384:3825205247]</td>
+<td class="rt">64579131</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3825205248:3892314111]</td>
+<td class="rt">71266385</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3892314112:3959422975]</td>
+<td class="rt">62661053</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3959422976:4026531839]</td>
+<td class="rt">59124577</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4026531840:4093640703]</td>
+<td class="rt">95057963</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4093640704:4160749567]</td>
+<td class="rt">82563832</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4160749568:4227858431]</td>
+<td class="rt">74804648</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4227858432:4294967295]</td>
+<td class="rt">73302973</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed9_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed9_cp">Summary for Variable bus_fuse_uds_seed9_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for bus_fuse_uds_seed9_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td nowrap>wr_rd:4->0[*[1:1000]]->2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>dont_care</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td nowrap>wr_rd:4->0[*[1:1000]]->8</td>
+<td class="rt">208</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->8</td>
+<td class="rt">304</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->2</td>
+<td class="rt">1268</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed10_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed10_cp">Summary for Variable fuse_uds_seed10_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for fuse_uds_seed10_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0:67108863]</td>
+<td class="rt">343937080</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[67108864:134217727]</td>
+<td class="rt">72737226</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[134217728:201326591]</td>
+<td class="rt">88486770</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[201326592:268435455]</td>
+<td class="rt">64560735</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[268435456:335544319]</td>
+<td class="rt">82531656</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[335544320:402653183]</td>
+<td class="rt">95721133</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[402653184:469762047]</td>
+<td class="rt">82676178</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[469762048:536870911]</td>
+<td class="rt">74229315</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[536870912:603979775]</td>
+<td class="rt">67204221</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[603979776:671088639]</td>
+<td class="rt">87530160</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[671088640:738197503]</td>
+<td class="rt">94608623</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[738197504:805306367]</td>
+<td class="rt">66562226</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[805306368:872415231]</td>
+<td class="rt">73188896</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[872415232:939524095]</td>
+<td class="rt">55681564</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[939524096:1006632959]</td>
+<td class="rt">60425560</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1006632960:1073741823]</td>
+<td class="rt">91355615</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1073741824:1140850687]</td>
+<td class="rt">68374584</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1140850688:1207959551]</td>
+<td class="rt">71164459</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1207959552:1275068415]</td>
+<td class="rt">60569177</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1275068416:1342177279]</td>
+<td class="rt">60004542</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1342177280:1409286143]</td>
+<td class="rt">74587781</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1409286144:1476395007]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1476395008:1543503871]</td>
+<td class="rt">74613992</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1543503872:1610612735]</td>
+<td class="rt">74110290</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1610612736:1677721599]</td>
+<td class="rt">100728490</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1677721600:1744830463]</td>
+<td class="rt">54195242</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1744830464:1811939327]</td>
+<td class="rt">70837118</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1811939328:1879048191]</td>
+<td class="rt">114158004</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1879048192:1946157055]</td>
+<td class="rt">61981789</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1946157056:2013265919]</td>
+<td class="rt">73405955</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2013265920:2080374783]</td>
+<td class="rt">85861400</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2080374784:2147483647]</td>
+<td class="rt">68005421</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2147483648:2214592511]</td>
+<td class="rt">63563527</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2214592512:2281701375]</td>
+<td class="rt">78783803</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2281701376:2348810239]</td>
+<td class="rt">87033961</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2348810240:2415919103]</td>
+<td class="rt">91085051</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2415919104:2483027967]</td>
+<td class="rt">78501415</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2483027968:2550136831]</td>
+<td class="rt">86069671</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2550136832:2617245695]</td>
+<td class="rt">75134127</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2617245696:2684354559]</td>
+<td class="rt">67493059</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2684354560:2751463423]</td>
+<td class="rt">97778910</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2751463424:2818572287]</td>
+<td class="rt">109944973</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2818572288:2885681151]</td>
+<td class="rt">82876222</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2885681152:2952790015]</td>
+<td class="rt">82400126</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2952790016:3019898879]</td>
+<td class="rt">61352606</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3019898880:3087007743]</td>
+<td class="rt">69177334</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3087007744:3154116607]</td>
+<td class="rt">81432380</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3154116608:3221225471]</td>
+<td class="rt">79179099</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3221225472:3288334335]</td>
+<td class="rt">72527386</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3288334336:3355443199]</td>
+<td class="rt">76245186</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3355443200:3422552063]</td>
+<td class="rt">64814854</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3422552064:3489660927]</td>
+<td class="rt">87654491</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3489660928:3556769791]</td>
+<td class="rt">72450625</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3556769792:3623878655]</td>
+<td class="rt">70776966</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3623878656:3690987519]</td>
+<td class="rt">80101692</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3690987520:3758096383]</td>
+<td class="rt">77086165</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3758096384:3825205247]</td>
+<td class="rt">73711796</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3825205248:3892314111]</td>
+<td class="rt">74218380</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3892314112:3959422975]</td>
+<td class="rt">79211058</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3959422976:4026531839]</td>
+<td class="rt">75293791</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4026531840:4093640703]</td>
+<td class="rt">85451802</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4093640704:4160749567]</td>
+<td class="rt">68313435</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4160749568:4227858431]</td>
+<td class="rt">71831737</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4227858432:4294967295]</td>
+<td class="rt">76115580</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed10_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed10_cp">Summary for Variable bus_fuse_uds_seed10_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for bus_fuse_uds_seed10_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td nowrap>wr_rd:4->0[*[1:1000]]->2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>dont_care</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td nowrap>wr_rd:4->0[*[1:1000]]->8</td>
+<td class="rt">208</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->8</td>
+<td class="rt">287</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->2</td>
+<td class="rt">1270</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed11_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed11_cp">Summary for Variable fuse_uds_seed11_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">64</td>
+<td class="rt">0</td>
+<td class="rt">64</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for fuse_uds_seed11_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0:67108863]</td>
+<td class="rt">358401232</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[67108864:134217727]</td>
+<td class="rt">92304749</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[134217728:201326591]</td>
+<td class="rt">65485290</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[201326592:268435455]</td>
+<td class="rt">90825248</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[268435456:335544319]</td>
+<td class="rt">84822350</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[335544320:402653183]</td>
+<td class="rt">74035729</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[402653184:469762047]</td>
+<td class="rt">69300439</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[469762048:536870911]</td>
+<td class="rt">79698301</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[536870912:603979775]</td>
+<td class="rt">59757429</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[603979776:671088639]</td>
+<td class="rt">80885668</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[671088640:738197503]</td>
+<td class="rt">87372528</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[738197504:805306367]</td>
+<td class="rt">78870305</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[805306368:872415231]</td>
+<td class="rt">90915352</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[872415232:939524095]</td>
+<td class="rt">85332577</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[939524096:1006632959]</td>
+<td class="rt">83743418</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1006632960:1073741823]</td>
+<td class="rt">70870086</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1073741824:1140850687]</td>
+<td class="rt">78996945</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1140850688:1207959551]</td>
+<td class="rt">64185823</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1207959552:1275068415]</td>
+<td class="rt">72513708</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1275068416:1342177279]</td>
+<td class="rt">73314414</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1342177280:1409286143]</td>
+<td class="rt">79479151</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1409286144:1476395007]</td>
+<td class="rt">73232163</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1476395008:1543503871]</td>
+<td class="rt">69879645</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1543503872:1610612735]</td>
+<td class="rt">62602539</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1610612736:1677721599]</td>
+<td class="rt">66707372</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1677721600:1744830463]</td>
+<td class="rt">72865149</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1744830464:1811939327]</td>
+<td class="rt">2147483647</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1811939328:1879048191]</td>
+<td class="rt">61054941</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1879048192:1946157055]</td>
+<td class="rt">81082938</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1946157056:2013265919]</td>
+<td class="rt">84572261</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2013265920:2080374783]</td>
+<td class="rt">67954135</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2080374784:2147483647]</td>
+<td class="rt">67509199</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2147483648:2214592511]</td>
+<td class="rt">85074442</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2214592512:2281701375]</td>
+<td class="rt">76541898</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2281701376:2348810239]</td>
+<td class="rt">79184759</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2348810240:2415919103]</td>
+<td class="rt">78262066</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2415919104:2483027967]</td>
+<td class="rt">91617215</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2483027968:2550136831]</td>
+<td class="rt">72712902</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2550136832:2617245695]</td>
+<td class="rt">60529322</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2617245696:2684354559]</td>
+<td class="rt">89763998</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2684354560:2751463423]</td>
+<td class="rt">83359820</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2751463424:2818572287]</td>
+<td class="rt">83842286</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2818572288:2885681151]</td>
+<td class="rt">65203363</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2885681152:2952790015]</td>
+<td class="rt">74037855</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[2952790016:3019898879]</td>
+<td class="rt">72415568</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3019898880:3087007743]</td>
+<td class="rt">100190218</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3087007744:3154116607]</td>
+<td class="rt">77321023</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3154116608:3221225471]</td>
+<td class="rt">80829808</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3221225472:3288334335]</td>
+<td class="rt">61146891</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3288334336:3355443199]</td>
+<td class="rt">72095229</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3355443200:3422552063]</td>
+<td class="rt">79491352</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3422552064:3489660927]</td>
+<td class="rt">76765839</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3489660928:3556769791]</td>
+<td class="rt">78332998</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3556769792:3623878655]</td>
+<td class="rt">92252152</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3623878656:3690987519]</td>
+<td class="rt">66756528</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3690987520:3758096383]</td>
+<td class="rt">75529938</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3758096384:3825205247]</td>
+<td class="rt">59433743</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3825205248:3892314111]</td>
+<td class="rt">101097338</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3892314112:3959422975]</td>
+<td class="rt">75518528</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[3959422976:4026531839]</td>
+<td class="rt">71343974</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4026531840:4093640703]</td>
+<td class="rt">84552384</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4093640704:4160749567]</td>
+<td class="rt">81354841</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4160749568:4227858431]</td>
+<td class="rt">66487533</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[4227858432:4294967295]</td>
+<td class="rt">72630450</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed11_cp"></a><span class="repname" id="inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed11_cp">Summary for Variable bus_fuse_uds_seed11_cp</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s7">
+<td>User Defined Bins</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for bus_fuse_uds_seed11_cp</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td nowrap>wr_rd:4->0[*[1:1000]]->2</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Excluded/Illegal bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td class="alfsrt">STATUS</td></tr><tr class="wht">
+<td>dont_care</td>
+<td class="rt">0</td>
+<td>Excluded</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td nowrap>wr_rd:4->0[*[1:1000]]->8</td>
+<td class="rt">208</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->8</td>
+<td class="rt">314</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td nowrap>wr_rd:1->0[*[1:1000]]->2</td>
+<td class="rt">1269</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed0_cp">Variable : fuse_uds_seed0_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed0_cp">Variable : bus_fuse_uds_seed0_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed1_cp">Variable : fuse_uds_seed1_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed1_cp">Variable : bus_fuse_uds_seed1_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed2_cp">Variable : fuse_uds_seed2_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed2_cp">Variable : bus_fuse_uds_seed2_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed3_cp">Variable : fuse_uds_seed3_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed3_cp">Variable : bus_fuse_uds_seed3_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed4_cp">Variable : fuse_uds_seed4_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed4_cp">Variable : bus_fuse_uds_seed4_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed5_cp">Variable : fuse_uds_seed5_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed5_cp">Variable : bus_fuse_uds_seed5_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed6_cp">Variable : fuse_uds_seed6_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed6_cp">Variable : bus_fuse_uds_seed6_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed7_cp">Variable : fuse_uds_seed7_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed7_cp">Variable : bus_fuse_uds_seed7_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed8_cp">Variable : fuse_uds_seed8_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed8_cp">Variable : bus_fuse_uds_seed8_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed9_cp">Variable : fuse_uds_seed9_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed9_cp">Variable : bus_fuse_uds_seed9_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed10_cp">Variable : fuse_uds_seed10_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed10_cp">Variable : bus_fuse_uds_seed10_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.fuse_uds_seed11_cp">Variable : fuse_uds_seed11_cp</a>    </li>
+    <li>
+      <a href="#inst_tag_soc_ifc_fuse_uds_seed_cg.bus_fuse_uds_seed11_cp">Variable : bus_fuse_uds_seed11_cp</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

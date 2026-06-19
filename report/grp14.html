@@ -1,0 +1,2405 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Group :: cptra_status_transaction_coverage::cptra_status_transaction_cg</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Group : cptra_status_transaction_coverage::cptra_status_transaction_cg</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Group : <a href="#"  onclick="showContent('cptra_status_transaction_coverage::cptra_status_transaction_cg')">cptra_status_transaction_coverage::cptra_status_transaction_cg</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td><b>SCORE</b></td><td>INSTANCES</td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>PER INSTANCE</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="s8 cl rt"> 89.58</td>
+<td class="s8 cl rt"> 89.58</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1024  </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/soc_ifc/uvmf_soc_ifc/uvmf_template_output/verification_ip/interface_packages/cptra_status_pkg/src/cptra_status_transaction_coverage.svh')">/home/pure_scratch/caliptra/pipelines/workspaces/.cache/083715a58de7fe08/1139a539c90d456e87bdc64dbd51771e/chipsalliance/caliptra-rtl/src/soc_ifc/uvmf_soc_ifc/uvmf_template_output/verification_ip/interface_packages/cptra_status_pkg/src/cptra_status_transaction_coverage.svh</a><br clear=all>
+<br clear=all>
+<span class=repname>1 Instances:</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td><b>SCORE</b></td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="wht cl wordwrap"><a href="grp14.html#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage"  onclick="showContent('cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage')">cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage</a></td>
+<td class="s8 cl rt"> 89.58</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1024  </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+</div>
+<hr>
+<br clear=all>
+<span class=repname>Summary for Group   cptra_status_transaction_coverage::cptra_status_transaction_cg
+</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s8">
+<td><a href="#var_tbl_cptra_status_transaction_coverage::cptra_status_transaction_cg" >Variables</a></td>
+<td class="rt">54</td>
+<td class="rt">6</td>
+<td class="rt">48</td>
+<td class="rt">89.58 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="var_tbl_cptra_status_transaction_coverage::cptra_status_transaction_cg">Variables for Group  cptra_status_transaction_coverage::cptra_status_transaction_cg
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">VARIABLE</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>COMMENT</td></tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_err_intr_pending"  onclick="checkLink(this)" target="detailFrame">soc_ifc_err_intr_pending</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_err_intr_transition"  onclick="checkLink(this)" target="detailFrame">soc_ifc_err_intr_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_notif_intr_pending"  onclick="checkLink(this)" target="detailFrame">soc_ifc_notif_intr_pending</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_notif_intr_transition"  onclick="checkLink(this)" target="detailFrame">soc_ifc_notif_intr_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_err_intr_pending"  onclick="checkLink(this)" target="detailFrame">sha_err_intr_pending</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_err_intr_transition"  onclick="checkLink(this)" target="detailFrame">sha_err_intr_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_notif_intr_pending"  onclick="checkLink(this)" target="detailFrame">sha_notif_intr_pending</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_notif_intr_transition"  onclick="checkLink(this)" target="detailFrame">sha_notif_intr_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.timer_intr_pending"  onclick="checkLink(this)" target="detailFrame">timer_intr_pending</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.timer_intr_transition"  onclick="checkLink(this)" target="detailFrame">timer_intr_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.noncore_rst_asserted"  onclick="checkLink(this)" target="detailFrame">noncore_rst_asserted</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.noncore_rst_transition"  onclick="checkLink(this)" target="detailFrame">noncore_rst_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.uc_rst_asserted"  onclick="checkLink(this)" target="detailFrame">uc_rst_asserted</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.uc_rst_transition"  onclick="checkLink(this)" target="detailFrame">uc_rst_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.fw_update_rst_window"  onclick="checkLink(this)" target="detailFrame">fw_update_rst_window</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.fw_update_rst_window_transition"  onclick="checkLink(this)" target="detailFrame">fw_update_rst_window_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s6">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.cptra_obf_key_reg"  onclick="checkLink(this)" target="detailFrame">cptra_obf_key_reg</a></td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s6">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.obf_field_entropy"  onclick="checkLink(this)" target="detailFrame">obf_field_entropy</a></td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s6">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.obf_uds_seed"  onclick="checkLink(this)" target="detailFrame">obf_uds_seed</a></td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.nmi_vector"  onclick="checkLink(this)" target="detailFrame">nmi_vector</a></td>
+<td class="rt">5</td>
+<td class="rt">0</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.nmi_intr_pending"  onclick="checkLink(this)" target="detailFrame">nmi_intr_pending</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.nmi_intr_transition"  onclick="checkLink(this)" target="detailFrame">nmi_intr_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.iccm_locked"  onclick="checkLink(this)" target="detailFrame">iccm_locked</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.iccm_locked_transition"  onclick="checkLink(this)" target="detailFrame">iccm_locked_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+<div name='cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage'>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage"></a>
+<hr>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Group Instance : <a href="groups.html#tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage" >cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td><b>SCORE</b></td><td>WEIGHT</td><td>GOAL</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>PRINT MISSING</td></tr><tr>
+<td class="s8 cl rt"> 89.58</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1024  </td>
+<td class="wht cl rt">64    </td>
+</tr></table><br clear=all>
+<br clear=all>
+</div>
+<hr>
+<br clear=all>
+<span class=repname>Summary for Group Instance   cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage
+</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s8">
+<td><a href="#var_tbl_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage" >Variables</a></td>
+<td class="rt">54</td>
+<td class="rt">6</td>
+<td class="rt">48</td>
+<td class="rt">89.58 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class="repname" id="var_tbl_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage">Variables for Group Instance  cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage
+</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">VARIABLE</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td><td>GOAL</td><td>WEIGHT</td><td>AT LEAST</td><td>AUTO BIN MAX</td><td>COMMENT</td></tr><tr class="s6">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.cptra_obf_key_reg"  onclick="checkLink(this)" target="detailFrame">cptra_obf_key_reg</a></td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.fw_update_rst_window"  onclick="checkLink(this)" target="detailFrame">fw_update_rst_window</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.fw_update_rst_window_transition"  onclick="checkLink(this)" target="detailFrame">fw_update_rst_window_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.iccm_locked"  onclick="checkLink(this)" target="detailFrame">iccm_locked</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.iccm_locked_transition"  onclick="checkLink(this)" target="detailFrame">iccm_locked_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.nmi_intr_pending"  onclick="checkLink(this)" target="detailFrame">nmi_intr_pending</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.nmi_intr_transition"  onclick="checkLink(this)" target="detailFrame">nmi_intr_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.nmi_vector"  onclick="checkLink(this)" target="detailFrame">nmi_vector</a></td>
+<td class="rt">5</td>
+<td class="rt">0</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.noncore_rst_asserted"  onclick="checkLink(this)" target="detailFrame">noncore_rst_asserted</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.noncore_rst_transition"  onclick="checkLink(this)" target="detailFrame">noncore_rst_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s6">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.obf_field_entropy"  onclick="checkLink(this)" target="detailFrame">obf_field_entropy</a></td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s6">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.obf_uds_seed"  onclick="checkLink(this)" target="detailFrame">obf_uds_seed</a></td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s5">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_err_intr_pending"  onclick="checkLink(this)" target="detailFrame">sha_err_intr_pending</a></td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s0">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_err_intr_transition"  onclick="checkLink(this)" target="detailFrame">sha_err_intr_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_notif_intr_pending"  onclick="checkLink(this)" target="detailFrame">sha_notif_intr_pending</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_notif_intr_transition"  onclick="checkLink(this)" target="detailFrame">sha_notif_intr_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_err_intr_pending"  onclick="checkLink(this)" target="detailFrame">soc_ifc_err_intr_pending</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_err_intr_transition"  onclick="checkLink(this)" target="detailFrame">soc_ifc_err_intr_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_notif_intr_pending"  onclick="checkLink(this)" target="detailFrame">soc_ifc_notif_intr_pending</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_notif_intr_transition"  onclick="checkLink(this)" target="detailFrame">soc_ifc_notif_intr_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.timer_intr_pending"  onclick="checkLink(this)" target="detailFrame">timer_intr_pending</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.timer_intr_transition"  onclick="checkLink(this)" target="detailFrame">timer_intr_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.uc_rst_asserted"  onclick="checkLink(this)" target="detailFrame">uc_rst_asserted</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td></td>
+</tr><tr class="s10">
+<td><a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.uc_rst_transition"  onclick="checkLink(this)" target="detailFrame">uc_rst_transition</a></td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+<td class="rt">100</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='cptra_status_transaction_coverage::cptra_status_transaction_cg'>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_err_intr_pending"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_err_intr_pending">Summary for Variable soc_ifc_err_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for soc_ifc_err_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1853925</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">84673</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_err_intr_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_err_intr_transition">Summary for Variable soc_ifc_err_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for soc_ifc_err_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">12994</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">14812</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_notif_intr_pending"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_notif_intr_pending">Summary for Variable soc_ifc_notif_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for soc_ifc_notif_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">454987</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">1483611</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_notif_intr_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_notif_intr_transition">Summary for Variable soc_ifc_notif_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for soc_ifc_notif_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">11124</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">17803</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_err_intr_pending"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_err_intr_pending">Summary for Variable sha_err_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for sha_err_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[1]]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1938598</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_err_intr_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_err_intr_transition">Summary for Variable sha_err_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for sha_err_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>fall</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>rise</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_notif_intr_pending"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_notif_intr_pending">Summary for Variable sha_notif_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for sha_notif_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1938591</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">7</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_notif_intr_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_notif_intr_transition">Summary for Variable sha_notif_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for sha_notif_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">7</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.timer_intr_pending"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.timer_intr_pending">Summary for Variable timer_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for timer_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1488812</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">449786</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.timer_intr_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.timer_intr_transition">Summary for Variable timer_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for timer_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">2762</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">707</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.noncore_rst_asserted"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.noncore_rst_asserted">Summary for Variable noncore_rst_asserted</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for noncore_rst_asserted</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1918170</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">20428</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.noncore_rst_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.noncore_rst_transition">Summary for Variable noncore_rst_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for noncore_rst_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">19063</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">5053</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.uc_rst_asserted"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.uc_rst_asserted">Summary for Variable uc_rst_asserted</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for uc_rst_asserted</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1591511</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">347087</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.uc_rst_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.uc_rst_transition">Summary for Variable uc_rst_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for uc_rst_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">19095</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">5085</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.fw_update_rst_window"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.fw_update_rst_window">Summary for Variable fw_update_rst_window</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for fw_update_rst_window</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1938534</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">64</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.fw_update_rst_window_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.fw_update_rst_window_transition">Summary for Variable fw_update_rst_window_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for fw_update_rst_window_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">32</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">32</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.cptra_obf_key_reg"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.cptra_obf_key_reg">Summary for Variable cptra_obf_key_reg</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s6">
+<td>User Defined Bins</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cptra_obf_key_reg</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>ones_key</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>rand_key</td>
+<td class="rt">1922694</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>zero_key</td>
+<td class="rt">15904</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.obf_field_entropy"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.obf_field_entropy">Summary for Variable obf_field_entropy</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s6">
+<td>User Defined Bins</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for obf_field_entropy</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>ones_fe</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>rand_fe</td>
+<td class="rt">1706081</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>zero_fe</td>
+<td class="rt">232517</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.obf_uds_seed"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.obf_uds_seed">Summary for Variable obf_uds_seed</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s6">
+<td>User Defined Bins</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for obf_uds_seed</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>ones_uds</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>rand_uds</td>
+<td class="rt">1890581</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>zero_uds</td>
+<td class="rt">48017</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.nmi_vector"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.nmi_vector">Summary for Variable nmi_vector</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">5</td>
+<td class="rt">0</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for nmi_vector</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>iccm</td>
+<td class="rt">1512754</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rom</td>
+<td class="rt">425844</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>zero</td>
+<td class="rt">425802</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>clr</td>
+<td class="rt">4130</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>set</td>
+<td class="rt">8762</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.nmi_intr_pending"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.nmi_intr_pending">Summary for Variable nmi_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for nmi_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1933870</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">4728</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.nmi_intr_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.nmi_intr_transition">Summary for Variable nmi_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for nmi_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">2364</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">2364</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.iccm_locked"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.iccm_locked">Summary for Variable iccm_locked</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for iccm_locked</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">417155</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">1521443</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.iccm_locked_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.iccm_locked_transition">Summary for Variable iccm_locked_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for iccm_locked_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">4162</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">8808</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+</div>
+<div name='cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage'>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.cptra_obf_key_reg"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.cptra_obf_key_reg">Summary for Variable cptra_obf_key_reg</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s6">
+<td>User Defined Bins</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for cptra_obf_key_reg</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>ones_key</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>rand_key</td>
+<td class="rt">1698426</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>zero_key</td>
+<td class="rt">15904</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.fw_update_rst_window"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.fw_update_rst_window">Summary for Variable fw_update_rst_window</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for fw_update_rst_window</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1714266</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">64</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.fw_update_rst_window_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.fw_update_rst_window_transition">Summary for Variable fw_update_rst_window_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for fw_update_rst_window_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">32</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">32</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.iccm_locked"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.iccm_locked">Summary for Variable iccm_locked</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for iccm_locked</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">192887</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">1521443</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.iccm_locked_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.iccm_locked_transition">Summary for Variable iccm_locked_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for iccm_locked_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">4162</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">8808</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.nmi_intr_pending"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.nmi_intr_pending">Summary for Variable nmi_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for nmi_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1709602</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">4728</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.nmi_intr_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.nmi_intr_transition">Summary for Variable nmi_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for nmi_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">2364</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">2364</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.nmi_vector"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.nmi_vector">Summary for Variable nmi_vector</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">5</td>
+<td class="rt">0</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for nmi_vector</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>iccm</td>
+<td class="rt">1512754</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rom</td>
+<td class="rt">201576</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>zero</td>
+<td class="rt">201534</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>clr</td>
+<td class="rt">4130</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>set</td>
+<td class="rt">8762</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.noncore_rst_asserted"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.noncore_rst_asserted">Summary for Variable noncore_rst_asserted</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for noncore_rst_asserted</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1702278</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">12052</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.noncore_rst_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.noncore_rst_transition">Summary for Variable noncore_rst_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for noncore_rst_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">11140</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">4130</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.obf_field_entropy"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.obf_field_entropy">Summary for Variable obf_field_entropy</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s6">
+<td>User Defined Bins</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for obf_field_entropy</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>ones_fe</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>rand_fe</td>
+<td class="rt">1586608</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>zero_fe</td>
+<td class="rt">127722</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.obf_uds_seed"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.obf_uds_seed">Summary for Variable obf_uds_seed</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s6">
+<td>User Defined Bins</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for obf_uds_seed</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>ones_uds</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>rand_uds</td>
+<td class="rt">1681672</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>zero_uds</td>
+<td class="rt">32658</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_err_intr_pending"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_err_intr_pending">Summary for Variable sha_err_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s5">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for sha_err_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>[auto[1]]</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Covered bins</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1714330</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_err_intr_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_err_intr_transition">Summary for Variable sha_err_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s0">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for sha_err_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Uncovered bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td><td>NUMBER</td></tr><tr class="s3">
+<td>fall</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr><tr class="s3">
+<td>rise</td>
+<td class="rt">0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_notif_intr_pending"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_notif_intr_pending">Summary for Variable sha_notif_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for sha_notif_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1714323</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">7</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_notif_intr_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_notif_intr_transition">Summary for Variable sha_notif_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for sha_notif_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">7</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_err_intr_pending"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_err_intr_pending">Summary for Variable soc_ifc_err_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for soc_ifc_err_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1662482</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">51848</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_err_intr_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_err_intr_transition">Summary for Variable soc_ifc_err_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for soc_ifc_err_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">7572</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">8255</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_notif_intr_pending"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_notif_intr_pending">Summary for Variable soc_ifc_notif_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for soc_ifc_notif_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">260577</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">1453753</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_notif_intr_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_notif_intr_transition">Summary for Variable soc_ifc_notif_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for soc_ifc_notif_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">5655</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">9693</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.timer_intr_pending"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.timer_intr_pending">Summary for Variable timer_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for timer_intr_pending</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1488812</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">225518</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.timer_intr_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.timer_intr_transition">Summary for Variable timer_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for timer_intr_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">2762</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">707</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.uc_rst_asserted"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.uc_rst_asserted">Summary for Variable uc_rst_asserted</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>Automatically Generated Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Automatically Generated Bins for uc_rst_asserted</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>auto[0]</td>
+<td class="rt">1532602</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>auto[1]</td>
+<td class="rt">181728</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+<hr>
+<br clear=all>
+<a name="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.uc_rst_transition"></a><span class="repname" id="inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.uc_rst_transition">Summary for Variable uc_rst_transition</span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">CATEGORY</td><td>EXPECTED</td><td>UNCOVERED</td><td>COVERED</td><td>PERCENT</td></tr><tr class="s10">
+<td>User Defined Bins</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>User Defined Bins for uc_rst_transition</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Bins</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>COUNT</td><td>AT LEAST</td></tr><tr class="s10">
+<td>fall</td>
+<td class="rt">11172</td>
+<td class="rt">1</td>
+</tr><tr class="s10">
+<td>rise</td>
+<td class="rt">4162</td>
+<td class="rt">1</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage">
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.cptra_obf_key_reg">Variable : cptra_obf_key_reg</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.fw_update_rst_window">Variable : fw_update_rst_window</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.fw_update_rst_window_transition">Variable : fw_update_rst_window_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.iccm_locked">Variable : iccm_locked</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.iccm_locked_transition">Variable : iccm_locked_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.nmi_intr_pending">Variable : nmi_intr_pending</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.nmi_intr_transition">Variable : nmi_intr_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.nmi_vector">Variable : nmi_vector</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.noncore_rst_asserted">Variable : noncore_rst_asserted</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.noncore_rst_transition">Variable : noncore_rst_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.obf_field_entropy">Variable : obf_field_entropy</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.obf_uds_seed">Variable : obf_uds_seed</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_err_intr_pending">Variable : sha_err_intr_pending</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_err_intr_transition">Variable : sha_err_intr_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_notif_intr_pending">Variable : sha_notif_intr_pending</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.sha_notif_intr_transition">Variable : sha_notif_intr_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_err_intr_pending">Variable : soc_ifc_err_intr_pending</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_err_intr_transition">Variable : soc_ifc_err_intr_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_notif_intr_pending">Variable : soc_ifc_notif_intr_pending</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.soc_ifc_notif_intr_transition">Variable : soc_ifc_notif_intr_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.timer_intr_pending">Variable : timer_intr_pending</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.timer_intr_transition">Variable : timer_intr_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.uc_rst_asserted">Variable : uc_rst_asserted</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_cg_uvm_test_top.environment.soc_ifc_subenv.cptra_status_agent.cptra_status_agent_coverage.uc_rst_transition">Variable : uc_rst_transition</a>    </li>
+  </ul>
+  <ul name="cptra_status_transaction_coverage::cptra_status_transaction_cg">
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_err_intr_pending">Variable : soc_ifc_err_intr_pending</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_err_intr_transition">Variable : soc_ifc_err_intr_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_notif_intr_pending">Variable : soc_ifc_notif_intr_pending</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.soc_ifc_notif_intr_transition">Variable : soc_ifc_notif_intr_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_err_intr_pending">Variable : sha_err_intr_pending</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_err_intr_transition">Variable : sha_err_intr_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_notif_intr_pending">Variable : sha_notif_intr_pending</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.sha_notif_intr_transition">Variable : sha_notif_intr_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.timer_intr_pending">Variable : timer_intr_pending</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.timer_intr_transition">Variable : timer_intr_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.noncore_rst_asserted">Variable : noncore_rst_asserted</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.noncore_rst_transition">Variable : noncore_rst_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.uc_rst_asserted">Variable : uc_rst_asserted</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.uc_rst_transition">Variable : uc_rst_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.fw_update_rst_window">Variable : fw_update_rst_window</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.fw_update_rst_window_transition">Variable : fw_update_rst_window_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.cptra_obf_key_reg">Variable : cptra_obf_key_reg</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.obf_field_entropy">Variable : obf_field_entropy</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.obf_uds_seed">Variable : obf_uds_seed</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.nmi_vector">Variable : nmi_vector</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.nmi_intr_pending">Variable : nmi_intr_pending</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.nmi_intr_transition">Variable : nmi_intr_transition</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.iccm_locked">Variable : iccm_locked</a>    </li>
+    <li>
+      <a href="#inst_tag_cptra_status_transaction_coverage::cptra_status_transaction_cg.iccm_locked_transition">Variable : iccm_locked_transition</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

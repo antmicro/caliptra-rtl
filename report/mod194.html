@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: rvdffie</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_rvdffie'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_rvdffie')">rvdffie</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="s8 cl rt"> 86.77</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod194.html#Toggle" > 86.77</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/root/_scratch_filepath_/uvmf_caliptra_top/_scratch_filepath_/beh_lib.sv')">/root/_scratch_filepath_/uvmf_caliptra_top/_scratch_filepath_/beh_lib.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sortable">
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>ASSERT</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6475"  onclick="showContent('inst_tag_6475')">hdl_top.caliptra_top_dut.rvtop.veer.dec.tlu.halt_ff</a></td>
+<td class="s3 cl rt"> 31.71</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s3 cl rt"><a href="mod194_0.html#inst_tag_6475_Toggle" > 31.71</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6467"  onclick="showContent('inst_tag_6467')">hdl_top.caliptra_top_dut.rvtop.veer.dec.decode.misc1ff</a></td>
+<td class="s4 cl rt"> 42.86</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"><a href="mod194_0.html#inst_tag_6467_Toggle" > 42.86</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6468"  onclick="showContent('inst_tag_6468')">hdl_top.caliptra_top_dut.rvtop.veer.dec.decode.misc2ff</a></td>
+<td class="s5 cl rt"> 52.38</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"><a href="mod194_0.html#inst_tag_6468_Toggle" > 52.38</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6474"  onclick="showContent('inst_tag_6474')">hdl_top.caliptra_top_dut.rvtop.veer.dec.tlu.mpvhalt_ff</a></td>
+<td class="s5 cl rt"> 54.05</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s5 cl rt"><a href="mod194_0.html#inst_tag_6474_Toggle" > 54.05</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6476"  onclick="showContent('inst_tag_6476')">hdl_top.caliptra_top_dut.rvtop.veer.dec.tlu.exthaltff</a></td>
+<td class="s6 cl rt"> 60.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s6 cl rt"><a href="mod194_0.html#inst_tag_6476_Toggle" > 60.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_1.html#inst_tag_6479"  onclick="showContent('inst_tag_6479')">hdl_top.caliptra_top_dut.rvtop.veer.dec.tlu.genblock2.mstatus_ff</a></td>
+<td class="s6 cl rt"> 67.16</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s6 cl rt"><a href="mod194_1.html#inst_tag_6479_Toggle" > 67.16</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6473"  onclick="showContent('inst_tag_6473')">hdl_top.caliptra_top_dut.rvtop.veer.dec.tlu.freeff</a></td>
+<td class="s7 cl rt"> 70.37</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"><a href="mod194_0.html#inst_tag_6473_Toggle" > 70.37</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6462"  onclick="showContent('inst_tag_6462')">hdl_top.caliptra_top_dut.rvtop.veer.ifu.mem_ctl.misc1_ff</a></td>
+<td class="s7 cl rt"> 71.43</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"><a href="mod194_0.html#inst_tag_6462_Toggle" > 71.43</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6463"  onclick="showContent('inst_tag_6463')">hdl_top.caliptra_top_dut.rvtop.veer.ifu.mem_ctl.ifu_pmu_sigs_ff</a></td>
+<td class="s8 cl rt"> 82.61</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod194_0.html#inst_tag_6463_Toggle" > 82.61</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_1.html#inst_tag_6477"  onclick="showContent('inst_tag_6477')">hdl_top.caliptra_top_dut.rvtop.veer.dec.tlu.excinfo_wb_ff</a></td>
+<td class="s8 cl rt"> 86.21</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod194_1.html#inst_tag_6477_Toggle" > 86.21</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6461"  onclick="showContent('inst_tag_6461')">hdl_top.caliptra_top_dut.rvtop.veer.ifu.mem_ctl.misc_ff</a></td>
+<td class="s8 cl rt"> 88.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod194_0.html#inst_tag_6461_Toggle" > 88.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6469"  onclick="showContent('inst_tag_6469')">hdl_top.caliptra_top_dut.rvtop.veer.dec.decode.cam_array[0].cam_ff</a></td>
+<td class="s9 cl rt"> 92.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod194_0.html#inst_tag_6469_Toggle" > 92.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6470"  onclick="showContent('inst_tag_6470')">hdl_top.caliptra_top_dut.rvtop.veer.dec.decode.cam_array[1].cam_ff</a></td>
+<td class="s9 cl rt"> 92.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod194_0.html#inst_tag_6470_Toggle" > 92.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6471"  onclick="showContent('inst_tag_6471')">hdl_top.caliptra_top_dut.rvtop.veer.dec.decode.cam_array[2].cam_ff</a></td>
+<td class="s9 cl rt"> 92.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod194_0.html#inst_tag_6471_Toggle" > 92.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6472"  onclick="showContent('inst_tag_6472')">hdl_top.caliptra_top_dut.rvtop.veer.dec.decode.cam_array[3].cam_ff</a></td>
+<td class="s9 cl rt"> 92.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod194_0.html#inst_tag_6472_Toggle" > 92.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6466"  onclick="showContent('inst_tag_6466')">hdl_top.caliptra_top_dut.rvtop.veer.ifu.bpred.bp.fetchghr</a></td>
+<td class="s9 cl rt"> 92.59</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod194_0.html#inst_tag_6466_Toggle" > 92.59</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6459"  onclick="showContent('inst_tag_6459')">hdl_top.caliptra_top_dut.rvtop.veer.ifu.ifc.fbwrite_ff</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod194_0.html#inst_tag_6459_Toggle" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6460"  onclick="showContent('inst_tag_6460')">hdl_top.caliptra_top_dut.rvtop.veer.ifu.aln.bundle2ff</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod194_0.html#inst_tag_6460_Toggle" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6464"  onclick="showContent('inst_tag_6464')">hdl_top.caliptra_top_dut.rvtop.veer.ifu.mem_ctl.iccm_enabled.dma_misc_bits</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod194_0.html#inst_tag_6464_Toggle" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_0.html#inst_tag_6465"  onclick="showContent('inst_tag_6465')">hdl_top.caliptra_top_dut.rvtop.veer.ifu.mem_ctl.iccm_enabled.iccm_index_f</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod194_0.html#inst_tag_6465_Toggle" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_1.html#inst_tag_6478"  onclick="showContent('inst_tag_6478')">hdl_top.caliptra_top_dut.rvtop.veer.dec.tlu.traceskidff</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod194_1.html#inst_tag_6478_Toggle" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr><tr>
+<td class="wht cl wordwrap"><a href="mod194_1.html#inst_tag_6480"  onclick="showContent('inst_tag_6480')">hdl_top.caliptra_top_dut.rvtop.veer.exu.i_misc_ff</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod194_1.html#inst_tag_6480_Toggle" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+</tr></table></div>
+</div>
+<br clear=all>
+</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_rvdffie'>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="1416588142"></a>
+<a href="mod194.html" >\RTL.rvdffie  ( parameter WIDTH=11,OVERRIDE=0 + WIDTH=11,OVERRIDE=1 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6464_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.ifu.mem_ctl.iccm_enabled.dma_misc_bits</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s9 cl rt"> 92.59</td>
+<td class="s9 cl rt"> 92.59</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6466_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.ifu.bpred.bp.fetchghr</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s7 cl rt"> 70.37</td>
+<td class="s7 cl rt"> 70.37</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6473_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dec.tlu.freeff</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Total Bits</td>
+<td class="rt">54</td>
+<td class="rt">54</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">27</td>
+<td class="rt">27</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">27</td>
+<td class="rt">27</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Ports</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Port Bits</td>
+<td class="rt">50</td>
+<td class="rt">50</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">25</td>
+<td class="rt">25</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">25</td>
+<td class="rt">25</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>din[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>scan_mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dout[10:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>l1clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="1915693109"></a>
+<a href="mod194.html" >\RTL.rvdffie  ( parameter WIDTH=18,OVERRIDE=0 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s3 cl rt"> 31.71</td>
+<td class="s3 cl rt"> 31.71</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6475_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dec.tlu.halt_ff</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">5</td>
+<td class="rt">71.43 </td>
+</tr><tr class="s3">
+<td>Total Bits</td>
+<td class="rt">82</td>
+<td class="rt">26</td>
+<td class="rt">31.71 </td>
+</tr><tr class="s3">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">41</td>
+<td class="rt">13</td>
+<td class="rt">31.71 </td>
+</tr><tr class="s3">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">41</td>
+<td class="rt">13</td>
+<td class="rt">31.71 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s6">
+<td>Ports</td>
+<td class="rt">5</td>
+<td class="rt">3</td>
+<td class="rt">60.00 </td>
+</tr><tr class="s2">
+<td>Port Bits</td>
+<td class="rt">78</td>
+<td class="rt">22</td>
+<td class="rt">28.21 </td>
+</tr><tr class="s2">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">39</td>
+<td class="rt">11</td>
+<td class="rt">28.21 </td>
+</tr><tr class="s2">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">39</td>
+<td class="rt">11</td>
+<td class="rt">28.21 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>din[13:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[17:14]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>scan_mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dout[13:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[17:14]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>l1clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="1153735826"></a>
+<a href="mod194.html" >\RTL.rvdffie  ( parameter WIDTH=8,OVERRIDE=1 + WIDTH=8,OVERRIDE=0 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s7 cl rt"> 71.43</td>
+<td class="s7 cl rt"> 71.43</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6462_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.ifu.mem_ctl.misc1_ff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s4 cl rt"> 42.86</td>
+<td class="s4 cl rt"> 42.86</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6467_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dec.decode.misc1ff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s5 cl rt"> 52.38</td>
+<td class="s5 cl rt"> 52.38</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6468_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dec.decode.misc2ff</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Total Bits</td>
+<td class="rt">42</td>
+<td class="rt">42</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">21</td>
+<td class="rt">21</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">21</td>
+<td class="rt">21</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Ports</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Port Bits</td>
+<td class="rt">38</td>
+<td class="rt">38</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">19</td>
+<td class="rt">19</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">19</td>
+<td class="rt">19</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>din[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>scan_mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dout[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>l1clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="1832549780"></a>
+<a href="mod194.html" >\RTL.rvdffie  ( parameter WIDTH=10,OVERRIDE=0 + WIDTH=10,OVERRIDE=1 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6459_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.ifu.ifc.fbwrite_ff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 88.00</td>
+<td class="s8 cl rt"> 88.00</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6461_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.ifu.mem_ctl.misc_ff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s9 cl rt"> 92.00</td>
+<td class="s9 cl rt"> 92.00</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6469_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dec.decode.cam_array[0].cam_ff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s9 cl rt"> 92.00</td>
+<td class="s9 cl rt"> 92.00</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6470_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dec.decode.cam_array[1].cam_ff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s9 cl rt"> 92.00</td>
+<td class="s9 cl rt"> 92.00</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6471_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dec.decode.cam_array[2].cam_ff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s9 cl rt"> 92.00</td>
+<td class="s9 cl rt"> 92.00</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6472_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dec.decode.cam_array[3].cam_ff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s6 cl rt"> 60.00</td>
+<td class="s6 cl rt"> 60.00</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6476_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dec.tlu.exthaltff</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod194_1.html#inst_tag_6480_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.exu.i_misc_ff</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Total Bits</td>
+<td class="rt">50</td>
+<td class="rt">50</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">25</td>
+<td class="rt">25</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">25</td>
+<td class="rt">25</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Ports</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Port Bits</td>
+<td class="rt">46</td>
+<td class="rt">46</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">23</td>
+<td class="rt">23</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">23</td>
+<td class="rt">23</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>din[9:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>scan_mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dout[9:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>l1clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="278235392"></a>
+<a href="mod194.html" >\RTL.rvdffie  ( parameter WIDTH=7,OVERRIDE=1 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6460_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.ifu.aln.bundle2ff</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Total Bits</td>
+<td class="rt">38</td>
+<td class="rt">38</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">19</td>
+<td class="rt">19</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">19</td>
+<td class="rt">19</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Ports</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Port Bits</td>
+<td class="rt">34</td>
+<td class="rt">34</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>din[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>scan_mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dout[6:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>l1clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="521289489"></a>
+<a href="mod194.html" >\RTL.rvdffie  ( parameter WIDTH=12,OVERRIDE=0 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 86.21</td>
+<td class="s8 cl rt"> 86.21</td>
+</tr></table>
+<span class=inst><a href="mod194_1.html#inst_tag_6477_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dec.tlu.excinfo_wb_ff</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">5</td>
+<td class="rt">71.43 </td>
+</tr><tr class="s8">
+<td>Total Bits</td>
+<td class="rt">58</td>
+<td class="rt">50</td>
+<td class="rt">86.21 </td>
+</tr><tr class="s8">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">29</td>
+<td class="rt">25</td>
+<td class="rt">86.21 </td>
+</tr><tr class="s8">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">29</td>
+<td class="rt">25</td>
+<td class="rt">86.21 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s6">
+<td>Ports</td>
+<td class="rt">5</td>
+<td class="rt">3</td>
+<td class="rt">60.00 </td>
+</tr><tr class="s8">
+<td>Port Bits</td>
+<td class="rt">54</td>
+<td class="rt">46</td>
+<td class="rt">85.19 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">27</td>
+<td class="rt">23</td>
+<td class="rt">85.19 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">27</td>
+<td class="rt">23</td>
+<td class="rt">85.19 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>din[0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[1]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[11:3]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>scan_mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dout[0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[1]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[11:3]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>l1clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="1905441535"></a>
+<a href="mod194.html" >\RTL.rvdffie  ( parameter WIDTH=6,OVERRIDE=1 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod194_1.html#inst_tag_6478_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dec.tlu.traceskidff</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Total Bits</td>
+<td class="rt">34</td>
+<td class="rt">34</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">17</td>
+<td class="rt">17</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Ports</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Port Bits</td>
+<td class="rt">30</td>
+<td class="rt">30</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">15</td>
+<td class="rt">15</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">15</td>
+<td class="rt">15</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>din[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>scan_mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dout[5:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>l1clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="674071971"></a>
+<a href="mod194.html" >\RTL.rvdffie  ( parameter WIDTH=9,OVERRIDE=0 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 82.61</td>
+<td class="s8 cl rt"> 82.61</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6463_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.ifu.mem_ctl.ifu_pmu_sigs_ff</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">5</td>
+<td class="rt">71.43 </td>
+</tr><tr class="s8">
+<td>Total Bits</td>
+<td class="rt">46</td>
+<td class="rt">38</td>
+<td class="rt">82.61 </td>
+</tr><tr class="s8">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">23</td>
+<td class="rt">19</td>
+<td class="rt">82.61 </td>
+</tr><tr class="s8">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">23</td>
+<td class="rt">19</td>
+<td class="rt">82.61 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s6">
+<td>Ports</td>
+<td class="rt">5</td>
+<td class="rt">3</td>
+<td class="rt">60.00 </td>
+</tr><tr class="s8">
+<td>Port Bits</td>
+<td class="rt">42</td>
+<td class="rt">34</td>
+<td class="rt">80.95 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">21</td>
+<td class="rt">17</td>
+<td class="rt">80.95 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">21</td>
+<td class="rt">17</td>
+<td class="rt">80.95 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>din[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[3:2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[8:4]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>scan_mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dout[1:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[3:2]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[8:4]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>l1clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="125668295"></a>
+<a href="mod194.html" >\RTL.rvdffie  ( parameter WIDTH=16,OVERRIDE=0 + WIDTH=16,OVERRIDE=0 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6465_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.ifu.mem_ctl.iccm_enabled.iccm_index_f</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s5 cl rt"> 54.05</td>
+<td class="s5 cl rt"> 54.05</td>
+</tr></table>
+<span class=inst><a href="mod194_0.html#inst_tag_6474_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dec.tlu.mpvhalt_ff</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Total Bits</td>
+<td class="rt">74</td>
+<td class="rt">74</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">37</td>
+<td class="rt">37</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">37</td>
+<td class="rt">37</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Ports</td>
+<td class="rt">5</td>
+<td class="rt">5</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Port Bits</td>
+<td class="rt">70</td>
+<td class="rt">70</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">35</td>
+<td class="rt">35</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">35</td>
+<td class="rt">35</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>din[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>scan_mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dout[15:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>l1clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a name="576589068"></a>
+<a href="mod194.html" >\RTL.rvdffie  ( parameter WIDTH=31,OVERRIDE=0 ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s6 cl rt"> 67.16</td>
+<td class="s6 cl rt"> 67.16</td>
+</tr></table>
+<span class=inst><a href="mod194_1.html#inst_tag_6479_Toggle" >hdl_top.caliptra_top_dut.rvtop.veer.dec.tlu.genblock2.mstatus_ff</a></span></div>
+<br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Totals</td>
+<td class="rt">7</td>
+<td class="rt">5</td>
+<td class="rt">71.43 </td>
+</tr><tr class="s6">
+<td>Total Bits</td>
+<td class="rt">134</td>
+<td class="rt">90</td>
+<td class="rt">67.16 </td>
+</tr><tr class="s6">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">67</td>
+<td class="rt">45</td>
+<td class="rt">67.16 </td>
+</tr><tr class="s6">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">67</td>
+<td class="rt">45</td>
+<td class="rt">67.16 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s6">
+<td>Ports</td>
+<td class="rt">5</td>
+<td class="rt">3</td>
+<td class="rt">60.00 </td>
+</tr><tr class="s6">
+<td>Port Bits</td>
+<td class="rt">130</td>
+<td class="rt">86</td>
+<td class="rt">66.15 </td>
+</tr><tr class="s6">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">65</td>
+<td class="rt">43</td>
+<td class="rt">66.15 </td>
+</tr><tr class="s6">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">65</td>
+<td class="rt">43</td>
+<td class="rt">66.15 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">4</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Port Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td><td class="alfsrt">Direction</td></tr><tr>
+<td>din[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[8:3]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[12:9]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[14:13]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[15]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[16]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[19:17]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[20]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[21]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[22]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>din[30:23]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rst_l</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>scan_mode</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>dout[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[8:3]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[12:9]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[14:13]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[15]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[16]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[19:17]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[20]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[21]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[22]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>dout[30:23]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>l1clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>en</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

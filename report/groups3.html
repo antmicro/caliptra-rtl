@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Group List</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.treetable.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.treetable.js"></script>
+<script type="text/javascript" src="js/.colResizable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    }  });
+  $("#hierarchyTable tbody tr").mousedown(function() {
+    $("tr.selected").removeClass("selected");
+    $("td.selected").removeClass("selected");
+    $(this).addClass("selected");
+    $(this).children().addClass("selected");
+  });
+  $("tr[data-tt-id='hierarchyTable_root']").each(function () {
+    $(this).attr("style", "display:none");
+  });
+  $("tr[data-tt-parent-id='hierarchyTable_root']").each(function () {
+    $(this).attr("style", "display:table-row");
+    $("#hierarchyTable").treetable("expandNode", $(this).attr("data-tt-id"));
+  });
+});
+function expandAll() {
+  $("#hierarchyTable").treetable("expandAll");
+}
+function collapseAll() {
+  if ($("tr[data-tt-parent-id='hierarchyTable_root']").length > 0) {
+    $("tr[data-tt-parent-id='hierarchyTable_root']").each(function () {
+      var nodeId = $(this).attr("data-tt-id");
+      var node = $("#hierarchyTable").treetable("node", nodeId);
+      $("#hierarchyTable").treetable("collapseNodeRecursive", node);
+    });
+  } else {
+    $("#hierarchyTable").treetable("collapseAll");
+  }
+}
+</script>
+</head>
+<body><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Testbench Group List</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | <a href="asserts.html" ><b>asserts</b></a></div>
+
+</div>
+<div class="ui-layout-center">
+<b>Total Groups Coverage Summary</b>&nbsp;<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td nowrap width=65>SCORE</td><td nowrap width=65>INST SCORE</td><td nowrap width=65>WEIGHT</td></tr><tr>
+<td class="s6 cl rt"> 67.77</td>
+<td class="s6 cl rt"> 69.15</td>
+<td class="wht cl rt">1     </td>
+</tr></table><br clear=all>
+<br clear=all>
+Total groups in report: 427<hr>
+      <div class="tab-selection"><a href="groups.html" >groups.html</a> | <a href="groups1.html" >groups1.html</a> | <a href="groups2.html" >groups2.html</a> | <b>groups3.html</b> | <a href="groups4.html" >groups4.html</a></div><hr>
+<table id="hierarchyTable" border="0" cellpadding="0" cellspacing="0" class="sortable">
+  <thead class="table-header">
+    <tr>
+<th class="alfsrt">NAME</th><th><b>SCORE</b></th><th>INSTANCES</th><th>WEIGHT</th><th>GOAL</th><th>AT LEAST</th><th>PER INSTANCE</th><th>AUTO BIN MAX</th><th>PRINT MISSING</th><th class="alfsrt">COMMENT</th>    </tr>
+  </thead>
+  <tbody>
+    <tr data-tt-id="hierarchyTable_root">
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>    </tr>
+    <tr data-tt-id="grpinst_hash_1916550772" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_sha512_acc_csr__STATUS_bit_cg"></a>
+<a href="grp60.html" >sha512_acc_csr__STATUS_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_941027012" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_sha512_acc_csr__STATUS_fld_cg"></a>
+<a href="grp61.html" >sha512_acc_csr__STATUS_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1471392131" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_sha512_acc_csr__USER_bit_cg"></a>
+<a href="grp62.html" >sha512_acc_csr__USER_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1589041869" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_sha512_acc_csr__USER_fld_cg"></a>
+<a href="grp63.html" >sha512_acc_csr__USER_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_2079538265" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_sha512_acc_csr__global_intr_en_t_bit_cg"></a>
+<a href="grp70.html" >sha512_acc_csr__global_intr_en_t_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s5 cl rt"> 50.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_63131639" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_sha512_acc_csr__global_intr_en_t_fld_cg"></a>
+<a href="grp71.html" >sha512_acc_csr__global_intr_en_t_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s5 cl rt"> 50.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_614424849" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_sha512_acc_csr__intr_count_t_cnt_be67d6d5_bit_cg"></a>
+<a href="grp92.html" >sha512_acc_csr__intr_count_t_cnt_be67d6d5_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s1 cl rt"> 14.45</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1355224900" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_sha512_acc_csr__notif_intr_en_t_bit_cg"></a>
+<a href="grp96.html" >sha512_acc_csr__notif_intr_en_t_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s5 cl rt"> 50.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1424343284" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_sha512_acc_csr__notif_intr_en_t_fld_cg"></a>
+<a href="grp97.html" >sha512_acc_csr__notif_intr_en_t_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s5 cl rt"> 50.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1569107406" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_sha512_acc_csr__notif_intr_t_notif_cmd_done_sts_1c68637e_bit_cg"></a>
+<a href="grp98.html" >sha512_acc_csr__notif_intr_t_notif_cmd_done_sts_1c68637e_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s5 cl rt"> 50.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1416710686" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_sha512_acc_csr__notif_intr_t_notif_cmd_done_sts_1c68637e_fld_cg"></a>
+<a href="grp99.html" >sha512_acc_csr__notif_intr_t_notif_cmd_done_sts_1c68637e_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s5 cl rt"> 50.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1324125856" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_BOOTFSM_GO_cg"></a>
+<a href="grp105.html" >soc_ifc_CPTRA_BOOTFSM_GO_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_538997592" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_CLK_GATING_EN_cg"></a>
+<a href="grp107.html" >soc_ifc_CPTRA_CLK_GATING_EN_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1811044618" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_DBG_MANUF_SERVICE_REG_cg"></a>
+<a href="grp108.html" >soc_ifc_CPTRA_DBG_MANUF_SERVICE_REG_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_40917745" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_FUSE_PAUSER_LOCK_cg"></a>
+<a href="grp110.html" >soc_ifc_CPTRA_FUSE_PAUSER_LOCK_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_550551947" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_FUSE_WR_DONE_cg"></a>
+<a href="grp112.html" >soc_ifc_CPTRA_FUSE_WR_DONE_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_476313529" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_FW_ERROR_ENC_cg"></a>
+<a href="grp113.html" >soc_ifc_CPTRA_FW_ERROR_ENC_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1842701444" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_FW_ERROR_FATAL_cg"></a>
+<a href="grp114.html" >soc_ifc_CPTRA_FW_ERROR_FATAL_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_638510701" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_FW_ERROR_NON_FATAL_cg"></a>
+<a href="grp115.html" >soc_ifc_CPTRA_FW_ERROR_NON_FATAL_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1322887452" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_FW_EXTENDED_ERROR_INFO_cg"></a>
+<a href="grp116.html" >soc_ifc_CPTRA_FW_EXTENDED_ERROR_INFO_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_989644550" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_GENERIC_INPUT_WIRES_cg"></a>
+<a href="grp118.html" >soc_ifc_CPTRA_GENERIC_INPUT_WIRES_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1586629779" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_HW_ERROR_ENC_cg"></a>
+<a href="grp120.html" >soc_ifc_CPTRA_HW_ERROR_ENC_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_683462800" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_MBOX_PAUSER_LOCK_cg"></a>
+<a href="grp123.html" >soc_ifc_CPTRA_MBOX_PAUSER_LOCK_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_421166448" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_MBOX_VALID_PAUSER_cg"></a>
+<a href="grp124.html" >soc_ifc_CPTRA_MBOX_VALID_PAUSER_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_593361095" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_RESET_REASON_cg"></a>
+<a href="grp125.html" >soc_ifc_CPTRA_RESET_REASON_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_741380310" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_RSVD_REG_cg"></a>
+<a href="grp126.html" >soc_ifc_CPTRA_RSVD_REG_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_489363645" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_TIMER_CONFIG_cg"></a>
+<a href="grp127.html" >soc_ifc_CPTRA_TIMER_CONFIG_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_261331513" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_TRNG_CTRL_cg"></a>
+<a href="grp128.html" >soc_ifc_CPTRA_TRNG_CTRL_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_894552133" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_TRNG_PAUSER_LOCK_cg"></a>
+<a href="grp130.html" >soc_ifc_CPTRA_TRNG_PAUSER_LOCK_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_676293350" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_TRNG_STATUS_cg"></a>
+<a href="grp131.html" >soc_ifc_CPTRA_TRNG_STATUS_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_2034500620" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_TRNG_VALID_PAUSER_cg"></a>
+<a href="grp132.html" >soc_ifc_CPTRA_TRNG_VALID_PAUSER_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_136752294" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_WDT_CFG_cg"></a>
+<a href="grp133.html" >soc_ifc_CPTRA_WDT_CFG_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1712914253" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_WDT_STATUS_cg"></a>
+<a href="grp134.html" >soc_ifc_CPTRA_WDT_STATUS_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1747403082" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_WDT_TIMER1_CTRL_cg"></a>
+<a href="grp135.html" >soc_ifc_CPTRA_WDT_TIMER1_CTRL_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_187130955" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_WDT_TIMER1_EN_cg"></a>
+<a href="grp136.html" >soc_ifc_CPTRA_WDT_TIMER1_EN_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_287493288" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_WDT_TIMER2_CTRL_cg"></a>
+<a href="grp138.html" >soc_ifc_CPTRA_WDT_TIMER2_CTRL_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_735159575" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_WDT_TIMER2_EN_cg"></a>
+<a href="grp139.html" >soc_ifc_CPTRA_WDT_TIMER2_EN_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_904477633" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_iTRNG_ENTROPY_CONFIG_0_cg"></a>
+<a href="grp141.html" >soc_ifc_CPTRA_iTRNG_ENTROPY_CONFIG_0_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1671430591" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_CPTRA_iTRNG_ENTROPY_CONFIG_1_cg"></a>
+<a href="grp142.html" >soc_ifc_CPTRA_iTRNG_ENTROPY_CONFIG_1_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1305154966" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_boot_fsm_cov_grp"></a>
+<a href="grp144.html" >soc_ifc_boot_fsm_cov_grp</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_55432979" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_ctrl_transaction_bit_cg"></a>
+<a href="grp146.html" >soc_ifc_ctrl_transaction_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 95.31</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_65520188" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_env_cov_subscriber#(TB.soc_ifc_env_pkg::soc_ifc_predictor#(TB.soc_ifc_env_pkg::soc_ifc_env_configuration,TB.uvm_pkg::uvm_component),TB.soc_ifc_env_pkg::soc_ifc_env_configuration,TB.uvm_pkg::uvm_component)::soc_ifc_env_mbox_scenarios_cg"></a>
+<a href="grp149.html" >soc_ifc_env_cov_subscriber#(TB.soc_ifc_env_pkg::soc_ifc_predictor#(TB.soc_ifc_env_pkg::soc_ifc_env_configuration,TB.uvm_pkg::uvm_component),TB.soc_ifc_env_pkg::soc_ifc_env_configuration,TB.uvm_pkg::uvm_component)::soc_ifc_env_mbox_scenarios_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s8 cl rt"> 82.14</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1644993898" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_env_cov_subscriber#(TB.soc_ifc_env_pkg::soc_ifc_predictor#(TB.soc_ifc_env_pkg::soc_ifc_env_configuration,TB.uvm_pkg::uvm_component),TB.soc_ifc_env_pkg::soc_ifc_env_configuration,TB.uvm_pkg::uvm_component)::soc_ifc_env_mbox_steps_cg"></a>
+<a href="grp150.html" >soc_ifc_env_cov_subscriber#(TB.soc_ifc_env_pkg::soc_ifc_predictor#(TB.soc_ifc_env_pkg::soc_ifc_env_configuration,TB.uvm_pkg::uvm_component),TB.soc_ifc_env_pkg::soc_ifc_env_configuration,TB.uvm_pkg::uvm_component)::soc_ifc_env_mbox_steps_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 96.32</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1758142306" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_internal_fw_error_fatal_mask_cg"></a>
+<a href="grp165.html" >soc_ifc_internal_fw_error_fatal_mask_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_111670977" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_internal_fw_update_reset_cg"></a>
+<a href="grp167.html" >soc_ifc_internal_fw_update_reset_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_104258392" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_internal_hw_error_fatal_mask_cg"></a>
+<a href="grp169.html" >soc_ifc_internal_hw_error_fatal_mask_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1226419152" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_internal_hw_error_non_fatal_mask_cg"></a>
+<a href="grp170.html" >soc_ifc_internal_hw_error_non_fatal_mask_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1340486569" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_internal_iccm_lock_cg"></a>
+<a href="grp171.html" >soc_ifc_internal_iccm_lock_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_2083271290" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_internal_obf_key_cg"></a>
+<a href="grp173.html" >soc_ifc_internal_obf_key_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_2050310519" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_intr_brf_global_intr_en_r_cg"></a>
+<a href="grp198.html" >soc_ifc_intr_brf_global_intr_en_r_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">0     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1055603326" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_BOOTFSM_GO_bit_cg"></a>
+<a href="grp213.html" >soc_ifc_reg__CPTRA_BOOTFSM_GO_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_853854672" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_BOOTFSM_GO_fld_cg"></a>
+<a href="grp214.html" >soc_ifc_reg__CPTRA_BOOTFSM_GO_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_120377491" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_FLOW_STATUS_bit_cg"></a>
+<a href="grp221.html" >soc_ifc_reg__CPTRA_FLOW_STATUS_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s3 cl rt"> 36.72</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1862683618" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_GENERIC_INPUT_WIRES_bit_cg"></a>
+<a href="grp239.html" >soc_ifc_reg__CPTRA_GENERIC_INPUT_WIRES_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s5 cl rt"> 50.39</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1007921385" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_GENERIC_INPUT_WIRES_fld_cg"></a>
+<a href="grp240.html" >soc_ifc_reg__CPTRA_GENERIC_INPUT_WIRES_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_140446408" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_GENERIC_OUTPUT_WIRES_bit_cg"></a>
+<a href="grp241.html" >soc_ifc_reg__CPTRA_GENERIC_OUTPUT_WIRES_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s3 cl rt"> 35.55</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_340983187" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_HW_ERROR_NON_FATAL_bit_cg"></a>
+<a href="grp249.html" >soc_ifc_reg__CPTRA_HW_ERROR_NON_FATAL_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_91461498" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_HW_ERROR_NON_FATAL_fld_cg"></a>
+<a href="grp250.html" >soc_ifc_reg__CPTRA_HW_ERROR_NON_FATAL_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1863453582" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_HW_REV_ID_bit_cg"></a>
+<a href="grp251.html" >soc_ifc_reg__CPTRA_HW_REV_ID_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s6 cl rt"> 62.50</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_738090798" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_MBOX_PAUSER_LOCK_bit_cg"></a>
+<a href="grp253.html" >soc_ifc_reg__CPTRA_MBOX_PAUSER_LOCK_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_235907328" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_MBOX_PAUSER_LOCK_fld_cg"></a>
+<a href="grp254.html" >soc_ifc_reg__CPTRA_MBOX_PAUSER_LOCK_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_365736949" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_MBOX_VALID_PAUSER_bit_cg"></a>
+<a href="grp255.html" >soc_ifc_reg__CPTRA_MBOX_VALID_PAUSER_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1977918563" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_MBOX_VALID_PAUSER_fld_cg"></a>
+<a href="grp256.html" >soc_ifc_reg__CPTRA_MBOX_VALID_PAUSER_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_415187399" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_RESET_REASON_bit_cg"></a>
+<a href="grp257.html" >soc_ifc_reg__CPTRA_RESET_REASON_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1022115573" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_RESET_REASON_fld_cg"></a>
+<a href="grp258.html" >soc_ifc_reg__CPTRA_RESET_REASON_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1200350352" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_SECURITY_STATE_bit_cg"></a>
+<a href="grp261.html" >soc_ifc_reg__CPTRA_SECURITY_STATE_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s2 cl rt"> 28.91</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_145275517" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_TRNG_CTRL_bit_cg"></a>
+<a href="grp265.html" >soc_ifc_reg__CPTRA_TRNG_CTRL_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1121614863" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_TRNG_CTRL_fld_cg"></a>
+<a href="grp266.html" >soc_ifc_reg__CPTRA_TRNG_CTRL_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_2133351966" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_TRNG_DATA_bit_cg"></a>
+<a href="grp267.html" >soc_ifc_reg__CPTRA_TRNG_DATA_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_237889996" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_TRNG_PAUSER_LOCK_bit_cg"></a>
+<a href="grp269.html" >soc_ifc_reg__CPTRA_TRNG_PAUSER_LOCK_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_782881139" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_TRNG_PAUSER_LOCK_fld_cg"></a>
+<a href="grp270.html" >soc_ifc_reg__CPTRA_TRNG_PAUSER_LOCK_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1313088993" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_TRNG_STATUS_bit_cg"></a>
+<a href="grp271.html" >soc_ifc_reg__CPTRA_TRNG_STATUS_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_646151985" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_TRNG_STATUS_fld_cg"></a>
+<a href="grp272.html" >soc_ifc_reg__CPTRA_TRNG_STATUS_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_591927182" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_TRNG_VALID_PAUSER_bit_cg"></a>
+<a href="grp273.html" >soc_ifc_reg__CPTRA_TRNG_VALID_PAUSER_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_620142035" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_WDT_STATUS_bit_cg"></a>
+<a href="grp277.html" >soc_ifc_reg__CPTRA_WDT_STATUS_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_821890689" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_WDT_STATUS_fld_cg"></a>
+<a href="grp278.html" >soc_ifc_reg__CPTRA_WDT_STATUS_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_659131149" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_WDT_TIMER1_CTRL_bit_cg"></a>
+<a href="grp279.html" >soc_ifc_reg__CPTRA_WDT_TIMER1_CTRL_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1955687802" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_WDT_TIMER1_CTRL_fld_cg"></a>
+<a href="grp280.html" >soc_ifc_reg__CPTRA_WDT_TIMER1_CTRL_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_556866024" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_WDT_TIMER1_EN_bit_cg"></a>
+<a href="grp281.html" >soc_ifc_reg__CPTRA_WDT_TIMER1_EN_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_2103197062" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_WDT_TIMER1_EN_fld_cg"></a>
+<a href="grp282.html" >soc_ifc_reg__CPTRA_WDT_TIMER1_EN_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1133695552" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_WDT_TIMER1_TIMEOUT_PERIOD_bit_cg"></a>
+<a href="grp283.html" >soc_ifc_reg__CPTRA_WDT_TIMER1_TIMEOUT_PERIOD_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s8 cl rt"> 80.08</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_555151789" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_WDT_TIMER2_CTRL_bit_cg"></a>
+<a href="grp285.html" >soc_ifc_reg__CPTRA_WDT_TIMER2_CTRL_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_259932737" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_WDT_TIMER2_CTRL_fld_cg"></a>
+<a href="grp286.html" >soc_ifc_reg__CPTRA_WDT_TIMER2_CTRL_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_8817727" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_WDT_TIMER2_EN_fld_cg"></a>
+<a href="grp288.html" >soc_ifc_reg__CPTRA_WDT_TIMER2_EN_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1166982789" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__CPTRA_WDT_TIMER2_TIMEOUT_PERIOD_bit_cg"></a>
+<a href="grp289.html" >soc_ifc_reg__CPTRA_WDT_TIMER2_TIMEOUT_PERIOD_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_632345862" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__fuse_field_entropy_bit_cg"></a>
+<a href="grp297.html" >soc_ifc_reg__fuse_field_entropy_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_611587048" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__fuse_idevid_cert_attr_bit_cg"></a>
+<a href="grp301.html" >soc_ifc_reg__fuse_idevid_cert_attr_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_203497478" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__fuse_idevid_cert_attr_fld_cg"></a>
+<a href="grp302.html" >soc_ifc_reg__fuse_idevid_cert_attr_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s9 cl rt"> 98.65</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_2135336966" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__fuse_key_manifest_pk_hash_bit_cg"></a>
+<a href="grp305.html" >soc_ifc_reg__fuse_key_manifest_pk_hash_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_367572197" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__fuse_lms_verify_bit_cg"></a>
+<a href="grp313.html" >soc_ifc_reg__fuse_lms_verify_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_608767149" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__fuse_lms_verify_fld_cg"></a>
+<a href="grp314.html" >soc_ifc_reg__fuse_lms_verify_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1601988903" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__fuse_owner_pk_hash_bit_cg"></a>
+<a href="grp315.html" >soc_ifc_reg__fuse_owner_pk_hash_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_777592599" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__fuse_soc_stepping_id_bit_cg"></a>
+<a href="grp319.html" >soc_ifc_reg__fuse_soc_stepping_id_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_662079056" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__fuse_soc_stepping_id_fld_cg"></a>
+<a href="grp320.html" >soc_ifc_reg__fuse_soc_stepping_id_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1088527070" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__fuse_uds_seed_bit_cg"></a>
+<a href="grp321.html" >soc_ifc_reg__fuse_uds_seed_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1009953115" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__internal_fw_update_reset_bit_cg"></a>
+<a href="grp327.html" >soc_ifc_reg__internal_fw_update_reset_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1723036663" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__internal_fw_update_reset_fld_cg"></a>
+<a href="grp328.html" >soc_ifc_reg__internal_fw_update_reset_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1060917377" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__internal_fw_update_reset_wait_cycles_bit_cg"></a>
+<a href="grp329.html" >soc_ifc_reg__internal_fw_update_reset_wait_cycles_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s8 cl rt"> 81.25</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_1331237395" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__internal_iccm_lock_fld_cg"></a>
+<a href="grp336.html" >soc_ifc_reg__internal_iccm_lock_fld_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+    <tr data-tt-id="grpinst_hash_495961634" data-tt-parent-id="hierarchyTable_root">
+<td><a name="tag_soc_ifc_reg__internal_rv_mtime_l_bit_cg"></a>
+<a href="grp343.html" >soc_ifc_reg__internal_rv_mtime_l_bit_cg</a></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s8 cl rt"> 80.47</td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">100   </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">1     </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl rt">64    </td>
+<td class="wht cl"></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+
+<script>
+$("#hierarchyTable").treetable({ expandable: true });
+</script>
+</body>
+</html>
